@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Admin.AdminMasterPage" Codebehind="admin.master.cs" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+<html>
+<head id="Head1" runat="server">
+    <title>BlogEngine.NET Admin</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+        .info { 
+            float: none !important; 
+            display: block; 
+            top : 0 !important;
+            background-color: #D9EDF7;
+            border-color: #BCE8F1;
+            color: #3A87AD;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 4px;
+            padding: 10px;
+            width: 95% !important;
+        }
+        .clear { clear: both; }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="admin.res.axd"></script>
+    <script type="text/javascript" src="<%=Utils.ApplicationRelativeWebRoot %>Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="<%=Utils.ApplicationRelativeWebRoot %>Scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="<%=Utils.ApplicationRelativeWebRoot %>Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<%=Utils.ApplicationRelativeWebRoot %>Scripts/jquery-jtemplates.min.js"></script>
+    <script type="text/javascript" src="<%=Utils.ApplicationRelativeWebRoot %>Scripts/json2.min.js"></script>
+    <div class="page">
+        <form id="form1" runat="server">
+            <div id="StatusBox">
+                <div id="AdminStatus" runat="server"></div>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="cphAdmin" runat="server" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

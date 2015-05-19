@@ -1,0 +1,38 @@
+﻿@using BlogEngine.Core
+<div class="post xfolkentry" id="post@(Model.Index)">
+    <h2>
+        @if (Model.Location == BlogEngine.Core.ServingLocation.SinglePost)
+        {
+            @Model.Post.Title
+        }
+        else
+        {
+            <a href="@Model.Post.RelativeOrAbsoluteLink" class="taggedlink">@Model.Post.Title</a>
+        }
+    </h2>
+    <span class="pubDate">@Model.Post.DateCreated.ToString("MMMM d, yyyy 'at' h:mm tt")</span>
+    &mdash; <span class="author"><a href="@(Utils.RelativeOrAbsoluteWebRoot + "author/" + Utils.RemoveIllegalCharacters(Model.Post.Author) + BlogConfig.FileExtension)">@(Model.Post.AuthorProfile != null ? Model.Post.AuthorProfile.DisplayName : Model.Post.Author)</a></span>
+    <div class="text">@Html.Raw(Model.Body)</div>
+    <div class="bottom">
+        @Html.Raw(Model.Rating)
+        <p class="categories">Posted in: @Html.Raw(Model.CategoryLinks(" | "))</p>
+        <p class="tags">Tags: @Html.Raw(Model.TagLinks(", "))</p>
+    </div>
+    <div class="meta footer">
+        <div class="bookmarks">
+            <a rel="nofollow" title="Index @Model.Index" target="_blank" href="http://www.dotnetkicks.com/submit?url=@Html.Raw(HttpUtility.UrlEncode(Model.Post.AbsoluteLink.ToString()))&amp;title=@Html.Raw(HttpUtility.UrlEncode(Model.Post.Title))">
+                Submit to DotNetKicks...</a>
+        </div>
+        @Html.Raw(Model.AdminLinks)
+        @if (BlogEngine.Core.BlogSettings.Instance.ModerationType == BlogEngine.Core.BlogSettings.Moderation.Disqus)
+        {
+            <a rel="nofollow" href="@Model.Post.PermaLink#disqus_thread">@Model.Resources.labels.comments</a>
+        }
+        else
+        {
+            <a rel="bookmark" href="@Model.Post.PermaLink" title="@Model.Post.Title">Permalink</a> <text>|</text>
+            <a rel="nofollow" href="@Model.Post.RelativeOrAbsoluteLink#comment">@Resources.labels.comments
+                (@Model.Post.ApprovedComments.Count)</a>
+        }
+    </div>
+</div>

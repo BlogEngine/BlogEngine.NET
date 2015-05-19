@@ -1,0 +1,26 @@
+﻿<div id="modal-file-manager" class="modal fade" data-ng-controller="FilesController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <h4 class="modal-title">{{lbl.filePicker}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal clearfix">
+                    <div class="toolbar-grid clearfix">
+                        <div class="pull-left">
+                            <button data-ng-click="processChecked('append')" ng-disabled="hasChecked() === false" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>{{lbl.addToPost}}</button>
+                        </div>
+                        <div class="pull-right filterbar clearfix">
+                            <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
+                        </div>
+                    </div>
+                    <div data-ng-include src="'../views/shared/_filestable.html'"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"> <i class="fa fa-ban"></i> {{lbl.cancel}}</button>
+            </div>
+        </div>
+    </div>
+</div>

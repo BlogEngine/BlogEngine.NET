@@ -1,0 +1,10 @@
+﻿<div class="subnav admin-views-subnav" data-ng-controller="SubNavController">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li ng-if="security.canManageExtensions" data-ng-class="{ active: isActive('/custom')}"><a href="#/custom">{{lbl.extensions}}</a></li>
+            <li ng-if="security.canManageThemes" data-ng-class="{ active: isActive('/custom/themes')}"><a href="#/custom/themes">{{lbl.themes}}</a></li>
+            <li ng-if="security.canManageWidgets" data-ng-class="{ active: isActive('/custom/widgets')}"><a href="#/custom/widgets">{{lbl.widgets}}</a></li>
+            <li ng-if="security.canManagePackages" data-ng-class="{ active: isActive('/custom/packages')}"><a href="#/custom/packages">{{lbl.gallery}}</a></li>
+        </ul>
+    </div>
+</div>

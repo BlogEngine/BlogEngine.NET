@@ -1,0 +1,69 @@
+﻿<div data-ng-controller="TagsController">
+    <div id="modal-add-tag" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">{{lbl.tags}}<a class="close" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-times"></i></a></div>
+                <div class="modal-body">
+                    <div>
+                        <label class="control-label" for="txtTag">{{lbl.Tag}}</label>
+                        <input type="text" class="form-control" id="txtTag" data-ng-model="tag" focus-me="focusInput" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button data-ng-click="save()" class="btn btn-success pull-right btn-tabkey" type="submit"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            {{lbl.tags}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+    </div>
+    <div class="content-inner">
+        <div class="toolbar-grid clearfix">
+            <div class="pull-left">
+                <button ng-disabled="itemsChecked() === false" data-ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+            </div>
+            <div class="pull-right filterbar clearfix">
+                <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
+            </div>
+        </div>
+        <table class="table table-bordered table-striped table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" />
+                    </th>
+                    <th class="table-item-title table-item-w90">{{lbl.tags}} <a data-ng-click="sort_by('TagName',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="mw-100">{{lbl.count}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                    <td> <input type="checkbox" data-ng-model="item.IsChecked" /> </td>
+                    <td class="table-item-title">
+                        <a title="{{item.TagName}}" href="" ng-click="loadEditForm(item.TagName)" class="text-ellipsis pull-left">{{item.TagName}}</a>
+                        <a title="{{item.TagName}}" class="external-link pull-right" target="_blank" href="{{SiteVars.RelativeWebRoot}}?tag=/{{item.TagName}}"><i class="fa fa-external-link"></i></a>
+                    </td>
+                    <td>{{item.TagCount}}</td>
+                </tr>
+                <tr id="tr-spinner"><td colspan="3"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
+            </tbody>
+        </table>
+        <div class="text-right pagination-wrapper">
+            <ul class="pagination pagination-sm">
+                <li data-ng-class="{disabled: currentPage == 0}">
+                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
+                </li>
+                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                    <a data-ng-bind="n + 1">1</a>
+                </li>
+                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

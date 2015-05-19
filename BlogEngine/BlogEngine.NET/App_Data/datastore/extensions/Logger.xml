@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Logger">
+  <AdminPage />
+  <Author>BlogEngine.NET</Author>
+  <Description>Subscribes to Log events and records the events in a file.</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.0</Version>
+</ManagedExtension>

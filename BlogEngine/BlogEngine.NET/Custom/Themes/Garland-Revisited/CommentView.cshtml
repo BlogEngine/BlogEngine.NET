@@ -1,0 +1,25 @@
+﻿@using BlogEngine.Core
+<div id="id_@(Model.Comment.Id)" class="vcard comment@(Model.Post.Author.Equals(Model.Comment.Author, StringComparison.OrdinalIgnoreCase) ? " self" : "")@(Model.IsOdd ? " thread-odd thread-alt" : " thread-even")">
+    <div class="comment-contents">
+        <div class="comment_header">
+            <span class="gravatar">@Html.Raw(Model.Gravatar(28))</span>
+            <div class="visitor">
+                @Html.Raw(Model.Flag)
+                @Html.Raw(Model.Comment.Website != null ? "<a href=\"" + Model.Comment.Website + "\" rel=\"nofollow\" class=\"url fn\">" + Model.Comment.Author + "</a>" : "<span class=\"fn\">" + Model.Comment.Author + "</span>")
+                says:
+                <div>
+                    <a href="#id_@(Model.Comment.Id)">@Model.Comment.DateCreated.ToString("MMMM d, yyyy 'at' h:mm tt")</a></div>
+            </div>
+        </div>
+        <p class="content">@Html.Raw(Model.Text)</p>
+        <p class="author">
+            <span class='reply-to'>@Html.Raw(Model.ReplyToLink)</span>
+            @(Model.AdminLinks.Length > 2 ? Html.Raw(Model.AdminLinks.Substring(2)) : Html.Raw(Model.AdminLinks))
+        </p>
+        <div style='clear: both'>
+        </div>
+    </div>
+    <div class="comment-replies" id="replies_(@Model.Comment.Id)" @(Model.Comment.Comments.Count == 0 || Model.Comment.Email == "pingback" || Model.Comment.Email == "trackback" ? " style=\"display:none;\"" : "")>
+        @Html.NestedComments()
+    </div>
+</div>

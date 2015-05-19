@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widgets>
+  <widget id="413fe804-17f5-4268-b82b-4a2f59975020" title="RecentComments" showTitle="True">RecentComments</widget>
+  <widget id="00f6155c-f4ff-48ca-afc0-2d872422b9d6" title="RecentPosts" showTitle="True">RecentPosts</widget>
+  <widget id="5ff66f94-1825-4026-b102-e733e4fa8a88" title="Newsletter" showTitle="True">Newsletter</widget>
+</widgets>

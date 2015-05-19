@@ -1,0 +1,28 @@
+.result
+{
+   margin-bottom:6px;  
+   width:600px;
+   margin-left:24px;
+   font-size:.8em;
+}
+
+
+.fail,
+.pending, 
+.pass    { padding:4px; border: 2px solid #ddd; }
+.fail      { background: #FBE3E4; color: #D12F19; border-color: #FBC2C4}
+.pending     { background: #FFF6BF; color: #817134; border-color: #FFD324; }
+.pass    { background: #E6EFC2; color: #529214; border-color: #C6D880; }
+
+.exception
+{
+    background-color:#ffffcc;
+    padding:22px;
+}
+
+textarea.exception-box
+{
+    border:2px solid #ccc;
+    height:90px;
+    width:90%;
+}

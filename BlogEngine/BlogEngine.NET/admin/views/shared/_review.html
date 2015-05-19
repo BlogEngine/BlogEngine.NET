@@ -1,0 +1,38 @@
+﻿<div id="modal-rating" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                <h4 class="modal-title">{{package.Extra.Id}}</h4>
+            </div>
+            <div class="modal-body">
+                <div style="display: table; width: 100%">
+                    <div class="pull-left" style="width: 200px"><h4>{{lbl.writeReview}}</h4></div>
+                    <div class="pull-right" style="padding-top: 12px; width: 80px">
+                        <span class="star-rating pull-right">
+                            <input type="radio" name="rated" value="1" ng-checked="selectedRating == 1" ng-click="setRating(1)"><i></i>
+                            <input type="radio" name="rated" value="2" ng-checked="selectedRating == 2" ng-click="setRating(2)"><i></i>
+                            <input type="radio" name="rated" value="3" ng-checked="selectedRating == 3" ng-click="setRating(3)"><i></i>
+                            <input type="radio" name="rated" value="4" ng-checked="selectedRating == 4" ng-click="setRating(4)"><i></i>
+                            <input type="radio" name="rated" value="5" ng-checked="selectedRating == 5" ng-click="setRating(5)"><i></i>
+                        </span>
+                    </div>
+                </div>
+                <input class="form-control ltr-dir" style="margin-bottom: 10px" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text">
+                <textarea rows="3" maxlength="450" style="width: 100%; height: 68px; margin-bottom: 15px" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}"></textarea>
+                <div class="form-horizontal clearfix" style="height: 200px; overflow: auto">
+                    <ul ng-if="package.Extra.Reviews != null" class="list-group" style="margin-top: 20px">
+                        <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
+                            <span class="badge">{{review.Rating}}</span>
+                            <b>{{review.Name}}:</b> {{review.Body}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-ng-click="submitRating()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-star"></i>Rate</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+            </div>
+        </div>
+    </div>
+</div>

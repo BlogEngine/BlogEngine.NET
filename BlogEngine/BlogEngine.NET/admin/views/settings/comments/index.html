@@ -1,0 +1,224 @@
+﻿<div data-ng-controller="SettingsController">
+    <form id="form" action="">
+        <div class="page-header clearfix">
+            <h2 class="page-title pull-left">
+                {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            </h2>
+            <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        </div>
+        <div class="content-inner">
+            <div class="toolbar-grid clearfix">
+                <div class="pull-left">&nbsp;</div>
+                <div data-ng-include src="'views/shared/_settingcomments.html'"></div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="well">
+                        <h4>{{lbl.basic}}</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckIsCommentsEnabled" data-ng-model="settings.IsCommentsEnabled" />
+                                        {{lbl.enableComments}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableCommentsModeration" data-ng-model="settings.EnableCommentsModeration" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                        {{lbl.enableCommentsModeration}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckIsCommentNestingEnabled" data-ng-model="settings.IsCommentNestingEnabled" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                        {{lbl.enableCommentNesting}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-horizontal">
+                            <!--<div class="form-group">
+                                <label class="control-label col-md-4" for="selCommentsPerPage">{{lbl.commentsPerPage}}</label>
+                                <div class="col col-md-8">
+                                    <select class="form-control" id="selCommentsPerPage" data-ng-options="o.OptionName for o in commentsPerPageOptions" data-ng-model="selCommentsPerPage"></select>
+                                </div>
+                            </div>-->
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
+                                <div class="col col-md-8">
+                                    <select class="form-control" id="closeDaysOptions" data-ng-options="o.OptionName for o in closeDaysOptions" data-ng-model="selCloseDays" data-ng-disabled="settings.IsCommentsEnabled == false"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtThumbnailServiceApi">{{lbl.thumbnailServiceProvider}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control ltr-dir" id="txtThumbnailServiceApi" data-ng-model="settings.ThumbnailServiceApi" placeholder="http://www.robothumb.com/src/?url={0}" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="ckEnableCountryInComments" data-ng-model="settings.EnableCountryInComments" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                    {{lbl.showCountryChooser}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="ckEnableWebsiteInComments" data-ng-model="settings.EnableWebsiteInComments" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                    {{lbl.showEnableWebsiteInComments}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="ckShowLivePreview" data-ng-model="settings.ShowLivePreview" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                    {{lbl.showLivePreview}}
+                                </label>
+                            </div>
+                        </div>
+                        <hr />
+                        <label class="control-label"><strong>{{lbl.enableTrackbacks}}</strong></label>
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnablePingBackSend" data-ng-model="settings.EnablePingBackSend" />
+                                        {{lbl.send}}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnablePingBackReceive" data-ng-model="settings.EnablePingBackReceive" />
+                                        {{lbl.receive}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <label class="control-label"><strong>{{lbl.enablePingbacks}}</strong></label>
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
+                                        {{lbl.send}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
+                                        {{lbl.receive}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <h4>{{lbl.avatars}}</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col col-sm-4">
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/monsterid.png" class="img-thumbnail" alt="MonsterID" />
+                                        <input type="radio" value="monsterid" data-ng-model="settings.Avatar" />
+                                        MonsterID
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/wavatar.png" class="img-thumbnail" alt="Wavatar" />
+                                        <input type="radio" value="wavatar" data-ng-model="settings.Avatar" />
+                                        Wavatar
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/identicon.png" class="img-thumbnail" alt="Identicon" />
+                                        <input type="radio" value="identicon" data-ng-model="settings.Avatar" />
+                                        Identicon
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/retro.png" class="img-thumbnail" alt="Retro" />
+                                        <input type="radio" value="retro" data-ng-model="settings.Avatar" />
+                                        Retro
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/mm.png" class="img-thumbnail" alt="MysteryMan" />
+                                        <input type="radio" value="mm" data-ng-model="settings.Avatar" />
+                                        MysteryMan
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/noavatar.png" class="img-thumbnail" alt="None" />
+                                        <input type="radio" value="none" data-ng-model="settings.Avatar" />
+                                        {{lbl.none}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-sm-4">
+                                <label>
+                                    <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/blank.png" class="img-thumbnail" alt="Blank" />
+                                    <input type="radio" value="blank" data-ng-model="settings.Avatar" />
+                                    Blank
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <h4>{{lbl.disqusSettings}}</h4>
+                        <hr />
+                        <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckUseDisqus" data-ng-model="settings.UseDisqus" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                {{lbl.useDisqusAsCommentProvider}}
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="txtDisqusWebsiteName">{{lbl.disqusWebsiteName}}</label>
+                            <input type="text" class="form-control ltr-dir" id="txtDisqusWebsiteName" data-ng-model="settings.DisqusWebsiteName" data-ng-disabled="settings.UseDisqus == false" />
+                        </div>
+                        <hr />
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckDisqusDevMode" data-ng-model="settings.DisqusDevMode" data-ng-disabled="settings.UseDisqus == false" />
+                                {{lbl.developmentMode}}
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="cbDisqusAddToPages" data-ng-model="settings.DisqusAddCommentsToPages" data-ng-disabled="settings.UseDisqus == false" />
+                                {{lbl.addCommentsToPages}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

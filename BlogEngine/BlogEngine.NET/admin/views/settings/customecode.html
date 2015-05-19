@@ -1,0 +1,31 @@
+﻿<div data-ng-controller="SettingsController">
+    <form id="form" action="">
+        <div class="page-header clearfix">
+            <h2 class="page-title pull-left">
+                {{lbl.customCode}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            </h2>
+            <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        </div>
+        <div class="content-inner">
+            <div class="row">
+                <div class="col col-md-6">
+                    <div class="well">
+                        <div class="form-group">
+                            <label class="control-label" for="txtHtmlHeader">{{lbl.addCustomCodeToHeader}}</label>
+                            <textarea class="form-control ltr-dir" rows="10" id="txtHtmlHeader" data-ng-model="settings.HtmlHeader"> </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-6">
+                    <div class="well">
+                        <div class="form-group">
+                            <label class="control-label" for="txtTrackingScript">{{lbl.trackingScript}}</label>
+                            <textarea class="form-control ltr-dir" rows="10" id="txtTrackingScript" data-ng-model="settings.TrackingScript"> </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

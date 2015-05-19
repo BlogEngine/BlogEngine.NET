@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widgets>
+  <widget id="42fcbe7c-2c9c-440a-bad9-65a94472fccc" title="Administration" showTitle="True">Administration</widget>
+  <widget id="fb38ecdd-5813-4d10-8c5f-8d901c7c731e" title="Search" showTitle="True">Search</widget>
+  <widget id="e02e41df-35d8-4572-a862-0dd0fb2fa504" title="Calendar" showTitle="True">Calendar</widget>
+  <widget id="dd0a6215-8f33-441e-83c8-9f2ae0abae27" title="Category list" showTitle="True">Category list</widget>
+  <widget id="8d2f6869-e27d-4585-bada-a9cc84f0978a" title="Tag cloud" showTitle="True">Tag cloud</widget>
+  <widget id="dc246169-0320-459f-a181-0f7f423dfbb5" title="Page List" showTitle="True">Page List</widget>
+  <widget id="e0437d2e-de82-4f51-b679-f162fc01b20c" title="Month List" showTitle="True">Month List</widget>
+  <widget id="aecb8218-37d0-4b1c-989e-9bddc027ad09" title="AuthorList" showTitle="True">AuthorList</widget>
+</widgets>

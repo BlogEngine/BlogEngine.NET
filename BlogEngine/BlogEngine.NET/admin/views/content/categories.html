@@ -1,0 +1,97 @@
+﻿<div data-ng-controller="CategoriesController">
+    <form id="form" action="" style="margin:0;">
+        <div id="modal-add-cat" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title">{{lbl.addNewCategory}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal clearfix">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtSlug">{{lbl.title}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtSlug" name="txtSlug" data-ng-model="category.Title" focus-me="focusInput" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtExcerpt">{{lbl.description}}</label>
+                                <div class="col col-md-8">
+                                    <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="selAuthors">{{lbl.parent}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
+                                        <option value="">-- {{lbl.select.toLowerCase()}} --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button ng-click="save()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            {{lbl.categories}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+        <div class="pull-right">
+            <a data-ng-click="addNew()" title="{{lbl.addNewCategory}}" class="btn btn-success btn-header"><i class="fa fa-plus"></i>{{lbl.addNewCategory}}</a>
+        </div>
+    </div>
+    <div class="content-inner">
+        <div class="toolbar-grid clearfix">
+            <div class="pull-left">
+                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+            </div>
+            <div class="pull-right filterbar clearfix">
+                <input type="text" ng-model="query" ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
+            </div>
+        </div>
+        <table class="table table-bordered table-striped table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="table-item-title table-item-w70">{{lbl.title}} <a data-ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="hmax479">{{lbl.description}}</th>
+                    <th>{{lbl.count}}</th>
+                    <th class="hmax479">{{lbl.parent}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                    <td><input type="checkbox" id="{{item.Slug}}" ng-model="item.IsChecked" /></td>
+                    <td class="table-item-title">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories/?id={{item.Id}}" class="text-ellipsis pull-left">{{item.Title}}</a>
+                        <a title="{{item.Title}}" class="external-link pull-right" target="_blank" href="{{SiteVars.RelativeWebRoot}}category/{{item.Title}}"><i class="fa fa-external-link"></i></a>
+                    </td>
+                    <td class="hmax479" title="{{item.Description}}"><span class="text-ellipsis-sm text-ellipsis">{{item.Description}}</span></td>
+                    <td>{{item.Count}}</td>
+                    <td class="hmax479">{{item.Parent.OptionName}}</td>
+                </tr>
+                <tr id="tr-spinner"><td colspan="5"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
+            </tbody>
+        </table>
+        <div class="text-right pagination-wrapper">
+            <ul class="pagination pagination-sm">
+                <li data-ng-class="{disabled: currentPage == 0}">
+                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
+                </li>
+                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                    <a data-ng-bind="n + 1">1</a>
+                </li>
+                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+﻿<div data-ng-controller="SettingsController">
+    <form id="form" action="">
+        <div class="page-header clearfix">
+            <h2 class="page-title pull-left">
+                {{lbl.searchField}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            </h2>
+            <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        </div>
+        <div class="content-inner">
+            <div class="toolbar-grid clearfix">
+                <div class="pull-left">&nbsp;</div>
+                <div data-ng-include src="'views/shared/_controls.html'"></div>
+            </div>
+            <div class="well clearfix">
+                <div class="form-horizontal col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="txtSearchButtonText">{{lbl.buttonText}}</label>
+                        <div class="col col-md-8">
+                            <input type="text" class="form-control" id="txtSearchButtonText" data-ng-model="settings.SearchButtonText" placeholder="Search button" title="Search button" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="txtSearchCommentLabelText">{{lbl.searchFieldText}}</label>
+                        <div class="col col-md-8">
+                            <input type="text" class="form-control" id="txtSearchCommentLabelText" data-ng-model="settings.SearchCommentLabelText" placeholder="Search label" title="Search label" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="txtSearchDefaultText">{{lbl.commentLabelText}}</label>
+                        <div class="col col-md-8">
+                            <input type="text" class="form-control" id="txtSearchDefaultText" data-ng-model="settings.SearchDefaultText" placeholder="Search text" title="Search text" />
+                        </div>
+                    </div>
+                    <div class="col-md-offset-4 col-md-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnableCommentSearch" data-ng-model="settings.EnableCommentSearch" />
+                                {{lbl.enableCommentSearch}}
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckShowIncludeCommentsOption" data-ng-model="settings.ShowIncludeCommentsOption" />
+                                {{lbl.showIncludeComments}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

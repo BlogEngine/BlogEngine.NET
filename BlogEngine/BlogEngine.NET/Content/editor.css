@@ -1,0 +1,53 @@
+/*[EDITOR]*/
+#editor { max-height: 50%; min-height: 290px; max-height: 300px !important; height: 25%; background-color: white; border-collapse: separate; border: 1px solid rgb(204, 204, 204); padding: 4px; box-sizing: content-box; -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; border-top-left-radius: 3px; overflow: auto !important; outline: none; cursor: text; }
+.well-editor { min-height: 20px; padding: 19px; margin-bottom: 20px; background-color: rgb(245, 245, 245); border: 1px solid rgb(227, 227, 227); border-radius: 4px; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset; }
+.heading-item h2, .heading-item h3, .heading-item h4, .heading-item h5, .heading-item h6 { line-height: 20px !important; margin: 3px !important; }
+.color-list-wrapper { width: 365px; }
+.color-list-wrapper .color-list-item { float: left; padding: 10px; }
+.color-list-wrapper .color-list-item-1 { border-right: 1px solid #EEE; }
+.color-list-wrapper .colorlist { width: 160px !important; }
+.color-list-wrapper .colorlist div { width: 12px; margin: 2px; height: 12px; float: left; position: relative; z-index: 40; border-radius: 60px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
+.color-list-wrapper .colorlist div:hover { z-index: 99; -moz-transform: scale(1.5); -webkit-transform: scale(1.5); -o-transform: scale(1.5); -ms-transform: scale(1.5); transform: scale(1.5); box-shadow: 0 0 3px #fff; }
+.color-list-wrapper .colorlist div a { border: none; width: 100%; padding: 0 !important; margin: 0 !important; display: block; height: 100%; }
+.color-list-wrapper .title-color-list { font-size: 12px; background-color: #f3f3f3; padding: 3px; text-align: center; border-radius: 4px; margin-bottom: 10px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
+.color-list-wrapper .color-list-item:hover .title-color-list { background-color: #EEE; }
+.wysiwyg-editor { max-height: 60%; height: 60%; width: 99%; background-color: white; border-collapse: separate; border: 1px solid rgb(204, 204, 204); padding: 4px; box-sizing: content-box; -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; border-top-left-radius: 3px; overflow: auto; outline: none; }
+#voiceBtn { width: 12px; color: transparent; background-color: transparent; transform: scale(2.0, 2.0); -webkit-transform: scale(2.0, 2.0); -moz-transform: scale(2.0, 2.0); border: transparent; cursor: pointer; box-shadow: none; -webkit-box-shadow: none; margin: 3px 10px; }
+.overlay-editor { position: absolute; top: 0; left: 0; width: 100%; height: 100% !important; max-height: 100% !important; z-index: 1000; background-color: #fff; overflow: auto; padding: 3%; }
+.full-editor { height: 70% !important; max-height: 70% !important; z-index: 990; }
+.categories-list { height: 231px; overflow-y: hidden; opacity: 0.5; }
+.categories-list:hover { overflow-y: auto; opacity: 1; }
+.categories-list li { height: 30px; padding: 0; cursor: pointer; }
+.categories-list li:hover { background-color: #EEE; cursor: pointer; }
+.categories-list li input[type=checkbox] { position: relative; top: 2px; }
+.categories-list li label { display: block; padding: 0px 7px; cursor: pointer; height: 29px; line-height: 27px; overflow: hidden; white-space: nowrap; max-width: 300px; text-overflow: ellipsis; }
+.tags-list { padding: 10px 5px 7px; }
+.text-core .text-wrap textarea, .text-core .text-wrap input { border-radius: 3px !important; border-color: #CCC !important; box-shadow: none; font-size: 13px !important; border: none !important; min-height: 25px !important; }
+.text-core .text-wrap .text-tags .text-tag .text-button { border: none !important; background: #5bc0de !important; color: #fff !important; }
+div[data-role="editor-toolbar"] { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.dropdown-menu a { cursor: pointer; }
+.text-wrap { width: 100% !important; }
+.text-label { font-size: 12px !important; }
+.loading { display: inline-block; }
+.loaded { display: none; }
+.admin-editor { margin-top: 25px; max-width: 1170px; margin-bottom: 20px; }
+.admin-editor .editor-toolbar { margin: 20px 0; }
+.btn-bold { height: 28px; }
+.add-url-btn { width: 300px; padding: 10px; }
+.add-url-btn input { display: inline-block; }
+.add-url-btn .form-control { width: 215px; }
+.footer-editor { margin-top: 15px; }
+.footer-editor label { text-align: left !important; margin: 0 !important; padding: 0 !important; }
+.edit-publish li { text-align: left; }
+.caret-publish { min-height: 12px; margin-bottom: 8px; }
+.editor-toolbar > .btn-group { margin-bottom: 5px; }
+.editor-toolbar .btn { font-size: 14px !important; margin: 0; padding: 5px 5px !important; }
+.editor-toolbar .btn-add-link { padding: 3px 8px !important; }
+.editor-toolbar.btn-toolbar > .btn + .btn,
+.editor-toolbar.btn-toolbar > .btn-group + .btn,
+.editor-toolbar.btn-toolbar > .btn + .btn-group,
+.editor-toolbar.btn-toolbar > .btn-group + .btn-group { margin-left: 0px; }
+.editor-toolbar.btn-toolbar > .btn-group { float: none; }
+.uploadfiles-btn .last-border { -webkit-border-top-right-radius: 4px !important; -webkit-border-bottom-right-radius: 4px !important; -moz-border-radius-topright: 4px !important; -moz-border-radius-bottomright: 4px !important; border-top-right-radius: 4px !important; border-bottom-right-radius: 4px !important; }
+.uploadfiles-btn input { cursor: pointer; }
+.uploadfiles-btn .btn-group {max-width:30px; overflow:hidden;}

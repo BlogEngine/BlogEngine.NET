@@ -1,0 +1,19 @@
+﻿@using BlogEngine.Core
+<div class="commentForm">
+    <h3 id="addcomment">@Resources.labels.addComment</h3>
+    <p>
+        <label for="txtName" class="lbl-user">@Resources.labels.name *</label>
+        <input type="text" class="txt-user" name="txtName" id="txtName" />
+    </p>
+    <p>
+        <label for="txtEmail" class="lbl-email">@Resources.labels.email *</label>
+        <input type="text" class="txt-email" id="txtEmail" />
+    </p>
+    <p id="commentCompose">
+        <textarea class="txt-content" id="txtContent" cols="50" rows="10" name="txtContent"></textarea>
+    </p>
+    <p>
+        <input type="button" id="btnSaveAjax" value="@Resources.labels.saveComment" 
+               onclick="return BlogEngine.validateAndSubmitCommentForm()" />
+    </p>
+</div>

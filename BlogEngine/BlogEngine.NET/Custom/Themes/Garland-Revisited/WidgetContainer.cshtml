@@ -1,0 +1,14 @@
+﻿@using BlogEngine.Core
+
+<div class="widget @Model.Widget.Name.Replace(" ", String.Empty).ToLowerInvariant()"
+    id="widget@(Model.Widget.WidgetId)">
+    @Html.Raw(Model.AdminLinks)
+    @if (Model.Widget.ShowTitle) {
+        <h3>@Model.Widget.Title</h3>
+    } else {
+        <br />
+    }
+    <div class="content">
+        @Html.WidgetContainerBody()
+    </div>
+</div>

@@ -1,0 +1,83 @@
+@using Quixote;
+
+@TheFollowing.Describes("Should assertions")
+
+    @It.Should("True should be true", () => {
+        return true.ShouldBeTrue();
+    })
+    @It.Should("False should be false", () => {
+        return false.ShouldBeFalse();
+    })
+    @It.Should("2 should be greater than 1", () => {
+        return 2.ShouldBeGreaterThan(1);
+    })
+    @It.Should("1 should be less than 2", () => {
+        return 1.ShouldBeLessThan(2);
+    })
+    @It.Should("1 should equal 1", () => {
+        return 1.ShouldEqual(1);
+    })
+    @It.Should("1 should not equal 2", () => {
+        return 1.ShouldNotEqual(2);
+    })
+    @It.Should("DuckyDuck should contain ck", () => {
+        return "DuckyDuck".ShouldContain("ck");
+    })
+    @It.Should("DuckyDuck should not contain fluffy", () => {
+       return "DuckyDuck".ShouldNotContain("fluffy");
+    })
+    @It.Should("1...3 array should contain 2", () => {
+        return new object[] { 1, 2, 3 }.ShouldContainItem(2);
+    })
+    @It.Should("1...3 array should not contain 47", () => {
+        return new object[] { 1, 2, 3 }.ShouldNotContainItem(47);
+    })
+    @It.Should("1...3 list should contain 2", () => {
+        var list = new List<int>() { 1, 2, 3 };
+        return list.ShouldContainItem(2);
+    })
+    @It.Should("1...3 list should not contain 47", () => {
+        var list = new List<int>() { 1, 2, 3 };
+        return list.ShouldNotContainItem(47);
+    })
+    @It.Should("know how to count", () => {
+        var list = new List<int>() { 1, 2, 3 };
+        return list.ShouldHaveACountOf(3);
+    })
+    @It.Should("assert throws", () => {
+        return Assert.ShouldThrow(() => { throw new Exception("hi there"); });
+    })
+
+    @It.Should("assert not throws", () => {
+        return Assert.ShouldNotThrow(() => {var x = 1; });
+    })
+
+
+
+@TheFollowing.Describes("Get Requests")
+
+    @They.Should("Have a title that says welcome to our site", () => {
+         return Runner.Get("~/").Title.ShouldContain("welcome to our site");
+    })
+    @They.Should("Have a 6 links in the body of the home page", () => {
+         return Runner.Get("~/").BodyLinks.ShouldHaveACountOf(6);
+    
+    })
+    @They.Should("Have a 2 headings in the body of the home page", () => {
+         return Runner.Get("~/").Headings.ShouldHaveACountOf(2);
+    
+    })
+    @They.Should("The second header should say It's a lot of fun", () => {
+        return Runner.Get("~/").Headings[1].Trim().ShouldEqual("It's a lot of fun");
+    
+    })
+
+@TheFollowing.Describes("Post Requests")
+    @They.Should("Post 2 values to the post page", () => {
+        var result = Runner.Post("~/posty", new { thing1 = "stuff", thing2 = "morestuff" });
+        return result.Html.Trim().ShouldEqual("POST - 2");
+    })
+    @They.Should("Record 'chocolate' as a form value", () => {
+        var result = Runner.Post("~/posty", new { chocolate = "stuff", dookey = "morestuff" });
+        return result.FormValues.ShouldContainKey("chocolate");
+    })

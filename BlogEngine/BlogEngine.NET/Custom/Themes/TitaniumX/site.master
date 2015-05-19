@@ -1,0 +1,49 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="TitaniumXSite" Codebehind="site.master.cs" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head runat="server" profile="http://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon"/>
+</head>
+<body>
+
+  <div id="header">
+    <p><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></p>
+    <span><%=BlogSettings.Instance.Description %></span>
+  </div>
+  
+  <div id="menu">
+    
+    <div class="login">
+         <span runat="server" id="aUser"></span><a runat="server" id="aLogin" />
+    </div>
+   
+    <ul>
+      <li><a href="<%=Utils.AbsoluteWebRoot %>" rel="home"><%=Resources.labels.home %></a></li>
+      <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+      <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+      <li><a href="<%=Utils.FeedUrl %>" class="feed"><img src="<%=Utils.ApplicationRelativeWebRoot %>Content/images/blog/rssButton.png" alt="Feed" /><%=Resources.labels.subscribe %></a></li>
+      <li><a href="javascript:void(BlogEngine.filterByAPML())" class="apmlfilter"><%=Resources.labels.filterByApml %></a></li>
+    </ul>
+  </div>
+  
+  <form runat="Server" class="body">
+    
+    <div id="content">
+      <blog:SearchOnSearch runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+      <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+    </div>
+
+    <div id="sidepanel">
+      <blog:WidgetZone runat="server" ZoneName="be_WIDGET_ZONE" />
+    </div>
+  </form>
+  <div style="clear: both;">&nbsp;</div>
+<div id="footer">
+ <p><a href="http://www.dotnetblogengine.net" target="_blank">BlogEngine.NET</a> <%=BlogSettings.Instance.Version() %>
+ <br /><i>Titanium X</i> Theme by <a href="http://www.mgdking.com">MGD King</a></p>
+</div>
+</body>
+</html>

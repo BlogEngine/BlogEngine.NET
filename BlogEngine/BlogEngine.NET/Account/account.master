@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Account.AccountMasterPage" Codebehind="account.master.cs" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1" runat="server">
+    <title>Account Login</title>
+    <meta name="description" content="Account Login Membership User Password" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="account.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="account.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="<%=Resources.labels.LangDirection %>">
+    <form id="Form1" runat="server">
+        <div class="container">
+            <div class="account-header clearfix">
+                <a href="http://dotnetblogengine.net/" class="pull-left logo" target="_blank">
+                    <img alt="BlogEngine.NET" src="../Content/images/blog/logo.png" /></a>
+                <a href="<%= Utils.RelativeWebRoot %>" class="pull-right returnblog text-muted"><%=Resources.labels.returnToBlog %></a>
+            </div>
+            <div id="StatusBox">
+                <div id="AdminStatus" runat="server" class="alert alert-danger" style="display: none"></div>
+            </div>
+            <div class="account well">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+        </div>
+        <script>
+            $(".account-header").animate({
+                top: 0,
+                opacity: 1,
+            }, 1000);
+            $(".account").animate({
+                top: 0,
+                opacity: 1,
+            }, 1000);
+        </script>
+    </form>
+</body>
+</html>

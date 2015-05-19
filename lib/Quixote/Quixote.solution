@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quixote", "Quixote\Quixote.csproj", "{C2C23DB8-3D20-45C9-8496-86299CE3007C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2C23DB8-3D20-45C9-8496-86299CE3007C}.Debug|x86.ActiveCfg = Debug|x86
+		{C2C23DB8-3D20-45C9-8496-86299CE3007C}.Debug|x86.Build.0 = Debug|x86
+		{C2C23DB8-3D20-45C9-8496-86299CE3007C}.Release|x86.ActiveCfg = Release|x86
+		{C2C23DB8-3D20-45C9-8496-86299CE3007C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Quixote\Quixote.csproj
+	EndGlobalSection
+EndGlobal

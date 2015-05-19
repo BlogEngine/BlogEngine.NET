@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9ED9914A-FB6E-4D21-8C71-9122E8C3076B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlogEngine.Core</RootNamespace>
+    <AssemblyName>BlogEngine.Core</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/BlogEngine.Core/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\BlogEngine.Core.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Design#CA1020</CodeAnalysisRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\BlogEngine.Core.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\..\lib\ajaxminify\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="BlogML">
+      <HintPath>..\..\lib\blogml\BlogML.dll</HintPath>
+    </Reference>
+    <Reference Include="Dynamic">
+      <HintPath>..\packages\DynamicQuery.1.0\lib\35\Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\razor\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BlogEngine.NET\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.8.50506.491, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NuGet.Core.2.8.2\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\BlogML\BaseReader.cs" />
+    <Compile Include="API\BlogML\BlogImporter.cs" />
+    <Compile Include="API\BlogML\BlogMLExtendedPost.cs" />
+    <Compile Include="API\BlogML\BlogReader.cs" />
+    <Compile Include="API\MetaWeblog\MetaWeblogException.cs" />
+    <Compile Include="API\MetaWeblog\MetaWeblogHandler.cs" />
+    <Compile Include="API\MetaWeblog\MWAAuthor.cs" />
+    <Compile Include="API\MetaWeblog\MWABlogInfo.cs" />
+    <Compile Include="API\MetaWeblog\MWACategory.cs" />
+    <Compile Include="API\MetaWeblog\MWAFault.cs" />
+    <Compile Include="API\MetaWeblog\MWAMediaInfo.cs" />
+    <Compile Include="API\MetaWeblog\MWAMediaObject.cs" />
+    <Compile Include="API\MetaWeblog\MWAPage.cs" />
+    <Compile Include="API\MetaWeblog\MWAPost.cs" />
+    <Compile Include="API\MetaWeblog\MWAUserInfo.cs" />
+    <Compile Include="API\MetaWeblog\XMLRPCRequest.cs" />
+    <Compile Include="API\MetaWeblog\XMLRPCResponse.cs" />
+    <Compile Include="Blog.cs" />
+    <Compile Include="BlogConfig.cs" />
+    <Compile Include="BlogGenerator.cs" />
+    <Compile Include="BlogGeneratorConfig.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="Compilation\BaseServerObjectExpressionBuilder.cs" />
+    <Compile Include="Compilation\CodeExpressionBuilder.cs" />
+    <Compile Include="Compilation\Design\CodeExpressionEditor.cs" />
+    <Compile Include="Compilation\Design\QueryStringExpressionEditor.cs" />
+    <Compile Include="Compilation\Design\ServerVariableExpressionEditor.cs" />
+    <Compile Include="Compilation\Design\SessionExpressionEditor.cs" />
+    <Compile Include="Compilation\LinqLengthExpressionBuilder.cs" />
+    <Compile Include="Compilation\QueryStringExpressionBuilder.cs" />
+    <Compile Include="Compilation\ReflectExpressionBuilder.cs" />
+    <Compile Include="Compilation\ServerVariableExpressionBuilder.cs" />
+    <Compile Include="Compilation\SessionExpressionBuilder.cs" />
+    <Compile Include="Data\CommentFilterRepository.cs" />
+    <Compile Include="Data\Contracts\ICommentFilterRepository.cs" />
+    <Compile Include="Data\Contracts\ICustomFieldRepository.cs" />
+    <Compile Include="Data\Contracts\IFileManagerRepository.cs" />
+    <Compile Include="Data\Contracts\IRolesRepository.cs" />
+    <Compile Include="Data\Contracts\IUsersRepository.cs" />
+    <Compile Include="Data\CustomFieldRepository.cs" />
+    <Compile Include="Data\BlogRepository.cs" />
+    <Compile Include="Data\CategoryRepository.cs" />
+    <Compile Include="Data\CommentsRepository.cs" />
+    <Compile Include="Data\Contracts\IBlogRepository.cs" />
+    <Compile Include="Data\Contracts\ICategoryRepository.cs" />
+    <Compile Include="Data\Contracts\ICommentsRepository.cs" />
+    <Compile Include="Data\Contracts\ICustomFilterRepository.cs" />
+    <Compile Include="Data\Contracts\ILookupsRepository.cs" />
+    <Compile Include="Data\Contracts\IPackageRepository.cs" />
+    <Compile Include="Data\Contracts\IPageRepository.cs" />
+    <Compile Include="Data\Contracts\IPostRepository.cs" />
+    <Compile Include="Data\Contracts\ISettingsRepository.cs" />
+    <Compile Include="Data\Contracts\IStatsRepository.cs" />
+    <Compile Include="Data\Contracts\ITagRepository.cs" />
+    <Compile Include="Data\Contracts\ITrashRepository.cs" />
+    <Compile Include="Data\CustomFilterRepository.cs" />
+    <Compile Include="Data\FileManagerRepository.cs" />
+    <Compile Include="Data\LookupsRepository.cs" />
+    <Compile Include="Data\Models\Blog.cs" />
+    <Compile Include="Data\Models\BlogItem.cs" />
+    <Compile Include="Data\Models\CategoryItem.cs" />
+    <Compile Include="Data\Models\CommentDetail.cs" />
+    <Compile Include="Data\Models\CommentFilterItem.cs" />
+    <Compile Include="Data\Models\CommentItem.cs" />
+    <Compile Include="Data\Models\CustomFilter.cs" />
+    <Compile Include="Data\Models\Enums.cs" />
+    <Compile Include="Data\Models\CustomField.cs" />
+    <Compile Include="Data\Models\JsonResponse.cs" />
+    <Compile Include="Data\Models\Lookups.cs" />
+    <Compile Include="Data\Models\Package.cs" />
+    <Compile Include="Data\Models\PageDetail.cs" />
+    <Compile Include="Data\Models\PageItem.cs" />
+    <Compile Include="Data\Models\PostDetail.cs" />
+    <Compile Include="Data\Models\PostItem.cs" />
+    <Compile Include="Data\Models\Profile.cs" />
+    <Compile Include="Data\Models\Security.cs" />
+    <Compile Include="Data\Models\SelectOption.cs" />
+    <Compile Include="Data\Models\Stats.cs" />
+    <Compile Include="Data\Models\BlogUser.cs" />
+    <Compile Include="Data\Models\TagItem.cs" />
+    <Compile Include="Data\Models\TrashItem.cs" />
+    <Compile Include="Data\Models\TrashVM.cs" />
+    <Compile Include="Data\PackageRepository.cs" />
+    <Compile Include="Data\PageRepository.cs" />
+    <Compile Include="Data\PostRepository.cs" />
+    <Compile Include="Data\RolesRepository.cs" />
+    <Compile Include="Data\Services\Avatar.cs" />
+    <Compile Include="Data\Services\CustomFieldsParser.cs" />
+    <Compile Include="Data\Services\Updater.cs" />
+    <Compile Include="Data\SettingsRepository.cs" />
+    <Compile Include="Data\StatsRepository.cs" />
+    <Compile Include="Data\UsersRepository.cs" />
+    <Compile Include="Data\TagRepository.cs" />
+    <Compile Include="Data\TrashRepository.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="FileSystem\Common.cs" />
+    <Compile Include="FileSystem\Directory.cs" />
+    <Compile Include="FileSystem\File.cs" />
+    <Compile Include="FileSystem\FileStoreDb.cs" />
+    <Compile Include="FileSystem\Image.cs" />
+    <Compile Include="FileSystem\FileSystemUtilities.cs" />
+    <Compile Include="Data\Models\Settings.cs" />
+    <Compile Include="Notes\QuickNote.cs" />
+    <Compile Include="Notes\QuickNotes.cs" />
+    <Compile Include="Notes\QuickSetting.cs" />
+    <Compile Include="Notes\QuickSettings.cs" />
+    <Compile Include="Packaging\Constants.cs" />
+    <Compile Include="Packaging\GalleryData.cs" />
+    <Compile Include="Packaging\FileSystem.cs" />
+    <Compile Include="Packaging\Gallery.cs" />
+    <Compile Include="Packaging\InstalledPackage.cs" />
+    <Compile Include="Packaging\Installer.cs" />
+    <Compile Include="Packaging\PackageFile.cs" />
+    <Compile Include="Packaging\PackagingSource.cs" />
+    <Compile Include="Packaging\Pager.cs" />
+    <Compile Include="Pager.cs" />
+    <Compile Include="Ping\Manager.cs" />
+    <Compile Include="Ping\Trackback.cs" />
+    <Compile Include="Ping\TrackbackMessage.cs" />
+    <Compile Include="Providers\FileSystemProviders\BlogFileSystemProvider.cs" />
+    <Compile Include="Providers\FileSystemProviders\BlogFileSystemProviderCollection.cs" />
+    <Compile Include="Providers\FileSystemProviders\BlogFileSystemProviderSection.cs" />
+    <Compile Include="Providers\BlogProviderCollection.cs" />
+    <Compile Include="Providers\CacheProvider\CacheBase.cs" />
+    <Compile Include="Providers\CacheProvider\CacheProvider.cs" />
+    <Compile Include="Providers\DbConnectionHelper.cs" />
+    <Compile Include="Providers\FileSystemProviders\DbFileSystemProvider.cs" />
+    <Compile Include="Providers\FileSystemProviders\UNCFileSystemProvider.cs" />
+    <Compile Include="Providers\XmlProvider\Blogs.cs" />
+    <Compile Include="Providers\XmlProvider\CustomFields.cs" />
+    <Compile Include="Providers\XmlProvider\Packaging.cs" />
+    <Compile Include="Providers\XmlProvider\QuickNotes.cs" />
+    <Compile Include="Providers\XmlProvider\Rights.cs" />
+    <Compile Include="Providers\FileSystemProviders\XmlFileSystemProvider.cs" />
+    <Compile Include="RemoteFile.cs" />
+    <Compile Include="Security\CustomIdentity.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\Right.cs" />
+    <Compile Include="Security\Rights.cs" />
+    <Compile Include="Security\Security.cs" />
+    <Compile Include="Security\SecuritySiteMapProvider.cs" />
+    <Compile Include="Service References\GalleryServer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.datasvcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServingEventArgs.cs" />
+    <Compile Include="Providers\XmlProvider\PingServices.cs" />
+    <Compile Include="SavedEventArgs.cs" />
+    <Compile Include="Search.cs" />
+    <Compile Include="SyndicationFormat.cs" />
+    <Compile Include="Web\BlogCulture.cs" />
+    <Compile Include="Web\Controls\ExtensionAttribute.cs" />
+    <Compile Include="Web\Controls\CommentViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\PageMenu.cs" />
+    <Compile Include="Web\Controls\PageSiteMap.cs" />
+    <Compile Include="Web\Controls\CommentFormBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\PostNavigationBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\RelatedPostsBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\HttpHandlers\OpmlHandler.cs" />
+    <Compile Include="Web\HttpHandlers\RatingHandler.cs" />
+    <Compile Include="Web\HttpHandlers\FileHandler.cs" />
+    <Compile Include="Web\HttpHandlers\ImageHandler.cs" />
+    <Compile Include="Web\HttpHandlers\OpenSearchHandler.cs" />
+    <Compile Include="Web\HttpHandlers\PingbackHandler.cs" />
+    <Compile Include="Web\HttpHandlers\ResourceHandler.cs" />
+    <Compile Include="Web\HttpHandlers\RsdHandler.cs" />
+    <Compile Include="Web\HttpHandlers\SiteMap.cs" />
+    <Compile Include="Providers\BlogProvider.cs" />
+    <Compile Include="Providers\BlogProviderSection.cs" />
+    <Compile Include="Providers\BlogService.cs" />
+    <Compile Include="BlogSettings.cs" />
+    <Compile Include="BusinessBase.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Web\Controls\BlogBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\Controls\PostViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Page.cs" />
+    <Compile Include="Ping\Pingback.cs" />
+    <Compile Include="Ping\PingService.cs" />
+    <Compile Include="Post.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StateCollection.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="Providers\XmlProvider\XmlMembershipProvider.cs" />
+    <Compile Include="Web\HttpHandlers\SyndicationHandler.cs" />
+    <Compile Include="Web\HttpHandlers\TrackbackHandler.cs" />
+    <Compile Include="Web\HttpModules\CompressionModule.cs" />
+    <Compile Include="Web\HttpModules\ReferrerModule.cs" />
+    <Compile Include="Web\HttpModules\WwwSubDomainModule.cs" />
+    <Compile Include="Web\HttpModules\UrlRewrite.cs" />
+    <Compile Include="Web\Navigation\IPager.cs" />
+    <Compile Include="Web\Navigation\Pager.cs" />
+    <Compile Include="Web\Scripting\PageHeader.cs" />
+    <Compile Include="Web\Scripting\Helpers.cs" />
+    <Compile Include="Web\Scripting\JavascriptMinifier.cs" />
+    <Compile Include="Web\Scripting\WebResourceFilter.cs" />
+    <Compile Include="Web\UrlRules.cs" />
+    <Compile Include="XmlSafeResolver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlogRollItem.cs" />
+    <Compile Include="CommentHandlers.cs" />
+    <Compile Include="DataStore\ExtensionSettings.cs" />
+    <Compile Include="DataStore\ExtensionSettingsBehavior.cs" />
+    <Compile Include="DataStore\Interfaces.cs" />
+    <Compile Include="DataStore\SerializableStringDictionary.cs" />
+    <Compile Include="DataStore\SettingsBase.cs" />
+    <Compile Include="DataStore\StringDictionaryBehavior.cs" />
+    <Compile Include="DataStore\WidgetSettings.cs" />
+    <Compile Include="DataStore\XMLDocumentBehavior.cs" />
+    <Compile Include="ICustomFilter.cs" />
+    <Compile Include="IPublishable.cs" />
+    <Compile Include="Providers\DbBlogProvider.cs" />
+    <Compile Include="Providers\DbMembershipProvider.cs" />
+    <Compile Include="Providers\DbRoleProvider.cs" />
+    <Compile Include="Providers\XmlProvider\BlogRoll.cs" />
+    <Compile Include="Providers\XmlProvider\Categories.cs" />
+    <Compile Include="Providers\XmlProvider\DataStore.cs" />
+    <Compile Include="Providers\XmlProvider\Profiles.cs" />
+    <Compile Include="Providers\XmlProvider\Referrers.cs" />
+    <Compile Include="Providers\XmlProvider\StopWords.cs" />
+    <Compile Include="Providers\XmlProvider\Settings.cs" />
+    <Compile Include="Providers\XmlProvider\Pages.cs" />
+    <Compile Include="Providers\XmlProvider\Posts.cs" />
+    <Compile Include="Providers\XmlProvider\XmlRoleProvider.cs" />
+    <Compile Include="Referrer.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="SyndicationGenerator.cs" />
+    <Compile Include="AuthorProfile.cs" />
+    <Compile Include="Web\Controls\RewriteFormHtmlTextWriter.cs" />
+    <Compile Include="Web\Extensions\ExtensionManager.cs" />
+    <Compile Include="Web\Extensions\ExtensionParameter.cs" />
+    <Compile Include="Web\Extensions\ExtensionSettings.cs" />
+    <Compile Include="Web\Extensions\ManagedExtension.cs" />
+    <Compile Include="Web\HttpHandlers\BlogMLExportHandler.cs" />
+    <Compile Include="Web\HttpHandlers\Apml.cs" />
+    <Compile Include="Web\HttpHandlers\Foaf.cs" />
+    <Compile Include="Web\HttpHandlers\Sioc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="key.snk" />
+    <None Include="packages.config" />
+    <None Include="Ping\Ping.cd" />
+    <None Include="Service References\GalleryServer\service.edmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceReferenceMetadataStorage Include="Service References\GalleryServer\">
+      <Type>datasvcmap</Type>
+    </ServiceReferenceMetadataStorage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GalleryServer\Reference.datasvcmap">
+      <Generator>DataServiceClientGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Web\HttpHandlers\JavaScriptHandler.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

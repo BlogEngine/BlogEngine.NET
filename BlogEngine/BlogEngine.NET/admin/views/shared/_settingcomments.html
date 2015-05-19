@@ -1,0 +1,6 @@
+﻿<div data-ng-controller="SubNavController" class="btn-toolbar pull-right">
+    <div class="btn-group">
+        <button onclick="location.href = '#/settings/comments'" data-ng-class="{ active: isActive('/settings/comments')}" class="btn btn-default btn-sm ng-binding">{{lbl.comments}}</button>
+        <button onclick="location.href = '#/settings/comments/filters'" data-ng-class="{ active: isActive('/settings/comments/filters')}" class="btn btn-default btn-sm ng-binding">{{lbl.spamProtection}}</button>
+    </div>
+</div>

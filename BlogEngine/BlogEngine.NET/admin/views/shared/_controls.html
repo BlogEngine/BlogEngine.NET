@@ -1,0 +1,11 @@
+﻿<div data-ng-controller="SubNavController" class="btn-toolbar pull-right">
+    <div class="btn-group">
+        <button onclick="location.href = '#/settings/controls'" data-ng-class="{ active: isActive('/settings/controls')}" class="btn btn-default btn-sm ng-binding">{{lbl.contactForm}}</button>
+        <button onclick="location.href = '#/settings/controls/recentposts'" data-ng-class="{ active: isActive('/settings/controls/recentposts')}" class="btn btn-default btn-sm ng-binding">{{lbl.recentPosts}}</button>
+        <button onclick="location.href = '#/settings/controls/recentcomments'" data-ng-class="{ active: isActive('/settings/controls/recentcomments')}" class="btn btn-default btn-sm ng-binding">{{lbl.recentComments}}</button>
+        <button onclick="location.href = '#/settings/controls/search'" data-ng-class="{ active: isActive('/settings/controls/search')}" class="btn btn-default btn-sm ng-binding">{{lbl.searchField}}</button>
+        <button onclick="location.href = '#/settings/controls/blogroll'" data-ng-class="{ active: isActive('/settings/controls/blogroll')}" class="btn btn-default btn-sm ng-binding">{{lbl.blogroll}}</button>
+        <button onclick="location.href = '#/settings/controls/pings'" data-ng-class="{ active: isActive('/settings/controls/pings')}" class="btn btn-default btn-sm ng-binding">{{lbl.pingService}}</button>
+        <button onclick="location.href = '#/settings/controls/error'" data-ng-class="{ active: isActive('/settings/controls/error')}" class="btn btn-default btn-sm ng-binding">{{lbl.errorPage}}</button>
+    </div>
+</div>

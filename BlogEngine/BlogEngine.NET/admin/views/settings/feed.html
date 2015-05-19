@@ -1,0 +1,85 @@
+﻿    <div data-ng-controller="SettingsController">
+        <form id="form" action="">
+            <div class="page-header clearfix">
+                <h2 class="page-title pull-left">
+                    {{lbl.feed}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+                </h2>
+                <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+            </div>
+            <div class="content-inner">
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <div class="well clearfix">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtAuthorName">{{lbl.author}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control" id="txtAuthorName" data-ng-model="settings.AuthorName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtFeedAuthor">{{lbl.email}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control ltr-dir" id="txtFeedAuthor" name="txtFeedAuthor" data-ng-model="settings.FeedAuthor" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtEndorsement">{{lbl.endorsment}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control ltr-dir" id="txtEndorsement" name="txtEndorsement" data-ng-model="settings.Endorsement" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtAlternateFeedUrl">{{lbl.alternateFeedUrl}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control ltr-dir" id="txtAlternateFeedUrl" name="txtAlternateFeedUrl" data-ng-model="settings.AlternateFeedUrl" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-sm-6">
+                        <div class="well clearfix">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtlanguageCode">{{lbl.languageCode}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control ltr-dir" id="txtlanguageCode" data-ng-model="settings.Language" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="selCultures">{{lbl.defaultFeedOutput}}</label>
+                                    <div class="col col-md-8">
+                                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in feedOptions" data-ng-model="selFeedFormat"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtpostsPerFeed">{{lbl.postsPerFeed}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control" id="txtpostsPerFeed" name="txtpostsPerFeed" data-ng-model="settings.PostsPerFeed" />
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-4 col-md-8">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckEnableEnclosures" data-ng-model="settings.EnableEnclosures" />
+                                            {{lbl.enableEnclosures}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-offset-4 col-md-8">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckEnableTagExport" data-ng-model="settings.EnableTagExport" />
+                                            {{lbl.enableTagExport}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

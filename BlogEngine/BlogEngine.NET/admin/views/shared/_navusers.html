@@ -1,0 +1,9 @@
+﻿<div class="subnav admin-views-subnav" data-ng-controller="SubNavController">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li ng-if="security.canManageUsers" data-ng-class="{ active: isActive('/users')}"><a href="#/users">{{lbl.users}}</a></li>
+            <li ng-if="security.canManageRoles" data-ng-class="{ active: isActive('/users/roles')}"><a href="#/users/roles">{{lbl.roles}}</a></li>
+            <li ng-if="security.canManageProfile" data-ng-class="{ active: isActive('/users/profile')}"><a href="#/users/profile">{{lbl.profile}}</a></li>
+        </ul>
+    </div>
+</div>

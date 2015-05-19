@@ -1,0 +1,95 @@
+﻿@using System.Web
+@using System.Web.Optimization
+@using BlogEngine.Core
+@{
+    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOwnPages)){
+        Security.RedirectForUnauthorizedRequest();
+    }
+    string loginUrl = Href(Utils.RelativeWebRoot + "Account/login.aspx");
+    var userRights = string.Join("','", Security.CurrentUserRights().Select(r => r.Flag).ToArray());
+    var id = Request["id"];
+    var returnUrl = Request["returnUrl"];
+    if (string.IsNullOrEmpty(returnUrl)) { returnUrl = Utils.RelativeWebRoot + "admin/#/content/pages"; }
+}
+<html data-ng-app="blogAdmin">
+<head>
+    <title>{{lbl.editor}}</title>
+    <link rel="shortcut icon" href="@Href(Utils.ApplicationRelativeWebRoot + "Content/images/blog/blogengine.ico")" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @Styles.Render("~/Content/css")
+    <script type="text/javascript">
+        var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+</head>
+<body data-ng-controller="PageEditorController" class="@Resources.labels.LangDirection">
+    <script type="text/javascript">
+        var editVars = { id: '@id' };
+    </script>
+    <script type="text/javascript" src="admin.res.axd"></script>
+    <div id="wrap">
+        <form id="form" action="" style="margin:0;">
+            @RenderPage("_nav.cshtml")
+            <div class="subnav admin-views-subnav">
+                <div class="container">
+                    <ul class="nav nav-pills">
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">{{lbl.posts}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">{{lbl.comments}}</a></li>
+                        <li class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">{{lbl.pages}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">{{lbl.categories}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">{{lbl.tags}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/files">{{lbl.fileManager}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            @RenderPage("_pagemodals.cshtml")
+            @RenderPage("_filemgr.cshtml")
+            <div class="container editor admin-editor admin-editor-page">
+                <div id="overlay-editor">
+                    <div class="well">
+                        <input type="text" id="txtTitle" name="txtTitle" placeholder="{{lbl.titleOfPage}}..." class="form-control" data-ng-model="page.Title" />
+                        @RenderPage(BlogConfig.DefaultEditor)
+                        @RenderPage("_uploadbtns.cshtml")
+                    </div>
+
+                    <hr />
+                    <div class="text-right">
+                        <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+                        <a href="#" data-target="#modal-form" data-toggle="modal" class="btn btn-default pull-left"><i class="fa fa-cog"></i>{{lbl.settings}}</a>
+                        <a href="@returnUrl" class="btn btn-default"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+                        <a href="#" data-ng-click="save()" class="btn btn-success"><i class="fa fa-save"></i>{{lbl.save}}</a>
+                        <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-default" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <div class="BlogEngine-app pull-left">
+                <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET @BlogSettings.Instance.Version()</a> |
+                <a href="http://dotnetblogengine.net/Donate.aspx" target="_blank" id="donate">@Resources.labels.makeDonation</a>
+            </div>
+            <a class="logo-brand pull-right" target="_blank" href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo-footer.png" alt="BlogEngine.NET" /></a>
+        </div>
+    </div>
+    @Scripts.Render("~/scripts/wysiwyg")
+    @{
+        if (BlogConfig.DefaultEditor == "~/admin/editors/tinymce/editor.cshtml")
+        {
+        <script src="~/admin/editors/tinymce/tinymce.min.js"></script>
+        <script src="~/admin/editors/tinymce/editor.js"></script>
+        }
+    }
+</body>
+</html>

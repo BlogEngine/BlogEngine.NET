@@ -1,0 +1,103 @@
+﻿@using System.Web
+@using System.Web.Optimization
+@using BlogEngine.Core
+@{
+    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+    {
+        Security.RedirectForUnauthorizedRequest();
+    }
+    string loginUrl = Href(Utils.RelativeWebRoot + "Account/login.aspx");
+    var userRights = string.Join("','", Security.CurrentUserRights().Select(r => r.Flag).ToArray());
+}
+<html>
+<head>
+    <title>@BlogSettings.Instance.Name (@Security.CurrentMembershipUser.UserName)</title>
+    <link rel="shortcut icon" href="@Href(Utils.ApplicationRelativeWebRoot + "Content/images/blog/blogengine.ico")" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @*@Styles.Render("~/Content/css")*@
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        var ActiveTheme = { Theme: '@BlogSettings.Instance.Theme', Mobile: '@BlogSettings.Instance.MobileTheme' }
+        var ServerTime = '@DateTime.Now'
+        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+            var msViewportStyle = document.createElement("style");
+            var mq = "@@-ms-viewport{width:auto!important}";
+            msViewportStyle.appendChild(document.createTextNode(mq));
+            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+        }
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="admin.res.axd"></script>
+    <div class="wrapper @Resources.labels.LangDirection" data-ng-app="blogAdmin">
+        <div class="sidebar">
+            <ul class="nav-head">
+                <li><a href="/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
+                <li><a href="/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
+                <li><a href="/"><i class="fa fa-home"></i></a></li>
+                <li><a href="#"><i class="fa fa-bell"></i></a></li>
+            </ul>
+            <ul class="nav-primary" data-ng-controller="NavController">
+                <li id="mu-dashboard" class="active"><a href="#/dashboard"><i class="fa fa-th-large"></i>Dashboard</a></li>
+                <li id="mu-blogs"><a href="#/blogs"><i class="fa fa-align-justify"></i>Blogs</a></li>
+                <li id="mu-content">
+                    <a href="#/content"><i class="fa fa-align-justify"></i>Content</a>
+                    <ul>
+                        <li data-ng-class="{ active: isActive('/content')}"><a href="#/content">Posts</a></li>
+                        <li data-ng-class="{ active: isActive('/content/comments')}"><a href="#/content/comments">Comments</a></li>
+                        <li data-ng-class="{ active: isActive('/content/pages')}"><a href="#/content/pages">Pages</a></li>
+                        <li data-ng-class="{ active: isActive('/content/categories')}"><a href="#/content/categories">Categories</a></li>
+                        <li data-ng-class="{ active: isActive('/content/tags')}"><a href="#/content/tags">Tags</a></li>
+                        <li data-ng-class="{ active: isActive('/content/files')}"><a href="#/content/files">File Manager</a></li>
+                    </ul>
+                </li>
+                <li id="mu-custom">
+                    <a href="#/custom"><i class="fa fa-user"></i>Custom</a>
+                    <ul>
+                        <li data-ng-class="{ active: isActive('/custom')}"><a class="ng-binding" href="#/custom">Extensions</a></li>
+                        <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="#/custom/themes">Themes</a></li>
+                        <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="#/custom/widgets">Widgets</a></li>
+                        <li data-ng-class="{ active: isActive('/custom/packages')}"><a class="ng-binding" href="#/custom/packages">Gallery</a></li>
+                    </ul>
+                </li>
+                <li id="mu-users">
+                    <a href="#/users"><i class="fa fa-user"></i>Users</a>
+                    <ul>
+                        <li data-ng-class="{ active: isActive('/users')}"><a class="ng-binding" href="#/users">Users</a></li>
+                        <li data-ng-class="{ active: isActive('/users/roles')}"><a class="ng-binding" href="#/users/roles">Roles</a></li>
+                        <li data-ng-class="{ active: isActive('/users/profile')}"><a class="ng-binding" href="#/users/profile">Profile</a></li>
+                    </ul>
+                </li>
+                <li id="mu-settings">
+                    <a href="#/settings"><i class="fa fa-cog"></i>Settings</a>
+                    <ul>
+                        <li data-ng-class="{ active: isActive('/settings')}"><a class="ng-binding" href="#/settings">Basic</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="#/settings/advanced">Advanced</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/feed')}"><a class="ng-binding" href="#/settings/feed">Feed</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/email')}"><a class="ng-binding" href="#/settings/email">E-mail</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/controls')}"><a class="ng-binding" href="#/settings/controls">Controls</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/customecode')}"><a class="ng-binding" href="#/settings/customecode">Custom code</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="#/settings/comments">Comments</a></li>
+                        <li data-ng-class="{ active: isActive('/settings/tools')}"><a class="ng-binding" href="#/settings/tools">Tools</a></li>
+                    </ul>
+                </li>
+                <li id="mu-help"><a href="#/helps"><i class="fa fa-question-circle"></i>Help Center</a></li>
+                <li id="mu-About"><a href="#/about"><i class="fa fa-question-circle"></i>BlogEngine.NET 4.0</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="" data-ng-view="" id="ng-view"></div>
+        </div>
+    </div>
+    @Scripts.Render("~/scripts/blogadmin")
+</body>
+</html>

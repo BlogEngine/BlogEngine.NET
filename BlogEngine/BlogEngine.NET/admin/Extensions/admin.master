@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Admin.ExtensionsMasterPage" CodeBehind="admin.master.cs" %>
+
+<%@ Import Namespace="BlogEngine.Core" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<html>
+<head id="Head1" runat="server">
+    <title>BlogEngine.NET Admin</title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <script type="text/javascript">
+        var SiteVars = {
+            ApplicationRelativeWebRoot: '<%= Utils.ApplicationRelativeWebRoot %>',
+            RelativeWebRoot: '<%= Utils.RelativeWebRoot %>',
+            BlogInstanceId: '<%= Blog.CurrentInstance.Id %>'
+        };
+    </script>
+    <script type="text/javascript" src="admin.res.axd"></script>
+    <form id="form1" runat="server">
+        <div id="StatusBox">
+            <div id="AdminStatus" runat="server"></div>
+        </div>
+      
+            <asp:ContentPlaceHolder ID="cphAdmin" runat="server" />     
+    </form>
+</body>
+</html>

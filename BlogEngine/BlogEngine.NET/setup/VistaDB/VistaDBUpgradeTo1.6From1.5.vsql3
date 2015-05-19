@@ -1,0 +1,35 @@
+﻿CREATE TABLE [be_BlogRollItems]
+(
+[BlogRollId] UNIQUEIDENTIFIER NOT NULL,
+[Title] NVARCHAR (255) NOT NULL,
+[Description] NTEXT,
+[BlogUrl] VARCHAR (255) CODE PAGE 1252 NOT NULL,
+[FeedUrl] VARCHAR (255) CODE PAGE 1252,
+[Xfn] VARCHAR (255) CODE PAGE 1252,
+[SortIndex] INT NOT NULL
+);
+
+ALTER TABLE [be_BlogRollItems]
+ADD
+CONSTRAINT [Primary Key] PRIMARY KEY ([BlogRollId]);
+
+CREATE TABLE [be_Referrers]
+(
+[ReferrerId] UNIQUEIDENTIFIER NOT NULL,
+[ReferralDay] DATETIME NOT NULL DEFAULT 'GETDATE()',
+[ReferrerUrl] VARCHAR (255) CODE PAGE 1252 NOT NULL,
+[ReferralCount] INT NOT NULL,
+[Url] VARCHAR (255) CODE PAGE 1252,
+[IsSpam] BIT
+);
+
+ALTER TABLE [be_Referrers]
+ADD
+CONSTRAINT [Primary Key] PRIMARY KEY ([ReferrerId]);
+
+ALTER TABLE dbo.be_Pages ADD Slug nvarchar(255) NULL;
+
+ALTER TABLE dbo.be_PostComment ADD ModeratedBy nvarchar(100) NULL;
+
+ALTER TABLE dbo.be_PostComment ADD Avatar nvarchar(255) NULL;
+

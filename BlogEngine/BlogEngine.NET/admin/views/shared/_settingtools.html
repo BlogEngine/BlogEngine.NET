@@ -1,0 +1,7 @@
+﻿<div data-ng-controller="SubNavController" class="btn-toolbar pull-right">
+    <div class="btn-group">
+        <button onclick="location.href = '#/settings/tools'" data-ng-class="{ active: isActive('/settings/tools')}" class="btn btn-default btn-sm ng-binding">Permissions</button>
+        <button onclick="location.href = '#/settings/tools/import'" data-ng-class="{ active: isActive('/settings/tools/import')}" class="btn btn-default btn-sm ng-binding">{{lbl.import}}</button>
+        <button onclick="location.href = '#/settings/tools/export'" data-ng-class="{ active: isActive('/settings/tools/export')}" class="btn btn-default btn-sm ng-binding">{{lbl.export}}</button>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+﻿<div data-ng-controller="SettingsController">
+    <form id="form" action="">
+        <div class="page-header clearfix">
+            <h2 class="page-title pull-left">
+                {{lbl.basic}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            </h2>
+            <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        </div>
+        <div class="content-inner">
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtName">{{lbl.name}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtDescription">{{lbl.description}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="selCultures">{{lbl.language}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtTimeOffset">{{lbl.timezone}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" title="Server time: {{ServerTime}}" class="form-control" id="txtTimeOffset" name="txtTimeOffset" data-ng-model="settings.Timezone" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="selMobileTheme">{{lbl.setAsMobileTheme}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selMobileTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedMobileTheme"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-offset-4 col-md-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckUseBlogNameInPageTitles" data-ng-model="settings.UseBlogNameInPageTitles" />
+                                        {{lbl.useBlogNameInPageTitles}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckRemoveExtensionsFromUrls" data-ng-model="settings.RemoveExtensionsFromUrls" />
+                                        {{lbl.removeExtensionsFromUrls}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckRedirectToRemoveFileExtension" data-ng-model="settings.RedirectToRemoveFileExtension" />
+                                        {{lbl.redirectToRemoveFileExtension}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-md-offset-4 col-md-8">
+                                <div class="checkbox" style="margin-bottom:5px;">
+                                    <label>
+                                        <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
+                                        <span style="font-size:10px; position:relative; top:0 ">{{lbl.showDescriptionInPostList}}</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 " for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
+                                </div>
+                            </div>
+                            <div class="col-md-offset-4 col-md-8">
+                                <div class="checkbox" style="margin-bottom:5px;">
+                                    <label>
+                                        <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostListForPostsByTagOrCategory" />
+                                        <span style="font-size:10px; position:relative; top:0 ">{{lbl.showDescriptionInPostListForPostsByTagOrCategory}}</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group clearifx">
+                                <label class="control-label col-md-4" for="txtDescriptionCharactersForPosts">{{lbl.numberOfCharacters}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtDescriptionCharactersForPosts" name="txtDescriptionCharactersForPosts" data-ng-model="settings.DescriptionCharactersForPostsByTagOrCategory" data-ng-disabled="settings.ShowDescriptionInPostListForPostsByTagOrCategory == false" />
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="col-md-offset-4 col-md-8">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckShowRelatedPosts" data-ng-model="settings.EnableRelatedPosts" />
+                                        {{lbl.showRelatedPosts}}
+                                    </label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckShowPostNavigation" data-ng-model="settings.ShowPostNavigation" />
+                                        {{lbl.showPostNavigation}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableRating" data-ng-model="settings.EnableRating" />
+                                        {{lbl.enableRating}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
+                                        {{lbl.timeStampPostLinks}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

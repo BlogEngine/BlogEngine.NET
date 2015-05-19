@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="BBCode">
+  <AdminPage />
+  <Author>&lt;a href="http://dotnetblogengine.net"&gt;BlogEngine.NET&lt;/a&gt;</Author>
+  <Description>Converts BBCode to XHTML in the comments</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>true</SubBlogEnabled>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help>Converts BBCode to XHTML in the comments. Close tag is optional.</Help>
+    <Hidden>false</Hidden>
+    <Index>0</Index>
+    <IsScalar>false</IsScalar>
+    <KeyField>Code</KeyField>
+    <Name>BBCode</Name>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Code</Label>
+      <MaxLength>20</MaxLength>
+      <Name>Code</Name>
+      <ParamType>String</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>b</Values>
+      <Values>i</Values>
+      <Values>u</Values>
+      <Values>quote</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Open Tag</Label>
+      <MaxLength>150</MaxLength>
+      <Name>OpenTag</Name>
+      <ParamType>String</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>strong</Values>
+      <Values>em</Values>
+      <Values>span style="text-decoration:underline"</Values>
+      <Values>cite title="Quote"</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Close Tag</Label>
+      <MaxLength>100</MaxLength>
+      <Name>CloseTag</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values />
+      <Values />
+      <Values>span</Values>
+      <Values>cite</Values>
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.0</Version>
+</ManagedExtension>

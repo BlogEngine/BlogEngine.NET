@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="default.aspx" title="Blog Engine" description="">
+    <siteMapNode url="~/admin/index.cshtml" title="dashboard" description="" rights="ViewDashboard" />
+    <siteMapNode url="~/admin/#/blogs" title="blogs" description="" rights="AccessAdminPages" primaryBlogInstanceOnly="true" />
+    <siteMapNode url="~/admin/#/content" title="content" description="" rightsAuthorizationCheck="HasAny" rights="CreateNewPosts, EditOwnPosts, EditOtherUsersPosts, PublishOwnPosts, PublishOtherUsersPosts" />
+    <siteMapNode url="~/admin/#/custom" title="custom" description="" rightsAuthorizationCheck="HasAny" rights="ManageExtensions, ManageWidgets, ManageThemes, ManagePackages" />
+    <siteMapNode url="~/admin/#/users" title="users" description="" rights="EditOtherUsers" />
+    <siteMapNode url="~/admin/#/settings" title="settings" rights="AccessAdminSettingsPages" description="" />
+  </siteMapNode>
+</siteMap>

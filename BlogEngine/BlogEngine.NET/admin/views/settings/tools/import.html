@@ -1,0 +1,36 @@
+﻿<div data-ng-controller="SettingsController">
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            {{lbl.import}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+    </div>
+    <div class="content-inner">
+        <div class="toolbar-grid clearfix">
+            <div class="pull-left">&nbsp;</div>
+            <div data-ng-include src="'views/shared/_settingtools.html'"></div>
+        </div>
+        <div class="row">
+            <div class="col col-md-12">
+                <div class="well">
+                    <form>
+                        <label class="control-label">{{lbl.selectSavedBlogMlFle}}</label>
+                        <!--<input type="file" accept="xml" name=" file" onchange="angular.element(this).scope().uploadFile(this.files)" />-->
+                        <div>
+                            <a class="btn btn-primary" id="importBtn" title="{{lbl.import}}">{{lbl.import}}</a>
+                            <input type="file" data-role="magic-overlay" class="cursor-pointer" data-target="#importBtn" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                        </div>
+                    </form>
+                    <small class="small-caps control-label">{{lbl.or}}</small>
+                    <label ng-bind-html="lbl.runClickOnceApplicationToImport"></label><br />
+                    <button class="btn btn-primary" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('[data-role=magic-overlay]').each(function () {
+        var overlay = $(this), target = $(overlay.data('target'));
+        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+    });
+</script>

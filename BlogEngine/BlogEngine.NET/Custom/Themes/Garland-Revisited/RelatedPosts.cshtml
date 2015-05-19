@@ -1,0 +1,12 @@
+﻿@using BlogEngine.Core
+<div class="related-posts">
+    <h2>Related posts</h2>
+    <ul>
+        @foreach (var item in Model.RelatedPostList){
+        <li>
+            <a href="@item.Link">@item.Title</a>
+            <span>@item.Description</span>
+        </li>
+        }
+    </ul>
+</div>

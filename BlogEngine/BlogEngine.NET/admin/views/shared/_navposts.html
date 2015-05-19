@@ -1,0 +1,12 @@
+﻿<div class="subnav admin-views-subnav" data-ng-controller="SubNavController">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li data-ng-class="{ active: isActive('/content')}"><a href="#/content">{{lbl.posts}}</a></li>
+            <li data-ng-class="{ active: isActive('/content/comments')}"><a href="#/content/comments">{{lbl.comments}}</a></li>
+            <li data-ng-class="{ active: isActive('/content/pages')}"><a href="#/content/pages">{{lbl.pages}}</a></li>
+            <li data-ng-class="{ active: isActive('/content/categories')}"><a href="#/content/categories">{{lbl.categories}}</a></li>
+            <li data-ng-class="{ active: isActive('/content/tags')}"><a href="#/content/tags">{{lbl.tags}}</a></li>
+            <li data-ng-class="{ active: isActive('/content/files')}"><a href="#/content/files">{{lbl.fileManager}}</a></li>
+        </ul>
+    </div>
+</div>

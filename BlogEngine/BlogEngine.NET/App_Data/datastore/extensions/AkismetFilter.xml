@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AkismetFilter">
+  <AdminPage />
+  <Author>&lt;a href="http://dotnetblogengine.net"&gt;BlogEngine.NET&lt;/a&gt;</Author>
+  <Description>Akismet anti-spam comment filter</Description>
+  <Enabled>false</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help />
+    <Hidden>false</Hidden>
+    <Index>0</Index>
+    <IsScalar>true</IsScalar>
+    <Name>AkismetFilter</Name>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Site URL</Label>
+      <MaxLength>100</MaxLength>
+      <Name>SiteURL</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>http://example.com/blog</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>API Key</Label>
+      <MaxLength>100</MaxLength>
+      <Name>ApiKey</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>123456789</Values>
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.0</Version>
+</ManagedExtension>

@@ -1,0 +1,14 @@
+﻿<div class="subnav admin-views-subnav" data-ng-controller="SubNavController">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li data-ng-class="{ active: isActive('/settings')}"><a href="#/settings">{{lbl.basic}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/advanced')}"><a href="#/settings/advanced">{{lbl.advanced}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/feed')}"><a href="#/settings/feed">{{lbl.feed}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/email')}"><a href="#/settings/email">{{lbl.email}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/controls')}"><a href="#/settings/controls">{{lbl.controls}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/customecode')}"><a href="#/settings/customecode">{{lbl.customCode}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/comments')}"><a href="#/settings/comments">{{lbl.comments}}</a></li>
+            <li data-ng-class="{ active: isActive('/settings/tools')}"><a href="#/settings/tools">{{lbl.tools}}</a></li>
+        </ul>
+    </div>
+</div>

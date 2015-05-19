@@ -1,0 +1,38 @@
+﻿<nav class="navbar navbar-inverse admin-views-nav" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand hide">
+                <a class="btn btn-xs btn-default" href="{{SiteVars.RelativeWebRoot}}Account/login.aspx?logoff"><i class="fa fa-power-off fa-lg"></i></a>
+                <a class="btn btn-xs btn-default" href="{{SiteVars.RelativeWebRoot}}" target="_blank"><i class="fa fa-home fa-lg"></i></a>
+            </span>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse" data-ng-controller="NavController">
+            <ul class="nav navbar-nav">
+                <li ng-if="security.showTabDashboard" data-ng-class="{ active: isActive('/')}"><a href="#/dashboard">{{lbl.dashboard}}</a></li>
+                <li ng-if="security.showTabBlogs" data-ng-class="{ active: isActive('/blogs')}"><a href="#/blogs">{{lbl.blogs}}</a></li>
+                <li ng-if="security.showTabContent" data-ng-class="{ active: isActive('/content')}"><a href="#/content">{{lbl.content}}</a></li>
+                <li ng-if="security.showTabCustom" data-ng-class="{ active: isActive('/custom')}"><a href="#/custom">{{lbl.custom}}</a></li>
+                <li ng-if="security.showTabUsers" data-ng-class="{ active: isActive('/users')}"><a href="#/users">{{lbl.users}}</a></li>
+                <li ng-if="security.showTabSettings" data-ng-class="{ active: isActive('/settings')}"><a href="#/settings">{{lbl.settings}}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{UserVars.Name}} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{SiteVars.RelativeWebRoot}}" target="_blank"><i class="fa fa-home"></i>{{lbl.viewMyBlog}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/users/profile"><i class="fa fa-user"></i>{{lbl.myProfile}}</a></li>
+                        <li><a href="{{SiteVars.RelativeWebRoot}}Account/change-password.aspx"><i class="fa fa-key"></i>{{lbl.changePassword}}</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li><a class="text-danger logoff" href="{{SiteVars.RelativeWebRoot}}Account/login.aspx?logoff"><i class="fa fa-power-off"></i>{{lbl.logoff}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
