@@ -123,7 +123,9 @@
     <Content Include="Account\Logout.cshtml" />
     <Content Include="Account\Web.Config" />
     <Content Include="admin\admin.master" />
+    <Content Include="admin\controllers\about.js" />
     <Content Include="admin\controllers\commentfilters.js" />
+    <Content Include="admin\controllers\help.js" />
     <Content Include="admin\controllers\listpager.js" />
     <Content Include="admin\controllers\pings.js" />
     <Content Include="admin\controllers\blogroll.js" />
@@ -251,7 +253,7 @@
     <Content Include="admin\views\shared\_settingcomments.html" />
     <Content Include="admin\views\shared\_controls.html" />
     <Content Include="admin\views\shared\_filestable.html" />
-    <Content Include="admin\views\helps\index.html" />
+    <Content Include="admin\views\help\index.html" />
     <Content Include="admin\Web.Config" />
     <Content Include="admin\editor\_filemgr.cshtml" />
     <Content Include="admin\editor\_uploadbtns.cshtml" />

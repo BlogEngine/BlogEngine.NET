@@ -43,6 +43,10 @@
         .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
         .when("/settings/tools/export", { templateUrl: "views/settings/tools/export.html" })
         .when("/settings/tools/import", { templateUrl: "views/settings/tools/import.html" })
+
+        .when("/help", { templateUrl: "views/help/index.html" })
+        .when("/about", { templateUrl: "views/about/index.html" })
+
         .otherwise({ redirectTo: "/" });
     }];
     app.config(config);

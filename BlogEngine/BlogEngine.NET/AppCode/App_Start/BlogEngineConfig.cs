@@ -140,6 +140,8 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app.js")
                 .Include("~/admin/controllers/dashboard.js")
                 .Include("~/admin/controllers/blogs.js")
+                .Include("~/admin/controllers/help.js")
+                .Include("~/admin/controllers/about.js")
                 .Include("~/admin/controllers/posts.js")
                 .Include("~/admin/controllers/listpager.js")
                 .Include("~/admin/controllers/pages.js")
