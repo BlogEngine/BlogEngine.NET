@@ -4,9 +4,9 @@
     var config = ["$routeProvider", function ($routeProvider) {
         $routeProvider
         .when("/", { templateUrl: "views/dashboard.html" })
-        .when("/blogs", { templateUrl: "views/blogs.html" })
-
+        
         .when("/content", { templateUrl: "views/content/posts.html" })
+        .when("/content/blogs", { templateUrl: "views/content/blogs.html" })
         .when("/content/comments", { templateUrl: "views/content/comments.html" })
         .when("/content/pages", { templateUrl: "views/content/pages.html" })
         .when("/content/categories", { templateUrl: "views/content/categories.html" })

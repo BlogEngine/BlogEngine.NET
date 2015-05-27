@@ -47,11 +47,11 @@
                 <li><a href="#"><i class="fa fa-bell"></i></a></li>
             </ul>
             <ul class="nav-primary" data-ng-controller="NavController">
-                <li id="mu-dashboard" class="active"><a href="#/dashboard"><i class="fa fa-th-large"></i>Dashboard</a></li>
-                <li id="mu-blogs"><a href="#/blogs"><i class="fa fa-align-justify"></i>Blogs</a></li>
+                <li id="mu-dashboard" class="active"><a href="#/dashboard"><i class="fa fa-th-large"></i>Dashboard</a></li>              
                 <li id="mu-content">
                     <a href="#/content"><i class="fa fa-align-justify"></i>Content</a>
                     <ul>
+                        <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="#/content/blogs">Blogs</a></li>
                         <li data-ng-class="{ active: isActive('/content')}"><a href="#/content">Posts</a></li>
                         <li data-ng-class="{ active: isActive('/content/comments')}"><a href="#/content/comments">Comments</a></li>
                         <li data-ng-class="{ active: isActive('/content/pages')}"><a href="#/content/pages">Pages</a></li>
