@@ -240,7 +240,6 @@
     <Content Include="admin\views\settings\comments\filters.html" />
     <Content Include="admin\views\settings\comments\index.html" />
     <Content Include="admin\views\settings\controls\error.html" />
-    <Content Include="admin\views\settings\controls\recentcomments.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
     <Content Include="admin\views\settings\controls\search.html" />
     <Content Include="admin\views\settings\tools\check.html" />
@@ -1981,7 +1980,6 @@
     <Compile Include="AppCode\Controls\PageMenu.cs" />
     <Compile Include="AppCode\Controls\PostCalendar.cs" />
     <Compile Include="AppCode\Controls\PostPager.cs" />
-    <Compile Include="AppCode\Controls\RecentComments.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
     <Compile Include="AppCode\Controls\SearchBox.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />

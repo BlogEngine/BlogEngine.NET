@@ -167,8 +167,6 @@ INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('iscommentsenabled',
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('language', 'en-GB');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('mobiletheme', 'Mobile');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('name', 'Name of the blog');
-INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('numberofrecentcomments', '10');
-INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('numberofrecentposts', '10');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('postsperfeed', '10');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('postsperpage', '10');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('removewhitespaceinstylesheets', 'True');

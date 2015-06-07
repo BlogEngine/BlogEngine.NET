@@ -28,7 +28,6 @@
   <searchbuttontext>Search</searchbuttontext>
   <showincludecommentsoption>False</showincludecommentsoption>
   <createblogonselfregistration>False</createblogonselfregistration>
-  <numberofrecentcomments>10</numberofrecentcomments>
   <endorsement>http://www.dotnetblogengine.net/syndication.axd</endorsement>
   <blogrollmaxlength>23</blogrollmaxlength>
   <language>en-US</language>

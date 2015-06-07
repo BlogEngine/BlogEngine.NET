@@ -270,16 +270,6 @@
 
         #endregion
 
-        #region NumberOfRecentComments
-
-        /// <summary>
-        ///     Gets or sets the default number of recent posts to display.
-        /// </summary>
-        /// <value>The number of recent posts to display.</value>
-        public int NumberOfRecentComments { get; set; }
-
-        #endregion
-
         #region PostsPerPage
 
         /// <summary>
