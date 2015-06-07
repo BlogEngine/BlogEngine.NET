@@ -80,9 +80,6 @@ namespace BlogEngine.Core.Data
             ns.SendMailOnComment = bs.SendMailOnComment;
 
             // controls
-            ns.NumberOfRecentPosts = bs.NumberOfRecentPosts;
-            ns.DisplayCommentsOnRecentPosts = bs.DisplayCommentsOnRecentPosts;
-            ns.DisplayRatingsOnRecentPosts = bs.DisplayRatingsOnRecentPosts;
             ns.NumberOfRecentComments = bs.NumberOfRecentComments;
             ns.SearchButtonText = bs.SearchButtonText;
             ns.SearchCommentLabelText = bs.SearchCommentLabelText;
@@ -205,9 +202,6 @@ namespace BlogEngine.Core.Data
             bs.SendMailOnComment = ns.SendMailOnComment;
 
             // controls
-            bs.NumberOfRecentPosts = ns.NumberOfRecentPosts;
-            bs.DisplayCommentsOnRecentPosts = ns.DisplayCommentsOnRecentPosts;
-            bs.DisplayRatingsOnRecentPosts = ns.DisplayRatingsOnRecentPosts;
             bs.NumberOfRecentComments = ns.NumberOfRecentComments;
             bs.SearchButtonText = ns.SearchButtonText;
             bs.SearchCommentLabelText = ns.SearchCommentLabelText;

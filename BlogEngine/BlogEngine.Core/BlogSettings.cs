@@ -39,11 +39,6 @@
         private string configuredTheme = String.Empty;
 
         /// <summary>
-        ///     The number of recent posts.
-        /// </summary>
-        private int numberOfRecentPosts = 10;
-
-        /// <summary>
         ///     The number of comments per page.
         /// </summary>
         private int commentsPerPage;
@@ -272,27 +267,6 @@
         /// </summary>
         /// <value>The title of the blog.</value>
         public string Name { get; set; }
-
-        #endregion
-
-        #region NumberOfRecentPosts
-
-        /// <summary>
-        ///     Gets or sets the default number of recent posts to display.
-        /// </summary>
-        /// <value>The number of recent posts to display.</value>
-        public int NumberOfRecentPosts
-        {
-            get
-            {
-                return this.numberOfRecentPosts;
-            }
-
-            set
-            {
-                this.numberOfRecentPosts = value;
-            }
-        }
 
         #endregion
 
@@ -552,26 +526,6 @@
         ///     Gets or sets the tracking script used to collect visitor data.
         /// </summary>
         public string TrackingScript { get; set; }
-
-        #endregion
-
-        #region DisplayCommentsOnRecentPosts
-
-        /// <summary>
-        ///     Gets or sets a value indicating if whitespace in stylesheets should be removed
-        /// </summary>
-        /// <value><b>true</b> if whitespace is removed, otherwise returns <b>false</b>.</value>
-        public bool DisplayCommentsOnRecentPosts { get; set; }
-
-        #endregion
-
-        #region DisplayRatingsOnRecentPosts
-
-        /// <summary>
-        ///     Gets or sets a value indicating if whitespace in stylesheets should be removed
-        /// </summary>
-        /// <value><b>true</b> if whitespace is removed, otherwise returns <b>false</b>.</value>
-        public bool DisplayRatingsOnRecentPosts { get; set; }
 
         #endregion
 

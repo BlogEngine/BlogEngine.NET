@@ -232,6 +232,7 @@
     <Content Include="admin\Extensions\admin.master" />
     <Content Include="admin\index.cshtml" />
     <Content Include="admin\star-rating.css" />
+    <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\content\files.html" />
     <Content Include="admin\views\custom\packages.html" />
     <Content Include="admin\views\about\index.html" />
@@ -240,7 +241,6 @@
     <Content Include="admin\views\settings\comments\index.html" />
     <Content Include="admin\views\settings\controls\error.html" />
     <Content Include="admin\views\settings\controls\recentcomments.html" />
-    <Content Include="admin\views\settings\controls\recentposts.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
     <Content Include="admin\views\settings\controls\search.html" />
     <Content Include="admin\views\settings\tools\check.html" />
@@ -276,9 +276,9 @@
     <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />
     <Content Include="AppCode\Wlw\TagMiniView.aspx" />
     <Content Include="AppCode\Wlw\wlw.css" />
-    <Content Include="App_Data\posts\ec263a41-af90-4bdc-be2e-3b3ade12f6e5.xml" />
     <Content Include="App_Data\labels.txt" />
     <Content Include="bin\BlogEngine.NET.dll.config" />
+    <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -626,6 +626,7 @@
     <Content Include="Custom\Themes\Standard\fonts\fontello.ttf" />
     <Content Include="Custom\Themes\Standard\fonts\fontello.woff" />
     <Content Include="Custom\Themes\Standard\fonts\Yekan.woff" />
+    <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1509,7 +1510,6 @@
     <Content Include="admin\Extensions\Settings.aspx" />
     <Content Include="admin\menu.ascx" />
     <Content Include="admin\services.js" />
-    <Content Include="admin\views\blogs.html" />
     <Content Include="admin\views\content\categories.html" />
     <Content Include="admin\views\content\comments.html" />
     <Content Include="admin\views\content\pages.html" />
@@ -1708,7 +1708,6 @@
     <Content Include="setup\SQLServer\MSSQLUpgradeTo1.4.5.0From1.4.0.0.sql" />
     <Content Include="setup\SQLServer\MSSQLUpgradeTo1.5.0.0From1.4.5.0.sql" />
     <Content Include="setup\SQLServer\ReadMe.txt" />
-    <Content Include="setup\SQL_CE\BlogEngine.sdf" />
     <Content Include="setup\SQL_CE\ReadMe.txt" />
     <Content Include="setup\SQL_CE\SQL_CE_Setup_2.0.sql" />
     <Content Include="setup\SQL_CE\SQL_CE_Setup_2.5.sql" />
@@ -1983,7 +1982,6 @@
     <Compile Include="AppCode\Controls\PostCalendar.cs" />
     <Compile Include="AppCode\Controls\PostPager.cs" />
     <Compile Include="AppCode\Controls\RecentComments.cs" />
-    <Compile Include="AppCode\Controls\RecentPosts.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
     <Compile Include="AppCode\Controls\SearchBox.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />
@@ -2736,7 +2734,7 @@
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\avatars\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />
-    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="App_Data\posts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

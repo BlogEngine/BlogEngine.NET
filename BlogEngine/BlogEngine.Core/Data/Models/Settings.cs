@@ -147,9 +147,6 @@
         public bool SendMailOnComment { get; set; }
 
         // controls
-        public int NumberOfRecentPosts { get; set; }
-        public bool DisplayCommentsOnRecentPosts { get; set; }
-        public bool DisplayRatingsOnRecentPosts { get; set; }
         public int NumberOfRecentComments { get; set; }
         public string SearchButtonText { get; set; }
         public string SearchCommentLabelText { get; set; }

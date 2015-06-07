@@ -99,7 +99,6 @@
   <enablewebsiteincomments>False</enablewebsiteincomments>
   <descriptioncharactersforpostsbytagorcategory>0</descriptioncharactersforpostsbytagorcategory>
   <commentreportmistakes>False</commentreportmistakes>
-  <numberofrecentposts>10</numberofrecentposts>
   <selfregistrationinitialrole>Editors</selfregistrationinitialrole>
   <enableselfregistration>False</enableselfregistration>
   <blogrollupdateminutes>60</blogrollupdateminutes>
