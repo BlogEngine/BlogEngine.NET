@@ -28,8 +28,6 @@
         .when("/settings/email", { templateUrl: "views/settings/email.html" })
 
         .when("/settings/controls", { templateUrl: "views/settings/controls/contactform.html" })
-        .when("/settings/controls/search", { templateUrl: "views/settings/controls/search.html" })
-        .when("/settings/controls/recentcomments", { templateUrl: "views/settings/controls/recentcomments.html" })
         .when("/settings/controls/blogroll", { templateUrl: "views/settings/controls/blogroll.html" })
         .when("/settings/controls/pings", { templateUrl: "views/settings/controls/pings.html" })
         .when("/settings/controls/error", { templateUrl: "views/settings/controls/error.html" })

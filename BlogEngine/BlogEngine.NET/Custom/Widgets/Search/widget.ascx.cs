@@ -6,7 +6,20 @@
 
 namespace Widgets.Search
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Globalization;
+    using System.Text;
+    using System.Web;
+    using System.Web.UI;
+    using System.Linq;
+
     using App_Code.Controls;
+
+    using BlogEngine.Core;
+
+    using Resources;
 
     /// <summary>
     /// The widget.
@@ -14,6 +27,9 @@ namespace Widgets.Search
     public partial class Widget : WidgetBase
     {
         #region Properties
+
+        static string _buttonText = "search-button-text";
+        static string _fieldText = "search-field-text";
 
         /// <summary>
         ///     Gets a value indicating if the header is visible. This only takes effect if the widgets isn't editable.
@@ -38,7 +54,7 @@ namespace Widgets.Search
         {
             get
             {
-                return false;
+                return true;
             }
         }
 
@@ -64,7 +80,31 @@ namespace Widgets.Search
         /// </summary>
         public override void LoadWidget()
         {
-            // Nothing to load
+            var settings = this.GetSettings();
+
+            var buttonText = settings.ContainsKey(_buttonText) ? settings[_buttonText] : Resources.labels.search;
+            var searchTxt = settings.ContainsKey(_fieldText) ? settings[_fieldText] : "Enter search term or APML url";
+
+            var searchText = this.Context.Request.QueryString["q"] != null
+                ? HttpUtility.HtmlEncode(this.Context.Request.QueryString["q"]) : searchTxt;
+
+            var sb = new StringBuilder();
+            sb.AppendLine("<div id=\"searchbox\">");
+            sb.Append("<label for=\"searchfield\" style=\"display:none\">Search</label>");
+            
+            sb.AppendFormat(
+                "<input type=\"text\" value=\"{0}\" id=\"searchfield\" onkeypress=\"if(event.keyCode==13) return BlogEngine.search('{1}')\" onfocus=\"BlogEngine.searchClear('{2}')\" onblur=\"BlogEngine.searchClear('{2}')\" />",
+                searchText, Utils.RelativeWebRoot, searchText.Replace("'", "\\'"));
+
+            sb.AppendFormat(
+                "<input type=\"button\" value=\"{0}\" id=\"searchbutton\" onclick=\"BlogEngine.search('{1}');\" onkeypress=\"BlogEngine.search('{1}');\" />",
+                buttonText, Utils.RelativeWebRoot);
+
+            sb.AppendLine("</div>");
+
+            var html = new LiteralControl(sb.ToString());
+
+            phSearch.Controls.Add(html);
         }
 
         #endregion

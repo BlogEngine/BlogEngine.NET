@@ -241,7 +241,6 @@
     <Content Include="admin\views\settings\comments\index.html" />
     <Content Include="admin\views\settings\controls\error.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
-    <Content Include="admin\views\settings\controls\search.html" />
     <Content Include="admin\views\settings\tools\check.html" />
     <Content Include="admin\views\settings\tools\export.html" />
     <Content Include="admin\views\settings\tools\import.html" />
@@ -570,6 +569,7 @@
     <Content Include="Custom\Widgets\Post List\edit.ascx" />
     <Content Include="Custom\Widgets\Post List\widget.ascx" />
     <Content Include="Custom\Widgets\Post List\widget.xml" />
+    <Content Include="Custom\Widgets\Search\edit.ascx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FrontPageExample.aspx" />
@@ -2244,6 +2244,13 @@
     </Compile>
     <Compile Include="Custom\Widgets\Post List\widget.ascx.designer.cs">
       <DependentUpon>widget.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Widgets\Search\edit.ascx.cs">
+      <DependentUpon>edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Custom\Widgets\Search\edit.ascx.designer.cs">
+      <DependentUpon>edit.ascx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

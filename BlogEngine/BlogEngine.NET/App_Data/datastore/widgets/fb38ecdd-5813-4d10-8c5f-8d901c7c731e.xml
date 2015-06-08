@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SerializableStringDictionary>
+  <SerializableStringDictionary>
+    <DictionaryEntry Key="search-field-text" Value="Yet another text" />
+    <DictionaryEntry Key="search-button-text" Value="Search" />
+  </SerializableStringDictionary>
+</SerializableStringDictionary>

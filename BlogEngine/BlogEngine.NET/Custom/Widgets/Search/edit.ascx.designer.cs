@@ -10,15 +10,24 @@
 namespace Widgets.Search {
     
     
-    public partial class Widget {
+    public partial class Edit {
         
         /// <summary>
-        /// phSearch control.
+        /// txtButtonText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phSearch;
+        protected global::System.Web.UI.WebControls.TextBox txtButtonText;
+        
+        /// <summary>
+        /// txtFieldText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFieldText;
     }
 }
