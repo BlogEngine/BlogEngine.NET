@@ -84,21 +84,22 @@ namespace Widgets.Search
 
             var buttonText = settings.ContainsKey(_buttonText) ? settings[_buttonText] : Resources.labels.search;
             var searchTxt = settings.ContainsKey(_fieldText) ? settings[_fieldText] : "Enter search term or APML url";
+            var searchfield = "txt-" + this.WidgetId.ToString();
 
             var searchText = this.Context.Request.QueryString["q"] != null
                 ? HttpUtility.HtmlEncode(this.Context.Request.QueryString["q"]) : searchTxt;
 
             var sb = new StringBuilder();
             sb.AppendLine("<div id=\"searchbox\">");
-            sb.Append("<label for=\"searchfield\" style=\"display:none\">Search</label>");
+            sb.Append("<label for=\"" + searchfield + "\" style=\"display:none\">Search</label>");
             
             sb.AppendFormat(
-                "<input type=\"text\" value=\"{0}\" id=\"searchfield\" onkeypress=\"if(event.keyCode==13) return BlogEngine.search('{1}')\" onfocus=\"BlogEngine.searchClear('{2}')\" onblur=\"BlogEngine.searchClear('{2}')\" />",
-                searchText, Utils.RelativeWebRoot, searchText.Replace("'", "\\'"));
+                "<input type=\"text\" value=\"{0}\" id=\"{3}\" onkeypress=\"if(event.keyCode==13) return BlogEngine.search('{1}','{3}')\" onfocus=\"BlogEngine.searchClear('{2}','{3}')\" onblur=\"BlogEngine.searchClear('{2}','{3}')\" />",
+                searchText, Utils.RelativeWebRoot, searchText.Replace("'", "\\'"), searchfield);
 
             sb.AppendFormat(
-                "<input type=\"button\" value=\"{0}\" id=\"searchbutton\" onclick=\"BlogEngine.search('{1}');\" onkeypress=\"BlogEngine.search('{1}');\" />",
-                buttonText, Utils.RelativeWebRoot);
+                "<input type=\"button\" value=\"{0}\" id=\"searchbutton\" onclick=\"BlogEngine.search('{1}','{2}');\" onkeypress=\"BlogEngine.search('{1}','{2}');\" />",
+                buttonText, Utils.RelativeWebRoot, searchfield);
 
             sb.AppendLine("</div>");
 

@@ -283,8 +283,8 @@ BlogEngine = {
 	,
     // Searches the blog based on the entered text and
     // searches comments as well if chosen.
-    search: function (root) {
-        var input = this.$("searchfield");
+    search: function (root, searchfield) {
+        var input = this.$(searchfield);
         var check = this.$("searchcomments");
 
         var searchPageExtension = typeof BlogEngineRes.fileExtension === "undefined" ? ".aspx" : BlogEngineRes.fileExtension;
@@ -298,8 +298,8 @@ BlogEngine = {
     }
 	,
     // Clears the search fields on focus.
-    searchClear: function (defaultText) {
-        var input = this.$("searchfield");
+    searchClear: function (defaultText, searchfield) {
+        var input = this.$(searchfield);
         if (input.value == defaultText)
             input.value = "";
         else if (input.value == "")
