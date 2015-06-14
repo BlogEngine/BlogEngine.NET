@@ -269,6 +269,7 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="admin\editor\_sidebar.cshtml" />
     <None Include="App_Data\PublishProfiles\be.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - FTP.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />

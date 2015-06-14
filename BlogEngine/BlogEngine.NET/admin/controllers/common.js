@@ -6,29 +6,30 @@
     $scope.security = $rootScope.security;
     $scope.UserVars = UserVars;
 
-    if ($location.path() === $location.path()) {
-        $(".nav-primary > li").removeClass("active");
+    $(".nav-primary > li").removeClass("active");
 
-        if ($location.path().indexOf("blogs") > -1) {
-            $("#mu-blogs").addClass("active");
-        }
-        else if ($location.path().indexOf("content") > -1) {
-            $("#mu-content").addClass("active");
-        }
-        else if ($location.path().indexOf("custom") > -1) {
-            $("#mu-custom").addClass("active");
-        }
-        else if ($location.path().indexOf("users") > -1) {
-            $("#mu-users").addClass("active");
-        }
-        else if ($location.path().indexOf("settings") > -1) {
-            $("#mu-settings").addClass("active");
-        }
-        else {
-            $("#mu-dashboard").addClass("active");
-        }
+    if ($location.path().indexOf("blogs") > -1) {
+        $("#mu-blogs").addClass("active");
     }
-
+    else if ($location.path().indexOf("content") > -1) {
+        $("#mu-content").addClass("active");
+    }
+    else if ($location.path().indexOf("custom") > -1) {
+        $("#mu-custom").addClass("active");
+    }
+    else if ($location.path().indexOf("users") > -1) {
+        $("#mu-users").addClass("active");
+    }
+    else if ($location.path().indexOf("settings") > -1) {
+        $("#mu-settings").addClass("active");
+    }
+    else {
+        $("#mu-dashboard").addClass("active");
+    }
+    if ($location.$$absUrl.indexOf("editor/post.cshtml") > -1) {
+        $(".nav-primary > li").removeClass("active");
+        $("#mu-content").addClass("active");
+    }
     $(".nav-primary > li > a").click(function () {
         $(".nav-primary > li").removeClass("active");
         $(this).parent().addClass("active");
@@ -80,7 +81,7 @@ function rowSpinOff(items) {
 
 function selectedOption(arr, val) {
     for (var i = 0; i < arr.length; i++) {
-        if (arr[i].OptionValue == val) return arr[i];
+        if (arr[i].OptionValue.toUpperCase() == val.toUpperCase()) return arr[i];
     }
 }
 

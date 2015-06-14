@@ -1,4 +1,4 @@
-.note-editor { border: 1px solid #ddd; margin-top: 22px; margin-bottom: 10px; border-radius: 4px; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05); overflow: hidden; }
+.note-editor { border: 1px solid #ddd; margin-top: 0; margin-bottom: 10px; border-radius: 4px; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05); overflow: hidden; }
 .note-editor .note-dropzone { position: absolute; z-index: 1; display: none; color: #87cefa; background-color: white; border: 2px dashed #87cefa; opacity: .95; pointer-event: none; }
 .note-editor .note-dropzone .note-dropzone-message { display: table-cell; font-size: 28px; font-weight: bold; text-align: center; vertical-align: middle; }
 .note-editor .note-dropzone.hover { color: #098ddf; border: 2px dashed #098ddf; }

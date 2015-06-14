@@ -22,9 +22,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/css")
+    <link href="~/Content/admin.css" rel="stylesheet" />
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        var editVars = { id: '@id' };
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
             var msViewportStyle = document.createElement("style");
             var mq = "@@-ms-viewport{width:auto!important}";
@@ -32,39 +35,32 @@
             document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
         }
     </script>
+    <script type="text/javascript" src="admin.res.axd"></script>
 </head>
 <body data-ng-controller="PostEditorController" class="@Resources.labels.LangDirection">
-    <script type="text/javascript">
-        var editVars = { id: '@id' };
-    </script>
-    <script type="text/javascript" src="admin.res.axd"></script>
-    <div id="wrap">
-        <form id="form" action="" style="margin:0;">
-            @RenderPage("_nav.cshtml")
-            <div class="subnav admin-views-subnav">
-                <div class="container">
-                    <ul class="nav nav-pills">
-                        <li class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">{{lbl.posts}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">{{lbl.comments}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">{{lbl.pages}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">{{lbl.categories}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">{{lbl.tags}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/files">{{lbl.fileManager}}</a></li>
-                    </ul>
+    @RenderPage("_postmodals.cshtml")
+    @RenderPage("_filemgr.cshtml")
+    <div class="wrapper @Resources.labels.LangDirection">
+        <div class="sidebar">
+            @RenderPage("_sidebar.cshtml")
+        </div>
+        <div class="content">
+            <form id="form" action="" style="margin:0;">
+                <div class="page-header clearfix">
+                    <div class="col col-md-9">
+                        <input type="text" id="txtTitle" name="txtTitle" placeholder="{{lbl.titleOfPost}}..." class="form-control" data-ng-model="post.Title" />
+                    </div>
+                    <div class="col col-md-3">
+                        <button type="button" data-target="#modal-form" data-toggle="modal" class="btn btn-default btn-block" style="margin-left: 10px"><i class="fa fa-cog"></i>{{lbl.settings}}</button>
+                    </div>
                 </div>
-            </div>
-            @RenderPage("_postmodals.cshtml")
-            @RenderPage("_filemgr.cshtml")
-            <div class="container editor admin-editor admin-editor-post">
-                <div id="overlay-editor">
-                    <div class="row clearfix">
+                <div class="row clearfix">
+                    <div id="overlay-editor" class="content-inner">
                         <div class="col col-md-9">
-                            <input type="text" id="txtTitle" name="txtTitle" placeholder="{{lbl.titleOfPost}}..." class="form-control" data-ng-model="post.Title" />
                             @RenderPage(BlogConfig.DefaultEditor)
                             @RenderPage("_uploadbtns.cshtml")
                         </div>
                         <div class="col col-md-3">
-                            <button type="button" data-target="#modal-form" data-toggle="modal" class="btn btn-default btn-block" style="margin-bottom:20px;"><i class="fa fa-cog"></i>{{lbl.settings}}</button>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <i class="fa fa-folder"></i> {{lbl.categories}}
@@ -88,37 +84,26 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr />
-                    <div class="btn-wrapper clearfix">
-                        <div class="pull-left">
-                            <button disabled="disabled" class="btn btn-default" style="border:none;">
-                                <i class="fa fa-info-circle"></i><span ng-if="!post.IsPublished">{{lbl.unpublished}}</span><span ng-if="post.IsPublished">{{lbl.publishedOn}} {{post.DateCreated}}</span>
-                            </button>
-                        </div>
-                        <div class="pull-right">
-                            <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-lg'></i></span>
-                            <a href="@returnUrl" class="btn btn-default"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
-
-                            <span ng-if="post.Id" class="divider"></span>
-                            <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-default" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
-                            <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-default"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
-                            <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-success"><i class="fa fa-check"></i>{{lbl.publish}}</a>
-                            <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-success"><i class="fa fa-save"></i>{{lbl.save}}</a>
-                            <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-default" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
+                        <div class="clearfix" style="display: inline-block; width: 100%; padding: 0 12px">
+                            <div class="pull-left">
+                                <button disabled="disabled" class="btn btn-default" style="border:none;">
+                                    <i class="fa fa-info-circle"></i><span ng-if="!post.IsPublished">{{lbl.unpublished}}</span><span ng-if="post.IsPublished">{{lbl.publishedOn}} {{post.DateCreated}}</span>
+                                </button>
+                            </div>
+                            <div class="pull-right">
+                                <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-lg'></i></span>
+                                <a href="@returnUrl" class="btn btn-default"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+                                <span ng-if="post.Id" class="divider"></span>
+                                <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-default" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
+                                <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-default"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
+                                <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-success"><i class="fa fa-check"></i>{{lbl.publish}}</a>
+                                <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-success"><i class="fa fa-save"></i>{{lbl.save}}</a>
+                                <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-default" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div id="footer">
-        <div class="container">
-            <div class="BlogEngine-app pull-left">
-                <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET @BlogSettings.Instance.Version()</a> |
-                <a href="http://dotnetblogengine.net/Donate.aspx" target="_blank" id="donate">@Resources.labels.makeDonation</a>
-            </div>
-            <a class="logo-brand pull-right" target="_blank" href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo-footer.png" alt="BlogEngine.NET" /></a>
+            </form>
         </div>
     </div>
     @Scripts.Render("~/scripts/wysiwyg")

@@ -185,6 +185,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/editor/pagecontroller.js")
                 .Include("~/admin/be-grid.js")
                 .Include("~/admin/controllers/files.js")
+                .Include("~/admin/controllers/common.js")
                 .Include("~/admin/services.js")
                 );
 
