@@ -59,6 +59,23 @@
                         <div class="col col-md-9">
                             @RenderPage(BlogConfig.DefaultEditor)
                             @RenderPage("_uploadbtns.cshtml")
+                            <div class="btn-group">
+                                <button type="button" ng-disabled="post.Id === null || post.Id === ''" class="btn  btn-default" style="margin-left: 20px" id="btnCustomFields" data-ng-click="showCustom()" data-toggle="modal" title="{{lbl.customFields}}"><i class="fa fa-flask"></i> {{lbl.customFields}}</button>
+                            </div>
+
+                            <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix">
+                                <h4>{{lbl.customFields}}</h4>
+                                <hr />
+                                <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
+                                    <label class="control-label col-md-4">{{item.Key}}</label>
+                                    <div class="col col-md-7">
+                                        <input type="text" class="form-control" data-ng-model="item.Value" />
+                                    </div>
+                                    <div class="col col-md-1">
+                                        <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                         <div class="col col-md-3">
                             <div class="panel panel-default">

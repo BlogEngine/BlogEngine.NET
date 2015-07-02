@@ -22,8 +22,10 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     @Styles.Render("~/Content/css")
+    <link href="~/Content/admin.css" rel="stylesheet" />
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        var editVars = { id: '@id' };
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
             var msViewportStyle = document.createElement("style");
             var mq = "@@-ms-viewport{width:auto!important}";
@@ -31,56 +33,59 @@
             document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
         }
     </script>
-</head>
-<body data-ng-controller="PageEditorController" class="@Resources.labels.LangDirection">
-    <script type="text/javascript">
-        var editVars = { id: '@id' };
-    </script>
     <script type="text/javascript" src="admin.res.axd"></script>
-    <div id="wrap">
-        <form id="form" action="" style="margin:0;">
-            @RenderPage("_nav.cshtml")
-            <div class="subnav admin-views-subnav">
-                <div class="container">
-                    <ul class="nav nav-pills">
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">{{lbl.posts}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">{{lbl.comments}}</a></li>
-                        <li class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">{{lbl.pages}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">{{lbl.categories}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">{{lbl.tags}}</a></li>
-                        <li><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/files">{{lbl.fileManager}}</a></li>
-                    </ul>
-                </div>
-            </div>
-            @RenderPage("_pagemodals.cshtml")
-            @RenderPage("_filemgr.cshtml")
-            <div class="container editor admin-editor admin-editor-page">
-                <div id="overlay-editor">
-                    <div class="well">
+</head>
+<body data-ng-controller="PageEditorController" class="@Resources.labels.LangDirection"> 
+    @RenderPage("_pagemodals.cshtml")
+    @RenderPage("_filemgr.cshtml")
+    <div class="wrapper @Resources.labels.LangDirection">
+        <div class="sidebar">
+            @RenderPage("_sidebar.cshtml")
+        </div>
+        <div class="content">
+            <form id="form" action="" style="margin:0;">
+                <div class="page-header clearfix">
+                    <div class="col col-md-9">
                         <input type="text" id="txtTitle" name="txtTitle" placeholder="{{lbl.titleOfPage}}..." class="form-control" data-ng-model="page.Title" />
-                        @RenderPage(BlogConfig.DefaultEditor)
-                        @RenderPage("_uploadbtns.cshtml")
                     </div>
-
-                    <hr />
-                    <div class="text-right">
-                        <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-large'></i></span>
-                        <a href="#" data-target="#modal-form" data-toggle="modal" class="btn btn-default pull-left"><i class="fa fa-cog"></i>{{lbl.settings}}</a>
-                        <a href="@returnUrl" class="btn btn-default"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
-                        <a href="#" data-ng-click="save()" class="btn btn-success"><i class="fa fa-save"></i>{{lbl.save}}</a>
-                        <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-default" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
+                    <div class="col col-md-3">
+                        <a href="#" data-target="#modal-form" data-toggle="modal" class="btn btn-default btn-block"><i class="fa fa-cog"></i>{{lbl.settings}}</a>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-    <div id="footer">
-        <div class="container">
-            <div class="BlogEngine-app pull-left">
-                <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET @BlogSettings.Instance.Version()</a> |
-                <a href="http://dotnetblogengine.net/Donate.aspx" target="_blank" id="donate">@Resources.labels.makeDonation</a>
-            </div>
-            <a class="logo-brand pull-right" target="_blank" href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo-footer.png" alt="BlogEngine.NET" /></a>
+
+                <div class="row clearfix">
+                    <div id="overlay-editor" class="content-inner">
+                        <div class="col col-md-12">
+                            @RenderPage(BlogConfig.DefaultEditor)
+                            @RenderPage("_uploadbtns.cshtml")
+                            <div class="btn-group">
+                                <button type="button" ng-disabled="page.Id === null || page.Id === ''" class="btn  btn-default" style="margin-left: 20px" id="btnCustomFields" data-ng-click="showCustom()" data-toggle="modal" title="{{lbl.customFields}}"><i class="fa fa-flask"></i> {{lbl.customFields}}</button>
+                            </div>
+
+                            <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix">
+                                <h4>{{lbl.customFields}}</h4>
+                                <hr />
+                                <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
+                                    <label class="control-label col-md-4">{{item.Key}}</label>
+                                    <div class="col col-md-7">
+                                        <input type="text" class="form-control" data-ng-model="item.Value" />
+                                    </div>
+                                    <div class="col col-md-1">
+                                        <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <hr />
+                        <div class="text-right">
+                            <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+                            <a href="@returnUrl" class="btn btn-default"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+                            <a href="#" data-ng-click="save()" class="btn btn-success"><i class="fa fa-save"></i>{{lbl.save}}</a>
+                            <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-default" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     @Scripts.Render("~/scripts/wysiwyg")
