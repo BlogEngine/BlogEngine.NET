@@ -1435,6 +1435,7 @@
     <Content Include="setup\SQLite\SQLiteUpgradeFrom3.0To3.1.txt" />
     <Content Include="setup\SQLite\SQLiteUpgradeFrom2.6To3.0.txt" />
     <Content Include="setup\SQLite\SQLiteWeb.Config" />
+    <Content Include="setup\SQLServer\MSSQLSetup3.2.0.0.sql" />
     <Content Include="setup\SQLServer\MSSQLSetup3.1.0.0.sql" />
     <Content Include="setup\SQLServer\MSSQLUpgradeFrom3.0to3.1.sql" />
     <Content Include="setup\SQLServer\SQLServerWeb.Config" />

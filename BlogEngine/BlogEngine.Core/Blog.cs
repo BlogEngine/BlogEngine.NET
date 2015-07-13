@@ -68,11 +68,6 @@ namespace BlogEngine.Core
         private bool isSiteAggregation;
 
         /// <summary>
-        ///     Flag used when blog is deleted on whether the storage container will be deleted too.
-        /// </summary>
-        private bool deleteStorageContainer;
-
-        /// <summary>
         /// The sync root.
         /// </summary>
         private static readonly object SyncRoot = new object();
@@ -243,23 +238,6 @@ namespace BlogEngine.Core
         }
 
         /// <summary>
-        ///     Flag used when blog is deleted on whether the storage container will be deleted too.
-        ///     This property is not peristed.
-        /// </summary>
-        public bool DeleteStorageContainer
-        {
-            get
-            {
-                return this.deleteStorageContainer;
-            }
-
-            set
-            {
-                base.SetValue("DeleteStorageContainer", value, ref this.deleteStorageContainer);
-            }
-        }
-
-        /// <summary>
         /// Returns true if the blog resides in a subfolder of the application root directory; 
         /// false otherwise.
         /// </summary>
@@ -291,13 +269,9 @@ namespace BlogEngine.Core
         {
             OnSaving(this, SaveAction.Delete);
 
-            if (this.DeleteStorageContainer)
-            {
-                BlogService.DeleteBlogStorageContainer(this);
-            }
-
             if (this.Deleted)
             {
+                BlogService.DeleteBlogStorageContainer(this);
                 BlogService.DeleteBlog(this);
             }
 
