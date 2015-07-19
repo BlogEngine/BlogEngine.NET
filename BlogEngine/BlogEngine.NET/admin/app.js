@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module("blogAdmin", ['ngRoute', 'ngAnimate', 'ngSanitize']);
+    var app = angular.module("blogAdmin", ['ngRoute', 'ngSanitize']);
 
     var config = ["$routeProvider", function ($routeProvider) {
         $routeProvider

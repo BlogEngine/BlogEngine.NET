@@ -38,7 +38,12 @@ function spinOff() {
 
 function selectedOption(arr, val) {
     for (var i = 0; i < arr.length; i++) {
-        if (arr[i].OptionValue.toLowerCase() === val.toLowerCase()) return arr[i];
+        if (typeof val === 'number') {
+            if (arr[i].OptionValue === val) return arr[i];
+        }
+        else {
+            if (arr[i].OptionValue.toLowerCase() === val.toLowerCase()) return arr[i];
+        }
     }
 }
 
