@@ -853,7 +853,7 @@ namespace BlogEngine.Core.Providers
                         parms.Add(conn.CreateParameter(FormatParamName("created"), page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
                         parms.Add(conn.CreateParameter(FormatParamName("modified"),
                                                                     (page.DateModified == new DateTime() ? DateTime.Now : page.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
-                        parms.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords));
+                        parms.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         parms.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
                         parms.Add(conn.CreateParameter(FormatParamName("isfrontpage"), page.IsFrontPage));
                         parms.Add(conn.CreateParameter(FormatParamName("parent"), page.Parent.ToString()));
@@ -2235,7 +2235,7 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
                         p.Add(conn.CreateParameter(FormatParamName("created"), page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
                         p.Add(conn.CreateParameter(FormatParamName("modified"), (page.DateModified == new DateTime() ? DateTime.Now : page.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
-                        p.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords));
+                        p.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         p.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
                         p.Add(conn.CreateParameter(FormatParamName("isfrontpage"), page.IsFrontPage));
                         p.Add(conn.CreateParameter(FormatParamName("parent"), page.Parent.ToString()));

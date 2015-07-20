@@ -106,21 +106,32 @@
 
         dataService.uploadFile("/api/upload?action=" + action, fd)
         .success(function (data) {
-            toastr.success("Uploaded");
-            if (action === "image") {
-                insertAtCursor('<img src=' + data + ' />');
+            toastr.success($rootScope.lbl.uploaded);
+            var editorHtml = editorGetHtml();
+            if (action === "file" && $scope.IsImage(data)) {
+                editorSetHtml(editorHtml + '<img src=' + data + ' />');
             }
             if (action === "video") {
-                insertAtCursor('<p>[video src=' + data + ']</p>');
+                editorSetHtml(editorHtml + '<p>[video src=' + data + ']</p>');
             }
-            if (action === "file") {
+            if (action === "file" && $scope.IsImage(data) === false) {
                 var res = data.split("|");
                 if (res.length === 2) {
-                    insertAtCursor('<a href="' + res[0].replace('"', '') + '">' + res[1].replace('"', '') + '</a>');
+                    editorSetHtml(editorHtml + '<a href="' + res[0].replace('"', '') + '">' + res[1].replace('"', '') + '</a>');
                 }
             }
         })
         .error(function () { toastr.error("Import failed"); });
+    }
+
+    $scope.IsImage = function (file) {
+        if (file.match(/.png/i)) { return true; }
+        if (file.match(/.jpg/i)) { return true; }
+        if (file.match(/.jpeg/i)) { return true; }
+        if (file.match(/.tiff/i)) { return true; }
+        if (file.match(/.gif/i)) { return true; }
+        if (file.match(/.bmp/i)) { return true; }
+        return false;
     }
 
     $scope.load();
