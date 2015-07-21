@@ -107,6 +107,16 @@ var toSlug = function (string) {
       .replace(/^-|-$/g, '');
 };
 
+function IsImage (file) {
+    if (file.match(/.png/i)) { return true; }
+    if (file.match(/.jpg/i)) { return true; }
+    if (file.match(/.jpeg/i)) { return true; }
+    if (file.match(/.tiff/i)) { return true; }
+    if (file.match(/.gif/i)) { return true; }
+    if (file.match(/.bmp/i)) { return true; }
+    return false;
+}
+
 function webRoot(url) {
     var result = SiteVars.ApplicationRelativeWebRoot;
     if (url.substring(0, 1) === "/") {

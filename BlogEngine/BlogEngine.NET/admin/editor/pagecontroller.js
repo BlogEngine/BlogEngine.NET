@@ -108,13 +108,13 @@
         .success(function (data) {
             toastr.success($rootScope.lbl.uploaded);
             var editorHtml = editorGetHtml();
-            if (action === "file" && $scope.IsImage(data)) {
+            if (action === "file" && IsImage(data)) {
                 editorSetHtml(editorHtml + '<img src=' + data + ' />');
             }
             if (action === "video") {
                 editorSetHtml(editorHtml + '<p>[video src=' + data + ']</p>');
             }
-            if (action === "file" && $scope.IsImage(data) === false) {
+            if (action === "file" && IsImage(data) === false) {
                 var res = data.split("|");
                 if (res.length === 2) {
                     editorSetHtml(editorHtml + '<a href="' + res[0].replace('"', '') + '">' + res[1].replace('"', '') + '</a>');
@@ -122,16 +122,6 @@
             }
         })
         .error(function () { toastr.error("Import failed"); });
-    }
-
-    $scope.IsImage = function (file) {
-        if (file.match(/.png/i)) { return true; }
-        if (file.match(/.jpg/i)) { return true; }
-        if (file.match(/.jpeg/i)) { return true; }
-        if (file.match(/.tiff/i)) { return true; }
-        if (file.match(/.gif/i)) { return true; }
-        if (file.match(/.bmp/i)) { return true; }
-        return false;
     }
 
     $scope.load();
