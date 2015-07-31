@@ -114,7 +114,7 @@
         {
             get
             {
-                return dateCreated == DateTime.MinValue ? dateCreated : dateCreated.AddHours(BlogSettings.Instance.Timezone);
+                return dateCreated;
             }
 
             set

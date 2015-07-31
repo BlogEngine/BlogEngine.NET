@@ -126,7 +126,7 @@
             this.categories = new StateList<Category>();
             this.tags = new StateList<string>();
             this.notificationEmails = new StateList<string>();
-            this.DateCreated = DateTime.Now;
+            this.DateCreated = new DateTime();
             this.isPublished = true;
             this.hasCommentsEnabled = true;
         }
@@ -671,7 +671,7 @@
             {
                 if (this.IsDeleted)
                     return false;
-                else if (this.IsPublished && this.DateCreated <= DateTime.Now.AddHours(BlogSettings.Instance.Timezone))
+                else if (this.IsPublished && this.DateCreated.AddHours(BlogSettings.Instance.Timezone) <= DateTime.Now)
                     return true;
                 else if (Security.IsAuthorizedTo(Rights.ViewUnpublishedPosts))
                     return true;
@@ -687,8 +687,8 @@
         {
             get
             {
-                return (this.IsPublished && this.DateCreated <= DateTime.Now.AddHours(BlogSettings.Instance.Timezone)) &&
-                        this.IsDeleted == false;
+                return (this.IsPublished && this.IsDeleted == false &&
+                    this.DateCreated.AddHours(BlogSettings.Instance.Timezone) <= DateTime.Now);
             }
         }
 

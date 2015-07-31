@@ -17,7 +17,6 @@
     /// </summary>
     public partial class XmlBlogProvider : BlogProvider
     {
-        // private static string _Folder = System.Web.HttpContext.Current.Server.MapPath(BlogSettings.Instance.StorageLocation);
         #region Properties
 
         /// <summary>
@@ -96,9 +95,7 @@
         public override void InsertPost(Post post)
         {
             if (!Directory.Exists(string.Format("{0}posts", this.Folder)))
-            {
                 Directory.CreateDirectory(string.Format("{0}posts", this.Folder));
-            }
 
             var fileName = string.Format("{0}posts{1}{2}.xml", this.Folder, Path.DirectorySeparatorChar, post.Id);
             var settings = new XmlWriterSettings { Indent = true };
@@ -110,6 +107,10 @@
                 writer.WriteStartDocument(true);
                 writer.WriteStartElement("post");
 
+                var x = post.DateCreated;
+                var b = new DateTime();
+                var c = x == b;
+
                 writer.WriteElementString("author", post.Author);
                 writer.WriteElementString("title", post.Title);
                 writer.WriteElementString("description", post.Description);
@@ -117,14 +118,16 @@
                 writer.WriteElementString("ispublished", post.IsPublished.ToString());
                 writer.WriteElementString("isdeleted", post.IsDeleted.ToString());
                 writer.WriteElementString("iscommentsenabled", post.HasCommentsEnabled.ToString());
-                writer.WriteElementString(
-                    "pubDate", 
-                    post.DateCreated.AddHours(-BlogSettings.Instance.Timezone).ToString(
-                        "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
-                writer.WriteElementString(
-                    "lastModified", 
-                    post.DateModified.AddHours(-BlogSettings.Instance.Timezone).ToString(
-                        "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
+                writer.WriteElementString("pubDate", (post.DateCreated == new DateTime() ? DateTime.Now : 
+                    post.DateCreated.AddHours(-BlogSettings.Instance.Timezone)).
+                    ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
+                // xml provider re-writes file to disk, so check for existing time modified
+                writer.WriteElementString("lastModified", (post.DateModified == new DateTime() ? DateTime.Now :
+                    post.DateModified.AddHours(-BlogSettings.Instance.Timezone)).
+                    ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
                 writer.WriteElementString("raters", post.Raters.ToString(CultureInfo.InvariantCulture));
                 writer.WriteElementString("rating", post.Rating.ToString(CultureInfo.InvariantCulture));
                 writer.WriteElementString("slug", post.Slug);
@@ -149,10 +152,10 @@
                     writer.WriteAttributeString("spam", comment.IsSpam.ToString());
                     writer.WriteAttributeString("deleted", comment.IsDeleted.ToString());
 
-                    writer.WriteElementString(
-                        "date", 
-                        comment.DateCreated.AddHours(-BlogSettings.Instance.Timezone).ToString(
-                            "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+                    writer.WriteElementString("date", (comment.DateCreated == new DateTime() ? DateTime.Now :
+                        comment.DateCreated.AddHours(-BlogSettings.Instance.Timezone))
+                        .ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
                     writer.WriteElementString("author", comment.Author);
                     writer.WriteElementString("email", comment.Email);
                     writer.WriteElementString("country", comment.Country);
@@ -234,12 +237,16 @@
             {
                 post.DateCreated = DateTime.Parse(
                     doc.SelectSingleNode("post/pubDate").InnerText, CultureInfo.InvariantCulture);
+
+                post.DateCreated = post.DateCreated.AddHours(BlogSettings.Instance.Timezone);
             }
 
             if (doc.SelectSingleNode("post/lastModified") != null)
             {
                 post.DateModified = DateTime.Parse(
                     doc.SelectSingleNode("post/lastModified").InnerText, CultureInfo.InvariantCulture);
+
+                post.DateModified = post.DateModified.AddHours(BlogSettings.Instance.Timezone);
             }
 
             if (doc.SelectSingleNode("post/author") != null)
@@ -339,8 +346,11 @@
                                     bool.Parse(node.Attributes["deleted"].InnerText);
 
                 comment.Content = node.SelectSingleNode("content").InnerText;
+
                 comment.DateCreated = DateTime.Parse(
                     node.SelectSingleNode("date").InnerText, CultureInfo.InvariantCulture);
+
+                comment.DateCreated = comment.DateCreated.AddHours(BlogSettings.Instance.Timezone);
 
                 post.AllComments.Add(comment);
             }

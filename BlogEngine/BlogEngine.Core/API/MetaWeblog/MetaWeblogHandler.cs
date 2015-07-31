@@ -329,6 +329,7 @@
             post.IsPublished = publish;
             post.Slug = sentPost.slug;
             post.Description = sentPost.excerpt;
+            post.DateCreated = sentPost.postDate;
 
             if (sentPost.commentPolicy != string.Empty)
             {
@@ -358,11 +359,6 @@
             foreach (var item in sentPost.tags.Where(item => item != null && item.Trim() != string.Empty))
             {
                 post.Tags.Add(item);
-            }
-
-            if (sentPost.postDate != new DateTime())
-            {
-                post.DateCreated = sentPost.postDate.AddHours(-BlogSettings.Instance.Timezone);
             }
 
             post.Save();
@@ -926,10 +922,9 @@
                 post.Tags.Add(item);
             }
 
-            if (sentPost.postDate != new DateTime())
-            {
-                post.DateCreated = sentPost.postDate;
-            }
+            post.DateCreated = sentPost.postDate == new DateTime() ? 
+                DateTime.Now.AddHours(-BlogSettings.Instance.Timezone) : 
+                sentPost.postDate;
 
             post.Save();
 

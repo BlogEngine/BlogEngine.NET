@@ -88,14 +88,14 @@
                 writer.WriteElementString("ispublished", page.IsPublished.ToString());
                 writer.WriteElementString("isdeleted", page.IsDeleted.ToString());
                 writer.WriteElementString("sortorder", page.SortOrder.ToString());
-                writer.WriteElementString(
-                    "datecreated", 
-                    page.DateCreated.AddHours(-BlogSettings.Instance.Timezone).ToString(
-                        "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
-                writer.WriteElementString(
-                    "datemodified", 
-                    page.DateModified.AddHours(-BlogSettings.Instance.Timezone).ToString(
-                        "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
+                writer.WriteElementString("datecreated", (page.DateCreated == new DateTime() ? DateTime.Now :
+                    page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)).
+                    ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+
+                writer.WriteElementString("datemodified", (page.DateModified == new DateTime() ? DateTime.Now :
+                    page.DateModified.AddHours(-BlogSettings.Instance.Timezone)).
+                    ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteEndElement();
             }
@@ -157,8 +157,11 @@
 
             page.DateCreated = DateTime.Parse(
                 doc.SelectSingleNode("page/datecreated").InnerText, CultureInfo.InvariantCulture);
+            page.DateCreated = page.DateCreated.AddHours(BlogSettings.Instance.Timezone);
+
             page.DateModified = DateTime.Parse(
                 doc.SelectSingleNode("page/datemodified").InnerText, CultureInfo.InvariantCulture);
+            page.DateModified = page.DateModified.AddHours(BlogSettings.Instance.Timezone);
 
             return page;
         }

@@ -227,6 +227,14 @@ namespace BlogEngine.Core
                 string.Format("ddd, dd MMM yyyy HH:mm:ss {0}", timeZone.PadRight(5, '0')), DateTimeFormatInfo.InvariantInfo);
         }
 
+        static string RssDateString(DateTime pubDate)
+        {
+            pubDate = pubDate.AddHours(BlogSettings.Instance.Timezone);
+            var value = pubDate.ToString("ddd',' d MMM yyyy HH':'mm':'ss") + " " +
+                pubDate.ToString("zzzz").Replace(":", "");
+            return value;
+        }
+
         /// <summary>
         /// Writes a generated syndication feed that conforms to the supplied <see cref="SyndicationFormat"/> using the supplied <see cref="Stream"/> and collection.
         /// </summary>
@@ -709,7 +717,7 @@ namespace BlogEngine.Core
             }
 
             writer.WriteElementString("guid", GetPermaLink(publishable).ToString());
-            writer.WriteElementString("pubDate", ToRfc822DateTime(publishable.DateCreated));
+            writer.WriteElementString("pubDate", RssDateString(publishable.DateCreated));
 
             // ------------------------------------------------------------
             // Write channel item category elements

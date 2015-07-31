@@ -850,9 +850,9 @@ namespace BlogEngine.Core.Providers
                         parms.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
                         parms.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         parms.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
-                        parms.Add(conn.CreateParameter(FormatParamName("created"), page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
-                        parms.Add(conn.CreateParameter(FormatParamName("modified"),
-                                                                    (page.DateModified == new DateTime() ? DateTime.Now : page.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
+                        parms.Add(conn.CreateParameter(FormatParamName("created"),
+                            (page.DateCreated == new DateTime() ? DateTime.Now : page.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                        parms.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                         parms.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         parms.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
                         parms.Add(conn.CreateParameter(FormatParamName("isfrontpage"), page.IsFrontPage));
@@ -894,8 +894,9 @@ namespace BlogEngine.Core.Providers
                             parms.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
                             parms.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
-                            parms.Add(conn.CreateParameter(FormatParamName("created"), post.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
-                            parms.Add(conn.CreateParameter(FormatParamName("modified"), (post.DateModified == new DateTime() ? DateTime.Now : post.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
+                            parms.Add(conn.CreateParameter(FormatParamName("created"), 
+                                (post.DateCreated == new DateTime() ? DateTime.Now : post.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                            parms.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                             parms.Add(conn.CreateParameter(FormatParamName("author"), (post.Author ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("published"), post.IsPublished));
                             parms.Add(conn.CreateParameter(FormatParamName("commentEnabled"), post.HasCommentsEnabled));
@@ -1396,7 +1397,7 @@ namespace BlogEngine.Core.Providers
                                 page.Description = rdr.IsDBNull(2) ? String.Empty : rdr.GetString(2);
                                 if (!rdr.IsDBNull(4))
                                 {
-                                    page.DateCreated = rdr.GetDateTime(4);
+                                    page.DateCreated = rdr.GetDateTime(4).AddHours(BlogSettings.Instance.Timezone);
                                 }
 
                                 if (!rdr.IsDBNull(5))
@@ -1485,7 +1486,7 @@ namespace BlogEngine.Core.Providers
                                 post.Description = rdr.IsDBNull(2) ? String.Empty : rdr.GetString(2);
                                 if (!rdr.IsDBNull(4))
                                 {
-                                    post.DateCreated = rdr.GetDateTime(4);
+                                    post.DateCreated = rdr.GetDateTime(4).AddHours(BlogSettings.Instance.Timezone);
                                 }
 
                                 if (!rdr.IsDBNull(5))
@@ -1579,7 +1580,7 @@ namespace BlogEngine.Core.Providers
 
                                 comment.Email = rdr.GetString(3);
                                 comment.Content = rdr.GetString(5);
-                                comment.DateCreated = rdr.GetDateTime(1);
+                                comment.DateCreated = rdr.GetDateTime(1).AddHours(BlogSettings.Instance.Timezone);
                                 comment.Parent = post;
 
                                 if (!rdr.IsDBNull(6))
@@ -2233,8 +2234,9 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
                         p.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         p.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
-                        p.Add(conn.CreateParameter(FormatParamName("created"), page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
-                        p.Add(conn.CreateParameter(FormatParamName("modified"), (page.DateModified == new DateTime() ? DateTime.Now : page.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
+                        p.Add(conn.CreateParameter(FormatParamName("created"), 
+                            (page.DateCreated == new DateTime() ? DateTime.Now : page.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                        p.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                         p.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         p.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
                         p.Add(conn.CreateParameter(FormatParamName("isfrontpage"), page.IsFrontPage));
@@ -2276,8 +2278,9 @@ namespace BlogEngine.Core.Providers
                             p.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
                             p.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
-                            p.Add(conn.CreateParameter(FormatParamName("created"), post.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
-                            p.Add(conn.CreateParameter(FormatParamName("modified"), (post.DateModified == new DateTime() ? DateTime.Now : post.DateModified.AddHours(-BlogSettings.Instance.Timezone))));
+                            p.Add(conn.CreateParameter(FormatParamName("created"), 
+                                (post.DateCreated == new DateTime() ? DateTime.Now : post.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                            p.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                             p.Add(conn.CreateParameter(FormatParamName("author"), (post.Author ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("published"), post.IsPublished));
                             p.Add(conn.CreateParameter(FormatParamName("commentEnabled"), post.HasCommentsEnabled));
@@ -2855,7 +2858,7 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         p.Add(conn.CreateParameter(FormatParamName("username"), note.Author));
                         p.Add(conn.CreateParameter(FormatParamName("note"), note.Note));
-                        p.Add(conn.CreateParameter(FormatParamName("updated"), DateTime.Now.AddHours(-BlogSettings.Instance.Timezone)));
+                        p.Add(conn.CreateParameter(FormatParamName("updated"), DateTime.Now));
 
                         cmd.ExecuteNonQuery();
                     }
@@ -2924,7 +2927,7 @@ namespace BlogEngine.Core.Providers
                                     Id = rdr.GetGuid(0),
                                     Author = userId,
                                     Note = rdr.GetString(1),
-                                    Updated = rdr.GetDateTime(2)
+                                    Updated = rdr.GetDateTime(2).AddHours(BlogSettings.Instance.Timezone)
                                 };
                                 notes.Add(n);
                             }

@@ -48,12 +48,12 @@
         /// <summary>
         /// The date created.
         /// </summary>
-        private DateTime dateCreated = DateTime.MinValue;
+        private DateTime dateCreated = new DateTime();
 
         /// <summary>
         /// The date modified.
         /// </summary>
-        private DateTime dateModified = DateTime.MinValue;
+        private DateTime dateModified = new DateTime();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BusinessBase{T,TKey}"/> class. 
@@ -123,13 +123,12 @@
         {
             get
             {
-                return (this.dateModified == DateTime.MinValue ? this.dateModified : this.dateModified.AddHours(BlogSettings.Instance.Timezone));
+                return this.dateModified;
             }
 
             set
             {
                 this.SetValue("DateModifier", value, ref this.dateModified);
-                //  this.dateModified = value;
             }
         }
 
@@ -658,25 +657,18 @@
             {
                 if (this.New)
                 {
-                    if (this.dateCreated == DateTime.MinValue)
-                    {
-                        this.dateCreated = DateTime.Now;
-                    }
-
-                    this.dateModified = DateTime.Now;
                     action = SaveAction.Insert;
                     OnSaving(this, action);
                     this.DataInsert();
                 }
                 else
                 {
-                    this.dateModified = DateTime.Now;
-
                     action = SaveAction.Update;
                     OnSaving(this, action);
                     this.DataUpdate();
                 }
 
+                this.dateModified = DateTime.Now;
                 this.MarkOld();
             }
 

@@ -187,7 +187,7 @@ namespace BlogEngine.Core
                 string msg = "";
                 BlogGeneratorConfig.SetDefaults(out msg);
 
-                string pubDate = DateTime.Now.AddHours(-BlogSettings.Instance.Timezone).ToString(
+                string pubDate = DateTime.Now.ToString(
                         "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
 
                 var usersFile = newBlogFolderPath + @"\users.xml";
