@@ -399,9 +399,6 @@
   <data name="message" xml:space="preserve">
     <value>Besked</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Tema til mobile enheder</value>
-  </data>
   <data name="monster" xml:space="preserve">
     <value>Monster</value>
   </data>

@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>訊息</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>行動裝置佈景主題</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>主題 Cookie名稱</value>
   </data>

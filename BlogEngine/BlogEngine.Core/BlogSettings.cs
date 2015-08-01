@@ -436,11 +436,6 @@
                     }
                 }
 
-                if (Utils.IsMobile && !string.IsNullOrEmpty(this.MobileTheme))
-                {
-                    return this.MobileTheme;
-                }
-
                 return this.configuredTheme;
             }
 
@@ -449,16 +444,6 @@
                 this.configuredTheme = String.IsNullOrEmpty(value) ? String.Empty : value;
             }
         }
-
-        #endregion
-
-        #region MobileTheme
-
-        /// <summary>
-        ///     Gets or sets the mobile theme.
-        /// </summary>
-        /// <value>The mobile theme.</value>
-        public string MobileTheme { get; set; }
 
         #endregion
 
@@ -748,16 +733,6 @@
         ///     Gets or sets a value indicating if display of the website of commenter is enabled
         /// </summary>
         public bool EnableWebsiteInComments { get; set; }
-        #endregion
-
-        #region IsCoCommentEnabled
-
-        /// <summary>
-        ///     Gets or sets a value indicating if CoComment support is enabled.
-        /// </summary>
-        /// <value><b>true</b> if CoComment support is enabled, otherwise returns <b>false</b>.</value>
-        public bool IsCoCommentEnabled { get; set; }
-
         #endregion
 
         #region IsCommentsEnabled

@@ -382,9 +382,6 @@
   <data name="message" xml:space="preserve">
     <value>Mesaj</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobil tema</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Tema çerez adı</value>
   </data>
@@ -1687,9 +1684,6 @@
   <data name="forceMainTheme" xml:space="preserve">
     <value>Düzenli Site</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Mobil Site</value>
-  </data>
   <data name="blogs" xml:space="preserve">
     <value>Bloglar</value>
   </data>
@@ -1752,9 +1746,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Mevcut tema olarak ayarla</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Mobil tema olarak ayarla</value>
   </data>
   <data name="themes" xml:space="preserve">
     <value>Temalar</value>

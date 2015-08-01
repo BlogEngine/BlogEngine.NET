@@ -372,9 +372,6 @@
   <data name="message" xml:space="preserve">
     <value>Wiadomość</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Motyw mobilny</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Nazwa cookie motywu graficznego</value>
   </data>

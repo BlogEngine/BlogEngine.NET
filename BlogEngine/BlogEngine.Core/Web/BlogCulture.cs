@@ -166,7 +166,6 @@ namespace BlogEngine.Core.Web
             AddResource("alignRight");
             AddResource("all");
             AddResource("allow");
-            AddResource("allowMobileTheme");
             AddResource("allowRemoteFileDownloads");
             AddResource("allowRemoteFileDownloadsDescription");
             AddResource("AllPostsBy");
@@ -550,7 +549,6 @@ namespace BlogEngine.Core.Web
             AddResource("middleName");
             AddResource("minPassLengthInChars");
             AddResource("mistakes");
-            AddResource("mobileTheme");
             AddResource("moderatedByDisqus");
             AddResource("moderation");
             AddResource("moderator");
@@ -750,7 +748,6 @@ namespace BlogEngine.Core.Web
             AddResource("sendCommentEmail");
             AddResource("separateTagsWitComma");
             AddResource("setAsCurrentTheme");
-            AddResource("setAsMobileTheme");
             AddResource("setPublishDate");
             AddResource("settings");
             AddResource("settingsUpdated");

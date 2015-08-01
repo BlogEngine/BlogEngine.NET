@@ -1977,7 +1977,6 @@
     <Compile Include="AppCode\Controls\BlogList.cs" />
     <Compile Include="AppCode\Controls\Blogroll.cs" />
     <Compile Include="AppCode\Controls\CategoryList.cs" />
-    <Compile Include="AppCode\Controls\MobileThemeSwitch.cs" />
     <Compile Include="AppCode\Controls\MonthList.cs" />
     <Compile Include="AppCode\Controls\PageList.cs" />
     <Compile Include="AppCode\Controls\PageMenu.cs" />

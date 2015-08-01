@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>Poruka</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobile theme</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Theme cookie name</value>
   </data>
@@ -1663,9 +1660,6 @@
   <data name="forceMainTheme" xml:space="preserve">
     <value>Regular Site</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Mobile Site</value>
-  </data>
   <data name="blogs" xml:space="preserve">
     <value>Blogs</value>
   </data>
@@ -1725,9 +1719,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Set as current theme</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Set as mobile theme</value>
   </data>
   <data name="themes" xml:space="preserve">
     <value>Teme</value>

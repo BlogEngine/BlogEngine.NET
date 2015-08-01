@@ -682,9 +682,6 @@
 	<data name="middleName" xml:space="preserve">
     <value>Zweitname</value>
   </data>
-	<data name="mobileTheme" xml:space="preserve">
-    <value>Thema für Mobilgeräte</value>
-  </data>
 	<data name="nextPost" xml:space="preserve">
     <value>Nächster Artikel</value>
   </data>
@@ -1665,9 +1662,6 @@ Wird ans Ender jeder Seite hinzugefügt, unabhängig vom verwendetem Theme.&lt;b
 	<data name="forceMainTheme" xml:space="preserve">
 		<value>Reguläre Seite</value>
 	</data>
-	<data name="allowMobileTheme" xml:space="preserve">
-		<value>Mobile Seite</value>
-	</data>
 	<data name="blogs" xml:space="preserve">
 		<value>Blogs</value>
 	</data>
@@ -1727,9 +1721,6 @@ Wird ans Ender jeder Seite hinzugefügt, unabhängig vom verwendetem Theme.&lt;b
 	</data>
 	<data name="setAsCurrentTheme" xml:space="preserve">
 		<value>Als Theme auswählen</value>
-	</data>
-	<data name="setAsMobileTheme" xml:space="preserve">
-		<value>Als Mobiles Theme ausählen</value>
 	</data>
 	<data name="themes" xml:space="preserve">
 		<value>Themes</value>

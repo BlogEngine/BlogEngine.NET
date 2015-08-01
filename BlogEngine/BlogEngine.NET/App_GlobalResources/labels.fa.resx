@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>پیغام</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>پوسته گرافیکی برای موبایل</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>نام کوکیِ نگهدارنده تم</value>
   </data>
@@ -1659,9 +1656,6 @@
   <data name="activeThemes" xml:space="preserve">
     <value>پوسته های فعال</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>سایت موبایل</value>
-  </data>
   <data name="alphaNumeric" xml:space="preserve">
     <value>الفبایی یا عددی</value>
   </data>
@@ -1727,9 +1721,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>ذخیره به عنوان پوسته فعلی</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>ذخیره به عنوان پوسته موبایل</value>
   </data>
   <data name="showEnableWebsiteInComments" xml:space="preserve">
     <value>اجازه درج وبسایت در نظرات</value>

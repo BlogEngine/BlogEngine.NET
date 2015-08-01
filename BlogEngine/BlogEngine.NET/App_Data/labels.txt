@@ -28,7 +28,6 @@ alignLeft
 alignRight
 all
 allow
-allowMobileTheme
 allowRemoteFileDownloads
 allowRemoteFileDownloadsDescription
 AllPostsBy
@@ -416,7 +415,6 @@ message
 middleName
 minPassLengthInChars
 mistakes
-mobileTheme
 moderatedByDisqus
 moderation
 moderator
@@ -616,7 +614,6 @@ send
 sendCommentEmail
 separateTagsWitComma
 setAsCurrentTheme
-setAsMobileTheme
 setPublishDate
 settings
 settingsUpdated

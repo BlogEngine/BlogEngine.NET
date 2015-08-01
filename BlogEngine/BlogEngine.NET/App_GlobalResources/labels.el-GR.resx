@@ -1203,9 +1203,6 @@
 	<data name="setAsCurrentTheme" xml:space="preserve">
 		<value>Ορισμός ως τρέχον θέμα</value>
 	</data>
-	<data name="setAsMobileTheme" xml:space="preserve">
-		<value>Ορισμός ως Θέμα Κινητού</value>
-	</data>
 	<data name="themes" xml:space="preserve">
 		<value>Θέματα</value>
 	</data>
@@ -1244,9 +1241,6 @@
 	</data>
 	<data name="notAuthorized" xml:space="preserve">
 		<value>Μη εξουσιοδοτημένος.</value>
-	</data>
-	<data name="mobileTheme" xml:space="preserve">
-		<value>Θέμα Κινητών</value>
 	</data>
 	<data name="rateThisXStars" xml:space="preserve">
 		<value>Βαθμολογήστε αυτό με {0} αστέρια {1} από 5</value>

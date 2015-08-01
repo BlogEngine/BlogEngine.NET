@@ -457,10 +457,6 @@
     <value>消息</value>
     <comment>Message</comment>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>移动设备主题</value>
-    <comment>Mobile theme</comment>
-  </data>
   <data name="more" xml:space="preserve">
     <value>更多...</value>
     <comment>More</comment>
@@ -2193,10 +2189,6 @@
     <value>标准站点</value>
     <comment>Regular Site</comment>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>移动站点</value>
-    <comment>Mobile Site</comment>
-  </data>
   <data name="itemsPerPage" xml:space="preserve">
     <value>每页显示数</value>
     <comment>Items/Page</comment>
@@ -2271,10 +2263,6 @@
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>设为当前主题</value>
     <comment>Set as current theme</comment>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>设为移动设备主题</value>
-    <comment>Set as mobile theme</comment>
   </data>
   <data name="themes" xml:space="preserve">
     <value>主题模板</value>

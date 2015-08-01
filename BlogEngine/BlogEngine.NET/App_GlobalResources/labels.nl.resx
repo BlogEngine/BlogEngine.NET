@@ -1662,9 +1662,6 @@
   <data name="forceMainTheme" xml:space="preserve">
     <value>Reguliere site</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Mobiele site</value>
-  </data>
   <data name="blogs" xml:space="preserve">
     <value>Blogs</value>
   </data>
@@ -1727,9 +1724,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Stel in als huidig thema</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Stel in als mobiel thema</value>
   </data>
   <data name="themes" xml:space="preserve">
     <value>Themas</value>
@@ -2285,9 +2279,6 @@
   </data>
   <data name="maxAgeInDays" xml:space="preserve">
     <value>Max leeftijd in dagen</value>
-  </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobiele thema</value>
   </data>
   <data name="newCategory" xml:space="preserve">
     <value>Nieuwe categorie</value>

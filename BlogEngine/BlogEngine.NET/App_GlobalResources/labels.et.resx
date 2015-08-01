@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>Sõnum</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobiili teema</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Teema küpsise nimi</value>
   </data>

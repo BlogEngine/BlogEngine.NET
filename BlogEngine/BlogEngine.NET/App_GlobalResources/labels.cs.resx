@@ -382,9 +382,6 @@
   <data name="message" xml:space="preserve">
     <value>Zpráva</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobilní téma</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Jméno cookie tématu</value>
   </data>
@@ -1687,9 +1684,6 @@
   <data name="forceMainTheme" xml:space="preserve">
     <value>Hlavní téma</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Mobilní téma</value>
-  </data>
   <data name="blogs" xml:space="preserve">
     <value>Blogy</value>
   </data>
@@ -1752,9 +1746,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Nastavit jako aktuální téma</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Nastavit jako mobilní téma</value>
   </data>
   <data name="themes" xml:space="preserve">
     <value>Témata</value>

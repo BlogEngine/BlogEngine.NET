@@ -1015,9 +1015,6 @@
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>תבנית נוכחית</value>
   </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>תבנית נוכחית לנייד</value>
-  </data>
   <data name="showPostNavigation" xml:space="preserve">
     <value>הצג ניווט הודעות</value>
   </data>

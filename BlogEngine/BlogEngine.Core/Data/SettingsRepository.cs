@@ -39,7 +39,6 @@ namespace BlogEngine.Core.Data
             ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
             ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;
             ns.DesktopTheme = bs.Theme;
-            ns.MobileTheme = bs.MobileTheme;
             
             // advanced
             ns.HandleWwwSubdomain = bs.HandleWwwSubdomain;
@@ -102,7 +101,6 @@ namespace BlogEngine.Core.Data
             ns.IsCommentsEnabled = bs.IsCommentsEnabled;
             ns.EnableCommentsModeration = bs.EnableCommentsModeration;
             ns.IsCommentNestingEnabled = bs.IsCommentNestingEnabled;
-            ns.IsCoCommentEnabled = bs.IsCoCommentEnabled;
             ns.Avatar = bs.Avatar;
             ns.EnablePingBackSend = bs.EnablePingBackSend;
             ns.EnablePingBackReceive = bs.EnablePingBackReceive;
@@ -160,7 +158,6 @@ namespace BlogEngine.Core.Data
             bs.RemoveExtensionsFromUrls = ns.RemoveExtensionsFromUrls;
             bs.RedirectToRemoveFileExtension = ns.RedirectToRemoveFileExtension;
             bs.Theme = ns.DesktopTheme;
-            bs.MobileTheme = ns.MobileTheme;
 
             // advanced
             bs.HandleWwwSubdomain = ns.HandleWwwSubdomain;
@@ -223,7 +220,6 @@ namespace BlogEngine.Core.Data
             bs.IsCommentsEnabled = ns.IsCommentsEnabled;
             bs.EnableCommentsModeration = ns.EnableCommentsModeration;
             bs.IsCommentNestingEnabled = ns.IsCommentNestingEnabled;
-            bs.IsCoCommentEnabled = ns.IsCoCommentEnabled;
             bs.Avatar = ns.Avatar;
             bs.EnablePingBackSend = ns.EnablePingBackSend;
             bs.EnablePingBackReceive = ns.EnablePingBackReceive;

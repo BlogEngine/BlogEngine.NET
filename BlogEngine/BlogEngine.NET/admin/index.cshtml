@@ -26,7 +26,7 @@
     <link href="~/Content/admin.css" rel="stylesheet" />
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
-        var ActiveTheme = { Theme: '@BlogSettings.Instance.Theme', Mobile: '@BlogSettings.Instance.MobileTheme' }
+        var ActiveTheme = { Theme: '@BlogSettings.Instance.Theme' }
         var ServerTime = '@DateTime.Now'
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
             var msViewportStyle = document.createElement("style");

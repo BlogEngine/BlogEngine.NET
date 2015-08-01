@@ -347,16 +347,7 @@ namespace Resources {
                 return ResourceManager.GetString("allow", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mobile Site.
-        /// </summary>
-        internal static string allowMobileTheme {
-            get {
-                return ResourceManager.GetString("allowMobileTheme", resourceCulture);
-            }
-        }
-        
+               
         /// <summary>
         ///   Looks up a localized string similar to Allow remote file downloads.
         /// </summary>
@@ -3984,16 +3975,7 @@ namespace Resources {
                 return ResourceManager.GetString("mistakes", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mobile theme.
-        /// </summary>
-        internal static string mobileTheme {
-            get {
-                return ResourceManager.GetString("mobileTheme", resourceCulture);
-            }
-        }
-        
+               
         /// <summary>
         ///   Looks up a localized string similar to Moderated by Disqus..
         /// </summary>
@@ -5854,15 +5836,6 @@ namespace Resources {
         internal static string setAsCurrentTheme {
             get {
                 return ResourceManager.GetString("setAsCurrentTheme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set as mobile theme.
-        /// </summary>
-        internal static string setAsMobileTheme {
-            get {
-                return ResourceManager.GetString("setAsMobileTheme", resourceCulture);
             }
         }
         

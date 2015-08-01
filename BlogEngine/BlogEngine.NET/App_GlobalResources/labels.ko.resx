@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>메시지</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Mobile 테마</value>
-  </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>테마 쿠키 이름</value>
   </data>

@@ -373,9 +373,6 @@
   <data name="message" xml:space="preserve">
     <value>メッセージ</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>モバイルのテーマ</value>
-  </data>
   <data name="more" xml:space="preserve">
     <value>もっと読む</value>
   </data>

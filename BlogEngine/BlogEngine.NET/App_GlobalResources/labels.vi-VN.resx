@@ -588,10 +588,6 @@
     <value>Họ đệm</value>
     <comment>Middle Name</comment>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Chủ đề di động</value>
-    <comment>Mobile theme</comment>
-  </data>
   <data name="more" xml:space="preserve">
     <value>Khác</value>
     <comment>More</comment>

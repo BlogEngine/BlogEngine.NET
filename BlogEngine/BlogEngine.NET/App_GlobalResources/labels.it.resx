@@ -372,9 +372,6 @@
   <data name="message" xml:space="preserve">
     <value>Messaggio</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Tema Mobile</value>
-  </data>
   <data name="more" xml:space="preserve">
     <value>Prosegue</value>
   </data>
@@ -1650,9 +1647,6 @@
   <data name="activeThemes" xml:space="preserve">
     <value>Tema Attivo</value>
   </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Sito Mobile</value>
-  </data>
   <data name="AllPostsBy" xml:space="preserve">
     <value>Tutti i post di</value>
   </data>
@@ -1928,9 +1922,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Imposta come tema attuale</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Imposta come tema mobile</value>
   </data>
   <data name="shortBiography" xml:space="preserve">
     <value>Breve Biografia</value>

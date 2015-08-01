@@ -86,10 +86,6 @@
         /// Default desktop theme
         /// </summary>
         public string DesktopTheme { get; set; }
-        /// <summary>
-        /// Default mobile theme
-        /// </summary>
-        public string MobileTheme { get; set; }
 
         // advanced settings
         /// <summary>
@@ -169,7 +165,6 @@
         public bool IsCommentsEnabled { get; set; }
         public bool EnableCommentsModeration { get; set; }
         public bool IsCommentNestingEnabled { get; set; }
-        public bool IsCoCommentEnabled { get; set; }
         public string Avatar { get; set; }
         public bool EnablePingBackSend { get; set; }
         public bool EnablePingBackReceive { get; set; }

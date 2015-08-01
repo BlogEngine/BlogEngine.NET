@@ -185,9 +185,6 @@
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Establecer como tema actual</value>
   </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Establecer como tema móvil</value>
-  </data>
   <data name="themes" xml:space="preserve">
     <value>Temas</value>
   </data>
@@ -461,9 +458,6 @@
   </data>
   <data name="message" xml:space="preserve">
     <value>Mensaje</value>
-  </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Tema móvil</value>
   </data>
   <data name="themeCookieName" xml:space="preserve">
     <value>Nombre de la cookie del tema</value>
@@ -1741,9 +1735,6 @@
   </data>
   <data name="forceMainTheme" xml:space="preserve">
     <value>Sitio regular</value>
-  </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Sitio mobil</value>
   </data>
   <data name="showPostNavigation" xml:space="preserve">
     <value>Mostrar los links de navegación</value>

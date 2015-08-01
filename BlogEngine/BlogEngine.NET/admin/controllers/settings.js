@@ -66,7 +66,6 @@
             angular.copy(data, $scope.settings);
             $scope.selectedLanguage = selectedOption($scope.lookups.Cultures, $scope.settings.Culture);
             $scope.selectedDeskTheme = selectedOption($scope.lookups.InstalledThemes, $scope.settings.DesktopTheme);
-            $scope.selectedMobileTheme = selectedOption($scope.lookups.InstalledThemes, $scope.settings.MobileTheme);
             $scope.selfRegistrationInitialRole = selectedOption($scope.lookups.SelfRegisterRoles, $scope.settings.SelfRegistrationInitialRole);
             $scope.selFeedFormat = selectedOption($scope.feedOptions, $scope.settings.SyndicationFormat);
             $scope.selCloseDays = selectedOption($scope.closeDaysOptions, $scope.settings.DaysCommentsAreEnabled);
@@ -102,7 +101,6 @@
             return false;
         }
         $scope.settings.DesktopTheme = $scope.selectedDeskTheme.OptionValue;
-        $scope.settings.MobileTheme = $scope.selectedMobileTheme.OptionValue;
         $scope.settings.Culture = $scope.selectedLanguage.OptionValue;
         if ($scope.selfRegistrationInitialRole) {
             $scope.settings.SelfRegistrationInitialRole = $scope.selfRegistrationInitialRole.OptionValue;

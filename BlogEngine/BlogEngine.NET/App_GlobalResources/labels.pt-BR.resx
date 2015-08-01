@@ -358,9 +358,6 @@
   <data name="message" xml:space="preserve">
     <value>Mensagem</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Tema para dispositivos móveis</value>
-  </data>
   <data name="monster" xml:space="preserve">
     <value>Monster</value>
   </data>

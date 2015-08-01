@@ -886,9 +886,6 @@
   <data name="maximumRemoteFileSizeDescription" xml:space="preserve">
     <value>Максимальный размер файла в байтах для загрузки. 0 значит без ограничений.</value>
   </data>
-  <data name="mobileTheme" xml:space="preserve">
-    <value>Мобильная тема</value>
-  </data>
   <data name="newUserRoles" xml:space="preserve">
     <value>Роли нового пользователя</value>
   </data>
@@ -1107,9 +1104,6 @@
   </data>
   <data name="setAsCurrentTheme" xml:space="preserve">
     <value>Выбрать основной темой</value>
-  </data>
-  <data name="setAsMobileTheme" xml:space="preserve">
-    <value>Выбрать мобильной темой</value>
   </data>
   <data name="themes" xml:space="preserve">
     <value>Темы</value>
@@ -1620,9 +1614,6 @@
   </data>
   <data name="allow" xml:space="preserve">
     <value>Разрешить</value>
-  </data>
-  <data name="allowMobileTheme" xml:space="preserve">
-    <value>Мобильный веб-сайт</value>
   </data>
   <data name="AllPostsBy" xml:space="preserve">
     <value>Все запили</value>
