@@ -1377,12 +1377,6 @@
 	<data name="showPostNavigation" xml:space="preserve">
 		<value>Εμφάνιση συνδέσμων πλοήγησης δημοσιεύσεων</value>
 	</data>
-	<data name="filterByApmlDescription" xml:space="preserve">
-		<value>Εισάγετε τη διεύθυνση URL της ιστοσελίδα σας ή του APML εγγράφου σας</value>
-	</data>
-	<data name="enableErrorLogging" xml:space="preserve">
-		<value>Ενεργοποίηση καταγραφής σφαλμάτων</value>
-	</data>
 	<data name="commentsBlacklist" xml:space="preserve">
 		<value>Προσθήκη στη μαύρη λίστα, αν τουλάχιστον</value>
 	</data>

@@ -239,8 +239,6 @@ enableCommentSearch
 enableCommentsModeration
 enabled
 enableEnclosures
-enableErrorLogging
-enableErrorLoggingDescription
 enableGravatars
 enableHttpCompression
 enableHttpCompressionDescription

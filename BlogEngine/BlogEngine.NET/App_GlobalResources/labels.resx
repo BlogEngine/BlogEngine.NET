@@ -802,12 +802,6 @@
   <data name="profiles" xml:space="preserve">
     <value>Profiles</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Enable error logging</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Unhandled errors will be logged to any extension/component subscribed to log notifications.</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>Comment Notification Subscription</value>
   </data>

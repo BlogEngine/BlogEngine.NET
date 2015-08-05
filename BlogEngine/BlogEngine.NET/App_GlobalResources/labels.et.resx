@@ -784,12 +784,6 @@
   <data name="profiles" xml:space="preserve">
     <value>Profiilid</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Lubatud veateadete logimine</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Unhandled errors will be logged to any extension/component subscribed to log notifications.</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>Kommentaaride teavituste tellimine</value>
   </data>

@@ -855,12 +855,6 @@
   <data name="enabled" xml:space="preserve">
     <value>Abilitato</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Abilita Log degli Errori</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>L'errore non gestito verrà registrato ad ogni estensione / componente iscritto al registro di notifiche.</value>
-  </data>
   <data name="eqls" xml:space="preserve">
     <value>Eguale</value>
   </data>

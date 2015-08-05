@@ -784,12 +784,6 @@
   <data name="profiles" xml:space="preserve">
     <value>모든 프로필</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>에러 로깅 활성화</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>처리되지 않은 에러는 로그 알림에 가입된 extension/component 에 기록하게 됩니다.</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>답글 알림 가입</value>
   </data>

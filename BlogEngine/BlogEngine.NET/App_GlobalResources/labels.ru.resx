@@ -853,12 +853,6 @@
   <data name="enableEnclosures" xml:space="preserve">
     <value>Включить Enclosure (поддержка подкастинка)</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Включить регистрацию ошибок</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Ошибки будут отправляться всем зарегистрированным приложениям</value>
-  </data>
   <data name="enablePasswordReset" xml:space="preserve">
     <value>Включить возможность восстановления пароля</value>
   </data>

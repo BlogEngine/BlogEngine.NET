@@ -105,10 +105,6 @@
         /// </summary>
         public bool RequireSslForMetaWeblogApi { get; set; }
         /// <summary>
-        /// Enable error logging
-        /// </summary>
-        public bool EnableErrorLogging { get; set; }
-        /// <summary>
         /// Gallery feed url
         /// </summary>
         public string GalleryFeedUrl { get; set; }

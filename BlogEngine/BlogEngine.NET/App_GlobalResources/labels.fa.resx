@@ -784,12 +784,6 @@
   <data name="profiles" xml:space="preserve">
     <value>پروفایلها</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>فعال کردن قابلیت ثبت خطاها</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>خطاهای غیر منتظره در هر قسمتی که فعال شده باشد به ثبت خواهد رسید</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>آگاه شدن در صورت ارسال نظر</value>
   </data>

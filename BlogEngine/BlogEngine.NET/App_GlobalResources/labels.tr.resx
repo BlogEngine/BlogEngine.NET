@@ -802,13 +802,7 @@
   <data name="profiles" xml:space="preserve">
     <value>Profiller</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Hata günlüğünü etkinleştir</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Çözülmemiş hatalar herhangi abone olunan uzantı/bileşen oturum bildirimleri günlüğüne kaydedilir..</value>
-  </data>
-   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
+  <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>Yorum Bildirimi Aboneliği</value>
   </data>
   <data name="commentNotificationUnsubscriptionText" xml:space="preserve">

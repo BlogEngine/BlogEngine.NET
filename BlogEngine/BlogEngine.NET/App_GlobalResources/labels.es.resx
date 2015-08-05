@@ -867,12 +867,6 @@
   <data name="profiles" xml:space="preserve">
     <value>Perfiles</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Habilitar el registro de errores</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Los errores no controlados serán registrados en cualquier extensión/componente suscrito a la notificación de registros.</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>Suscripción a Notificaciones de Comentarios</value>
   </data>

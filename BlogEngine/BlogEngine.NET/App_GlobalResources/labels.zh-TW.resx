@@ -784,12 +784,6 @@
   <data name="profiles" xml:space="preserve">
     <value>個人資料</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>啟用錯誤紀錄</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>未經處理的錯誤將被記錄至外掛或模組以便訂閱日誌提示</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>評論通知訂閱</value>
   </data>

@@ -3,7 +3,12 @@
     $scope.lookups = {};
     $scope.UserVars = UserVars;
     $scope.selfRegistrationInitialRole = {};
+
+    $scope.ClientTime = moment().format("YYYY-MM-DD HH:mm");
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
+    $scope.TimeDiff = moment.duration(moment($scope.ServerTime).diff($scope.ClientTime)).hours();
+    $scope.OffsetOk = true;
+
     $scope.feedOptions = [
         { "OptionName": "RSS 2.0", "OptionValue": "Rss", "IsSelected": false },
         { "OptionName": "Atom 1.0", "OptionValue": "Atom", "IsSelected": false }
@@ -74,7 +79,7 @@
             $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
             $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
 
-
+            $scope.OffsetOk = $scope.settings.Timezone === $scope.TimeDiff;
 
             if ($('.summernote').length > 0) {
                 $('.summernote').code($scope.settings.ContactFormMessage);

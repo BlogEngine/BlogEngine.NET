@@ -790,12 +790,6 @@
   <data name="profiles" xml:space="preserve">
     <value>Profielen</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>Activeer fout logging</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>Niet afgehandelde fouten zullen gelogd worden naar iedere extensie/component die zich aangemeld heeft voor logging notificaties.</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>Aanmelding voor reactie notificatie</value>
   </data>

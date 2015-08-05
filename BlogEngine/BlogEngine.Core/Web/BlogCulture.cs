@@ -376,8 +376,6 @@ namespace BlogEngine.Core.Web
             AddResource("enableCommentsModeration");
             AddResource("enabled");
             AddResource("enableEnclosures");
-            AddResource("enableErrorLogging");
-            AddResource("enableErrorLoggingDescription");
             AddResource("enableGravatars");
             AddResource("enableHttpCompression");
             AddResource("enableHttpCompressionDescription");

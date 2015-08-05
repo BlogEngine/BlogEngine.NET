@@ -1009,14 +1009,6 @@
     <value>用户档案</value>
     <comment>Profiles</comment>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>启用错误日志记录</value>
-    <comment>Enable error logging</comment>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>启用将允许扩展插件、组件等记录可能会发生的任何不可预见的错误</value>
-    <comment>Unhandled errors will be logged to any extension/component subscribed to log notifications.</comment>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>评论通知签名</value>
     <comment>Comment Notification Subscription</comment>

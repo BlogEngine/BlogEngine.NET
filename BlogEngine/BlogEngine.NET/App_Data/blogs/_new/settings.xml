@@ -51,7 +51,6 @@
   <email>name@example.com</email>
   <enabletrackbacksend>True</enabletrackbacksend>
   <commentwhitelistcount>1</commentwhitelistcount>
-  <enableerrorlogging>False</enableerrorlogging>
   <enablereferrertracking>False</enablereferrertracking>
   <disquswebsitename />
   <handlewwwsubdomain />

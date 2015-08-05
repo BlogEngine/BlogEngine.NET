@@ -787,12 +787,6 @@
   <data name="profiles" xml:space="preserve">
     <value>プロフィール</value>
   </data>
-  <data name="enableErrorLogging" xml:space="preserve">
-    <value>エラーログを有効</value>
-  </data>
-  <data name="enableErrorLoggingDescription" xml:space="preserve">
-    <value>拡張機能やコンポーネントでハンドルされない例外をログ通知します</value>
-  </data>
   <data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
     <value>コメント通知を購読</value>
   </data>

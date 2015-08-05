@@ -799,12 +799,6 @@
 	<data name="profiles" xml:space="preserve">
 		<value>Profile</value>
 	</data>
-	<data name="enableErrorLogging" xml:space="preserve">
-		<value>Aktiviere Fehler Protokollierung</value>
-	</data>
-	<data name="enableErrorLoggingDescription" xml:space="preserve">
-		<value>Unbehandelte Fehler werden von jeder Erweiterung/Komponente protokolliert die sich dazu angemeldet hat.</value>
-	</data>
 	<data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
 		<value>Kommentar Benachrichtigungs Anmeldung</value>
 	</data>

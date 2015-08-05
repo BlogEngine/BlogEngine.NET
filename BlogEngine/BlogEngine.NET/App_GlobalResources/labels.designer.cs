@@ -2382,25 +2382,7 @@ namespace Resources {
                 return ResourceManager.GetString("enableEnclosures", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable error logging.
-        /// </summary>
-        internal static string enableErrorLogging {
-            get {
-                return ResourceManager.GetString("enableErrorLogging", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unhandled errors will be logged to any extension/component subscribed to log notifications..
-        /// </summary>
-        internal static string enableErrorLoggingDescription {
-            get {
-                return ResourceManager.GetString("enableErrorLoggingDescription", resourceCulture);
-            }
-        }
-        
+               
         /// <summary>
         ///   Looks up a localized string similar to Enable Gravatars.
         /// </summary>
