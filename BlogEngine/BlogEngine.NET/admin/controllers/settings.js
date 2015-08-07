@@ -3,11 +3,8 @@
     $scope.lookups = {};
     $scope.UserVars = UserVars;
     $scope.selfRegistrationInitialRole = {};
-
-    $scope.ClientTime = moment().format("YYYY-MM-DD HH:mm");
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
-    $scope.TimeDiff = moment.duration(moment($scope.ServerTime).diff($scope.ClientTime)).hours();
-    $scope.OffsetOk = true;
+    $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
 
     $scope.feedOptions = [
         { "OptionName": "RSS 2.0", "OptionValue": "Rss", "IsSelected": false },
@@ -51,6 +48,41 @@
         { "OptionName": "4", "OptionValue": "4", "IsSelected": false },
         { "OptionName": "5", "OptionValue": "5", "IsSelected": false }
     ];
+    $scope.timeZoneOptions = [
+        { "OptionName": "(GMT -12:00) Eniwetok, Kwajalein", "OptionValue": "-12", "IsSelected": false },
+        { "OptionName": "(GMT -11:00) Midway Island, Samoa", "OptionValue": "-11", "IsSelected": false },
+        { "OptionName": "(GMT -10:00) Hawaii", "OptionValue": "-10", "IsSelected": false },
+        { "OptionName": "(GMT -9:00) Alaska", "OptionValue": "-9", "IsSelected": false },
+        { "OptionName": "(GMT -8:00) Pacific Time (US &amp; Canada)", "OptionValue": "-8", "IsSelected": false },
+        { "OptionName": "(GMT -7:00) Mountain Time (US &amp; Canada)", "OptionValue": "-7", "IsSelected": false },
+        { "OptionName": "(GMT -6:00) Central Time (US &amp; Canada), Mexico City", "OptionValue": "-6", "IsSelected": false },
+        { "OptionName": "(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima", "OptionValue": "-5", "IsSelected": false },
+        { "OptionName": "(GMT -4:30) Caracas", "OptionValue": "-4.5", "IsSelected": false },
+        { "OptionName": "(GMT -4:00) Atlantic Time (Canada), La Paz, Santiago", "OptionValue": "-4", "IsSelected": false },
+        { "OptionName": "(GMT -3:30) Newfoundland", "OptionValue": "-3.5", "IsSelected": false },
+        { "OptionName": "(GMT -3:00) Brazil, Buenos Aires, Georgetown", "OptionValue": "-3", "IsSelected": false },
+        { "OptionName": "(GMT -2:00) Mid-Atlantic", "OptionValue": "-2", "IsSelected": false },
+        { "OptionName": "(GMT -1:00 hour) Azores, Cape Verde Islands", "OptionValue": "-1", "IsSelected": false },
+        { "OptionName": "(GMT) Western Europe Time, London, Greenwich", "OptionValue": "0", "IsSelected": false },
+        { "OptionName": "(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris", "OptionValue": "1", "IsSelected": false },
+        { "OptionName": "(GMT +2:00) Kaliningrad, South Africa, Cairo", "OptionValue": "2", "IsSelected": false },
+        { "OptionName": "(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg", "OptionValue": "3", "IsSelected": false },
+        { "OptionName": "(GMT +3:30) Tehran", "OptionValue": "3.5", "IsSelected": false },
+        { "OptionName": "(GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku, Tbilisi", "OptionValue": "4", "IsSelected": false },
+        { "OptionName": "(GMT +4:30) Kabul", "OptionValue": "4.5", "IsSelected": false },
+        { "OptionName": "(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent", "OptionValue": "5", "IsSelected": false },
+        { "OptionName": "(GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi", "OptionValue": "5.5", "IsSelected": false },
+        { "OptionName": "(GMT +5:45) Kathmandu", "OptionValue": "5.75", "IsSelected": false },
+        { "OptionName": "(GMT +6:00) Almaty, Dhaka, Colombo", "OptionValue": "6", "IsSelected": false },
+        { "OptionName": "(GMT +6:30) Yangon, Cocos Islands", "OptionValue": "6.5", "IsSelected": false },
+        { "OptionName": "(GMT +7:00) Bangkok, Hanoi, Jakarta", "OptionValue": "7", "IsSelected": false },
+        { "OptionName": "(GMT +8:00) Beijing, Perth, Singapore, Hong Kong", "OptionValue": "8", "IsSelected": false },
+        { "OptionName": "(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk", "OptionValue": "9", "IsSelected": false },
+        { "OptionName": "(GMT +9:30) Adelaide, Darwin", "OptionValue": "9.5", "IsSelected": false },
+        { "OptionName": "(GMT +10:00) Eastern Australia, Guam, Vladivostok", "OptionValue": "10", "IsSelected": false },
+        { "OptionName": "(GMT +11:00) Magadan, Solomon Islands, New Caledonia", "OptionValue": "11", "IsSelected": false },
+        { "OptionName": "(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka", "OptionValue": "12", "IsSelected": false }
+    ];
 
     $scope.load = function () {
         spinOn();
@@ -75,11 +107,10 @@
             $scope.selFeedFormat = selectedOption($scope.feedOptions, $scope.settings.SyndicationFormat);
             $scope.selCloseDays = selectedOption($scope.closeDaysOptions, $scope.settings.DaysCommentsAreEnabled);
             $scope.selCommentsPerPage = selectedOption($scope.commentsPerPageOptions, $scope.settings.CommentsPerPage);
+            $scope.selTimeZone = selectedOption($scope.timeZoneOptions, $scope.settings.Timezone);
 
             $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
             $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
-
-            $scope.OffsetOk = $scope.settings.Timezone === $scope.TimeDiff;
 
             if ($('.summernote').length > 0) {
                 $('.summernote').code($scope.settings.ContactFormMessage);
@@ -113,6 +144,7 @@
         $scope.settings.SyndicationFormat = $scope.selFeedFormat.OptionValue;
         $scope.settings.DaysCommentsAreEnabled = $scope.selCloseDays.OptionValue;
         $scope.settings.CommentsPerPage = $scope.selCommentsPerPage.OptionValue;
+        $scope.settings.Timezone = $scope.selTimeZone.OptionValue;
 
         $scope.settings.CommentWhiteListCount = $scope.whiteListSelected.OptionValue;
         $scope.settings.CommentBlackListCount = $scope.blackListSelected.OptionValue;

@@ -923,8 +923,7 @@
             }
 
             post.DateCreated = sentPost.postDate == new DateTime() ? 
-                DateTime.Now.AddHours(-BlogSettings.Instance.Timezone) : 
-                sentPost.postDate;
+                BlogSettings.Instance.ClientTime() : sentPost.postDate;
 
             post.Save();
 

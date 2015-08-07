@@ -671,7 +671,7 @@
             {
                 if (this.IsDeleted)
                     return false;
-                else if (this.IsPublished && this.DateCreated.AddHours(BlogSettings.Instance.Timezone) <= DateTime.Now)
+                else if (this.IsPublished && this.DateCreated <= BlogSettings.Instance.ClientTime())
                     return true;
                 else if (Security.IsAuthorizedTo(Rights.ViewUnpublishedPosts))
                     return true;
@@ -688,7 +688,7 @@
             get
             {
                 return (this.IsPublished && this.IsDeleted == false &&
-                    this.DateCreated.AddHours(BlogSettings.Instance.Timezone) <= DateTime.Now);
+                    this.DateCreated <= BlogSettings.Instance.ClientTime());
             }
         }
 

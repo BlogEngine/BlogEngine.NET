@@ -28,17 +28,18 @@
                                 <div class="col col-md-8">
                                     <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
                                 </div>
+                            </div>                           
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="selTimezone">{{lbl.timezone}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
+                                    <label class="control-label">UTC server time: {{UtcTime}}</label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
                                 <div class="col col-md-8">
                                     <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
                                 </div>
                             </div>
                         </div>
@@ -47,11 +48,17 @@
                 <div class="col col-sm-6">
                     <div class="well clearfix">
                         <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
+                                </div>
+                            </div>
                             <div class="col-md-offset-4 col-md-8">
-                                <div class="checkbox" style="margin-bottom:5px;">
+                                <div class="checkbox" style="padding-bottom: 8px; padding-top: 0">
                                     <label>
                                         <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
-                                        <span style="position:relative; top:0 ">{{lbl.showDescriptionInPostList}}</span>
+                                        <span>{{lbl.showDescriptionInPostList}}</span>
                                     </label>
                                 </div>
                             </div>
@@ -61,13 +68,7 @@
                                     <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
                                 </div>
                             </div>
-                            <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckShowPostNavigation" data-ng-model="settings.ShowPostNavigation" />
-                                        {{lbl.showPostNavigation}}
-                                    </label>
-                                </div>
+                            <div class="col-md-offset-4 col-md-8">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
@@ -75,21 +76,28 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
+                                        {{lbl.enableSelfRegistration}}
+                                    </label>
+                                </div>
+                            </div>                          
                             <div class="form-group">
-                                <label class="control-label col-md-4" for="txtTimeOffset">{{lbl.timezone}}</label>
-                                <div class="col col-md-7">
-                                    <input type="text" title="Server time: {{ServerTime}}" class="form-control" id="txtTimeOffset" name="txtTimeOffset" data-ng-model="settings.Timezone" />
-                                </div>
-                                <div class="col col-md-1" style="margin-left: 0">
-                                    <i ng-show="OffsetOk" class="fa fa-check-circle fa-lg" style="color: green; margin-top: 10px"></i>
+                                <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
+                                <div class="col col-md-8">
+                                    <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
                                 </div>
                             </div>
-                            <div class="form-group" ng-hide="OffsetOk">
-                                <label class="control-label col-md-4">Server time</label>
-                                <div class="col col-md-8" style="margin-top: 5px">
-                                    {{ServerTime}} (suggested offset: {{TimeDiff}})
+                            <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
+                                        {{lbl.createBlogOnSelfRegistration}}
+                                    </label>
                                 </div>
-                            </div>
+                            </div>                       
                         </div>
                     </div>
                 </div>

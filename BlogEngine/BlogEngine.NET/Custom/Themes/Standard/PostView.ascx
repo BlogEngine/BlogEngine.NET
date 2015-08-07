@@ -12,7 +12,7 @@
             <a href="<%=Post.RelativeOrAbsoluteLink %>"><%=Server.HtmlEncode(Post.Title) %></a>
         </h2>
         <div class="post-info clearfix">
-            <span class="post-date"><i class="icon-calendar"></i><%=Post.DateCreated.ToString("dd MMMM yyyy") %></span>
+            <span class="post-date"><i class="icon-calendar"></i><%=Post.DateCreated.ToString("dd MMMM yyyy hh:mm") %></span>
             <span class="post-author"><i class=" icon-user"></i><a href="<%=BlogEngine.Core.Utils.AbsoluteWebRoot + "author/" + BlogEngine.Core.Utils.RemoveIllegalCharacters(Post.Author) + BlogEngine.Core.BlogConfig.FileExtension %>"><%=Post.AuthorProfile != null ? Post.AuthorProfile.DisplayName : Post.Author %></a></span>
             <span class="post-category"><i class=" icon-folder"></i><%=CategoryLinks(", ") %></span>
             <a rel="nofollow" class="pull-right " href="<%=Post.RelativeOrAbsoluteLink %>#comment"><i class="icon-comment"></i>(<%=Post.ApprovedComments.Count %>)</a>

@@ -850,8 +850,7 @@ namespace BlogEngine.Core.Providers
                         parms.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
                         parms.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         parms.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
-                        parms.Add(conn.CreateParameter(FormatParamName("created"),
-                            (page.DateCreated == new DateTime() ? DateTime.Now : page.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                        parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ServerTime(page.DateCreated)));
                         parms.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                         parms.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         parms.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
@@ -894,8 +893,7 @@ namespace BlogEngine.Core.Providers
                             parms.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
                             parms.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
-                            parms.Add(conn.CreateParameter(FormatParamName("created"), 
-                                (post.DateCreated == new DateTime() ? DateTime.Now : post.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                            parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ServerTime(post.DateCreated)));
                             parms.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                             parms.Add(conn.CreateParameter(FormatParamName("author"), (post.Author ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("published"), post.IsPublished));
@@ -2234,8 +2232,7 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
                         p.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         p.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
-                        p.Add(conn.CreateParameter(FormatParamName("created"), 
-                            (page.DateCreated == new DateTime() ? DateTime.Now : page.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                        p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ServerTime(page.DateCreated)));
                         p.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                         p.Add(conn.CreateParameter(FormatParamName("keywords"), page.Keywords == null ? "" : page.Keywords));
                         p.Add(conn.CreateParameter(FormatParamName("ispublished"), page.IsPublished));
@@ -2278,8 +2275,7 @@ namespace BlogEngine.Core.Providers
                             p.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
                             p.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
-                            p.Add(conn.CreateParameter(FormatParamName("created"), 
-                                (post.DateCreated == new DateTime() ? DateTime.Now : post.DateCreated.AddHours(-BlogSettings.Instance.Timezone))));
+                            p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ServerTime(post.DateCreated)));
                             p.Add(conn.CreateParameter(FormatParamName("modified"), DateTime.Now));
                             p.Add(conn.CreateParameter(FormatParamName("author"), (post.Author ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("published"), post.IsPublished));

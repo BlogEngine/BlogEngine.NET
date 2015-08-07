@@ -119,13 +119,10 @@
                 writer.WriteElementString("isdeleted", post.IsDeleted.ToString());
                 writer.WriteElementString("iscommentsenabled", post.HasCommentsEnabled.ToString());
 
-                writer.WriteElementString("pubDate", (post.DateCreated == new DateTime() ? DateTime.Now : 
-                    post.DateCreated.AddHours(-BlogSettings.Instance.Timezone)).
+                writer.WriteElementString("pubDate", BlogSettings.Instance.ServerTime(post.DateCreated).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
-                // xml provider re-writes file to disk, so check for existing time modified
-                writer.WriteElementString("lastModified", (post.DateModified == new DateTime() ? DateTime.Now :
-                    post.DateModified.AddHours(-BlogSettings.Instance.Timezone)).
+                writer.WriteElementString("lastModified", BlogSettings.Instance.ServerTime(post.DateModified).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteElementString("raters", post.Raters.ToString(CultureInfo.InvariantCulture));
@@ -152,8 +149,7 @@
                     writer.WriteAttributeString("spam", comment.IsSpam.ToString());
                     writer.WriteAttributeString("deleted", comment.IsDeleted.ToString());
 
-                    writer.WriteElementString("date", (comment.DateCreated == new DateTime() ? DateTime.Now :
-                        comment.DateCreated.AddHours(-BlogSettings.Instance.Timezone))
+                    writer.WriteElementString("date", BlogSettings.Instance.ServerTime(comment.DateCreated)
                         .ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                     writer.WriteElementString("author", comment.Author);

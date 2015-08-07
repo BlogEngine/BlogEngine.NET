@@ -63,7 +63,7 @@ namespace BlogEngine.Core.Providers
 
                 foreach (XmlNode node in nodes)
                 {
-                    var b = new Blog()
+                    var b = new Blog
                     {
                         Id = node.Attributes["id"] == null ? Guid.NewGuid() : new Guid(node.Attributes["id"].Value),
                         Name = node.Attributes["name"] == null ? string.Empty : node.Attributes["name"].Value,

@@ -99,7 +99,7 @@
         public Page()
         {
             this.Id = Guid.NewGuid();
-            this.DateCreated = DateTime.Now;
+            this.DateCreated = BlogSettings.Instance.ClientTime();
         }
 
         static Page()

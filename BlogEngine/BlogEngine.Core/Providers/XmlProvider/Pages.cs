@@ -89,8 +89,7 @@
                 writer.WriteElementString("isdeleted", page.IsDeleted.ToString());
                 writer.WriteElementString("sortorder", page.SortOrder.ToString());
 
-                writer.WriteElementString("datecreated", (page.DateCreated == new DateTime() ? DateTime.Now :
-                    page.DateCreated.AddHours(-BlogSettings.Instance.Timezone)).
+                writer.WriteElementString("datecreated", BlogSettings.Instance.ServerTime(page.DateCreated).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteElementString("datemodified", (page.DateModified == new DateTime() ? DateTime.Now :

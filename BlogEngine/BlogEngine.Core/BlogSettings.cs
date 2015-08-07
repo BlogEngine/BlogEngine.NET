@@ -1093,6 +1093,32 @@
         /// <value>The maximum number of characters to display.</value>
         public double Timezone { get; set; }
 
+        /// <summary>
+        /// Converts time passed from client into UTC server time
+        /// </summary>
+        /// <param name="localTime">Client time</param>
+        /// <returns>Server time</returns>
+        public DateTime ServerTime(DateTime ? localTime = null)
+        {
+            if(localTime == null || localTime == new DateTime())
+                return DateTime.UtcNow;
+
+            return localTime.Value.AddHours(-Timezone);
+        }
+
+        /// <summary>
+        /// Converts time saved on the server to local user time
+        /// </summary>
+        /// <param name="serverTime">Server time</param>
+        /// <returns>Client time</returns>
+        public DateTime ClientTime(DateTime ? serverTime = null)
+        {
+            if (serverTime == null || serverTime == new DateTime())
+                return DateTime.UtcNow.AddHours(Timezone);
+
+            return serverTime.Value.AddHours(Timezone);
+        }
+
         #endregion
 
         #region EnableContactAttachments
