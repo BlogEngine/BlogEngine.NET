@@ -1,0 +1,66 @@
+﻿<div data-ng-controller="SettingsController">
+    <form id="form" action="">
+        <div class="page-header clearfix">
+            <h2 class="page-title pull-left">
+                {{lbl.controls}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            </h2>
+            <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        </div>
+        <div class="content-inner">
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <h4>{{lbl.contactForm}}</h4>
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class="form-group" style="margin: 0">
+                                <label class="control-label" for="txtContactFormMessage">{{lbl.formMessage}}</label>
+                                <textarea class="form-control ltr-dir" rows="2" id="txtContactFormMessage" data-ng-model="settings.ContactFormMessage"></textarea>
+                            </div>
+                            <div class="form-group" style="margin: 0">
+                                <label class="control-label" for="txtContactErrorMessage">{{lbl.errorMessage}}</label>
+                                <textarea class="form-control ltr-dir" rows="2" id="txtContactErrorMessage" data-ng-model="settings.ContactErrorMessage"></textarea>
+                            </div>
+                            <div class="form-group" style="margin: 0">
+                                <label class="control-label" for="txtContactThankMessage">{{lbl.thankYouMessage}}</label>
+                                <textarea class="form-control ltr-dir"  rows="2" id="txtContactThankMessage" data-ng-model="settings.ContactThankMessage"></textarea>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableContactAttachments" data-ng-model="settings.EnableContactAttachments" />
+                                        {{lbl.enableAttachments}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableRecaptchaOnContactForm" data-ng-model="settings.EnableRecaptchaOnContactForm" />
+                                        {{lbl.enableRecaptcha}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <h4>{{lbl.errorPage}}</h4>
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class="form-group" style="margin: 0">
+                                <label class="control-label" for="txtErrorTitle">{{lbl.txtErrorTitle}}</label>
+                                <input type="text" class="form-control" id="txtErrorTitle" name="txtErrorTitle" data-ng-model="settings.ErrorTitle" />
+                            </div>
+                            <div class="form-group" style="margin: 0">
+                                <label class="control-label" for="txtErrorText">{{lbl.txtErrorText}}</label>
+                                <textarea class="form-control ltr-dir" rows="2" id="txtErrorText" data-ng-model="settings.ErrorText"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

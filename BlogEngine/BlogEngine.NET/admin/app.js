@@ -27,19 +27,13 @@
         .when("/settings/feed", { templateUrl: "views/settings/feed.html" })
         .when("/settings/email", { templateUrl: "views/settings/email.html" })
 
-        .when("/settings/controls", { templateUrl: "views/settings/controls/contactform.html" })
+        .when("/settings/controls", { templateUrl: "views/settings/controls.html" })
         .when("/settings/controls/blogroll", { templateUrl: "views/settings/controls/blogroll.html" })
         .when("/settings/controls/pings", { templateUrl: "views/settings/controls/pings.html" })
-        .when("/settings/controls/error", { templateUrl: "views/settings/controls/error.html" })
 
-        .when("/settings/comments", { templateUrl: "views/settings/comments/index.html" })
-        .when("/settings/comments/filters", { templateUrl: "views/settings/comments/filters.html" })
-
-        .when("/settings/customecode", { templateUrl: "views/settings/customecode.html" })
+        .when("/settings/comments", { templateUrl: "views/settings/comments.html" })
 
         .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
-        .when("/settings/tools/export", { templateUrl: "views/settings/tools/export.html" })
-        .when("/settings/tools/import", { templateUrl: "views/settings/tools/import.html" })
 
         .when("/help", { templateUrl: "views/help/index.html" })
         .when("/about", { templateUrl: "views/about/index.html" })

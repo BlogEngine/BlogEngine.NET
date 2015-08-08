@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -236,20 +237,14 @@
     <Content Include="admin\views\content\files.html" />
     <Content Include="admin\views\custom\packages.html" />
     <Content Include="admin\views\about\index.html" />
+    <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
-    <Content Include="admin\views\settings\comments\filters.html" />
-    <Content Include="admin\views\settings\comments\index.html" />
-    <Content Include="admin\views\settings\controls\error.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
+    <Content Include="admin\views\settings\comments.html" />
     <Content Include="admin\views\settings\tools\check.html" />
-    <Content Include="admin\views\settings\tools\export.html" />
-    <Content Include="admin\views\settings\tools\import.html" />
     <Content Include="admin\views\shared\_editnote.html" />
     <Content Include="admin\views\shared\_addnote.html" />
     <Content Include="admin\views\shared\_review.html" />
-    <Content Include="admin\views\shared\_settingtools.html" />
-    <Content Include="admin\views\shared\_settingcomments.html" />
-    <Content Include="admin\views\shared\_controls.html" />
     <Content Include="admin\views\shared\_filestable.html" />
     <Content Include="admin\views\help\index.html" />
     <Content Include="admin\Web.Config" />
@@ -1523,8 +1518,6 @@
     <Content Include="admin\views\dashboard.html" />
     <Content Include="admin\views\settings\advanced.html" />
     <Content Include="admin\views\settings\basic.html" />
-    <Content Include="admin\views\settings\controls\contactform.html" />
-    <Content Include="admin\views\settings\customecode.html" />
     <Content Include="admin\views\settings\email.html" />
     <Content Include="admin\views\settings\feed.html" />
     <Content Include="admin\views\shared\_footer.html" />

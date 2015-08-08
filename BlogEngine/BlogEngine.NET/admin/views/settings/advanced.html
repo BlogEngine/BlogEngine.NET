@@ -73,11 +73,155 @@
                                 </label>
                             </div>
 
-                            <hr ng-if="SiteVars.IsPrimary" />
+                            <!--<hr ng-if="SiteVars.IsPrimary" />
                             <div class="form-group">
                                 <label class="control-label" for="txtThemeCookieName">{{lbl.themeCookieName}}</label>
                                 <input type="text" class="form-control ltr-dir" id="txtThemeCookieName" name="txtThemeCookieName" data-ng-model="settings.ThemeCookieName" />
+                            </div>-->
+
+                            <div class="form-group">
+                                <h4>{{lbl.tools}}</h4>
+                                <hr/>
+                                <label class="control-label">{{lbl.selectSavedBlogMlFle}}</label>
+                                <div>
+                                    <a class="btn btn-primary" id="importBtn" title="{{lbl.import}}">{{lbl.import}}</a>
+                                    <input type="file" data-role="magic-overlay" class="cursor-pointer" data-target="#importBtn" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                                </div>
+                                <small class="small-caps control-label">{{lbl.or}}</small>
+                                <label ng-bind-html="lbl.runClickOnceApplicationToImport"></label><br />
+                                <button class="btn btn-primary" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label">{{lbl.exportIntoBlogML}}</label>
+                                <div>
+                                    <button class="btn btn-primary" data-ng-click="exportToXml()" type="button">{{lbl.export}}</button>
+                                </div>
+                            </div>
+                            <script>
+                            $('[data-role=magic-overlay]').each(function () {
+                                var overlay = $(this), target = $(overlay.data('target'));
+                                overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+                            });
+                            </script>
+
+
+                            <div data-ng-controller="CommentFilterController">
+                                <div class="modal fade" id="AddFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" ng-click="focusInput=false" aria-hidden="true"><i class="fa fa-times"></i></button>
+                                                <h4 class="modal-title">Add Filter</h4>
+                                            </div>
+                                            <!--<form id="form" action="" style="margin:0;">-->
+                                                <div class="modal-body">
+                                                    <div class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="control-label col col-md-3">Action</label>
+                                                            <div class="col col-md-9">
+                                                                <select class="form-control" id="ddAction" name="ddAction">
+                                                                    <option value="Block" selected="selected">Block</option>
+                                                                    <option value="Allow">Allow</option>
+                                                                    <option value="Delete">Delete</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col col-md-3">Subject</label>
+                                                            <div class="col col-md-9">
+                                                                <select class="form-control" id="ddSubject" name="ddSubject">
+                                                                    <option value="IP" selected="selected">IP</option>
+                                                                    <option value="Author">Author</option>
+                                                                    <option value="Website">Website</option>
+                                                                    <option value="Email">E-mail</option>
+                                                                    <option value="Comment">Comment</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col col-md-3">Operator</label>
+                                                            <div class="col col-md-9">
+                                                                <select class="form-control" id="ddOperator" name="ddOperator">
+                                                                    <option value="Equals" selected="selected">Equals</option>
+                                                                    <option value="Contains">Contains</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col col-md-3">Filter</label>
+                                                            <div class="col col-md-9">
+                                                                <input type="text" class="form-control" id="txtFilter" maxlength="250" name="txtFilter">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input data-ng-click="addFilter()" class="btn btn-success pull-right btn-tabkey " type="button" value="Add Filter">
+                                                    <button type="button" class="btn btn-default ng-binding" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>Cancel</button>
+                                                </div>
+                                            <!--</form>-->
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <h4 class="pull-left">{{lbl.filters}}</h4>
+                                    <button data-toggle="modal" data-target="#AddFilter" class="btn btn-success btn-sm pull-right">Add Filter</button>
+                                </div>
+                                <hr />
+                                <div class="toolbar-grid clearfix">
+                                    <div class="pull-left">
+                                        <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+                                        <button ng-disabled="items.length === 0" data-ng-click="deleteAll()" class="btn btn-sm btn-danger" type="button"><i class="fa fa-times"></i>{{lbl.deleteAll}}</button>
+                                    </div>
+                                    <div class="pull-right">
+                                        <input type="text" ng-model="query" ng-change="search()" class="form-control input-sm pull-right" placeholder="{{lbl.search}}">
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-striped table-hover table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" />
+                                            </th>
+                                            <th class="table-item-title hmax768">Action</th>
+                                            <th class="hmax768">Subject</th>
+                                            <th class="hmax768">Operator</th>
+                                            <th class="hmax768">Filter</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="item in pagedItems[currentPage]">
+                                            <td> <input type="checkbox" data-ng-model="item.IsChecked" /> </td>
+                                            <td><span class="pull-left">{{item.Action}}</span></td>
+                                            <td><span class="pull-left">{{item.Subject}}</span></td>
+                                            <td><span class="pull-left">{{item.Operation}}</span></td>
+                                            <td class="table-item-title">
+                                                {{item.Filter}}
+                                            </td>
+                                        </tr>
+                                        <tr id="tr-spinner"><td colspan="5"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-right pagination-wrapper">
+                                    <ul class="pagination pagination-sm">
+                                        <li data-ng-class="{disabled: currentPage == 0}">
+                                            <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
+                                        </li>
+                                        <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                                            <a data-ng-bind="n + 1">1</a>
+                                        </li>
+                                        <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                                            <a data-ng-click="nextPage()">{{lbl.next}} »</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
                     <div class="col col-sm-6">
@@ -90,8 +234,7 @@
                                     {{lbl.enablePasswordReset}}
                                 </label>
                             </div>
-                            
-                            <hr />
+
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="ckAllowRemoteFileDownloads" data-ng-model="settings.AllowServerToDownloadRemoteFiles" />
@@ -106,6 +249,76 @@
                                 <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
                                 <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                             </div>
+
+                            <h4>{{lbl.rules}}</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-ng-model="settings.AddIpToWhitelistFilterOnApproval" />
+                                            {{lbl.whitelistIpOnCommentApproval}}
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-ng-model="settings.TrustAuthenticatedUsers" />
+                                            {{lbl.trustAuthenticated}}
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <select id="selWiteListCount" class="form-control" data-ng-options="o.OptionName for o in whiteListOptions" data-ng-model="whiteListSelected"></select>
+                                        </div>
+                                        <div class="col col-md-8">
+                                            <label for="selCultures">{{lbl.addToWhiteList}}</label>
+                                            <label for="selCultures">{{lbl.authorApproved}}</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col col-md-6">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-ng-model="settings.BlockAuthorOnCommentDelete" />
+                                            {{lbl.commentsBlockOnDelete}}
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" data-ng-model="settings.AddIpToBlacklistFilterOnRejection" />
+                                            {{lbl.blacklistIpOnCommentRejection}}
+                                        </label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col col-md-4">
+                                            <select id="selBlackListCount" class="form-control" data-ng-options="o.OptionName for o in blackListOptions" data-ng-model="blackListSelected"></select>
+                                        </div>
+                                        <div class="col col-md-8">
+                                            <label for="selCultures">{{lbl.commentsBlacklist}}</label>
+                                            <label for="selCultures">{{lbl.authorRejected}}</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4>{{lbl.customCode}}</h4>
+                            <hr />
+                            <div class="form-group">
+                                <label class="control-label" for="txtHtmlHeader">{{lbl.addCustomCodeToHeader}}</label>
+                                <textarea class="form-control ltr-dir" rows="2" id="txtHtmlHeader" data-ng-model="settings.HtmlHeader"> </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="txtTrackingScript">{{lbl.trackingScript}}</label>
+                                <textarea class="form-control ltr-dir" rows="2" id="txtTrackingScript" data-ng-model="settings.TrackingScript"> </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="txtThumbnailServiceApi">{{lbl.thumbnailServiceProvider}}</label>
+                                <input type="text" class="form-control ltr-dir" id="txtThumbnailServiceApi" data-ng-model="settings.ThumbnailServiceApi" placeholder="http://www.robothumb.com/src/?url={0}" />
+                            </div>
+
                         </div>
                     </div>
                 </div>
