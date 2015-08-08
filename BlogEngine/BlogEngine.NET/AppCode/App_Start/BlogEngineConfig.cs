@@ -115,14 +115,11 @@ namespace BlogEngine.NET.App_Start
             AddDefaultIgnorePatterns(bundles.IgnoreList);
 
             bundles.Add(
-                new StyleBundle("~/Content/css")
-                .Include("~/Content/ie10mobile.css")
+                new StyleBundle("~/Content/admincss")
                 .Include("~/Content/bootstrap.min.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/font-awesome.min.css")
-                .Include("~/Content/editor.css")
-                .Include("~/Content/app.css")
-                .Include("~/admin/editors/summernote/summernote.css")
+                .Include("~/Content/admin.css")
                 );
 
             bundles.Add(

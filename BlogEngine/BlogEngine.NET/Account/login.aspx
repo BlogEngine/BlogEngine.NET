@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <asp:TextBox ID="Password" runat="server" placeholder="*******" CssClass="form-control input-lg passwordEntry  ltr-dir" TextMode="Password"></asp:TextBox>
                 </div>
-                <div class="checkbox">
+                <div class="checkbox" style="margin-left: 23px; margin-bottom: 20px">
                     <asp:CheckBox ID="RememberMe" runat="server" />
                     <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline "><%=Resources.labels.rememberMe %></asp:Label>
                 </div>

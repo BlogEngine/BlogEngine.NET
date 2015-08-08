@@ -281,3 +281,6 @@ label { font-size: 13px; font-weight: normal; }
     .btn-flt-r .btn span { display: none; }
     .active-flt-r { right: 4px; }
 }
+
+.loading { display: inline-block; }
+.loaded { display: none; }
