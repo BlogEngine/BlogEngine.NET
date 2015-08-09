@@ -128,6 +128,7 @@
     <Content Include="admin\controllers\commentfilters.js" />
     <Content Include="admin\controllers\help.js" />
     <Content Include="admin\controllers\listpager.js" />
+    <Content Include="admin\controllers\theme.js" />
     <Content Include="admin\controllers\pings.js" />
     <Content Include="admin\controllers\blogroll.js" />
     <Content Include="admin\controllers\files.js" />
@@ -241,6 +242,7 @@
     <Content Include="admin\views\settings\controls\blogroll.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
     <Content Include="admin\views\settings\comments.html" />
+    <Content Include="admin\views\settings\theme.html" />
     <Content Include="admin\views\settings\tools\check.html" />
     <Content Include="admin\views\shared\_editnote.html" />
     <Content Include="admin\views\shared\_addnote.html" />

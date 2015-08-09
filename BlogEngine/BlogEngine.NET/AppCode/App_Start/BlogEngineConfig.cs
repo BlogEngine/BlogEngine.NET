@@ -155,6 +155,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/controllers/blogroll.js")
                 .Include("~/admin/controllers/pings.js")
                 .Include("~/admin/controllers/packages.js")
+                .Include("~/admin/controllers/theme.js")
                 .Include("~/admin/controllers/common.js")
                 .Include("~/admin/services.js")
                 .Include("~/scripts/bootstrap.js")

@@ -38,8 +38,14 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
-                                <div class="col col-md-8">
+                                <div class="col col-md-6">
                                     <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
+                                </div>
+                                <div class="col col-md-2">
+                                    <div class="btn-group btn-group-justified">
+                                        <a class="btn btn-default" title="Details" href="" data-ng-click="loadTheme()">...</a>
+                                        <a class="btn btn-default" title="Find more" href="#/custom/packages"><i class="fa fa-download"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

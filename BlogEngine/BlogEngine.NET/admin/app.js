@@ -23,15 +23,16 @@
         .when("/users/profile", { templateUrl: "views/users/profile.html" })
 
         .when("/settings", { templateUrl: "views/settings/basic.html" })
-        .when("/settings/advanced", { templateUrl: "views/settings/advanced.html" })
         .when("/settings/feed", { templateUrl: "views/settings/feed.html" })
         .when("/settings/email", { templateUrl: "views/settings/email.html" })
-
+        .when("/settings/comments", { templateUrl: "views/settings/comments.html" })
         .when("/settings/controls", { templateUrl: "views/settings/controls.html" })
+        .when("/settings/advanced", { templateUrl: "views/settings/advanced.html" })
+
+        .when("/settings/theme", { templateUrl: "views/settings/theme.html" })
+
         .when("/settings/controls/blogroll", { templateUrl: "views/settings/controls/blogroll.html" })
         .when("/settings/controls/pings", { templateUrl: "views/settings/controls/pings.html" })
-
-        .when("/settings/comments", { templateUrl: "views/settings/comments.html" })
 
         .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
 

@@ -1,0 +1,67 @@
+﻿<div data-ng-controller="ThemeController">
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            {{package.Title}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+        <button data-ng-if="package.OnlineVersion != '' && package.Id != activeTheme" data-ng-click="uninstallPackage()" class="btn btn-danger pull-right btn-tabkey"><i class="fa fa-times"></i>{{lbl.remove}}</button>
+        <button data-ng-if="customFields.length > 0" data-ng-click="save()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+        <button type="button" class="btn btn-default pull-right" onclick="window.history.back()"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+    </div>
+    <div class="content-inner">
+        <div class="form-horizontal clearfix">
+
+            <div class="row">
+                <div class="col col-sm-6">
+                    <div class="well clearfix">
+                        <div class="form-group">
+                            <div class="col col-md-4">
+                                <img ng-if="!package.PackageUrl" class="pkg-img" width="160" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                                <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
+                                    <img class="pkg-img" width="160" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                                </a>
+                            </div>
+                            <div class="col col-md-8">
+                                <div>
+                                    <span class="control-label">{{lbl.description}}:</span>
+                                    <span ng-bind-html="package.Description"></span>
+                                </div>
+                                <hr/>
+                                <div>
+                                    <span class="control-label"><i class="fa fa-user"></i> {{lbl.author}}: </span>
+                                    <span ng-bind-html="package.Authors"></span>
+                                </div>
+                                <div ng-if="package.Tags">
+                                    <span class="control-label"><i class="fa fa-tags"></i> {{lbl.tags}}: </span>
+                                    <span ng-bind-html="package.Tags"></span>
+                                </div>
+                                <div ng-if="package.LastUpdated">
+                                    <span class="control-label"><i class="fa fa-calendar"></i> {{lbl.date}}: </span>
+                                    <span ng-bind-html="package.LastUpdated"></span>
+                                </div>
+                                <div ng-if="package.DownloadCount">
+                                    <span class="control-label"><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
+                                    <span>{{package.DownloadCount}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-sm-6">
+                    <div class="well clearfix" data-ng-if="customFields.length > 0">
+                        <h4 >{{lbl.customFields}}</h4>
+                        <hr/>
+                        <div data-ng-repeat="item in customFields" class="form-group">
+                            <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
+                            <div class="col col-md-8">
+                                <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
