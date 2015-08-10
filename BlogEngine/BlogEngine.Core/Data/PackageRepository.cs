@@ -73,7 +73,15 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManagePackages))
                 throw new System.UnauthorizedAccessException();
 
-            return CachedPackages.FirstOrDefault(pkg => pkg.Id == id);
+            Package pkg = CachedPackages.FirstOrDefault(p => p.Id == id);
+
+            if(pkg == null)
+            {
+                // local only package - grab from the disk
+                pkg = Packaging.FileSystem.LoadThemes().FirstOrDefault(p => p.Id == id);
+            }
+
+            return pkg;
         }
 
         /// <summary>

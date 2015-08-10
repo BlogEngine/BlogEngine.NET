@@ -119,6 +119,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Content/bootstrap.min.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/font-awesome.min.css")
+                .Include("~/Admin/star-rating.css")
                 .Include("~/Content/admin.css")
                 );
 

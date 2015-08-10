@@ -4,14 +4,18 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
     $scope.customFields = [];
     $scope.package = {};
     $scope.fltr = 'themes';
-
+    $scope.showRating = false;
+    $scope.selectedRating = 0;
+    $scope.author = UserVars.Name;
     $scope.id = ($location.search()).id;
     $scope.activeTheme = ($location.search()).active;
     
     $scope.load = function () {
-        dataService.getItems('/api/packages', { take: 0, skip: 0, filter: $scope.fltr, order: "LastUpdated desc" })
+        dataService.getItems('/api/packages/' + $scope.id)
         .success(function (data) {
-            angular.copy(data, $scope.items);
+            angular.copy(data, $scope.package);
+            $scope.selectedRating = $scope.package.Rating;
+            $scope.removeEmptyReviews();
             $scope.loadCustomFields();
         })
         .error(function () {
@@ -21,15 +25,6 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
 
     $scope.loadCustomFields = function () {
         $scope.customFields = [];
-        for (var i = 0, len = $scope.items.length; i < len; i++) {
-            if ($scope.items[i].Id === $scope.id) {
-                angular.copy($scope.items[i], $scope.package);
-
-                if ($scope.package) {
-                    $scope.removeEmptyReviews();
-                }
-            }
-        }
         dataService.getItems('/api/customfields', { filter: 'CustomType == "THEME" && ObjectId == "' + $scope.id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
@@ -89,6 +84,39 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
             }
             $scope.package.Extra.Reviews = reviews;
         }
+    }
+
+    $scope.checkStar = function (item, rating) {
+        if (item === rating) {
+            return true;
+        }
+        return false;
+    }
+
+    $scope.setRating = function (rating) {
+        $scope.selectedRating = rating;
+    }
+
+    $scope.submitRating = function () {
+        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
+        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
+
+        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
+        .success(function (data) {
+            if (data != null) {
+                data = JSON.parse(data);
+            }
+            if (data.length === 0) {
+                toastr.success($rootScope.lbl.completed);
+            }
+            else {
+                toastr.error(data);
+            }
+            $scope.load();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+        });
     }
 
 }]);

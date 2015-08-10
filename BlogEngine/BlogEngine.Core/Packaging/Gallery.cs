@@ -130,6 +130,8 @@ namespace BlogEngine.Core.Packaging
                 if (result == "\"\"") result = string.Empty;
                 result = result.Replace("\"", "").Replace("\\", "");
 
+                Blog.CurrentInstance.Cache.Remove(Constants.CacheKey);
+
                 return result;
             }
             catch (Exception ex)

@@ -19,7 +19,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    @*@Styles.Render("~/Content/css")*@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     @Styles.Render("~/Content/admincss")
     <script type="text/javascript">
@@ -40,9 +39,9 @@
     <div class="wrapper @Resources.labels.LangDirection" data-ng-app="blogAdmin">
         <div class="sidebar">
             <ul class="nav-head">
-                <li><a href="/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
-                <li><a href="/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
-                <li><a href="/"><i class="fa fa-home"></i></a></li>
+                <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
+                <li><a href="~/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
+                <li><a href="~/" target="_blank"><i class="fa fa-home"></i></a></li>
                 <li><a href="#"><i class="fa fa-bell"></i></a></li>
             </ul>
             <ul class="nav-primary" data-ng-controller="NavController">
