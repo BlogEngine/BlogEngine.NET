@@ -280,5 +280,21 @@ namespace BlogEngine.Core
             }
         }
         #endregion
+
+        #region GalleryFeedUrl
+
+        /// <summary>
+        /// Online gallery feed endpoint
+        /// </summary>
+        public static string GalleryFeedUrl
+        {
+            get
+            {
+                return string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.GalleryFeedUrl"])
+                    ? "http://dnbe.net/v01/nuget"
+                    : WebConfigurationManager.AppSettings["BlogEngine.GalleryFeedUrl"];
+            }
+        }
+        #endregion
     }
 }

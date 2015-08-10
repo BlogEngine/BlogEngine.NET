@@ -94,7 +94,7 @@ namespace BlogEngine.Core.Web.HttpHandlers
                     sbSiteVars.Append("BlogInstanceId: '" + Blog.CurrentInstance.Id + "',");
                     sbSiteVars.Append("AbsoluteWebRoot:  '" + Utils.AbsoluteWebRoot + "',");
                     sbSiteVars.Append("GenericPageSize:  '" + BlogConfig.GenericPageSize.ToString() + "',");
-                    sbSiteVars.Append("GalleryFeedUrl:  '" + BlogSettings.Instance.GalleryFeedUrl + "',");
+                    sbSiteVars.Append("GalleryFeedUrl:  '" + BlogConfig.GalleryFeedUrl + "',");
                     sbSiteVars.Append("IsPrimary: '" + Blog.CurrentInstance.IsPrimary + "',");
                     sbSiteVars.Append("Version: 'BlogEngine.NET " + BlogSettings.Instance.Version() + "'");
 

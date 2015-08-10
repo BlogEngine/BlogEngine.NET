@@ -58,8 +58,6 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
         });
     }
 
-    $scope.load();
-
     $scope.uninstallPackage = function () {
         spinOn();
         dataService.updateItem("/api/packages/uninstall/" + $scope.id, $scope.id)
@@ -118,5 +116,7 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
             toastr.error($rootScope.lbl.failed);
         });
     }
+
+    $scope.load();
 
 }]);

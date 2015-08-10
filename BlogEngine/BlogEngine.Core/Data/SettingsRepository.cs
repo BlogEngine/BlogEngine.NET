@@ -46,7 +46,6 @@ namespace BlogEngine.Core.Data
             ns.CompressWebResource = bs.CompressWebResource;
             ns.EnableOpenSearch = bs.EnableOpenSearch;
             ns.RequireSslForMetaWeblogApi = bs.RequireSslMetaWeblogApi;
-            ns.GalleryFeedUrl = bs.GalleryFeedUrl;
 
             ns.EnablePasswordReset = bs.EnablePasswordReset;
             ns.EnableSelfRegistration = bs.EnableSelfRegistration;
@@ -164,7 +163,6 @@ namespace BlogEngine.Core.Data
             bs.CompressWebResource = ns.CompressWebResource;
             bs.EnableOpenSearch = ns.EnableOpenSearch;
             bs.RequireSslMetaWeblogApi = ns.RequireSslForMetaWeblogApi;
-            bs.GalleryFeedUrl = ns.GalleryFeedUrl;
 
             bs.EnablePasswordReset = ns.EnablePasswordReset;
             bs.EnableSelfRegistration = ns.EnableSelfRegistration;

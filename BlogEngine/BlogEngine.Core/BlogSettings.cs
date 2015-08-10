@@ -1258,20 +1258,6 @@
 
         #endregion
 
-        #region GalleryFeedUrl
-
-        private string _galleryFeedUrl;
-        /// <summary>
-        /// Gallery server feed URL
-        /// </summary>
-        public string GalleryFeedUrl
-        {
-            get { return string.IsNullOrEmpty(_galleryFeedUrl) ? "http://dnbe.net/v01/nuget" : _galleryFeedUrl; }
-            set { _galleryFeedUrl = value; }
-        }
-
-        #endregion
-
         #region Custom front page
         /// <summary>
         /// When file with name "FrontPage.aspx" or "FrontPage.cshtml"

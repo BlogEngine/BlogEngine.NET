@@ -1,57 +1,4 @@
 ﻿<div data-ng-controller="CustomController">
-    <form id="form" action="" style="margin:0">
-        <div id="modal-feeds-edit" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" ng-click="focusInput=false" aria-hidden="true"><i class="fa fa-times"></i></button>
-                        <h4 class="modal-title">{{lbl.edit}}</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-horizontal clearfix">
-                            <div class="pkg-common">
-                                <div class="row" style="margin-bottom: 10px">
-                                    <div class="col col-md-4">
-                                        <input class="form-control ltr-dir" placeholder="Title" id="txtFeedName" name="txtFeedName" focus-me="focusInput" type="text">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input class="form-control ltr-dir" placeholder="URL" id="txtFeedUrl" name="txtFeedUrl" type="text">
-                                    </div>
-                                    <div class="col col-md-2">
-                                        <button data-ng-click="addFeed()" class="btn btn-primary btn-tabkey"><i class="fa fa-plus"></i>{{lbl.add}}</button>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="row">
-                                    <div class="col col-md-12">
-                                        <table class="table table-bordered table-striped table-hover table-responsive">
-                                            <thead>
-                                                <tr>
-                                                    <th class="table-item-w30">{{lbl.title}}</th>
-                                                    <th class="table-item-w60">{{lbl.url}}</th>
-                                                    <th class="table-item-w10">&nbsp;</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr data-ng-repeat="item in galleryFeeds">
-                                                    <td>{{item.OptionName}}</td>
-                                                    <td>{{item.OptionValue}}</td>
-                                                    <td><button class="btn btn-sm btn-danger" ng-click="removeFeed(item.OptionName)" ng-disabled="galleryFeeds.length < 2 || item.OptionValue === selectedFeed"><i style="margin:0;" class="fa fa-times"></i></button></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.close}}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
     <div id="modal-theme-edit" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -117,11 +64,6 @@
         <h2 class="page-title pull-left">
             {{lbl.gallery}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <div class="pull-right">
-            <select id="selGalleryFeed" class="form-control input-sm pull-left" style="width: 100px; margin-right:3px;" data-ng-options="o.OptionName for o in galleryFeeds" data-ng-model="selectedFeedObject" ng-change="changeFeed()"></select>
-            <button title="Settings" type="button" data-ng-click="loadEditForm()" class="btn btn-default btn-sm"><i class="fa fa-cog"></i> Settings</button>
-            <button title="Refresh" type="button" data-ng-click="refreshGalleryList()" class="btn btn-default btn-sm" style=""><i class="fa fa-refresh"></i> Refresh</button>
-        </div>
     </div>
     <div class="content-inner">
         <div class="toolbar-grid clearfix">
@@ -168,7 +110,7 @@
                     </td>
                     <td>{{item.LastUpdated.substring(0,10)}}</td>
                     <td>{{item.OnlineVersion}}</td>
-                    <td>{{item.DownloadCount}}</td>
+                    <td>{{item.DownloadCount}} {{item.PackageType}}</td>
                     <td>
                         <span class="star-rating">
                             <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>

@@ -57,6 +57,7 @@ namespace BlogEngine.Core.Packaging
                                 jp.Extra = extra;
                                 jp.DownloadCount = extra.DownloadCount;
                                 jp.Rating = extra.Rating;
+                                jp.PackageType = extra.PkgType.ToString();
                             }
                         }
                         packages.Add(jp);
@@ -79,7 +80,7 @@ namespace BlogEngine.Core.Packaging
         {
             try
             {
-                var url = BlogSettings.Instance.GalleryFeedUrl.Replace("/nuget", "/api/extras/" + id);
+                var url = BlogConfig.GalleryFeedUrl.Replace("/nuget", "/api/extras/" + id);
                 WebClient wc = new WebClient();
                 string json = wc.DownloadString(url);
                 return JsonConvert.DeserializeObject<PackageExtra>(json);
@@ -99,7 +100,7 @@ namespace BlogEngine.Core.Packaging
         {
             try
             {
-                var url = BlogSettings.Instance.GalleryFeedUrl.Replace("/nuget", "/api/extras");
+                var url = BlogConfig.GalleryFeedUrl.Replace("/nuget", "/api/extras");
                 WebClient wc = new WebClient();
                 string json = wc.DownloadString(url);
                 return JsonConvert.DeserializeObject<List<PackageExtra>>(json);
@@ -120,7 +121,7 @@ namespace BlogEngine.Core.Packaging
         {
             try
             {
-                var url = BlogSettings.Instance.GalleryFeedUrl.Replace("/nuget", "/api/review?pkgId=" + id);
+                var url = BlogConfig.GalleryFeedUrl.Replace("/nuget", "/api/review?pkgId=" + id);
                 WebClient wc = new WebClient();
                 var data = JsonConvert.SerializeObject(review);
                 wc.Headers.Add("content-type", "application/json");
@@ -145,7 +146,7 @@ namespace BlogEngine.Core.Packaging
 
         static IEnumerable<IPackage> GetNugetPackages()
         {
-            var rep = PackageRepositoryFactory.Default.CreateRepository(BlogSettings.Instance.GalleryFeedUrl);
+            var rep = PackageRepositoryFactory.Default.CreateRepository(BlogConfig.GalleryFeedUrl);
             return rep.GetPackages();
         }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 
 public class PackageExtra
@@ -7,8 +9,13 @@ public class PackageExtra
     {
         Extension, Theme, Widget
     }
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public PackageType PkgType { get; set; }
+
     public string Id { get; set; }
     public int DownloadCount { get; set; }
+
     public float Rating
     {
         get

@@ -104,10 +104,6 @@
         /// Require SSL for meta weblog api
         /// </summary>
         public bool RequireSslForMetaWeblogApi { get; set; }
-        /// <summary>
-        /// Gallery feed url
-        /// </summary>
-        public string GalleryFeedUrl { get; set; }
 
         public bool EnablePasswordReset { get; set; }
         public bool EnableSelfRegistration { get; set; }

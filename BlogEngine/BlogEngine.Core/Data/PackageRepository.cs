@@ -55,7 +55,15 @@ namespace BlogEngine.Core.Data
             {
                 if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManagePackages))
                     throw new System.UnauthorizedAccessException();
-                pkgsToLoad = CachedPackages;
+
+                if (filter.ToLower() == "themelist")
+                {
+                    pkgsToLoad = CachedPackages.Where(p => p.PackageType == "Theme").ToList();
+                }
+                else
+                {
+                    pkgsToLoad = CachedPackages;
+                }
             }
 
             if (take == 0) take = pkgsToLoad.Count();

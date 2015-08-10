@@ -18,8 +18,7 @@ namespace BlogEngine.Core.Packaging
         {
             get
             {
-                return PackageRepositoryFactory.Default.CreateRepository(
-                    BlogSettings.Instance.GalleryFeedUrl);
+                return PackageRepositoryFactory.Default.CreateRepository(BlogConfig.GalleryFeedUrl);
             }
         }
 
@@ -37,7 +36,7 @@ namespace BlogEngine.Core.Packaging
 
                 var packageManager = new PackageManager(
                     _repository,
-                    new DefaultPackagePathResolver(BlogSettings.Instance.GalleryFeedUrl),
+                    new DefaultPackagePathResolver(BlogConfig.GalleryFeedUrl),
                     new PhysicalFileSystem(HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + "App_Data/packages"))
                 );
 
@@ -106,7 +105,7 @@ namespace BlogEngine.Core.Packaging
             // if installed from gallery, also remove NuGet package files
             var packageManager = new PackageManager(
                 _repository,
-                new DefaultPackagePathResolver(BlogSettings.Instance.GalleryFeedUrl),
+                new DefaultPackagePathResolver(BlogConfig.GalleryFeedUrl),
                 new PhysicalFileSystem(HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + "App_Data/packages"))
             );
             var package = _repository.FindPackage(pkgId);
