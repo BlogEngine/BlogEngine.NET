@@ -1,0 +1,50 @@
+﻿<ul class="nav-head">
+    <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
+    <li><a href="~/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
+    <li><a href="~/" target="_blank"><i class="fa fa-home"></i></a></li>
+    <li><a href="#"><i class="fa fa-bell"></i></a></li>
+</ul>
+<ul class="nav-primary" data-ng-controller="NavController">
+    <li id="mu-dashboard" class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/dashboard"><i class="fa fa-th-large"></i>@Resources.labels.dashboard</a></li>
+    <li id="mu-content">
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><i class="fa fa-align-justify"></i>@Resources.labels.content</a>
+        <ul>
+            <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
+            <li data-ng-class="{ active: isActive('/content')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">@Resources.labels.posts</a></li>
+            <li data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
+            <li data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
+            <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
+            <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
+            <li data-ng-class="{ active: isActive('/content/files')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/files">@Resources.labels.fileManager</a></li>
+        </ul>
+    </li>
+    <li id="mu-custom">
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom"><i class="fa fa-sliders"></i>@Resources.labels.custom</a>
+        <ul>
+            <li data-ng-class="{ active: isActive('/custom')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom">@Resources.labels.extensions</a></li>
+            <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
+        </ul>
+    </li>
+    <li id="mu-users">
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/users"><i class="fa fa-user"></i>@Resources.labels.users</a>
+        <ul>
+            <li data-ng-class="{ active: isActive('/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users">@Resources.labels.users</a></li>
+            <li data-ng-class="{ active: isActive('/users/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles">@Resources.labels.roles</a></li>
+            <li data-ng-class="{ active: isActive('/users/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/profile">@Resources.labels.profile</a></li>
+        </ul>
+    </li>
+    <li id="mu-settings">
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings"><i class="fa fa-cog"></i>@Resources.labels.settings</a>
+        <ul>
+            <li data-ng-class="{ active: isActive('/settings')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings">@Resources.labels.basic</a></li>
+            <li data-ng-class="{ active: isActive('/settings/email')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/email">@Resources.labels.email</a></li>
+            <li data-ng-class="{ active: isActive('/settings/feed')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/feed">@Resources.labels.feed</a></li>
+            <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments">@Resources.labels.comments</a></li>
+            <li data-ng-class="{ active: isActive('/settings/controls')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls">@Resources.labels.controls</a></li>
+            <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced">@Resources.labels.advanced</a></li>
+        </ul>
+    </li>
+    <li id="mu-gallery"><a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery"><i class="fa fa-cloud-download"></i>@Resources.labels.gallery</a></li>
+    <li id="mu-help"><a href="{{SiteVars.RelativeWebRoot}}admin/#/help"><i class="fa fa-question-circle"></i>Help Center</a></li>
+    <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/#/about"><i class="fa fa-question-circle"></i>BlogEngine.NET 4.0</a></li>
+</ul>
