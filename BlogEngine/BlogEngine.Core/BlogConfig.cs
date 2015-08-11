@@ -63,8 +63,8 @@ namespace BlogEngine.Core
         {
             get
             {
-                //return WebConfigurationManager.AppSettings["BlogEngine.MobileDevices"] ?? @"(iemobile|iphone|ipod|android|nokia|sonyericsson|blackberry|samsung|sec\-|windows ce|motorola|mot\-|up.b|midp\-)";
-                return _mobileServices ?? (_mobileServices = WebConfigurationManager.AppSettings["BlogEngine.MobileDevices"]);
+                return _mobileServices ?? (_mobileServices = WebConfigurationManager.AppSettings["BlogEngine.MobileDevices"] ??
+                    @"(iemobile|iphone|ipod|android|nokia|sonyericsson|blackberry|samsung|sec\-|windows ce|motorola|mot\-|up.b|midp\-)");
             }
         }
 
@@ -209,10 +209,11 @@ namespace BlogEngine.Core
         {
             get
             {
-                return (int) (_genericPageSize ?? (_genericPageSize = 
-                                                   string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.GenericPageSize"])
-                                                       ? 20
-                                                       : int.Parse(WebConfigurationManager.AppSettings["BlogEngine.GenericPageSize"])));
+                var tmp = WebConfigurationManager.AppSettings["BlogEngine.GenericPageSize"];
+                if (!string.IsNullOrEmpty(tmp))
+                    _genericPageSize = int.Parse(tmp);
+
+                return _genericPageSize ?? 15;
             }
         }
 
@@ -230,7 +231,8 @@ namespace BlogEngine.Core
             {
                 if (_singleSignOn == null)
                 {
-                    string setting = WebConfigurationManager.AppSettings["BlogEngine.SingleSignOn"];
+                    string setting = WebConfigurationManager.AppSettings["BlogEngine.SingleSignOn"] ?? "false";
+
                     if (!string.IsNullOrEmpty(setting))
                     {
                         bool value;

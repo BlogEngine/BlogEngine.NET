@@ -77,9 +77,7 @@
         /// The regex mobile.
         /// </summary>
         private static readonly Regex RegexMobile =
-            new Regex(
-                ConfigurationManager.AppSettings.Get("BlogEngine.MobileDevices"), 
-                RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            new Regex(BlogConfig.MobileServices, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         /// <summary>
         /// The regex strip html.
