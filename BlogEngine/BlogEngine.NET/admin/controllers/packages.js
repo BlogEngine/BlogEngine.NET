@@ -4,7 +4,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.customFields = [];
     $scope.editId = "";
     $scope.package = {};
-    $scope.fltr = 'extensions';
+    $scope.fltr = 'all';
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
     $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
     $scope.security = $rootScope.security;
@@ -14,7 +14,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.lst = ($location.search()).lst;
 
     $scope.activeTheme = ActiveTheme;
-    $scope.themesPage = false;
     $scope.showRating = false;
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
@@ -22,15 +21,11 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     if ($scope.id) {
         $("#modal-theme-edit").modal();
     }
-    if ($location.path().indexOf("/custom/themes") == 0) {
-        $scope.fltr = 'themes';
-        $scope.themesPage = true;
+    if ($location.path().indexOf("/custom") == 0) {
+        $scope.fltr = 'extensions';
     }
     if ($location.path().indexOf("/custom/widgets") == 0) {
         $scope.fltr = 'widgets';
-    }
-    if ($location.path().indexOf("/custom/packages") == 0) {
-        $scope.fltr = 'packages';
     }
     if ($scope.lst && $scope.lst.length > 0) {
         $scope.fltr = $scope.lst;

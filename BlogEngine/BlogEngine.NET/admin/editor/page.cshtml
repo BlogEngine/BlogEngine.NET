@@ -21,7 +21,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/admincss")
     <link href="~/Content/admin.css" rel="stylesheet" />
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };

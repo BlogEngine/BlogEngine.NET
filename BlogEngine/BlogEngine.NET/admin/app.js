@@ -14,9 +14,7 @@
         .when("/content/files", { templateUrl: "views/content/files.html" })
 
         .when("/custom", { templateUrl: "views/custom/index.html" })
-        .when("/custom/themes", { templateUrl: "views/custom/themes.html" })
         .when("/custom/widgets", { templateUrl: "views/custom/widgets.html" })
-        .when("/custom/packages", { templateUrl: "views/custom/packages.html" })
 
         .when("/users", { templateUrl: "views/users/index.html" })
         .when("/users/roles", { templateUrl: "views/users/roles.html" })
@@ -36,6 +34,7 @@
 
         .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
 
+        .when("/gallery", { templateUrl: "views/gallery/index.html" })
         .when("/help", { templateUrl: "views/help/index.html" })
         .when("/about", { templateUrl: "views/about/index.html" })
 

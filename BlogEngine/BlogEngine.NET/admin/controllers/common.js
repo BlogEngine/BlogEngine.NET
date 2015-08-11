@@ -23,6 +23,9 @@
     else if ($location.path().indexOf("settings") > -1) {
         $("#mu-settings").addClass("active");
     }
+    else if ($location.path().indexOf("gallery") > -1) {
+        $("#mu-gallery").addClass("active");
+    }
     else {
         $("#mu-dashboard").addClass("active");
     }
