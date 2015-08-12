@@ -238,7 +238,6 @@
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\content\files.html" />
     <Content Include="admin\views\about\index.html" />
-    <Content Include="admin\views\custom\package.html" />
     <Content Include="admin\views\gallery\index.html" />
     <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
@@ -246,6 +245,7 @@
     <Content Include="admin\views\settings\comments.html" />
     <Content Include="admin\views\settings\theme.html" />
     <Content Include="admin\views\settings\tools\check.html" />
+    <Content Include="admin\views\shared\package.html" />
     <Content Include="admin\views\shared\_editnote.html" />
     <Content Include="admin\views\shared\_addnote.html" />
     <Content Include="admin\views\shared\_review.html" />
