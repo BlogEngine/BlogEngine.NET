@@ -206,6 +206,6 @@
 
     $scope.loadTheme = function () {
         var theme = $("#selDesktopTheme option:selected").text();
-        window.location.assign("#/settings/theme?id=" + theme + "&active=" + $scope.settings.DesktopTheme);
+        window.location.assign("#/settings/theme?id=" + theme);
     }
 }]);

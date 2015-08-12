@@ -23,7 +23,7 @@
     @Styles.Render("~/Content/admincss")
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
-        var ActiveTheme = { Theme: '@BlogSettings.Instance.Theme' }
+        var ActiveTheme = '@BlogSettings.Instance.Theme'
         var ServerTime = '@DateTime.Now'
         var UtcTime = '@DateTime.UtcNow'
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {

@@ -8,7 +8,7 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
     $scope.id = ($location.search()).id;
-    $scope.activeTheme = ($location.search()).active;
+    $scope.activeTheme = ActiveTheme;
     
     $scope.load = function () {
         dataService.getItems('/api/packages/' + $scope.id)

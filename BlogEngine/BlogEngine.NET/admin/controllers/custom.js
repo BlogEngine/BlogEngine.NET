@@ -13,7 +13,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.theme = ($location.search()).id;
     $scope.lst = ($location.search()).lst;
 
-    $scope.activeTheme = ActiveTheme;
     $scope.showRating = false;
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
@@ -23,6 +22,9 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
     if ($location.path().indexOf("/custom") == 0) {
         $scope.fltr = 'extensions';
+    }
+    if ($location.path().indexOf("/custom/themes") == 0) {
+        $scope.fltr = 'themes';
     }
     if ($location.path().indexOf("/custom/widgets") == 0) {
         $scope.fltr = 'widgets';

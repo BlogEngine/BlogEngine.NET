@@ -128,6 +128,7 @@
     <Content Include="admin\controllers\commentfilters.js" />
     <Content Include="admin\controllers\help.js" />
     <Content Include="admin\controllers\listpager.js" />
+    <Content Include="admin\controllers\custom.js" />
     <Content Include="admin\controllers\theme.js" />
     <Content Include="admin\controllers\pings.js" />
     <Content Include="admin\controllers\blogroll.js" />
@@ -236,7 +237,6 @@
     <Content Include="admin\star-rating.css" />
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\content\files.html" />
-    <Content Include="admin\views\custom\packages.html" />
     <Content Include="admin\views\about\index.html" />
     <Content Include="admin\views\gallery\index.html" />
     <Content Include="admin\views\settings\controls.html" />
@@ -267,7 +267,7 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="admin\editor\_sidebar.cshtml" />
+    <Content Include="admin\sidebar.cshtml" />
     <None Include="App_Data\PublishProfiles\be.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - FTP.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />
@@ -1495,7 +1495,6 @@
     <Content Include="admin\controllers\comments.js" />
     <Content Include="admin\controllers\common.js" />
     <Content Include="admin\controllers\dashboard.js" />
-    <Content Include="admin\controllers\packages.js" />
     <Content Include="admin\controllers\pages.js" />
     <Content Include="admin\controllers\posts.js" />
     <Content Include="admin\controllers\profile.js" />
