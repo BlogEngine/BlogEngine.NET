@@ -15,6 +15,12 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
         .success(function (data) {
             angular.copy(data, $scope.package);
             $scope.selectedRating = $scope.package.Rating;
+
+            $scope.extEditSrc = SiteVars.RelativeWebRoot + "admin/Extensions/Settings.aspx?ext=" + $scope.id + "&enb=False";
+            if ($scope.package.SettingsUrl) {
+                $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
+            }
+
             $scope.removeEmptyReviews();
             $scope.loadCustomFields();
         })
@@ -118,5 +124,11 @@ angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope
     }
 
     $scope.load();
-
+    
 }]);
+
+function setIframeBg() {
+    var x = document.getElementById("settingsFrame");
+    var y = x.contentDocument;
+    y.body.style.backgroundColor = "#eee";
+}

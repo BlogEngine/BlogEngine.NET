@@ -4,9 +4,7 @@ using BlogEngine.Core.Data.Services;
 using BlogEngine.Core.Packaging;
 using BlogEngine.Core.Web.Extensions;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Web.Caching;
@@ -35,35 +33,27 @@ namespace BlogEngine.Core.Data
 
             if (filter.ToLower() == "extensions")
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManageExtensions))
-                    throw new System.UnauthorizedAccessException();
+                if (!Security.IsAuthorizedTo(Rights.ManageExtensions))
+                    throw new UnauthorizedAccessException();
                 pkgsToLoad = Packaging.FileSystem.LoadExtensions();
             }
             else if (filter.ToLower() == "themes")
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManageThemes))
-                    throw new System.UnauthorizedAccessException();
+                if (!Security.IsAuthorizedTo(Rights.ManageThemes))
+                    throw new UnauthorizedAccessException();
                 pkgsToLoad = Packaging.FileSystem.LoadThemes();
             }
             else if (filter.ToLower() == "widgets")
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManageWidgets))
-                    throw new System.UnauthorizedAccessException();
+                if (!Security.IsAuthorizedTo(Rights.ManageWidgets))
+                    throw new UnauthorizedAccessException();
                 pkgsToLoad = Packaging.FileSystem.LoadWidgets();
             }
             else
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManagePackages))
-                    throw new System.UnauthorizedAccessException();
-
-                if (filter.ToLower() == "themelist")
-                {
-                    pkgsToLoad = CachedPackages.Where(p => p.PackageType == "Theme").ToList();
-                }
-                else
-                {
-                    pkgsToLoad = CachedPackages;
-                }
+                if (!Security.IsAuthorizedTo(Rights.ManagePackages))
+                    throw new UnauthorizedAccessException();
+                pkgsToLoad = CachedPackages;
             }
 
             if (take == 0) take = pkgsToLoad.Count();
@@ -78,16 +68,17 @@ namespace BlogEngine.Core.Data
         /// <returns>Package</returns>
         public Package FindById(string id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ManagePackages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.ManagePackages))
+                throw new UnauthorizedAccessException();
 
             Package pkg = CachedPackages.FirstOrDefault(p => p.Id == id);
 
             if(pkg == null)
-            {
-                // local only package - grab from the disk
                 pkg = Packaging.FileSystem.LoadThemes().FirstOrDefault(p => p.Id == id);
-            }
+            if(pkg == null)
+                pkg = Packaging.FileSystem.LoadExtensions().FirstOrDefault(p => p.Id == id);
+            if (pkg == null)
+                pkg = Packaging.FileSystem.LoadWidgets().FirstOrDefault(p => p.Id == id);
 
             return pkg;
         }
@@ -193,7 +184,7 @@ namespace BlogEngine.Core.Data
             Gallery.Load(packages);
             foreach (var p in packages)
             {
-                p.LocalVersion = BlogEngine.Core.Packaging.FileSystem.GetInstalledVersion(p.Id);
+                p.LocalVersion = Packaging.FileSystem.GetInstalledVersion(p.Id);
             }
             return packages;
         }

@@ -80,7 +80,7 @@ namespace Widgets.Newsletter
             BlogEngine.Core.Page.Saving += PublishableSaving;
 
             BlogEngine.Core.Page.Serving += Page_Serving;
-            BlogEngine.Core.Post.Serving += Post_Serving;
+            Post.Serving += Post_Serving;
         }
 
         void Post_Serving(object sender, ServingEventArgs e)
@@ -140,6 +140,9 @@ namespace Widgets.Newsletter
             Post.Saving -= PublishableSaving;
             BlogEngine.Core.Page.Saved -= PublishableSaved;
             BlogEngine.Core.Page.Saving -= PublishableSaving;
+
+            BlogEngine.Core.Page.Serving -= Page_Serving;
+            Post.Serving -= Post_Serving;
 
             base.Dispose();
         }

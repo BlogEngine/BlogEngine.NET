@@ -111,7 +111,7 @@
                     </td>
                     <td class="table-item-title">
                         <div class="text-ellipsis pull-left">
-                            <a title="{{item.Title}}" href="" ng-click="loadCustomFields(item.Id)">{{item.Title}}</a>
+                            <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
                             <span class="item-description hmax480">{{item.Description}}</span>
                         </div>
                         <a ng-if="item.Website != null" title="{{item.Title}}" class="external-link pull-right" target="_blank" href="{{item.Website}}"><i class="fa fa-external-link"></i></a>
