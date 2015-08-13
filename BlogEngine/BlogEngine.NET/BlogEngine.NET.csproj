@@ -129,7 +129,7 @@
     <Content Include="admin\controllers\help.js" />
     <Content Include="admin\controllers\listpager.js" />
     <Content Include="admin\controllers\custom.js" />
-    <Content Include="admin\controllers\theme.js" />
+    <Content Include="admin\controllers\package.js" />
     <Content Include="admin\controllers\pings.js" />
     <Content Include="admin\controllers\blogroll.js" />
     <Content Include="admin\controllers\files.js" />

@@ -71,16 +71,22 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.ManagePackages))
                 throw new UnauthorizedAccessException();
 
-            Package pkg = CachedPackages.FirstOrDefault(p => p.Id == id);
+            Package galPkg = CachedPackages.FirstOrDefault(p => p.Id == id);
+            Package locPkg = Packaging.FileSystem.LoadThemes().FirstOrDefault(p => p.Id == id);
 
-            if(pkg == null)
-                pkg = Packaging.FileSystem.LoadThemes().FirstOrDefault(p => p.Id == id);
-            if(pkg == null)
-                pkg = Packaging.FileSystem.LoadExtensions().FirstOrDefault(p => p.Id == id);
-            if (pkg == null)
-                pkg = Packaging.FileSystem.LoadWidgets().FirstOrDefault(p => p.Id == id);
+            if(locPkg == null)
+                locPkg = Packaging.FileSystem.LoadExtensions().FirstOrDefault(p => p.Id == id);
 
-            return pkg;
+            if (locPkg == null)
+                locPkg = Packaging.FileSystem.LoadWidgets().FirstOrDefault(p => p.Id == id);
+
+            if(locPkg != null && galPkg != null)
+            {
+                // package installed fro gallery
+                galPkg.SettingsUrl = locPkg.SettingsUrl;
+            }
+
+            return galPkg == null ? locPkg : galPkg;
         }
 
         /// <summary>

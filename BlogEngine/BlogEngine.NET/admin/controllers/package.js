@@ -1,5 +1,5 @@
 ﻿
-angular.module('blogAdmin').controller('ThemeController', ["$rootScope", "$scope", "$location", "$filter", "dataService", function ($rootScope, $scope, $location, $filter, dataService) {
+angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$scope", "$location", "$filter", "dataService", function ($rootScope, $scope, $location, $filter, dataService) {
     $scope.items = [];
     $scope.customFields = [];
     $scope.package = {};
