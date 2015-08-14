@@ -182,19 +182,23 @@ namespace Widgets.TagCloud
         /// </summary>
         public override void LoadWidget()
         {
-            foreach (var key in this.WeightedList.Keys)
+            try
             {
-                using (var li = new HtmlGenericControl("li"))
+                foreach (var key in WeightedList.Keys)
                 {
-                    li.InnerHtml = string.Format(
-                        LinkFormat,
-                        string.Format("{0}/tag/{1}", Utils.AbsoluteWebRoot, Utils.RemoveIllegalCharacters(key)),
-                        this.WeightedList[key],
-                        Resources.labels.Tag + ": " + key,
-                        key);
-                    this.ulTags.Controls.Add(li);
+                    using (var li = new HtmlGenericControl("li"))
+                    {
+                        li.InnerHtml = string.Format(
+                            LinkFormat,
+                            string.Format("{0}/tag/{1}", Utils.AbsoluteWebRoot, Utils.RemoveIllegalCharacters(key)),
+                            this.WeightedList[key],
+                            Resources.labels.Tag + ": " + key,
+                            key);
+                        this.ulTags.Controls.Add(li);
+                    }
                 }
             }
+            catch (Exception){ }
         }
 
         #endregion
