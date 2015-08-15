@@ -10,7 +10,7 @@ namespace BlogEngine.Core.Data.Services
     /// </summary>
     public class Updater
     {
-        private static string _upgradeReleases = "http://dnbe.net/v01/Releases/";
+        private static string _upgradeReleases = BlogConfig.GalleryFeedUrl.Replace("nuget", "/Releases/");
         private string _versionsTxt = _upgradeReleases + "versions.txt";
         private string _setupTxt = _upgradeReleases + "setup.txt";
         private string _latestSetup = _upgradeReleases + "setup.zip";

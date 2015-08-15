@@ -733,6 +733,16 @@
 
         #endregion
 
+        #region IsCoCommentEnabled
+
+        /// <summary>
+        ///     Only here so old themes won't break
+        /// </summary>
+        /// <value>false</value>
+        public bool IsCoCommentEnabled { get; set; }
+
+        #endregion
+
         #region EnableCommentsModeration
 
         /// <summary>
