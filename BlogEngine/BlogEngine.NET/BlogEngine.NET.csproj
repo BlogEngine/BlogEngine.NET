@@ -179,6 +179,9 @@
     <Content Include="admin\editors\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\fullscreen\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="admin\editors\tinymce\plugins\image4be\dialog.html" />
+    <Content Include="admin\editors\tinymce\plugins\image4be\plugin.min.js" />
+    <Content Include="admin\editors\tinymce\plugins\imagetools\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\image\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\importcss\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\insertdatetime\plugin.min.js" />
@@ -215,9 +218,7 @@
     <Content Include="admin\editors\tinymce\plugins\wordcount\plugin.min.js" />
     <Content Include="admin\editors\tinymce\skins\lightgray\content.inline.min.css" />
     <Content Include="admin\editors\tinymce\skins\lightgray\content.min.css" />
-    <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce-small.dev.svg" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
-    <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.dev.svg" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.svg" />
     <Content Include="admin\editors\tinymce\skins\lightgray\img\anchor.gif" />
     <Content Include="admin\editors\tinymce\skins\lightgray\img\loader.gif" />
@@ -261,7 +262,6 @@
     <Content Include="admin\editors\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.eot" />
     <Content Include="admin\editors\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.ttf" />
     <Content Include="admin\editors\tinymce\plugins\sh4tinymce\fonts\sh4tinymce.woff" />
-    <Content Include="admin\editors\tinymce\skins\lightgray\fonts\readme.md" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
