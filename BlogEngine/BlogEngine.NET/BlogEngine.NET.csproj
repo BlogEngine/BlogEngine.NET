@@ -179,7 +179,6 @@
     <Content Include="admin\editors\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\fullscreen\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\hr\plugin.min.js" />
-    <Content Include="admin\editors\tinymce\plugins\image4be\dialog.html" />
     <Content Include="admin\editors\tinymce\plugins\image4be\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\imagetools\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\image\plugin.min.js" />
@@ -269,6 +268,7 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="admin\sidebar.cshtml" />
+    <Content Include="admin\editors\tinymce\plugins\image4be\filemgr.cshtml" />
     <None Include="App_Data\PublishProfiles\be.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - FTP.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />
@@ -529,6 +529,9 @@
     <Content Include="Content\images\blog\flags\za.png" />
     <Content Include="Content\images\blog\flags\zm.png" />
     <Content Include="Content\images\blog\flags\zw.png" />
+    <Content Include="Content\images\blog\placeholders\folder.png" />
+    <Content Include="Content\images\blog\placeholders\folder_back.png" />
+    <Content Include="Content\images\blog\placeholders\zip.png" />
     <Content Include="Content\images\blog\xfn\colleague.gif" />
     <Content Include="Content\images\blog\xfn\colleagueMet.gif" />
     <Content Include="Content\images\blog\xfn\contact.gif" />

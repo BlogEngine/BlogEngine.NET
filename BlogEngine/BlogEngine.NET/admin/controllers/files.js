@@ -5,6 +5,7 @@
     $scope.file = {};
     $scope.dirName = '';
     $scope.currentPath = '/';
+    $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
     $scope.focusInput = false;
 
     $scope.load = function (path) {
@@ -126,6 +127,15 @@
             }
         }
         return false;
+    }
+
+    $scope.insertFile = function (file) {
+        var wm = top.tinymce.activeEditor.windowManager;
+
+        var s = "<img src='" + SiteVars.RelativeWebRoot + "image.axd?picture=" + file + "' />";
+
+        wm.getParams().ed.insertContent(s);
+        wm.getWindows()[0].close();
     }
 
     function rowSpinOff(items) {

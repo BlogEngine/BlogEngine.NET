@@ -27,6 +27,7 @@ tinymce.init({
     min_height: 160,
     height: 280,
     menubar: false,
+    relative_urls: false,
     setup: function (editor) {
         editor.on('init', function (e) {
             if (htmlContent) {

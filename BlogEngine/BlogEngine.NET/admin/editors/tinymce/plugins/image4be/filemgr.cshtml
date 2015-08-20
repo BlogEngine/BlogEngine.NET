@@ -1,0 +1,117 @@
+﻿@using System.Web.Optimization
+@using BlogEngine.Core
+<!DOCTYPE html>
+@{
+    if (!Security.IsAuthorizedTo(Rights.EditOwnPosts))
+    {
+        Security.RedirectForUnauthorizedRequest();
+    }
+    string loginUrl = Href(Utils.RelativeWebRoot + "Account/login.aspx");
+    var userRights = string.Join("','", Security.CurrentUserRights().Select(r => r.Flag).ToArray());
+    var id = Request["id"];
+    var returnUrl = Request["return"];
+    if (string.IsNullOrEmpty(returnUrl)) { returnUrl = Utils.RelativeWebRoot + "admin/#/content"; }
+}
+<html data-ng-app="blogAdmin">
+<head>
+    @Styles.Render("~/Content/admincss")
+    <script type="text/javascript">
+        var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        var editVars = { id: '@id' };
+    </script>
+    <script type="text/javascript" src="admin.res.axd"></script>
+    <style>
+        .file-card { border: 1px solid #e5e5e5; width: 140px; height: 160px; display: inline-block; float: left; margin: 5px }
+        .file-card img { width: 140px; }
+        .file-form { margin: 0 20px; padding: 8px 8px 8px 0 }
+        .file-card-box { width: 140px; height: 140px; overflow: hidden; background-color: #e5e5e5 }
+        .file-card-lbl { text-align: center; display: inline-block; width: 140px; height: 24px; background-color: #ccc; }
+    </style>
+</head>
+<body ng-controller="FilesController">
+    @Scripts.Render("~/scripts/wysiwyg")
+
+    <div class="wrapper @Resources.labels.LangDirection">
+        <div class="content">
+            <form id="form" action="" class="file-form">
+
+                <div id="modal-form" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                                <h4 class="modal-title">{{lbl.addFolder}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="txtFolder">{{lbl.title}}</label>
+                                    <input type="text" class="form-control" id="txtFolder" name="txtFolder" data-ng-model="dirName" focus-me="focusInput" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button ng-click="createFolder()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="pull-left">
+                        <button class="btn btn-default" style="border:none;" disabled="disabled">
+                            <span class="ng-scope ng-binding">{{currentPath}}</span>
+                        </button>
+                    </div>
+                    <div class="btn-group fileupload-wrapper pull-right">
+                        <div class="btn-group btn-group-fileupload">
+                            <button type="button" tabindex="-1" class="btn btn-success btn-tabkey" id="fileBtn"><i class="fa fa-upload"></i> {{lbl.uploadFile}}</button>
+                            <input type="file" id="file" name="file" data-role="magic-overlay" tabindex="-1" data-target="#fileBtn" title="{{lbl.uploadFile}}" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                        </div>
+                        <button style="margin-left: 5px" ng-click="addFolder()" class="btn btn-success btn-tabkey" type="submit"><i class="fa fa-folder"></i> {{lbl.addFolder}}</button>
+                        <button style="margin-left: 5px" ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-tabkey"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+                    </div>
+                </div>              
+
+                <div class="row">
+                    <div class="file-card" ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                        <div class="file-card-box">
+                            <a ng-if="item.FileType === 0 && item.Name != '...'" title="{{item.Name}}" href="" ng-click="load(item.FullPath)" class="pull-left">
+                                <img ng-src="{{root}}Content/images/blog/placeholders/folder.png" />
+                            </a>
+                            <a ng-if="item.FileType === 0 && item.Name === '...'" title="{{item.Name}}" href="" ng-click="load(item.FullPath)" class="pull-left" style="background-color: #e5e5e5">
+                                <img ng-src="{{root}}Content/images/blog/placeholders/folder_back.png" />
+                            </a>
+                            <a ng-if="item.FileType === 1" title="{{item.Name}}" href="" ng-click="insertFile(item.FullPath)">
+                                <img ng-src="{{root}}Content/images/blog/placeholders/zip.png" />
+                            </a>
+                            <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item.FullPath)">
+                                <img ng-src="{{root}}image.axd?picture={{item.FullPath}}" />
+                            </a>
+                        </div>
+                        <div class="file-card-lbl">
+                            <input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> &nbsp;{{item.Name}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-left pagination-wrapper" style="margin-top: 10px">          
+                    <ul class="pagination pagination-sm">
+                        <li data-ng-class="{disabled: currentPage == 0}">
+                            <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
+                        </li>
+                        <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                            <a data-ng-bind="n + 1">1</a>
+                        </li>
+                        <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                            <a data-ng-click="nextPage()">{{lbl.next}} »</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
