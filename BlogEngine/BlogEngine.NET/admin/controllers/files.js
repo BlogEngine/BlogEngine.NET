@@ -14,7 +14,7 @@
             .success(function (data) {
                 angular.copy(data, $scope.items);
                 gridInit($scope, $filter);
-                $scope.currentPath = path;
+                $scope.currentPath = path ? path : editVars.storageLocation + "files/";
                 rowSpinOff($scope.items);
             })
             .error(function (data) {

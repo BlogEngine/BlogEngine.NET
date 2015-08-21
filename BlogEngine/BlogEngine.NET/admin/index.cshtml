@@ -1,8 +1,7 @@
-﻿@using System.Web
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @using BlogEngine.Core
 @{
-    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+    if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
     {
         Security.RedirectForUnauthorizedRequest();
     }
@@ -36,12 +35,12 @@
 </head>
 <body>
     <script type="text/javascript" src="admin.res.axd"></script>
-    <div class="wrapper @Resources.labels.LangDirection" data-ng-app="blogAdmin">
+    <div class="wrapper @Resources.labels.LangDirection" ng-app="blogAdmin">
         <div class="sidebar">
             @RenderPage("sidebar.cshtml")
         </div>
         <div class="content">
-            <div class="" data-ng-view="" id="ng-view"></div>
+            <div class="" ng-view="" id="ng-view"></div>
         </div>
     </div>
     @Scripts.Render("~/scripts/blogadmin")

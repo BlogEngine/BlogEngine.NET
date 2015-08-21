@@ -17,15 +17,15 @@
     @Styles.Render("~/Content/admincss")
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
-        var editVars = { id: '@id' };
+        var editVars = { id: '@id', storageLocation: '@BlogConfig.StorageLocation' };
     </script>
     <script type="text/javascript" src="admin.res.axd"></script>
     <style>
-        .file-card { border: 1px solid #e5e5e5; width: 140px; height: 160px; display: inline-block; float: left; margin: 5px }
-        .file-card img { width: 140px; }
+        .file-card { border: 1px solid #e5e5e5; width: 138px; height: 160px; display: inline-block; float: left; margin: 5px }
+        .file-card img { width: 138px; }
         .file-form { margin: 0 20px; padding: 8px 8px 8px 0 }
-        .file-card-box { width: 140px; height: 140px; overflow: hidden; background-color: #e5e5e5 }
-        .file-card-lbl { text-align: center; display: inline-block; width: 140px; height: 24px; background-color: #ccc; }
+        .file-card-box { width: 138px; height: 140px; overflow: hidden; background-color: #e5e5e5 }
+        .file-card-lbl { display: inline-block; padding: 2px 10px; width: 138px; height: 24px; background-color: #ccc; }
     </style>
 </head>
 <body ng-controller="FilesController">
@@ -64,11 +64,15 @@
                     </div>
                     <div class="btn-group fileupload-wrapper pull-right">
                         <div class="btn-group btn-group-fileupload">
-                            <button type="button" tabindex="-1" class="btn btn-success btn-tabkey" id="fileBtn"><i class="fa fa-upload"></i> {{lbl.uploadFile}}</button>
+                            <button type="button" tabindex="-1" class="btn btn-success btn-tabkey input-sm" id="fileBtn"><i class="fa fa-upload"></i> {{lbl.uploadFile}}</button>
                             <input type="file" id="file" name="file" data-role="magic-overlay" tabindex="-1" data-target="#fileBtn" title="{{lbl.uploadFile}}" onchange="angular.element(this).scope().uploadFile(this.files)" />
                         </div>
-                        <button style="margin-left: 5px" ng-click="addFolder()" class="btn btn-success btn-tabkey" type="submit"><i class="fa fa-folder"></i> {{lbl.addFolder}}</button>
-                        <button style="margin-left: 5px" ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-tabkey"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+                        <button style="margin-left: 5px" ng-click="addFolder()" class="btn btn-success btn-tabkey input-sm" type="submit"><i class="fa fa-folder"></i> {{lbl.addFolder}}</button>
+                        <button style="margin-left: 5px" ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-tabkey input-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+                        <div class="pull-right filterbar flt-r clearfix btn-tabkey">
+                            <div class="active-flt-r"></div>
+                            <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
+                        </div>
                     </div>
                 </div>              
 
@@ -89,12 +93,12 @@
                             </a>
                         </div>
                         <div class="file-card-lbl">
-                            <input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> &nbsp;{{item.Name}}
+                            <input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> &nbsp;{{item.Name.substring(0,15)}}
                         </div>
                     </div>
                 </div>
 
-                <div class="text-left pagination-wrapper" style="margin-top: 10px">          
+                <div ng-if="pagedItems.length > 0" class="text-left pagination-wrapper" style="margin-top: 10px">          
                     <ul class="pagination pagination-sm">
                         <li data-ng-class="{disabled: currentPage == 0}">
                             <a data-ng-click="prevPage()">« {{lbl.prev}}</a>

@@ -15,7 +15,7 @@
 #voiceBtn { width: 12px; color: transparent; background-color: transparent; transform: scale(2.0, 2.0); -webkit-transform: scale(2.0, 2.0); -moz-transform: scale(2.0, 2.0); border: transparent; cursor: pointer; box-shadow: none; -webkit-box-shadow: none; margin: 3px 10px; }
 .overlay-editor { position: absolute; top: 0; left: 0; width: 100%; height: 100% !important; max-height: 100% !important; z-index: 1000; background-color: #fff; overflow: auto; padding: 3%; }
 .full-editor { height: 70% !important; max-height: 70% !important; z-index: 990; }
-.categories-list { height: 231px; overflow-y: hidden; opacity: 0.5; }
+.categories-list { height: 131px; overflow-y: hidden; opacity: 0.5; }
 .categories-list:hover { overflow-y: auto; opacity: 1; }
 .categories-list li { height: 30px; padding: 0; cursor: pointer; }
 .categories-list li:hover { background-color: #EEE; cursor: pointer; }
@@ -51,3 +51,4 @@ div[data-role="editor-toolbar"] { -webkit-user-select: none; -moz-user-select: n
 .uploadfiles-btn .last-border { -webkit-border-top-right-radius: 4px !important; -webkit-border-bottom-right-radius: 4px !important; -moz-border-radius-topright: 4px !important; -moz-border-radius-bottomright: 4px !important; border-top-right-radius: 4px !important; border-bottom-right-radius: 4px !important; }
 .uploadfiles-btn input { cursor: pointer; }
 .uploadfiles-btn .btn-group {max-width:30px; overflow:hidden;}
+.input-page-title {font-size: 16px; height: 30px; line-height: 30px; margin: 0; text-transform: uppercase; border: 0; font-weight: 500; font-family: "Helvetica";}

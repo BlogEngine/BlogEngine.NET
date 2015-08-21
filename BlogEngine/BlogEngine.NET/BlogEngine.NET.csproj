@@ -179,6 +179,7 @@
     <Content Include="admin\editors\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\fullscreen\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="admin\editors\tinymce\plugins\image4be\filemgr.png" />
     <Content Include="admin\editors\tinymce\plugins\image4be\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\imagetools\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\image\plugin.min.js" />
@@ -230,13 +231,10 @@
     <Content Include="admin\editor\page.cshtml" />
     <Content Include="admin\editor\post.cshtml" />
     <Content Include="admin\editor\_nav.cshtml" />
-    <Content Include="admin\editor\_pagemodals.cshtml" />
-    <Content Include="admin\editor\_postmodals.cshtml" />
     <Content Include="admin\Extensions\admin.master" />
     <Content Include="admin\index.cshtml" />
     <Content Include="admin\star-rating.css" />
     <Content Include="admin\views\content\blogs.html" />
-    <Content Include="admin\views\content\files.html" />
     <Content Include="admin\views\about\index.html" />
     <Content Include="admin\views\gallery\index.html" />
     <Content Include="admin\views\settings\controls.html" />
@@ -249,11 +247,8 @@
     <Content Include="admin\views\shared\_editnote.html" />
     <Content Include="admin\views\shared\_addnote.html" />
     <Content Include="admin\views\shared\_review.html" />
-    <Content Include="admin\views\shared\_filestable.html" />
     <Content Include="admin\views\help\index.html" />
     <Content Include="admin\Web.Config" />
-    <Content Include="admin\editor\_filemgr.cshtml" />
-    <Content Include="admin\editor\_uploadbtns.cshtml" />
     <Content Include="admin\editors\bootstrap-wysiwyg\editor.cshtml" />
     <Content Include="admin\editors\summernote\editor.cshtml" />
     <Content Include="admin\editors\tinymce\editor.cshtml" />

@@ -1,4 +1,5 @@
-﻿<ul class="nav-head">
+﻿@using BlogEngine.Core
+<ul class="nav-head">
     <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
     <li><a href="~/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
     <li><a href="~/" target="_blank"><i class="fa fa-home"></i></a></li>
@@ -9,13 +10,15 @@
     <li id="mu-content">
         <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><i class="fa fa-align-justify"></i>@Resources.labels.content</a>
         <ul>
-            <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
             <li data-ng-class="{ active: isActive('/content')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">@Resources.labels.posts</a></li>
             <li data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
             <li data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
             <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
             <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
-            <li data-ng-class="{ active: isActive('/content/files')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/files">@Resources.labels.fileManager</a></li>
+            @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator)
+            {
+            <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
+            }          
         </ul>
     </li>
     <li id="mu-custom">
