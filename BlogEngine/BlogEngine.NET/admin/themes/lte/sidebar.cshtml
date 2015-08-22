@@ -1,45 +1,129 @@
-﻿<aside class="main-sidebar">
+﻿@using BlogEngine.Core
+@{ 
+    var email = AuthorProfile.GetProfile(User.Identity.Name).EmailAddress;
+    var name = AuthorProfile.GetProfile(User.Identity.Name).DisplayName;
+    var photo = BlogEngine.Core.Data.Services.Avatar.GetSrc(email);
+}
+<aside class="main-sidebar">
     <section class="sidebar">
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="/admin/themes/LTE/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                <img src="@photo" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>@name</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu">    
             <li>
-                <a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>Layout Options</span>
-                    <span class="label label-primary pull-right">4</span>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/dashboard">
+                    <i class="fa fa-dashboard"></i> <span>@Resources.labels.dashboard</span> 
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="pages/widgets.html">
-                    <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
-                </a>
-            </li>
+            </li>           
             <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-table"></i> <span>Tables</span>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/content">
+                    <i class="fa fa-align-justify"></i> <span>@Resources.labels.content</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-                    <li><a href="pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+                    <li data-ng-class="{ active: isActive('/content')}">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><i class="fa fa-circle-o"></i> <span>@Resources.labels.posts</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/content/comments')}">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments"><i class="fa fa-circle-o"></i> <span>@Resources.labels.comments</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/content/pages')}">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages"><i class="fa fa-circle-o"></i> <span>@Resources.labels.pages</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/content/categories')}">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories"><i class="fa fa-circle-o"></i> <span>@Resources.labels.categories</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/content/tags')}">
+                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags"><i class="fa fa-circle-o"></i> <span>@Resources.labels.tags</span></a>
+                    </li>
+                    @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator)
+                    {
+                        <li data-ng-class="{ active: isActive('/content/blogs')}">
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs"><i class="fa fa-circle-o"></i> <span>@Resources.labels.blogs</span></a>
+                        </li>
+                    }
                 </ul>
+            </li>          
+            <li class="treeview">
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom">
+                    <i class="fa fa-sliders"></i> <span>@Resources.labels.custom</span> 
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li data-ng-class="{ active: isActive('/custom')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom"><i class="fa fa-circle-o"></i> <span>@Resources.labels.extensions</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/custom/themes')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes"><i class="fa fa-circle-o"></i> <span>@Resources.labels.themes</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/custom/widgets')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets"><i class="fa fa-circle-o"></i> <span>@Resources.labels.widgets</span></a>
+                    </li>
+                </ul>
+            </li>      
+            <li class="treeview">
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/users">
+                    <i class="fa fa-user"></i><span>@Resources.labels.users</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li data-ng-class="{ active: isActive('/users')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users"><i class="fa fa-circle-o"></i> <span>@Resources.labels.users</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/users/roles')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles"><i class="fa fa-circle-o"></i> <span>@Resources.labels.roles</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/users/profile')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/profile"><i class="fa fa-circle-o"></i> <span>@Resources.labels.profile</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings">
+                    <i class="fa fa-cog"></i><span>@Resources.labels.settings</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li data-ng-class="{ active: isActive('/settings')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings"><i class="fa fa-circle-o"></i> <span>@Resources.labels.basic</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/settings/email')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/email"><i class="fa fa-circle-o"></i> <span>@Resources.labels.email</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/settings/feed')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/feed"><i class="fa fa-circle-o"></i> <span>@Resources.labels.feed</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/settings/comments')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments"><i class="fa fa-circle-o"></i> <span>@Resources.labels.comments</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/settings/controls')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls"><i class="fa fa-circle-o"></i> <span>@Resources.labels.controls</span></a>
+                    </li>
+                    <li data-ng-class="{ active: isActive('/settings/advanced')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced"><i class="fa fa-circle-o"></i> <span>@Resources.labels.advanced</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery">
+                    <i class="fa fa-cloud-download"></i><span>@Resources.labels.gallery</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/help">
+                    <i class="fa fa-question-circle"></i> <span>Help Center</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/about">
+                    <i class="fa fa-question-circle"></i> <span>BlogEngine.NET @BlogEngine.Core.BlogSettings.Instance.Version().Substring(0, 3)</span>
+                </a>
             </li>
         </ul>
     </section>

@@ -105,7 +105,6 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Content/font-awesome.min.css")
                 .Include("~/Content/editor.css")
                 .Include("~/Content/star-rating.css")
-                .Include("~/Content/admin.css")
                 );
 
             bundles.Add(
