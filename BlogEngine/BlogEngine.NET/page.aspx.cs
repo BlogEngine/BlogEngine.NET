@@ -180,7 +180,7 @@ public partial class page : BlogBasePage
                 if (sb.Length > 0) { sb.Append(" | "); }
 
                 sb.AppendFormat(
-                    "<a href=\"{0}admin/editor/page.cshtml?id={1}\">{2}</a>",
+                    "<a href=\"{0}admin/editpage.cshtml?id={1}\">{2}</a>",
                     Utils.RelativeWebRoot,
                     this.Page.Id,
                     labels.edit);

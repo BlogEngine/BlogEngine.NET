@@ -29,7 +29,7 @@
     else {
         $("#mu-dashboard").addClass("active");
     }
-    if ($location.$$absUrl.indexOf("editor/post.cshtml") > -1 || $location.$$absUrl.indexOf("editor/page.cshtml") > -1) {
+    if ($location.$$absUrl.indexOf("editpost.cshtml") > -1 || $location.$$absUrl.indexOf("editpage.cshtml") > -1) {
         $(".nav-primary > li").removeClass("active");
         $("#mu-content").addClass("active");
     }

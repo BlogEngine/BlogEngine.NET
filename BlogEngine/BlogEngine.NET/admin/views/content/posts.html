@@ -4,7 +4,7 @@
             {{lbl.posts}}
             <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editor/post.cshtml" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-plus"></i>{{lbl.writeNewPost}}</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-plus"></i>{{lbl.writeNewPost}}</a>
     </div>
     <div class="content-inner">
         <div class="toolbar-grid clearfix">
@@ -44,7 +44,7 @@
                 <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                     <td><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" /></td>
                     <td class="table-item-title">
-                        <a title="{{item.Title}}" class="pull-left" href="{{SiteVars.RelativeWebRoot}}admin/editor/post.cshtml?id={{item.Id}}"> <span class="text-ellipsis">{{item.Title}}</span> </a>
+                        <a title="{{item.Title}}" class="pull-left" href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{item.Id}}"> <span class="text-ellipsis">{{item.Title}}</span> </a>
                         <a title="{{item.Title}}" class="external-link pull-right" target="_blank" href="{{item.RelativeLink}}"><i class="fa fa-external-link"></i></a>
                     </td>
                     <td class="hmax992"><a href="" title="{{item.Author}}" ng-click="gridFilter('Author',item.Author,'')">{{item.Author}}</a></td>

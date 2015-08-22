@@ -120,7 +120,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/font-awesome.min.css")
                 .Include("~/Content/editor.css")
-                .Include("~/Admin/star-rating.css")
+                .Include("~/Content/star-rating.css")
                 .Include("~/Content/admin.css")
                 );
 
@@ -134,9 +134,9 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/angular.min.js")
                 .Include("~/Scripts/angular-route.min.js")
                 .Include("~/Scripts/angular-animate.min.js")
-                .Include("~/Scripts/angular-sanitize.min.js")
-                .Include("~/admin/be-grid.js")
+                .Include("~/Scripts/angular-sanitize.min.js")             
                 .Include("~/admin/app.js")
+                .Include("~/admin/controllers/grid-helpers.js")
                 .Include("~/admin/controllers/dashboard.js")
                 .Include("~/admin/controllers/blogs.js")
                 .Include("~/admin/controllers/help.js")
@@ -159,7 +159,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/controllers/custom.js")
                 .Include("~/admin/controllers/package.js")
                 .Include("~/admin/controllers/common.js")
-                .Include("~/admin/services.js")
+                .Include("~/admin/controllers/data-service.js")
                 .Include("~/scripts/bootstrap.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/editors/summernote/summernote.js")
@@ -179,13 +179,12 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/scripts/textext.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/app.js")
-                .Include("~/admin/editor/editor.js")
-                .Include("~/admin/editor/postcontroller.js")
-                .Include("~/admin/editor/pagecontroller.js")
-                .Include("~/admin/be-grid.js")
+                .Include("~/admin/controllers/editor-helpers.js")
+                .Include("~/admin/controllers/editor-post.js")
+                .Include("~/admin/controllers/editor-page.js")
                 .Include("~/admin/controllers/files.js")
                 .Include("~/admin/controllers/common.js")
-                .Include("~/admin/services.js")
+                .Include("~/admin/controllers/data-service.js")
                 );
 
             if (BlogConfig.DefaultEditor == "~/admin/editors/bootstrap-wysiwyg/editor.cshtml")
@@ -196,7 +195,7 @@ namespace BlogEngine.NET.App_Start
             }
             if (BlogConfig.DefaultEditor == "~/admin/editors/tinymce/editor.cshtml")
             {
-                // tinymce plugings will not load when scripts compressed, do nothing
+                // tinymce plugings won't load when compressed. added in post/page editors instead.
                 //bundles.GetBundleFor("~/scripts/wysiwyg").Include("~/admin/editors/tinymce/tinymce.min.js");
                 //bundles.GetBundleFor("~/scripts/wysiwyg").Include("~/admin/editors/tinymce/editor.js");
             }
