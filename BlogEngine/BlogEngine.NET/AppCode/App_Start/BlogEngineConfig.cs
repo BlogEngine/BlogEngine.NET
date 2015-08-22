@@ -94,22 +94,6 @@ namespace BlogEngine.NET.App_Start
                 shRoot + "shActivator.js")
             );
 
-            // syntax FileManager 
-            bundles.Add(new StyleBundle("~/Content/filemanager").Include(
-                "~/admin/FileManager/FileManager.css",
-                "~/admin/uploadify/uploadify.css",
-                "~/admin/FileManager/jqueryui/jquery-ui.css",
-                "~/admin/FileManager/JCrop/css/jquery.Jcrop.css")
-            );
-            bundles.Add(new ScriptBundle("~/Scripts/filemanager").Include(
-                "~/admin/uploadify/swfobject.js",
-                "~/admin/uploadify/jquery.uploadify.v2.1.4.min.js",
-                "~/admin/FileManager/jqueryui/jquery-ui.min.js",
-                "~/admin/FileManager/jquery.jeegoocontext.min.js",
-                "~/admin/FileManager/JCrop/js/jquery.Jcrop.min.js",
-                "~/admin/FileManager/FileManager-mini.js")
-            );
-
             // new admin bundles
             bundles.IgnoreList.Clear();
             AddDefaultIgnorePatterns(bundles.IgnoreList);
@@ -179,6 +163,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/scripts/textext.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/app.js")
+                .Include("~/admin/controllers/grid-helpers.js")
                 .Include("~/admin/controllers/editor-helpers.js")
                 .Include("~/admin/controllers/editor-post.js")
                 .Include("~/admin/controllers/editor-page.js")
