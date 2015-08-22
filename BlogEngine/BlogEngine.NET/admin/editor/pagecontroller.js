@@ -1,5 +1,5 @@
 ﻿angular.module('blogAdmin').controller('PageEditorController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
-    $scope.id = editVars.id;
+    $scope.id = getFromQueryString('id');
     $scope.page = newPage;
     $scope.lookups = [];
     $scope.selectedParent = {};

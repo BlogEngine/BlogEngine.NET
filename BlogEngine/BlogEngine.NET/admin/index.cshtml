@@ -1,48 +1,8 @@
 ﻿@using System.Web.Optimization
-@using BlogEngine.Core
 @{
-    if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
-    {
-        Security.RedirectForUnauthorizedRequest();
-    }
-    string loginUrl = Href(Utils.RelativeWebRoot + "Account/login.aspx");
-    var userRights = string.Join("','", Security.CurrentUserRights().Select(r => r.Flag).ToArray());
+    Layout = "~/admin/themes/standard/layout.cshtml";
 }
-<html>
-<head>
-    <title>@BlogSettings.Instance.Name (@Security.CurrentMembershipUser.UserName)</title>
-    <link rel="shortcut icon" href="@Href(Utils.ApplicationRelativeWebRoot + "Content/images/blog/blogengine.ico")" type="image/x-icon" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-    @Styles.Render("~/Content/admincss")
-    <script type="text/javascript">
-        var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
-        var ActiveTheme = '@BlogSettings.Instance.Theme'
-        var ServerTime = '@DateTime.Now'
-        var UtcTime = '@DateTime.UtcNow'
-        if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-            var msViewportStyle = document.createElement("style");
-            var mq = "@@-ms-viewport{width:auto!important}";
-            msViewportStyle.appendChild(document.createTextNode(mq));
-            document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
-        }
-    </script>
-</head>
-<body>
-    <script type="text/javascript" src="admin.res.axd"></script>
-    <div class="wrapper @Resources.labels.LangDirection" ng-app="blogAdmin">
-        <div class="sidebar">
-            @RenderPage("sidebar.cshtml")
-        </div>
-        <div class="content">
-            <div class="" ng-view="" id="ng-view"></div>
-        </div>
-    </div>
-    @Scripts.Render("~/scripts/blogadmin")
-</body>
-</html>
+<div class="content">
+    <div class="" ng-view="" id="ng-view"></div>
+</div>
+@Scripts.Render("~/scripts/blogadmin")

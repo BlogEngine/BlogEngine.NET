@@ -11,7 +11,6 @@
         .when("/content/pages", { templateUrl: "views/content/pages.html" })
         .when("/content/categories", { templateUrl: "views/content/categories.html" })
         .when("/content/tags", { templateUrl: "views/content/tags.html" })
-        .when("/content/files", { templateUrl: "views/content/files.html" })
 
         .when("/custom", { templateUrl: "views/custom/index.html" })
         .when("/custom/themes", { templateUrl: "views/custom/themes.html" })

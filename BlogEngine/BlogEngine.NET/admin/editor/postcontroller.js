@@ -1,5 +1,5 @@
 ﻿angular.module('blogAdmin').controller('PostEditorController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
-    $scope.id = editVars.id;
+    $scope.id = getFromQueryString('id');
     $scope.post = newPost;
     $scope.lookups = [];
     $scope.allTags = [];
