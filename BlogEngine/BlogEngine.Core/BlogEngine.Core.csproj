@@ -244,7 +244,7 @@
     <Compile Include="Providers\BlogProviderCollection.cs" />
     <Compile Include="Providers\CacheProvider\CacheBase.cs" />
     <Compile Include="Providers\CacheProvider\CacheProvider.cs" />
-    <Compile Include="Providers\DbConnectionHelper.cs" />
+    <Compile Include="Providers\DbProvider\DbConnectionHelper.cs" />
     <Compile Include="Providers\FileSystemProviders\DbFileSystemProvider.cs" />
     <Compile Include="Providers\FileSystemProviders\UNCFileSystemProvider.cs" />
     <Compile Include="Providers\XmlProvider\Blogs.cs" />
@@ -343,9 +343,9 @@
     <Compile Include="DataStore\XMLDocumentBehavior.cs" />
     <Compile Include="ICustomFilter.cs" />
     <Compile Include="IPublishable.cs" />
-    <Compile Include="Providers\DbBlogProvider.cs" />
-    <Compile Include="Providers\DbMembershipProvider.cs" />
-    <Compile Include="Providers\DbRoleProvider.cs" />
+    <Compile Include="Providers\DbProvider\DbBlogProvider.cs" />
+    <Compile Include="Providers\DbProvider\DbMembershipProvider.cs" />
+    <Compile Include="Providers\DbProvider\DbRoleProvider.cs" />
     <Compile Include="Providers\XmlProvider\BlogRoll.cs" />
     <Compile Include="Providers\XmlProvider\Categories.cs" />
     <Compile Include="Providers\XmlProvider\DataStore.cs" />

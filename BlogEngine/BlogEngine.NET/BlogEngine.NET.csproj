@@ -123,7 +123,6 @@
     <Content Include="Account\account.master" />
     <Content Include="Account\Logout.cshtml" />
     <Content Include="Account\Web.Config" />
-    <Content Include="admin\admin.master" />
     <Content Include="admin\controllers\about.js" />
     <Content Include="admin\controllers\grid-helpers.js" />
     <Content Include="admin\controllers\commentfilters.js" />
@@ -235,7 +234,7 @@
     <Content Include="admin\editors\tinymce\tinymce.min.js" />
     <Content Include="admin\Extensions\admin.master" />
     <Content Include="admin\index.cshtml" />
-    <Content Include="admin\themes\lte\css\AdminLTE.css" />
+    <Content Include="admin\themes\lte\css\admin.css" />
     <Content Include="admin\themes\lte\css\AdminLTE.min.css" />
     <Content Include="admin\themes\lte\css\skins\skin-black-light.css" />
     <Content Include="admin\themes\lte\css\skins\skin-black-light.min.css" />
@@ -273,7 +272,7 @@
     <Content Include="admin\themes\lte\js\demo.js" />
     <Content Include="admin\themes\lte\js\pages\dashboard.js" />
     <Content Include="admin\themes\lte\js\pages\dashboard2.js" />
-    <Content Include="admin\themes\standard\css\custom.css" />
+    <Content Include="admin\themes\standard\css\admin.css" />
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\about\index.html" />
     <Content Include="admin\views\gallery\index.html" />
@@ -1563,12 +1562,6 @@
     <Content Include="admin\views\settings\basic.html" />
     <Content Include="admin\views\settings\email.html" />
     <Content Include="admin\views\settings\feed.html" />
-    <Content Include="admin\views\shared\_footer.html" />
-    <Content Include="admin\views\shared\_nav.html" />
-    <Content Include="admin\views\shared\_navcustom.html" />
-    <Content Include="admin\views\shared\_navposts.html" />
-    <Content Include="admin\views\shared\_navsettings.html" />
-    <Content Include="admin\views\shared\_navusers.html" />
     <Content Include="admin\views\users\index.html" />
     <Content Include="admin\views\users\profile.html" />
     <Content Include="admin\views\users\roles.html" />
@@ -1937,13 +1930,6 @@
     <Compile Include="Account\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\admin.master.cs">
-      <DependentUpon>admin.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\admin.master.designer.cs">
-      <DependentUpon>admin.master</DependentUpon>
-    </Compile>
     <Compile Include="admin\Extensions\admin.master.cs">
       <DependentUpon>admin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2060,7 +2046,6 @@
     <Compile Include="Custom\Extensions\SimpleCaptcha\SimpleCaptchaControl.cs" />
     <Compile Include="Custom\Extensions\Smilies.cs" />
     <Compile Include="Custom\Extensions\StopForumSpam.cs" />
-    <Compile Include="Custom\Extensions\TypePadFilter.cs" />
     <Compile Include="AppCode\RazorHelpers.cs" />
     <Compile Include="AppCode\WebUtils.cs" />
     <Compile Include="App_GlobalResources\labels.af.designer.cs">

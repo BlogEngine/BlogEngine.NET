@@ -5,7 +5,12 @@
 <html>
 <head id="Head1" runat="server">
     <title>BlogEngine.NET Admin</title>
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet"/>
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
+    <style>
+        .alert-info { margin-right: 10px; }
+        input[type="checkbox"]{ margin-right: 6px !important; }
+    </style>
 </head>
 <body>
     <script type="text/javascript">
@@ -20,8 +25,7 @@
         <div id="StatusBox">
             <div id="AdminStatus" runat="server"></div>
         </div>
-      
-            <asp:ContentPlaceHolder ID="cphAdmin" runat="server" />     
+        <asp:ContentPlaceHolder ID="cphAdmin" runat="server" />     
     </form>
 </body>
 </html>

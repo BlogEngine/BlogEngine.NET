@@ -39,14 +39,6 @@
     });
 }]);
 
-angular.module('blogAdmin').controller('SubNavController', ["$scope", "$location", "$rootScope", function ($scope, $location, $rootScope) {
-    $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path();
-    };
-    $scope.security = $rootScope.security;
-    $scope.UserVars = UserVars;
-}]);
-
 if (typeof String.prototype.startsWith != 'function') {
     String.prototype.startsWith = function (str) {
         return this.slice(0, str.length) == str;
