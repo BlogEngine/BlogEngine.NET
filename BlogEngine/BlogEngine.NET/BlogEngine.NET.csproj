@@ -273,6 +273,7 @@
     <Content Include="admin\themes\lte\js\demo.js" />
     <Content Include="admin\themes\lte\js\pages\dashboard.js" />
     <Content Include="admin\themes\lte\js\pages\dashboard2.js" />
+    <Content Include="admin\themes\standard\css\custom.css" />
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\about\index.html" />
     <Content Include="admin\views\gallery\index.html" />
@@ -317,7 +318,6 @@
     <Content Include="AppCode\Wlw\wlw.css" />
     <Content Include="App_Data\labels.txt" />
     <Content Include="bin\BlogEngine.NET.dll.config" />
-    <Content Include="Content\admin.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2012,6 +2012,7 @@
     <Compile Include="AppCode\Controls\BlogList.cs" />
     <Compile Include="AppCode\Controls\Blogroll.cs" />
     <Compile Include="AppCode\Controls\CategoryList.cs" />
+    <Compile Include="AppCode\Controls\MobileThemeSwitch.cs" />
     <Compile Include="AppCode\Controls\MonthList.cs" />
     <Compile Include="AppCode\Controls\PageList.cs" />
     <Compile Include="AppCode\Controls\PageMenu.cs" />
