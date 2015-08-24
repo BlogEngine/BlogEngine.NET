@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
-using System.Text;
-using System.Threading.Tasks;
 using BlogEngine.Core.Data.Models;
-using BlogEngine.Core.Web.Navigation;
 using BlogEngine.Core.Data.Contracts;
 
 namespace BlogEngine.Core.Data
@@ -26,8 +23,8 @@ namespace BlogEngine.Core.Data
         /// <returns></returns>
         public TrashVM GetTrash(TrashType trashType, int take = 10, int skip = 0, string filter = "1 == 1", string order = "DateCreated descending")
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var trash = new TrashVM();
             var comments = new List<Comment>();
@@ -43,7 +40,7 @@ namespace BlogEngine.Core.Data
 
                 foreach (var p in Post.Posts)
                 {
-                    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOtherUsersPosts))
+                    if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
                         if (p.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
                             continue;
 
@@ -78,7 +75,7 @@ namespace BlogEngine.Core.Data
             {
                 foreach (var p in posts)
                 {
-                    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOtherUsersPosts))
+                    if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
                         if (p.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
                             continue;
 
@@ -138,7 +135,7 @@ namespace BlogEngine.Core.Data
         /// <param name="id">Id</param>
         public bool Restore(string trashType, Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
                 throw new System.UnauthorizedAccessException();
 
             switch (trashType)
@@ -175,7 +172,7 @@ namespace BlogEngine.Core.Data
         /// <param name="id">Id</param>
         public bool Purge(string trashType, Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
                 throw new System.UnauthorizedAccessException();
 
             switch (trashType)
@@ -210,13 +207,13 @@ namespace BlogEngine.Core.Data
         /// </summary>
         public bool PurgeAll()
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
                 throw new System.UnauthorizedAccessException();
 
             // remove deleted comments
             foreach (var p in Post.Posts.ToArray())
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOtherUsersPosts))
+                if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
                     if (p.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
                         continue;
 
@@ -229,7 +226,7 @@ namespace BlogEngine.Core.Data
             // remove deleted posts
             foreach (var p in Post.DeletedPosts.ToArray())
             {
-                if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOtherUsersPosts))
+                if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
                     if (p.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
                         continue;
 
@@ -251,8 +248,8 @@ namespace BlogEngine.Core.Data
         /// <returns></returns>
         public JsonResponse PurgeLogfile()
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             string fileLocation = System.Web.Hosting.HostingEnvironment.MapPath(System.IO.Path.Combine(BlogConfig.StorageLocation, "logger.txt"));
             if (System.IO.File.Exists(fileLocation))

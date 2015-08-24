@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ICSharpCode.SharpZipLib.Zip;
-using ICSharpCode.SharpZipLib.GZip;
+﻿using ICSharpCode.SharpZipLib.Zip;
 using System.IO;
-using ICSharpCode.SharpZipLib.Tar;
 using BlogEngine.Core.Providers;
 using System.Web.Configuration;
 using System.Configuration;
@@ -154,7 +148,7 @@ namespace BlogEngine.Core.FileSystem
         /// </summary>
         /// <param name="ProviderName">The blog provider to instantiate.</param>
         /// <returns>A BlogProvider instance.</returns>
-        public static Providers.BlogProvider CreateProvider(string ProviderName)
+        public static BlogProvider CreateProvider(string ProviderName)
         {
             var section = (BlogProviderSection)WebConfigurationManager.GetSection("BlogEngine/blogProvider");
             var _providers = new BlogProviderCollection();

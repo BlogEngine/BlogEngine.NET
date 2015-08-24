@@ -1,6 +1,7 @@
 ﻿angular.module('blogAdmin').controller('FilesController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
     $scope.data = dataService;
     $scope.items = [];
+    $scope.itemsPerPage = 45; // page size - pass into grid on init
     $scope.id = {};
     $scope.file = {};
     $scope.dirName = '';

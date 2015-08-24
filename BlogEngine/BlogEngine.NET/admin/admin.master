@@ -2,6 +2,10 @@
 
 <%@ Import Namespace="BlogEngine.Core" %>
 <%@ Import Namespace="System.Web.Optimization" %>
+<%-- 
+    This is used as master page for extension settings
+    for BE generated and custom gallery settings - keep it!
+--%>
 <html>
 <head id="Head1" runat="server">
     <title>BlogEngine.NET Admin</title>

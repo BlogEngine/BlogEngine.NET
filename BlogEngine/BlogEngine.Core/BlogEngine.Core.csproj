@@ -234,10 +234,10 @@
     <Compile Include="Services\Packaging\PackageFile.cs" />
     <Compile Include="Services\Packaging\PackagingSource.cs" />
     <Compile Include="Services\Packaging\Pager.cs" />
-    <Compile Include="Pager.cs" />
-    <Compile Include="Services\Ping\Manager.cs" />
-    <Compile Include="Services\Ping\Trackback.cs" />
-    <Compile Include="Services\Ping\TrackbackMessage.cs" />
+    <Compile Include="Helpers\Pager.cs" />
+    <Compile Include="Services\Messaging\Ping\Manager.cs" />
+    <Compile Include="Services\Messaging\Ping\Trackback.cs" />
+    <Compile Include="Services\Messaging\Ping\TrackbackMessage.cs" />
     <Compile Include="Providers\FileSystemProviders\BlogFileSystemProvider.cs" />
     <Compile Include="Providers\FileSystemProviders\BlogFileSystemProviderCollection.cs" />
     <Compile Include="Providers\FileSystemProviders\BlogFileSystemProviderSection.cs" />
@@ -308,8 +308,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Page.cs" />
-    <Compile Include="Services\Ping\Pingback.cs" />
-    <Compile Include="Services\Ping\PingService.cs" />
+    <Compile Include="Services\Messaging\Ping\Pingback.cs" />
+    <Compile Include="Services\Messaging\Ping\PingService.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\StateCollection.cs" />
@@ -321,8 +321,6 @@
     <Compile Include="Web\HttpModules\ReferrerModule.cs" />
     <Compile Include="Web\HttpModules\WwwSubDomainModule.cs" />
     <Compile Include="Web\HttpModules\UrlRewrite.cs" />
-    <Compile Include="Web\Navigation\IPager.cs" />
-    <Compile Include="Web\Navigation\Pager.cs" />
     <Compile Include="Web\Scripting\PageHeader.cs" />
     <Compile Include="Web\Scripting\Helpers.cs" />
     <Compile Include="Web\Scripting\JavascriptMinifier.cs" />
@@ -332,16 +330,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlogRollItem.cs" />
-    <Compile Include="Services\Messaging\CommentHandlers.cs" />
-    <Compile Include="DataStore\ExtensionSettings.cs" />
-    <Compile Include="DataStore\ExtensionSettingsBehavior.cs" />
-    <Compile Include="DataStore\Interfaces.cs" />
-    <Compile Include="DataStore\SerializableStringDictionary.cs" />
-    <Compile Include="DataStore\SettingsBase.cs" />
-    <Compile Include="DataStore\StringDictionaryBehavior.cs" />
-    <Compile Include="DataStore\WidgetSettings.cs" />
-    <Compile Include="DataStore\XMLDocumentBehavior.cs" />
-    <Compile Include="Services\Messaging\ICustomFilter.cs" />
+    <Compile Include="Services\Messaging\Protection\CommentHandlers.cs" />
+    <Compile Include="Web\Extensions\DataStore\ExtensionSettings.cs" />
+    <Compile Include="Web\Extensions\DataStore\ExtensionSettingsBehavior.cs" />
+    <Compile Include="Web\Extensions\DataStore\Interfaces.cs" />
+    <Compile Include="Web\Extensions\DataStore\SerializableStringDictionary.cs" />
+    <Compile Include="Web\Extensions\DataStore\SettingsBase.cs" />
+    <Compile Include="Web\Extensions\DataStore\StringDictionaryBehavior.cs" />
+    <Compile Include="Web\Extensions\DataStore\WidgetSettings.cs" />
+    <Compile Include="Web\Extensions\DataStore\XMLDocumentBehavior.cs" />
+    <Compile Include="Services\Messaging\Protection\ICustomFilter.cs" />
     <Compile Include="IPublishable.cs" />
     <Compile Include="Providers\DbProvider\DbBlogProvider.cs" />
     <Compile Include="Providers\DbProvider\DbMembershipProvider.cs" />

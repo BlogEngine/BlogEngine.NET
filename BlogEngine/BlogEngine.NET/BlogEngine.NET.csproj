@@ -232,7 +232,7 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="admin\editors\tinymce\themes\modern\theme.min.js" />
     <Content Include="admin\editors\tinymce\tinymce.min.js" />
-    <Content Include="admin\Extensions\admin.master" />
+    <Content Include="admin\admin.master" />
     <Content Include="admin\index.cshtml" />
     <Content Include="admin\themes\lte\css\admin.css" />
     <Content Include="admin\themes\lte\css\AdminLTE.min.css" />
@@ -304,7 +304,6 @@
     <Content Include="admin\editors\tinymce\plugins\image4be\filemgr.cshtml" />
     <Content Include="admin\themes\lte\layout.cshtml" />
     <Content Include="admin\themes\lte\sidebar.cshtml" />
-    <Content Include="admin\test.cshtml" />
     <Content Include="admin\themes\lte\header.cshtml" />
     <Content Include="admin\themes\standard\layout.cshtml" />
     <Content Include="admin\themes\standard\sidebar.cshtml" />
@@ -1930,11 +1929,11 @@
     <Compile Include="Account\register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\Extensions\admin.master.cs">
+    <Compile Include="admin\admin.master.cs">
       <DependentUpon>admin.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\Extensions\admin.master.designer.cs">
+    <Compile Include="admin\admin.master.designer.cs">
       <DependentUpon>admin.master</DependentUpon>
     </Compile>
     <Compile Include="admin\Extensions\Settings.ascx.cs">

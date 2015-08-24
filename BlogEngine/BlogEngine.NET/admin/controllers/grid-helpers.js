@@ -3,10 +3,14 @@
     scope.sortingOrder = sortingOrder;
     scope.reverse = false;
     scope.filteredItems = [];
-    scope.groupedItems = [];
-    scope.itemsPerPage = SiteVars.GenericPageSize;
+    scope.groupedItems = [];  
     scope.pagedItems = [];
     scope.currentPage = 0;
+
+    // set default if not passed in
+    if (!scope.itemsPerPage) {
+        scope.itemsPerPage = SiteVars.GenericPageSize;
+    }
 
     scope.range = function (start, end) {
         var ret = [];
