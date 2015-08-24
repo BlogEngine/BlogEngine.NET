@@ -131,10 +131,14 @@
     }
 
     $scope.insertFile = function (file) {
+        var s = "<img src='" + SiteVars.RelativeWebRoot + "image.axd?picture=" + file.FullPath + "' />";
+        if (file.FileType != 2) {
+            // not a picture, insert as attachement
+            s = "<p><a class=\"download\" href=\"" + SiteVars.RelativeWebRoot + "file.axd?file=" +
+                file.FullPath + "\">" + file.Name + " (" + file.FileSize + ")</a></p>";
+        }
+        // get hold on TinyMce editor and inject link
         var wm = top.tinymce.activeEditor.windowManager;
-
-        var s = "<img src='" + SiteVars.RelativeWebRoot + "image.axd?picture=" + file + "' />";
-
         wm.getParams().ed.insertContent(s);
         wm.getWindows()[0].close();
     }

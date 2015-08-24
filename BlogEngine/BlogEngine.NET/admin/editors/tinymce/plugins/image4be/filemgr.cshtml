@@ -85,10 +85,10 @@
                             <a ng-if="item.FileType === 0 && item.Name === '...'" title="{{item.Name}}" href="" ng-click="load(item.FullPath)" class="pull-left" style="background-color: #e5e5e5">
                                 <img ng-src="{{root}}Content/images/blog/placeholders/folder_back.png" />
                             </a>
-                            <a ng-if="item.FileType === 1" title="{{item.Name}}" href="" ng-click="insertFile(item.FullPath)">
+                            <a ng-if="item.FileType === 1" title="{{item.Name}}" href="" ng-click="insertFile(item)">
                                 <img ng-src="{{root}}Content/images/blog/placeholders/zip.png" />
                             </a>
-                            <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item.FullPath)">
+                            <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item)">
                                 <img ng-src="{{root}}image.axd?picture={{item.FullPath}}" />
                             </a>
                         </div>
