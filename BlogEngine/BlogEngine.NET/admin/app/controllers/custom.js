@@ -5,6 +5,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.editId = "";
     $scope.package = {};
     $scope.fltr = 'all';
+    $scope.itemsPerPage = 20;
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
     $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
     $scope.security = $rootScope.security;
@@ -17,9 +18,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
     
-    if ($scope.id) {
-        $("#modal-theme-edit").modal();
-    }
     if ($location.path().indexOf("/custom") == 0) {
         $scope.fltr = 'extensions';
     }
@@ -73,7 +71,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         dataService.getItems('/api/customfields', { filter: 'CustomType == "THEME" && ObjectId == "' + id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
-            $("#modal-theme-edit").modal();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingCustomFields);
@@ -102,12 +99,10 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         .success(function (data) {
             $scope.load();
             spinOff();
-            $("#modal-theme-edit").modal('hide');
         })
         .error(function () {
             toastr.error($rootScope.lbl.updateFailed);
             spinOff();
-            $("#modal-theme-edit").modal('hide');
         });
     }
 

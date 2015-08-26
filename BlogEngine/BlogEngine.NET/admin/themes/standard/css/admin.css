@@ -1,4 +1,4 @@
-
+﻿
 /**/
 body { font-family: "Roboto"; font-weight: 300; font-size: 14px; height: 100%; overflow-y: scroll; }
 .container { width: 100%; }
@@ -290,3 +290,54 @@ label { font-size: 13px; font-weight: normal; }
 .dropdown-menu a { cursor: pointer; }
 .text-wrap { width: 100% !important; }
 .text-label { font-size: 12px !important; }
+
+.info-box {
+    display: block;
+    margin-bottom: 15px;
+    padding: 0 10px 0 0;
+    min-height: 90px;
+}
+.info-box-icon {
+    background-color: #e5e5e5;
+    float: left;
+    height: 90px;
+    width: 90px;
+    margin: 0;
+    padding: 0; 
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.info-box-content {
+    background-color: #f5f5f5;
+    margin-left: 90px;
+    padding: 5px 10px;
+    height: 90px;
+}
+.info-box-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.info-box-number {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+}
+.info-box-check {
+    z-index: 100;
+}
+.ext-enabled {
+    font-size: 0.9em;
+    color: rgb(233, 102, 102) !important;
+}
+.ext-disabled {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+

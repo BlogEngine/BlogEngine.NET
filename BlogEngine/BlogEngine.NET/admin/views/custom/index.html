@@ -1,5 +1,5 @@
 ﻿<div data-ng-controller="CustomController">
-    <div id="modal-theme-edit" class="modal fade">
+    <!--<div id="modal-theme-edit" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -79,7 +79,7 @@
             </div>
         </div>
     </div>
-    <div id="review" data-ng-include src="'views/shared/_review.html'"></div>
+    <div id="review" data-ng-include src="'views/shared/_review.html'"></div>-->
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.extensions}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
@@ -98,8 +98,58 @@
                 </div>
             </div>
         </div>
+       
+        <div class="row" style="padding-left: 10px">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
+                <span class="info-box-icon">
+                    <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
+                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/placeholders/box.png" />
+                        <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
+                    </a>
+                </span>
+                <div class="info-box-content">
+                    <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
+                    <span class="star-rating">
+                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
+                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
+                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)"><i></i>
+                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
+                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
+                    </span>
+                    <span class="info-box-text">
+                        <a ng-if="!item.Enabled" style="color: #ccc !important" title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
+                        <a ng-if="item.Enabled" title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
+                    </span>
+                    <span class="info-box-number">{{item.DownloadCount}} downloads</span>
+                    <div class="pull-left">
+                        <a href="#" ng-if="item.Enabled" class="ext-enabled">Disable</a>
+                        <a href="#" ng-if="!item.Enabled" class="ext-disabled">Enable</a>
+                    </div>
+                    <div class="pull-right" style="margin-top: -5px">
+                        <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
+                        <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
+                        <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
+            <ul class="pagination pagination-sm">
+                <li data-ng-class="{disabled: currentPage == 0}">
+                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
+                </li>
+                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                    <a data-ng-bind="n + 1">1</a>
+                </li>
+                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
+                </li>
+            </ul>
+        </div>
 
-        <table class="table table-bordered table-striped table-hover table-responsive">
+
+        <!--<table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>
                     <th><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
@@ -137,20 +187,9 @@
                 </tr>
                 <tr id="tr-spinner"><td colspan="8"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>
-        </table>
-        <div class="text-right pagination-wrapper">
-            <ul class="pagination pagination-sm">
-                <li data-ng-class="{disabled: currentPage == 0}">
-                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
-                </li>
-                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                    <a data-ng-bind="n + 1">1</a>
-                </li>
-                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
-                </li>
-            </ul>
-        </div>
+        </table>-->
+
+
     </div>
 </div>
 
