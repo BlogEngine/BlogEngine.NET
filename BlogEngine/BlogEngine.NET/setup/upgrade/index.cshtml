@@ -1,8 +1,6 @@
-﻿@using System.Web
-@using System.Web.Optimization
-@using BlogEngine.Core
+﻿@using BlogEngine.Core
 @{
-    if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
+    if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
     {
         Security.RedirectForUnauthorizedRequest();
     }
@@ -15,7 +13,6 @@
     <link rel="shortcut icon" href="@Href(Utils.ApplicationRelativeWebRoot + "Content/images/blog/blogengine.ico")" type="image/x-icon" />
     <meta charset="utf-8" />
     <link href="~/setup/upgrade/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/app.css" rel="stylesheet" />
     <script src="~/setup/upgrade/jquery-2.0.3.min.js"></script>
     <script src="~/setup/upgrade/bootstrap.min.js"></script>
     <script src="~/setup/upgrade/Updater.js"></script>
@@ -103,15 +100,5 @@
             <button id="btnRun" class="btn btn-success" onclick="upgrade()" type="button">Upgrade</button>
         </div>
     </div>
-    <div class="footer-upgrade clearfix" id="footer">
-        <div class="container">
-            <div class="BlogEngine-app pull-left">
-                <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET @curVersion</a> |
-                <a href="http://dotnetblogengine.net/Donate.aspx" target="_blank" id="donate">Make a donation</a>
-            </div>
-            <a class="logo-brand pull-right" target="_blank" href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo-footer.png" alt="BlogEngine.NET" /></a>
-        </div>
-    </div>
-
 </body>
 </html>

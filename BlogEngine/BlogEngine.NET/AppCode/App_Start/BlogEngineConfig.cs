@@ -32,19 +32,19 @@ namespace BlogEngine.NET.App_Start
                 WidgetZone.PreloadWidgetsAsync("be_WIDGET_ZONE");
                 Utils.LoadExtensions();
 
-                BlogEngineConfig.RegisterBundles(BundleTable.Bundles);
+                RegisterBundles(BundleTable.Bundles);
 
-                BlogEngineConfig.RegisterWebApi(GlobalConfiguration.Configuration);
+                RegisterWebApi(GlobalConfiguration.Configuration);
 
                 RegisterUnity(GlobalConfiguration.Configuration);
 
                 ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                     new ScriptResourceDefinition
                     {
-                        Path = "~/Scripts/jquery-1.9.1.min.js",
-                        DebugPath = "~/Scripts/jquery-1.9.1.js",
-                        CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.9.1.min.js",
-                        CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.9.1.js"
+                        Path = "~/Scripts/jquery-2.1.1.min.js",
+                        DebugPath = "~/Scripts/jquery-2.1.1.js",
+                        CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-2.1.1.min.js",
+                        CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-2.1.1.js"
                     });
 
                 _initializedAlready = true;
@@ -103,7 +103,6 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Content/bootstrap.min.css")
                 .Include("~/Content/toastr.css")
                 .Include("~/Content/font-awesome.min.css")
-                .Include("~/Content/editor.css")
                 .Include("~/Content/star-rating.css")
                 );
 
@@ -119,30 +118,30 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/angular-animate.min.js")
                 .Include("~/Scripts/angular-sanitize.min.js")             
                 .Include("~/admin/app.js")
-                .Include("~/admin/controllers/grid-helpers.js")
-                .Include("~/admin/controllers/dashboard.js")
-                .Include("~/admin/controllers/blogs.js")
-                .Include("~/admin/controllers/help.js")
-                .Include("~/admin/controllers/about.js")
-                .Include("~/admin/controllers/posts.js")
-                .Include("~/admin/controllers/listpager.js")
-                .Include("~/admin/controllers/pages.js")
-                .Include("~/admin/controllers/tags.js")
-                .Include("~/admin/controllers/categories.js")
-                .Include("~/admin/controllers/files.js")
-                .Include("~/admin/controllers/comments.js")
-                .Include("~/admin/controllers/users.js")
-                .Include("~/admin/controllers/roles.js")
-                .Include("~/admin/controllers/profile.js")
-                .Include("~/admin/controllers/settings.js")
-                .Include("~/admin/controllers/tools.js")
-                .Include("~/admin/controllers/commentfilters.js")
-                .Include("~/admin/controllers/blogroll.js")
-                .Include("~/admin/controllers/pings.js")
-                .Include("~/admin/controllers/custom.js")
-                .Include("~/admin/controllers/package.js")
-                .Include("~/admin/controllers/common.js")
-                .Include("~/admin/controllers/data-service.js")
+                .Include("~/admin/app/listpager.js")
+                .Include("~/admin/app/grid-helpers.js")
+                .Include("~/admin/app/data-service.js")
+                .Include("~/admin/app/controllers/dashboard.js")
+                .Include("~/admin/app/controllers/blogList.js")
+                .Include("~/admin/app/controllers/help.js")
+                .Include("~/admin/app/controllers/about.js")
+                .Include("~/admin/app/controllers/posts.js")             
+                .Include("~/admin/app/controllers/pages.js")
+                .Include("~/admin/app/controllers/tags.js")
+                .Include("~/admin/app/controllers/categories.js")
+                .Include("~/admin/app/controllers/files.js")
+                .Include("~/admin/app/controllers/commentList.js")
+                .Include("~/admin/app/controllers/users.js")
+                .Include("~/admin/app/controllers/roles.js")
+                .Include("~/admin/app/controllers/profile.js")
+                .Include("~/admin/app/controllers/settings.js")
+                .Include("~/admin/app/controllers/tools.js")
+                .Include("~/admin/app/controllers/commentFilters.js")
+                .Include("~/admin/app/controllers/blogRoll.js")
+                .Include("~/admin/app/controllers/pings.js")
+                .Include("~/admin/app/controllers/custom.js")
+                .Include("~/admin/app/controllers/package.js")
+                .Include("~/admin/app/controllers/common.js")               
                 .Include("~/scripts/bootstrap.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/editors/summernote/summernote.js")
@@ -162,13 +161,13 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/scripts/textext.js")
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/app.js")
-                .Include("~/admin/controllers/grid-helpers.js")
-                .Include("~/admin/controllers/editor-helpers.js")
-                .Include("~/admin/controllers/editor-post.js")
-                .Include("~/admin/controllers/editor-page.js")
-                .Include("~/admin/controllers/files.js")
-                .Include("~/admin/controllers/common.js")
-                .Include("~/admin/controllers/data-service.js")
+                .Include("~/admin/app/grid-helpers.js")
+                .Include("~/admin/app/editor-helpers.js")
+                .Include("~/admin/app/controllers/postEditor.js")
+                .Include("~/admin/app/controllers/pageEditor.js")
+                .Include("~/admin/app/controllers/files.js")
+                .Include("~/admin/app/controllers/common.js")
+                .Include("~/admin/app/data-service.js")
                 );
 
             if (BlogConfig.DefaultEditor == "~/admin/editors/bootstrap-wysiwyg/editor.cshtml")

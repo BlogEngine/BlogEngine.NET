@@ -40,7 +40,7 @@ label { font-size: 13px; font-weight: normal; }
 .control-group .control-label-inline { display: block; }
 
 
-.active-flt-r { display: inline-block; width: 21px; height: 11px; background: url(images/blog/active-filterbar.png) no-repeat 0 0; position: absolute; top: -11px; right: 23px; }
+.active-flt-r { display: inline-block; width: 21px; height: 11px; background: url(../img/active-filterbar.png) no-repeat 0 0; position: absolute; top: -11px; right: 23px; }
 .btn-flt-r .btn { outline: none !important; }
 .toolbar-grid { margin-bottom: 18px; }
 .search-grid { margin-left: 5px; }
@@ -284,3 +284,9 @@ label { font-size: 13px; font-weight: normal; }
 
 .loading { display: inline-block; }
 .loaded { display: none; }
+.input-page-title {font-size: 18px; height: 30px; line-height: 30px; margin: 0; border: 0; font-weight: 500; font-family: "Helvetica";}
+.text-core .text-wrap textarea, .text-core .text-wrap input { border-radius: 3px !important; border-color: #CCC !important; box-shadow: none; font-size: 13px !important; border: none !important; min-height: 25px !important; }
+.text-core .text-wrap .text-tags .text-tag .text-button { border: none !important; background: #5bc0de !important; color: #fff !important; }
+.dropdown-menu a { cursor: pointer; }
+.text-wrap { width: 100% !important; }
+.text-label { font-size: 12px !important; }
