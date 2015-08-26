@@ -17,6 +17,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.showRating = false;
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
+    $scope.activeTheme = ActiveTheme;
     
     if ($location.path().indexOf("/custom") == 0) {
         $scope.fltr = 'extensions';

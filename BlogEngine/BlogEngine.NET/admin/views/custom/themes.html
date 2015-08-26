@@ -20,9 +20,9 @@
 
         <div class="row" style="padding-left: 10px">
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
-                <span class="info-box-icon">
+                <span ng-class="(item.Id == activeTheme) ? 'info-box-icon info-box-icon-selected' : 'info-box-icon'">
                     <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
-                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/placeholders/box.png" />
+                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
                 </span>

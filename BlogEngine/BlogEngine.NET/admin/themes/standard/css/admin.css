@@ -339,5 +339,8 @@ label { font-size: 13px; font-weight: normal; }
     font-size: 0.9em;
     font-weight: 500;
 }
+.info-box-icon-selected {
+    border: 3px solid #33cd0a !important;
+}
 
 

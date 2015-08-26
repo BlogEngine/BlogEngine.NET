@@ -1,85 +1,4 @@
 ﻿<div data-ng-controller="CustomController">
-    <!--<div id="modal-theme-edit" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
-                    <h4 class="modal-title">{{package.Title}}</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-horizontal clearfix">
-                        <div class="pkg-common">
-                            <div class="row">
-                                <div class="col col-md-2">
-                                    <img ng-if="!package.PackageUrl" class="pkg-img" width="100" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                                    <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
-                                        <img class="pkg-img" width="100" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                                    </a>
-                                </div>
-                                <div class="col col-md-8">
-                                    <div>
-                                        <span>{{lbl.description}}: </span>
-                                        <span ng-bind-html="package.Description"></span>
-                                    </div>
-                                    <div>
-                                        <span><i class="fa fa-user"></i> {{lbl.author}}: </span>
-                                        <span ng-bind-html="package.Authors"></span>
-                                    </div>
-                                    <div ng-if="package.Tags">
-                                        <span><i class="fa fa-tags"></i> {{lbl.tags}}: </span>
-                                        <span ng-bind-html="package.Tags"></span>
-                                    </div>
-                                    <div ng-if="package.LastUpdated">
-                                        <span><i class="fa fa-calendar"></i> {{lbl.date}}: </span>
-                                        <span ng-bind-html="package.LastUpdated"></span>
-                                    </div>
-                                    <div ng-if="package.DownloadCount">
-                                        <span><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
-                                        <span>{{package.DownloadCount}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr />
-                            <div class="row">
-                                <div class=" col col-md-6">
-                                    <div ng-if="security.canManageExtensions" class="form-group">
-                                        <label class="col col-md-3">{{lbl.priority}}</label>
-                                        <div class="col col-md-9">
-                                            <input type="text" class="form-control" id="txtPriority" data-ng-model="package.Priority" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col col-md-6">
-                                    <div data-ng-if="security.canManageExtensions" class="form-group ">
-                                        <label class="col col-md-3">{{lbl.enabled}}</label>
-                                        <div class="col col-md-9">
-                                            <input type="checkbox" name="ckEnabled" data-ng-model="package.Enabled" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div ng-if="package.SettingsUrl">
-                            <hr />
-                            <iframe ng-if="security.canManageExtensions" ng-src="{{extEditSrc}}" width="550" height="300" frameborder="0"></iframe>
-                        </div>
-                        <h4 data-ng-if="customFields.length > 0">{{lbl.customFields}}</h4>
-                        <div data-ng-repeat="item in customFields" class="form-group">
-                            <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
-                            <div class="col col-md-8">
-                                <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button data-ng-click="save()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="review" data-ng-include src="'views/shared/_review.html'"></div>-->
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.extensions}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
@@ -103,7 +22,7 @@
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
                 <span class="info-box-icon">
                     <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
-                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/placeholders/box.png" />
+                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
                 </span>
@@ -147,49 +66,6 @@
                 </li>
             </ul>
         </div>
-
-
-        <!--<table class="table table-bordered table-striped table-hover table-responsive">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
-                    <th class="hmax768">&nbsp;</th>
-                    <th class="table-item-title table-item-w70">{{lbl.title}} <a ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
-                    <th class="hmax768">{{lbl.version}}</th>
-                    <th class="hmax768">{{lbl.author}}</th>
-                    <th class="hmax992">{{lbl.enabled}}</th>
-                    <th class="hmax992">{{lbl.priority}}</th>
-                    <th class="hmax992">&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                    <td><input type="checkbox" ng-disabled="item.OnlineVersion === ''" id="{{item.Id}}" data-ng-model="item.IsChecked" /></td>
-                    <td class="table-item-avatar hmax768"><img ng-src="{{item.IconUrl}}" /></td>
-                    <td class="table-item-title">
-                        <div class="text-ellipsis pull-left">
-                            <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
-                            <span class="item-description hmax480">{{item.Description}}</span>
-                        </div>
-                        <span ng-if="item.OnlineVersion != ''" class="star-rating pull-right">
-                            <input type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)" ng-click="showRatingForm(item, 1)"><i></i>
-                            <input type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)" ng-click="showRatingForm(item, 2)"><i></i>
-                            <input type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)" ng-click="showRatingForm(item, 3)"><i></i>
-                            <input type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)" ng-click="showRatingForm(item, 4)"><i></i>
-                            <input type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)" ng-click="showRatingForm(item, 5)"><i></i>
-                        </span>
-                    </td>
-                    <td class="hmax768">{{item.LocalVersion}}</td>
-                    <td class="hmax768" data-ng-bind-html="item.Authors"></td>
-                    <td><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true" /></td>
-                    <td class="hmax992" data-ng-if="item.Location != 'G'">{{item.Priority}}</td>
-                    <td><a ng-if="item.OnlineVersion != ''" title="Uninstall package" href="" ng-click="uninstallPackage(item.Id)"><i class="fa fa-times"></i></a>&nbsp;</td>
-                </tr>
-                <tr id="tr-spinner"><td colspan="8"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
-            </tbody>
-        </table>-->
-
-
     </div>
 </div>
 
