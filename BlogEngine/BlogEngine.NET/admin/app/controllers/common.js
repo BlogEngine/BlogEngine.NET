@@ -17,7 +17,7 @@
     else if ($location.path().indexOf("custom") > -1) {
         $("#mu-custom").addClass("active");
     }
-    else if ($location.path().indexOf("users") > -1) {
+    else if ($location.path().indexOf("security") > -1) {
         $("#mu-users").addClass("active");
     }
     else if ($location.path().indexOf("settings") > -1) {

@@ -1,7 +1,7 @@
 ﻿@using BlogEngine.Core
 <ul class="nav-head">
     <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
-    <li><a href="~/admin/#/users/profile"><i class="fa fa-user"></i></a></li>
+    <li><a href="~/admin/#/security"><i class="fa fa-user"></i></a></li>
     <li><a href="~/" target="_blank"><i class="fa fa-home"></i></a></li>
     <li><a href="#"><i class="fa fa-bell"></i></a></li>
 </ul>
@@ -30,11 +30,14 @@
         </ul>
     </li>
     <li id="mu-users">
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/users"><i class="fa fa-user"></i>@Resources.labels.users</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security"><i class="fa fa-user"></i>@Resources.labels.users</a>
         <ul>
-            <li data-ng-class="{ active: isActive('/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users">@Resources.labels.users</a></li>
-            <li data-ng-class="{ active: isActive('/users/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles">@Resources.labels.roles</a></li>
-            <li data-ng-class="{ active: isActive('/users/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/profile">@Resources.labels.profile</a></li>
+            <li data-ng-class="{ active: isActive('/security')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security">@Resources.labels.profile</a></li>
+            @if (!BlogConfig.SingleUserBlog)
+            {
+                <li data-ng-class="{ active: isActive('/security/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/roles">@Resources.labels.roles</a></li>
+                <li data-ng-class="{ active: isActive('/security/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/users">@Resources.labels.users</a></li>
+            }
         </ul>
     </li>
     <li id="mu-settings">

@@ -68,20 +68,23 @@
                 </ul>
             </li>      
             <li class="treeview">
-                <a href="{{SiteVars.RelativeWebRoot}}admin/#/users">
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/security">
                     <i class="fa fa-user"></i><span>@Resources.labels.users</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li data-ng-class="{ active: isActive('/users')}">
-                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users"><i class="fa fa-circle-o"></i> <span>@Resources.labels.users</span></a>
+                    <li data-ng-class="{ active: isActive('/security')}">
+                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security"><i class="fa fa-circle-o"></i> <span>@Resources.labels.profile</span></a>
                     </li>
-                    <li data-ng-class="{ active: isActive('/users/roles')}">
-                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles"><i class="fa fa-circle-o"></i> <span>@Resources.labels.roles</span></a>
-                    </li>
-                    <li data-ng-class="{ active: isActive('/users/profile')}">
-                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/users/profile"><i class="fa fa-circle-o"></i> <span>@Resources.labels.profile</span></a>
-                    </li>
+                    @if (!BlogConfig.SingleUserBlog)
+                    {
+                        <li data-ng-class="{ active: isActive('/security/roles')}">
+                            <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/roles"><i class="fa fa-circle-o"></i> <span>@Resources.labels.roles</span></a>
+                        </li>
+                        <li data-ng-class="{ active: isActive('/security/users')}">
+                            <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/users"><i class="fa fa-circle-o"></i> <span>@Resources.labels.users</span></a>
+                        </li>
+                    }
                 </ul>
             </li>
             <li class="treeview">

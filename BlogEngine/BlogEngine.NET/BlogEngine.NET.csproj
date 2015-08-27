@@ -1561,9 +1561,9 @@
     <Content Include="admin\views\settings\basic.html" />
     <Content Include="admin\views\settings\email.html" />
     <Content Include="admin\views\settings\feed.html" />
-    <Content Include="admin\views\users\index.html" />
-    <Content Include="admin\views\users\profile.html" />
-    <Content Include="admin\views\users\roles.html" />
+    <Content Include="admin\views\security\users.html" />
+    <Content Include="admin\views\security\profile.html" />
+    <Content Include="admin\views\security\roles.html" />
     <Content Include="admin\WidgetEditor.aspx" />
     <Content Include="App_Data\blogroll.xml" />
     <Content Include="App_Data\blogs.xml" />

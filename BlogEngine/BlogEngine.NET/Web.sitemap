@@ -4,7 +4,6 @@
     <siteMapNode url="~/admin/index.cshtml" title="dashboard" description="" rights="ViewDashboard" />
     <siteMapNode url="~/admin/#/content" title="content" description="" rightsAuthorizationCheck="HasAny" rights="CreateNewPosts, EditOwnPosts, EditOtherUsersPosts, PublishOwnPosts, PublishOtherUsersPosts" />
     <siteMapNode url="~/admin/#/custom" title="custom" description="" rightsAuthorizationCheck="HasAny" rights="ManageExtensions, ManageWidgets, ManageThemes, ManagePackages" />
-    <siteMapNode url="~/admin/#/users" title="users" description="" rights="EditOtherUsers" />
     <siteMapNode url="~/admin/#/settings" title="settings" rights="AccessAdminSettingsPages" description="" />
   </siteMapNode>
 </siteMap>

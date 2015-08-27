@@ -98,7 +98,7 @@
 
             if (Security.IsAuthenticated)
             {
-                AddItem(labels.myProfile, string.Format("{0}admin/#/users/profile", Utils.RelativeWebRoot));
+                AddItem(labels.myProfile, string.Format("{0}admin/#/security", Utils.RelativeWebRoot));
                 AddItem(labels.changePassword, string.Format("{0}Account/change-password.aspx", Utils.RelativeWebRoot));
             }
         }

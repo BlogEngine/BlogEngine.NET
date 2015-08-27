@@ -17,9 +17,9 @@
         .when("/custom/widgets", { templateUrl: "views/custom/widgets.html" })
         .when("/shared/package", { templateUrl: "views/shared/package.html" })
 
-        .when("/users", { templateUrl: "views/users/index.html" })
-        .when("/users/roles", { templateUrl: "views/users/roles.html" })
-        .when("/users/profile", { templateUrl: "views/users/profile.html" })
+        .when("/security", { templateUrl: "views/security/profile.html" })
+        .when("/security/roles", { templateUrl: "views/security/roles.html" })
+        .when("/security/users", { templateUrl: "views/security/users.html" })
 
         .when("/settings", { templateUrl: "views/settings/basic.html" })
         .when("/settings/feed", { templateUrl: "views/settings/feed.html" })
