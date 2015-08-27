@@ -4,7 +4,7 @@
   <Author>BlogEngine.NET</Author>
   <Description>Breaks a post where [more] is found in the body and adds a link to full post</Description>
   <Enabled>true</Enabled>
-  <Priority>1010</Priority>
+  <Priority>1001</Priority>
   <SubBlogEnabled>true</SubBlogEnabled>
   <ShowSettings>true</ShowSettings>
   <Version>1.4</Version>

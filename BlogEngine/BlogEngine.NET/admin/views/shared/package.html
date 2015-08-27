@@ -8,9 +8,10 @@
     </div>
     <div class="content-inner">
         <div class="form-horizontal clearfix">
-
             <div class="row">
+                <!-- Left column - package fields -->
                 <div class="col col-sm-6">
+                    <!-- Package tile -->
                     <div class="well clearfix">
                         <div class="form-group">
                             <div class="col col-md-4">
@@ -43,10 +44,17 @@
                                     <span class="control-label"><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
                                     <span>{{package.DownloadCount}}</span>
                                 </div>
+                                <div ng-if="package.PackageType === 'Extension' && package.LocalVersion != ''" style="margin-top: 5px">
+                                    <span class="control-label"><i class="fa fa-sort-amount-asc"></i> {{lbl.priority}}: {{package.Priority}} &nbsp;</span>
+                                    <div class="btn-group">
+                                        <a class="btn btn-default" href="" ng-click="setPriority('up')"><i class="fa fa-long-arrow-up"></i> {{lbl.up}}</a>
+                                        <a class="btn btn-default" href="" ng-click="setPriority('down')"><i class="fa fa-long-arrow-down"></i> {{lbl.down}}</a>
+                                    </div>
+                               </div>
                             </div>
                         </div>
                     </div>
-
+                    <!-- Review and rating -->
                     <div ng-if="package.Extra != null">
                         <div style="display: table; width: 100%">
                             <div class="pull-left" style="width: 200px"><h4>{{lbl.writeReview}}</h4></div>
@@ -75,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Right column - custom fields -->
                 <div class="col col-sm-6">
                     <div class="well clearfix" data-ng-if="customFields.length > 0">
                         <div class="clearfix" style="border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; margin-bottom: 10px">

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web.Configuration;
 
 namespace BlogEngine.Core
@@ -295,6 +292,22 @@ namespace BlogEngine.Core
                 return string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.GalleryFeedUrl"])
                     ? "http://dnbe.net/v01/nuget"
                     : WebConfigurationManager.AppSettings["BlogEngine.GalleryFeedUrl"];
+            }
+        }
+        #endregion
+
+        #region SingleUserBlog
+
+        /// <summary>
+        /// Configure application for use by single user
+        /// </summary>
+        public static bool SingleUserBlog
+        {
+            get
+            {
+                return string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.SingleUserBlog"])
+                    ? false
+                    : bool.Parse(WebConfigurationManager.AppSettings["BlogEngine.SingleUserBlog"]);
             }
         }
         #endregion

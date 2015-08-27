@@ -20,13 +20,13 @@
 
         <div class="row" style="padding-left: 10px">
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
-                <span ng-class="(item.Id == activeTheme) ? 'info-box-icon info-box-icon-selected' : 'info-box-icon'">
+                <span class="info-box-icon">
                     <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
                 </span>
-                <div class="info-box-content">
+                <div ng-class="(item.Id == activeTheme) ? 'info-box-content info-box-selected' : 'info-box-content'">
                     <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
                     <span class="star-rating">
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>

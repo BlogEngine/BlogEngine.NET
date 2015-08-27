@@ -291,56 +291,25 @@ label { font-size: 13px; font-weight: normal; }
 .text-wrap { width: 100% !important; }
 .text-label { font-size: 12px !important; }
 
-.info-box {
-    display: block;
-    margin-bottom: 15px;
-    padding: 0 10px 0 0;
-    min-height: 90px;
-}
-.info-box-icon {
-    background-color: #e5e5e5;
-    float: left;
-    height: 90px;
-    width: 90px;
-    margin: 0;
-    padding: 0; 
-    text-align: center;
-    vertical-align: middle;
-    overflow: hidden;
-}
-.info-box-content {
-    background-color: #f5f5f5;
-    margin-left: 90px;
-    padding: 5px 10px;
-    height: 90px;
-}
-.info-box-text {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-top: 5px;
-    font-size: 1.2em;
-    font-weight: 500;
-}
-.info-box-number {
-    display: block;
-    font-size: 0.9em;
-    color: #666;
-}
-.info-box-check {
-    z-index: 100;
-}
-.ext-enabled {
-    font-size: 0.9em;
-    color: rgb(233, 102, 102) !important;
-}
-.ext-disabled {
-    font-size: 0.9em;
-    font-weight: 500;
-}
-.info-box-icon-selected {
-    border: 3px solid #33cd0a !important;
-}
+.info-box { display: block; margin-bottom: 15px; padding: 0 10px 0 0; min-height: 90px; }
+.info-box-icon { background-color: #e5e5e5; float: left; height: 90px; width: 90px; margin: 0; padding: 0; text-align: center; vertical-align: middle; overflow: hidden; }
+.info-box-content { background-color: #f5f5f5; margin-left: 90px; padding: 5px 10px; height: 90px; }
+.info-box-text { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 5px; font-size: 1.2em; font-weight: 500; }
+.info-box-number { display: block; font-size: 0.9em; color: #666; }
+.info-box-check { z-index: 100; }
+.ext-enabled { font-size: 0.9em; color: rgb(233, 102, 102) !important; }
+.ext-disabled { font-size: 0.9em; font-weight: 500; }
+.info-box-selected { background-color: #a6e5aa !important; }
+
+.about-textarea { height: 60px; }
+.avatar-user { width: 90px; height: 90px; position: relative; overflow: hidden; border-radius: 3px; }
+.avatar-user img { width: 90px; height: 90px; border-radius: 3px; }
+.avatar-user .avatar-control { position: absolute; bottom: -30px; background-color: rgba(0,0,0,0.8); width: 100%; text-align: center; padding: 3px 0; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
+.avatar-user:hover .avatar-control { bottom: 0; }
+.avatar-user .avatar-control a { color: #fff; }
+.role-control { margin: 5px 0 10px; }
+.role-control .label { margin-right: 3px; display: inline-block; padding: 3px; }
+.user-info { padding-left: 10px; }
+.user-info .user-name { font-size: 18px; font-weight: bold; }
 
 

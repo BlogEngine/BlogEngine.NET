@@ -123,6 +123,18 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
         });
     }
 
+    $scope.setPriority = function (upDown) {
+        if (upDown == 'up') {
+            $scope.package.Priority++;
+        }
+        else {
+            if ($scope.package.Priority > 0) {
+                $scope.package.Priority--;
+            }
+        }
+        $scope.save();
+    }
+
     $scope.load();
     
 }]);

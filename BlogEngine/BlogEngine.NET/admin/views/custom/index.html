@@ -41,8 +41,8 @@
                     </span>
                     <span class="info-box-number">{{item.DownloadCount}} downloads</span>
                     <div class="pull-left">
-                        <a href="#" ng-if="item.Enabled" class="ext-enabled">Disable</a>
-                        <a href="#" ng-if="!item.Enabled" class="ext-disabled">Enable</a>
+                        <a href="" ng-click="enableExtension(item, false)" ng-if="item.Enabled" class="ext-enabled">Disable</a>
+                        <a href="" ng-click="enableExtension(item, true)" ng-if="!item.Enabled" class="ext-disabled">Enable</a>
                     </div>
                     <div class="pull-right" style="margin-top: -5px">
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>

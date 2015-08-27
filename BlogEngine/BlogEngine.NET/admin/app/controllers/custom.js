@@ -165,8 +165,15 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         });
     }
 
+    $scope.enableExtension = function (item, enable) {
+        $scope.package = item;
+        $scope.package.Enabled = enable;
+        $scope.save();
+    }
+
     $scope.load();
 
+    /*
     $scope.checkStar = function (item, rating) {
         if (item === rating) {
             return true;
@@ -227,5 +234,5 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
             $scope.package.Extra.Reviews = reviews;
         }
     }
-
+    */
 }]);

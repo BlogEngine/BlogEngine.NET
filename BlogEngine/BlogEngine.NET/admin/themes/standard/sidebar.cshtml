@@ -15,7 +15,7 @@
             <li data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
             <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
             <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
-            @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator)
+            @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && !BlogConfig.SingleUserBlog)
             {
                 <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
             }
