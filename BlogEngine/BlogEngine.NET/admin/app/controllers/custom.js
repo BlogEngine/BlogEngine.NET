@@ -18,6 +18,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
     $scope.activeTheme = ActiveTheme;
+    $scope.spin = true;
     
     if ($location.path().indexOf("/custom") == 0) {
         $scope.fltr = 'extensions';
@@ -33,12 +34,13 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.load = function () {
+        $scope.spin = true;
         dataService.getItems('/api/packages', { take: 0, skip: 0, filter: $scope.fltr, order: "LastUpdated desc" })
         .success(function (data) {
             angular.copy(data, $scope.items);
 
             gridInit($scope, $filter);
-            rowSpinOff($scope.items);
+            $scope.spin = false;
 
             var pkgId = getFromQueryString('pkgId');
             if (pkgId != null) {
@@ -48,6 +50,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
+            $scope.spin = false;
         });
     }
 
@@ -86,24 +89,26 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.save = function () {
-        spinOn();
+        $scope.spin = true;
 
         dataService.updateItem("/api/packages/update/foo", $scope.package)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
+            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
+            $scope.spin = false;
         });
 
         dataService.updateItem("/api/customfields", $scope.customFields)
         .success(function (data) {
             $scope.load();
-            spinOff();
+            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.updateFailed);
-            spinOff();
+            $scope.spin = false;
         });
     }
 
@@ -124,44 +129,44 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.installPackage = function (pkgId) {
-        spinOn();
+        $scope.spin = true;
         dataService.updateItem("/api/packages/install/" + pkgId, pkgId)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
             $scope.load();
-            spinOff();
+            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            spinOff();
+            $scope.spin = false;
         });
     }
 
     $scope.uninstallPackage = function (pkgId) {
-        spinOn();
+        $scope.spin = true;
         dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
             $scope.load();
-            spinOff();
+            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            spinOff();
+            $scope.spin = false;
         });
     }
 
     $scope.refreshGalleryList = function () {
-        spinOn();
+        $scope.spin = true;
         dataService.updateItem("/api/packages/refresh/list", { })
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
-            spinOff();
+            $scope.spin = false;
             $scope.load();
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            spinOff();
+            $scope.spin = false;
         });
     }
 
@@ -172,67 +177,4 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.load();
-
-    /*
-    $scope.checkStar = function (item, rating) {
-        if (item === rating) {
-            return true;
-        }
-        return false;
-    }
-
-    $scope.setRating = function (rating) {
-        $scope.selectedRating = rating;
-    }
-
-    $scope.showRatingForm = function (item, rating) {
-        $scope.selectedRating = rating;
-
-        dataService.getItems('/api/packages/' + item.Id)
-        .success(function (data) {  
-            $scope.package.Extra = data.Extra;
-            $scope.removeEmptyReviews();
-            $("#modal-rating").modal();
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.failed);
-        });
-    }
-
-    $scope.submitRating = function () {
-        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
-        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
-
-        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
-        .success(function (data) {
-            if (data != null) {
-                data = JSON.parse(data);
-            }
-            if (data.length === 0) {
-                toastr.success($rootScope.lbl.completed);
-            }
-            else {
-                toastr.error(data);
-            }
-            $("#modal-rating").modal('hide');
-            $scope.load();
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.failed);
-        });
-    }
-
-    $scope.removeEmptyReviews = function () {       
-        if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
-            var reviews = [];
-            for (var i = 0; i < $scope.package.Extra.Reviews.length; i++) {
-                var review = $scope.package.Extra.Reviews[i];
-                if (review.Body.length > 0) {
-                    reviews.push(review);
-                }
-            }
-            $scope.package.Extra.Reviews = reviews;
-        }
-    }
-    */
 }]);

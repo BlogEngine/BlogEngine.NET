@@ -1,7 +1,7 @@
 ﻿<div data-ng-controller="PackageController">
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
-            {{package.Title}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            {{package.Title}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
         <button ng-disabled="(package.OnlineVersion == '' || (package.OnlineVersion != '' && package.LocalVersion == '')) || id == activeTheme" data-ng-click="uninstallPackage()" class="btn btn-danger pull-right btn-header btn-tabkey"><i class="fa fa-times"></i>{{lbl.remove}}</button>
         <button type="button" class="btn btn-default btn-header pull-right" onclick="window.history.back()"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>

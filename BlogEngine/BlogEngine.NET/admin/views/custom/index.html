@@ -1,7 +1,7 @@
 ﻿<div data-ng-controller="CustomController">
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
-            {{lbl.extensions}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+            {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
     </div>
     <div class="content-inner">

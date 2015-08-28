@@ -105,6 +105,76 @@
                             });
                             </script>
 
+                            <div class="form-group">
+                                <h4>{{lbl.comments}}</h4>
+                                <hr />
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckEnableCountryInComments" data-ng-model="settings.EnableCountryInComments" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                            {{lbl.showCountryChooser}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckEnableWebsiteInComments" data-ng-model="settings.EnableWebsiteInComments" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                            {{lbl.showEnableWebsiteInComments}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckShowLivePreview" data-ng-model="settings.ShowLivePreview" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                            {{lbl.showLivePreview}}
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr />
+                                <label class="control-label"><strong>{{lbl.enableTrackbacks}}</strong></label>
+                                <div class="row">
+                                    <div class="col col-md-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckEnablePingBackSend" data-ng-model="settings.EnablePingBackSend" />
+                                                {{lbl.send}}
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-md-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckEnablePingBackReceive" data-ng-model="settings.EnablePingBackReceive" />
+                                                {{lbl.receive}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <label class="control-label"><strong>{{lbl.enablePingbacks}}</strong></label>
+                                <div class="row">
+                                    <div class="col col-md-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
+                                                {{lbl.send}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
+                                                {{lbl.receive}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div data-ng-controller="CommentFilterController">
                                 <div class="modal fade" id="AddFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

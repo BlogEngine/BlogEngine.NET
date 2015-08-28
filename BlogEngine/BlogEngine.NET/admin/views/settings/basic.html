@@ -82,28 +82,31 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
-                                        {{lbl.enableSelfRegistration}}
-                                    </label>
+                            <div ng-if="singleUserBlog != 'True'">
+                                <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
+                                            {{lbl.enableSelfRegistration}}
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>                          
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
-                                <div class="col col-md-8">
-                                    <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
+                                    <div class="col col-md-8">
+                                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
+                                    </div>
+                                </div>
+                                <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
+                                            {{lbl.createBlogOnSelfRegistration}}
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                            <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
-                                        {{lbl.createBlogOnSelfRegistration}}
-                                    </label>
-                                </div>
-                            </div>                       
+                                                   
                         </div>
                     </div>
                 </div>

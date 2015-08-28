@@ -5,6 +5,7 @@
     $scope.selfRegistrationInitialRole = {};
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
+    $scope.singleUserBlog = SingleUserBlog;
 
     $scope.feedOptions = [
         { "OptionName": "RSS 2.0", "OptionValue": "Rss", "IsSelected": false },

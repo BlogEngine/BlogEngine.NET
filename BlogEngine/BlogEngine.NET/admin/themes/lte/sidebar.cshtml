@@ -108,9 +108,12 @@
                     <li data-ng-class="{ active: isActive('/settings/controls')}">
                         <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls"><i class="fa fa-circle-o"></i> <span>@Resources.labels.controls</span></a>
                     </li>
-                    <li data-ng-class="{ active: isActive('/settings/advanced')}">
-                        <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced"><i class="fa fa-circle-o"></i> <span>@Resources.labels.advanced</span></a>
-                    </li>
+                    @if (!BlogConfig.SingleUserBlog)
+                    {
+                        <li data-ng-class="{ active: isActive('/settings/advanced')}">
+                            <a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced"><i class="fa fa-circle-o"></i> <span>@Resources.labels.advanced</span></a>
+                        </li>
+                    }
                 </ul>
             </li>
             <li>

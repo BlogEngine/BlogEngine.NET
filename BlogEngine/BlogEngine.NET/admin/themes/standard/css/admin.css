@@ -25,7 +25,6 @@ input[type=file] { cursor: pointer; }
 label.error { color: #c22818; }
 .modal { overflow-y: auto; }
 .modal-content { overflow: hidden; }
-.fa-spinner { font-size: 0.8em !important; }
 .show-important { display: block !important; }
 .hr-sm { margin-top: 10px; margin-bottom: 10px; }
 label { font-size: 13px; font-weight: normal; }
@@ -97,7 +96,6 @@ label { font-size: 13px; font-weight: normal; }
 
 /**/
 .admin-views-dashboard .panel {box-shadow:none;}
-.admin-views-dashboard .fa-spinner { font-size: 1.4em !important; }
 .admin-views-dashboard #gal-spinner.loading { display: block; width: 100%; text-align: center; padding: 10px 0; }
 .admin-views-dashboard .img-gallery { margin-right: 10px; margin-top: 4px; width: 32px; height: 32px; }
 .admin-views-dashboard .item-info-gal { width: 80%; }

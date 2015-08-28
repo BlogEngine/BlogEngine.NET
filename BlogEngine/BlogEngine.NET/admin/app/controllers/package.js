@@ -9,8 +9,10 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
     $scope.author = UserVars.Name;
     $scope.id = ($location.search()).id;
     $scope.activeTheme = ActiveTheme;
+    $scope.spin = true;
     
     $scope.load = function () {
+        $scope.spin = true;
         dataService.getItems('/api/packages/' + $scope.id)
         .success(function (data) {
             angular.copy(data, $scope.package);
@@ -26,6 +28,7 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
+            $scope.spin = false;
         });
     }
 
@@ -34,14 +37,16 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
         dataService.getItems('/api/customfields', { filter: 'CustomType == "THEME" && ObjectId == "' + $scope.id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
+            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingCustomFields);
+            $scope.spin = false;
         });
     }
 
     $scope.save = function () {
-        spinOn();
+        $scope.spin = true;
 
         dataService.updateItem("/api/packages/update/foo", $scope.package)
         .success(function (data) {
@@ -49,17 +54,18 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
+            $scope.spin = false;
         });
 
         dataService.updateItem("/api/customfields", $scope.customFields)
         .success(function (data) {
             $scope.load();
-            spinOff();
+            $scope.spin = false;
             $("#modal-theme-edit").modal('hide');
         })
         .error(function () {
             toastr.error($rootScope.lbl.updateFailed);
-            spinOff();
+            $scope.spin = false;
             $("#modal-theme-edit").modal('hide');
         });
     }

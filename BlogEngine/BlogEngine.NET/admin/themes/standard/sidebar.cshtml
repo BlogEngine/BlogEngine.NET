@@ -48,7 +48,10 @@
             <li data-ng-class="{ active: isActive('/settings/feed')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/feed">@Resources.labels.feed</a></li>
             <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments">@Resources.labels.comments</a></li>
             <li data-ng-class="{ active: isActive('/settings/controls')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls">@Resources.labels.controls</a></li>
-            <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced">@Resources.labels.advanced</a></li>
+            @if (!BlogConfig.SingleUserBlog)
+            {
+                <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced">@Resources.labels.advanced</a></li>
+            }
         </ul>
     </li>
     <li id="mu-gallery"><a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery"><i class="fa fa-cloud-download"></i>@Resources.labels.gallery</a></li>
