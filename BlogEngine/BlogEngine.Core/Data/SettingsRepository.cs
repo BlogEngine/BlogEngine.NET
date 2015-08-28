@@ -14,11 +14,11 @@ namespace BlogEngine.Core.Data
         /// <returns>Settings object</returns>
         public Settings Get()
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminSettingsPages))
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
                 throw new System.UnauthorizedAccessException();
 
             var ns = new Settings();
-            var bs = BlogEngine.Core.BlogSettings.Instance;
+            var bs = BlogSettings.Instance;
 
             // basic
             ns.Name = bs.Name;
@@ -54,6 +54,11 @@ namespace BlogEngine.Core.Data
             ns.RemoteFileDownloadTimeout = bs.RemoteFileDownloadTimeout;
             ns.RemoteMaxFileSize = bs.RemoteMaxFileSize;
             ns.SelfRegistrationInitialRole = bs.SelfRegistrationInitialRole;
+            if (string.IsNullOrEmpty(ns.SelfRegistrationInitialRole))
+            {
+                // set to default editor role if not set in settings
+                ns.SelfRegistrationInitialRole = BlogConfig.EditorsRole;
+            }
 
             // feed
             ns.AuthorName = bs.AuthorName;
