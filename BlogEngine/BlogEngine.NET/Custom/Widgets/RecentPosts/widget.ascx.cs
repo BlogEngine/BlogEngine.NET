@@ -181,15 +181,10 @@ namespace Widgets.RecentPosts
 
                 var comments = string.Format("<span>{0}: {1}</span>", labels.comments, post.ApprovedComments.Count);
 
-                if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+                if (BlogSettings.Instance.CommentProvider != BlogSettings.CommentsBy.BlogEngine)
                 {
                     comments = string.Format(
-                        "<span><a href=\"{0}#disqus_thread\">{1}</a></span>", post.PermaLink, labels.comments);
-                }
-                if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Facebook)
-                {
-                    comments = string.Format(
-                        "<span><a href=\"{0}#facebook_thread\">{1}</a></span>", post.PermaLink, labels.comments);
+                        "<span><a href=\"{0}#comment\">{1}</a></span>", post.PermaLink, labels.comments);
                 }
 
                 var rate = string.Format("<span>{0}: {1} / {2}</span>", labels.rating, rating, post.Raters);

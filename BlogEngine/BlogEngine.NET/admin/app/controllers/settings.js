@@ -115,14 +115,7 @@
             $scope.selTimeZone = selectedOption($scope.timeZoneOptions, $scope.settings.Timezone);
 
             $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
-            $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
-
-            $scope.commentsProvider = $scope.settings.ModerationType;
-            if ($scope.settings.ModerationType === 0) {
-                $scope.commentsProvider = 1;
-                $scope.moderationEnabled = 0;
-            }
-            
+            $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);       
             spinOff();
         })
         .error(function () {
@@ -150,21 +143,12 @@
 
         $scope.settings.txtErrorTitle = $scope.txtErrorTitle;
 
-        $scope.settings.ModerationType = $scope.commentsProvider;
-        if ($scope.moderationEnabled === 0 && $scope.commentsProvider === 1) {
-            $scope.settings.ModerationType = 0;
-        }
-
         dataService.updateItem("/api/settings", $scope.settings)
         .success(function (data) {
             toastr.success($rootScope.lbl.settingsUpdated);
             $scope.load();
         })
         .error(function () { toastr.error($rootScope.lbl.updateFailed); });
-    }
-
-    $scope.setComProvider = function (provider) {
-        //$scope.settings.ModerationType = provider;
     }
 
     $scope.exportToXml = function() {

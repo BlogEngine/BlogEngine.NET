@@ -24,15 +24,14 @@
                 Submit to DotNetKicks...</a>
         </div>
         @Html.Raw(Model.AdminLinks)
-        @if (BlogEngine.Core.BlogSettings.Instance.ModerationType == BlogEngine.Core.BlogSettings.Moderation.Disqus)
+        @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
         {
-            <a rel="nofollow" href="@Model.Post.PermaLink#disqus_thread">@Model.Resources.labels.comments</a>
+            <a rel="bookmark" href="@Model.Post.PermaLink" title="@Model.Post.Title">Permalink</a> <text>|</text>
+            <a rel="nofollow" href="@Model.Post.RelativeOrAbsoluteLink#comment">@Resources.labels.comments (@Model.Post.ApprovedComments.Count)</a>
         }
         else
         {
-            <a rel="bookmark" href="@Model.Post.PermaLink" title="@Model.Post.Title">Permalink</a> <text>|</text>
-            <a rel="nofollow" href="@Model.Post.RelativeOrAbsoluteLink#comment">@Resources.labels.comments
-                (@Model.Post.ApprovedComments.Count)</a>
+            <a rel="nofollow" href="@Model.Post.PermaLink#comment">@Model.Resources.labels.comments</a>
         }
     </div>
 </div>

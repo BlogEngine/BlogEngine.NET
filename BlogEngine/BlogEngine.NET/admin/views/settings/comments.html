@@ -14,17 +14,17 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="radio">
-                                    <label><input type="radio" value="1" data-ng-model="commentsProvider" ng-change="setComProvider(1)" /> BlogEngine</label>
+                                    <label><input type="radio" value="0" data-ng-model="settings.CommentProvider"/> BlogEngine</label>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="radio">
-                                    <label><input type="radio" value="2" data-ng-model="commentsProvider" ng-change="setComProvider(2)" /> Disqus</label>
+                                    <label><input type="radio" value="1" data-ng-model="settings.CommentProvider"/> Disqus</label>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="radio">
-                                    <label><input type="radio" value="3" data-ng-model="commentsProvider" ng-change="setComProvider(3)" /> Facebook</label>
+                                    <label><input type="radio" value="2" data-ng-model="settings.CommentProvider"/> Facebook</label>
                                 </div>
                             </div>
                             <hr/>
@@ -34,7 +34,7 @@
                             <div class="col col-md-6">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="ckIsCommentsEnabled" data-ng-model="settings.IsCommentsEnabled" />
+                                        <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
                                         {{lbl.enableComments}}
                                     </label>
                                 </div>
@@ -47,36 +47,70 @@
                             <div class="col col-md-6">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="ckEnableCommentsModeration" data-ng-model="settings.EnableCommentsModeration" data-ng-disabled="settings.IsCommentsEnabled == false" />
+                                        <input type="checkbox" name="ckEnableCommentsModeration" ng-model="settings.EnableCommentsModeration" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
                                         {{lbl.enableCommentsModeration}}
                                     </label>
                                 </div>
                             </div>
                             <div class="col col-md-6">
-                                <select class="form-control" id="closeDaysOptions" data-ng-options="o.OptionName for o in closeDaysOptions" data-ng-model="selCloseDays" data-ng-disabled="settings.IsCommentsEnabled == false"></select>
+                                <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in closeDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
                             </div>
                         </div>
+                        
+                        <h4>{{lbl.disqusSettings}}</h4>
+                        <hr />
+                        <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
+                        <div class="row">
+                            <div class="col col-lg-6">
+                                <label class="control-label" style="line-height: 32px" for="txtDisqusWebsiteName">{{lbl.disqusWebsiteName}}</label>
+                            </div>
+                            <div class="col col-lg-6">
+                                <input type="text" class="form-control ltr-dir" id="txtDisqusWebsiteName" data-ng-model="settings.DisqusWebsiteName" data-ng-disabled="settings.CommentProvider != 1" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckDisqusDevMode" ng-model="settings.DisqusDevMode" ng-disabled="settings.CommentProvider != 1" />
+                                        {{lbl.developmentMode}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="cbDisqusAddToPages" ng-model="settings.DisqusAddCommentsToPages" ng-disabled="settings.CommentProvider != 1" />
+                                        {{lbl.addCommentsToPages}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-sm-6">
+                    <div class="well">
                         <h4>{{lbl.avatars}}</h4>
                         <hr />
                         <div class="row">
                             <div class="col col-sm-4">
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/monsterid.png" class="img-thumbnail" alt="MonsterID" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/monsterid.png" class="img-thumbnail" alt="MonsterID" />
                                         <input type="radio" value="monsterid" data-ng-model="settings.Avatar" />
                                         MonsterID
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/wavatar.png" class="img-thumbnail" alt="Wavatar" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/wavatar.png" class="img-thumbnail" alt="Wavatar" />
                                         <input type="radio" value="wavatar" data-ng-model="settings.Avatar" />
                                         Wavatar
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/identicon.png" class="img-thumbnail" alt="Identicon" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/identicon.png" class="img-thumbnail" alt="Identicon" />
                                         <input type="radio" value="identicon" data-ng-model="settings.Avatar" />
                                         Identicon
                                     </label>
@@ -85,21 +119,21 @@
                             <div class="col col-sm-4">
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/retro.png" class="img-thumbnail" alt="Retro" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/retro.png" class="img-thumbnail" alt="Retro" />
                                         <input type="radio" value="retro" data-ng-model="settings.Avatar" />
                                         Retro
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/mm.png" class="img-thumbnail" alt="MysteryMan" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/mm.png" class="img-thumbnail" alt="MysteryMan" />
                                         <input type="radio" value="mm" data-ng-model="settings.Avatar" />
                                         MysteryMan
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/noavatar.png" class="img-thumbnail" alt="None" />
+                                        <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/noavatar.png" class="img-thumbnail" alt="None" />
                                         <input type="radio" value="none" data-ng-model="settings.Avatar" />
                                         {{lbl.none}}
                                     </label>
@@ -107,52 +141,12 @@
                             </div>
                             <div class="col col-sm-4">
                                 <label>
-                                    <img src="{{SiteVars.RelativeWebRoot}}content/images/blog/avatars/blank.png" class="img-thumbnail" alt="Blank" />
+                                    <img ng-src="{{SiteVars.RelativeWebRoot}}Content/images/blog/avatars/blank.png" class="img-thumbnail" alt="Blank" />
                                     <input type="radio" value="blank" data-ng-model="settings.Avatar" />
                                     Blank
                                 </label>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col col-sm-6">
-                    <div class="well">
-                        <h4>{{lbl.disqusSettings}}</h4>
-                        <hr />
-                        <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
-                        <!--<div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckUseDisqus" data-ng-model="settings.UseDisqus" data-ng-disabled="settings.IsCommentsEnabled == false" />
-                                {{lbl.useDisqusAsCommentProvider}}
-                            </label>
-                        </div>-->
-                        <div class="row">
-                            <div class="col col-lg-6">
-                                <label class="control-label" style="line-height: 32px" for="txtDisqusWebsiteName">{{lbl.disqusWebsiteName}}</label>
-                            </div>
-                            <div class="col col-lg-6">
-                                <input type="text" class="form-control ltr-dir" id="txtDisqusWebsiteName" data-ng-model="settings.DisqusWebsiteName" data-ng-disabled="settings.UseDisqus == false" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckDisqusDevMode" data-ng-model="settings.DisqusDevMode" data-ng-disabled="settings.UseDisqus == false" />
-                                        {{lbl.developmentMode}}
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="cbDisqusAddToPages" data-ng-model="settings.DisqusAddCommentsToPages" data-ng-disabled="settings.UseDisqus == false" />
-                                        {{lbl.addCommentsToPages}}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

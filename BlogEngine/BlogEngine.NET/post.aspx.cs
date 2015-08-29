@@ -245,8 +245,7 @@ public partial class post : BlogBasePage
         get
         {
             return BlogSettings.Instance.IsCommentsEnabled &&
-                (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Manual ||
-                BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Auto);
+                (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine);
         }
     }
 
@@ -254,7 +253,7 @@ public partial class post : BlogBasePage
     {
         get
         {
-            return BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus;
+            return BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus;
         }
     }
 }

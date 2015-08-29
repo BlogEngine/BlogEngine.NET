@@ -164,13 +164,13 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		{
 			HtmlTableCell comments = new HtmlTableCell();
 
-            if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+            if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus)
             {
-                comments.InnerHtml = string.Format("<span><a href=\"{0}#disqus_thread\">{1}</a></span>", post.PermaLink, Resources.labels.comments);
+                comments.InnerHtml = string.Format("<span><a href=\"{0}#comment\">{1}</a></span>", post.PermaLink, Resources.labels.comments);
             }
-            else if(BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Facebook)
+            else if(BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Facebook)
             {
-                comments.InnerHtml = string.Format("<fb:comments-count href=\"{0}\"></fb:comments-count> {1}", post.PermaLink, Resources.labels.comments);
+                comments.InnerHtml = string.Format("<fb:comments-count href=\"{0}#comment\"></fb:comments-count> {1}", post.PermaLink, Resources.labels.comments);
             }
             else
             {
@@ -239,9 +239,7 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		}
 
 		ltPosts.Text = posts.Count + " " + Resources.labels.posts.ToLowerInvariant();
-		if (BlogSettings.Instance.IsCommentsEnabled && 
-            BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus &&
-            BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Facebook)
+		if (BlogSettings.Instance.IsCommentsEnabled && BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
 			ltComments.Text = "<span>" + comments + " " + Resources.labels.comments.ToLowerInvariant() + "</span><br />";
 
 		if (BlogSettings.Instance.EnableRating)

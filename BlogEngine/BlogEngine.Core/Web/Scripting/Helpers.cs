@@ -114,7 +114,7 @@ namespace BlogEngine.Core.Web.Scripting
         {
             var sb = new StringBuilder();
 
-            if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+            if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus)
             {
                 sb.Append("<script type=\"text/javascript\"> \n");
                 sb.Append("//<![CDATA[ \n");
@@ -122,7 +122,7 @@ namespace BlogEngine.Core.Web.Scripting
                 sb.Append("var links = document.getElementsByTagName('a'); ");
                 sb.Append("var query = '?'; ");
                 sb.Append("for(var i = 0; i < links.length; i++) { ");
-                sb.Append("if(links[i].href.indexOf('#disqus_thread') >= 0) { ");
+                sb.Append("if(links[i].href.indexOf('#comment') >= 0) { ");
                 sb.Append("query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&'; ");
                 sb.Append("}}");
                 sb.Append("document.write('<script charset=\"utf-8\" type=\"text/javascript\" src=\"" + page.Request.Url.Scheme + "://disqus.com/forums/");

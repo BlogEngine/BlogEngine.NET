@@ -734,16 +734,6 @@
 
         #endregion
 
-        #region EnableCommentsModeration
-
-        /// <summary>
-        ///     Gets or sets a value indicating if comments moderation is used for posts.
-        /// </summary>
-        /// <value><b>true</b> if comments are moderated for posts, otherwise returns <b>false</b>.</value>
-        public bool EnableCommentsModeration { get; set; }
-
-        #endregion
-
         #region Avatar
 
         /// <summary>
@@ -770,25 +760,6 @@
         ///    If true comments from authenticated users always approved
         ///</summary>
         public bool TrustAuthenticatedUsers { get; set; }
-
-        #endregion
-
-        #region DISQUS
-
-        /// <summary>
-        ///     Short website name that used to identify Disqus account
-        /// </summary>
-        public string DisqusWebsiteName { get; set; }
-
-        /// <summary>
-        ///     Development mode to test disqus on local host
-        /// </summary>
-        public bool DisqusDevMode { get; set; }
-
-        /// <summary>
-        ///     Allow also to add comments to the pages
-        /// </summary>
-        public bool DisqusAddCommentsToPages { get; set; }
 
         #endregion
 
@@ -860,40 +831,57 @@
 
         #endregion
 
+        #region Comment providers and moderation
+
         /// <summary>
-        /// Type of comment moderation
+        /// Comments provider
         /// </summary>
-        public enum Moderation
+        public enum CommentsBy
         {
             /// <summary>
-            ///     Comments moderated manually
+            ///     Internal BlogEngine comments
             /// </summary>
-            Manual = 0,
+            BlogEngine = 0,
             /// <summary>
-            ///     Comments moderated by filters
+            ///     Comments by Disqus
             /// </summary>
-            Auto = 1,
+            Disqus = 1,
             /// <summary>
-            ///     Moderated by Disqus
+            ///     Comments by Facebook
             /// </summary>
-            Disqus = 2,
-            /// <summary>
-            ///     Moderated by Facebook
-            /// </summary>
-            Facebook = 3
+            Facebook = 2
         }
 
-        #region Moderation type
+        /// <summary>
+        ///     Gets or sets a value indicating comment provider
+        /// </summary>
+        public CommentsBy CommentProvider { get; set; }
 
         /// <summary>
-        ///     Gets or sets a value indicating type of moderation
+        ///     Gets or sets a value indicating if comments moderation is used for posts.
         /// </summary>
-        public Moderation ModerationType { get; set; }
+        /// <value><b>true</b> if comments are moderated for posts, otherwise returns <b>false</b>.</value>
+        public bool EnableCommentsModeration { get; set; }
 
         /// <summary>
         ///     Enables to report mistakes back to service
         /// </summary>
         public bool CommentReportMistakes { get; set; }
+
+        /// <summary>
+        ///     Short website name that used to identify Disqus account
+        /// </summary>
+        public string DisqusWebsiteName { get; set; }
+
+        /// <summary>
+        ///     Development mode to test disqus on local host
+        /// </summary>
+        public bool DisqusDevMode { get; set; }
+
+        /// <summary>
+        ///     Allow also to add comments to the pages
+        /// </summary>
+        public bool DisqusAddCommentsToPages { get; set; }
 
         #endregion
 

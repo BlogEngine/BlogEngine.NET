@@ -3,7 +3,6 @@
     using System;
     using System.Globalization;
     using System.Text;
-    using System.Text.RegularExpressions;
     using System.Web;
     using System.Web.UI;
     using System.Web.UI.WebControls;
@@ -24,8 +23,8 @@
         /// </summary>
         public PostViewBase()
         {
-            this.Location = ServingLocation.None;
-            this.ContentBy = ServingContentBy.Unspecified;
+            Location = ServingLocation.None;
+            ContentBy = ServingContentBy.Unspecified;
         }
 
         #endregion
@@ -39,7 +38,7 @@
         {
             get
             {
-                var post = this.Post;
+                var post = Post;
                 var body = post.Content;
 
                 if (Blog.CurrentInstance.IsSiteAggregation)
@@ -47,7 +46,7 @@
                     body = Utils.ConvertPublishablePathsToAbsolute(body, post);
                 }
 
-                if (this.ShowExcerpt)
+                if (ShowExcerpt)
                 {
                     var link = string.Format(" <a href=\"{0}\">[{1}]</a>", post.RelativeLink, Utils.Translate("more"));
 
@@ -58,25 +57,25 @@
                     else
                     {
                         body = Utils.StripHtml(body);
-                        if (body.Length > this.DescriptionCharacters && this.DescriptionCharacters > 0)
+                        if (body.Length > DescriptionCharacters && DescriptionCharacters > 0)
                         {
-                            body = string.Format("{0}...{1}", body.Substring(0, this.DescriptionCharacters), link);
+                            body = string.Format("{0}...{1}", body.Substring(0, DescriptionCharacters), link);
                         }
                     }
                 }
 
-                var arg = new ServingEventArgs(body, this.Location, this.ContentBy);
+                var arg = new ServingEventArgs(body, Location, ContentBy);
                 Post.OnServing(post, arg);
 
                 if (arg.Cancel)
                 {
                     if (arg.Location == ServingLocation.SinglePost)
                     {
-                        this.Response.Redirect("~/error404.aspx", true);
+                        Response.Redirect("~/error404.aspx", true);
                     }
                     else
                     {
-                        this.Visible = false;
+                        Visible = false;
                     }
                 }
 
@@ -92,7 +91,7 @@
         {
             get
             {
-                return this.Post.RelativeLink.Replace("/post/", "/post/feed/");
+                return Post.RelativeLink.Replace("/post/", "/post/feed/");
             }
         }
 
@@ -154,12 +153,12 @@
         //{
         //    get
         //    {
-        //        return (Post)this.ViewState["Post"];
+        //        return (Post)ViewState["Post"];
         //    }
 
         //    set
         //    {
-        //        this.ViewState["Post"] = value;
+        //        ViewState["Post"] = value;
         //    }
         //}
 
@@ -183,27 +182,26 @@
                 if (Blog.CurrentInstance.IsSiteAggregation)
                 {
                     // only can edit own posts, not from aggregated blogs
-                    if (this.Post.BlogId != Blog.CurrentInstance.BlogId)
+                    if (Post.BlogId != Blog.CurrentInstance.BlogId)
                     {
                         return string.Empty;
                     }
                 }
 
-                var postRelativeLink = this.Post.RelativeLink;
+                var postRelativeLink = Post.RelativeLink;
                 var sb = new StringBuilder();
 
                 if (Security.IsAuthorizedTo(Rights.ModerateComments))
                 {
-                    if (this.Post.NotApprovedComments.Count > 0 &&
-                        BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus
-                        && BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Facebook)
+                    if (Post.NotApprovedComments.Count > 0 &&
+                        BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
                     {
                         sb.AppendFormat(
                             CultureInfo.InvariantCulture,
                             "<a href=\"{0}\">{1} ({2})</a> | ",
                             postRelativeLink,
                             Utils.Translate("unapprovedcomments"),
-                            this.Post.NotApprovedComments.Count);
+                            Post.NotApprovedComments.Count);
                         sb.AppendFormat(
                             CultureInfo.InvariantCulture,
                             "<a href=\"{0}\">{1}</a> | ",
@@ -212,16 +210,16 @@
                     }
                 }
 
-                if (this.Post.CanUserEdit)
+                if (Post.CanUserEdit)
                 {
                     sb.AppendFormat(
                         CultureInfo.InvariantCulture,
                         "<a href=\"{0}\">{1}</a> | ",
-                    Post.Blog.AbsoluteWebRoot + "admin/editpost.cshtml?id=" + this.Post.Id,
+                    Post.Blog.AbsoluteWebRoot + "admin/editpost.cshtml?id=" + Post.Id,
                         Utils.Translate("edit"));
                 }
 
-                if (this.Post.CanUserDelete)
+                if (Post.CanUserDelete)
                 {
                     var confirmDelete = string.Format(
                             CultureInfo.InvariantCulture,
@@ -233,7 +231,7 @@
                         CultureInfo.InvariantCulture,
                         "<a href=\"#\" onclick=\"if (confirm('{2}')) location.href='{0}?deletepost={1}'\">{3}</a> | ",
                         postRelativeLink,
-                        this.Post.Id,
+                        Post.Id,
                         HttpUtility.JavaScriptStringEncode(confirmDelete),
                         Utils.Translate("delete"));
                 }
@@ -258,10 +256,10 @@
                 const string Script = "<div class=\"ratingcontainer\" style=\"visibility:hidden\">{0}|{1}|{2}|{3}</div>";
                 return string.Format(
                     Script,
-                    this.Post.Id,
-                    this.Post.Raters,
-                    this.Post.Rating.ToString("#.0", CultureInfo.InvariantCulture),
-                    this.Post.BlogId);
+                    Post.Id,
+                    Post.Raters,
+                    Post.Rating.ToString("#.0", CultureInfo.InvariantCulture),
+                    Post.BlogId);
             }
         }
 
@@ -280,11 +278,11 @@
         /// </returns>
         public virtual string CategoryLinks(string separator)
         {
-            var keywords = new string[this.Post.Categories.Count];
+            var keywords = new string[Post.Categories.Count];
             const string Link = "<a href=\"{0}\">{1}</a>";
-            for (var i = 0; i < this.Post.Categories.Count; i++)
+            for (var i = 0; i < Post.Categories.Count; i++)
             {
-                Category c = this.Post.Categories[i];
+                Category c = Post.Categories[i];
                 keywords[i] = string.Format(CultureInfo.InvariantCulture, Link, c.RelativeOrAbsoluteLink, c.Title);
             }
 
@@ -299,9 +297,9 @@
         {
             base.OnInit(e);
 
-            if (!this.Post.IsVisible)
+            if (!Post.IsVisible)
             {
-                this.Visible = false;
+                Visible = false;
             }
         }
 
@@ -321,14 +319,14 @@
             base.OnLoad(e);
 
 
-            var bodyContent = (PlaceHolder)this.FindControl("BodyContent");
+            var bodyContent = (PlaceHolder)FindControl("BodyContent");
             if (bodyContent == null)
             {
                 // We have no placeholder so we assume this is an old style <% =Body %> theme and do nothing.
             }
             else
             {
-                Utils.InjectUserControls(bodyContent, this.Body);
+                Utils.InjectUserControls(bodyContent, Body);
             }
         }
 
@@ -343,7 +341,7 @@
         /// </returns>
         public virtual string TagLinks(string separator)
         {
-            var tags = this.Post.Tags;
+            var tags = Post.Tags;
             if (tags.Count == 0)
             {
                 return null;

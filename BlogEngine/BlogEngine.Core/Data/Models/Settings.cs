@@ -167,7 +167,7 @@
         public bool EnableWebsiteInComments { get; set; }
         public bool ShowLivePreview { get; set; }
 
-        public BlogSettings.Moderation ModerationType { get; set; }
+        public BlogSettings.CommentsBy CommentProvider { get; set; }
         public bool UseDisqus { get; set; }
         public bool DisqusDevMode { get; set; }
         public bool DisqusAddCommentsToPages { get; set; }

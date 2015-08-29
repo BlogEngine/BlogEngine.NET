@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="False" Inherits="post" Codebehind="post.aspx.cs" %>
 <%@ Register Src="Custom/Controls/CommentView.ascx" TagName="CommentView" TagPrefix="uc" %>
+<%@ Import Namespace="BlogEngine.Core"%>
 <asp:content id="Content1" contentplaceholderid="cphBody" runat="Server">
   
   <asp:PlaceHolder ID="phCommentNotificationUnsubscription" runat="server" visible="false">
@@ -42,7 +43,7 @@
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
 
-    <% if (BlogEngine.Core.BlogSettings.Instance.ModerationType == BlogEngine.Core.BlogSettings.Moderation.Facebook) { %>
+    <% if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Facebook) { %>
   <!-- Facebook start --> 
     <div class="comment-form well-global">
       <div class="form-horizontal">
@@ -55,7 +56,7 @@
 		          fjs.parentNode.insertBefore(js, fjs); 
 	          }(document, 'script', 'facebook-jssdk')); 
           </script> 
-          <div id="facebook_thread">
+          <div id="comment">
               <div class="fb-comments" data-href="<%=Post.PermaLink %>" data-version="v2.4" data-width="100%"></div>
           </div>       
       </div>

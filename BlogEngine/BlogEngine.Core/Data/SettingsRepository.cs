@@ -114,8 +114,8 @@ namespace BlogEngine.Core.Data
             ns.EnableWebsiteInComments = bs.EnableWebsiteInComments;
             ns.ShowLivePreview = bs.ShowLivePreview;
 
-            ns.ModerationType = bs.ModerationType;
-            ns.UseDisqus = bs.ModerationType == BlogSettings.Moderation.Disqus;
+            ns.CommentProvider = bs.CommentProvider;
+            ns.UseDisqus = bs.CommentProvider == BlogSettings.CommentsBy.Disqus;
             ns.DisqusDevMode = bs.DisqusDevMode;
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
             ns.DisqusWebsiteName = bs.DisqusWebsiteName;
@@ -231,8 +231,7 @@ namespace BlogEngine.Core.Data
             bs.EnableWebsiteInComments = ns.EnableWebsiteInComments;
             bs.ShowLivePreview = ns.ShowLivePreview;
 
-            bs.ModerationType = ns.ModerationType;
-            //bs.ModerationType = ns.UseDisqus ? BlogSettings.Moderation.Disqus : BlogSettings.Moderation.Auto;
+            bs.CommentProvider = ns.CommentProvider;
             bs.DisqusDevMode = ns.DisqusDevMode;
             bs.DisqusAddCommentsToPages = ns.DisqusAddCommentsToPages;
             bs.DisqusWebsiteName = ns.DisqusWebsiteName;
