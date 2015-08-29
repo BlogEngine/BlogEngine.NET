@@ -10,8 +10,26 @@
             <div class="row">
                 <div class="col col-sm-6">
                     <div class="well">
-                        <h4>{{lbl.basic}}</h4>
-                        <hr />
+                        <h4>Comments provider</h4>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="radio">
+                                    <label><input type="radio" value="1" data-ng-model="commentsProvider" ng-change="setComProvider(1)" /> BlogEngine</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="radio">
+                                    <label><input type="radio" value="2" data-ng-model="commentsProvider" ng-change="setComProvider(2)" /> Disqus</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="radio">
+                                    <label><input type="radio" value="3" data-ng-model="commentsProvider" ng-change="setComProvider(3)" /> Facebook</label>
+                                </div>
+                            </div>
+                            <hr/>
+                        </div>
+
                         <div class="row">
                             <div class="col col-md-6">
                                 <div class="checkbox">
@@ -22,17 +40,17 @@
                                 </div>
                             </div>
                             <div class="col col-md-6">
+                                <label class="control-label" style="line-height: 32px" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-md-6">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="ckEnableCommentsModeration" data-ng-model="settings.EnableCommentsModeration" data-ng-disabled="settings.IsCommentsEnabled == false" />
                                         {{lbl.enableCommentsModeration}}
                                     </label>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col col-md-6">
-                                <label class="control-label" style="line-height: 32px" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
                             </div>
                             <div class="col col-md-6">
                                 <select class="form-control" id="closeDaysOptions" data-ng-options="o.OptionName for o in closeDaysOptions" data-ng-model="selCloseDays" data-ng-disabled="settings.IsCommentsEnabled == false"></select>
@@ -102,12 +120,12 @@
                         <h4>{{lbl.disqusSettings}}</h4>
                         <hr />
                         <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
-                        <div class="checkbox">
+                        <!--<div class="checkbox">
                             <label>
                                 <input type="checkbox" name="ckUseDisqus" data-ng-model="settings.UseDisqus" data-ng-disabled="settings.IsCommentsEnabled == false" />
                                 {{lbl.useDisqusAsCommentProvider}}
                             </label>
-                        </div>
+                        </div>-->
                         <div class="row">
                             <div class="col col-lg-6">
                                 <label class="control-label" style="line-height: 32px" for="txtDisqusWebsiteName">{{lbl.disqusWebsiteName}}</label>

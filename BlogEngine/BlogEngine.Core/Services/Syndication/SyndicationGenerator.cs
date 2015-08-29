@@ -195,6 +195,18 @@ namespace BlogEngine.Core
             }
         }
 
+        private static string CommentHash
+        {
+            get
+            {
+                if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+                    return "#disqus_thread";
+                if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Facebook)
+                    return "#facebook_thread";
+                return "#comment";
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -512,8 +524,7 @@ namespace BlogEngine.Core
 
             writer.WriteStartElement("link");
             writer.WriteAttributeString("rel", "related");
-            writer.WriteAttributeString("href", String.Concat(publishable.AbsoluteLink.ToString(),
-				BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus ? "#disqus_thread" : "#comment"));
+            writer.WriteAttributeString("href", String.Concat(publishable.AbsoluteLink.ToString(), CommentHash));
             writer.WriteEndElement();
 
             // ------------------------------------------------------------
@@ -619,8 +630,8 @@ namespace BlogEngine.Core
                 "wfw",
                 "comment",
                 "http://wellformedweb.org/CommentAPI/",
-                String.Concat(publishable.AbsoluteLink.ToString(),
-				BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus ? "#disqus_thread" : "#comment"));
+                String.Concat(publishable.AbsoluteLink.ToString(), 
+                CommentHash));
             writer.WriteElementString(
                 "wfw",
                 "commentRss",
@@ -713,7 +724,7 @@ namespace BlogEngine.Core
             {
                 writer.WriteElementString(
                     "comments", String.Concat(publishable.AbsoluteLink.ToString(),
-					BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus ? "#disqus_thread" : "#comment"));
+					CommentHash));
             }
 
             writer.WriteElementString("guid", GetPermaLink(publishable).ToString());
@@ -807,7 +818,7 @@ namespace BlogEngine.Core
                 "comment",
                 "http://wellformedweb.org/CommentAPI/",
                 String.Concat(publishable.AbsoluteLink.ToString(),
-				BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus ? "#disqus_thread" : "#comment"));
+				CommentHash));
             writer.WriteElementString(
                 "wfw",
                 "commentRss",

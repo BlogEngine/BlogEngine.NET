@@ -186,6 +186,11 @@ namespace Widgets.RecentPosts
                     comments = string.Format(
                         "<span><a href=\"{0}#disqus_thread\">{1}</a></span>", post.PermaLink, labels.comments);
                 }
+                if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Facebook)
+                {
+                    comments = string.Format(
+                        "<span><a href=\"{0}#facebook_thread\">{1}</a></span>", post.PermaLink, labels.comments);
+                }
 
                 var rate = string.Format("<span>{0}: {1} / {2}</span>", labels.rating, rating, post.Raters);
 

@@ -605,15 +605,6 @@
 
         #endregion
 
-        #region Thumbnail service
-
-        /// <summary>
-        /// API provided by thumbnail service provider
-        /// </summary>
-        public string ThumbnailServiceApi { get; set; }
-
-        #endregion
-
         #region Email
 
         /// <summary>
@@ -878,16 +869,18 @@
             ///     Comments moderated manually
             /// </summary>
             Manual = 0,
-
             /// <summary>
             ///     Comments moderated by filters
             /// </summary>
             Auto = 1,
-
             /// <summary>
             ///     Moderated by Disqus
             /// </summary>
-            Disqus = 2
+            Disqus = 2,
+            /// <summary>
+            ///     Moderated by Facebook
+            /// </summary>
+            Facebook = 3
         }
 
         #region Moderation type

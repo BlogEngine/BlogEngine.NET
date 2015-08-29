@@ -11,7 +11,7 @@ namespace BlogEngine.Core.Data.Services
     public class Avatar
     {
         private static string _noAvatar = string.Format("{0}Content/images/blog/noavatar.jpg", Utils.AbsoluteWebRoot);
-        private static string _noThumb = string.Format("{0}Content/images/blog/nothumb.jpg", Utils.AbsoluteWebRoot);
+        private static string _pingImg = string.Format("{0}Content/images/blog/pingback.png", Utils.AbsoluteWebRoot);
 
         /// <summary>
         /// Get avatar image source
@@ -25,7 +25,7 @@ namespace BlogEngine.Core.Data.Services
 
             // thumb of pingback/trackback
             if (email == "pingback" || email == "trackback")
-                return Thumb(website);
+                return _pingImg;
 
             // author with profile photo
             src = Photo(email);
@@ -97,19 +97,6 @@ namespace BlogEngine.Core.Data.Services
 
             return img.StartsWith("http://") || img.StartsWith("https://") ? img :
                 Utils.RelativeWebRoot + "image.axd?picture=/avatars/" + img;
-        }
-
-        static string Thumb(string website)
-        {
-            if (string.IsNullOrEmpty(website))
-                return _noThumb;
-
-            var api = BlogSettings.Instance.ThumbnailServiceApi;
-
-            if (string.IsNullOrEmpty(api) || !api.Contains("{0}"))
-                return _noThumb;
-
-            return string.Format(api, HttpUtility.UrlEncode(website.ToString()));
         }
 
         static string GetHash(string value)

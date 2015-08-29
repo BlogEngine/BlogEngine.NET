@@ -41,5 +41,26 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=<%=BlogEngine.Core.BlogSettings.Instance.DisqusWebsiteName %>">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
   </div>
+
+    <% if (BlogEngine.Core.BlogSettings.Instance.ModerationType == BlogEngine.Core.BlogSettings.Moderation.Facebook) { %>
+  <!-- Facebook start --> 
+    <div class="comment-form well-global">
+      <div class="form-horizontal">
+          <script> 
+	          (function (d, s, id) { 
+		          var js, fjs = d.getElementsByTagName(s)[0]; 
+		          if (d.getElementById(id)) return; 
+		          js = d.createElement(s); js.id = id; 
+		          js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1&version=v2.4";
+		          fjs.parentNode.insertBefore(js, fjs); 
+	          }(document, 'script', 'facebook-jssdk')); 
+          </script> 
+          <div id="facebook_thread">
+              <div class="fb-comments" data-href="<%=Post.PermaLink %>" data-version="v2.4" data-width="100%"></div>
+          </div>       
+      </div>
+    </div>
+  <!-- Facebook end -->
+    <%} %>
   
 </asp:content>

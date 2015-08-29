@@ -195,7 +195,8 @@
                 if (Security.IsAuthorizedTo(Rights.ModerateComments))
                 {
                     if (this.Post.NotApprovedComments.Count > 0 &&
-                        BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus)
+                        BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus
+                        && BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Facebook)
                     {
                         sb.AppendFormat(
                             CultureInfo.InvariantCulture,

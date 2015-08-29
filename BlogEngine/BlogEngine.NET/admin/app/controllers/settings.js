@@ -2,10 +2,14 @@
     $scope.settings = {};
     $scope.lookups = {};
     $scope.UserVars = UserVars;
+    $scope.SiteVars = SiteVars;
     $scope.selfRegistrationInitialRole = {};
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
     $scope.singleUserBlog = SingleUserBlog;
+
+    $scope.moderationEnabled = 0;
+    $scope.commentsProvider = 0;
 
     $scope.feedOptions = [
         { "OptionName": "RSS 2.0", "OptionValue": "Rss", "IsSelected": false },
@@ -113,6 +117,12 @@
             $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
             $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
 
+            $scope.commentsProvider = $scope.settings.ModerationType;
+            if ($scope.settings.ModerationType === 0) {
+                $scope.commentsProvider = 1;
+                $scope.moderationEnabled = 0;
+            }
+            
             spinOff();
         })
         .error(function () {
@@ -140,12 +150,21 @@
 
         $scope.settings.txtErrorTitle = $scope.txtErrorTitle;
 
+        $scope.settings.ModerationType = $scope.commentsProvider;
+        if ($scope.moderationEnabled === 0 && $scope.commentsProvider === 1) {
+            $scope.settings.ModerationType = 0;
+        }
+
         dataService.updateItem("/api/settings", $scope.settings)
         .success(function (data) {
             toastr.success($rootScope.lbl.settingsUpdated);
             $scope.load();
         })
         .error(function () { toastr.error($rootScope.lbl.updateFailed); });
+    }
+
+    $scope.setComProvider = function (provider) {
+        //$scope.settings.ModerationType = provider;
     }
 
     $scope.exportToXml = function() {

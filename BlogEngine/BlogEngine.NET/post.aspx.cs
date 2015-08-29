@@ -1,17 +1,10 @@
-﻿#region Using
-
-using System;
-using System.Web;
+﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 using BlogEngine.Core;
 using BlogEngine.Core.Web.Controls;
 using System.Collections.Generic;
 
-#endregion
-
-public partial class post : BlogEngine.Core.Web.Controls.BlogBasePage
+public partial class post : BlogBasePage
 {
 
     protected override void OnInit(EventArgs e)
@@ -251,7 +244,9 @@ public partial class post : BlogEngine.Core.Web.Controls.BlogBasePage
     {
         get
         {
-            return BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus;
+            return BlogSettings.Instance.IsCommentsEnabled &&
+                (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Manual ||
+                BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Auto);
         }
     }
 

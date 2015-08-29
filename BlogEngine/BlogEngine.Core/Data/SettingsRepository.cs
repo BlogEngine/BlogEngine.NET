@@ -109,12 +109,12 @@ namespace BlogEngine.Core.Data
             ns.EnablePingBackReceive = bs.EnablePingBackReceive;
             ns.EnableTrackBackSend = bs.EnableTrackBackSend;
             ns.EnableTrackBackReceive = bs.EnableTrackBackReceive;
-            ns.ThumbnailServiceApi = bs.ThumbnailServiceApi;
             ns.CommentsPerPage = bs.CommentsPerPage;
             ns.EnableCountryInComments = bs.EnableCountryInComments;
             ns.EnableWebsiteInComments = bs.EnableWebsiteInComments;
             ns.ShowLivePreview = bs.ShowLivePreview;
 
+            ns.ModerationType = bs.ModerationType;
             ns.UseDisqus = bs.ModerationType == BlogSettings.Moderation.Disqus;
             ns.DisqusDevMode = bs.DisqusDevMode;
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
@@ -226,13 +226,13 @@ namespace BlogEngine.Core.Data
             bs.EnablePingBackReceive = ns.EnablePingBackReceive;
             bs.EnableTrackBackSend = ns.EnableTrackBackSend;
             bs.EnableTrackBackReceive = ns.EnableTrackBackReceive;
-            bs.ThumbnailServiceApi = ns.ThumbnailServiceApi;
             bs.CommentsPerPage = ns.CommentsPerPage;
             bs.EnableCountryInComments = ns.EnableCountryInComments;
             bs.EnableWebsiteInComments = ns.EnableWebsiteInComments;
             bs.ShowLivePreview = ns.ShowLivePreview;
 
-            bs.ModerationType = ns.UseDisqus ? BlogSettings.Moderation.Disqus : BlogSettings.Moderation.Auto;
+            bs.ModerationType = ns.ModerationType;
+            //bs.ModerationType = ns.UseDisqus ? BlogSettings.Moderation.Disqus : BlogSettings.Moderation.Auto;
             bs.DisqusDevMode = ns.DisqusDevMode;
             bs.DisqusAddCommentsToPages = ns.DisqusAddCommentsToPages;
             bs.DisqusWebsiteName = ns.DisqusWebsiteName;

@@ -1,14 +1,8 @@
-﻿#region Using
-
-using System;
-using System.Web;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using BlogEngine.Core;
-
-#endregion
 
 public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 {
@@ -16,7 +10,7 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 	/// Handles the Load event of the Page control.
 	/// </summary>
 	/// <param name="sender">The source of the event.</param>
-	/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+	/// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
 	protected void Page_Load(object sender, EventArgs e)
 	{
 		if (!IsPostBack && !IsCallback)
@@ -170,11 +164,18 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		{
 			HtmlTableCell comments = new HtmlTableCell();
 
-            if(BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+            if (BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Disqus)
+            {
                 comments.InnerHtml = string.Format("<span><a href=\"{0}#disqus_thread\">{1}</a></span>", post.PermaLink, Resources.labels.comments);
+            }
+            else if(BlogSettings.Instance.ModerationType == BlogSettings.Moderation.Facebook)
+            {
+                comments.InnerHtml = string.Format("<fb:comments-count href=\"{0}\"></fb:comments-count> {1}", post.PermaLink, Resources.labels.comments);
+            }
             else
-			    comments.InnerHtml = post.ApprovedComments.Count.ToString();
-
+            {
+                comments.InnerHtml = post.ApprovedComments.Count.ToString();
+            }
 			comments.Attributes.Add("class", "comments");
 			row.Cells.Add(comments);
 		}
@@ -238,7 +239,9 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		}
 
 		ltPosts.Text = posts.Count + " " + Resources.labels.posts.ToLowerInvariant();
-		if (BlogSettings.Instance.IsCommentsEnabled && BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus)
+		if (BlogSettings.Instance.IsCommentsEnabled && 
+            BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Disqus &&
+            BlogSettings.Instance.ModerationType != BlogSettings.Moderation.Facebook)
 			ltComments.Text = "<span>" + comments + " " + Resources.labels.comments.ToLowerInvariant() + "</span><br />";
 
 		if (BlogSettings.Instance.EnableRating)
