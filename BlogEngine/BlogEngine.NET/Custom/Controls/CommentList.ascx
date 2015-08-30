@@ -1,25 +1,22 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls.CommentView" Codebehind="CommentView.ascx.cs" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="UserControls.CommentList" Codebehind="CommentList.ascx.cs" %>
 <%@ Import Namespace="BlogEngine.Core" %>
 
 <div class="well-global">
     <% if (CommentCounter > 0){ %>
     <h3 id="comment" class="well-global-title">
         <%=Resources.labels.comments %> (<%=CommentCounter%>)
-    <a id="commenttoggle" style="float: right; width: 20px; height: 20px; border: 1px solid #ccc; text-decoration: none; text-align: center" href="javascript:toggle_visibility('commentlist', 'commenttoggle');">-</a>
+        <a id="commenttoggle" style="float: right; width: 20px; height: 20px; border: 1px solid #ccc; text-decoration: none; text-align: center" href="javascript:toggle_visibility('commentlist', 'commenttoggle');">-</a>
     </h3>
     <%} %>
 
-    <div id="commentlist" style="display: block" >
-      <asp:PlaceHolder runat="server" ID="phComments" />
-         
+    <div id="commentlist" style="display: block">
+      <asp:PlaceHolder runat="server" ID="phComments" />      
     </div>
-
 </div>
 
 <asp:PlaceHolder runat="server" ID="phTrckbacks"></asp:PlaceHolder>
 
 <asp:PlaceHolder runat="Server" ID="phAddComment">
-
     <div id="comment-form">
         <img src="<%=Utils.RelativeWebRoot %>Content/images/blog/ajax-loader.gif" width="24" height="24" alt="Saving the comment" style="display: none" id="ajaxLoader" />
         <span id="status"></span>
@@ -34,12 +31,10 @@
         <blog:RecaptchaControl ID="recaptcha" runat="server" />
         <asp:HiddenField runat="server" ID="hfCaptcha" />
     </div>
-
     <script type="text/javascript">
-    <!--//
-    BlogEngine.comments.flagImage = BlogEngine.$("imgFlag");
-    BlogEngine.comments.contentBox = BlogEngine.$("txtContent");
-    BlogEngine.comments.moderation = <%=BlogSettings.Instance.EnableCommentsModeration.ToString().ToLowerInvariant() %>;
+        BlogEngine.comments.flagImage = BlogEngine.$("imgFlag");
+        BlogEngine.comments.contentBox = BlogEngine.$("txtContent");
+        BlogEngine.comments.moderation = <%=BlogSettings.Instance.EnableCommentsModeration.ToString().ToLowerInvariant() %>;
 	    BlogEngine.comments.checkName = <%=(!Security.IsAuthenticated).ToString().ToLowerInvariant() %>;
 	    BlogEngine.comments.postAuthor = "<%=Post.Author %>";
 	    BlogEngine.comments.nameBox = BlogEngine.$("txtName");
@@ -49,7 +44,6 @@
 	    BlogEngine.comments.controlId = '<%=UniqueID %>';
 	    BlogEngine.comments.captchaField = BlogEngine.$('<%=hfCaptcha.ClientID %>');
         BlogEngine.comments.replyToId = BlogEngine.$("<%=hiddenReplyTo.ClientID %>");
-        //-->
     </script>
 </asp:PlaceHolder>
 

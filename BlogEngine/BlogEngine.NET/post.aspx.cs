@@ -6,7 +6,6 @@ using System.Collections.Generic;
 
 public partial class post : BlogBasePage
 {
-
     protected override void OnInit(EventArgs e)
     {
         base.OnInit(e);
@@ -18,9 +17,7 @@ public partial class post : BlogBasePage
 
         bool shouldThrow404 = false;
 
-
-        CommentView1.Visible = ShowCommentsForm;
-        disqus_box.Visible = ShowDisqusForm;
+        ucCommentList.Visible = ShowBlogengineComments;
 
         var requestId = Request.QueryString["id"];
         Guid id;
@@ -99,7 +96,7 @@ public partial class post : BlogBasePage
                         }
                     }
 
-                    CommentView1.Post = Post;
+                    ucCommentList.Post = Post;
 
                     Page.Title = encodedPostTitle;
                     AddMetaKeywords();
@@ -240,20 +237,29 @@ public partial class post : BlogBasePage
 
 	public Post Post;
 
-    public static bool ShowCommentsForm 
+    public static bool ShowBlogengineComments
     {
         get
         {
             return BlogSettings.Instance.IsCommentsEnabled &&
-                (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine);
+                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine;
         }
     }
-
-    public static bool ShowDisqusForm
+    public static bool ShowDisqusComments
     {
         get
         {
-            return BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus;
+            return BlogSettings.Instance.IsCommentsEnabled &&
+                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus;
         }
     }
+    public static bool ShowFacebookComments
+    {
+        get
+        {
+            return BlogSettings.Instance.IsCommentsEnabled &&
+                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Facebook;
+        }
+    }
+
 }

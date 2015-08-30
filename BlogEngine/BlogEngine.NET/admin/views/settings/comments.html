@@ -31,16 +31,13 @@
                         </div>
 
                         <div class="row">
-                            <div class="col col-md-6">
+                            <div class="col col-md-12">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
+                                        <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" />
                                         {{lbl.enableComments}}
                                     </label>
                                 </div>
-                            </div>
-                            <div class="col col-md-6">
-                                <label class="control-label" style="line-height: 32px" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
                             </div>
                         </div>
                         <div class="row">
@@ -53,6 +50,7 @@
                                 </div>
                             </div>
                             <div class="col col-md-6">
+                                <label class="control-label" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
                                 <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in closeDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
                             </div>
                         </div>

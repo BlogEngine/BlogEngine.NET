@@ -10,7 +10,7 @@
 namespace UserControls {
     
     
-    public partial class CommentView {
+    public partial class CommentList {
         
         /// <summary>
         /// phComments control.

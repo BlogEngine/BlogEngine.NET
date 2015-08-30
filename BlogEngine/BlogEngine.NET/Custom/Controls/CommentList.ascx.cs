@@ -20,7 +20,7 @@
     /// <summary>
     /// The comment view.
     /// </summary>
-    public partial class CommentView : UserControl, ICallbackEventHandler
+    public partial class CommentList : UserControl, ICallbackEventHandler
     {
         #region Constants and Fields
 
@@ -35,9 +35,9 @@
         private bool? nestingSupported;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref = "CommentView" /> class.
+        ///     Initializes a new instance of the <see cref = "CommentList" /> class.
         /// </summary>
-        public CommentView()
+        public CommentList()
         {
             NameInputId = string.Empty;
             DefaultName = string.Empty;

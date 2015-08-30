@@ -168,7 +168,6 @@
         public bool ShowLivePreview { get; set; }
 
         public BlogSettings.CommentsBy CommentProvider { get; set; }
-        public bool UseDisqus { get; set; }
         public bool DisqusDevMode { get; set; }
         public bool DisqusAddCommentsToPages { get; set; }
         public string DisqusWebsiteName { get; set; }

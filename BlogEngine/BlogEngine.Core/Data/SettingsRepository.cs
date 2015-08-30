@@ -115,7 +115,6 @@ namespace BlogEngine.Core.Data
             ns.ShowLivePreview = bs.ShowLivePreview;
 
             ns.CommentProvider = bs.CommentProvider;
-            ns.UseDisqus = bs.CommentProvider == BlogSettings.CommentsBy.Disqus;
             ns.DisqusDevMode = bs.DisqusDevMode;
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
             ns.DisqusWebsiteName = bs.DisqusWebsiteName;

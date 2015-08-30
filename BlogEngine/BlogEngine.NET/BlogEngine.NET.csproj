@@ -1800,7 +1800,7 @@
     <Content Include="Custom\Themes\TitaniumX\theme.png" />
     <Content Include="Custom\Themes\TitaniumX\theme.xml" />
     <Content Include="Custom\Themes\TitaniumX\WidgetContainer.ascx" />
-    <Content Include="Custom\Controls\CommentView.ascx" />
+    <Content Include="Custom\Controls\CommentList.ascx" />
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
     <Content Include="Custom\Controls\PostList.ascx" />
@@ -2341,12 +2341,12 @@
     <Compile Include="Custom\Themes\TitaniumX\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
-    <Compile Include="Custom\Controls\CommentView.ascx.cs">
-      <DependentUpon>CommentView.ascx</DependentUpon>
+    <Compile Include="Custom\Controls\CommentList.ascx.cs">
+      <DependentUpon>CommentList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Custom\Controls\CommentView.ascx.designer.cs">
-      <DependentUpon>CommentView.ascx</DependentUpon>
+    <Compile Include="Custom\Controls\CommentList.ascx.designer.cs">
+      <DependentUpon>CommentList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Custom\Controls\PostList.ascx.cs">
       <DependentUpon>PostList.ascx</DependentUpon>

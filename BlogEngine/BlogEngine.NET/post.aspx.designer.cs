@@ -66,20 +66,11 @@ public partial class post {
     protected global::App_Code.Controls.RelatedPosts related;
     
     /// <summary>
-    /// CommentView1 control.
+    /// ucCommentList control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::UserControls.CommentView CommentView1;
-    
-    /// <summary>
-    /// disqus_box control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl disqus_box;
+    protected global::UserControls.CommentList ucCommentList;
 }

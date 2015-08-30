@@ -114,7 +114,7 @@ namespace BlogEngine.Core.Web.Scripting
         {
             var sb = new StringBuilder();
 
-            if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus)
+            if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus && BlogSettings.Instance.IsCommentsEnabled)
             {
                 sb.Append("<script type=\"text/javascript\"> \n");
                 sb.Append("//<![CDATA[ \n");
