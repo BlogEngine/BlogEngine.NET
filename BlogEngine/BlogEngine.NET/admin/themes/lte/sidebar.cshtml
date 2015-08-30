@@ -30,9 +30,12 @@
                     <li data-ng-class="{ active: isActive('/content')}">
                         <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><i class="fa fa-circle-o"></i> <span>@Resources.labels.posts</span></a>
                     </li>
-                    <li data-ng-class="{ active: isActive('/content/comments')}">
-                        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments"><i class="fa fa-circle-o"></i> <span>@Resources.labels.comments</span></a>
-                    </li>
+                    @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
+                    {
+                        <li data-ng-class="{ active: isActive('/content/comments')}">
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments"><i class="fa fa-circle-o"></i> <span>@Resources.labels.comments</span></a>
+                        </li>
+                    }
                     <li data-ng-class="{ active: isActive('/content/pages')}">
                         <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages"><i class="fa fa-circle-o"></i> <span>@Resources.labels.pages</span></a>
                     </li>

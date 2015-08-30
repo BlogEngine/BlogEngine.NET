@@ -31,16 +31,16 @@
                         </div>
 
                         <div class="row">
-                            <div class="col col-md-12">
+                            <div class="col col-md-6">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" />
+                                        <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
                                         {{lbl.enableComments}}
                                     </label>
                                 </div>
+                                <label class="control-label" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
+                                <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in closeDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col col-md-6">
                                 <div class="checkbox">
                                     <label>
@@ -48,12 +48,26 @@
                                         {{lbl.enableCommentsModeration}}
                                     </label>
                                 </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckIsCommentNestingEnabled" data-ng-model="settings.IsCommentNestingEnabled" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                                        {{lbl.enableCommentNesting}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckShowLivePreview" data-ng-model="settings.ShowLivePreview" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                                        {{lbl.showLivePreview}}
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="ckEnableWebsiteInComments" data-ng-model="settings.EnableWebsiteInComments" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                                        {{lbl.showEnableWebsiteInComments}}
+                                    </label>
+                                </div>
                             </div>
-                            <div class="col col-md-6">
-                                <label class="control-label" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
-                                <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in closeDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
-                            </div>
-                        </div>
+                        </div>                     
                         
                         <h4>{{lbl.disqusSettings}}</h4>
                         <hr />

@@ -56,7 +56,7 @@
                 <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>
         </table>
-        <div class="text-right pagination-wrapper">
+        <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
             <ul class="pagination pagination-sm">
                 <li data-ng-class="{disabled: currentPage == 0}">
                     <a data-ng-click="prevPage()">« {{lbl.prev}}</a>

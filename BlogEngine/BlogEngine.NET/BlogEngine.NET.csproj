@@ -275,6 +275,7 @@
     <Content Include="admin\themes\standard\css\admin.css" />
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\about\index.html" />
+    <Content Include="admin\views\content\filters.html" />
     <Content Include="admin\views\gallery\index.html" />
     <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
