@@ -27,41 +27,66 @@
         </h2>
         <button data-ng-click="save()" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-save"></i>{{lbl.save}}</button>
     </div>
+    
     <div class="content-inner">
         <div class="row">
             <div class="col-sm-6 clearfix">
-                <div class="pull-left avatar-user">
-                    <img ng-src="{{photo}}" class="pull-left" title="Avatar" />
-                    <div class="avatar-control">
-                        <a href="" data-ng-click="removePicture()" title="Remove Picture" type="button"><i class="fa fa-times-circle"></i></a>
-                        <span>
-                            <a href="" id="picChange" data-ng-click="changePicture()" type="button"><i class="fa fa-picture-o"></i></a>
-                            <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
-                        </span>
+
+                
+
+                <div class="well">
+
+                    <div class="form-group clearfix">
+                        <div class="pull-left avatar-user">
+                            <img ng-src="{{photo}}" class="pull-left" title="Avatar" />
+                            <div class="avatar-control">
+                                <a href="" data-ng-click="removePicture()" title="Remove Picture" type="button"><i class="fa fa-times-circle"></i></a>
+                                <span>
+                                    <a href="" id="picChange" data-ng-click="changePicture()" type="button"><i class="fa fa-picture-o"></i></a>
+                                    <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="pull-left user-info">
+                            <span class="user-name">{{user.Profile.DisplayName}}</span>
+                            <br />
+                            <div class="role-control">
+                                {{lbl.roles}}: <span data-ng-repeat="role in user.Roles" class="label label-default">{{role.RoleName}} </span>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="cbPrivate" type="checkbox" name="ckEnabled" data-ng-model="user.Profile.Private" />
+                                    {{lbl.isPrivate}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <label>{{lbl.aboutMe}}</label>
+                        <textarea class="form-control about-textarea" data-ng-model="user.Profile.AboutMe" cols="69"></textarea>
+                    </div>
+
+                    <div id="frm-custom-edit" class="form-horizontal clearfix">
+                        <h4>{{lbl.customFields}}</h4>
+                        <button data-ng-click="showCustom()" class="btn btn-success btn-header pull-right" style="margin-top: -20px; margin-right: 15px" type="button">
+                            <i class="fa fa-save"></i>{{lbl.add}}
+                        </button>
+                        <hr />
+                        <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
+                            <label class="control-label col-md-4">{{item.Key}}</label>
+                            <div class="col col-md-7">
+                                <input type="text" class="form-control" data-ng-model="item.Value" />
+                            </div>
+                            <div class="col col-md-1">
+                                <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="pull-left user-info">
-                    <span class="user-name">{{user.Profile.DisplayName}}</span>
-                    <br />
-                    <div class="role-control">
-                        {{lbl.roles}}: <span data-ng-repeat="role in user.Roles" class="label label-default">{{role.RoleName}} </span>
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input id="cbPrivate" type="checkbox" name="ckEnabled" data-ng-model="user.Profile.Private" />
-                            {{lbl.isPrivate}}
-                        </label>
-                    </div>
-                </div>
+
             </div>
-            <div class="col col-sm-6">
-                <div class="form-group clearfix">
-                    <label>{{lbl.aboutMe}}</label>
-                    <textarea class="form-control about-textarea" data-ng-model="user.Profile.AboutMe" cols="69"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="row">
             <div class="col col-sm-6">
                 <div class="well">
                     <div id="frm-user-edit" class="form-horizontal clearfix">
@@ -132,28 +157,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-sm-6">
-                <div class="well">
-                    <div id="frm-custom-edit" class="form-horizontal clearfix">
-                        <h4>{{lbl.customFields}}</h4>
-                        <button data-ng-click="showCustom()" class="btn btn-success btn-header pull-right" style="margin-top: -20px; margin-right: 15px" type="button">
-                            <i class="fa fa-save"></i>{{lbl.add}}
-                        </button>
-                        <hr />
-                        <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
-                            <label class="control-label col-md-4">{{item.Key}}</label>
-                            <div class="col col-md-7">
-                                <input type="text" class="form-control" data-ng-model="item.Value" />
-                            </div>
-                            <div class="col col-md-1">
-                                <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+
 </div>
 <script>
     $('[data-role=magic-overlay]').each(function () {
