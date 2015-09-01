@@ -16,10 +16,10 @@
     </li>
     <li id="mu-content" class="hasul">
         <i class="fa fa-align-justify"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><span>@Resources.labels.content</span></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts"><span>@Resources.labels.content</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/content')}">
-            <a href="{{SiteVars.RelativeWebRoot}}admin/#/content">@Resources.labels.posts</a></li>
+            <li data-ng-class="{ active: isActive('/content/posts')}">
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts">@Resources.labels.posts</a></li>
             @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
             {
                 <li data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
@@ -35,18 +35,18 @@
     </li>
     <li id="mu-custom" class="hasul">
         <i class="fa fa-sliders"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom"><span>@Resources.labels.custom</span></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/extensions"><span>@Resources.labels.custom</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/custom')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom">@Resources.labels.extensions</a></li>
+            <li data-ng-class="{ active: isActive('/custom/extensions')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/extensions">@Resources.labels.extensions</a></li>
             <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes">@Resources.labels.themes</a></li>
             <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
         </ul>
     </li>
     <li id="mu-users" class="hasul">
         <i class="fa fa-user"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security"><span>@Resources.labels.users</span></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><span>@Resources.labels.users</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/security')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security">@Resources.labels.profile</a></li>
+            <li data-ng-class="{ active: isActive('/security/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile">@Resources.labels.profile</a></li>
             @if (!BlogConfig.SingleUserBlog)
             {
                 <li data-ng-class="{ active: isActive('/security/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/roles">@Resources.labels.roles</a></li>
@@ -56,9 +56,9 @@
     </li>
     <li id="mu-settings" class="hasul">
         <i class="fa fa-cog"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings"><span>@Resources.labels.settings</span></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic"><span>@Resources.labels.settings</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/settings')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings">@Resources.labels.basic</a></li>
+            <li data-ng-class="{ active: isActive('/settings/basic')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic">@Resources.labels.basic</a></li>
             <li data-ng-class="{ active: isActive('/settings/email')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/email">@Resources.labels.email</a></li>
             <li data-ng-class="{ active: isActive('/settings/feed')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/feed">@Resources.labels.feed</a></li>
             <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments">@Resources.labels.comments</a></li>

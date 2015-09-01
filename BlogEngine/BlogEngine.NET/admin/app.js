@@ -5,7 +5,7 @@
         $routeProvider
         .when("/", { templateUrl: "views/dashboard.html" })
         
-        .when("/content", { templateUrl: "views/content/posts.html" })
+        .when("/content/posts", { templateUrl: "views/content/posts.html" })
         .when("/content/blogs", { templateUrl: "views/content/blogs.html" })
         .when("/content/comments", { templateUrl: "views/content/comments.html" })
         .when("/content/pages", { templateUrl: "views/content/pages.html" })
@@ -13,16 +13,16 @@
         .when("/content/tags", { templateUrl: "views/content/tags.html" })
         .when("/content/filters", { templateUrl: "views/content/filters.html" })
 
-        .when("/custom", { templateUrl: "views/custom/index.html" })
+        .when("/custom/extensions", { templateUrl: "views/custom/index.html" })
         .when("/custom/themes", { templateUrl: "views/custom/themes.html" })
         .when("/custom/widgets", { templateUrl: "views/custom/widgets.html" })
         .when("/shared/package", { templateUrl: "views/shared/package.html" })
 
-        .when("/security", { templateUrl: "views/security/profile.html" })
+        .when("/security/profile", { templateUrl: "views/security/profile.html" })
         .when("/security/roles", { templateUrl: "views/security/roles.html" })
         .when("/security/users", { templateUrl: "views/security/users.html" })
 
-        .when("/settings", { templateUrl: "views/settings/basic.html" })
+        .when("/settings/basic", { templateUrl: "views/settings/basic.html" })
         .when("/settings/feed", { templateUrl: "views/settings/feed.html" })
         .when("/settings/email", { templateUrl: "views/settings/email.html" })
         .when("/settings/comments", { templateUrl: "views/settings/comments.html" })

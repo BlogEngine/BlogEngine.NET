@@ -1,17 +1,14 @@
 ﻿angular.module('blogAdmin').controller('NavController', ["$scope", "$location", "$rootScope", function ($scope, $location, $rootScope) {
-    $scope.isActive = function (viewLocation) {
-        return viewLocation === $location.path() || $location.path().startsWith(viewLocation + "/");
-    };
     $scope.IsPrimary = $rootScope.SiteVars.IsPrimary;
     $scope.security = $rootScope.security;
     $scope.UserVars = UserVars;
 
+    $scope.isActive = function (viewLocation) {
+        return viewLocation === $location.path() || $location.path().startsWith(viewLocation + "/");
+    };
     $(".nav-primary > li").removeClass("active");
 
-    if ($location.path().indexOf("blogs") > -1) {
-        $("#mu-blogs").addClass("active");
-    }
-    else if ($location.path().indexOf("content") > -1) {
+    if ($location.path().indexOf("content") > -1) {
         $("#mu-content").addClass("active");
     }
     else if ($location.path().indexOf("custom") > -1) {
@@ -29,14 +26,16 @@
     else {
         $("#mu-dashboard").addClass("active");
     }
-    if ($location.$$absUrl.indexOf("editpost.cshtml") > -1 || $location.$$absUrl.indexOf("editpage.cshtml") > -1) {
-        $(".nav-primary > li").removeClass("active");
-        $("#mu-content").addClass("active");
-    }
+
     $(".nav-primary > li > a").click(function () {
         $(".nav-primary > li").removeClass("active");
         $(this).parent().addClass("active");
     });
+
+    if ($location.$$absUrl.indexOf("editpost.cshtml") > -1 || $location.$$absUrl.indexOf("editpage.cshtml") > -1) {
+        $(".nav-primary > li").removeClass("active");
+        $("#mu-content").addClass("active");
+    }
 }]);
 
 if (typeof String.prototype.startsWith != 'function') {
