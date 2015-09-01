@@ -1,9 +1,7 @@
 ﻿using App_Code.Controls;
-using ASP.App_Start;
 using BlogEngine.Core;
 using BlogEngine.Core.Data;
 using BlogEngine.Core.Data.Contracts;
-using Microsoft.Practices.Unity;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -13,6 +11,8 @@ using System.Web.Http.ExceptionHandling;
 using System.Web.Optimization;
 using System.Web.UI;
 using BlogEngine.NET.AppCode.Api;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
 
 namespace BlogEngine.NET.App_Start
 {
@@ -36,7 +36,7 @@ namespace BlogEngine.NET.App_Start
 
                 RegisterWebApi(GlobalConfiguration.Configuration);
 
-                RegisterUnity(GlobalConfiguration.Configuration);
+                RegisterDiCintainer();
 
                 ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                     new ScriptResourceDefinition
@@ -208,45 +208,31 @@ namespace BlogEngine.NET.App_Start
             config.Services.Add(typeof(IExceptionLogger), new UnhandledExceptionLogger());
         }
 
-        static void RegisterUnity(System.Web.Http.HttpConfiguration config)
+        static void RegisterDiCintainer()
         {
-            var unity = new UnityContainer();
+            var container = new Container();
 
-            unity.RegisterType<SettingsController>();
-            unity.RegisterType<PostsController>();
-            unity.RegisterType<PagesController>();
-            unity.RegisterType<BlogsController>();
-            unity.RegisterType<StatsController>();
-            unity.RegisterType<PackagesController>();
-            unity.RegisterType<LookupsController>();
-            unity.RegisterType<CommentsController>();
-            unity.RegisterType<TrashController>();
-            unity.RegisterType<TagsController>();
-            unity.RegisterType<CategoriesController>();
-            unity.RegisterType<CustomFieldsController>();
-            unity.RegisterType<UsersController>();
-            unity.RegisterType<RolesController>();
-            unity.RegisterType<FileManagerController>();
-            unity.RegisterType<CommentFilterController>();
+            container.Register<ISettingsRepository, SettingsRepository>(Lifestyle.Transient);
+            container.Register<IPostRepository, PostRepository>(Lifestyle.Transient);
+            container.Register<IPageRepository, PageRepository>(Lifestyle.Transient);
+            container.Register<IBlogRepository, BlogRepository>(Lifestyle.Transient);
+            container.Register<IStatsRepository, StatsRepository>(Lifestyle.Transient);
+            container.Register<IPackageRepository, PackageRepository>(Lifestyle.Transient);
+            container.Register<ILookupsRepository, LookupsRepository>(Lifestyle.Transient);
+            container.Register<ICommentsRepository, CommentsRepository>(Lifestyle.Transient);
+            container.Register<ITrashRepository, TrashRepository>(Lifestyle.Transient);
+            container.Register<ITagRepository, TagRepository>(Lifestyle.Transient);
+            container.Register<ICategoryRepository, CategoryRepository>(Lifestyle.Transient);
+            container.Register<ICustomFieldRepository, CustomFieldRepository>(Lifestyle.Transient);
+            container.Register<IUsersRepository, UsersRepository>(Lifestyle.Transient);
+            container.Register<IRolesRepository, RolesRepository>(Lifestyle.Transient);
+            container.Register<IFileManagerRepository, FileManagerRepository>(Lifestyle.Transient);
+            container.Register<ICommentFilterRepository, CommentFilterRepository>(Lifestyle.Transient);
 
-            unity.RegisterType<ISettingsRepository, SettingsRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IPostRepository, PostRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IPageRepository, PageRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IBlogRepository, BlogRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IStatsRepository, StatsRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IPackageRepository, PackageRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ILookupsRepository, LookupsRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ICommentsRepository, CommentsRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ITrashRepository, TrashRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ITagRepository, TagRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ICategoryRepository, CategoryRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ICustomFieldRepository, CustomFieldRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IUsersRepository, UsersRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IRolesRepository, RolesRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<IFileManagerRepository, FileManagerRepository>(new HierarchicalLifetimeManager());
-            unity.RegisterType<ICommentFilterRepository, CommentFilterRepository>(new HierarchicalLifetimeManager());
+            container.Verify();
 
-            config.DependencyResolver = new IoCContainer(unity);
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new SimpleInjectorWebApiDependencyResolver(container);
         }
 
         static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
