@@ -177,4 +177,8 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.load();
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

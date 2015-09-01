@@ -75,6 +75,7 @@
     }
 
     $(document).ready(function () {
+        bindCommon();
         $('#form').validate({
             rules: {
                 txtSlug: { required: true }

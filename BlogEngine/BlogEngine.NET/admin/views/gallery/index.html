@@ -3,29 +3,31 @@
         <h2 class="page-title pull-left">
             {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-    </div>
-    <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div ng-if="IsPrimary" class="pull-left">
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('install')" class="btn btn-success btn-sm"><i class="fa fa-check"></i>{{lbl.install}}</button>
-            </div>
-            <div class="pull-right btn-flt-r hmin767"><button class="btn btn-default btn-sm"><i class="fa fa-cog fa-lg"></i><span>{{lbl.filter}}</span></button></div>
-            <div class="pull-right filterbar flt-r clearfix">
-                <div class="active-flt-r"></div>
-                <div class="navbar-left search-grid pull-right">
-                    <input id="txtSearch" type="text" ng-model="query" ng-change="search()" class="input-sm form-control pull-right" placeholder="{{lbl.search}}" />
-                </div>
-                <div class="btn-toolbar pull-right">
-                    <div class="btn-group">
-                        <button id="fltr-all" class="btn btn-default btn-sm active" ng-click="gridFilter('PackageType','all','all')">{{lbl.all}}</button>
-                        <button id="fltr-pub" class="btn btn-default btn-sm" ng-click="gridFilter('PackageType','Extension','pub')">{{lbl.extensions}}</button>
-                        <button id="fltr-dft" class="btn btn-default btn-sm" ng-click="gridFilter('PackageType','Theme','dft')">{{lbl.themes}}</button>
-                    </div>
-                </div>
-                <span class="pull-right lbl-show">{{lbl.show}} :</span>
-            </div>
+        <div ng-if="IsPrimary" class="btn-group pull-left">
+            <button ng-click="processChecked('install')" class="btn btn-success btn-sm"><i class="fa fa-check"></i>{{lbl.install}}</button>
         </div>
-               
+
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+
+        <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Show : ALL
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-filter">
+                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('PackageType','all','all')">{{lbl.all}}</a>          </li>
+                <li><a id="fltr-pub" data-value="{{lbl.extensions}}" ng-click="gridFilter('PackageType','Extension','pub')">{{lbl.extensions}}</a>    </li>
+                <li><a id="fltr-dft" data-value="{{lbl.themes}}" ng-click="gridFilter('PackageType','Theme','dft')">{{lbl.themes}}</a>            </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="content-inner">
         <div class="row" style="padding-left: 10px">
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
                 <span class="info-box-icon">

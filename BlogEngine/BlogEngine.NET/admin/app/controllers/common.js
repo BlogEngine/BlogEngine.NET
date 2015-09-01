@@ -139,3 +139,25 @@ function getFromQueryString(param) {
         }
     }
 }
+
+function bindCommon() {
+    //
+    $(".dropdown-menu-filter li a").click(function () {
+        $(this).parents(".dropdown").find('.btn').html('<span class="show-label">Show :</span> ' + $(this).text() + ' <i class="fa fa-angle-down"></i>');
+        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+    });
+
+    //
+    $(".page-header .btn").tooltip({
+        placement: "bottom",
+        container: '.page-header',
+    });
+
+    //
+    $(".search input").focus(function () {
+        $(".search").addClass("search-wide");
+    });
+    $(".search input").blur(function () {
+        $(".search").removeClass("search-wide");
+    });
+}

@@ -35,4 +35,8 @@
 	    }
 	}
 
+	$(document).ready(function () {
+	    bindCommon();
+	});
+
 }]);

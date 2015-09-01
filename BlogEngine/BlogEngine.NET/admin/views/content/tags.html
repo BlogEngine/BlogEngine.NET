@@ -16,20 +16,26 @@
             </div>
         </div>
     </div>
+
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.tags}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
+        <div class="btn-group pull-left">
+            <button data-ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+        </div>
+
+
+
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+
+
     </div>
     <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div class="pull-left">
-                <button ng-disabled="itemsChecked() === false" data-ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-            </div>
-            <div class="pull-right filterbar clearfix">
-                <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
-            </div>
-        </div>
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>

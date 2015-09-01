@@ -2,33 +2,35 @@
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.posts}}
-            <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-header pull-right" type="button"><i class="fa fa-plus"></i>{{lbl.writeNewPost}}</a>
-    </div>
-    <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div class="pull-left">
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('publish')" class="btn btn-success btn-sm"><i class="fa fa-check"></i>{{lbl.publish}}</button>
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('unpublish')" class="btn btn-warning btn-sm"><i class="fa fa-minus"></i>{{lbl.unpublish}}</button>
-            </div>
-            <div class="pull-right btn-flt-r hmin767"><button class="btn btn-default btn-sm"><i class="fa fa-cog fa-lg"></i><span>{{lbl.filter}}</span></button></div>
-            <div class="pull-right filterbar flt-r clearfix">
-                <div class="active-flt-r"></div>
-                <div class="navbar-left search-grid pull-right">
-                    <input type="text" ng-model="query" ng-change="search()" class="input-sm form-control pull-right" placeholder="{{lbl.search}}" />
-                </div>
-                <div class="btn-toolbar pull-right">
-                    <div class="btn-group">
-                        <button id="fltr-all" class="btn btn-default btn-sm active" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</button>
-                        <button id="fltr-pub" class="btn btn-default btn-sm" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</button>
-                        <button id="fltr-dft" class="btn btn-default btn-sm" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</button>
-                    </div>
-                </div>
-                <span class="pull-right lbl-show">{{lbl.show}} :</span>
-            </div>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success pull-left"><i class="fa fa-plus"></i>New</a>
+        <div class="btn-group pull-left">
+            <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
+            <button ng-click="processChecked('unpublish')" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
+            <button ng-click="processChecked('publish')" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
+
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+
+        <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Show : ALL
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-filter">
+                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a>            </li>
+                <li><a id="fltr-pub" data-value="{{lbl.published}}" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</a> </li>
+                <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a>      </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="content-inner">
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>
@@ -82,5 +84,4 @@
         </div>
     </div>
 </div>
-
 

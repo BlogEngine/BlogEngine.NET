@@ -1,16 +1,25 @@
 ﻿@using BlogEngine.Core
-<ul class="nav-head">
-    <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i></a></li>
-    <li><a href="~/admin/#/security"><i class="fa fa-user"></i></a></li>
-    <li><a href="~/" target="_blank"><i class="fa fa-home"></i></a></li>
-    <li><a href="#"><i class="fa fa-bell"></i></a></li>
-</ul>
+
 <ul class="nav-primary" data-ng-controller="NavController">
-    <li id="mu-dashboard" class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/dashboard"><i class="fa fa-th-large"></i>@Resources.labels.dashboard</a></li>
-    <li id="mu-content">
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><i class="fa fa-align-justify"></i>@Resources.labels.content</a>
+    <li class="nav-blog-info">
+        <i class="fa fa-home"></i>
+        <a href="~/" target="_blank" class="nav-blog-name">YourBlog.com</a>
+        <button class="nav-toggle open" type="button" role="button" aria-label="Toggle Navigation">
+            <span class="line-1"></span>
+            <span class="line-2"></span>
+            <span class="line-3"></span>
+        </button>
+    </li>
+    <li id="mu-dashboard" class="active">
+        <i class="fa fa-th-large"></i>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/dashboard"><span>@Resources.labels.dashboard</span></a>
+    </li>
+    <li id="mu-content" class="hasul">
+        <i class="fa fa-align-justify"></i>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content"><span>@Resources.labels.content</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/content')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content">@Resources.labels.posts</a></li>
+            <li data-ng-class="{ active: isActive('/content')}">
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/content">@Resources.labels.posts</a></li>
             @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
             {
                 <li data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
@@ -24,16 +33,18 @@
             }
         </ul>
     </li>
-    <li id="mu-custom">
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom"><i class="fa fa-sliders"></i>@Resources.labels.custom</a>
+    <li id="mu-custom" class="hasul">
+        <i class="fa fa-sliders"></i>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom"><span>@Resources.labels.custom</span></a>
         <ul>
             <li data-ng-class="{ active: isActive('/custom')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom">@Resources.labels.extensions</a></li>
             <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes">@Resources.labels.themes</a></li>
             <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
         </ul>
     </li>
-    <li id="mu-users">
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security"><i class="fa fa-user"></i>@Resources.labels.users</a>
+    <li id="mu-users" class="hasul">
+        <i class="fa fa-user"></i>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security"><span>@Resources.labels.users</span></a>
         <ul>
             <li data-ng-class="{ active: isActive('/security')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security">@Resources.labels.profile</a></li>
             @if (!BlogConfig.SingleUserBlog)
@@ -43,8 +54,9 @@
             }
         </ul>
     </li>
-    <li id="mu-settings">
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings"><i class="fa fa-cog"></i>@Resources.labels.settings</a>
+    <li id="mu-settings" class="hasul">
+        <i class="fa fa-cog"></i>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings"><span>@Resources.labels.settings</span></a>
         <ul>
             <li data-ng-class="{ active: isActive('/settings')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings">@Resources.labels.basic</a></li>
             <li data-ng-class="{ active: isActive('/settings/email')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/email">@Resources.labels.email</a></li>
@@ -57,7 +69,10 @@
             }
         </ul>
     </li>
-    <li id="mu-gallery"><a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery"><i class="fa fa-cloud-download"></i>@Resources.labels.gallery</a></li>
-    <li id="mu-help"><a href="{{SiteVars.RelativeWebRoot}}admin/#/help"><i class="fa fa-question-circle"></i>Help Center</a></li>
-    <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/#/about"><i class="fa fa-question-circle"></i>BlogEngine.NET @BlogEngine.Core.BlogSettings.Instance.Version().Substring(0, 3)</a></li>
+    <li id="mu-gallery"><i class="fa fa-cloud-download"></i>
+    <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery"><span>@Resources.labels.gallery</span></a></li>
+    <li id="mu-help"><i class="fa fa-question-circle"></i><a href="{{SiteVars.RelativeWebRoot}}admin/#/help"><span>Help Center</span></a></li>
+    <li id="mu-about"><i class="fa fa-info-circle"></i><a href="{{SiteVars.RelativeWebRoot}}admin/#/about"><span>BlogEngine @BlogEngine.Core.BlogSettings.Instance.Version().Substring(0, 3)</span></a></li>
 </ul>
+
+

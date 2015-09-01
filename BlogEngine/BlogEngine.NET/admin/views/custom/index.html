@@ -3,23 +3,20 @@
         <h2 class="page-title pull-left">
             {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
+        <div class="btn-group pull-left">
+            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+        </div>
+
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+
     </div>
     <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div ng-if="IsPrimary" class="pull-left">
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-            </div>
-            <div class="pull-right btn-flt-r hmin767"><button class="btn btn-default btn-sm"><i class="fa fa-cog fa-lg"></i><span>{{lbl.filter}}</span></button></div>
-            <div class="pull-right filterbar flt-r clearfix">
-                <div class="active-flt-r"></div>
-                <div class="navbar-left search-grid pull-right">
-                    <input type="text" ng-model="query" ng-change="search()" class="input-sm form-control pull-right" placeholder="{{lbl.search}}" />
-                </div>
-            </div>
-        </div>
-       
         <div class="row" style="padding-left: 10px">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-md-4 col-lg-3 info-box">
                 <span class="info-box-icon">
                     <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
@@ -52,7 +49,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
             <ul class="pagination pagination-sm">
                 <li data-ng-class="{disabled: currentPage == 0}">

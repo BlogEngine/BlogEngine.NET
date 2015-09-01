@@ -44,4 +44,8 @@
         $("#modal-add-tag").modal('hide');
         $scope.focusInput = false;
     }
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

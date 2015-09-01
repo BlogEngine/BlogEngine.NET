@@ -88,4 +88,8 @@
         }
         $("#modal-add-item").modal('hide');
     }
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);
