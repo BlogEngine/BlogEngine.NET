@@ -131,4 +131,8 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

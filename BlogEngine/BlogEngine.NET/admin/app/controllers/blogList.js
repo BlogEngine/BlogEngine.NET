@@ -97,4 +97,9 @@ angular.module('blogAdmin').controller('BlogListController', ["$rootScope", "$sc
             }
         });
     });
+
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

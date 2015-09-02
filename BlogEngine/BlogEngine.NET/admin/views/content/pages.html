@@ -9,14 +9,11 @@
             <button ng-click="processChecked('unpublish')" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
             <button ng-click="processChecked('publish')" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
-
-
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
-
         <div class="dropdown pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Show : ALL
@@ -28,17 +25,16 @@
                 <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a>      </li>
             </ul>
         </div>
-
     </div>
     <div class="content-inner">
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>
                     <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w50">{{lbl.title}} <a data-ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="table-item-title table-item-w50"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
                     <th class="hmax992">{{lbl.parent}}</th>
-                    <th>{{lbl.sortOrder}} <a data-ng-click="sort_by('SortOrder', $event)"><i class="fa fa-sort"></i></a></th>
-                    <th class="hmax580">{{lbl.createdOn}} <a data-ng-click="sort_by('DateCreated',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th><a data-ng-click="sort_by('SortOrder', $event)">{{lbl.sortOrder}}</a></th>
+                    <th class="hmax580"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
                     <th class="hmax768">{{lbl.showInList}}</th>
                     <th>{{lbl.published}}</th>
                 </tr>

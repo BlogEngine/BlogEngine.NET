@@ -38,9 +38,9 @@
                 <tr>
                     <th><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
                     <th class="hmax768">&nbsp;</th>
-                    <th class="table-item-title table-item-w50">{{lbl.title}} <a data-ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
-                    <th class="hmax480">{{lbl.createdOn}} <a data-ng-click="sort_by('DateCreated',$event)"><i class="fa fa-sort"></i></a></th>
-                    <th class="hmax768">{{lbl.author}} <a data-ng-click="sort_by('Author',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="table-item-title table-item-w50"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
+                    <th class="hmax480"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
+                    <th class="hmax768"><a data-ng-click="sort_by('Author',$event)">{{lbl.author}}</a></th>
                     <th>{{lbl.approved}}</th>
                     <th class="hmax992">{{lbl.spam}}</th>
                 </tr>

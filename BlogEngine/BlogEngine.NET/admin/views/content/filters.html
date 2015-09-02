@@ -3,9 +3,18 @@
         <h2 class="page-title pull-left">
             {{lbl.filters}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <button data-toggle="modal" data-target="#AddFilter" class="btn btn-success btn-sm btn-tabkey pull-right"><i class="fa fa-plus"></i>{{lbl.add}}</button>
-        <button type="button" class="btn btn-default btn-header btn-tabkey pull-right" onclick="window.history.back()"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-    </div>
+        <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
+
+        <button data-toggle="modal" data-target="#AddFilter" class="btn btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+
+
+        <div class="btn-group pull-left">
+
+            <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button data-ng-click="deleteAll()" class="btn btn-danger" type="button" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
+            </div>
+
+        </div>
     <div class="modal fade" id="AddFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
@@ -68,8 +77,6 @@
     <div class="content-inner">
         <div class="toolbar-grid clearfix">
             <div class="pull-left">
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-                <button ng-disabled="items.length === 0" data-ng-click="deleteAll()" class="btn btn-sm btn-danger" type="button"><i class="fa fa-times"></i>{{lbl.deleteAll}}</button>
             </div>
             <div class="pull-right">
                 <input type="text" ng-model="query" ng-change="search()" class="form-control input-sm pull-right" placeholder="{{lbl.search}}">

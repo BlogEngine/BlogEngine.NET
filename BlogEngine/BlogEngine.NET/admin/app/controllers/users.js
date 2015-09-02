@@ -120,4 +120,8 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

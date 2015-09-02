@@ -107,22 +107,22 @@
     </div>
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">{{lbl.blogs}}</h2>
-        <button data-ng-click="modalNew()" class="btn btn-success btn-header pull-right"><i class="fa fa-plus"></i>{{lbl.addNewBlog}}</button>
+        <button data-ng-click="modalNew()" class="btn btn-success btn-header pull-left"><i class="fa fa-plus"></i>New</button>
+        <div class="btn-group pull-left">
+            <button ng-click="processChecked('delete')" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+        </div>
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
     </div>
     <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div class="pull-left">
-                <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-sm btn-danger"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-            </div>
-            <div class="pull-right">
-                <input type="text" ng-model="query" ng-change="search()" class="form-control input-sm pull-right" placeholder="{{lbl.search}}">
-            </div>
-        </div>
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>
                     <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w60">{{lbl.title}} <a data-ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="table-item-title table-item-w60"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
                     <th class="hmax768">{{lbl.virtualPath}}</th>
                     <th>{{lbl.primary}}</th>
                     <th>{{lbl.active}}</th>

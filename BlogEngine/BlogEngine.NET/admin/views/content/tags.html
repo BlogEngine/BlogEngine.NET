@@ -16,7 +16,6 @@
             </div>
         </div>
     </div>
-
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.tags}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
@@ -24,16 +23,11 @@
         <div class="btn-group pull-left">
             <button data-ng-click="processChecked('delete')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
         </div>
-
-
-
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
-
-
     </div>
     <div class="content-inner">
         <table class="table table-bordered table-striped table-hover table-responsive">
@@ -42,7 +36,7 @@
                     <th>
                         <input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" />
                     </th>
-                    <th class="table-item-title table-item-w90">{{lbl.tags}} <a data-ng-click="sort_by('TagName',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="table-item-title table-item-w90"><a data-ng-click="sort_by('TagName',$event)">{{lbl.tags}}</a></th>
                     <th class="mw-100">{{lbl.count}}</th>
                 </tr>
             </thead>

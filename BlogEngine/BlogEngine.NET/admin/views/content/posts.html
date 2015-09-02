@@ -9,13 +9,11 @@
             <button ng-click="processChecked('unpublish')" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
             <button ng-click="processChecked('publish')" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
-
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
-
         <div class="dropdown pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Show : ALL
@@ -28,17 +26,15 @@
             </ul>
         </div>
     </div>
-
-    
     <div class="content-inner">
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>
                     <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w60">{{lbl.title}} <a data-ng-click="sort_by('Title',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="table-item-title table-item-w60"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
                     <th class="hmax992">{{lbl.author}}</th>
                     <th class="hmax479">{{lbl.comments}}</th>
-                    <th class="hmax768">{{lbl.createdOn}} <a data-ng-click="sort_by('DateCreated',$event)"><i class="fa fa-sort"></i></a></th>
+                    <th class="hmax768"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
                     <th>{{lbl.published}}</th>
                 </tr>
             </thead>

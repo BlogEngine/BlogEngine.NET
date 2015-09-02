@@ -87,14 +87,14 @@
 
         scope.sortingOrder = newSortingOrder;
 
-        $('th i').each(function () {
-            $(this).removeClass('fa-sort-asc').removeClass('fa-sort-desc').addClass('fa-sort');
-        });
+        //$('th i').each(function () {
+        //    $(this).removeClass('fa-sort-asc').removeClass('fa-sort-desc').addClass('fa-sort');
+        //});
 
-        if (scope.reverse)
-            $(e.target).removeClass('fa-sort').addClass('fa-sort-asc');
-        else
-            $(e.target).removeClass('fa-sort').addClass('fa-sort-desc');
+        //if (scope.reverse)
+        //    $(e.target).removeClass('fa-sort').addClass('fa-sort-asc');
+        //else
+        //    $(e.target).removeClass('fa-sort').addClass('fa-sort-desc');
     };
 
     scope.gridFilter = function (field, value, fltr) {
