@@ -67,10 +67,6 @@
         /// </summary>
         public string Culture { get; set; }
         /// <summary>
-        /// Time zone
-        /// </summary>
-        public double Timezone { get; set; }
-        /// <summary>
         /// Time zone id
         /// </summary>
         public string TimeZoneId { get; set; }

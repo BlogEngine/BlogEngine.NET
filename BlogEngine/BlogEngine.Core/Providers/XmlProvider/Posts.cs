@@ -106,11 +106,6 @@
             {
                 writer.WriteStartDocument(true);
                 writer.WriteStartElement("post");
-
-                var x = post.DateCreated;
-                var b = new DateTime();
-                var c = x == b;
-
                 writer.WriteElementString("author", post.Author);
                 writer.WriteElementString("title", post.Title);
                 writer.WriteElementString("description", post.Description);
@@ -119,10 +114,10 @@
                 writer.WriteElementString("isdeleted", post.IsDeleted.ToString());
                 writer.WriteElementString("iscommentsenabled", post.HasCommentsEnabled.ToString());
 
-                writer.WriteElementString("pubDate", BlogSettings.Instance.ServerTime(post.DateCreated).
+                writer.WriteElementString("pubDate", BlogSettings.Instance.ToUtc(post.DateCreated).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
-                writer.WriteElementString("lastModified", BlogSettings.Instance.ServerTime(post.DateModified).
+                writer.WriteElementString("lastModified", BlogSettings.Instance.ToUtc(post.DateModified).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteElementString("raters", post.Raters.ToString(CultureInfo.InvariantCulture));
@@ -149,7 +144,7 @@
                     writer.WriteAttributeString("spam", comment.IsSpam.ToString());
                     writer.WriteAttributeString("deleted", comment.IsDeleted.ToString());
 
-                    writer.WriteElementString("date", BlogSettings.Instance.ServerTime(comment.DateCreated)
+                    writer.WriteElementString("date", BlogSettings.Instance.ToUtc(comment.DateCreated)
                         .ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                     writer.WriteElementString("author", comment.Author);
@@ -234,7 +229,7 @@
                 post.DateCreated = DateTime.Parse(
                     doc.SelectSingleNode("post/pubDate").InnerText, CultureInfo.InvariantCulture);
 
-                post.DateCreated = BlogSettings.Instance.ClientTime(post.DateCreated);
+                post.DateCreated = BlogSettings.Instance.FromUtc(post.DateCreated);
             }
 
             if (doc.SelectSingleNode("post/lastModified") != null)
@@ -242,7 +237,7 @@
                 post.DateModified = DateTime.Parse(
                     doc.SelectSingleNode("post/lastModified").InnerText, CultureInfo.InvariantCulture);
 
-                post.DateModified = BlogSettings.Instance.ClientTime(post.DateModified);
+                post.DateModified = BlogSettings.Instance.FromUtc(post.DateModified);
             }
 
             if (doc.SelectSingleNode("post/author") != null)
@@ -346,7 +341,7 @@
                 comment.DateCreated = DateTime.Parse(
                     node.SelectSingleNode("date").InnerText, CultureInfo.InvariantCulture);
 
-                comment.DateCreated = BlogSettings.Instance.ClientTime(comment.DateCreated);
+                comment.DateCreated = BlogSettings.Instance.FromUtc(comment.DateCreated);
 
                 post.AllComments.Add(comment);
             }

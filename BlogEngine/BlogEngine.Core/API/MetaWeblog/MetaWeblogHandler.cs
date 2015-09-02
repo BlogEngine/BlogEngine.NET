@@ -923,7 +923,7 @@
             }
 
             post.DateCreated = sentPost.postDate == new DateTime() ? 
-                BlogSettings.Instance.ClientTime() : sentPost.postDate;
+                BlogSettings.Instance.FromUtc() : sentPost.postDate;
 
             post.Save();
 

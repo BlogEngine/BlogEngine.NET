@@ -89,11 +89,10 @@
                 writer.WriteElementString("isdeleted", page.IsDeleted.ToString());
                 writer.WriteElementString("sortorder", page.SortOrder.ToString());
 
-                writer.WriteElementString("datecreated", BlogSettings.Instance.ServerTime(page.DateCreated).
+                writer.WriteElementString("datecreated", BlogSettings.Instance.ToUtc(page.DateCreated).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
-                writer.WriteElementString("datemodified", (page.DateModified == new DateTime() ? DateTime.Now :
-                    BlogSettings.Instance.ServerTime(page.DateModified)).
+                writer.WriteElementString("datemodified", (BlogSettings.Instance.ToUtc(page.DateModified)).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteEndElement();
@@ -156,11 +155,11 @@
 
             page.DateCreated = DateTime.Parse(
                 doc.SelectSingleNode("page/datecreated").InnerText, CultureInfo.InvariantCulture);
-            page.DateCreated = BlogSettings.Instance.ClientTime(page.DateCreated);
+            page.DateCreated = BlogSettings.Instance.FromUtc(page.DateCreated);
 
             page.DateModified = DateTime.Parse(
                 doc.SelectSingleNode("page/datemodified").InnerText, CultureInfo.InvariantCulture);
-            page.DateModified = BlogSettings.Instance.ClientTime(page.DateModified);
+            page.DateModified = BlogSettings.Instance.FromUtc(page.DateModified);
 
             return page;
         }

@@ -1086,9 +1086,9 @@
         /// <summary>
         /// Converts time passed from client into UTC server time
         /// </summary>
-        /// <param name="localTime">Client time</param>
+        /// <param name="localTime">ToUtc</param>
         /// <returns>Server time</returns>
-        public DateTime ServerTime(DateTime ? localTime = null)
+        public DateTime ToUtc(DateTime ? localTime = null)
         {
             if(localTime == null || localTime == new DateTime()) // no time sent in, use "now"
                 return DateTime.UtcNow;
@@ -1097,18 +1097,18 @@
         }
 
         /// <summary>
-        /// Converts time saved on the server to local user time
+        /// Converts time saved on the server from UTC to local user time offset by timezone
         /// </summary>
-        /// <param name="serverTime">Server time</param>
+        /// <param name="serverTime">FromUtc</param>
         /// <returns>Client time</returns>
-        public DateTime ClientTime(DateTime ? serverTime = null)
+        public DateTime FromUtc(DateTime ? serverTime = null)
         {
             if (serverTime == null || serverTime == new DateTime())
-                return DateTime.UtcNow;
+                serverTime = DateTime.UtcNow;
 
             var zone = string.IsNullOrEmpty(Instance.TimeZoneId) ? "UTC" : Instance.TimeZoneId;
-             
             var tz = TimeZoneInfo.FindSystemTimeZoneById(zone);
+            serverTime = DateTime.SpecifyKind(serverTime.Value, DateTimeKind.Unspecified);
 
             return TimeZoneInfo.ConvertTimeFromUtc(serverTime.Value, tz);
         }
