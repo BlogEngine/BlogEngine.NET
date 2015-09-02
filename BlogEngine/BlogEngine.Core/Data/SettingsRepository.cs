@@ -1,4 +1,5 @@
 ﻿using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 using BlogEngine.Core.Data.Contracts;
 
 namespace BlogEngine.Core.Data
@@ -12,122 +13,13 @@ namespace BlogEngine.Core.Data
         /// Get all settings
         /// </summary>
         /// <returns>Settings object</returns>
-        public Settings Get()
+        public SettingsVM Get()
         {
-            if (!Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
-                throw new System.UnauthorizedAccessException();
+            var vm = new SettingsVM();
 
-            var ns = new Settings();
-            var bs = BlogSettings.Instance;
+            vm.Settings = GetSettings();
 
-            // basic
-            ns.Name = bs.Name;
-            ns.Description = bs.Description;
-            ns.PostsPerPage = bs.PostsPerPage;
-            ns.ThemeCookieName = bs.ThemeCookieName;
-            ns.UseBlogNameInPageTitles = bs.UseBlogNameInPageTitles;
-            ns.EnableRelatedPosts = bs.EnableRelatedPosts;
-            ns.EnableRating = bs.EnableRating;
-            ns.ShowDescriptionInPostList = bs.ShowDescriptionInPostList;
-            ns.DescriptionCharacters = bs.DescriptionCharacters;
-            ns.ShowDescriptionInPostListForPostsByTagOrCategory = bs.ShowDescriptionInPostListForPostsByTagOrCategory;
-            ns.DescriptionCharactersForPostsByTagOrCategory = bs.DescriptionCharactersForPostsByTagOrCategory;
-            ns.TimeStampPostLinks = bs.TimeStampPostLinks;
-            ns.ShowPostNavigation = bs.ShowPostNavigation;
-            ns.Culture = bs.Culture;
-            ns.Timezone = bs.Timezone;
-            ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
-            ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;
-            ns.DesktopTheme = bs.Theme;
-            
-            // advanced
-            ns.HandleWwwSubdomain = bs.HandleWwwSubdomain;
-            ns.EnableHttpCompression = bs.EnableHttpCompression;
-            ns.CompressWebResource = bs.CompressWebResource;
-            ns.EnableOpenSearch = bs.EnableOpenSearch;
-            ns.RequireSslForMetaWeblogApi = bs.RequireSslMetaWeblogApi;
-
-            ns.EnablePasswordReset = bs.EnablePasswordReset;
-            ns.EnableSelfRegistration = bs.EnableSelfRegistration;
-            ns.CreateBlogOnSelfRegistration = bs.CreateBlogOnSelfRegistration;
-            ns.AllowServerToDownloadRemoteFiles = bs.AllowServerToDownloadRemoteFiles;
-            ns.RemoteFileDownloadTimeout = bs.RemoteFileDownloadTimeout;
-            ns.RemoteMaxFileSize = bs.RemoteMaxFileSize;
-            ns.SelfRegistrationInitialRole = bs.SelfRegistrationInitialRole;
-            if (string.IsNullOrEmpty(ns.SelfRegistrationInitialRole))
-            {
-                // set to default editor role if not set in settings
-                ns.SelfRegistrationInitialRole = BlogConfig.EditorsRole;
-            }
-
-            // feed
-            ns.AuthorName = bs.AuthorName;
-            ns.FeedAuthor = bs.FeedAuthor;
-            ns.Endorsement = bs.Endorsement;
-            ns.AlternateFeedUrl = bs.AlternateFeedUrl;
-            ns.Language = bs.Language;
-            ns.PostsPerFeed = bs.PostsPerFeed;
-            ns.EnableEnclosures = bs.EnableEnclosures;
-            ns.SyndicationFormat = bs.SyndicationFormat;
-            ns.EnableTagExport = bs.EnableTagExport;
-
-            // email
-            ns.Email = bs.Email;
-            ns.SmtpServer = bs.SmtpServer;
-            ns.SmtpServerPort = bs.SmtpServerPort;
-            ns.SmtpUserName = bs.SmtpUserName;
-            ns.SmtpPassword = bs.SmtpPassword;
-            ns.EmailSubjectPrefix = bs.EmailSubjectPrefix;
-            ns.EnableSsl = bs.EnableSsl;
-            ns.SendMailOnComment = bs.SendMailOnComment;
-
-            // controls
-            ns.SearchButtonText = bs.SearchButtonText;
-            ns.SearchCommentLabelText = bs.SearchCommentLabelText;
-            ns.SearchDefaultText = bs.SearchDefaultText;
-            ns.EnableCommentSearch = bs.EnableCommentSearch;
-            ns.ShowIncludeCommentsOption = bs.ShowIncludeCommentsOption;
-            ns.ContactFormMessage = bs.ContactFormMessage;
-            ns.ContactThankMessage = bs.ContactThankMessage;
-            ns.ContactErrorMessage = bs.ContactErrorMessage;
-            ns.EnableContactAttachments = bs.EnableContactAttachments;
-            ns.EnableRecaptchaOnContactForm = bs.EnableRecaptchaOnContactForm;
-            ns.ErrorTitle = bs.ErrorTitle;
-            ns.ErrorText = bs.ErrorText;
-
-            // custom code
-            ns.HtmlHeader = bs.HtmlHeader;
-            ns.TrackingScript = bs.TrackingScript;
-
-            // comments
-            ns.DaysCommentsAreEnabled = bs.DaysCommentsAreEnabled;
-            ns.IsCommentsEnabled = bs.IsCommentsEnabled;
-            ns.EnableCommentsModeration = bs.EnableCommentsModeration;
-            ns.IsCommentNestingEnabled = bs.IsCommentNestingEnabled;
-            ns.Avatar = bs.Avatar;
-            ns.EnablePingBackSend = bs.EnablePingBackSend;
-            ns.EnablePingBackReceive = bs.EnablePingBackReceive;
-            ns.EnableTrackBackSend = bs.EnableTrackBackSend;
-            ns.EnableTrackBackReceive = bs.EnableTrackBackReceive;
-            ns.CommentsPerPage = bs.CommentsPerPage;
-            ns.EnableCountryInComments = bs.EnableCountryInComments;
-            ns.EnableWebsiteInComments = bs.EnableWebsiteInComments;
-            ns.ShowLivePreview = bs.ShowLivePreview;
-
-            ns.CommentProvider = bs.CommentProvider;
-            ns.DisqusDevMode = bs.DisqusDevMode;
-            ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
-            ns.DisqusWebsiteName = bs.DisqusWebsiteName;
-
-            // custom filters
-            ns.CommentWhiteListCount = bs.CommentWhiteListCount;
-            ns.CommentBlackListCount = bs.CommentBlackListCount;
-            ns.AddIpToWhitelistFilterOnApproval = bs.AddIpToWhitelistFilterOnApproval;
-            ns.TrustAuthenticatedUsers = bs.TrustAuthenticatedUsers;
-            ns.BlockAuthorOnCommentDelete = bs.BlockAuthorOnCommentDelete;
-            ns.AddIpToBlacklistFilterOnRejection = bs.AddIpToBlacklistFilterOnRejection;
-
-            return ns;
+            return vm;
         }
 
         /// <summary>
@@ -157,6 +49,7 @@ namespace BlogEngine.Core.Data
             bs.ShowPostNavigation = ns.ShowPostNavigation;
             bs.Culture = ns.Culture;
             bs.Timezone = ns.Timezone;
+            bs.TimeZoneId = ns.TimeZoneId;
             bs.RemoveExtensionsFromUrls = ns.RemoveExtensionsFromUrls;
             bs.RedirectToRemoveFileExtension = ns.RedirectToRemoveFileExtension;
             bs.Theme = ns.DesktopTheme;
@@ -245,6 +138,125 @@ namespace BlogEngine.Core.Data
 
             bs.Save();
             return true;
+        }
+
+        private Settings GetSettings()
+        {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
+                throw new System.UnauthorizedAccessException();
+
+            var ns = new Settings();
+            var bs = BlogSettings.Instance;
+
+            // basic
+            ns.Name = bs.Name;
+            ns.Description = bs.Description;
+            ns.PostsPerPage = bs.PostsPerPage;
+            ns.ThemeCookieName = bs.ThemeCookieName;
+            ns.UseBlogNameInPageTitles = bs.UseBlogNameInPageTitles;
+            ns.EnableRelatedPosts = bs.EnableRelatedPosts;
+            ns.EnableRating = bs.EnableRating;
+            ns.ShowDescriptionInPostList = bs.ShowDescriptionInPostList;
+            ns.DescriptionCharacters = bs.DescriptionCharacters;
+            ns.ShowDescriptionInPostListForPostsByTagOrCategory = bs.ShowDescriptionInPostListForPostsByTagOrCategory;
+            ns.DescriptionCharactersForPostsByTagOrCategory = bs.DescriptionCharactersForPostsByTagOrCategory;
+            ns.TimeStampPostLinks = bs.TimeStampPostLinks;
+            ns.ShowPostNavigation = bs.ShowPostNavigation;
+            ns.Culture = bs.Culture;
+            ns.Timezone = bs.Timezone;
+            ns.TimeZoneId = bs.TimeZoneId == null ? "UTC" : bs.TimeZoneId;
+            ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
+            ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;
+            ns.DesktopTheme = bs.Theme;
+
+            // advanced
+            ns.HandleWwwSubdomain = bs.HandleWwwSubdomain;
+            ns.EnableHttpCompression = bs.EnableHttpCompression;
+            ns.CompressWebResource = bs.CompressWebResource;
+            ns.EnableOpenSearch = bs.EnableOpenSearch;
+            ns.RequireSslForMetaWeblogApi = bs.RequireSslMetaWeblogApi;
+
+            ns.EnablePasswordReset = bs.EnablePasswordReset;
+            ns.EnableSelfRegistration = bs.EnableSelfRegistration;
+            ns.CreateBlogOnSelfRegistration = bs.CreateBlogOnSelfRegistration;
+            ns.AllowServerToDownloadRemoteFiles = bs.AllowServerToDownloadRemoteFiles;
+            ns.RemoteFileDownloadTimeout = bs.RemoteFileDownloadTimeout;
+            ns.RemoteMaxFileSize = bs.RemoteMaxFileSize;
+            ns.SelfRegistrationInitialRole = bs.SelfRegistrationInitialRole;
+            if (string.IsNullOrEmpty(ns.SelfRegistrationInitialRole))
+            {
+                // set to default editor role if not set in settings
+                ns.SelfRegistrationInitialRole = BlogConfig.EditorsRole;
+            }
+
+            // feed
+            ns.AuthorName = bs.AuthorName;
+            ns.FeedAuthor = bs.FeedAuthor;
+            ns.Endorsement = bs.Endorsement;
+            ns.AlternateFeedUrl = bs.AlternateFeedUrl;
+            ns.Language = bs.Language;
+            ns.PostsPerFeed = bs.PostsPerFeed;
+            ns.EnableEnclosures = bs.EnableEnclosures;
+            ns.SyndicationFormat = bs.SyndicationFormat;
+            ns.EnableTagExport = bs.EnableTagExport;
+
+            // email
+            ns.Email = bs.Email;
+            ns.SmtpServer = bs.SmtpServer;
+            ns.SmtpServerPort = bs.SmtpServerPort;
+            ns.SmtpUserName = bs.SmtpUserName;
+            ns.SmtpPassword = bs.SmtpPassword;
+            ns.EmailSubjectPrefix = bs.EmailSubjectPrefix;
+            ns.EnableSsl = bs.EnableSsl;
+            ns.SendMailOnComment = bs.SendMailOnComment;
+
+            // controls
+            ns.SearchButtonText = bs.SearchButtonText;
+            ns.SearchCommentLabelText = bs.SearchCommentLabelText;
+            ns.SearchDefaultText = bs.SearchDefaultText;
+            ns.EnableCommentSearch = bs.EnableCommentSearch;
+            ns.ShowIncludeCommentsOption = bs.ShowIncludeCommentsOption;
+            ns.ContactFormMessage = bs.ContactFormMessage;
+            ns.ContactThankMessage = bs.ContactThankMessage;
+            ns.ContactErrorMessage = bs.ContactErrorMessage;
+            ns.EnableContactAttachments = bs.EnableContactAttachments;
+            ns.EnableRecaptchaOnContactForm = bs.EnableRecaptchaOnContactForm;
+            ns.ErrorTitle = bs.ErrorTitle;
+            ns.ErrorText = bs.ErrorText;
+
+            // custom code
+            ns.HtmlHeader = bs.HtmlHeader;
+            ns.TrackingScript = bs.TrackingScript;
+
+            // comments
+            ns.DaysCommentsAreEnabled = bs.DaysCommentsAreEnabled;
+            ns.IsCommentsEnabled = bs.IsCommentsEnabled;
+            ns.EnableCommentsModeration = bs.EnableCommentsModeration;
+            ns.IsCommentNestingEnabled = bs.IsCommentNestingEnabled;
+            ns.Avatar = bs.Avatar;
+            ns.EnablePingBackSend = bs.EnablePingBackSend;
+            ns.EnablePingBackReceive = bs.EnablePingBackReceive;
+            ns.EnableTrackBackSend = bs.EnableTrackBackSend;
+            ns.EnableTrackBackReceive = bs.EnableTrackBackReceive;
+            ns.CommentsPerPage = bs.CommentsPerPage;
+            ns.EnableCountryInComments = bs.EnableCountryInComments;
+            ns.EnableWebsiteInComments = bs.EnableWebsiteInComments;
+            ns.ShowLivePreview = bs.ShowLivePreview;
+
+            ns.CommentProvider = bs.CommentProvider;
+            ns.DisqusDevMode = bs.DisqusDevMode;
+            ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
+            ns.DisqusWebsiteName = bs.DisqusWebsiteName;
+
+            // custom filters
+            ns.CommentWhiteListCount = bs.CommentWhiteListCount;
+            ns.CommentBlackListCount = bs.CommentBlackListCount;
+            ns.AddIpToWhitelistFilterOnApproval = bs.AddIpToWhitelistFilterOnApproval;
+            ns.TrustAuthenticatedUsers = bs.TrustAuthenticatedUsers;
+            ns.BlockAuthorOnCommentDelete = bs.BlockAuthorOnCommentDelete;
+            ns.AddIpToBlacklistFilterOnRejection = bs.AddIpToBlacklistFilterOnRejection;
+
+            return ns;
         }
     }
 }

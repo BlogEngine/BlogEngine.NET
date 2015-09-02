@@ -1,4 +1,5 @@
 ﻿using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 
 namespace BlogEngine.Core.Data.Contracts
 {
@@ -10,8 +11,8 @@ namespace BlogEngine.Core.Data.Contracts
         /// <summary>
         /// Get all settings
         /// </summary>
-        /// <returns>List of settings</returns>
-        Settings Get();
+        /// <returns>Settings view model</returns>
+        SettingsVM Get();
         /// <summary>
         /// Update settings
         /// </summary>

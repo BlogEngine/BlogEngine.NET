@@ -39,7 +39,7 @@
                                     </label>
                                 </div>
                                 <label class="control-label" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
-                                <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in closeDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
+                                <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in vm.CloseDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
                             </div>
                             <div class="col col-md-6">
                                 <div class="checkbox">

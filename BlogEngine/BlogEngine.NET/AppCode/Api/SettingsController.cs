@@ -2,6 +2,7 @@
 using BlogEngine.Core;
 using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -22,7 +23,7 @@ public class SettingsController : ApiController
         this.repository = repository;
     }
 
-    public Settings Get()
+    public SettingsVM Get()
     {
         return repository.Get();
     }

@@ -71,6 +71,10 @@
         /// </summary>
         public double Timezone { get; set; }
         /// <summary>
+        /// Time zone id
+        /// </summary>
+        public string TimeZoneId { get; set; }
+        /// <summary>
         /// Removes extensions from urls
         /// </summary>
         public bool RemoveExtensionsFromUrls { get; set; }

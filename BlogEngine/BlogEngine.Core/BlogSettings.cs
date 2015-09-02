@@ -1083,6 +1083,10 @@
         /// </summary>
         /// <value>The maximum number of characters to display.</value>
         public double Timezone { get; set; }
+        /// <summary>
+        /// Time zone id
+        /// </summary>
+        public string TimeZoneId { get; set; }
 
         /// <summary>
         /// Converts time passed from client into UTC server time
