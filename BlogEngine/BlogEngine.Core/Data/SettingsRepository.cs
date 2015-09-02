@@ -48,7 +48,6 @@ namespace BlogEngine.Core.Data
             bs.TimeStampPostLinks = ns.TimeStampPostLinks;
             bs.ShowPostNavigation = ns.ShowPostNavigation;
             bs.Culture = ns.Culture;
-            bs.Timezone = ns.Timezone;
             bs.TimeZoneId = ns.TimeZoneId;
             bs.RemoveExtensionsFromUrls = ns.RemoveExtensionsFromUrls;
             bs.RedirectToRemoveFileExtension = ns.RedirectToRemoveFileExtension;
@@ -163,7 +162,6 @@ namespace BlogEngine.Core.Data
             ns.TimeStampPostLinks = bs.TimeStampPostLinks;
             ns.ShowPostNavigation = bs.ShowPostNavigation;
             ns.Culture = bs.Culture;
-            ns.Timezone = bs.Timezone;
             ns.TimeZoneId = bs.TimeZoneId == null ? "UTC" : bs.TimeZoneId;
             ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
             ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;

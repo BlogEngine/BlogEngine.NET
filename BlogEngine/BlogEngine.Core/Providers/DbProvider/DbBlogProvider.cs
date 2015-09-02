@@ -1395,7 +1395,7 @@ namespace BlogEngine.Core.Providers
                                 page.Description = rdr.IsDBNull(2) ? String.Empty : rdr.GetString(2);
                                 if (!rdr.IsDBNull(4))
                                 {
-                                    page.DateCreated = rdr.GetDateTime(4).AddHours(BlogSettings.Instance.Timezone);
+                                    page.DateCreated = BlogSettings.Instance.ServerTime(rdr.GetDateTime(4));
                                 }
 
                                 if (!rdr.IsDBNull(5))
@@ -1484,7 +1484,7 @@ namespace BlogEngine.Core.Providers
                                 post.Description = rdr.IsDBNull(2) ? String.Empty : rdr.GetString(2);
                                 if (!rdr.IsDBNull(4))
                                 {
-                                    post.DateCreated = rdr.GetDateTime(4).AddHours(BlogSettings.Instance.Timezone);
+                                    post.DateCreated = BlogSettings.Instance.ClientTime(rdr.GetDateTime(4));
                                 }
 
                                 if (!rdr.IsDBNull(5))
@@ -1578,7 +1578,7 @@ namespace BlogEngine.Core.Providers
 
                                 comment.Email = rdr.GetString(3);
                                 comment.Content = rdr.GetString(5);
-                                comment.DateCreated = rdr.GetDateTime(1).AddHours(BlogSettings.Instance.Timezone);
+                                comment.DateCreated = BlogSettings.Instance.ClientTime(rdr.GetDateTime(1));
                                 comment.Parent = post;
 
                                 if (!rdr.IsDBNull(6))
@@ -2923,7 +2923,7 @@ namespace BlogEngine.Core.Providers
                                     Id = rdr.GetGuid(0),
                                     Author = userId,
                                     Note = rdr.GetString(1),
-                                    Updated = rdr.GetDateTime(2).AddHours(BlogSettings.Instance.Timezone)
+                                    Updated = BlogSettings.Instance.ClientTime(rdr.GetDateTime(2))
                                 };
                                 notes.Add(n);
                             }
@@ -3192,7 +3192,7 @@ namespace BlogEngine.Core.Providers
                     parms.Add(conn.CreateParameter(FormatParamName("postcommentid"), comment.Id.ToString()));
                     parms.Add(conn.CreateParameter(FormatParamName("parentid"), comment.ParentId.ToString()));
                     parms.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
-                    parms.Add(conn.CreateParameter(FormatParamName("date"), comment.DateCreated.AddHours(-BlogSettings.Instance.Timezone)));
+                    parms.Add(conn.CreateParameter(FormatParamName("date"), BlogSettings.Instance.ServerTime(comment.DateCreated)));
                     parms.Add(conn.CreateParameter(FormatParamName("author"), comment.Author));
                     parms.Add(conn.CreateParameter(FormatParamName("email"), comment.Email));
                     parms.Add(conn.CreateParameter(FormatParamName("website"), (comment.Website == null ? string.Empty : comment.Website.ToString())));

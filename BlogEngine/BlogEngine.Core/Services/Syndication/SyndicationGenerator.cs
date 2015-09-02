@@ -210,26 +210,28 @@ namespace BlogEngine.Core
         /// </returns>
         public static string ToRfc822DateTime(DateTime dateTime)
         {
-            var offset =
-                (int)(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalHours + BlogSettings.Instance.Timezone);
-            var timeZone = string.Format("+{0}", offset.ToString(NumberFormatInfo.InvariantInfo).PadLeft(2, '0'));
+            //var offset =
+            //    (int)(TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now).TotalHours + BlogSettings.Instance.Timezone);
+            //var timeZone = string.Format("+{0}", offset.ToString(NumberFormatInfo.InvariantInfo).PadLeft(2, '0'));
 
-            // ------------------------------------------------------------
-            // Adjust time zone based on offset
-            // ------------------------------------------------------------
-            if (offset < 0)
-            {
-                var i = offset * -1;
-                timeZone = string.Format("-{0}", i.ToString(NumberFormatInfo.InvariantInfo).PadLeft(2, '0'));
-            }
+            //// ------------------------------------------------------------
+            //// Adjust time zone based on offset
+            //// ------------------------------------------------------------
+            //if (offset < 0)
+            //{
+            //    var i = offset * -1;
+            //    timeZone = string.Format("-{0}", i.ToString(NumberFormatInfo.InvariantInfo).PadLeft(2, '0'));
+            //}
 
+            //return dateTime.ToString(
+            //    string.Format("ddd, dd MMM yyyy HH:mm:ss {0}", timeZone.PadRight(5, '0')), DateTimeFormatInfo.InvariantInfo);
             return dateTime.ToString(
-                string.Format("ddd, dd MMM yyyy HH:mm:ss {0}", timeZone.PadRight(5, '0')), DateTimeFormatInfo.InvariantInfo);
+                string.Format("ddd, dd MMM yyyy HH:mm:ss {0}", BlogSettings.Instance.TimeZoneId), DateTimeFormatInfo.InvariantInfo);
         }
 
         static string RssDateString(DateTime pubDate)
         {
-            pubDate = pubDate.AddHours(BlogSettings.Instance.Timezone);
+            pubDate = BlogSettings.Instance.ClientTime(pubDate);
             var value = pubDate.ToString("ddd',' d MMM yyyy HH':'mm':'ss") + " " +
                 pubDate.ToString("zzzz").Replace(":", "");
             return value;

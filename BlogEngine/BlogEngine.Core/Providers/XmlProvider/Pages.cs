@@ -93,7 +93,7 @@
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteElementString("datemodified", (page.DateModified == new DateTime() ? DateTime.Now :
-                    page.DateModified.AddHours(-BlogSettings.Instance.Timezone)).
+                    BlogSettings.Instance.ServerTime(page.DateModified)).
                     ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
 
                 writer.WriteEndElement();
@@ -156,11 +156,11 @@
 
             page.DateCreated = DateTime.Parse(
                 doc.SelectSingleNode("page/datecreated").InnerText, CultureInfo.InvariantCulture);
-            page.DateCreated = page.DateCreated.AddHours(BlogSettings.Instance.Timezone);
+            page.DateCreated = BlogSettings.Instance.ClientTime(page.DateCreated);
 
             page.DateModified = DateTime.Parse(
                 doc.SelectSingleNode("page/datemodified").InnerText, CultureInfo.InvariantCulture);
-            page.DateModified = page.DateModified.AddHours(BlogSettings.Instance.Timezone);
+            page.DateModified = BlogSettings.Instance.ClientTime(page.DateModified);
 
             return page;
         }

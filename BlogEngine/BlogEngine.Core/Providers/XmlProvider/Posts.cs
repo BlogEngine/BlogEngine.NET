@@ -234,7 +234,7 @@
                 post.DateCreated = DateTime.Parse(
                     doc.SelectSingleNode("post/pubDate").InnerText, CultureInfo.InvariantCulture);
 
-                post.DateCreated = post.DateCreated.AddHours(BlogSettings.Instance.Timezone);
+                post.DateCreated = BlogSettings.Instance.ClientTime(post.DateCreated);
             }
 
             if (doc.SelectSingleNode("post/lastModified") != null)
@@ -242,7 +242,7 @@
                 post.DateModified = DateTime.Parse(
                     doc.SelectSingleNode("post/lastModified").InnerText, CultureInfo.InvariantCulture);
 
-                post.DateModified = post.DateModified.AddHours(BlogSettings.Instance.Timezone);
+                post.DateModified = BlogSettings.Instance.ClientTime(post.DateModified);
             }
 
             if (doc.SelectSingleNode("post/author") != null)
@@ -346,7 +346,7 @@
                 comment.DateCreated = DateTime.Parse(
                     node.SelectSingleNode("date").InnerText, CultureInfo.InvariantCulture);
 
-                comment.DateCreated = comment.DateCreated.AddHours(BlogSettings.Instance.Timezone);
+                comment.DateCreated = BlogSettings.Instance.ClientTime(comment.DateCreated);
 
                 post.AllComments.Add(comment);
             }

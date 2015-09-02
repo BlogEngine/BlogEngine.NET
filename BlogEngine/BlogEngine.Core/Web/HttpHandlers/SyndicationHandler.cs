@@ -357,9 +357,9 @@
             var lastModified = new DateTime(1900, 1, 3); // don't use DateTime.MinValue here, as Mono doesn't like it
             foreach (var item in items)
             {
-                if (item.DateModified.AddHours(-BlogSettings.Instance.Timezone) > lastModified)
+                if (BlogSettings.Instance.ClientTime(item.DateModified) > lastModified)
                 {
-                    lastModified = item.DateModified.AddHours(-BlogSettings.Instance.Timezone);
+                    lastModified = BlogSettings.Instance.ClientTime(item.DateModified);
                 }
             }
 

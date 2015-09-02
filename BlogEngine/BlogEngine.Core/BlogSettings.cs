@@ -1079,11 +1079,6 @@
         #region Timezone
 
         /// <summary>
-        ///     Gets or sets the maximum number of characters that are displayed from a blog-roll retrieved post.
-        /// </summary>
-        /// <value>The maximum number of characters to display.</value>
-        public double Timezone { get; set; }
-        /// <summary>
         /// Time zone id
         /// </summary>
         public string TimeZoneId { get; set; }
@@ -1095,10 +1090,10 @@
         /// <returns>Server time</returns>
         public DateTime ServerTime(DateTime ? localTime = null)
         {
-            if(localTime == null || localTime == new DateTime())
+            if(localTime == null || localTime == new DateTime()) // no time sent in, use "now"
                 return DateTime.UtcNow;
 
-            return localTime.Value.AddHours(-Timezone);
+            return localTime.Value.ToUniversalTime();
         }
 
         /// <summary>
@@ -1109,9 +1104,13 @@
         public DateTime ClientTime(DateTime ? serverTime = null)
         {
             if (serverTime == null || serverTime == new DateTime())
-                return DateTime.UtcNow.AddHours(Timezone);
+                return DateTime.UtcNow;
 
-            return serverTime.Value.AddHours(Timezone);
+            var zone = string.IsNullOrEmpty(Instance.TimeZoneId) ? "UTC" : Instance.TimeZoneId;
+             
+            var tz = TimeZoneInfo.FindSystemTimeZoneById(zone);
+
+            return TimeZoneInfo.ConvertTimeFromUtc(serverTime.Value, tz);
         }
 
         #endregion
