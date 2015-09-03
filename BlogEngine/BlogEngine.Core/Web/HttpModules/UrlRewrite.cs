@@ -166,10 +166,10 @@
             {
                 UrlRules.RewriteCategory(context, url);
             }
-            else if (urlContainsFileExtension && url.Contains("/TAG/"))
-            {
-                UrlRules.RewriteTag(context, url);
-            }
+            //else if (urlContainsFileExtension && url.Contains("/TAG/"))
+            //{
+            //    UrlRules.RewriteTag(context, url);
+            //}
             else if (urlContainsFileExtension && url.Contains("/PAGE/"))
             {
                 UrlRules.RewritePage(context, url);

@@ -259,8 +259,11 @@ public partial class _default : BlogEngine.Core.Web.Controls.BlogBasePage
 	{
 		if (!string.IsNullOrEmpty(Request.QueryString["tag"]))
 		{
+            var tag = Request.QueryString["tag"];
+            tag = tag.StartsWith("/") ? tag.Substring(1) : tag;
+
             PostList1.ContentBy = ServingContentBy.Tag;
-			PostList1.Posts = Post.GetPostsByTag(Request.QueryString["tag"].Substring(1)).ConvertAll(new Converter<Post, IPublishable>(delegate(Post p) { return p as IPublishable; }));
+			PostList1.Posts = Post.GetPostsByTag(tag).ConvertAll(new Converter<Post, IPublishable>(delegate(Post p) { return p as IPublishable; }));
 			base.Title = Resources.labels.AllPostsTagged + " '" + Request.QueryString["tag"].Substring(1) + "'";
             base.AddMetaTag("description", Server.HtmlEncode(base.Title));
 		}

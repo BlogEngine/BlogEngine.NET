@@ -64,7 +64,15 @@ namespace BlogEngine.Core
         /// </remarks>
         public WebResponse GetWebResponse()
         {
-            var response = this.GetWebRequest().GetResponse();
+            WebResponse response;
+            try
+            {
+                response = GetWebRequest().GetResponse();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
 
             long contentLength = response.ContentLength;
             

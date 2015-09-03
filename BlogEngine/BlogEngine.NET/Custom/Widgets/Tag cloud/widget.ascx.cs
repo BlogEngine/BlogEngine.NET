@@ -190,7 +190,7 @@ namespace Widgets.TagCloud
                     {
                         li.InnerHtml = string.Format(
                             LinkFormat,
-                            string.Format("{0}/tag/{1}", Utils.AbsoluteWebRoot, Utils.RemoveIllegalCharacters(key)),
+                            string.Format("{0}?tag={1}", Utils.AbsoluteWebRoot, Utils.RemoveIllegalCharacters(key)),
                             this.WeightedList[key],
                             Resources.labels.Tag + ": " + key,
                             key);

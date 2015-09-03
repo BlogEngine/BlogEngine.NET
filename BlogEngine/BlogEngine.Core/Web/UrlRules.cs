@@ -179,13 +179,13 @@ namespace BlogEngine.Core.Web
 
             if (url.Contains("/FEED/"))
             {
-                context.RewritePath(string.Format("syndication.axd?tag={0}{1}", tag, GetQueryString(context)), false);
+                tag = string.Format("syndication.axd?tag={0}{1}", tag, GetQueryString(context));
             }
             else
             {
-                context.RewritePath(
-                    string.Format("{0}default.aspx?tag=/{1}{2}", Utils.ApplicationRelativeWebRoot, tag, GetQueryString(context)), false);
+                tag = string.Format("{0}default.aspx?tag=/{1}{2}", Utils.ApplicationRelativeWebRoot, tag, GetQueryString(context));
             }
+            context.RewritePath(tag, false);
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%# ShRoot %>scripts/XRegExp.js"></script>
