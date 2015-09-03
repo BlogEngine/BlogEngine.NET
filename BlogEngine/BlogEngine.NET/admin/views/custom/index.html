@@ -1,7 +1,7 @@
 ﻿<div data-ng-controller="CustomController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
+        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+             {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
         <div class="btn-group pull-left">
             <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>

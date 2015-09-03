@@ -2,12 +2,11 @@
 a:hover, a:focus { text-decoration: none; }
 
 .container { width: 100%; }
-.wrapper { display: table; width: 100%; height: 100%; }
-.sidebar { display: table-cell; vertical-align: top; }
-.content { display: table-cell; vertical-align: top; }
-.content-inner { padding: 20px; }
-.sidebar { width: 220px; background-color: #2f353f; font-weight: 400; font-size: 13px; transition: all ease 0.5s; }
-.sidebar-icon .sidebar { width: 50px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
+.wrapper { display: table; width: 100%; height: 100%;}
+.sidebar { display: table-cell; vertical-align: top; width: 220px; min-width:220px; background-color: #2f353f; font-weight: 400; font-size: 13px; transition: all ease 0.5s;}
+.content { display: table-cell; vertical-align: top; width:100% }
+.content-inner { padding: 20px;  }
+.sidebar-icon .sidebar { min-width:50px; width: 50px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
 
 /**/
 .nav-primary { background-color: #2f353f; }
@@ -83,6 +82,8 @@ a:hover, a:focus { text-decoration: none; }
 .dropdown .btn { margin-right:0; padding: 0 26px 0 10px; }
 .dropdown .btn i { right: 0; left: auto; font-size: 14px; }
 .dropdown .btn-default { background-color: #989898; color: #fff; }
+
+.page-header .help-link {color:#888;}
 
 /**/
 .search { width: 26px; height: 26px; position: relative; margin-top: 12px; margin-left: 10px; }

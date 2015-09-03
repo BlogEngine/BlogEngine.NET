@@ -147,7 +147,7 @@ function bindCommon() {
     });
 
     //
-    $(".page-header .btn").tooltip({
+    $(".page-header .btn, .help-link").tooltip({
         placement: "bottom",
         container: '.page-header',
     });
