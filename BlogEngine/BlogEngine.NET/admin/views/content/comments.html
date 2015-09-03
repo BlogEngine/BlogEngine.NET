@@ -3,9 +3,8 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a href="#/content/filters" class="btn btn-success pull-left"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
 
-        <div class="btn-group pull-left">
+        <div class="btn-group  pull-left">
             <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
             <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
             <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" class="btn btn-warning btn-sm" title="{{lbl.unapprove}}"><i class="fa fa-archive"></i></button>
@@ -31,6 +30,8 @@
                 <li><a id="fltr-png" data-value="{{lbl.pingbacks}}" ng-click="gridFilter('Email','pingback','png')">{{lbl.pingbacks}}</a></li>
             </ul>
         </div>
+        <a href="#/content/filters" class="btn btn-success pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
+
     </div>
     <div class="content-inner">
         <table class="table table-bordered table-striped table-hover table-responsive">

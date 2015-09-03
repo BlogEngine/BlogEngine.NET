@@ -3,16 +3,15 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
              {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <div class="btn-group pull-left">
-            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
+        <div class="btn-group befdv pull-left">
+            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
-
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
-
     </div>
     <div class="content-inner">
         <div class="row" style="padding-left: 10px">

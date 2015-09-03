@@ -3,9 +3,7 @@
         <h2 class="page-title pull-left">
             {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <div ng-if="IsPrimary" class="btn-group pull-left">
-            <button ng-click="processChecked('install')" class="btn btn-success btn-sm"><i class="fa fa-check"></i>{{lbl.install}}</button>
-        </div>
+        <button ng-click="processChecked('install')" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
 
         <div class="search pull-right">
             <i class="fa fa-search"></i>
@@ -13,7 +11,7 @@
             <i class="fa fa-times-circle"></i>
         </div>
 
-        <div class="dropdown pull-right">
+        <!--<div class="dropdown pull-right">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 Show : ALL
                 <i class="fa fa-angle-down"></i>
@@ -23,7 +21,7 @@
                 <li><a id="fltr-pub" data-value="{{lbl.extensions}}" ng-click="gridFilter('PackageType','Extension','pub')">{{lbl.extensions}}</a>    </li>
                 <li><a id="fltr-dft" data-value="{{lbl.themes}}" ng-click="gridFilter('PackageType','Theme','dft')">{{lbl.themes}}</a>            </li>
             </ul>
-        </div>
+        </div>-->
 
     </div>
 
