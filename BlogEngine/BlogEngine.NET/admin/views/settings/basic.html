@@ -7,105 +7,94 @@
             <button data-ng-click="save()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-            <div class="row">
-                <div class="col col-sm-6">
-                    <div class="well clearfix">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtName">{{lbl.name}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtDescription">{{lbl.description}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="selCultures">{{lbl.language}}</label>
-                                <div class="col col-md-8">
-                                    <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
-                                </div>
-                            </div>                           
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="selTimezone">{{lbl.timezone}}</label>
-                                <div class="col col-md-8">
-                                    <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
-                                <div class="col col-md-6">
-                                    <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
-                                </div>
-                                <div class="col col-md-2">
-                                    <div class="btn-group btn-group-justified">
-                                        <a class="btn btn-default" title="Details" href="" data-ng-click="loadTheme()"><i class="fa fa-search"></i>&nbsp;</a>
-                                        <a class="btn btn-default" title="Find more" href="#/gallery"><i class="fa fa-download"></i>&nbsp;</a>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="form-horizontal form-width-limited">
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="txtName">Blog Title</label>
+                    <div class="col col-md-8">
+                        <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="txtDescription">{{lbl.description}}</label>
+                    <div class="col col-md-8">
+                        <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="selCultures">Blog Language</label>
+                    <div class="col col-md-8">
+                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="selTimezone">{{lbl.timezone}}</label>
+                    <div class="col col-md-8">
+                        <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
+                    <div class="col col-md-6">
+                        <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
+                    </div>
+                    <div class="col col-md-2">
+                        <div class="btn-group btn-group-justified">
+                            <a class="btn btn-default" title="Details" href="" data-ng-click="loadTheme()"><i class="fa fa-search"></i>&nbsp;</a>
+                            <a class="btn btn-default" title="Find more" href="#/gallery"><i class="fa fa-download"></i>&nbsp;</a>
                         </div>
                     </div>
                 </div>
-                <div class="col col-sm-6">
-                    <div class="well clearfix">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
-                                </div>
-                            </div>
-                            <div class="col-md-offset-4 col-md-8">
-                                <div class="checkbox" style="padding-bottom: 8px; padding-top: 0">
-                                    <label>
-                                        <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
-                                        <span>{{lbl.showDescriptionInPostList}}</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4 " for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
-                                </div>
-                            </div>
-                            <div class="col-md-offset-4 col-md-8">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
-                                        {{lbl.timeStampPostLinks}}
-                                    </label>
-                                </div>
-                            </div>
-                            <div ng-if="singleUserBlog != 'True'">
-                                <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
-                                            {{lbl.enableSelfRegistration}}
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
-                                    <div class="col col-md-8">
-                                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
-                                    </div>
-                                </div>
-                                <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
-                                            {{lbl.createBlogOnSelfRegistration}}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                                                   
+                <div class="form-group">
+                    <label class="control-label col-md-4"></label>
+                    <div class="col col-md-8">
+                        <label>
+                            <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
+                             {{lbl.timeStampPostLinks}}
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
+                    <div class="col col-md-8">
+                        <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
+                    </div>
+                </div>
+                <div class="col-md-offset-4 col-md-8">
+                    <div class="checkbox" style="padding-bottom: 8px; padding-top: 0">
+                        <label>
+                            <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
+                            <span>{{lbl.showDescriptionInPostList}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4 " for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
+                    <div class="col col-md-8">
+                        <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
+                    </div>
+                </div>
+             
+                <div ng-if="singleUserBlog != 'True'">
+                    <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
+                                {{lbl.enableSelfRegistration}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
+                        <div class="col col-md-8">
+                            <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
+                        </div>
+                    </div>
+                    <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
+                                {{lbl.createBlogOnSelfRegistration}}
+                            </label>
                         </div>
                     </div>
                 </div>
