@@ -99,17 +99,23 @@ a:hover, a:focus { text-decoration: none; }
 
 
 /*[]*/
-.form-width-limited,.form-horizontal { max-width: 600px; }
+.form-width-limited, .form-horizontal { max-width: 600px; }
 .content-inner .btn,
 .content-inner .form-control { border-radius: 0px; }
-.form-group {margin-bottom:18px;}
+.form-group { margin-bottom: 18px; }
 .form-group label.control-label { color: #444; font-weight: 400; font-size: 12px; letter-spacing: .5px; text-transform: capitalize; }
-.form-control { box-shadow: none; font-weight:400; font-size: 13px; padding-left:10px;  border-color: #d8d8d8; }
+.form-control { box-shadow: none; font-weight: 400; font-size: 13px; padding-left: 10px; border-color: #d8d8d8; }
 .form-control:focus { border-color: #2196f3; outline: 0px none; box-shadow: none; }
+.input-group .input-group-addon { border-radius: 0; }
 
 /**/
-
-
+.well { background-color: #fff; box-shadow: none !important; border-radius: 0; }
+.profile-picture-wrpaper { position: relative; }
+.profile-picture-wrpaper h4 { margin-bottom: 0px; }
+.profile-picture-wrpaper .roles-name { margin-bottom: 8px; }
+.profile-picture { margin-right: 10px; }
+.profile-picture-wrpaper .btn { padding: 0 10px; margin-right: 3px; }
+/**/
 .panel { border: none; }
 .panel .panel-heading { background-color: #fff; border-color: #f1f4f5; text-transform: uppercase; }
 .panel .panel-heading .panel-title { font-size: 14px; line-height: 20px; height: 20px; }

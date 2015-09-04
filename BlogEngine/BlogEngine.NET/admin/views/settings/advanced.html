@@ -8,40 +8,34 @@
             <button data-ng-click="save()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-            <div class="form-width-limited">
-
+            <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label" for="txtName"><strong>{{lbl.handleWwwSubdomain}}</strong></label>
-                    <div class="row">
-                        <div class="col col-md-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="remove" data-ng-model="settings.HandleWwwSubdomain" />
-                                    {{lbl.remove}}
-                                </label>
-                            </div>
+                    <label class="col-md-4 control-label" for="txtName">{{lbl.handleWwwSubdomain}}</label>
+                    <div class="col-md-8">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="remove" data-ng-model="settings.HandleWwwSubdomain" />
+                                {{lbl.remove}}
+                            </label>
                         </div>
-                        <div class="col col-md-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="add" data-ng-model="settings.HandleWwwSubdomain" />
-                                    {{lbl.enforce}}
-                                </label>
-                            </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="add" data-ng-model="settings.HandleWwwSubdomain" />
+                                {{lbl.enforce}}
+                            </label>
                         </div>
-                        <div class="col col-md-4">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="" data-ng-model="settings.HandleWwwSubdomain" />
-                                    {{lbl.ignore}}
-                                </label>
-                            </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="" data-ng-model="settings.HandleWwwSubdomain" />
+                                {{lbl.ignore}}
+                            </label>
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col col-lg-6">
+                <hr />
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="ckEnableHttpCompression" data-ng-model="settings.EnableHttpCompression" />
@@ -60,8 +54,6 @@
                                 {{lbl.requireSslForMetaWeblogApi}}
                             </label>
                         </div>
-                    </div>
-                    <div class="col col-lg-6">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="ckEnableOpenSearch" data-ng-model="settings.EnableOpenSearch" />
@@ -76,92 +68,78 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- tools -->
+                <hr />
                 <div class="form-group">
-                    <h4>{{lbl.tools}}</h4>
-                    <hr />
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <a class="btn btn-primary btn-sm" id="importBtn" title="{{lbl.import}}">{{lbl.import}}</a>
-                                <input type="file" data-role="magic-overlay" class="cursor-pointer" data-target="#importBtn" onchange="angular.element(this).scope().uploadFile(this.files)" />
-                            </div>
-                            <div class="col-lg-8">
-                                <label class="control-label">{{lbl.selectSavedBlogMlFle}}</label>
-                            </div>
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <h4>{{lbl.tools}}</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <p>{{lbl.selectSavedBlogMlFle}}</p>
+                        <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                        <hr />
+                        <p>{{lbl.exportIntoBlogML}}</p>
+                        <button class="btn btn-primary btn-sm" data-ng-click="exportToXml()" type="button">{{lbl.export}}</button>
+                        <hr />
+                        <p ng-bind-html="lbl.runClickOnceApplicationToImport"></p>
+                        <button class="btn btn-primary btn-sm" style="margin-top: 5px" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <h4>{{lbl.comments}}</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">{{lbl.enableTrackbacks}}</label>
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnablePingBackSend" data-ng-model="settings.EnablePingBackSend" />
+                                {{lbl.send}}
+                            </label>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <button class="btn btn-primary btn-sm" data-ng-click="exportToXml()" type="button">{{lbl.export}}</button>
-                            </div>
-                            <div class="col-lg-8">
-                                <label class="control-label">{{lbl.exportIntoBlogML}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <button class="btn btn-primary btn-sm" style="margin-top: 5px" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
-                            </div>
-                            <div class="col-lg-8">
-                                <label ng-bind-html="lbl.runClickOnceApplicationToImport"></label>
-                            </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnablePingBackReceive" data-ng-model="settings.EnablePingBackReceive" />
+                                {{lbl.receive}}
+                            </label>
                         </div>
                     </div>
-                    <script>
-                                    $('[data-role=magic-overlay]').each(function () {
-                                        var overlay = $(this), target = $(overlay.data('target'));
-                                        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-                                    });
-                    </script>
                 </div>
-
-                <!-- comments -->
                 <div class="form-group">
-                    <h4>{{lbl.comments}}</h4>
-                    <hr />
-                    <!-- pingbacks and trackbacks -->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <label class="control-label"><strong>{{lbl.enableTrackbacks}}</strong></label>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckEnablePingBackSend" data-ng-model="settings.EnablePingBackSend" />
-                                    {{lbl.send}}
-                                </label>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="ckEnablePingBackReceive" data-ng-model="settings.EnablePingBackReceive" />
-                                        {{lbl.receive}}
-                                    </label>
-                                </div>
-                            </div>
+                    <label class="col-md-4 control-label">{{lbl.enablePingbacks}}</label>
+                    <div class="col-md-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
+                                {{lbl.send}}
+                            </label>
                         </div>
-                        <div class="col-lg-6">
-                            <label class="control-label"><strong>{{lbl.enablePingbacks}}</strong></label>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
-                                    {{lbl.send}}
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
-                                    {{lbl.receive}}
-                                </label>
-                            </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
+                                {{lbl.receive}}
+                            </label>
                         </div>
                     </div>
                 </div>
 
-
                 <hr />
-
-                <h4>{{lbl.securitySettings}}</h4>
-                <hr />
-                <div class="row">
-                    <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
+                        <h4>  {{lbl.securitySettings}}</h4>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="ckAllowRemoteFileDownloads" data-ng-model="settings.AllowServerToDownloadRemoteFiles" />
@@ -171,7 +149,10 @@
                         <label class="control-label" for="txtRemoteFileDownloadTimeout">{{lbl.remoteTimeout}}</label>
                         <input type="text" class=" form-control" id="txtRemoteFileDownloadTimeout" name="txtRemoteFileDownloadTimeout" data-ng-model="settings.RemoteFileDownloadTimeout" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                     </div>
-                    <div class="col-lg-6">
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4"></label>
+                    <div class="col-md-8">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="ckEnablePasswordReset" data-ng-model="settings.EnablePasswordReset" />
@@ -182,11 +163,24 @@
                         <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                     </div>
                 </div>
-
-                <h4>{{lbl.rules}}</h4>
                 <hr />
-                <div class="row">
-                    <div class="col col-md-6">
+
+
+                <div class="form-group">
+                    <label class="col-md-4">
+                    </label>
+                    <div class="col-md-8">
+                        <h4>{{lbl.rules}}</h4>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4">
+
+
+                    </label>
+                    <div class="col-md-8">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" data-ng-model="settings.AddIpToWhitelistFilterOnApproval" />
@@ -199,18 +193,16 @@
                                 {{lbl.trustAuthenticated}}
                             </label>
                         </div>
-                        <div class="row">
-                            <div class="col col-md-4">
-                                <select id="selWiteListCount" class="form-control" data-ng-options="o.OptionName for o in whiteListOptions" data-ng-model="whiteListSelected"></select>
-                            </div>
-                            <div class="col col-md-8">
-                                <label for="selCultures">{{lbl.addToWhiteList}}</label>
-                                <label for="selCultures">{{lbl.authorApproved}}</label>
-                            </div>
-
-                        </div>
+                        <select id="selWiteListCount" class="form-control" data-ng-options="o.OptionName for o in whiteListOptions" data-ng-model="whiteListSelected"></select>
+                        <label for="selCultures">{{lbl.addToWhiteList}}</label>
+                        <label for="selCultures">{{lbl.authorApproved}}</label>
                     </div>
-                    <div class="col col-md-6">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4">
+                    </label>
+                    <div class="col-md-8">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" data-ng-model="settings.BlockAuthorOnCommentDelete" />
@@ -223,21 +215,13 @@
                                 {{lbl.blacklistIpOnCommentRejection}}
                             </label>
                         </div>
-                        <div class="row">
-                            <div class="col col-md-4">
-                                <select id="selBlackListCount" class="form-control" data-ng-options="o.OptionName for o in blackListOptions" data-ng-model="blackListSelected"></select>
-                            </div>
-                            <div class="col col-md-8">
-                                <label for="selCultures">{{lbl.commentsBlacklist}}</label>
-                                <label for="selCultures">{{lbl.authorRejected}}</label>
-                            </div>
+                        <select id="selBlackListCount" class="form-control" data-ng-options="o.OptionName for o in blackListOptions" data-ng-model="blackListSelected"></select>
+                        <label for="selCultures">{{lbl.commentsBlacklist}}</label>
+                        <label for="selCultures">{{lbl.authorRejected}}</label>
 
-                        </div>
                     </div>
                 </div>
-                </div>
-
-
             </div>
-</form>
+        </div>
+    </form>
 </div>
