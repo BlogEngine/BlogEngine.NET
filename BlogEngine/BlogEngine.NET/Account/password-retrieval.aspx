@@ -7,8 +7,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div class="page-header clearfix">
-        <h3>
-            <%=Resources.labels.passwordRetrieval %></h3>
+        <h1 style="font-size: 24px; margin: 0"><%=Resources.labels.passwordRetrieval %></h1>
     </div>
     <p>
         <%=Resources.labels.passwordRetrievalInstructionMessage %>

@@ -348,13 +348,13 @@
             }
 
             var tagStrings = new string[tags.Count];
-            const string Link = "<a href=\"{0}/{1}\" rel=\"tag\">{2}</a>";
-            var path = Post.Blog.AbsoluteWebRoot + "tag";
+            const string Link = "<a href=\"{0}?tag={1}\" rel=\"tag\">{2}</a>";
             for (var i = 0; i < tags.Count; i++)
             {
                 var tag = tags[i];
                 tagStrings[i] = string.Format(
-                    CultureInfo.InvariantCulture, Link, path, HttpUtility.UrlEncode(tag), HttpUtility.HtmlEncode(tag));
+                    CultureInfo.InvariantCulture, Link, Post.Blog.AbsoluteWebRoot, 
+                    HttpUtility.UrlEncode(tag), HttpUtility.HtmlEncode(tag));
             }
 
             return string.Join(separator, tagStrings);

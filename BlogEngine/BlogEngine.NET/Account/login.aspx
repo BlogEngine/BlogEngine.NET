@@ -7,8 +7,7 @@
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false" OnAuthenticate="LoginUser_OnAuthenticate">
         <LayoutTemplate>
             <div class="page-header clearfix">
-                <h3>
-                    <asp:Label runat="server" ID="lblTitle" Text="<%$Resources:labels,login %>" /></h3>
+                <h1 style="font-size: 24px; margin: 0"><asp:Label runat="server" ID="lblTitle" Text="<%$Resources:labels,login %>" /></h1>
             </div>
             <div class="account-content">
                 <div class="form-group">

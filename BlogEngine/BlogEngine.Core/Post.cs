@@ -478,7 +478,8 @@
         {
             get
             {
-                return new Uri(string.Format("{0}post.aspx?id={1}", this.Blog.AbsoluteWebRoot, this.Id));
+                //return new Uri(string.Format("{0}post.aspx?id={1}", this.Blog.AbsoluteWebRoot, this.Id));
+                return new Uri(string.Format("{0}post/{1}", this.Blog.AbsoluteWebRoot, this.Slug));
             }
         }
 
