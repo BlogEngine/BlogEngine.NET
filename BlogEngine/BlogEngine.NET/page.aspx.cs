@@ -1,20 +1,9 @@
-﻿#region Using
-
-using System;
-using System.Globalization;
+﻿using System;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Web.UI;
-
 using BlogEngine.Core;
 using BlogEngine.Core.Web.Controls;
-
 using Resources;
-
 using Page = BlogEngine.Core.Page;
-
-#endregion
 
 /// <summary>
 /// The page.
@@ -99,13 +88,16 @@ public partial class page : BlogBasePage
     private void AddMetaTags()
     {
         if (this.Page == null)
-        {
             return;
-        }
 
         this.Title = this.Server.HtmlEncode(this.Page.Title);
         this.AddMetaTag("keywords", this.Server.HtmlEncode(this.Page.Keywords));
-        this.AddMetaTag("description", this.Server.HtmlEncode(this.Page.Description));
+
+        var desc = this.Page.Description;
+        if (desc.Length < 25) // SEO requirement
+            desc = desc + " - " + BlogSettings.Instance.Description;
+
+        this.AddMetaTag("description", this.Server.HtmlEncode(desc));
     }
 
     /// <summary>

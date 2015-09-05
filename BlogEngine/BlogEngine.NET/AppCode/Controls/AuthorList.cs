@@ -247,7 +247,7 @@ namespace App_Code.Controls
                     var img = new HtmlImage
                     {
                         Src = Avatar.GetSrc(user.Email),
-                        Alt = "",
+                        Alt = "author avatar",
                         Width = authorImgSize,
                         Height = authorImgSize
                     };
@@ -255,8 +255,8 @@ namespace App_Code.Controls
 
                     var authorAnchor = new HtmlAnchor
                     {
-                        HRef =
-                            string.Format("{0}{1}syndication.axd?author={2}", Utils.ApplicationRelativeWebRoot, blogName, Utils.RemoveIllegalCharacters(user.UserName))
+                        HRef = string.Format("{0}{1}syndication.axd?author={2}", 
+                        Utils.ApplicationRelativeWebRoot, blogName, Utils.RemoveIllegalCharacters(user.UserName))
                     };
                     authorAnchor.Attributes["rel"] = "nofollow";
                     authorAnchor.Controls.Add(img);

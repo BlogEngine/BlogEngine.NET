@@ -221,7 +221,11 @@ public partial class post : BlogBasePage
 	/// </summary>
 	private void AddMetaDescription()
 	{
-		base.AddMetaTag("description", Server.HtmlEncode(Post.Description));
+        var desc = Post.Description;
+        if (desc.Length < 25) // SEO requirement
+            desc = desc + " - " + BlogSettings.Instance.Description;
+
+        base.AddMetaTag("description", Server.HtmlEncode(desc));
 	}
 
 	/// <summary>
