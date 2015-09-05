@@ -60,7 +60,7 @@ public partial class _default : BlogEngine.Core.Web.Controls.BlogBasePage
         }
 
 		AddMetaKeywords();
-		base.AddMetaTag("author", Server.HtmlEncode(BlogSettings.Instance.AuthorName));		
+		base.AddMetaTag("author", Server.HtmlEncode(BlogSettings.Instance.AuthorName));	
 	}
 
     void CheckBrowserCaps()
@@ -298,8 +298,10 @@ public partial class _default : BlogEngine.Core.Web.Controls.BlogBasePage
 
     private void AddMetaDescription(string desc)
     {
-        if (desc.Length < 25) // SEO requirement
-            desc = BlogSettings.Instance.Name + " - " + desc;
+        if (string.IsNullOrEmpty(desc))
+            desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description;
+        else
+            desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description + " - " + desc;
 
         base.AddMetaTag("description", Server.HtmlEncode(desc));
     }

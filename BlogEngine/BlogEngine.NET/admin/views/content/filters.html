@@ -4,17 +4,19 @@
             {{lbl.filters}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
         <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-
         <button data-toggle="modal" data-target="#AddFilter" class="btn btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</button>
 
-
         <div class="btn-group pull-left">
-
-            <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-            <button data-ng-click="deleteAll()" class="btn btn-danger" type="button" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
-            </div>
-
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button data-ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-danger" type="button" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
         </div>
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+    </div>      
+
     <div class="modal fade" id="AddFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
 
@@ -75,13 +77,6 @@
         </div>
     </div>
     <div class="content-inner">
-        <div class="toolbar-grid clearfix">
-            <div class="pull-left">
-            </div>
-            <div class="pull-right">
-                <input type="text" ng-model="query" ng-change="search()" class="form-control input-sm pull-right" placeholder="{{lbl.search}}">
-            </div>
-        </div>
         <table class="table table-bordered table-striped table-hover table-responsive">
             <thead>
                 <tr>

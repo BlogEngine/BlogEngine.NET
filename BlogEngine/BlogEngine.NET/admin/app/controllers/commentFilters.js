@@ -62,4 +62,8 @@ angular.module('blogAdmin').controller('CommentFilterController', ["$rootScope",
     }
 
     $scope.load();
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);

@@ -5,7 +5,7 @@
         </h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
+            <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

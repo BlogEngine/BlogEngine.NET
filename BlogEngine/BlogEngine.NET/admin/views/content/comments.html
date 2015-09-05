@@ -5,10 +5,10 @@
         </h2>
 
         <div class="btn-group  pull-left">
-            <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-            <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
-            <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" class="btn btn-warning btn-sm" title="{{lbl.unapprove}}"><i class="fa fa-archive"></i></button>
-            <button ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" class="btn btn-success btn-sm" title="{{lbl.approve}}"><i class="fa fa-check"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
+            <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" title="{{lbl.unapprove}}"><i class="fa fa-archive"></i></button>
+            <button ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" title="{{lbl.approve}}"><i class="fa fa-check"></i></button>
         </div>
 
         <div class="search pull-right">

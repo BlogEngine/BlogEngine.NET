@@ -58,7 +58,7 @@
             </h2>
             <button data-ng-click="loadEditForm()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-plus"></i>New</button>
             <div class="btn-group pull-left">
-                <button data-ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+                <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
             </div>
             <div class="search pull-right">
                 <i class="fa fa-search"></i>

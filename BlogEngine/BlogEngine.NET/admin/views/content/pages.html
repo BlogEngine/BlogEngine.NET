@@ -5,9 +5,9 @@
         </h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml" class="btn btn-success pull-left"><i class="fa fa-plus"></i>New</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-            <button ng-click="processChecked('unpublish')" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
-            <button ng-click="processChecked('publish')" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
+            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

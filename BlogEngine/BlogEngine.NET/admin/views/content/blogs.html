@@ -110,7 +110,7 @@
         {{lbl.blogs}}</h2>
         <button data-ng-click="modalNew()" class="btn btn-success btn-header pull-left"><i class="fa fa-plus"></i>New</button>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

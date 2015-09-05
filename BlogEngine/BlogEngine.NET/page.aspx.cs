@@ -16,22 +16,22 @@ public partial class page : BlogBasePage
     /// <param name="e">An <see cref="T:System.EventArgs"/> that contains the event data.</param>
     protected override void OnInit(EventArgs e)
     {
-        var queryString = this.Request.QueryString;
+        var queryString = Request.QueryString;
         var qsDeletePage = queryString["deletepage"];
         if (qsDeletePage != null && qsDeletePage.Length == 36)
         {
-            this.DeletePage(new Guid(qsDeletePage));
+            DeletePage(new Guid(qsDeletePage));
         }
 
 		Guid id = GetPageId();
         if (id != Guid.Empty)
         {
-            this.ServePage(id);
-            this.AddMetaTags();
+            ServePage(id);
+            AddMetaTags();
         }
-        else if (!this.IsCallback)
+        else if (!IsCallback)
         {
-            this.Response.Redirect(Utils.RelativeWebRoot);
+            Response.Redirect(Utils.RelativeWebRoot);
         }
 
         base.OnInit(e);
@@ -43,7 +43,6 @@ public partial class page : BlogBasePage
 		Guid result;
 		return id != null && Guid.TryParse(id, out result) ? result : Guid.Empty;
 	}
-
 
     /// <summary>
     /// Serves the page to the containing DIV tag on the page.
@@ -87,17 +86,14 @@ public partial class page : BlogBasePage
     /// </summary>
     private void AddMetaTags()
     {
-        if (this.Page == null)
+        if (Page == null)
             return;
 
-        this.Title = this.Server.HtmlEncode(this.Page.Title);
-        this.AddMetaTag("keywords", this.Server.HtmlEncode(this.Page.Keywords));
+        Title = Server.HtmlEncode(Page.Title);
+        AddMetaTag("keywords", Server.HtmlEncode(Page.Keywords));
 
-        var desc = this.Page.Description;
-        if (desc.Length < 25) // SEO requirement
-            desc = desc + " - " + BlogSettings.Instance.Description;
-
-        this.AddMetaTag("description", this.Server.HtmlEncode(desc));
+        var desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description + " - " + Page.Description;
+        AddMetaTag("description", Server.HtmlEncode(desc));
     }
 
     /// <summary>
@@ -127,8 +123,6 @@ public partial class page : BlogBasePage
         this.Response.Redirect(Utils.RelativeWebRoot, true);
     }
 
- 
- 
 	private Page _page;
 	private bool _pageLoaded;
     /// <summary>
@@ -144,7 +138,7 @@ public partial class page : BlogBasePage
 				Guid id = GetPageId();
 				if (id != Guid.Empty)
 				{
-					_page = BlogEngine.Core.Page.GetPage(id);
+					_page = Page.GetPage(id);
 				}
 			}
 
