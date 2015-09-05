@@ -64,7 +64,8 @@
             $scope.selCommentsPerPage = selectedOption($scope.commentsPerPageOptions, $scope.settings.CommentsPerPage);
             $scope.selTimeZone = selectedOption($scope.timeZoneOptions, $scope.settings.TimeZoneId);
             $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
-            $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);       
+            $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
+            $scope.setCommentProviders($scope.settings.CommentProvider);
             spinOff();
         })
         .error(function () {
@@ -110,27 +111,6 @@
         location.href = url;
     }
 
-    $(document).ready(function () {
-        $('#form').validate({
-            rules: {
-                txtName: { required: true },
-                txtTimeOffset: { required: true, number: true },
-                txtPostsPerPage: { required: true, number: true },
-                txtDescriptionCharacters: { required: true, number: true },
-                txtDescriptionCharactersForPosts: { required: true, number: true },
-                txtRemoteFileDownloadTimeout: { required: true, number: true },
-                txtRemoteMaxFileSize: { required: true, number: true },
-                txtFeedAuthor: { email: true },
-                txtEndorsement: { url: true },
-                txtAlternateFeedUrl: { url: true },
-                txtpostsPerFeed: { number: true },
-                txtEmail: { email: true },
-                txtSmtpServerPort: { number: true },
-                txtThemeCookieName: { required: true }
-            }
-        });
-    });
-
     $scope.uploadFile = function(files) {
         var fd = new FormData();
         fd.append("file", files[0]);
@@ -155,10 +135,61 @@
         .error(function () { toastr.error($rootScope.lbl.failed); });
     }
 
-    $scope.load();
-
     $scope.loadTheme = function () {
         var theme = $("#selDesktopTheme option:selected").text();
         window.location.assign("#/shared/package?id=" + theme);
     }
+
+    $scope.setCommentProviders = function (provider){
+        if (provider == '0') {
+            $("#dq-provider").hide();
+        }
+        if (provider == '1') {
+            $("#be-provider").hide();
+        }
+        if (provider == '2') {
+            $("#be-provider").hide();
+            $("#dq-provider").hide();
+        }
+    }
+
+    $scope.selectProvider = function (provider) {
+        //alert(provider);
+
+        if (provider == 'be') {
+            $("#dq-provider").fadeOut();
+            $("#be-provider").fadeIn();
+        }
+        if (provider == 'dq') {
+            $("#be-provider").fadeOut();
+            $("#dq-provider").fadeIn();
+        }
+        if (provider == 'fb') {
+            $("#be-provider").fadeOut();
+            $("#dq-provider").fadeOut();
+        }
+    }
+
+    $(document).ready(function () {
+        $('#form').validate({
+            rules: {
+                txtName: { required: true },
+                txtTimeOffset: { required: true, number: true },
+                txtPostsPerPage: { required: true, number: true },
+                txtDescriptionCharacters: { required: true, number: true },
+                txtDescriptionCharactersForPosts: { required: true, number: true },
+                txtRemoteFileDownloadTimeout: { required: true, number: true },
+                txtRemoteMaxFileSize: { required: true, number: true },
+                txtFeedAuthor: { email: true },
+                txtEndorsement: { url: true },
+                txtAlternateFeedUrl: { url: true },
+                txtpostsPerFeed: { number: true },
+                txtEmail: { email: true },
+                txtSmtpServerPort: { number: true },
+                txtThemeCookieName: { required: true }
+            }
+        });
+    });
+
+    $scope.load();
 }]);

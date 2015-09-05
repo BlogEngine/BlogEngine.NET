@@ -3,26 +3,14 @@
         <h2 class="page-title pull-left">
             {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <button ng-click="processChecked('install')" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
+        <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
+        <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
 
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
-
-        <!--<div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Show : ALL
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('PackageType','all','all')">{{lbl.all}}</a>          </li>
-                <li><a id="fltr-pub" data-value="{{lbl.extensions}}" ng-click="gridFilter('PackageType','Extension','pub')">{{lbl.extensions}}</a>    </li>
-                <li><a id="fltr-dft" data-value="{{lbl.themes}}" ng-click="gridFilter('PackageType','Theme','dft')">{{lbl.themes}}</a>            </li>
-            </ul>
-        </div>-->
-
     </div>
 
     <div class="content-inner">
