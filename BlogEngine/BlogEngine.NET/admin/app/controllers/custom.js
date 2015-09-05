@@ -13,6 +13,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.id = ($location.search()).id;
     $scope.theme = ($location.search()).id;
     $scope.lst = ($location.search()).lst;
+    $scope.galleryFilter = getFromQueryString('ftr');
 
     $scope.showRating = false;
     $scope.selectedRating = 0;
@@ -20,7 +21,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.activeTheme = ActiveTheme;
     $scope.spin = true;
     
-    if ($location.path().indexOf("/custom") == 0) {
+    if ($location.path().indexOf("/custom/plugins") == 0) {
         $scope.fltr = 'extensions';
     }
     if ($location.path().indexOf("/custom/themes") == 0) {
@@ -29,6 +30,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     if ($location.path().indexOf("/custom/widgets") == 0) {
         $scope.fltr = 'widgets';
     }
+
     if ($scope.lst && $scope.lst.length > 0) {
         $scope.fltr = $scope.lst;
     }
@@ -40,6 +42,9 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
             angular.copy(data, $scope.items);
 
             gridInit($scope, $filter);
+            if ($scope.galleryFilter) {
+                $scope.setFilter();
+            }
             $scope.spin = false;
 
             var pkgId = getFromQueryString('pkgId');
@@ -174,6 +179,15 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         $scope.package = item;
         $scope.package.Enabled = enable;
         $scope.save();
+    }
+
+    $scope.setFilter = function () {
+        if ($scope.galleryFilter == 'plugin') {
+            $scope.gridFilter('PackageType', 'Extension', 'pub');
+        }
+        if ($scope.galleryFilter == 'theme') {
+            $scope.gridFilter('PackageType', 'Theme', 'dft');
+        }
     }
 
     $scope.load();

@@ -126,7 +126,6 @@
                 url.Contains("/PAGE/") ||
                 url.Contains("/CATEGORY/") ||
                 url.Contains("/AUTHOR/") ||
-                url.Contains("/TAG/") ||
                 url.Contains("/CALENDAR/") ||
                 url.StartsWith(blogInstance.RelativeWebRoot + "contact.aspx", StringComparison.OrdinalIgnoreCase) ||
                 url.StartsWith(blogInstance.RelativeWebRoot + "search.aspx", StringComparison.OrdinalIgnoreCase) ||
@@ -166,10 +165,6 @@
             {
                 UrlRules.RewriteCategory(context, url);
             }
-            //else if (urlContainsFileExtension && url.Contains("/TAG/"))
-            //{
-            //    UrlRules.RewriteTag(context, url);
-            //}
             else if (urlContainsFileExtension && url.Contains("/PAGE/"))
             {
                 UrlRules.RewritePage(context, url);

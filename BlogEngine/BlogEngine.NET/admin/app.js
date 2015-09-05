@@ -13,10 +13,11 @@
         .when("/content/tags", { templateUrl: "views/content/tags.html" })
         .when("/content/filters", { templateUrl: "views/content/filters.html" })
 
-        .when("/custom/extensions", { templateUrl: "views/custom/index.html" })
+        .when("/custom/plugins", { templateUrl: "views/custom/plugins.html" })
         .when("/custom/themes", { templateUrl: "views/custom/themes.html" })
         .when("/custom/widgets", { templateUrl: "views/custom/widgets.html" })
-        .when("/shared/package", { templateUrl: "views/shared/package.html" })
+        .when("/custom/gallery", { templateUrl: "views/custom/gallery.html" })
+        .when("/custom/package", { templateUrl: "views/custom/package.html" })
 
         .when("/security/profile", { templateUrl: "views/security/profile.html" })
         .when("/security/roles", { templateUrl: "views/security/roles.html" })
@@ -36,7 +37,6 @@
 
         .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
 
-        .when("/gallery", { templateUrl: "views/gallery/index.html" })
         .when("/help", { templateUrl: "views/help/index.html" })
         .when("/about", { templateUrl: "views/about/index.html" })
 

@@ -1,29 +1,41 @@
 ﻿<div data-ng-controller="CustomController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
-             {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
+        <h2 class="page-title pull-left">
+            {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
-        <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
-        </div>
+        <button ng-click="processChecked('install')" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
+
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
+
+        <!--<div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Show : ALL
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-filter">
+                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('PackageType','all','all')">{{lbl.all}}</a>          </li>
+                <li><a id="fltr-pub" data-value="{{lbl.extensions}}" ng-click="gridFilter('PackageType','Extension','pub')">{{lbl.extensions}}</a>    </li>
+                <li><a id="fltr-dft" data-value="{{lbl.themes}}" ng-click="gridFilter('PackageType','Theme','dft')">{{lbl.themes}}</a>            </li>
+            </ul>
+        </div>-->
+
     </div>
+
     <div class="content-inner">
         <div class="row" style="padding-left: 10px">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-md-4 col-lg-3 info-box">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-lg-3 info-box">
                 <span class="info-box-icon">
-                    <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
-                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
+                    <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
+                        <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
                 </span>
                 <div class="info-box-content">
-                    <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
+                    <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="items.length == 0" />
                     <span class="star-rating">
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
@@ -31,15 +43,8 @@
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
                     </span>
-                    <span class="info-box-text">
-                        <a ng-if="!item.Enabled" style="color: #ccc !important" title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
-                        <a ng-if="item.Enabled" title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a>
-                    </span>
+                    <span class="info-box-text"><a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a></span>
                     <span class="info-box-number">{{item.DownloadCount}} downloads</span>
-                    <div class="pull-left">
-                        <a href="" ng-click="enableExtension(item, false)" ng-if="item.Enabled" class="ext-enabled">Disable</a>
-                        <a href="" ng-click="enableExtension(item, true)" ng-if="!item.Enabled" class="ext-disabled">Enable</a>
-                    </div>
                     <div class="pull-right" style="margin-top: -5px">
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>

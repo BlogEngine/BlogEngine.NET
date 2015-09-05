@@ -34,25 +34,25 @@
     </li>
     <li id="mu-custom" class="hasul">
         <i class="fa fa-sliders"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/extensions"><span>@Resources.labels.custom</span></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins"><span>@Resources.labels.custom</span></a>
         <ul>
-            <li data-ng-class="{ active: isActive('/custom/extensions')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/extensions">@Resources.labels.extensions</a></li>
+            <li data-ng-class="{ active: isActive('/custom/plugins')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins">Plugins</a></li>
             <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes">@Resources.labels.themes</a></li>
             <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
         </ul>
     </li>
-    <li id="mu-users" class="hasul">
-        <i class="fa fa-user"></i>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><span>@Resources.labels.users</span></a>
-        <ul>
-            <li data-ng-class="{ active: isActive('/security/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile">@Resources.labels.profile</a></li>
-            @if (!BlogConfig.SingleUserBlog)
-            {
+    @if (!BlogConfig.SingleUserBlog)
+    {
+        <li id="mu-users" class="hasul">
+            <i class="fa fa-user"></i>
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><span>@Resources.labels.users</span></a>
+            <ul>
+                <li data-ng-class="{ active: isActive('/security/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile">@Resources.labels.profile</a></li>
                 <li data-ng-class="{ active: isActive('/security/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/roles">@Resources.labels.roles</a></li>
                 <li data-ng-class="{ active: isActive('/security/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/users">@Resources.labels.users</a></li>
-            }
-        </ul>
-    </li>
+            </ul>
+        </li>
+    }
     <li id="mu-settings" class="hasul">
         <i class="fa fa-cog"></i>
         <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic"><span>@Resources.labels.settings</span></a>

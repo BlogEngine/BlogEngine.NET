@@ -275,14 +275,14 @@
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\views\about\index.html" />
     <Content Include="admin\views\content\filters.html" />
-    <Content Include="admin\views\gallery\index.html" />
+    <Content Include="admin\views\custom\gallery.html" />
+    <Content Include="admin\views\custom\package.html" />
     <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
     <Content Include="admin\views\settings\comments.html" />
     <Content Include="admin\views\settings\theme.html" />
     <Content Include="admin\views\settings\tools\check.html" />
-    <Content Include="admin\views\shared\package.html" />
     <Content Include="admin\views\shared\_editnote.html" />
     <Content Include="admin\views\shared\_addnote.html" />
     <Content Include="admin\views\shared\_review.html" />
@@ -1557,7 +1557,7 @@
     <Content Include="admin\views\content\pages.html" />
     <Content Include="admin\views\content\posts.html" />
     <Content Include="admin\views\content\tags.html" />
-    <Content Include="admin\views\custom\index.html" />
+    <Content Include="admin\views\custom\plugins.html" />
     <Content Include="admin\views\custom\themes.html" />
     <Content Include="admin\views\custom\widgets.html" />
     <Content Include="admin\views\dashboard.html" />

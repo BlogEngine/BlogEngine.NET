@@ -3,7 +3,7 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
         <div class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
@@ -18,7 +18,7 @@
         <div class="row" style="padding-left: 10px">
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-md-4 col-lg-3 info-box">
                 <span class="info-box-icon">
-                    <a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">
+                    <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
@@ -32,7 +32,7 @@
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
                     </span>
-                    <span class="info-box-text"><a title="{{item.Title}}" href="#/shared/package?id={{item.Id}}">{{item.Title}}</a></span>
+                    <span class="info-box-text"><a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a></span>
                     <span class="info-box-number">{{item.DownloadCount}} downloads</span>
                     <div class="pull-right" style="margin-top: -5px">
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
