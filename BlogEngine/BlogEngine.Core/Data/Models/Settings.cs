@@ -173,11 +173,6 @@
         public string DisqusWebsiteName { get; set; }
 
         // custom filters
-        public int CommentWhiteListCount { get; set; }
-        public int CommentBlackListCount { get; set; }
-        public bool AddIpToWhitelistFilterOnApproval { get; set; }
         public bool TrustAuthenticatedUsers { get; set; }
-        public bool BlockAuthorOnCommentDelete { get; set; }
-        public bool AddIpToBlacklistFilterOnRejection { get; set; }
     }
 }

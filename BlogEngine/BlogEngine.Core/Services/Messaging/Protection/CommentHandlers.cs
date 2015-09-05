@@ -154,7 +154,6 @@
         public static void Listen()
         {
             Post.AddingComment += PostAddingComment;
-            Post.CommentRemoved += PostCommentRemoved; 
 
             InitFilters();
             InitCustomFilters();
@@ -451,18 +450,16 @@
                 }
             }
 
-            // user is in the white list - approve comment
-            if (BlogSettings.Instance.CommentWhiteListCount > 0 &&
-                whiteCnt >= BlogSettings.Instance.CommentWhiteListCount)
+            // user posted 10 or more approved comments - trust
+            if (whiteCnt >= 10)
             {
                 comment.IsApproved = true;
                 comment.ModeratedBy = "Rule:white list";
                 return true;
             }
 
-            // user is in the black list - reject comment
-            if (BlogSettings.Instance.CommentBlackListCount > 0 &&
-                blackCnt >= BlogSettings.Instance.CommentBlackListCount)
+            // user posted 10 or more spam comments - reject
+            if (blackCnt >= 10)
             {
                 comment.IsSpam = true;
                 comment.IsApproved = false;
@@ -507,26 +504,6 @@
                 {
                     RunCustomModerators(comment);
                 }
-            }
-        }
-
-        /// <summary>
-        /// Handles the CommentRemoved event.
-        /// </summary>
-        /// <param name="sender">
-        /// The source of the event.
-        /// </param>
-        /// <param name="e">
-        /// The <see cref="System.ComponentModel.CancelEventArgs"/> instance containing the event data.
-        /// </param>
-        private static void PostCommentRemoved(object sender, EventArgs e)
-        {
-            var comment = (Comment)sender;
-            if (comment == null) { return; }
-
-            if (BlogSettings.Instance.BlockAuthorOnCommentDelete)
-            {
-                AddEmailToFilter(comment.Email, true);
             }
         }
 

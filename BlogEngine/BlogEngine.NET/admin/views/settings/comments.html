@@ -58,6 +58,12 @@
                             </div>
                             <div class="checkbox">
                                 <label>
+                                    <input type="checkbox" ng-model="settings.TrustAuthenticatedUsers" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                                    {{lbl.trustAuthenticated}}
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
                                     <input type="checkbox" name="ckIsCommentNestingEnabled" data-ng-model="settings.IsCommentNestingEnabled" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
                                     {{lbl.enableCommentNesting}}
                                 </label>

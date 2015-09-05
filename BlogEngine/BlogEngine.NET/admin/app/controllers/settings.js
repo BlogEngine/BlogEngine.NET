@@ -19,22 +19,6 @@
         { "OptionName": "20", "OptionValue": "20", "IsSelected": false },
         { "OptionName": "50", "OptionValue": "50", "IsSelected": false }
     ];
-    $scope.whiteListOptions = [
-        { "OptionName": "0", "OptionValue": "0", "IsSelected": false },
-        { "OptionName": "1", "OptionValue": "1", "IsSelected": false },
-        { "OptionName": "2", "OptionValue": "2", "IsSelected": false },
-        { "OptionName": "3", "OptionValue": "3", "IsSelected": false },
-        { "OptionName": "4", "OptionValue": "4", "IsSelected": false },
-        { "OptionName": "5", "OptionValue": "5", "IsSelected": false }
-    ];
-    $scope.blackListOptions = [
-        { "OptionName": "0", "OptionValue": "0", "IsSelected": false },
-        { "OptionName": "1", "OptionValue": "1", "IsSelected": false },
-        { "OptionName": "2", "OptionValue": "2", "IsSelected": false },
-        { "OptionName": "3", "OptionValue": "3", "IsSelected": false },
-        { "OptionName": "4", "OptionValue": "4", "IsSelected": false },
-        { "OptionName": "5", "OptionValue": "5", "IsSelected": false }
-    ];
     $scope.timeZoneOptions = [];
 
     $scope.load = function () {
@@ -63,8 +47,6 @@
             $scope.selCloseDays = selectedOption($scope.vm.CloseDaysOptions, $scope.settings.DaysCommentsAreEnabled);
             $scope.selCommentsPerPage = selectedOption($scope.commentsPerPageOptions, $scope.settings.CommentsPerPage);
             $scope.selTimeZone = selectedOption($scope.timeZoneOptions, $scope.settings.TimeZoneId);
-            $scope.whiteListSelected = selectedOption($scope.whiteListOptions, $scope.settings.CommentWhiteListCount);
-            $scope.blackListSelected = selectedOption($scope.blackListOptions, $scope.settings.CommentBlackListCount);
             $scope.setCommentProviders($scope.settings.CommentProvider);
             spinOff();
         })
@@ -87,10 +69,6 @@
         $scope.settings.DaysCommentsAreEnabled = $scope.selCloseDays.OptionValue;
         $scope.settings.CommentsPerPage = $scope.selCommentsPerPage.OptionValue;
         $scope.settings.TimeZoneId = $scope.selTimeZone.OptionValue;
-
-        $scope.settings.CommentWhiteListCount = $scope.whiteListSelected.OptionValue;
-        $scope.settings.CommentBlackListCount = $scope.blackListSelected.OptionValue;
-
         $scope.settings.txtErrorTitle = $scope.txtErrorTitle;
 
         dataService.updateItem("/api/settings", $scope.settings)
@@ -154,8 +132,6 @@
     }
 
     $scope.selectProvider = function (provider) {
-        //alert(provider);
-
         if (provider == 'be') {
             $("#dq-provider").fadeOut();
             $("#be-provider").fadeIn();

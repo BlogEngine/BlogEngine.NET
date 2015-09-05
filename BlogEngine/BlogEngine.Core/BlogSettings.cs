@@ -763,51 +763,6 @@
 
         #endregion
 
-        #region White list count
-
-        ///<summary>
-        ///    Number of comments approved to add user to white list
-        ///</summary>
-        public int CommentWhiteListCount { get; set; }
-
-        #endregion
-
-        #region Black list count
-
-        ///<summary>
-        ///    Number of comments approved to add user to white list
-        ///</summary>
-        public int CommentBlackListCount { get; set; }
-
-        #endregion
-
-        #region AddIpToWhitelistFilterOnApproval
-
-        ///<summary>
-        ///    Automatically add IP address to white list filter when comment is approved.
-        ///</summary>
-        public bool AddIpToWhitelistFilterOnApproval { get; set; }
-
-        #endregion
-
-        #region AddIpToBlacklistFilterOnRejection
-
-        ///<summary>
-        ///    Automatically add IP address to black list filter when comment is rejected.
-        ///</summary>
-        public bool AddIpToBlacklistFilterOnRejection { get; set; }
-
-        #endregion
-
-        #region BlockAuthorOnCommentDelete
-
-        ///<summary>
-        ///    Automatically add author to Block list when comment is deleted.
-        ///</summary>
-        public bool BlockAuthorOnCommentDelete { get; set; }
-
-        #endregion
-
         #region SecurityValidationKey
 
         /// <summary>

@@ -50,12 +50,6 @@
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="ckRequireSslForMetaWeblogApi" data-ng-model="settings.RequireSslForMetaWeblogApi" />
-                                {{lbl.requireSslForMetaWeblogApi}}
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
                                 <input type="checkbox" name="ckEnableOpenSearch" data-ng-model="settings.EnableOpenSearch" />
                                 {{lbl.enableOpenSearch}}
                             </label>
@@ -163,64 +157,7 @@
                         <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                     </div>
                 </div>
-                <hr />
 
-
-                <div class="form-group">
-                    <label class="col-md-4">
-                    </label>
-                    <div class="col-md-8">
-                        <h4>{{lbl.rules}}</h4>
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4">
-
-
-                    </label>
-                    <div class="col-md-8">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" data-ng-model="settings.AddIpToWhitelistFilterOnApproval" />
-                                {{lbl.whitelistIpOnCommentApproval}}
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" data-ng-model="settings.TrustAuthenticatedUsers" />
-                                {{lbl.trustAuthenticated}}
-                            </label>
-                        </div>
-                        <select id="selWiteListCount" class="form-control" data-ng-options="o.OptionName for o in whiteListOptions" data-ng-model="whiteListSelected"></select>
-                        <label for="selCultures">{{lbl.addToWhiteList}}</label>
-                        <label for="selCultures">{{lbl.authorApproved}}</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-4">
-                    </label>
-                    <div class="col-md-8">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" data-ng-model="settings.BlockAuthorOnCommentDelete" />
-                                {{lbl.commentsBlockOnDelete}}
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" data-ng-model="settings.AddIpToBlacklistFilterOnRejection" />
-                                {{lbl.blacklistIpOnCommentRejection}}
-                            </label>
-                        </div>
-                        <select id="selBlackListCount" class="form-control" data-ng-options="o.OptionName for o in blackListOptions" data-ng-model="blackListSelected"></select>
-                        <label for="selCultures">{{lbl.commentsBlacklist}}</label>
-                        <label for="selCultures">{{lbl.authorRejected}}</label>
-
-                    </div>
-                </div>
             </div>
         </div>
     </form>
