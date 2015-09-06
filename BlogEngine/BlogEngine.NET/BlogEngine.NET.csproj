@@ -182,8 +182,8 @@
     <Content Include="admin\editors\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\fullscreen\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\hr\plugin.min.js" />
-    <Content Include="admin\editors\tinymce\plugins\image4be\filemgr.png" />
-    <Content Include="admin\editors\tinymce\plugins\image4be\plugin.min.js" />
+    <Content Include="admin\editors\tinymce\plugins\filemanager\filemgr.png" />
+    <Content Include="admin\editors\tinymce\plugins\filemanager\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\imagetools\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\image\plugin.min.js" />
     <Content Include="admin\editors\tinymce\plugins\importcss\plugin.min.js" />
@@ -301,7 +301,6 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="admin\editors\tinymce\plugins\image4be\filemgr.cshtml" />
     <Content Include="admin\themes\lte\layout.cshtml" />
     <Content Include="admin\themes\lte\sidebar.cshtml" />
     <Content Include="admin\themes\lte\header.cshtml" />
@@ -309,6 +308,7 @@
     <Content Include="admin\themes\standard\sidebar.cshtml" />
     <Content Include="admin\editpost.cshtml" />
     <Content Include="admin\editpage.cshtml" />
+    <Content Include="admin\filemanager.cshtml" />
     <None Include="App_Data\PublishProfiles\be.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - FTP.pubxml" />
     <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />
@@ -1518,6 +1518,7 @@
     <Content Include="Scripts\toastr.min.js.map" />
     <Content Include="Scripts\syntaxhighlighter\syntaxhighlighter.version" />
     <Content Include="Scripts\version.json" />
+    <Content Include="setup\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

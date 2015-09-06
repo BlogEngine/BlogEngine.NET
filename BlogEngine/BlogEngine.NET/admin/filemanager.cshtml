@@ -56,23 +56,22 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row clearfix" style="margin: 5px 0; width: 100%">
                     <div class="pull-left">
-                        <button class="btn btn-default" style="border:none;" disabled="disabled">
-                            <span class="ng-scope ng-binding">{{currentPath}}</span>
-                        </button>
-                    </div>
-                    <div class="btn-group fileupload-wrapper pull-right">
-                        <div class="btn-group btn-group-fileupload">
-                            <button type="button" tabindex="-1" class="btn btn-success btn-tabkey input-sm" id="fileBtn"><i class="fa fa-upload"></i> {{lbl.uploadFile}}</button>
-                            <input type="file" id="file" name="file" data-role="magic-overlay" tabindex="-1" data-target="#fileBtn" title="{{lbl.uploadFile}}" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                        <div class="pull-left" style="margin-right: 10px; padding-right: 10px; border-right: 1px solid #e5e5e5">
+                            <div>
+                                <button type="button" tabindex="-1" class="btn btn-sm btn-success" id="fileBtn"><i class="fa fa-plus"></i> NEW</button>
+                                <input type="file" id="file" name="file" data-role="magic-overlay" tabindex="-1" data-target="#fileBtn" title="{{lbl.uploadFile}}" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                            </div>
+                        </div>                       
+                        <div class="btn-group befdv pull-left">
+                            <button ng-click="addFolder()" class="btn btn-sm btn-warning" type="submit" title="Add folder"><i class="fa fa-folder"></i></button>
+                            <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                         </div>
-                        <button style="margin-left: 5px" ng-click="addFolder()" class="btn btn-success btn-tabkey input-sm" type="submit"><i class="fa fa-folder"></i> {{lbl.addFolder}}</button>
-                        <button style="margin-left: 5px" ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" class="btn btn-danger btn-tabkey input-sm"><i class="fa fa-times"></i>{{lbl.doDelete}}</button>
-                        <div class="pull-right filterbar flt-r clearfix btn-tabkey">
-                            <div class="active-flt-r"></div>
+                        <div class="pull-left" style="margin-left: 5px">
                             <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />
                         </div>
+                        <div class="pull-left" style="margin-left: 20px; line-height: 32px; color: #666">{{currentPath}}</div>
                     </div>
                 </div>              
 
@@ -98,7 +97,7 @@
                     </div>
                 </div>
 
-                <div ng-if="items.length > itemsPerPage" class="text-left pagination-wrapper" style="margin-top: 10px">          
+                <div ng-if="items.length > itemsPerPage" class="text-right pagination-wrapper" style="margin-top: 10px">          
                     <ul class="pagination pagination-sm">
                         <li data-ng-class="{disabled: currentPage == 0}">
                             <a data-ng-click="prevPage()">« {{lbl.prev}}</a>

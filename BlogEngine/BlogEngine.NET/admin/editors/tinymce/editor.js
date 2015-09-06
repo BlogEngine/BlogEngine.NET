@@ -19,9 +19,9 @@ tinymce.init({
     plugins: [
         "advlist autolink lists link image charmap print preview anchor",
         "searchreplace visualblocks code fullscreen textcolor imagetools",
-        "insertdatetime media table contextmenu paste sh4tinymce image4be"
+        "insertdatetime media table contextmenu paste sh4tinymce filemanager"
     ],
-    toolbar: "fullscreen code | styleselect forecolor | bold italic | alignleft aligncenter alignright | bullist numlist | link media sh4tinymce | image4be",
+    toolbar: "fullscreen code | styleselect forecolor | bold italic | alignleft aligncenter alignright | bullist numlist | link media sh4tinymce | filemanager",
     autosave_ask_before_unload: false,
     max_height: 400,
     min_height: 160,
