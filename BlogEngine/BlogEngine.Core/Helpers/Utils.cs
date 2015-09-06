@@ -2,8 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
-    using System.Diagnostics;
     using System.Globalization;
     using System.IO;
     using System.Linq;
@@ -17,17 +15,14 @@
     using System.Threading;
     using System.Web;
     using System.Web.Configuration;
-    using System.Web.Hosting;
     using System.Web.UI;
     using System.Web.UI.WebControls;
     using System.Web.UI.HtmlControls;
     using System.Xml;
     using System.DirectoryServices;
-
     using BlogEngine.Core.Web.Controls;
     using BlogEngine.Core.Web.Extensions;
     using System.Net.Sockets;
-    using System.Collections;
 
     /// <summary>
     /// Utilities for the entire solution to use.

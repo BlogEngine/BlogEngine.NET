@@ -5,7 +5,8 @@
     $scope.id = {};
     $scope.file = {};
     $scope.dirName = '';
-    $scope.currentPath = '/';
+    $scope.currentPath = '/' + UserVars.Name;
+    $scope.rootStorage = editVars.storageLocation + "files";
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
     $scope.focusInput = false;
 
@@ -15,7 +16,7 @@
             .success(function (data) {
                 angular.copy(data, $scope.items);
                 gridInit($scope, $filter);
-                $scope.currentPath = path ? path : editVars.storageLocation + "files/";
+                $scope.currentPath = path ? path : $scope.rootStorage + "/" + UserVars.Name;
                 rowSpinOff($scope.items);
             })
             .error(function (data) {
@@ -135,7 +136,7 @@
         if (file.FileType != 2) {
             // not a picture, insert as attachement
             s = "<p><a class=\"download\" href=\"" + SiteVars.RelativeWebRoot + "file.axd?file=" +
-                file.FullPath + "\">" + file.Name + " (" + file.FileSize + ")</a></p>";
+                file.FullPath + "\" alt=\"" + file.Name + "\">" + file.Name + " (" + file.FileSize + ")</a></p>";
         }
         // get hold on TinyMce editor and inject link
         var wm = top.tinymce.activeEditor.windowManager;

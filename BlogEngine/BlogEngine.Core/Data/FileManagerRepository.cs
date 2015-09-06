@@ -16,10 +16,15 @@ namespace BlogEngine.Core.Data
 
         public IEnumerable<FileInstance> Find(int take = 10, int skip = 0, string path = "", string order = "")
         {
+            var list = new List<FileInstance>();
             var rwr = Utils.RelativeWebRoot;
             var responsePath = "root";
-            List<FileInstance> list = new List<FileInstance>();
+
+            if(string.IsNullOrEmpty(path))
+                path = "/" + Security.CurrentUser.Identity.Name;
+
             var directory = BlogService.GetDirectory(path);
+
             if (!directory.IsRoot)
             {
                 list.Add(new FileInstance()

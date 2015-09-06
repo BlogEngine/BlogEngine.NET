@@ -77,7 +77,7 @@
                 </div>              
 
                 <div class="row">
-                    <div class="file-card" ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                    <div class="file-card" ng-if="item.FullPath != rootStorage" ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                         <div class="file-card-box">
                             <a ng-if="item.FileType === 0 && item.Name != '...'" title="{{item.Name}}" href="" ng-click="load(item.FullPath)" class="pull-left">
                                 <img ng-src="{{root}}Content/images/blog/placeholders/folder.png" />
@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                <div ng-if="pagedItems.length > 0" class="text-left pagination-wrapper" style="margin-top: 10px">          
+                <div ng-if="items.length > itemsPerPage" class="text-left pagination-wrapper" style="margin-top: 10px">          
                     <ul class="pagination pagination-sm">
                         <li data-ng-class="{disabled: currentPage == 0}">
                             <a data-ng-click="prevPage()">« {{lbl.prev}}</a>

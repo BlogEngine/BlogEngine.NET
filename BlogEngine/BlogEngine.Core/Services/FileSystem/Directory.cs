@@ -14,6 +14,7 @@ namespace BlogEngine.Core.FileSystem
     public partial class Directory : BusinessBase<Directory, Guid>, IComparable<Directory>
     {
         #region Fields & Constants
+
         /// <summary>
         /// directory name
         /// </summary>
@@ -43,9 +44,11 @@ namespace BlogEngine.Core.FileSystem
         /// files in the directory, lazy loaded
         /// </summary>
         private IEnumerable<File> files;
+        
         #endregion
 
         #region Properties
+
         /// <summary>
         /// gets the Directory name
         /// </summary>
@@ -170,9 +173,11 @@ namespace BlogEngine.Core.FileSystem
         /// set marked as internal
         /// </remarks>
         public DateTime LastAccessTime { get; internal set; }
+        
         #endregion
 
         #region Methods
+
         /// <summary>
         /// Creates a subdirectory in the current directory
         /// </summary>
@@ -221,17 +226,9 @@ namespace BlogEngine.Core.FileSystem
             this.directories = null;
         }
 
-        //TODO: Add method RenameDirectory(string NewName) -- renames a directory. basically call the move directory method with the base director such as 
+        #endregion
 
-        //TODO: Add method MoveDirectory(string NewName, Directory BaseDirectory) - moves a directory to a new storage director (all objects)
-
-        //TODO: Add method CopyDirectory(string NewName) - copy the directory to a new name in the same directory container
-
-        //TODO: Add method CopyDirectory(string NewName, Directory BaseDirectory) - copy the directory to a new base directory with a new name
-
-        //TODO: Add method Archive(ArchiveName) -- allows for an archive download of all the objects in the directory
-
-        //TODO: Add method OnLoadObject(BlogProvider NewProvider) -- this method will basically allow for switching from one storage provider to another. OnLoad will copy all objects to the new provider
+        #region Interfaces (not implemented)
 
         /// <summary>
         /// Not implemented. Throws a NotImplementedException.
@@ -284,6 +281,7 @@ namespace BlogEngine.Core.FileSystem
         {
             throw new NotImplementedException();
         }
+        
         #endregion
     }
 }
