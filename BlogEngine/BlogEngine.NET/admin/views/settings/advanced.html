@@ -60,6 +60,12 @@
                                 {{lbl.showPostNavigation}}
                             </label>
                         </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ckEnablePasswordReset" data-ng-model="settings.EnablePasswordReset" />
+                                {{lbl.enablePasswordReset}}
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <hr />
@@ -147,12 +153,6 @@
                 <div class="form-group">
                     <label class="col-md-4"></label>
                     <div class="col-md-8">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckEnablePasswordReset" data-ng-model="settings.EnablePasswordReset" />
-                                {{lbl.enablePasswordReset}}
-                            </label>
-                        </div>
                         <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
                         <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                     </div>

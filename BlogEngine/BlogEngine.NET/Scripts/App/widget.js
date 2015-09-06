@@ -242,7 +242,13 @@ BlogEngine.widgetAdmin = {
             BlogEngine.widgetAdmin.positionMoveDropdown();
     }
     ,
-    editWidget: function(name, id) {
+    editWidget: function (name, id) {
+        // this is temporary before new widgets framework in place
+        if (name == 'Blogroll') {
+            window.location = BlogEngineRes.webRoot + 'admin/#/settings/controls/blogroll';
+            return false;
+        }
+
         window.scrollTo(0, 0);
         var width = document.documentElement.clientWidth + document.documentElement.scrollLeft;
         var height = document.documentElement.clientHeight + document.documentElement.scrollTop;
