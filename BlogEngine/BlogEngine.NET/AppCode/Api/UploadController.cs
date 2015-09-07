@@ -42,7 +42,7 @@ public class UploadController : ApiController
                     action = "file";
             }
 
-            var dir = BlogService.GetDirectory(dirName);
+            var dir = new BlogEngine.Core.FileSystem.Directory();
             var retUrl = "";
 
             if (action == "import")
@@ -74,6 +74,7 @@ public class UploadController : ApiController
             {
                 if (Security.IsAuthorizedTo(Rights.EditOwnPosts))
                 {
+                    dir = BlogService.GetDirectory(dirName);
                     var uploaded = BlogService.UploadFile(file.InputStream, fileName, dir, true);
                     return Request.CreateResponse(HttpStatusCode.Created, uploaded.AsImage.ImageUrl);
                 }
@@ -82,6 +83,7 @@ public class UploadController : ApiController
             {
                 if (Security.IsAuthorizedTo(Rights.EditOwnPosts)) 
                 {
+                    dir = BlogService.GetDirectory(dirName);
                     var uploaded = BlogService.UploadFile(file.InputStream, fileName, dir, true);
                     retUrl = uploaded.FileDownloadPath + "|" + fileName + " (" + BytesToString(uploaded.FileSize) + ")";
                     return Request.CreateResponse(HttpStatusCode.Created, retUrl);

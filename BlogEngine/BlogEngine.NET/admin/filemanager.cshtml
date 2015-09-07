@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using BlogEngine.Core
+@using BlogEngine.Core.FileSystem
 <!DOCTYPE html>
 @{
     if (!Security.IsAuthorizedTo(Rights.EditOwnPosts))
@@ -11,6 +12,15 @@
     var id = Request["id"];
     var returnUrl = Request["return"];
     if (string.IsNullOrEmpty(returnUrl)) { returnUrl = Utils.RelativeWebRoot + "admin/#/content"; }
+    var imgHandler = "image.axd?picture=";
+    if (string.IsNullOrEmpty(Blog.CurrentInstance.StorageContainerName))
+    {
+        imgHandler = Blog.CurrentInstance.RelativeWebRoot + imgHandler;
+    }
+    else
+    {
+        imgHandler = Blog.CurrentInstance.RelativeWebRoot + Blog.CurrentInstance.StorageContainerName + "/" + imgHandler;
+    }
 }
 <html data-ng-app="blogAdmin">
 <head>
@@ -112,10 +122,10 @@
                                 <img ng-src="{{root}}Content/images/blog/placeholders/folder_back.png" />
                             </a>
                             <a ng-if="item.FileType === 1" title="{{item.Name}}" href="" ng-click="insertFile(item)">
-                                <img ng-src="{{root}}Content/images/blog/placeholders/zip.png" />
+                                <img ng-src="{{root}}Content/images/blog/placeholders/{{item.ImgPlaceholder}}" />
                             </a>
                             <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item)">
-                                <img ng-src="{{root}}@Blog.CurrentInstance.StorageContainerName/image.axd?picture={{item.FullPath}}" />
+                                <img ng-src="@imgHandler{{item.FullPath}}" />
                             </a>
                         </div>
                         <div class="file-card-lbl">

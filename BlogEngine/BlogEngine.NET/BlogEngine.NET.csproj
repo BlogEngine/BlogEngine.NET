@@ -568,8 +568,13 @@
     <Content Include="Content\images\blog\flags\zm.png" />
     <Content Include="Content\images\blog\flags\zw.png" />
     <Content Include="Content\images\blog\pingback.png" />
+    <Content Include="Content\images\blog\placeholders\doc.png" />
     <Content Include="Content\images\blog\placeholders\folder.png" />
     <Content Include="Content\images\blog\placeholders\folder_back.png" />
+    <Content Include="Content\images\blog\placeholders\new.png" />
+    <Content Include="Content\images\blog\placeholders\pdf.png" />
+    <Content Include="Content\images\blog\placeholders\txt.png" />
+    <Content Include="Content\images\blog\placeholders\xls.png" />
     <Content Include="Content\images\blog\placeholders\zip.png" />
     <Content Include="Content\images\blog\xfn\colleague.gif" />
     <Content Include="Content\images\blog\xfn\colleagueMet.gif" />
