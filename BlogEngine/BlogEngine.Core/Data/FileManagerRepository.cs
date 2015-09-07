@@ -21,7 +21,7 @@ namespace BlogEngine.Core.Data
             var responsePath = "root";
 
             if(string.IsNullOrEmpty(path))
-                path = "/" + Security.CurrentUser.Identity.Name;
+                path = Blog.CurrentInstance.StorageLocation + Utils.FilesFolder;
 
             var directory = BlogService.GetDirectory(path);
 

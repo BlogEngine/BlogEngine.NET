@@ -91,11 +91,15 @@ namespace BlogEngine.Core.Web.HttpHandlers
 
                     sbSiteVars.Append("ApplicationRelativeWebRoot: '" + Utils.ApplicationRelativeWebRoot + "',");
                     sbSiteVars.Append("RelativeWebRoot: '" + Utils.RelativeWebRoot + "',");
-                    sbSiteVars.Append("BlogInstanceId: '" + Blog.CurrentInstance.Id + "',");
                     sbSiteVars.Append("AbsoluteWebRoot:  '" + Utils.AbsoluteWebRoot + "',");
-                    sbSiteVars.Append("GenericPageSize:  '" + BlogConfig.GenericPageSize.ToString() + "',");
-                    sbSiteVars.Append("GalleryFeedUrl:  '" + BlogConfig.GalleryFeedUrl + "',");
+
                     sbSiteVars.Append("IsPrimary: '" + Blog.CurrentInstance.IsPrimary + "',");
+                    sbSiteVars.Append("BlogInstanceId: '" + Blog.CurrentInstance.Id + "',");
+                    sbSiteVars.Append("BlogStorageLocation: '" + Blog.CurrentInstance.StorageLocation + "',");
+                    sbSiteVars.Append("BlogFilesFolder: '" + Utils.FilesFolder + "',");
+
+                    sbSiteVars.Append("GenericPageSize:  '" + BlogConfig.GenericPageSize.ToString() + "',");
+                    sbSiteVars.Append("GalleryFeedUrl:  '" + BlogConfig.GalleryFeedUrl + "',");                 
                     sbSiteVars.Append("Version: 'BlogEngine.NET " + BlogSettings.Instance.Version() + "'");
 
                     sb.Append("SiteVars = {" + sbSiteVars.ToString() + "}; BlogAdmin = { i18n: " + jc.ToJsonString() + "};");

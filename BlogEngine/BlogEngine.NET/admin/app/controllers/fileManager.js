@@ -1,13 +1,13 @@
-﻿angular.module('blogAdmin').controller('FilesController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
+﻿angular.module('blogAdmin').controller('FileManagerController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
     $scope.data = dataService;
     $scope.items = [];
     $scope.itemsPerPage = 45; // page size - pass into grid on init
     $scope.id = {};
     $scope.file = {};
-    $scope.dirName = '';
-    $scope.currentPath = '/' + UserVars.Name;
-    $scope.rootStorage = editVars.storageLocation + "files";
+    $scope.dirName = '';    
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
+    $scope.rootStorage = SiteVars.BlogStorageLocation + SiteVars.BlogFilesFolder;
+    $scope.currentPath = '/';
     $scope.focusInput = false;
 
     $scope.load = function (path) {
@@ -16,15 +16,13 @@
             .success(function (data) {
                 angular.copy(data, $scope.items);
                 gridInit($scope, $filter);
-                $scope.currentPath = path ? path : $scope.rootStorage + "/" + UserVars.Name;
+                $scope.currentPath = path ? path : $scope.rootStorage;
                 rowSpinOff($scope.items);
             })
             .error(function (data) {
                 toastr.error($rootScope.lbl.Error);
             });
     }
-
-    $scope.load('');
 
     $scope.processChecked = function (action) {
         var i = $scope.items.length;
@@ -144,6 +142,8 @@
         wm.getWindows()[0].close();
     }
 
+    $scope.load('');
+
     function rowSpinOff(items) {
         if (items.length > 0) {
             $('#tr-spinner').hide();
@@ -152,5 +152,4 @@
             $('#div-spinner').html(BlogAdmin.i18n.empty);
         }
     }
-
 }]);

@@ -133,7 +133,7 @@
     <Content Include="admin\app\controllers\pageEditor.js" />
     <Content Include="admin\app\controllers\pings.js" />
     <Content Include="admin\app\controllers\blogRoll.js" />
-    <Content Include="admin\app\controllers\files.js" />
+    <Content Include="admin\app\controllers\fileManager.js" />
     <Content Include="admin\app\controllers\postEditor.js" />
     <Content Include="admin\app\data-service.js" />
     <Content Include="admin\app\controllers\tools.js" />

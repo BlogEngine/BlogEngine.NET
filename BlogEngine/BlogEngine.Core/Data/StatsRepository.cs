@@ -47,11 +47,16 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
                 throw new System.UnauthorizedAccessException();
 
-            string filename = System.IO.Path.Combine(Blog.CurrentInstance.StorageLocation, "newsletter.xml");
-            System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
-            doc.Load(System.Web.Hosting.HostingEnvironment.MapPath(filename));
-            System.Xml.XmlNodeList list = doc.GetElementsByTagName("email");
-            stats.SubscribersCount += (list.Count).ToString();
+            var filename = System.IO.Path.Combine(Blog.CurrentInstance.StorageLocation, "newsletter.xml");
+            filename = System.Web.Hosting.HostingEnvironment.MapPath(filename);
+
+            if (System.IO.File.Exists(filename))
+            {
+                var doc = new System.Xml.XmlDocument();
+                doc.Load(filename);
+                System.Xml.XmlNodeList list = doc.GetElementsByTagName("email");
+                stats.SubscribersCount += (list.Count).ToString();
+            }
         }
 
         void CountComments(Stats stats)

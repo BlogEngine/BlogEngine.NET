@@ -129,7 +129,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/controllers/pages.js")
                 .Include("~/admin/app/controllers/tags.js")
                 .Include("~/admin/app/controllers/categories.js")
-                .Include("~/admin/app/controllers/files.js")
+                .Include("~/admin/app/controllers/fileManager.js")
                 .Include("~/admin/app/controllers/commentList.js")
                 .Include("~/admin/app/controllers/users.js")
                 .Include("~/admin/app/controllers/roles.js")
@@ -165,7 +165,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/editor-helpers.js")
                 .Include("~/admin/app/controllers/postEditor.js")
                 .Include("~/admin/app/controllers/pageEditor.js")
-                .Include("~/admin/app/controllers/files.js")
+                .Include("~/admin/app/controllers/fileManager.js")
                 .Include("~/admin/app/controllers/common.js")
                 .Include("~/admin/app/data-service.js")
                 );
