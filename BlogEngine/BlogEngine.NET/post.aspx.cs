@@ -242,24 +242,21 @@ public partial class post : BlogBasePage
     {
         get
         {
-            return BlogSettings.Instance.IsCommentsEnabled &&
-                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine;
+            return BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine;
         }
     }
     public static bool ShowDisqusComments
     {
         get
         {
-            return BlogSettings.Instance.IsCommentsEnabled &&
-                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus;
+            return BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Disqus;
         }
     }
     public static bool ShowFacebookComments
     {
         get
         {
-            return BlogSettings.Instance.IsCommentsEnabled &&
-                BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Facebook;
+            return BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.Facebook;
         }
     }
 
