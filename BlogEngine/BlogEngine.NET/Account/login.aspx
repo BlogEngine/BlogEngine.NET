@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="account.master" AutoEventWireup="true" ClientIDMode="Static" Inherits="Account.Login" Codebehind="login.aspx.cs" %>
+﻿<%@ Page Language="C#" MasterPageFile="account.master" AutoEventWireup="true" ClientIDMode="Static" Inherits="Account.Login" CodeBehind="login.aspx.cs" %>
 
 <%@ MasterType VirtualPath="~/Account/account.master" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -6,33 +6,30 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false" OnAuthenticate="LoginUser_OnAuthenticate">
         <LayoutTemplate>
-            <div class="page-header clearfix">
-                <h1 style="font-size: 24px; margin: 0"><asp:Label runat="server" ID="lblTitle" Text="<%$Resources:labels,login %>" /></h1>
+            <h1 class="page-header"><asp:Label runat="server" ID="lblTitle" Text="<%$Resources:labels,login %>" /></h1>
+
+            <div class="form-group first-child with-icon">
+               <span class="icon-form-group"> <img src="../Content/images/blog/icon-user.svg" class="icon-user" /></span>
+                <asp:TextBox ID="UserName" runat="server" AutoCompleteType="None" placeholder="username" CssClass="textEntry ltr-dir"></asp:TextBox>
             </div>
-            <div class="account-content">
-                <div class="form-group">
-                    <asp:TextBox ID="UserName" runat="server" AutoCompleteType="None" placeholder="username" CssClass="form-control input-lg textEntry ltr-dir"></asp:TextBox>
-                </div>
-                <div class="form-group">
-                    <asp:TextBox ID="Password" runat="server" placeholder="*******" CssClass="form-control input-lg passwordEntry  ltr-dir" TextMode="Password"></asp:TextBox>
-                </div>
-                <div class="checkbox" style="margin-left: 23px; margin-bottom: 20px">
-                    <asp:CheckBox ID="RememberMe" runat="server" />
-                    <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline "><%=Resources.labels.rememberMe %></asp:Label>
-                </div>
-                <div class="btn-wrapper text-center">
-                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-primary btn-block btn-lg" Text="<%$Resources:labels,login %>" OnClientClick="return ValidateLogin();" />
-                    
-                    <asp:PlaceHolder ID="phResetPassword" runat="server">
-                        <hr />
-                        <asp:HyperLink runat="server" ID="linkForgotPassword" CssClass="text-muted" Text="<%$ Resources:labels,forgotPassword %>" />
-                    </asp:PlaceHolder>
-                </div>
+            <div class="form-group with-icon">
+                <span class="icon-form-group"><img src="../Content/images/blog/icon-pass.svg" class="icon-pass" /></span>
+                <asp:TextBox ID="Password" runat="server" placeholder="password" CssClass="passwordEntry ltr-dir" TextMode="Password"></asp:TextBox>
+            </div>
+            <div class="form-group with-icon">
+                <span class="icon-form-group"><asp:CheckBox ID="RememberMe" runat="server" /></span>
+                <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="label-title "><%=Resources.labels.rememberMe %></asp:Label>
+            </div>
+                <asp:Button ID="LoginButton" runat="server" CommandName="Login" CssClass="btn btn-success btn-block btn-lg" Text="<%$Resources:labels,login %>" OnClientClick="return ValidateLogin();" />
+            <div class="text-center text-uppercase small-link ">
+                <asp:PlaceHolder ID="phResetPassword" runat="server">
+                    <asp:HyperLink runat="server" ID="linkForgotPassword" CssClass="text-muted" Text="<%$ Resources:labels,forgotPassword %>" />
+                </asp:PlaceHolder>
             </div>
         </LayoutTemplate>
     </asp:Login>
     <% if (BlogEngine.Core.BlogSettings.Instance.EnableSelfRegistration)
-       { %>
+        { %>
     <div id="LoginRegister" class="text-center">
         <hr />
         <%=Resources.labels.dontHaveAccount %>

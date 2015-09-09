@@ -1,11 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Account.AccountMasterPage" Codebehind="account.master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Account.AccountMasterPage" CodeBehind="account.master.cs" %>
+
 <%@ Import Namespace="BlogEngine.Core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head id="Head1" runat="server">
     <title>Account Login</title>
     <meta name="description" content="Account Login Membership User Password" />
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="account.css" rel="stylesheet" />
     <script src="../Scripts/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="account.js"></script>
@@ -19,29 +20,22 @@
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
     <form id="Form1" runat="server">
-        <div class="container">
-            <div class="account-header clearfix">
-                <a href="http://dotnetblogengine.net/" class="pull-left logo" target="_blank">
-                    <img alt="BlogEngine.NET" src="../Content/images/blog/logo.png" /></a>
-                <a href="<%= Utils.RelativeWebRoot %>" class="pull-right returnblog text-muted"><%=Resources.labels.returnToBlog %></a>
-            </div>
-            <div id="StatusBox">
-                <div id="AdminStatus" runat="server" class="alert alert-danger" style="display: none"></div>
-            </div>
-            <div class="account well">
+
+        <a class="back-to-blog" href="<%= Utils.RelativeWebRoot %>" ><img src="../Content/images/blog/icon-left.svg" class="icon-left" /> <%=Resources.labels.returnToBlog %></a>
+
+        <div class="account">
+            <div class="container">
+                <div class="account-header text-center">
+                    <a href="http://dotnetblogengine.net/" target="_blank">
+                        <img alt="BlogEngine.NET" src="../Content/images/blog/logo.png" /></a>
+                </div>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                <div id="StatusBox">
+                    <div id="AdminStatus" runat="server" style="display: none"></div>
+                </div>
             </div>
+
         </div>
-        <script>
-            $(".account-header").animate({
-                top: 0,
-                opacity: 1,
-            }, 1000);
-            $(".account").animate({
-                top: 0,
-                opacity: 1,
-            }, 1000);
-        </script>
     </form>
 </body>
 </html>

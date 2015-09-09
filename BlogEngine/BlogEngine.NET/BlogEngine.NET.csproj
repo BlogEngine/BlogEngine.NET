@@ -120,6 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\account.master" />
+    <Content Include="Content\images\blog\icon-left.svg" />
+    <Content Include="Content\images\blog\icon-pass.svg" />
+    <Content Include="Content\images\blog\icon-user.svg" />
     <Content Include="Account\Logout.cshtml" />
     <Content Include="Account\Web.Config" />
     <Content Include="admin\app\controllers\about.js" />
@@ -583,6 +586,7 @@
     <Content Include="Content\images\blog\xfn\me.gif" />
     <Content Include="Content\images\blog\xfn\sweet.gif" />
     <Content Include="Content\images\blog\xfn\sweetMet.gif" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Content\star-rating.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -2736,7 +2740,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\datastore\extensions\" />
-    <Folder Include="App_Data\files\avatars\" />
+    <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />
     <Folder Include="App_Data\posts\" />
     <Folder Include="bin\" />

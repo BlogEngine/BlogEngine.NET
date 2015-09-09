@@ -50,15 +50,16 @@
         </div>
         @RenderBody()
     </div>
+    <script src="/scripts/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
-
             $(".nav-toggle").click(function () {
                 $(".wrapper").toggleClass("sidebar-icon");
             })
-
         });
-
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel();
+        });
     </script>
 </body>
 </html>
