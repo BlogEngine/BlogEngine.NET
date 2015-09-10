@@ -134,7 +134,10 @@
         .success(function (data) {
             angular.copy(data, $scope.packages);
             $scope.checkNewVersion();
-            if ($scope.packages.length > 0) { $('#tr-gal-spinner').hide(); }
+            if ($scope.packages.length > 0) {
+                $('#tr-gal-spinner').hide();
+                $(".owl-carousel").owlCarousel();
+            }
             else { $('#div-gal-spinner').html(BlogAdmin.i18n.empty); }
         })
         .error(function () {
@@ -166,6 +169,10 @@
             .success(function (data) { angular.copy(data, $scope.trash); })
             .error(function () { toastr.error($rootScope.lbl.errorLoadingTrash); });
     }
+
+    $(document).ready(function () {
+        
+    });
 
     $scope.load();
 

@@ -108,11 +108,14 @@ namespace BlogEngine.NET.App_Start
 
             bundles.Add(
                 new ScriptBundle("~/scripts/blogadmin")
-                .Include("~/scripts/jquery-2.1.1.js")
-                .Include("~/scripts/jquery.form.js")
-                .Include("~/scripts/jquery.validate.js")
-                .Include("~/scripts/toastr.js")
-                .Include("~/scripts/Q.js")
+                .Include("~/Scripts/jquery-2.1.1.js")
+                .Include("~/Scripts/jquery.form.js")
+                .Include("~/Scripts/jquery.validate.js")
+                .Include("~/Scripts/toastr.js")
+                .Include("~/Scripts/owl.carousel.min.js")
+                .Include("~/Scripts/bootstrap.js")
+                .Include("~/Scripts/moment.js")
+                .Include("~/Scripts/Q.js")
                 .Include("~/Scripts/angular.min.js")
                 .Include("~/Scripts/angular-route.min.js")
                 .Include("~/Scripts/angular-animate.min.js")
@@ -142,8 +145,6 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/controllers/custom.js")
                 .Include("~/admin/app/controllers/package.js")
                 .Include("~/admin/app/controllers/common.js")               
-                .Include("~/scripts/bootstrap.js")
-                .Include("~/scripts/moment.js")
                 .Include("~/admin/editors/summernote/summernote.js")
                 );
 
