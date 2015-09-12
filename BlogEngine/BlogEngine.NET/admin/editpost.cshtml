@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="selAuthors">{{lbl.author}}</label>
-                            <select id="selAuthors" ng-disabled="singleUserBlog === 'True'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
+                            <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="txtDate">{{lbl.datePublished}}</label>

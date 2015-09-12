@@ -8,7 +8,7 @@
     $scope.security = $rootScope.security;
     $scope.UserVars = UserVars;
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
-    $scope.singleUserBlog = SingleUserBlog;
+    $scope.usageScenario = UsageScenario;
 
     $scope.focusInput = false;
     $scope.customFields = [];

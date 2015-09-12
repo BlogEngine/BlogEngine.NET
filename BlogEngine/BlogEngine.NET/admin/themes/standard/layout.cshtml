@@ -1,5 +1,6 @@
 ﻿@using System.Web.Optimization
 @using BlogEngine.Core
+@using BlogEngine.Core.Data.Services
 @{
     if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
     {
@@ -7,6 +8,15 @@
     }
     string loginUrl = Href(Utils.RelativeWebRoot + "Account/login.aspx");
     var userRights = string.Join("','", Security.CurrentUserRights().Select(r => r.Flag).ToArray());
+
+    var name = Security.CurrentUser.Identity.Name;
+    var email = Membership.Provider.GetUser(name, true).Email;
+    var profile = new AuthorProfile(name);
+    var src = profile.PhotoUrl;
+    if (string.IsNullOrEmpty(src))
+    {
+        src = Avatar.GetSrc(email);
+    }
 }
 <html ng-app="blogAdmin">
 <head>
@@ -24,7 +34,7 @@
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
         var ActiveTheme = '@BlogSettings.Instance.Theme'
-        var SingleUserBlog = '@BlogConfig.SingleUserBlog'
+        var UsageScenario = '@BlogConfig.UsageScenario'
         var ServerTime = '@DateTime.Now'
         var UtcTime = '@DateTime.UtcNow'
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
@@ -39,7 +49,7 @@
     <script type="text/javascript" src="admin.res.axd"></script>
     <div class="wrapper @Resources.labels.LangDirection">
         <div class="user-nav">
-            <img src="http://www.gravatar.com/avatar/c892488508c53d9f039aca7d02afa7b2.jpg?d=identicon" />
+            <img src="@src" />
             <ul>
                 <li><a href="~/admin/#/security/profile"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i> Sign Out</a></li>

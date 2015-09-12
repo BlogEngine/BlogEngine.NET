@@ -2,7 +2,7 @@
 
 <ul class="nav-primary" data-ng-controller="NavController">
     <li class="nav-blog-info">
-        <a href="~/" target="_blank" class="nav-blog-name">YourBlog.com</a>
+        <a href="~/" target="_blank" class="nav-blog-name">@BlogSettings.Instance.Name</a>
         <button class="nav-toggle open" type="button" role="button" aria-label="Toggle Navigation">
             <span class="line-1"></span>
             <span class="line-2"></span>
@@ -26,7 +26,7 @@
             <li data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
             <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
             <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
-            @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && !BlogConfig.SingleUserBlog)
+            @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && BlogConfig.UsageScenario == "multiblogs")
             {
                 <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
             }
@@ -41,7 +41,7 @@
             <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
         </ul>
     </li>
-    @if (!BlogConfig.SingleUserBlog)
+    @if (BlogConfig.UsageScenario == "multiusers")
     {
         <li id="mu-users" class="hasul">
             <i class="fa fa-user"></i>
@@ -62,7 +62,7 @@
             <li data-ng-class="{ active: isActive('/settings/feed')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/feed">@Resources.labels.feed</a></li>
             <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments">@Resources.labels.comments</a></li>
             <li data-ng-class="{ active: isActive('/settings/controls')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls">@Resources.labels.controls</a></li>
-            @if (!BlogConfig.SingleUserBlog)
+            @if (BlogConfig.UsageScenario != "singleblog")
             {
                 <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced">@Resources.labels.advanced</a></li>
             }

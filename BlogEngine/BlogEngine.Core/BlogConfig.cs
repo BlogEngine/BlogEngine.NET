@@ -301,13 +301,13 @@ namespace BlogEngine.Core
         /// <summary>
         /// Configure application for use by single user
         /// </summary>
-        public static bool SingleUserBlog
+        public static string UsageScenario
         {
             get
             {
-                return string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.SingleUserBlog"])
-                    ? false
-                    : bool.Parse(WebConfigurationManager.AppSettings["BlogEngine.SingleUserBlog"]);
+                return string.IsNullOrEmpty(WebConfigurationManager.AppSettings["BlogEngine.UsageScenario"])
+                    ? "singleblog"
+                    : WebConfigurationManager.AppSettings["BlogEngine.UsageScenario"];
             }
         }
         #endregion

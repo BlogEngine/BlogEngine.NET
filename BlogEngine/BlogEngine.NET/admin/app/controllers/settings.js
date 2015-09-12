@@ -7,7 +7,7 @@
     $scope.selfRegistrationInitialRole = {};
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
-    $scope.singleUserBlog = SingleUserBlog;
+    $scope.usageScenario = UsageScenario;
 
     $scope.moderationEnabled = 0;
     $scope.commentsProvider = 0;
