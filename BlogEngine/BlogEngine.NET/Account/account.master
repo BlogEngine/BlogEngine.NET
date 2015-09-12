@@ -8,7 +8,7 @@
     <meta name="description" content="Account Login Membership User Password" />
      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="account.css" rel="stylesheet" />
-    <script src="../Scripts/jquery-2.1.1.min.js"></script>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="account.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
