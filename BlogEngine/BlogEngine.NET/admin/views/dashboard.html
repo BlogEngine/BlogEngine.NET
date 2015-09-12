@@ -134,20 +134,28 @@
                             {{lbl.latestFromTheGallery}}
                         </div>
                     </div>
-                    <div class="owl-carousel gallery-dashboard" id="collapseSix">
-                        <div class="item item-gallery clearfix" data-ng-repeat="pkg in packages">
-                            <a href="#/shared/package?id={{pkg.Id}}">
-                                <div class="item-img">
-                                    <img ng-if="pkg.IconUrl.length > 0" class="img-gallery" ng-src="{{pkg.IconUrl}}" />
-                                    <img ng-if="pkg.IconUrl.length == 0" class="img-gallery" src="../Content/images/blog/pkg.png" />
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-title">{{pkg.Title}}</div>
-                                    <span class="item-desc">{{pkg.Description}}</span>
-                                </div>
-                            </a>
-                        </div>
+
+                    <!-- owl.carousel start -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css" />
+                    <div class="gallery-dashboard" id="collapseSix" style="width: 600px; height: 150px; padding: 20px; display: block">
+                        <data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true, items: 3, autoPlay: true, rewindNav : true}">
+                            <div owl-carousel-item="" ng-repeat="pkg in packages" class="item">
+                                <a href="#/custom/package?id={{pkg.Id}}">
+                                    <div class="item-img" style="width: 140px; height: 100px; overflow: hidden">
+                                        <img ng-if="pkg.IconUrl.length > 0" class="img-gallery" ng-src="{{pkg.IconUrl}}" />
+                                        <img ng-if="pkg.IconUrl.length == 0" class="img-gallery" src="../Content/images/blog/pkg.png" />
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-title">{{pkg.Title}}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </data-owl-carousel>
                     </div>
+                    <!-- owl.carousel end -->
+
                 </div>
             </div>
             <div class="col-md-4">

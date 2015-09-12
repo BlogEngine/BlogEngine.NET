@@ -4,7 +4,6 @@
     $scope.draftpages = [];
     $scope.recentcomments = [];
     $scope.trash = [];
-    $scope.packages = [];
     $scope.logItems = [];
     $scope.itemToPurge = {};
     $scope.security = $rootScope.security;
@@ -132,11 +131,11 @@
         }
         dataService.getItems('/api/packages', { take: 5, skip: 0 })
         .success(function (data) {
+            $scope.packages = [];
             angular.copy(data, $scope.packages);
             $scope.checkNewVersion();
             if ($scope.packages.length > 0) {
                 $('#tr-gal-spinner').hide();
-                $(".owl-carousel").owlCarousel();
             }
             else { $('#div-gal-spinner').html(BlogAdmin.i18n.empty); }
         })
