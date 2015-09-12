@@ -34,6 +34,15 @@ $provide.value("$locale", {
       "\u0257\u00f3n\u025bs\u00fa",
       "esa\u0253as\u00fa"
     ],
+    "ERANAMES": [
+      "\u0253oso \u0253w\u00e1 y\u00e1\u0253e l\u00e1",
+      "mb\u00fasa kw\u00e9di a Y\u00e9s"
+    ],
+    "ERAS": [
+      "\u0253.Ys",
+      "mb.Ys"
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "dim\u0254\u0301di",
       "\u014bg\u0254nd\u025b",
@@ -70,6 +79,10 @@ $provide.value("$locale", {
       "may",
       "tin",
       "el\u00e1"
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE d MMMM y",
     "longDate": "d MMMM y",
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "dua-cm",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

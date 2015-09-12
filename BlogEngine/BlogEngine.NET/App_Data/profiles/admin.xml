@@ -10,7 +10,7 @@
   <Birthday>1900-01-01</Birthday>
   <AboutMe>I love BlogEngine.NET
 </AboutMe>
-  <PhotoURL>admin.jpg</PhotoURL>
+  <PhotoURL />
   <Company />
   <EmailAddress>post@example.com</EmailAddress>
   <PhoneMain />

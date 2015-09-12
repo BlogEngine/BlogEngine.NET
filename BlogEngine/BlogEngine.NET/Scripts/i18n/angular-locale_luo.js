@@ -30,15 +30,24 @@ $provide.value("$locale", {
       "Wuok Tich",
       "Tich Ariyo",
       "Tich Adek",
-      "Tich Ang'wen",
+      "Tich Ang\u2019wen",
       "Tich Abich",
       "Ngeso"
     ],
+    "ERANAMES": [
+      "Kapok Kristo obiro",
+      "Ka Kristo osebiro"
+    ],
+    "ERAS": [
+      "BC",
+      "AD"
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Dwe mar Achiel",
       "Dwe mar Ariyo",
       "Dwe mar Adek",
-      "Dwe mar Ang'wen",
+      "Dwe mar Ang\u2019wen",
       "Dwe mar Abich",
       "Dwe mar Auchiel",
       "Dwe mar Abiriyo",
@@ -70,6 +79,10 @@ $provide.value("$locale", {
       "DAP",
       "DGI",
       "DAG"
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE, d MMMM y",
     "longDate": "d MMMM y",
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "luo",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

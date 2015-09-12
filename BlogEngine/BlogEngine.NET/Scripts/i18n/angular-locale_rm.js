@@ -34,6 +34,15 @@ $provide.value("$locale", {
       "venderdi",
       "sonda"
     ],
+    "ERANAMES": [
+      "avant Cristus",
+      "suenter Cristus"
+    ],
+    "ERAS": [
+      "av. Cr.",
+      "s. Cr."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "schaner",
       "favrer",
@@ -70,6 +79,10 @@ $provide.value("$locale", {
       "oct.",
       "nov.",
       "dec."
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE, 'ils' d 'da' MMMM y",
     "longDate": "d 'da' MMMM y",
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "rm",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

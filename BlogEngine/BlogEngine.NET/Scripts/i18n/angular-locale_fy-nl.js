@@ -34,6 +34,15 @@ $provide.value("$locale", {
       "freed",
       "sneon"
     ],
+    "ERANAMES": [
+      "Foar Kristus",
+      "nei Kristus"
+    ],
+    "ERAS": [
+      "f.Kr.",
+      "n.Kr."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "jannewaris",
       "febrewaris",
@@ -70,6 +79,10 @@ $provide.value("$locale", {
       "okt.",
       "nov.",
       "des."
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE d MMMM y",
     "longDate": "d MMMM y",
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "fy-nl",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

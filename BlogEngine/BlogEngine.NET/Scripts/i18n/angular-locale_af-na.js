@@ -16,6 +16,15 @@ $provide.value("$locale", {
       "Vrydag",
       "Saterdag"
     ],
+    "ERANAMES": [
+      "voor Christus",
+      "na Christus"
+    ],
+    "ERAS": [
+      "v.C.",
+      "n.C."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Januarie",
       "Februarie",
@@ -40,9 +49,9 @@ $provide.value("$locale", {
       "Sa"
     ],
     "SHORTMONTH": [
-      "Jan",
-      "Feb",
-      "Mar",
+      "Jan.",
+      "Feb.",
+      "Mrt.",
       "Apr",
       "Mei",
       "Jun",
@@ -52,6 +61,10 @@ $provide.value("$locale", {
       "Okt",
       "Nov",
       "Des"
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE d MMMM y",
     "longDate": "d MMMM y",
@@ -84,14 +97,14 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "\u00a4\u00a0-",
+        "negPre": "-\u00a4",
         "negSuf": "",
-        "posPre": "\u00a4\u00a0",
+        "posPre": "\u00a4",
         "posSuf": ""
       }
     ]
   },
   "id": "af-na",
-  "pluralCat": function (n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
