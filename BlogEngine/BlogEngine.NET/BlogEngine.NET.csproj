@@ -1945,6 +1945,7 @@
     <Compile Include="AppCode\Api\CategoriesController.cs" />
     <Compile Include="AppCode\Api\CommentsController.cs" />
     <Compile Include="AppCode\Api\CustomFieldsController.cs" />
+    <Compile Include="AppCode\Api\DashboardController.cs" />
     <Compile Include="AppCode\Api\FileManagerController.cs" />
     <Compile Include="AppCode\Api\FileSystemDataStreamProvider.cs" />
     <Compile Include="AppCode\Api\LogsController.cs" />

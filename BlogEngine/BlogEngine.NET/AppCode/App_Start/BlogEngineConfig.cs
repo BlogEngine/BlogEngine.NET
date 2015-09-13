@@ -229,6 +229,7 @@ namespace BlogEngine.NET.App_Start
             container.Register<IRolesRepository, RolesRepository>(Lifestyle.Transient);
             container.Register<IFileManagerRepository, FileManagerRepository>(Lifestyle.Transient);
             container.Register<ICommentFilterRepository, CommentFilterRepository>(Lifestyle.Transient);
+            container.Register<IDashboardRepository, DashboardRepository>(Lifestyle.Transient);
 
             container.Verify();
 
