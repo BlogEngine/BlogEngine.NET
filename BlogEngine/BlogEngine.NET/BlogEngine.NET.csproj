@@ -46,7 +46,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -1520,10 +1520,10 @@
     <Content Include="setup\Web.config" />
     <Content Include="Scripts\version.json" />
     <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+      <DependentUpon>Web.Config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+      <DependentUpon>Web.Config</DependentUpon>
     </None>
     <Content Include="Web.sitemap" />
     <Content Include="Custom\Widgets\Visitor info\apmlchecker.ashx" />
@@ -1783,7 +1783,7 @@
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
     <Content Include="Custom\Controls\PostList.ascx" />
-    <Content Include="Web.config">
+    <Content Include="Web.Config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Custom\Widgets\Administration\screenshot.png" />
@@ -2539,7 +2539,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlogEngine.Core\BlogEngine.Core.csproj">
-      <Project>{9ed9914a-fb6e-4d21-8c71-9122e8c3076b}</Project>
+      <Project>{9ED9914A-FB6E-4D21-8C71-9122E8C3076B}</Project>
       <Name>BlogEngine.Core</Name>
     </ProjectReference>
   </ItemGroup>
@@ -2765,6 +2765,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
