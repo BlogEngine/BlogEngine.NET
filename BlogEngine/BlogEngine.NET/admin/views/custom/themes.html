@@ -23,7 +23,7 @@
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </a>
                 </span>
-                <div ng-class="(item.Id == activeTheme) ? 'info-box-content info-box-selected' : 'info-box-content'">
+                <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'info-box-content info-box-selected' : 'info-box-content'">
                     <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
                     <span class="star-rating">
                         <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
@@ -38,6 +38,9 @@
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
                         <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
                         <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
+                    </div>
+                    <div>
+                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-default btn-sm"><i class="fa fa-check"></i> {{lbl.setAsCurrentTheme}}</button>
                     </div>
                 </div>
             </div>

@@ -111,7 +111,7 @@ public class PackagesController : ApiController
 
         if (review.Body.Length > 450) review.Body = review.Body.Substring(0, 450);
 
-        var result = BlogEngine.Core.Packaging.Gallery.RatePackage(id, review);
+        var result = Gallery.RatePackage(id, review);
 
         return Request.CreateResponse(HttpStatusCode.OK, result);
     }
@@ -131,4 +131,13 @@ public class PackagesController : ApiController
         }
     }
 
+    [HttpPut]
+    public HttpResponseMessage SetTheme(string id)
+    {
+        if (!string.IsNullOrEmpty(id))
+        {
+            BlogEngine.Core.BlogSettings.Instance.Theme = id;
+        }
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
 }

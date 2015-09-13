@@ -86,13 +86,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         });
     }
 
-    $scope.relocate = function (loc) {
-        $scope.pkgLocation = loc;
-        $("#fltr-loc").removeClass("active");
-        $("#fltr-gal").removeClass("active");
-        $scope.load();
-    }
-
     $scope.save = function () {
         $scope.spin = true;
 
@@ -188,6 +181,22 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         if ($scope.galleryFilter == 'theme') {
             $scope.gridFilter('PackageType', 'Theme', 'dft');
         }
+    }
+
+    $scope.setDefaultTheme = function (id) {
+        $scope.spin = true;
+        dataService.updateItem("/api/packages/settheme/" + id, id)
+        .success(function (data) {
+            ActiveTheme = id;
+            $scope.activeTheme = id;
+            toastr.success($rootScope.lbl.completed);
+            $scope.load();
+            $scope.spin = false;
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $scope.spin = false;
+        });
     }
 
     $scope.load();

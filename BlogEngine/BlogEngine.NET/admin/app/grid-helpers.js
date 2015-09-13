@@ -106,9 +106,6 @@
         $("#fltr-pub").removeClass('active');
         $("#fltr-dft").removeClass('active');
 
-        $("#fltr-loc").removeClass("active");
-        $("#fltr-gal").removeClass("active");
-
         $("#fltr-" + fltr).addClass('active');
 
         scope.filter = fltr;
