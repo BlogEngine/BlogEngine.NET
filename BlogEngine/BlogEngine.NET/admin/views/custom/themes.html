@@ -1,6 +1,7 @@
 ﻿<div data-ng-controller="CustomController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+        <h2 class="page-title pull-left">
+            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
@@ -14,33 +15,28 @@
         </div>
     </div>
     <div class="content-inner">
-     
-        <div class="row" style="padding-left: 10px">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-md-4 col-lg-3 info-box">
-                <span class="info-box-icon">
-                    <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
+
+        <div class="row">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-3">
+                <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'package-item package-item-active' : 'package-item'">
+                    <div class="package-item-img">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
-                    </a>
-                </span>
-                <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'info-box-content info-box-selected' : 'info-box-content'">
-                    <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
-                    <span class="star-rating">
-                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
-                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
-                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)"><i></i>
-                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
-                        <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
-                    </span>
-                    <span class="info-box-text"><a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a></span>
-                    <span class="info-box-number">{{item.DownloadCount}} downloads</span>
-                    <div class="pull-right" style="margin-top: -5px">
-                        <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                        <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                        <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
                     </div>
-                    <div>
-                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-default btn-sm"><i class="fa fa-check"></i> {{lbl.setAsCurrentTheme}}</button>
+                    <input type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
+                    <div class="package-item-info clearfix">
+                        <div class=" pull-left">
+                            <span>{{item.Title}}</span>
+                        </div>
+                        <div class=" pull-right">
+                            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
+                            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
+                            <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
+                        </div>
+                    </div>
+                    <div class="package-item-button">
+                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-success"><i class="fa fa-check"></i> {{lbl.active}}</button>
+                        <a title="{{item.Title}}" class="btn btn-primary" href="#/custom/package?id={{item.Id}}">Customize</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +54,7 @@
                     <a data-ng-click="nextPage()">{{lbl.next}} »</a>
                 </li>
             </ul>
-        </div>       
+        </div>
     </div>
 </div>
 

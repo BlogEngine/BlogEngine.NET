@@ -39,8 +39,8 @@
                     <h4>{{user.Profile.DisplayName}}</h4>
                     <div class="roles-name">{{lbl.roles}}: <span data-ng-repeat ="role in user.Roles" >{{role.RoleName}}</span></div>
                     <div class="btn-group">
-                        <a class="btn btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
-                        <a class="btn btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
+                        <a class="btn btn-sm btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
+                        <a class="btn btn-sm btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
                         <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
                     </div>
 

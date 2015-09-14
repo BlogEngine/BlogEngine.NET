@@ -1,0 +1,31 @@
+﻿/*[FORMS]*/
+.form-width-limited, .form-horizontal { max-width: 600px; }
+.content-inner .btn,
+.content-inner .form-control { border-radius: 0px; }
+.form-group { margin-bottom: 18px; }
+.form-group label.control-label { color: #444; font-weight: 400; font-size: 12px; letter-spacing: .5px; text-transform: capitalize; }
+.form-control { box-shadow: none; font-weight: 400; font-size: 13px; padding-left: 10px; border-color: #d8d8d8; }
+.form-control:focus { border-color: #2196f3; outline: 0px none; box-shadow: none; }
+.input-group .input-group-addon { border-radius: 0; }
+
+/*[BTN]*/
+
+.btn { padding: 0; cursor:pointer; text-transform: uppercase;  height:34px; line-height:34px; border:none; padding:0 20px;}
+.btn-sm {height:30px; line-height:30px;}
+.btn-lg {height:46px; line-height:46px;}
+
+
+
+.btn-success {background-color: #46BE8A; }
+.btn-success:hover,
+.btn-success:focus {background-color: #31AA75; }
+
+
+.btn-danger {background-color: #F96868; }
+.btn-danger:hover,
+.btn-danger:focus {background-color: #EC5D5D; }
+
+.btn-warning {background-color: #F5AD47; }
+.btn-warning:hover,
+.btn-warning:focus {background-color: #E59C35; }
+

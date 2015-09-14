@@ -1,0 +1,26 @@
+﻿
+/*[HEADER]*/
+.page-header { position: relative; background-color: #fff; margin: 0; height: 50px; padding: 0 56px 0 20px; border: none; box-shadow: 0px 2px 1px rgba( 0,0,0,0.02); }
+.page-header .page-title { margin: 0; font-weight: 400; line-height: 50px; height: 50px; text-transform: uppercase; font-size: 13px; margin-right: 16px; }
+.page-header .btn { margin-right: 10px; border-radius: 2px; border: none !important; margin-top: 12px; line-height: 24px; font-weight: 400; height: 26px; font-size: 12px; text-align: center; padding: 0 15px 0 26px; display: block; text-transform: uppercase; position: relative; }
+.page-header .btn i { padding: 0; height: 26px; line-height: 26px; font-size: 10px; width: 26px; height: 26px; left: 0; position: absolute; }
+.page-header .befdv:before { content: ""; float: left; display: block; width: 1px; height: 26px; background-color: #ddd; margin-top: 12px; margin-right: 10px; }
+.page-header .btn-group { margin-right: 10px; }
+.page-header .btn-group .btn { padding: 0; width: 50px; margin-right: 3px; }
+.page-header .btn-group .btn i { padding: 0; font-size: 18px; height: 26px; line-height: 26px; font-size: 14px; width: 50px; height: 26px; left: 0; position: relative; }
+.page-header .tooltip-inner { font-size: 10px; font-weight: 400; border-radius: 2px; text-transform: uppercase; }
+.page-header .help-link { color: #888; display: none; }
+.page-header .dropdown .btn { margin-right: 0; padding: 0 26px 0 10px; }
+.page-header .dropdown .btn i { right: 0; left: auto; font-size: 14px; }
+.page-header .dropdown .btn-default { background-color: #fff; }
+
+/*[SEARCH]*/
+.search { width: 26px; height: 26px; position: relative; margin-top: 12px; margin-left: 10px; }
+.search input { outline: none !important; z-index: 6; position: absolute; left: 0; top: 0; background: none; cursor: pointer; border: none; font-size: 0; border-radius: 2px; width: 26px; height: 26px; }
+.search .fa-search { z-index: 5; line-height: 26px; text-align: center; position: absolute; left: 0; top: 0; background-color: #989898; color: #fff; border: none; border-radius: 2px; width: 26px; height: 26px; }
+.search .fa-times-circle { display: none; }
+.search.search-wide { margin: 0; width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+.search.search-wide input { width: 100%; height: 100%; position: absolute; cursor: text; padding: 0 50px; font-size: 16px; border-radius: 0; background-color: #fff; left: 0; top: 0; }
+.search.search-wide .fa-search { left: 0; z-index: 7; background: none; color: #aaa; top: 12px; left: 15px; }
+.search.search-wide .fa-times-circle { display: block; font-size: 20px; position: absolute; right: 25px; top: 15px; z-index: 7; text-align: center; color: rgb(233, 102, 102); }
+
