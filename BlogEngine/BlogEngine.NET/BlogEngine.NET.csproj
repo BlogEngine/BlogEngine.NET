@@ -122,6 +122,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\account.master" />
+    <Content Include="admin\themes\standard\css\01.main.css" />
+    <Content Include="admin\themes\standard\css\02.nav.css" />
+    <Content Include="admin\themes\standard\css\03.header.css" />
+    <Content Include="admin\themes\standard\css\04.forms.css" />
+    <Content Include="admin\themes\standard\css\05.dashboard.css" />
+    <Content Include="admin\themes\standard\css\06.users.css" />
+    <Content Include="admin\themes\standard\css\07.tables.css" />
+    <Content Include="admin\themes\standard\css\08.posts.css" />
+    <Content Include="admin\themes\standard\css\09.custom.css" />
     <Content Include="Content\images\blog\icon-left.svg" />
     <Content Include="Content\images\blog\icon-pass.svg" />
     <Content Include="Content\images\blog\icon-user.svg" />
@@ -1606,7 +1615,6 @@
     <Content Include="Content\Auto\Global.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="admin\themes\standard\img\active-filterbar.png" />
     <Content Include="Content\images\blog\avatars\blank.png" />
     <Content Include="Content\images\blog\avatars\identicon.png" />
     <Content Include="Content\images\blog\avatars\mm.png" />
@@ -2731,6 +2739,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\themes\standard\img\" />
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />
