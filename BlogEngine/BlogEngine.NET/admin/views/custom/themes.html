@@ -35,13 +35,12 @@
                         </div>
                     </div>
                     <div class="package-item-button">
-                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-success"><i class="fa fa-check"></i> {{lbl.active}}</button>
-                        <a title="{{item.Title}}" class="btn btn-primary" href="#/custom/package?id={{item.Id}}">Customize</a>
+                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-success"><i class="fa fa-check"></i> {{lbl.active}}</button>
+                        <a class="btn btn-sm btn-primary" href="#/custom/package?id={{item.Id}}"><i class="fa fa-cog"></i> Customize</a>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
             <ul class="pagination pagination-sm">
                 <li data-ng-class="{disabled: currentPage == 0}">

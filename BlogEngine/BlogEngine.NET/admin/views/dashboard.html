@@ -4,7 +4,6 @@
     </div>
     <div data-ng-include src="'views/shared/_addnote.html'"></div>
     <div data-ng-include src="'views/shared/_editnote.html'"></div>
-
     <div id="modal-log-file" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -27,7 +26,6 @@
             </div>
         </div>
     </div>
-
     <div class="content-inner">
         <div id="versionMsg">
             <div class="alert alert-info">
@@ -39,136 +37,40 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="panel-title">{{lbl.posts}}</div>
+                        <div class="panel-title">{{lbl.stats}}</div>
                     </div>
-                    <div class="panel-body panel-cards">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-published">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=pub">
-                                        <span class="panel-cards-item-number">{{stats.PublishedPostsCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.published}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-unpublished">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=dft">
-                                        <span class="panel-cards-item-number">{{stats.DraftPostsCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.drafts}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="list-group panel-collapse dashboard-stats collaps in" id="collapseOne">
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content?fltr=pub">{{lbl.publishedPosts}} <span class="item-stats-info item-stats-info-green">{{stats.PublishedPostsCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=pub">{{lbl.publishedPages}} <span class="item-stats-info item-stats-info-green">{{stats.PublishedPagesCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content?fltr=dft">{{lbl.draftPosts}} <span class="item-stats-info item-stats-info-yellow">{{stats.DraftPostsCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=dft">{{lbl.draftPages}} <span class="item-stats-info item-stats-info-yellow">{{stats.DraftPagesCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=apr">{{lbl.approvedComments}} <span class="item-stats-info item-stats-info-green">{{stats.PublishedCommentsCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=pnd">{{lbl.unapprovedcomments}} <span class="item-stats-info item-stats-info-yellow">{{stats.UnapprovedCommentsCount}}</span></a></li>
+                        <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">{{lbl.spamComments}}<span class="item-stats-info item-stats-info-red">{{stats.SpamCommentsCount}}</span></a></li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <div class="panel-title">{{lbl.comments}}</div>
+                        <div class="panel-title">{{lbl.latestComments}}</div>
                     </div>
-                    <div class="panel-body panel-cards">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-unpublished">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=pnd">
-                                        <span class="panel-cards-item-number">{{stats.UnapprovedCommentsCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.unapproved}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-sm panel-cards-item-published">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=apr">
-                                        <span class="panel-cards-item-number">{{stats.PublishedCommentsCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.approved}}</span>
-                                    </a>
-                                </div>
-                                <div class="panel-cards-item panel-cards-item-sm panel-cards-item-spam">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">
-                                        <span class="panel-cards-item-number">{{stats.SpamCommentsCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.spam}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="list-group panel-collapse collaps in " id="collapseTwo">
+                        <li class="list-group-item" data-ng-repeat="comment in recentcomments ">
+                            <span><a href="{{comment.RelativeLink}}" target="_new" class="text-ellipsis">{{comment.Title}}</a></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">{{lbl.pages}}</div>
-                    </div>
-                    <div class="panel-body panel-cards">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-published">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=pub">
-                                        <span class="panel-cards-item-number">{{stats.PublishedPagesCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.published}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="panel-cards-item panel-cards-item-unpublished">
-                                    <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=dft">
-                                        <span class="panel-cards-item-number">{{stats.DraftPagesCount}}</span>
-                                        <span class="panel-cards-item-name">{{lbl.drafts}}</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
-                <div data-ng-if="security.showTabCustom" class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            <span id="div-gal-spinner" style="display:none;"><i class="fa fa-spinner fa-spin"></i></span>
-                            {{lbl.latestFromTheGallery}}
-                        </div>
-                    </div>
-
-                    <!-- owl.carousel start -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" />
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css" />
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.min.css" />
-                    <div class="gallery-dashboard" id="collapseSix" style="width: 600px; height: 150px; padding: 20px; display: block">
-                        <data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true, items: 3, autoPlay: true, rewindNav : true}">
-                            <div owl-carousel-item="" ng-repeat="pkg in packages" class="item">
-                                <a href="#/custom/package?id={{pkg.Id}}">
-                                    <div class="item-img" style="width: 140px; height: 100px; overflow: hidden">
-                                        <img ng-if="pkg.IconUrl.length > 0" class="img-gallery" ng-src="{{pkg.IconUrl}}" />
-                                        <img ng-if="pkg.IconUrl.length == 0" class="img-gallery" src="../Content/images/blog/pkg.png" />
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">{{pkg.Title}}</div>
-                                    </div>
-                                </a>
-                            </div>
-                        </data-owl-carousel>
-                    </div>
-                    <!-- owl.carousel end -->
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse">Quick Notes</a>
+                            Quick Notes
                             <span class="pull-right">
                                 <a href="" ng-if="pager.currentPage != 0" data-ng-click="pager.prevPage()"><i class="fa fa-angle-left fa-sm"></i></a>
                                 <a href="" ng-if="pager.currentPage + 1 < pager.pagedItems.length" data-ng-click="pager.nextPage()"><i class="fa fa-angle-right"></i></a>&nbsp;
                                 <a title="{{lbl.add}}" href="" ng-click="addNote()"><i class="fa fa-plus fa-sm"></i></a>
                             </span>
-                        </h4>
+                        </div>
                     </div>
                     <ul class="list-group list-group panel-collapse collaps in" id="collapseFour">
                         <li class="list-group-item clearfix" data-ng-repeat="note in pager.pagedItems[pager.currentPage]">
@@ -177,18 +79,78 @@
                                 <a title="{{lbl.doDelete}}" href="" ng-click="deleteNote(note.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
                             </span>
                         </li>
-                        <li ng-if="notes.length == 0" class="list-group-item">{{lbl.empty}}</li>
+                        <li ng-if="notes.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
-                <div class="panel panel-default panel-trash">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapseFive">{{lbl.trash}}</a>
+                        <div class="panel-title">{{lbl.draftPosts}}</div>
+                    </div>
+                    <ul class="list-group list-group panel-collapse collaps in" id="collapseThree">
+                        <li class="list-group-item clearfix" data-ng-repeat="post in draftposts">
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/editor/post.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{post.Title}}</a>
+                            <a title="{{post.Title}}" class="external-link pull-right" target="_new" href="{{post.RelativeLink}}"><i class="fa fa-external-link"></i></a>
+                        </li>
+                        <li ng-if="draftposts.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">{{lbl.draftPages}}</div>
+                    </div>
+                    <ul class="list-group list-group panel-collapse collaps in" id="collapseFour">
+                        <li class="list-group-item clearfix" data-ng-repeat="page in draftpages">
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/editor/page.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{page.Title}}</a>
+                            <a title="{{page.Title}}" class="external-link pull-right" target="_new" href="{{SiteVars.RelativeWebRoot}}page/{{page.Slug}}"><i class="fa fa-external-link"></i></a>
+                        </li>
+                        <li ng-if="draftpages.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default" data-ng-if="security.showTabCustom">
+                    <div class="panel-heading">
+                        <div class="panel-title clearfix">
+                            <span class="pull-left">{{lbl.latestFromTheGallery}}</span>
+                            <div id="tr-gal-spinner" class="pull-right">
+                                <div id="div-gal-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item dashboard-gallery-item clearfix" data-ng-repeat="pkg in packages">
+                            <a href="#/custom/packages?pkgId={{pkg.Id}}" class="item-link">
+                                <img ng-if="pkg.IconUrl.length > 0" class="item-img" width="50" height="50" ng-src="{{pkg.IconUrl}}" />
+                                <img ng-if="pkg.IconUrl.length == 0" class="item-img" width="50" height="50" src="../pics/pkg.png" />
+                                <span class="item-title">{{pkg.Title}}</span>
+                                <span class="item-desc text-ellipsis">{{pkg.Description}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default" data-ng-if="security.viewErrorMessages">
+                    <div class="panel-heading">
+                        <div class="panel-title">{{lbl.logs}}</div>
+                    </div>
+                    <ul class="list-group list-group panel-collapse collaps in" id="collapseSeven">
+                        <li data-ng-if="logItems.length > 0" class="list-group-item">
+                            <a href="" data-ng-click="openLogFile()">{{lbl.loggedMessages}}</a>
+                        </li>
+                        <li class="list-group-item item-empty clearfix" id="tr-log-spinner">
+                            <div id="div-log-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            {{lbl.trash}}
                             <small ng-if="trash.TotalCount > 0">({{trash.TotalCount}})</small>
                             <span ng-if="trash.TotalCount > 0" class="pull-right">
                                 <span class="purgeall label label-danger" data-ng-click="purgeAll()"><i class="fa fa-times"></i> {{lbl.purgeAll}}</span>
                             </span>
-                        </h4>
+                        </div>
                     </div>
                     <ul class="list-group list-group panel-collapse collaps in" id="collapseFive">
                         <li class="list-group-item clearfix" data-ng-repeat="t in trash.Items">
@@ -198,24 +160,10 @@
                                 <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
                             </span>
                         </li>
-                        <li ng-if="trash.TotalCount == 0" class="list-group-item">{{lbl.empty}}</li>
+                        <li ng-if="trash.TotalCount == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
-                <div data-ng-if="security.viewErrorMessages" class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#collapseSeven">{{lbl.logs}}</a>
-                        </h4>
-                    </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseSeven">
-                        <li data-ng-if="logItems.length > 0" class="list-group-item">
-                            <a href="" data-ng-click="openLogFile()">{{lbl.loggedMessages}}</a>
-                        </li>
-                        <li class="list-group-item clearfix" id="tr-log-spinner">
-                            <div id="div-log-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>

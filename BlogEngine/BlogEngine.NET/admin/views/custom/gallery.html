@@ -21,14 +21,24 @@
                     </div>
                     <input type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="items.length == 0" />
                     <div class="package-item-button">
-                        <button class="btn btn-success"><i class="fa fa-download"></i> {{lbl.download}}</button>
-                        <a title="{{item.Title}}" class="btn btn-primary" href="#/custom/package?id={{item.Id}}">Details</a>
+                        <button class="btn btn-sm btn-success"><i class="fa fa-download"></i> {{lbl.download}}</button>
+                        <a title="{{item.Title}}" class="btn btn-sm btn-primary" href="#/custom/package?id={{item.Id}}"><i class="fa fa-info-circle"></i> Details</a>
                     </div>
                     <div class="package-item-info">
                         <span>{{item.Title}}</span>
                     </div>
                     <div class="package-item-info">
                         <span>{{item.DownloadCount}} Downloads</span>
+                    </div>
+                    <div class="package-item-info">
+                        <span class="star-rating">
+                            <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
+                            <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
+                            <input disabled="disabled" type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)"><i></i>
+                            <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
+                            <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
+                        </span>
+
                     </div>
                     <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
                     <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
@@ -52,10 +62,3 @@
     </div>
 </div>
 
-<!--<span class="star-rating">
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
-</span>-->

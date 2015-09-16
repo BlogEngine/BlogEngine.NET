@@ -26,20 +26,17 @@
                     </div>
                     <input type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
                     <div class="package-item-info">
-                        <a ng-if="!item.Enabled" style="color: #ccc !important" title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a>
-                        <a ng-if="item.Enabled" title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a>
+                        <span ng-if="!item.Enabled">{{item.Title}} (Disabled)</span>
+                        <span ng-if="item.Enabled">{{item.Title}}</span>
                     </div>
-                    <div class="package-item-info">
-                        {{item.DownloadCount}} downloads
-                    </div>
-                    <div class="package-item-info">
-                        <a href="" ng-click="enableExtension(item, false)" ng-if="item.Enabled" class="ext-enabled">Disable</a>
-                        <a href="" ng-click="enableExtension(item, true)" ng-if="!item.Enabled" class="ext-disabled">Enable</a>
+                    <div class="package-item-button">
+                        <a href="" ng-click="enableExtension(item, false)" ng-if="item.Enabled" class="btn btn-sm btn-danger">Disable</a>
+                        <a href="" ng-click="enableExtension(item, true)" ng-if="!item.Enabled" class="btn btn-sm btn-success">Enable</a>
+                        <a href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-primary">Customize</a>
                     </div>
                     <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
                     <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
                     <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
-
                 </div>
             </div>
         </div>
@@ -58,10 +55,3 @@
         </div>
     </div>
 </div>
-<!--<span class="star-rating">
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="2" ng-checked="checkStar(2, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="3" ng-checked="checkStar(3, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="4" ng-checked="checkStar(4, item.Rating)"><i></i>
-    <input disabled="disabled" type="radio" name="{{item.Id}}" value="5" ng-checked="checkStar(5, item.Rating)"><i></i>
-</span>-->
