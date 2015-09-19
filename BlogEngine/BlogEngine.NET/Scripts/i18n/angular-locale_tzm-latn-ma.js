@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "Asimwas",
       "Asi\u1e0dyas"
     ],
-    "ERANAMES": [
-      "Zdat \u0190isa (TA\u0194)",
-      "\u1e0ceffir \u0190isa (TA\u0194)"
-    ],
-    "ERAS": [
-      "Z\u0190",
-      "\u1e0c\u0190"
-    ],
-    "FIRSTDAYOFWEEK": 5,
     "MONTH": [
       "Yennayer",
       "Yebrayer",
@@ -79,10 +70,6 @@ $provide.value("$locale", {
       "K\u1e6du",
       "Nwa",
       "Duj"
-    ],
-    "WEEKENDRANGE": [
-      4,
-      5
     ],
     "fullDate": "EEEE, d MMMM y",
     "longDate": "d MMMM y",
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "tzm-latn-ma",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

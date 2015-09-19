@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "e premte",
       "e shtun\u00eb"
     ],
-    "ERANAMES": [
-      "para er\u00ebs s\u00eb re",
-      "er\u00ebs s\u00eb re"
-    ],
-    "ERAS": [
-      "p.e.r.",
-      "e.r."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "janar",
       "shkurt",
@@ -62,17 +53,13 @@ $provide.value("$locale", {
       "N\u00ebn",
       "Dhj"
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
-    "fullDate": "EEEE, d MMMM y",
-    "longDate": "d MMMM y",
-    "medium": "d MMM y HH:mm:ss",
-    "mediumDate": "d MMM y",
+    "fullDate": "EEEE, dd MMMM y",
+    "longDate": "dd MMMM y",
+    "medium": "dd/MM/y HH:mm:ss",
+    "mediumDate": "dd/MM/y",
     "mediumTime": "HH:mm:ss",
-    "short": "d.M.yy HH:mm",
-    "shortDate": "d.M.yy",
+    "short": "dd/MM/yy HH:mm",
+    "shortDate": "dd/MM/yy",
     "shortTime": "HH:mm"
   },
   "NUMBER_FORMATS": {
@@ -105,6 +92,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "sq-al",
-  "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

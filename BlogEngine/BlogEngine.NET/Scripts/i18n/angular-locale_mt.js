@@ -4,8 +4,8 @@ var PLURAL_CATEGORY = {ZERO: "zero", ONE: "one", TWO: "two", FEW: "few", MANY: "
 $provide.value("$locale", {
   "DATETIME_FORMATS": {
     "AMPMS": [
-      "AM",
-      "PM"
+      "QN",
+      "WN"
     ],
     "DAY": [
       "Il-\u0126add",
@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "Il-\u0120img\u0127a",
       "Is-Sibt"
     ],
-    "ERANAMES": [
-      "Qabel Kristu",
-      "Wara Kristu"
-    ],
-    "ERAS": [
-      "QK",
-      "WK"
-    ],
-    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "Jannar",
       "Frar",
@@ -62,10 +53,6 @@ $provide.value("$locale", {
       "Nov",
       "Di\u010b"
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "EEEE, d 'ta'\u2019 MMMM y",
     "longDate": "d 'ta'\u2019 MMMM y",
     "medium": "dd MMM y HH:mm:ss",
@@ -97,7 +84,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -105,6 +92,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "mt",
-  "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  if (n == 0 || n % 100 >= 2 && n % 100 <= 10) {    return PLURAL_CATEGORY.FEW;  }  if (n % 100 >= 11 && n % 100 <= 19) {    return PLURAL_CATEGORY.MANY;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  if (n == 0 || n % 100 >= 2 && n % 100 <= 10) {    return PLURAL_CATEGORY.FEW;  }  if (n % 100 >= 11 && n % 100 <= 19) {    return PLURAL_CATEGORY.MANY;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

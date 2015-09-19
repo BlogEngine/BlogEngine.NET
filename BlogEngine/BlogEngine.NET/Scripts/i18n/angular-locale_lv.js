@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "piektdiena",
       "sestdiena"
     ],
-    "ERANAMES": [
-      "pirms m\u016bsu \u0113ras",
-      "m\u016bsu \u0113r\u0101"
-    ],
-    "ERAS": [
-      "p.m.\u0113.",
-      "m.\u0113."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "janv\u0101ris",
       "febru\u0101ris",
@@ -80,10 +71,6 @@ $provide.value("$locale", {
       "nov.",
       "dec."
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "EEEE, y. 'gada' d. MMMM",
     "longDate": "y. 'gada' d. MMMM",
     "medium": "y. 'gada' d. MMM HH:mm:ss",
@@ -110,12 +97,12 @@ $provide.value("$locale", {
         "posSuf": ""
       },
       {
-        "gSize": 0,
-        "lgSize": 0,
+        "gSize": 3,
+        "lgSize": 3,
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "lv",
-  "pluralCat": function(n, opt_precision) {  var vf = getVF(n, opt_precision);  if (n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19 || vf.v == 2 && vf.f % 100 >= 11 && vf.f % 100 <= 19) {    return PLURAL_CATEGORY.ZERO;  }  if (n % 10 == 1 && n % 100 != 11 || vf.v == 2 && vf.f % 10 == 1 && vf.f % 100 != 11 || vf.v != 2 && vf.f % 10 == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var vf = getVF(n, opt_precision);  if (n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19 || vf.v == 2 && vf.f % 100 >= 11 && vf.f % 100 <= 19) {    return PLURAL_CATEGORY.ZERO;  }  if (n % 10 == 1 && n % 100 != 11 || vf.v == 2 && vf.f % 10 == 1 && vf.f % 100 != 11 || vf.v != 2 && vf.f % 10 == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "viernes",
       "s\u00e1bado"
     ],
-    "ERANAMES": [
-      "antes de Cristo",
-      "despu\u00e9s de Cristo"
-    ],
-    "ERAS": [
-      "a. C.",
-      "d. C."
-    ],
-    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "enero",
       "febrero",
@@ -62,23 +53,19 @@ $provide.value("$locale", {
       "nov.",
       "dic."
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "EEEE, d 'de' MMMM 'de' y",
     "longDate": "d 'de' MMMM 'de' y",
-    "medium": "d/MM/y h:mm:ss a",
+    "medium": "d/MM/y H:mm:ss",
     "mediumDate": "d/MM/y",
-    "mediumTime": "h:mm:ss a",
-    "short": "d/MM/yy h:mm a",
+    "mediumTime": "H:mm:ss",
+    "short": "d/MM/yy H:mm",
     "shortDate": "d/MM/yy",
-    "shortTime": "h:mm a"
+    "shortTime": "H:mm"
   },
   "NUMBER_FORMATS": {
     "CURRENCY_SYM": "Q",
-    "DECIMAL_SEP": ".",
-    "GROUP_SEP": ",",
+    "DECIMAL_SEP": ",",
+    "GROUP_SEP": ".",
     "PATTERNS": [
       {
         "gSize": 3,
@@ -97,14 +84,14 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
-        "negSuf": "",
-        "posPre": "\u00a4",
-        "posSuf": ""
+        "negPre": "-",
+        "negSuf": "\u00a0\u00a4",
+        "posPre": "",
+        "posSuf": "\u00a0\u00a4"
       }
     ]
   },
   "id": "es-gt",
-  "pluralCat": function(n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  if (n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

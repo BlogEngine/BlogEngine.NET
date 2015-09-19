@@ -47,15 +47,6 @@ $provide.value("$locale", {
       "f\u00f6studagur",
       "laugardagur"
     ],
-    "ERANAMES": [
-      "fyrir Krist",
-      "eftir Krist"
-    ],
-    "ERAS": [
-      "f.Kr.",
-      "e.Kr."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "jan\u00faar",
       "febr\u00faar",
@@ -92,10 +83,6 @@ $provide.value("$locale", {
       "okt.",
       "n\u00f3v.",
       "des."
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
     ],
     "fullDate": "EEEE, d. MMMM y",
     "longDate": "d. MMMM y",
@@ -136,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "is",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  var wt = getWT(vf.v, vf.f);  if (wt.t == 0 && i % 10 == 1 && i % 100 != 11 || wt.t != 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  var wt = getWT(vf.v, vf.f);  if (wt.t == 0 && i % 10 == 1 && i % 100 != 11 || wt.t != 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

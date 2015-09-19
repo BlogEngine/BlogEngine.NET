@@ -1,6 +1,6 @@
 /**
- * @license AngularJS v1.4.5
- * (c) 2010-2015 Google, Inc. http://angularjs.org
+ * @license AngularJS v1.3.0
+ * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
@@ -10,7 +10,7 @@ var $resourceMinErr = angular.$$minErr('$resource');
 // Helper functions and regex to lookup a dotted path on an object
 // stopping at undefined/null.  The path must be composed of ASCII
 // identifiers (just like $parse)
-var MEMBER_NAME_REGEX = /^(\.[a-zA-Z_$@][0-9a-zA-Z_$@]*)+$/;
+var MEMBER_NAME_REGEX = /^(\.[a-zA-Z_$][0-9a-zA-Z_$]*)+$/;
 
 function isValidDottedPath(path) {
   return (path != null && path !== '' && path !== 'hasOwnProperty' &&
@@ -35,7 +35,7 @@ function lookupDottedPath(obj, path) {
 function shallowClearAndCopy(src, dst) {
   dst = dst || {};
 
-  angular.forEach(dst, function(value, key) {
+  angular.forEach(dst, function(value, key){
     delete dst[key];
   });
 
@@ -84,13 +84,13 @@ function shallowClearAndCopy(src, dst) {
  * this:
  *
  * ```js
-     app.config(['$resourceProvider', function($resourceProvider) {
+     app.config(['$resourceProvider', function ($resourceProvider) {
        // Don't strip trailing slashes from calculated URLs
        $resourceProvider.defaults.stripTrailingSlashes = false;
      }]);
  * ```
  *
- * @param {string} url A parameterized URL template with parameters prefixed by `:` as in
+ * @param {string} url A parametrized URL template with parameters prefixed by `:` as in
  *   `/user/:username`. If you are using a URL with a port number (e.g.
  *   `http://example.com:8080/api`), it will be respected.
  *
@@ -116,7 +116,7 @@ function shallowClearAndCopy(src, dst) {
  *   example, if the `defaultParam` object is `{someParam: '@someProp'}` then the value of `someParam`
  *   will be `data.someProp`.
  *
- * @param {Object.<Object>=} actions Hash with declaration of custom actions that should extend
+ * @param {Object.<Object>=} actions Hash with declaration of custom action that should extend
  *   the default set of resource actions. The declaration should be created in the format of {@link
  *   ng.$http#usage $http.config}:
  *
@@ -213,9 +213,7 @@ function shallowClearAndCopy(src, dst) {
  *   - non-GET "class" actions: `Resource.action([parameters], postData, [success], [error])`
  *   - non-GET instance actions:  `instance.$action([parameters], [success], [error])`
  *
- *
- *   Success callback is called with (value, responseHeaders) arguments, where the value is
- *   the populated resource instance or collection object. The error callback is called
+ *   Success callback is called with (value, responseHeaders) arguments. Error callback is called
  *   with (httpResponse) argument.
  *
  *   Class actions return empty instance (with additional properties below).
@@ -352,8 +350,7 @@ function shallowClearAndCopy(src, dst) {
  * ```
  */
 angular.module('ngResource', ['ng']).
-  provider('$resource', function() {
-    var PROTOCOL_AND_DOMAIN_REGEX = /^https?:\/\/[^\/]*/;
+  provider('$resource', function () {
     var provider = this;
 
     this.defaults = {
@@ -370,7 +367,7 @@ angular.module('ngResource', ['ng']).
       }
     };
 
-    this.$get = ['$http', '$q', function($http, $q) {
+    this.$get = ['$http', '$q', function ($http, $q) {
 
       var noop = angular.noop,
         forEach = angular.forEach,
@@ -424,15 +421,14 @@ angular.module('ngResource', ['ng']).
       }
 
       Route.prototype = {
-        setUrlParams: function(config, params, actionUrl) {
+        setUrlParams: function (config, params, actionUrl) {
           var self = this,
             url = actionUrl || self.template,
             val,
-            encodedVal,
-            protocolAndDomain = '';
+            encodedVal;
 
           var urlParams = self.urlParams = {};
-          forEach(url.split(/\W/), function(param) {
+          forEach(url.split(/\W/), function (param) {
             if (param === 'hasOwnProperty') {
               throw $resourceMinErr('badname', "hasOwnProperty is not a valid parameter name.");
             }
@@ -442,21 +438,17 @@ angular.module('ngResource', ['ng']).
             }
           });
           url = url.replace(/\\:/g, ':');
-          url = url.replace(PROTOCOL_AND_DOMAIN_REGEX, function(match) {
-            protocolAndDomain = match;
-            return '';
-          });
 
           params = params || {};
-          forEach(self.urlParams, function(_, urlParam) {
+          forEach(self.urlParams, function (_, urlParam) {
             val = params.hasOwnProperty(urlParam) ? params[urlParam] : self.defaults[urlParam];
             if (angular.isDefined(val) && val !== null) {
               encodedVal = encodeUriSegment(val);
-              url = url.replace(new RegExp(":" + urlParam + "(\\W|$)", "g"), function(match, p1) {
+              url = url.replace(new RegExp(":" + urlParam + "(\\W|$)", "g"), function (match, p1) {
                 return encodedVal + p1;
               });
             } else {
-              url = url.replace(new RegExp("(\/?):" + urlParam + "(\\W|$)", "g"), function(match,
+              url = url.replace(new RegExp("(\/?):" + urlParam + "(\\W|$)", "g"), function (match,
                   leadingSlashes, tail) {
                 if (tail.charAt(0) == '/') {
                   return tail;
@@ -476,11 +468,11 @@ angular.module('ngResource', ['ng']).
           // E.g. `http://url.com/id./format?q=x` becomes `http://url.com/id.format?q=x`
           url = url.replace(/\/\.(?=\w+($|\?))/, '.');
           // replace escaped `/\.` with `/.`
-          config.url = protocolAndDomain + url.replace(/\/\\\./, '/.');
+          config.url = url.replace(/\/\\\./, '/.');
 
 
           // set params - delegate param encoding to $http
-          forEach(params, function(value, key) {
+          forEach(params, function (value, key) {
             if (!self.urlParams[key]) {
               config.params = config.params || {};
               config.params[key] = value;
@@ -498,7 +490,7 @@ angular.module('ngResource', ['ng']).
         function extractParams(data, actionParams) {
           var ids = {};
           actionParams = extend({}, paramDefaults, actionParams);
-          forEach(actionParams, function(value, key) {
+          forEach(actionParams, function (value, key) {
             if (isFunction(value)) { value = value(); }
             ids[key] = value && value.charAt && value.charAt(0) == '@' ?
               lookupDottedPath(data, value.substr(1)) : value;
@@ -514,17 +506,17 @@ angular.module('ngResource', ['ng']).
           shallowClearAndCopy(value || {}, this);
         }
 
-        Resource.prototype.toJSON = function() {
+        Resource.prototype.toJSON = function () {
           var data = extend({}, this);
           delete data.$promise;
           delete data.$resolved;
           return data;
         };
 
-        forEach(actions, function(action, name) {
+        forEach(actions, function (action, name) {
           var hasBody = /^(POST|PUT|PATCH)$/i.test(action.method);
 
-          Resource[name] = function(a1, a2, a3, a4) {
+          Resource[name] = function (a1, a2, a3, a4) {
             var params = {}, data, success, error;
 
             /* jshint -W086 */ /* (purposefully fall through case statements) */
@@ -572,7 +564,7 @@ angular.module('ngResource', ['ng']).
             var responseErrorInterceptor = action.interceptor && action.interceptor.responseError ||
               undefined;
 
-            forEach(action, function(value, key) {
+            forEach(action, function (value, key) {
               if (key != 'params' && key != 'isArray' && key != 'interceptor') {
                 httpConfig[key] = copy(value);
               }
@@ -583,7 +575,7 @@ angular.module('ngResource', ['ng']).
               extend({}, extractParams(data, action.params || {}), params),
               action.url);
 
-            var promise = $http(httpConfig).then(function(response) {
+            var promise = $http(httpConfig).then(function (response) {
               var data = response.data,
                 promise = value.$promise;
 
@@ -593,13 +585,13 @@ angular.module('ngResource', ['ng']).
                 if (angular.isArray(data) !== (!!action.isArray)) {
                   throw $resourceMinErr('badcfg',
                       'Error in resource configuration for action `{0}`. Expected response to ' +
-                      'contain an {1} but got an {2} (Request: {3} {4})', name, action.isArray ? 'array' : 'object',
-                    angular.isArray(data) ? 'array' : 'object', httpConfig.method, httpConfig.url);
+                      'contain an {1} but got an {2}', name, action.isArray ? 'array' : 'object',
+                    angular.isArray(data) ? 'array' : 'object');
                 }
                 // jshint +W018
                 if (action.isArray) {
                   value.length = 0;
-                  forEach(data, function(item) {
+                  forEach(data, function (item) {
                     if (typeof item === "object") {
                       value.push(new Resource(item));
                     } else {
@@ -620,7 +612,7 @@ angular.module('ngResource', ['ng']).
               response.resource = value;
 
               return response;
-            }, function(response) {
+            }, function (response) {
               value.$resolved = true;
 
               (error || noop)(response);
@@ -629,7 +621,7 @@ angular.module('ngResource', ['ng']).
             });
 
             promise = promise.then(
-              function(response) {
+              function (response) {
                 var value = responseInterceptor(response);
                 (success || noop)(value, response.headers);
                 return value;
@@ -651,7 +643,7 @@ angular.module('ngResource', ['ng']).
           };
 
 
-          Resource.prototype['$' + name] = function(params, success, error) {
+          Resource.prototype['$' + name] = function (params, success, error) {
             if (isFunction(params)) {
               error = success; success = params; params = {};
             }
@@ -660,7 +652,7 @@ angular.module('ngResource', ['ng']).
           };
         });
 
-        Resource.bind = function(additionalParamDefaults) {
+        Resource.bind = function (additionalParamDefaults) {
           return resourceFactory(url, extend({}, paramDefaults, additionalParamDefaults), actions);
         };
 

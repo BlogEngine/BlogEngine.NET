@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "fr\u00edggjadagur",
       "leygardagur"
     ],
-    "ERANAMES": [
-      "fyrir Krist",
-      "eftir Krist"
-    ],
-    "ERAS": [
-      "f.Kr.",
-      "e.Kr."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "januar",
       "februar",
@@ -79,10 +70,6 @@ $provide.value("$locale", {
       "okt",
       "nov",
       "des"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
     ],
     "fullDate": "EEEE dd MMMM y",
     "longDate": "d. MMM y",
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "fo",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

@@ -22,67 +22,54 @@ function getVF(n, opt_precision) {
 $provide.value("$locale", {
   "DATETIME_FORMATS": {
     "AMPMS": [
-      "karoon",
-      "kooskoliny"
+      "Beet",
+      "Kemo"
     ],
     "DAY": [
-      "Kotisap",
-      "Kotaai",
-      "Koaeng\u2019",
-      "Kosomok",
-      "Koang\u2019wan",
-      "Komuut",
-      "Kolo"
+      "Betutab tisap",
+      "Betut netai",
+      "Betutab aeng'",
+      "Betutab somok",
+      "Betutab ang'wan",
+      "Betutab mut",
+      "Betutab lo"
     ],
-    "ERANAMES": [
-      "Amait kesich Jesu",
-      "Kokakesich Jesu"
-    ],
-    "ERAS": [
-      "AM",
-      "KO"
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Mulgul",
-      "Ng\u2019atyaato",
-      "Kiptaamo",
-      "Iwootkuut",
-      "Mamuut",
-      "Paagi",
-      "Ng\u2019eiyeet",
-      "Rooptui",
-      "Bureet",
-      "Epeeso",
-      "Kipsuunde ne taai",
-      "Kipsuunde nebo aeng\u2019"
+      "Ng'atyato",
+      "Kiptamo",
+      "Iwat kut",
+      "Ng'eiyet",
+      "Waki",
+      "Roptui",
+      "Kipkogaga",
+      "Buret",
+      "Epeso",
+      "Kipsunde netai",
+      "Kipsunde nebo aeng"
     ],
     "SHORTDAY": [
-      "Kts",
-      "Kot",
-      "Koo",
-      "Kos",
-      "Koa",
-      "Kom",
-      "Kol"
+      "Tis",
+      "Tai",
+      "Aen",
+      "Som",
+      "Ang",
+      "Mut",
+      "Loh"
     ],
     "SHORTMONTH": [
       "Mul",
-      "Ngat",
-      "Taa",
-      "Iwo",
-      "Mam",
-      "Paa",
+      "Nga",
+      "Kip",
+      "Iwa",
       "Nge",
-      "Roo",
+      "Wak",
+      "Rop",
+      "Kog",
       "Bur",
       "Epe",
-      "Kpt",
-      "Kpa"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
+      "Tai",
+      "Aen"
     ],
     "fullDate": "EEEE, d MMMM y",
     "longDate": "d MMMM y",
@@ -115,7 +102,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "kln",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

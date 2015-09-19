@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "Jumqata",
       "Qunxa Sambat"
     ],
-    "ERANAMES": [
-      "Yaasuusuk Duma",
-      "Yaasuusuk Wadir"
-    ],
-    "ERAS": [
-      "Yaasuusuk Duma",
-      "Yaasuusuk Wadir"
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Qunxa Garablu",
       "Kudo",
@@ -79,10 +70,6 @@ $provide.value("$locale", {
       "Dit",
       "Xim",
       "Kax"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
     ],
     "fullDate": "EEEE, MMMM dd, y",
     "longDate": "dd MMMM y",
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "ssy",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

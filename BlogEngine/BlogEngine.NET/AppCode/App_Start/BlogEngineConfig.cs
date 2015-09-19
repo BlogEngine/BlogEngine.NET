@@ -118,7 +118,6 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/Q.js")
                 .Include("~/Scripts/angular.min.js")
                 .Include("~/Scripts/angular-route.min.js")
-                .Include("~/Scripts/angular-animate.min.js")
                 .Include("~/Scripts/angular-sanitize.min.js")             
                 .Include("~/admin/app.js")
                 .Include("~/admin/app/listpager.js")

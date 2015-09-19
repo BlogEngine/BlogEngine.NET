@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "\u09b6\u09c1\u0995\u09cd\u09f0\u09ac\u09be\u09f0",
       "\u09b6\u09a8\u09bf\u09ac\u09be\u09f0"
     ],
-    "ERANAMES": [
-      "BCE",
-      "CE"
-    ],
-    "ERAS": [
-      "BCE",
-      "CE"
-    ],
-    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "\u099c\u09be\u09a8\u09c1\u09f1\u09be\u09f0\u09c0",
       "\u09ab\u09c7\u09ac\u09cd\u09f0\u09c1\u09f1\u09be\u09f0\u09c0",
@@ -80,10 +71,6 @@ $provide.value("$locale", {
       "\u09a8\u09ad\u09c7",
       "\u09a1\u09bf\u09b8\u09c7"
     ],
-    "WEEKENDRANGE": [
-      6,
-      6
-    ],
     "fullDate": "EEEE, d MMMM, y",
     "longDate": "d MMMM, y",
     "medium": "dd-MM-y h.mm.ss a",
@@ -115,7 +102,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4\u00a0",
+        "negPre": "\u00a4\u00a0-",
         "negSuf": "",
         "posPre": "\u00a4\u00a0",
         "posSuf": ""
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "as-in",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

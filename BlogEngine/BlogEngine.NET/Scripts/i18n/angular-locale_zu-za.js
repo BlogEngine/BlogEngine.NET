@@ -16,15 +16,6 @@ $provide.value("$locale", {
       "Lwesihlanu",
       "Mgqibelo"
     ],
-    "ERANAMES": [
-      "BC",
-      "AD"
-    ],
-    "ERAS": [
-      "BC",
-      "AD"
-    ],
-    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "Januwari",
       "Februwari",
@@ -62,17 +53,13 @@ $provide.value("$locale", {
       "Nov",
       "Dis"
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
-    "fullDate": "EEEE, MMMM d, y",
-    "longDate": "MMMM d, y",
-    "medium": "MMM d, y h:mm:ss a",
-    "mediumDate": "MMM d, y",
+    "fullDate": "EEEE dd MMMM y",
+    "longDate": "d MMMM y",
+    "medium": "d MMM y h:mm:ss a",
+    "mediumDate": "d MMM y",
     "mediumTime": "h:mm:ss a",
-    "short": "M/d/yy h:mm a",
-    "shortDate": "M/d/yy",
+    "short": "y-MM-dd h:mm a",
+    "shortDate": "y-MM-dd",
     "shortTime": "h:mm a"
   },
   "NUMBER_FORMATS": {
@@ -97,7 +84,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -105,6 +92,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "zu-za",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  if (i == 0 || n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  if (i == 0 || n == 1) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

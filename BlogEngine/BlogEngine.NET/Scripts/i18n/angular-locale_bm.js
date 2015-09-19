@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "juma",
       "sibiri"
     ],
-    "ERANAMES": [
-      "jezu krisiti \u0272\u025b",
-      "jezu krisiti mink\u025b"
-    ],
-    "ERAS": [
-      "J.-C. \u0272\u025b",
-      "ni J.-C."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "zanwuye",
       "feburuye",
@@ -80,10 +71,6 @@ $provide.value("$locale", {
       "now",
       "des"
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "EEEE d MMMM y",
     "longDate": "d MMMM y",
     "medium": "d MMM, y HH:mm:ss",
@@ -115,7 +102,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "bm",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

@@ -22,8 +22,8 @@ function getVF(n, opt_precision) {
 $provide.value("$locale", {
   "DATETIME_FORMATS": {
     "AMPMS": [
-      "a.m.",
-      "p.m."
+      "AM",
+      "PM"
     ],
     "DAY": [
       "zondag",
@@ -34,15 +34,6 @@ $provide.value("$locale", {
       "vrijdag",
       "zaterdag"
     ],
-    "ERANAMES": [
-      "voor Christus",
-      "na Christus"
-    ],
-    "ERAS": [
-      "v.Chr.",
-      "n.Chr."
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "januari",
       "februari",
@@ -80,10 +71,6 @@ $provide.value("$locale", {
       "nov.",
       "dec."
     ],
-    "WEEKENDRANGE": [
-      5,
-      6
-    ],
     "fullDate": "EEEE d MMMM y",
     "longDate": "d MMMM y",
     "medium": "d MMM y HH:mm:ss",
@@ -115,14 +102,14 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "\u00a4\u00a0-",
-        "negSuf": "",
+        "negPre": "\u00a4\u00a0",
+        "negSuf": "-",
         "posPre": "\u00a4\u00a0",
         "posSuf": ""
       }
     ]
   },
   "id": "nl",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);

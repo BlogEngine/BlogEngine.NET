@@ -30,26 +30,17 @@ $provide.value("$locale", {
       "Nakaebarasa",
       "Nakaare",
       "Nakauni",
-      "Nakaung\u2019on",
+      "Nakaung'on",
       "Nakakany",
       "Nakasabiti"
     ],
-    "ERANAMES": [
-      "Kabla ya Christo",
-      "Baada ya Christo"
-    ],
-    "ERAS": [
-      "KK",
-      "BK"
-    ],
-    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "Orara",
       "Omuk",
-      "Okwamg\u2019",
-      "Odung\u2019el",
+      "Okwamg'",
+      "Odung'el",
       "Omaruk",
-      "Omodok\u2019king\u2019ol",
+      "Omodok'king'ol",
       "Ojola",
       "Opedel",
       "Osokosokoma",
@@ -79,10 +70,6 @@ $provide.value("$locale", {
       "Tib",
       "Lab",
       "Poo"
-    ],
-    "WEEKENDRANGE": [
-      5,
-      6
     ],
     "fullDate": "EEEE, d MMMM y",
     "longDate": "d MMMM y",
@@ -115,7 +102,7 @@ $provide.value("$locale", {
         "maxFrac": 2,
         "minFrac": 2,
         "minInt": 1,
-        "negPre": "-\u00a4",
+        "negPre": "\u00a4-",
         "negSuf": "",
         "posPre": "\u00a4",
         "posSuf": ""
@@ -123,6 +110,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "teo",
-  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
