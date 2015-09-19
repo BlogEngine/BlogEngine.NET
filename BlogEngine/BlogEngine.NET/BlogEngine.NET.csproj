@@ -553,11 +553,6 @@
     <Content Include="Content\images\blog\xfn\me.gif" />
     <Content Include="Content\images\blog\xfn\sweet.gif" />
     <Content Include="Content\images\blog\xfn\sweetMet.gif" />
-    <Content Include="Content\OwlCarousel\AjaxLoader.gif" />
-    <Content Include="Content\OwlCarousel\grabbing.png" />
-    <Content Include="Content\OwlCarousel\owl.carousel.css" />
-    <Content Include="Content\OwlCarousel\owl.theme.css" />
-    <Content Include="Content\OwlCarousel\owl.transitions.css" />
     <Content Include="Content\star-rating.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -1399,8 +1394,6 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\owl.carousel.js" />
-    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\syntaxhighlighter\editor_plugin.js" />
     <Content Include="Scripts\syntaxhighlighter\editor_plugin_src.js" />
     <Content Include="Scripts\syntaxhighlighter\images\syntaxhighlighter.gif" />

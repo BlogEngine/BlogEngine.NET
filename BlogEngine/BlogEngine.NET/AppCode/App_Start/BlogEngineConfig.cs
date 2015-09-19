@@ -112,7 +112,6 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/jquery.form.js")
                 .Include("~/Scripts/jquery.validate.js")
                 .Include("~/Scripts/toastr.js")
-                .Include("~/Scripts/owl.carousel.min.js")
                 .Include("~/Scripts/bootstrap.js")
                 .Include("~/Scripts/moment.js")
                 .Include("~/Scripts/Q.js")
@@ -144,7 +143,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/controllers/custom.js")
                 .Include("~/admin/app/controllers/package.js")
                 .Include("~/admin/app/controllers/common.js")               
-                .Include("~/admin/editors/summernote/summernote.js")
+                //.Include("~/admin/editors/summernote/summernote.js")
                 );
 
             bundles.Add(

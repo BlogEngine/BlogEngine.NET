@@ -7,8 +7,6 @@
     $scope.selfRegistrationInitialRole = {};
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
-    $scope.usageScenario = UsageScenario;
-
     $scope.moderationEnabled = 0;
     $scope.commentsProvider = 0;
 
@@ -79,7 +77,7 @@
         .error(function () { toastr.error($rootScope.lbl.updateFailed); });
     }
 
-    $scope.exportToXml = function() {
+    $scope.exportToXml = function () {
         location.href = SiteVars.ApplicationRelativeWebRoot + 'blogml.axd';
     }
 
@@ -89,7 +87,7 @@
         location.href = url;
     }
 
-    $scope.uploadFile = function(files) {
+    $scope.uploadFile = function (files) {
         var fd = new FormData();
         fd.append("file", files[0]);
 
@@ -118,7 +116,7 @@
         window.location.assign("#/shared/package?id=" + theme);
     }
 
-    $scope.setCommentProviders = function (provider){
+    $scope.setCommentProviders = function (provider) {
         if (provider == '0') {
             $("#dq-provider").hide();
         }

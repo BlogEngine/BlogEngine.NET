@@ -126,6 +126,7 @@ namespace BlogEngine.Core.Data
             bs.DisqusDevMode = ns.DisqusDevMode;
             bs.DisqusAddCommentsToPages = ns.DisqusAddCommentsToPages;
             bs.DisqusWebsiteName = ns.DisqusWebsiteName;
+            bs.FacebookAppId = ns.FacebookAppId;
 
             // custom filters
             bs.TrustAuthenticatedUsers = ns.TrustAuthenticatedUsers;
@@ -240,6 +241,7 @@ namespace BlogEngine.Core.Data
             ns.DisqusDevMode = bs.DisqusDevMode;
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
             ns.DisqusWebsiteName = bs.DisqusWebsiteName;
+            ns.FacebookAppId = bs.FacebookAppId;
 
             // custom filters
             ns.TrustAuthenticatedUsers = bs.TrustAuthenticatedUsers;

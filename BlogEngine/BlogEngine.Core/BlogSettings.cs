@@ -838,6 +838,11 @@
         /// </summary>
         public bool DisqusAddCommentsToPages { get; set; }
 
+        /// <summary>
+        /// Facebook application ID
+        /// </summary>
+        public string FacebookAppId { get; set; }
+
         #endregion
 
         #region BlogrollMaxLength

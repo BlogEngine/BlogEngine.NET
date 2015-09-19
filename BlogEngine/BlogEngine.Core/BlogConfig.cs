@@ -296,10 +296,10 @@ namespace BlogEngine.Core
         }
         #endregion
 
-        #region SingleUserBlog
+        #region UsageScenario
 
         /// <summary>
-        /// Configure application for use by single user
+        /// Configure usage scenario
         /// </summary>
         public static string UsageScenario
         {
