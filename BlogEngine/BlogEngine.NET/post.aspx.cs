@@ -234,7 +234,12 @@ public partial class post : BlogBasePage
 		{
             base.AddMetaTag("keywords", Server.HtmlEncode(string.Join(",", Post.Tags.ToArray())));
 		}
-	}
+        if (ShowFacebookComments)
+        {
+            var tag = "\n\t<meta property=\"fb:app_id\" content=\"{0}\" />";
+            Header.Controls.Add(new LiteralControl(string.Format(tag, BlogSettings.Instance.FacebookAppId)));
+        }
+    }
 
 	public Post Post;
 

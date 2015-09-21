@@ -119,9 +119,11 @@
     $scope.setCommentProviders = function (provider) {
         if (provider == '0') {
             $("#dq-provider").hide();
+            $("#fb-provider").hide();
         }
         if (provider == '1') {
             $("#be-provider").hide();
+            $("#fb-provider").hide();
         }
         if (provider == '2') {
             $("#be-provider").hide();
@@ -132,15 +134,18 @@
     $scope.selectProvider = function (provider) {
         if (provider == 'be') {
             $("#dq-provider").fadeOut();
+            $("#fb-provider").fadeOut();
             $("#be-provider").fadeIn();
         }
         if (provider == 'dq') {
             $("#be-provider").fadeOut();
+            $("#fb-provider").fadeOut();
             $("#dq-provider").fadeIn();
         }
         if (provider == 'fb') {
             $("#be-provider").fadeOut();
             $("#dq-provider").fadeOut();
+            $("#fb-provider").fadeIn();
         }
     }
 
