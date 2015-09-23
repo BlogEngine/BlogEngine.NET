@@ -1,5 +1,5 @@
 ﻿/*[FORMS]*/
-.form-width-limited, .form-horizontal { max-width: 600px; }
+.form-width-limited, .form-horizontal { max-width: 480px; padding:10px 20px; }
 .content-inner .btn,
 .content-inner .form-control { border-radius: 0px; }
 .form-group { margin-bottom: 18px; }

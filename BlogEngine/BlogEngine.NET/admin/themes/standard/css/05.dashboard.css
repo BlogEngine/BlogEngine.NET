@@ -1,7 +1,9 @@
 ﻿/*[Dashboard]*/
-.panel { border: none; }
-.panel .panel-heading {padding:0 20px; line-height:50px; background-color: #fff; border-color: #f1f4f5; text-transform: uppercase; }
+.panel {  border-radius:0px; border:none; overflow:hidden;}
+.panel .panel-heading {padding:0 20px; line-height:45px; background-color: #ddd; border-bottom:none; text-transform: uppercase; border-radius:0;color:#666; }
 .panel .panel-heading .panel-title { font-size: 14px; color:#666;}
+.panel .panel-heading a  {color:#666;}
+.panel .panel-heading i {margin-right:10px;}
 .panel .list-group-item {border-color:#F1F4F5; color:#666;}
 .panel .list-group-item:last-child{border-bottom:none;}
 .panel .list-group-item.item-empty {text-transform:uppercase; font-size:12px; color:#ccc;}

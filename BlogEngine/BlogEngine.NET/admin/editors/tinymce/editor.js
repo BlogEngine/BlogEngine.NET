@@ -21,11 +21,11 @@ tinymce.init({
         "searchreplace visualblocks code fullscreen textcolor imagetools",
         "insertdatetime media table contextmenu paste sh4tinymce filemanager"
     ],
-    toolbar: "fullscreen code | styleselect forecolor | bold italic | alignleft aligncenter alignright | bullist numlist | link media sh4tinymce | filemanager",
+    toolbar: "styleselect forecolor | bold italic | alignleft aligncenter alignright | bullist numlist | link media sh4tinymce | fullscreen code | filemanager",
     autosave_ask_before_unload: false,
     max_height: 400,
     min_height: 160,
-    height: 300,
+    height: 400,
     menubar: false,
     relative_urls: false,
     browser_spellcheck: true,

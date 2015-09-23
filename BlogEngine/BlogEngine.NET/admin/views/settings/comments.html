@@ -8,11 +8,10 @@
             <button data-ng-click="save()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-
-            <div class="form-horizontal">
+            <div class="form-width-limited">
                 <div class="form-group">
-                    <label class="control-label col-md-4">Comments provider</label>
-                    <div class="col col-md-8">
+                    <label>Comments provider</label>
+                    <div>
                         <div class="radio">
                             <label><input type="radio" value="0" data-ng-model="settings.CommentProvider" ng-change="selectProvider('be')" /> BlogEngine</label>
                         </div>
@@ -24,84 +23,65 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                <hr />
 
-            <hr />
-
-            <div id="be-provider">
-                <div class="form-horizontal">
+                <div id="be-provider">
                     <div class="form-group">
-                        <label class="control-label col-md-4"></label>
-                        <div class="col col-md-8">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
-                                    {{lbl.enableComments}}
-                                </label>
-                            </div>
-                        </div>
+                        <label>
+                            <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
+                            {{lbl.enableComments}}
+                        </label>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
-                        <div class="col col-md-8">
-                            <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in vm.CloseDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
-                        </div>
+                        <label for="closeDaysOptions">{{lbl.closeCommetsAfter}}</label>
+                        <select class="form-control" id="closeDaysOptions" ng-options="o.OptionName for o in vm.CloseDaysOptions" ng-model="selCloseDays" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0"></select>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4"></label>
-                        <div class="col col-md-8">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckEnableCommentsModeration" ng-model="settings.EnableCommentsModeration" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
-                                    {{lbl.enableCommentsModeration}}
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" ng-model="settings.TrustAuthenticatedUsers" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
-                                    {{lbl.trustAuthenticated}}
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckIsCommentNestingEnabled" data-ng-model="settings.IsCommentNestingEnabled" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
-                                    {{lbl.enableCommentNesting}}
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckShowLivePreview" data-ng-model="settings.ShowLivePreview" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
-                                    {{lbl.showLivePreview}}
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="ckEnableWebsiteInComments" data-ng-model="settings.EnableWebsiteInComments" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
-                                    {{lbl.showEnableWebsiteInComments}}
-                                </label>
-                            </div>
-                        </div>
+                        <label>
+                            <input type="checkbox" name="ckEnableCommentsModeration" ng-model="settings.EnableCommentsModeration" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                            {{lbl.enableCommentsModeration}}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" ng-model="settings.TrustAuthenticatedUsers" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                            {{lbl.trustAuthenticated}}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="ckIsCommentNestingEnabled" data-ng-model="settings.IsCommentNestingEnabled" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                            {{lbl.enableCommentNesting}}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="ckShowLivePreview" data-ng-model="settings.ShowLivePreview" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                            {{lbl.showLivePreview}}
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="ckEnableWebsiteInComments" data-ng-model="settings.EnableWebsiteInComments" data-ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" />
+                            {{lbl.showEnableWebsiteInComments}}
+                        </label>
                     </div>
                 </div>
 
-                <hr />
-            </div>
-
-            <div id="dq-provider">
-                <div class="form-horizontal">
+                <div id="dq-provider">
                     <div class="form-group">
-                        <label class="control-label col-md-4">{{lbl.disqusSettings}}</label>
-                        <div class="col col-md-8">
+                        <label>{{lbl.disqusSettings}}</label>
+                        <div>
                             <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
                             <label class="control-label" style="line-height: 32px" for="txtDisqusWebsiteName">{{lbl.disqusWebsiteName}}</label>
                             <input type="text" class="form-control ltr-dir" id="txtDisqusWebsiteName" data-ng-model="settings.DisqusWebsiteName" data-ng-disabled="settings.CommentProvider != 1" />
-                            <div class="checkbox">
+                            <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="ckDisqusDevMode" ng-model="settings.DisqusDevMode" ng-disabled="settings.CommentProvider != 1" />
                                     {{lbl.developmentMode}}
                                 </label>
                             </div>
-                            <div class="checkbox">
+                            <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="cbDisqusAddToPages" ng-model="settings.DisqusAddCommentsToPages" ng-disabled="settings.CommentProvider != 1" />
                                     {{lbl.addCommentsToPages}}
@@ -111,26 +91,18 @@
                     </div>
                 </div>
 
-                <hr />
-            </div>
-
-            <div id="fb-provider">
-                <div class="form-horizontal">
+                <div id="fb-provider">
                     <div class="form-group">
-                        <label class="control-label col-md-4">Facebook App Id</label>
-                        <div class="col col-md-8">
+                        <label>Facebook App Id</label>
+                        <div>
                             <input type="text" class="form-control ltr-dir" id="txtFacebookAppId" data-ng-model="settings.FacebookAppId" />
                         </div>
                     </div>
                 </div>
-
                 <hr />
-            </div>
-
-            <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="control-label col-md-4">{{lbl.avatars}}</label>
-                    <div class="col col-md-8">
+                    <label>{{lbl.avatars}}</label>
+                    <div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>
@@ -185,7 +157,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </form>
 </div>

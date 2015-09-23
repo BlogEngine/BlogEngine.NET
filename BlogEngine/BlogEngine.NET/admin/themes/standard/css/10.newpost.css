@@ -1,0 +1,67 @@
+﻿.newpost {
+}
+
+.newspost .form-group {
+    position: relative;
+}
+
+#txtTitle-error {
+    position: absolute;
+    background: #D8000C;
+    color: #fff;
+    top: 58px;
+    left: 15px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    z-index: 1000;
+    text-transform: capitalize;
+    border-radius: 3px;
+}
+
+#txtTitle-error:before {
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    border-bottom: 6px solid #D8000C;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    content: "";
+    display: block;
+}
+
+
+
+.newpost-title {
+    height: 50px;
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid #ddd;
+}
+
+.newpost-title:focus {
+    border-color: #ddd;
+}
+
+.newpost-title.error {
+    border-color: #D8000C;
+}
+
+
+
+/*[]*/
+.post-tags-selector {
+    padding:20px;
+}
+
+.post-tags-selector .text-core,
+.post-tags-selector .text-wrap,
+.post-tags-selector .text-tags,
+.post-tags-selector textarea {
+    min-height: 27px !important;
+      width: 100% !important;
+    max-width: 100% !important;
+}
+

@@ -1,8 +1,19 @@
-﻿body { font-family: 'Roboto', sans-serif; background-color: #f5f5f5; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
+﻿body { font-family: 'Roboto', sans-serif; background-color: #eee; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
 .ltr-dir { direction: ltr; }
 .rtl-dir { direction: rtl; }
 a:hover, a:focus { text-decoration: none; }
 img { max-width: 100%; }
+label {
+    font-weight:normal;
+}
+input[type=checkbox]{
+    position:relative;
+    top:2px;
+}
+.checkbox input[type=checkbox]{
+    position:relative;
+    top:1px;
+}
 
 .text-ellipsis { display: block; overflow: hidden; white-space: nowrap; max-width: 350px; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 .text-ellipsis-sm { max-width: 100px !important; text-align: center !important; margin: 0 auto; }

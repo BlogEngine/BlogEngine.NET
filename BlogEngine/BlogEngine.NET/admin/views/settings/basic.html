@@ -1,39 +1,40 @@
 ﻿<div data-ng-controller="SettingsController">
     <form id="form" action="">
         <div class="page-header clearfix">
-            <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+            <h2 class="page-title pull-left">
+                <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
                 {{lbl.basic}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
             </h2>
             <button data-ng-click="save()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-            <div class="form-horizontal form-width-limited">
+            <div class="form-width-limited">
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="txtName">Blog Title</label>
-                    <div class="col col-md-8">
+                    <label for="txtName">Blog Title</label>
+                    <div>
                         <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="txtDescription">{{lbl.description}}</label>
-                    <div class="col col-md-8">
+                    <label for="txtDescription">{{lbl.description}}</label>
+                    <div>
                         <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="selCultures">Blog Language</label>
-                    <div class="col col-md-8">
+                    <label for="selCultures">Blog Language</label>
+                    <div>
                         <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="selTimezone">{{lbl.timezone}}</label>
-                    <div class="col col-md-8">
+                    <label for="selTimezone">{{lbl.timezone}}</label>
+                    <div>
                         <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
                     </div>
                 </div>
                 <!--<div class="form-group">
-                    <label class="control-label col-md-4" for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
+                    <label for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
                     <div class="col col-md-6">
                         <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
                     </div>
@@ -45,57 +46,48 @@
                     </div>
                 </div>-->
                 <div class="form-group">
-                    <label class="control-label col-md-4"></label>
-                    <div class="col col-md-8">
-                        <label>
-                            <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
-                             {{lbl.timeStampPostLinks}}
-                        </label>
-                    </div>
+                    <label>
+                        <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
+                        {{lbl.timeStampPostLinks}}
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4" for="txtPostsPerPage">{{lbl.postPerPage}}</label>
-                    <div class="col col-md-8">
+                    <label for="txtPostsPerPage">{{lbl.postPerPage}}</label>
+                    <div>
                         <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
                     </div>
                 </div>
-                <div class="col-md-offset-4 col-md-8">
-                    <div class="checkbox" style="padding-bottom: 8px; padding-top: 0">
-                        <label>
-                            <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
-                            <span>{{lbl.showDescriptionInPostList}}</span>
-                        </label>
-                    </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="ckDescInPostList" data-ng-model="settings.ShowDescriptionInPostList" />
+                        <span>{{lbl.showDescriptionInPostList}}</span>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-4 " for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
-                    <div class="col col-md-8">
+                    <label for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
+                    <div>
                         <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
                     </div>
                 </div>
-             
+
                 <div ng-if="usageScenario != 'singleblog'">
-                    <div class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
-                                {{lbl.enableSelfRegistration}}
-                            </label>
-                        </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
+                            {{lbl.enableSelfRegistration}}
+                        </label>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
-                        <div class="col col-md-8">
+                        <label for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
+                        <div>
                             <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
                         </div>
                     </div>
-                    <div ng-if="SiteVars.IsPrimary" class="col-md-offset-4 col-md-8" style="margin-bottom:10px;">
-                        <div class="checkbox">
+                    <div ng-if="SiteVars.IsPrimary">
                             <label>
                                 <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
                                 {{lbl.createBlogOnSelfRegistration}}
                             </label>
-                        </div>
                     </div>
                 </div>
             </div>
