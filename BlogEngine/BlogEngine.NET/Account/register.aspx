@@ -9,41 +9,50 @@
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
-                    <h1 id="CreateHdr" class="page-header"> <%=Resources.labels.createAccount %></h1>
-                    <div class="form-group first-child">
-                        <asp:Label ID="UserNameLabel" runat="server" CssClass="label-up" AssociatedControlID="UserName"><%=Resources.labels.userName %>:</asp:Label>
-                        <div class="boxRound">
-                            <asp:TextBox ID="UserName" runat="server" CssClass="textEntry form-control"></asp:TextBox>
+                    <h1 id="CreateHdr" class="account-title"><%=Resources.labels.createAccount %></h1>
+                    <div class="account-body">
+                        <div class="form-group first-child">
+                            <asp:Label ID="UserNameLabel" runat="server" CssClass="label-up" AssociatedControlID="UserName"><%=Resources.labels.userName %>:</asp:Label>
+                            <div class="boxRound">
+                                <asp:TextBox ID="UserName" runat="server" CssClass="textEntry form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label ID="EmailLabel" runat="server" CssClass="label-up" AssociatedControlID="Email"><%=Resources.labels.email %>:</asp:Label>
+                            <div class="boxRound">
+                                <asp:TextBox ID="Email" runat="server" CssClass="textEntry form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label ID="PasswordLabel" runat="server" CssClass="label-up" AssociatedControlID="Password"><%=String.Format(Resources.labels.passwordMinimumCharacters, Membership.MinRequiredPasswordLength) %></asp:Label>
+                            <div class="boxRound">
+                                <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry form-control" TextMode="Password"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label ID="ConfirmPasswordLabel" runat="server" CssClass="label-up" AssociatedControlID="ConfirmPassword"><%=Resources.labels.confirmPassword %>:</asp:Label>
+                            <div class="boxRound">
+                                <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry form-control" TextMode="Password"></asp:TextBox>
+                            </div>
+                        </div>
+                        <blog:RecaptchaControl ID="recaptcha" runat="server" />
+
+                        <div class="btn-wrapper text-center">
+                            <asp:Button ID="CreateUserButton" CssClass="btn btn-success btn-block" runat="server" CommandName="MoveNext" Text="<%$Resources:labels,createUser %>" OnClientClick="return ValidateNewUser()" />
+
+
+                     
                         </div>
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="EmailLabel" runat="server" CssClass="label-up" AssociatedControlID="Email"><%=Resources.labels.email %>:</asp:Label>
-                        <div class="boxRound">
-                            <asp:TextBox ID="Email" runat="server" CssClass="textEntry form-control"></asp:TextBox>
-                        </div>
+                           <hr />
+
+                       <div class="account-body text-center text-uppercase">
+                           <%=Resources.labels.alreadyHaveAccount %>
+                            <a id="HeadLoginStatus" runat="server"><%=Resources.labels.loginNow %></a>
+
                     </div>
-                    <div class="form-group">
-                        <asp:Label ID="PasswordLabel" runat="server" CssClass="label-up" AssociatedControlID="Password"><%=String.Format(Resources.labels.passwordMinimumCharacters, Membership.MinRequiredPasswordLength) %></asp:Label>
-                        <div class="boxRound">
-                            <asp:TextBox ID="Password" runat="server" CssClass="passwordEntry form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label ID="ConfirmPasswordLabel" runat="server" CssClass="label-up" AssociatedControlID="ConfirmPassword"><%=Resources.labels.confirmPassword %>:</asp:Label>
-                        <div class="boxRound">
-                            <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="passwordEntry form-control" TextMode="Password"></asp:TextBox>
-                        </div>
-                    </div>
-                    <blog:RecaptchaControl ID="recaptcha" runat="server" />
-                    <div class="btn-wrapper text-center">
-                        <asp:Button ID="CreateUserButton" CssClass="btn btn-success btn-block" runat="server" CommandName="MoveNext" Text="<%$Resources:labels,createUser %>" OnClientClick="return ValidateNewUser()" />
-                        <hr />
-                        <p>
-                            <span>
-                                <%=Resources.labels.alreadyHaveAccount %>
-                                <a id="HeadLoginStatus" runat="server"><%=Resources.labels.loginNow %></a></span>
-                        </p>
-                    </div>
+
+
                 </ContentTemplate>
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
