@@ -167,6 +167,7 @@ namespace BlogEngine.Core
                 var request = (HttpWebRequest)WebRequest.Create(this.Uri);
                 request.Headers["Accept-Encoding"] = "gzip";
                 request.Headers["Accept-Language"] = "en-us";
+                request.UserAgent = "Mozilla / 5.0(Windows NT 6.2; WOW64; rv: 40.0) Gecko / 20100101 Firefox / 40.0";
                 request.Credentials = CredentialCache.DefaultNetworkCredentials;
                 request.AutomaticDecompression = DecompressionMethods.GZip;
 

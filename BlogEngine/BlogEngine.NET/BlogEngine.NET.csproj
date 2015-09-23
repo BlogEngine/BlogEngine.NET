@@ -129,6 +129,7 @@
     <Content Include="admin\themes\standard\css\08.posts.css" />
     <Content Include="admin\themes\standard\css\09.custom.css" />
     <Content Include="admin\themes\standard\css\10.newpost.css" />
+    <Content Include="App_Data\posts\f39c3289-e861-48f7-a4b7-edaaffe6f6dc.xml" />
     <Content Include="Content\images\blog\icon-left.svg" />
     <Content Include="Content\images\blog\icon-pass.svg" />
     <Content Include="Content\images\blog\icon-user.svg" />
@@ -2715,7 +2716,6 @@
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />
-    <Folder Include="App_Data\posts\" />
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
