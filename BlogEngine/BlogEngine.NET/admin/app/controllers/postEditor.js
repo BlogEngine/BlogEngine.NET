@@ -186,7 +186,33 @@
             spinOff();
         });
     }
-        
+       
+    $scope.addCagegory = function () {
+        $("#modal-add-cat").modal();
+        $scope.focusInput = true;
+    }
+
+    $scope.saveCategory = function () {
+        if (!$('#cat-form').valid()) {
+            return false;
+        }
+        dataService.addItem("/api/categories", $scope.category)
+        .success(function (data) {
+            $scope.lookups.CategoryList.push(
+                {
+                    OptionName: data.Title,
+                    OptionValue: data.Id,  
+                    IsSelected: false
+                }
+            );
+            toastr.success($rootScope.lbl.categoryAdded);
+            $("#modal-add-cat").modal('hide');
+        })
+        .error(function () {
+            toastr.error(data);
+        });
+    }
+
     $scope.load();
 
     $(document).ready(function () {
@@ -201,6 +227,11 @@
         $('#form').validate({
             rules: {
                 txtTitle: { required: true }
+            }
+        });
+        $('#cat-form').validate({
+            rules: {
+                txtCatTitle: { required: true }
             }
         });
     });

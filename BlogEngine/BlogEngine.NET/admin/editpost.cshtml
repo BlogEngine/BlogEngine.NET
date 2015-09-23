@@ -19,6 +19,46 @@
         <span id="spinner" class="loaded pull-left"><i class='fa fa-spinner fa-spin fa-large'></i></span>
     </div>
     <div class="content-inner newpost">
+        <form id="cat-form" action="">
+            <div id="modal-add-cat" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                            <h4 class="modal-title">{{lbl.addNewCategory}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-horizontal clearfix">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtCatTitle">{{lbl.title}}</label>
+                                    <div class="col col-md-8">
+                                        <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="txtExcerpt">{{lbl.description}}</label>
+                                    <div class="col col-md-8">
+                                        <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4" for="selAuthors">{{lbl.parent}}</label>
+                                    <div class="col col-md-8">
+                                        <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
+                                            <option value="">-- {{lbl.select.toLowerCase()}} --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" ng-click="saveCategory()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
         <form id="form" action="">
             <div class="row">
@@ -27,8 +67,6 @@
                         <input type="text" id="txtTitle" name="txtTitle" title="Please enter title" placeholder="{{lbl.titleOfPost}}..." class="form-control newpost-title" data-ng-model="post.Title" />
                     </div>
                     @RenderPage(BlogConfig.DefaultEditor)
-
-
                 </div>
                 <div class="col col-md-3">
 
@@ -42,7 +80,12 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-folder"></i> {{lbl.categories}}
+                            <div class="panel-title">
+                                <i class="fa fa-folder"></i> {{lbl.categories}}
+                                <span class="pull-right" style="margin-top: 15px">
+                                    <a title="{{lbl.add}}" href="" ng-click="addCagegory()"><i class="fa fa-plus fa-sm"></i></a>
+                                </span>
+                            </div>
                         </div>
                         <ul class="list-group categories-list">
                             <li class="list-group-item" ng-repeat="cat in lookups.CategoryList">
@@ -53,8 +96,6 @@
                             </li>
                         </ul>
                     </div>
-
-
 
                     <div class="panel panel-default">
                         <div class="panel-heading">

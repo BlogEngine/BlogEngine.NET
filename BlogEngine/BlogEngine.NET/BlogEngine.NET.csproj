@@ -128,6 +128,7 @@
     <Content Include="admin\themes\standard\css\07.tables.css" />
     <Content Include="admin\themes\standard\css\08.posts.css" />
     <Content Include="admin\themes\standard\css\09.custom.css" />
+    <Content Include="admin\themes\standard\css\10.newpost.css" />
     <Content Include="Content\images\blog\icon-left.svg" />
     <Content Include="Content\images\blog\icon-pass.svg" />
     <Content Include="Content\images\blog\icon-user.svg" />
