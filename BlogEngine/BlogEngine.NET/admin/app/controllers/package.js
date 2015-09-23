@@ -148,5 +148,5 @@ angular.module('blogAdmin').controller('PackageController', ["$rootScope", "$sco
 function setIframeBg() {
     var x = document.getElementById("settingsFrame");
     var y = x.contentDocument;
-    y.body.style.backgroundColor = "#eee";
+    y.body.style.backgroundColor = "#fff";
 }

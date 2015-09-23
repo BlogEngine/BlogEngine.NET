@@ -28,6 +28,7 @@ tinymce.init({
     height: 300,
     menubar: false,
     relative_urls: false,
+    browser_spellcheck: true,
     setup: function (editor) {
         editor.on('init', function (e) {
             if (htmlContent) {

@@ -15,6 +15,10 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.lst = ($location.search()).lst;
     $scope.galleryFilter = getFromQueryString('ftr');
 
+    $scope.order = 'LastUpdated desc';
+    $scope.sortingOrder = 'LastUpdated';
+    $scope.reverse = true;
+
     $scope.showRating = false;
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
@@ -37,7 +41,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
 
     $scope.load = function () {
         $scope.spin = true;
-        dataService.getItems('/api/packages', { take: 0, skip: 0, filter: $scope.fltr, order: "LastUpdated desc" })
+        dataService.getItems('/api/packages', { take: 0, skip: 0, filter: $scope.fltr, order: 'LastUpdated desc' })
         .success(function (data) {
             angular.copy(data, $scope.items);
 
@@ -197,6 +201,19 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
             toastr.error($rootScope.lbl.failed);
             $scope.spin = false;
         });
+    }
+
+    $scope.checkStar = function (item, rating) {
+        if (item === rating) {
+            return true;
+        }
+        return false;
+    }
+
+    $scope.sortBy = function (ord) {
+        $scope.sortingOrder = ord;
+        $scope.reverse = true;
+        $scope.load();
     }
 
     $scope.load();

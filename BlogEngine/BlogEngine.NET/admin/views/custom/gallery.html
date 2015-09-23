@@ -10,6 +10,17 @@
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
+        <div class="dropdown pull-right">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                SHOW : LATEST
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-filter">
+                <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
+                <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
+                <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
+            </ul>
+        </div>
     </div>
     <div class="content-inner">
         <div class="row">

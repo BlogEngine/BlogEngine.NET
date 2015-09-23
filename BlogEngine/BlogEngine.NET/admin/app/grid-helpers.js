@@ -1,7 +1,10 @@
 ﻿function gridInit(scope, filter) {
-    var sortingOrder = ''; // 'Title';
-    scope.sortingOrder = sortingOrder;
-    scope.reverse = false;
+    if (!scope.sortingOrder) {
+        scope.sortingOrder = '';
+    }
+    if (!scope.reverse) {
+        scope.reverse = false;
+    }
     scope.filteredItems = [];
     scope.groupedItems = [];  
     scope.pagedItems = [];
@@ -86,15 +89,6 @@
             scope.reverse = !scope.reverse;
 
         scope.sortingOrder = newSortingOrder;
-
-        //$('th i').each(function () {
-        //    $(this).removeClass('fa-sort-asc').removeClass('fa-sort-desc').addClass('fa-sort');
-        //});
-
-        //if (scope.reverse)
-        //    $(e.target).removeClass('fa-sort').addClass('fa-sort-asc');
-        //else
-        //    $(e.target).removeClass('fa-sort').addClass('fa-sort-desc');
     };
 
     scope.gridFilter = function (field, value, fltr) {
