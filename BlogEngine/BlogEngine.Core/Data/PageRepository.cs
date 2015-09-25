@@ -1,5 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -23,8 +24,8 @@ namespace BlogEngine.Core.Data
         /// <returns></returns>
         public IEnumerable<PageItem> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ViewPublicPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.ViewPublicPages))
+                throw new UnauthorizedAccessException();
 
             if (string.IsNullOrEmpty(filter)) filter = "1==1";
             if (string.IsNullOrEmpty(order)) order = "DateCreated desc";
@@ -36,7 +37,7 @@ namespace BlogEngine.Core.Data
             if (take == 0) take = Page.Pages.Count;
 
             foreach (var item in query.OrderBy(order).Skip(skip).Take(take))
-                items.Add(ToJson((BlogEngine.Core.Page)item));
+                items.Add(Json.GetPage(item));
 
             return items;
         }
@@ -48,11 +49,11 @@ namespace BlogEngine.Core.Data
         /// <returns>Page object</returns>
         public PageDetail FindById(Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ViewPublicPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.ViewPublicPages))
+                throw new UnauthorizedAccessException();
             try
             {
-                return ToJsonDetail((from p in Page.Pages.ToList() where p.Id == id select p).FirstOrDefault());
+                return Json.GetPageDetail((from p in Page.Pages.ToList() where p.Id == id select p).FirstOrDefault());
             }
             catch (Exception)
             {
@@ -67,12 +68,12 @@ namespace BlogEngine.Core.Data
         /// <returns>Saved page with new ID</returns>
         public PageDetail Add(PageDetail detail)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.CreateNewPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.CreateNewPages))
+                throw new UnauthorizedAccessException();
 
             var page = new Page();
             if (Save(page, detail))
-                return ToJsonDetail(page);
+                return Json.GetPageDetail(page);
 
             return null;
         }
@@ -85,8 +86,8 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Update(PageDetail page, string action)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.CreateNewPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.CreateNewPages))
+                throw new UnauthorizedAccessException();
 
             var corePage = (from p in Page.Pages.ToList() where p.Id == page.Id select p).FirstOrDefault();
 
@@ -116,8 +117,8 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Remove(Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.CreateNewPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.CreateNewPages))
+                throw new UnauthorizedAccessException();
 
             var page = (from p in Page.Pages.ToList() where p.Id == id select p).FirstOrDefault();
 
@@ -169,62 +170,6 @@ namespace BlogEngine.Core.Data
 
             page.Save();
             return true;
-        }
-
-        static PageItem ToJson(Page page)
-        {
-            Page parent = null;
-            SelectOption parentOption = null;
-
-            if (page.Parent != Guid.Empty)
-            {
-                parent = Page.Pages.FirstOrDefault(p => p.Id.Equals(page.Parent));
-                parentOption = new SelectOption { IsSelected = false, OptionName = parent.Title, OptionValue = parent.Id.ToString() };
-            }
-            return new PageItem
-            {
-                Id = page.Id,
-                ShowInList = page.ShowInList,
-                Title = page.Title,
-                Slug = page.Slug,
-                Parent = parentOption,
-                Keywords = page.Keywords,
-                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm"),
-                HasChildren = page.HasChildPages,
-                IsPublished = page.IsPublished,
-                IsFrontPage = page.IsFrontPage,
-                SortOrder = page.SortOrder,
-            };
-        }
-
-        static PageDetail ToJsonDetail(Page page)
-        {
-            Page parent = null;
-            SelectOption parentOption = null;
-
-            if (page.Parent != Guid.Empty)
-            {
-                parent = Page.Pages.FirstOrDefault(p => p.Id.Equals(page.Parent));
-                parentOption = new SelectOption { IsSelected = false, OptionName = parent.Title, OptionValue = parent.Id.ToString() };
-            }
-            return new PageDetail
-            {
-                Id = page.Id,
-                ShowInList = page.ShowInList,
-                Title = page.Title,
-                Slug = page.Slug,
-                RelativeLink = page.RelativeLink,
-                Content = page.Content,
-                Parent = parentOption,
-                Description = page.Description,
-                Keywords = page.Keywords,
-                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm"),
-                HasChildren = page.HasChildPages,
-                IsPublished = page.IsPublished,
-                IsFrontPage = page.IsFrontPage,
-                IsDeleted = page.IsDeleted,
-                SortOrder = page.SortOrder,
-            };
         }
 
         static string GetUniqueSlug(string slug)

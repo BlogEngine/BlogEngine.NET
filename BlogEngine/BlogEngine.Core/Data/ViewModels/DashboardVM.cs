@@ -1,4 +1,5 @@
 ﻿using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.Services;
 using BlogEngine.Core.Notes;
 using System.Collections.Generic;
 using System.IO;
@@ -8,17 +9,18 @@ using System.Web.Hosting;
 
 namespace BlogEngine.Core.Data.ViewModels
 {
+    /// <summary>
+    /// Dashboard view model
+    /// </summary>
     public class DashboardVM
     {
-        private List<Post> _posts;
-        private List<Page> _pages;
-        private List<Comment> _comments;
-        private List<TrashItem> _trash;
-
+        /// <summary>
+        /// Dashboard vm
+        /// </summary>
         public DashboardVM()
         {
-            _posts = new List<Post>();
-            _pages = new List<Page>();
+            _posts = new List<PostItem>();
+            _pages = new List<PageItem>();
             _comments = new List<Comment>();
             _trash = new List<TrashItem>();
 
@@ -27,27 +29,69 @@ namespace BlogEngine.Core.Data.ViewModels
 
         #region Properties
 
-        public List<Post> DraftPosts { get; set; }
-        public int PostPublishedCnt { get; set; }
-        public int PostDraftCnt { get; set; }
+        private List<PostItem> _posts;
+        private List<PageItem> _pages;
+        private List<Comment> _comments;
+        private List<TrashItem> _trash;
 
-        public List<Comment> Comments
+        /// <summary>
+        /// Draft posts
+        /// </summary>
+        public List<PostItem> DraftPosts { get; set; }
+        /// <summary>
+        /// Post published counter
+        /// </summary>
+        public int PostPublishedCnt { get; set; }
+        /// <summary>
+        /// Post drafts counter
+        /// </summary>
+        public int PostDraftCnt { get; set; }
+        /// <summary>
+        /// Latest comments
+        /// </summary>
+        public List<CommentItem> Comments
         {
             get
             {
-                return _comments.AsQueryable().OrderBy("DateCreated desc").Take(5).ToList();
+                var comments = new List<CommentItem>();
+                foreach(var c in _comments.AsQueryable().OrderBy("DateCreated desc").Take(5).ToList())
+                {
+                    comments.Add(Json.GetComment(c, _comments));
+                }
+                return comments;
             }
         }
+        /// <summary>
+        /// Approved comments counter
+        /// </summary>
         public int ApprovedCommentsCnt { get; set; }
+        /// <summary>
+        /// Pending comments counter
+        /// </summary>
         public int PendingCommentsCnt { get; set; }
+        /// <summary>
+        /// Spam comments counter
+        /// </summary>
         public int SpamCommentsCnt { get; set; }
-
-        public List<Page> DraftPages { get; set; }
+        /// <summary>
+        /// Draft pages
+        /// </summary>
+        public List<PageItem> DraftPages { get; set; }
+        /// <summary>
+        /// Published pages counter
+        /// </summary>
         public int PagePublishedCnt { get; set; }
+        /// <summary>
+        /// Draft pages counter
+        /// </summary>
         public int PageDraftCnt { get; set; }
-
+        /// <summary>
+        /// Trash items counter
+        /// </summary>
         public List<TrashItem> Trash { get; set; }
-
+        /// <summary>
+        /// Quick notes counter
+        /// </summary>
         public List<QuickNote> Notes
         {
             get
@@ -55,7 +99,9 @@ namespace BlogEngine.Core.Data.ViewModels
                 return new QuickNotes(Security.CurrentUser.Identity.Name).Notes;
             }
         }
-
+        /// <summary>
+        /// Log items counter
+        /// </summary>
         public List<SelectOption> Logs
         {
             get
@@ -65,6 +111,8 @@ namespace BlogEngine.Core.Data.ViewModels
         }
 
         #endregion
+
+        #region Private methods
 
         private void LoadProperties()
         {
@@ -76,8 +124,12 @@ namespace BlogEngine.Core.Data.ViewModels
         private void LoadPosts()
         {
             var posts = Post.ApplicablePosts.Where(p => p.IsVisible);
-            DraftPosts = posts.Where(p => p.IsPublished == false).ToList();
-            PostDraftCnt = DraftPosts.Count;
+            DraftPosts = new List<PostItem>();
+            foreach (var p in posts.Where(p => p.IsPublished == false).ToList())
+            {
+                DraftPosts.Add(Json.GetPost(p));
+            }
+            PostDraftCnt = DraftPosts == null ? 0 : DraftPosts.Count;
             PostPublishedCnt = posts.Where(p => p.IsPublished).ToList().Count;
 
             foreach (var p in posts)
@@ -92,14 +144,19 @@ namespace BlogEngine.Core.Data.ViewModels
         private void LoadPages()
         {
             var pages = Page.Pages.Where(p => p.IsVisible);
-            DraftPages = pages.Where(p => p.IsPublished == false).ToList();
-            PageDraftCnt = DraftPages.Count;
+            DraftPages = new List<PageItem>();
+            foreach (var p in pages.Where(p => p.IsPublished == false).ToList())
+            {
+                DraftPages.Add(Json.GetPage(p));
+            }
+            PageDraftCnt = DraftPages == null ? 0 : DraftPages.Count;
             PagePublishedCnt = pages.Where(p => p.IsPublished).ToList().Count;
         }
 
         private void LoadTrash()
         {
             var posts = Post.ApplicablePosts.Where(p => p.IsDeleted);
+            _trash = new List<TrashItem>();
             if (posts.Count() > 0)
             {
                 foreach (var p in posts)
@@ -192,5 +249,7 @@ namespace BlogEngine.Core.Data.ViewModels
                 return new List<SelectOption>();
             }
         }
+
+        #endregion
     }
 }

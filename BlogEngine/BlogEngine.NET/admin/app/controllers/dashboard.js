@@ -1,8 +1,5 @@
 ﻿angular.module('blogAdmin').controller('DashboardController', ["$rootScope", "$scope", "$location", "$log", "$filter", "dataService", function ($rootScope, $scope, $location, $log, $filter, dataService) {
-    $scope.stats = {};
-    $scope.draftposts = [];
-    $scope.draftpages = [];
-    $scope.recentcomments = [];
+    $scope.vm = {};
     $scope.trash = [];
     $scope.logItems = [];
     $scope.itemToPurge = {};
@@ -88,21 +85,9 @@
 
         $scope.loadPackages();
 
-        dataService.getItems('/api/stats')
-            .success(function (data) { angular.copy(data, $scope.stats); })
+        dataService.getItems('/api/dashboard')
+            .success(function (data) { angular.copy(data, $scope.vm); })
             .error(function (data) { toastr.success($rootScope.lbl.errorGettingStats); });
-
-        dataService.getItems('/api/posts', { take: 3, skip: 0, filter: "IsPublished == false" })
-            .success(function (data) { angular.copy(data, $scope.draftposts); })
-            .error(function () { toastr.error($rootScope.lbl.errorLoadingDraftPosts); });
-
-        dataService.getItems('/api/pages', { take: 3, skip: 0, filter: "IsPublished == false" })
-            .success(function (data) { angular.copy(data, $scope.draftpages); })
-            .error(function () { toastr.error($rootScope.lbl.errorLoadingDraftPages); });
-
-        dataService.getItems('/api/comments', { type: 5, take: 5, skip: 0, filter: "IsDeleted == false", order: "DateCreated descending" })
-            .success(function (data) { angular.copy(data, $scope.recentcomments); })
-            .error(function () { toastr.error($rootScope.lbl.errorLoadingRecentComments); });
 
         dataService.getItems('/api/logs/getlog/file')
             .success(function (data) {
