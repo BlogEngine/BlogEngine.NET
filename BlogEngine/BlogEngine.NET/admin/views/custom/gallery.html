@@ -32,7 +32,7 @@
                     </div>
                     <input type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="items.length == 0" />
                     <div class="package-item-button">
-                        <button class="btn btn-sm btn-success"><i class="fa fa-download"></i> {{lbl.download}}</button>
+                        <button type="button" ng-click="installPackage(item.Id)" class="btn btn-sm btn-success"><i class="fa fa-download"></i> {{lbl.download}}</button>
                         <a title="{{item.Title}}" class="btn btn-sm btn-primary" href="#/custom/package?id={{item.Id}}"><i class="fa fa-info-circle"></i> Details</a>
                     </div>
                     <div class="package-item-info">

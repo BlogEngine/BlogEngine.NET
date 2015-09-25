@@ -82,9 +82,7 @@
   <authorname>My name</authorname>
   <descriptioncharacters>300</descriptioncharacters>
   <enablessl>False</enablessl>
-  <errortext>
-    This one's down to me! Please accept my apologies for this - I'll see to it that the developer responsible for this happening is given 20 lashes (but only after he or she has fixed this problem).
-  </errortext>
+  <errortext>This one's down to me! Please accept my apologies for this - I'll see to it that the developer responsible for this happening is given 20 lashes (but only after he or she has fixed this problem).</errortext>
   <contactthankmessage>&lt;h1&gt;Thank you&lt;/h1&gt;&lt;p&gt;The message was sent.&lt;/p&gt;</contactthankmessage>
   <descriptioncharactersforpostsbytagorcategory>0</descriptioncharactersforpostsbytagorcategory>
   <commentreportmistakes>False</commentreportmistakes>

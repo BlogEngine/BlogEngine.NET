@@ -281,9 +281,6 @@
     <Content Include="admin\editpost.cshtml" />
     <Content Include="admin\editpage.cshtml" />
     <Content Include="admin\filemanager.cshtml" />
-    <None Include="App_Data\PublishProfiles\be.pubxml" />
-    <None Include="App_Data\PublishProfiles\bespa - FTP.pubxml" />
-    <None Include="App_Data\PublishProfiles\bespa - Web Deploy.pubxml" />
     <Content Include="AppCode\Wlw\TagMiniView.aspx" />
     <Content Include="AppCode\Wlw\wlw.css" />
     <Content Include="App_Data\labels.txt" />
@@ -642,9 +639,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
-    <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
-    <None Include="Properties\PublishProfiles\zoo - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\zoo - Web Deploy.pubxml" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-touch.min.js.map" />

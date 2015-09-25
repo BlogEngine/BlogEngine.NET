@@ -4,7 +4,7 @@
             Package Details <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
         <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>back</button>
-        <button ng-disabled="(package.OnlineVersion == '' || (package.OnlineVersion != '' && package.LocalVersion == '')) || id == activeTheme" data-ng-click="uninstallPackage()" class="btn btn-danger pull-left"><i class="fa fa-trash"></i>{{lbl.remove}}</button>
+        <button ng-if="IsPrimary" ng-disabled="(package.OnlineVersion == '' || (package.OnlineVersion != '' && package.LocalVersion == '')) || id == activeTheme" data-ng-click="uninstallPackage()" class="btn btn-danger pull-left"><i class="fa fa-trash"></i>{{lbl.remove}}</button>
     </div>
     <div class="content-inner">
 
@@ -44,7 +44,7 @@
                             <span class="control-label"><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
                             <span>{{package.DownloadCount}}</span>
                         </li>
-                        <li class="list-group-item" ng-if="package.PackageType === 'Extension' && package.LocalVersion != ''">
+                        <li ng-if="IsPrimary" class="list-group-item" ng-if="package.PackageType === 'Extension' && package.LocalVersion != ''">
                             <span class="control-label"><i class="fa fa-sort-amount-asc"></i> {{lbl.priority}}: {{package.Priority}} &nbsp;</span>
                             <div class="btn-group">
                                 <a class="btn btn-default" href="" ng-click="setPriority('up')"><i class="fa fa-long-arrow-up"></i> {{lbl.up}}</a>

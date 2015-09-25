@@ -4,8 +4,8 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
-        <div class="btn-group befdv pull-left">
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
+        <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
@@ -23,7 +23,7 @@
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </div>
-                    <input type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
+                    <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
                     <div class="package-item-info clearfix">
                         <div class=" pull-left">
                             <span>{{item.Title}}</span>
