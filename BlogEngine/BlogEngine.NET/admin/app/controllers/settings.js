@@ -9,14 +9,6 @@
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
     $scope.moderationEnabled = 0;
     $scope.commentsProvider = 0;
-
-    $scope.commentsPerPageOptions = [
-        { "OptionName": "5", "OptionValue": "5", "IsSelected": false },
-        { "OptionName": "10", "OptionValue": "10", "IsSelected": false },
-        { "OptionName": "15", "OptionValue": "15", "IsSelected": false },
-        { "OptionName": "20", "OptionValue": "20", "IsSelected": false },
-        { "OptionName": "50", "OptionValue": "50", "IsSelected": false }
-    ];
     $scope.timeZoneOptions = [];
 
     $scope.load = function () {
@@ -43,8 +35,9 @@
             $scope.selfRegistrationInitialRole = selectedOption($scope.lookups.SelfRegisterRoles, $scope.settings.SelfRegistrationInitialRole);
             $scope.selFeedFormat = selectedOption($scope.vm.FeedOptions, $scope.settings.SyndicationFormat);
             $scope.selCloseDays = selectedOption($scope.vm.CloseDaysOptions, $scope.settings.DaysCommentsAreEnabled);
-            $scope.selCommentsPerPage = selectedOption($scope.commentsPerPageOptions, $scope.settings.CommentsPerPage);
+            $scope.selCommentsPerPage = selectedOption($scope.vm.CommentsPerPageOptions, $scope.settings.CommentsPerPage);
             $scope.selTimeZone = selectedOption($scope.timeZoneOptions, $scope.settings.TimeZoneId);
+            $scope.selFacebookLanguage = selectedOption($scope.vm.FacebookLanguages, $scope.settings.FacebookLanguage);
             $scope.setCommentProviders($scope.settings.CommentProvider);
             spinOff();
         })
@@ -67,6 +60,7 @@
         $scope.settings.DaysCommentsAreEnabled = $scope.selCloseDays.OptionValue;
         $scope.settings.CommentsPerPage = $scope.selCommentsPerPage.OptionValue;
         $scope.settings.TimeZoneId = $scope.selTimeZone.OptionValue;
+        $scope.settings.FacebookLanguage = $scope.selFacebookLanguage.OptionValue;
         $scope.settings.txtErrorTitle = $scope.txtErrorTitle;
 
         dataService.updateItem("/api/settings", $scope.settings)

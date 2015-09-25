@@ -98,6 +98,12 @@
                             <input type="text" class="form-control ltr-dir" id="txtFacebookAppId" data-ng-model="settings.FacebookAppId" />
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="selFacebookLang">Language</label>
+                        <div>
+                            <select id="selFacebookLang" class="form-control" data-ng-options="o.OptionName for o in vm.FacebookLanguages" data-ng-model="selFacebookLanguage"></select>
+                        </div>
+                    </div>
                 </div>
                 <hr />
                 <div class="form-group">

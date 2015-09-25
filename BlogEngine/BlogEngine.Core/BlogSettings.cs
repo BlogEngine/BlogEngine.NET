@@ -842,6 +842,10 @@
         /// Facebook application ID
         /// </summary>
         public string FacebookAppId { get; set; }
+        /// <summary>
+        /// Facebook language
+        /// </summary>
+        public string FacebookLanguage { get; set; }
 
         #endregion
 

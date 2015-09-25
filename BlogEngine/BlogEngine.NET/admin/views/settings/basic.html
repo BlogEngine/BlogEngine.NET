@@ -28,23 +28,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="selTimezone">{{lbl.timezone}}</label>
+                    <label for="selZone">{{lbl.timezone}}</label>
                     <div>
                         <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
                     </div>
                 </div>
-                <!--<div class="form-group">
-                    <label for="selDesktopTheme">{{lbl.setAsCurrentTheme}}</label>
-                    <div class="col col-md-6">
-                        <select id="selDesktopTheme" class="form-control" data-ng-options="o.OptionName for o in lookups.InstalledThemes" data-ng-model="selectedDeskTheme"></select>
-                    </div>
-                    <div class="col col-md-2">
-                        <div class="btn-group btn-group-justified">
-                            <a class="btn btn-default" title="Details" href="" data-ng-click="loadTheme()"><i class="fa fa-search"></i>&nbsp;</a>
-                            <a class="btn btn-default" title="Find more" href="#/gallery"><i class="fa fa-download"></i>&nbsp;</a>
-                        </div>
-                    </div>
-                </div>-->
                 <div class="form-group">
                     <label>
                         <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />

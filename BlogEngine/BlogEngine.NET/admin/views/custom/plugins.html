@@ -30,8 +30,8 @@
                         <span ng-if="item.Enabled">{{item.Title}}</span>
                     </div>
                     <div class="package-item-button">
-                        <a ng-if="IsPrimary" href="" ng-click="enableExtension(item, false)" ng-if="item.Enabled" class="btn btn-sm btn-danger">Disable</a>
-                        <a ng-if="IsPrimary" href="" ng-click="enableExtension(item, true)" ng-if="!item.Enabled" class="btn btn-sm btn-success">Enable</a>
+                        <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
+                        <a ng-if="IsPrimary && !item.Enabled" href="" ng-click="enableExtension(item, true)" class="btn btn-sm btn-success">Enable</a>
                         <a ng-if="item.SettingsUrl != ''" href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-primary">Customize</a>
                     </div>
                     <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>

@@ -127,6 +127,7 @@ namespace BlogEngine.Core.Data
             bs.DisqusAddCommentsToPages = ns.DisqusAddCommentsToPages;
             bs.DisqusWebsiteName = ns.DisqusWebsiteName;
             bs.FacebookAppId = ns.FacebookAppId;
+            bs.FacebookLanguage = ns.FacebookLanguage;
 
             // custom filters
             bs.TrustAuthenticatedUsers = ns.TrustAuthenticatedUsers;
@@ -242,6 +243,7 @@ namespace BlogEngine.Core.Data
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
             ns.DisqusWebsiteName = bs.DisqusWebsiteName;
             ns.FacebookAppId = bs.FacebookAppId;
+            ns.FacebookLanguage = bs.FacebookLanguage == null ? "en_US" : bs.FacebookLanguage;
 
             // custom filters
             ns.TrustAuthenticatedUsers = bs.TrustAuthenticatedUsers;

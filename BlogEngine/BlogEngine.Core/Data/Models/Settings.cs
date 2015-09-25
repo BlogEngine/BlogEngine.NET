@@ -172,6 +172,7 @@
         public bool DisqusAddCommentsToPages { get; set; }
         public string DisqusWebsiteName { get; set; }
         public string FacebookAppId { get; set; }
+        public string FacebookLanguage { get; set; }
 
         // custom filters
         public bool TrustAuthenticatedUsers { get; set; }
