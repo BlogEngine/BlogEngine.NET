@@ -2,10 +2,44 @@
     $scope.vm = {};
     $scope.itemToPurge = {};
     $scope.security = $rootScope.security;
-    $scope.pager = {};
-    $scope.pager.items = [];
-    $scope.pagerCurrentPage = 0;
     $scope.focusInput = false;
+    $scope.qd = angular.copy(newDraft);
+
+    $scope.postDraft = function () {
+        var draft = {
+            "Id": "",
+            "Title": $scope.qd.title,
+            "Author": "",
+            "Content": $scope.qd.text,
+            "DateCreated": moment().format("YYYY-MM-DD HH:mm"),
+            "Slug": "",
+            "Categories": "",
+            "Tags": "",
+            "Comments": "",
+            "HasCommentsEnabled": true,
+            "IsPublished": false
+        }  
+        dataService.addItem('api/posts', draft)
+        .success(function (data) {
+            $scope.qd = angular.copy(newDraft);
+            var dft = {
+                "IsChecked": false,
+                "Id": data.Id,
+                "Title": data.Title,
+                "Author": data.Author,
+                "DateCreated": data.DateCreated,
+                "Slug": data.Slug,
+                "RelativeLink": data.RelativeLink,
+                "Categories": null,
+                "Tags": null,
+                "Comments": null,
+                "IsPublished": false
+            };
+            $scope.vm.DraftPosts.push(dft);
+            toastr.success($rootScope.lbl.postAdded);
+        })
+        .error(function () { toastr.error($rootScope.lbl.failedAddingNewPost); });
+    }
 
     $scope.openLogFile = function () {
         $("#modal-log-file").modal();
@@ -84,12 +118,9 @@
         dataService.getItems('/api/dashboard')
         .success(function (data) {
             angular.copy(data, $scope.vm);
-            $scope.pager.items = $scope.vm.Notes;
-            listPagerInit($scope.pager);
         })
         .error(function (data) { toastr.success($rootScope.lbl.errorGettingStats); });
     }
-
     $scope.loadPackages = function () {
         if (!$scope.security.showTabCustom) {
             return;
@@ -108,7 +139,6 @@
             toastr.error($rootScope.lbl.errorLoadingPackages);
         });
     }
-
     $scope.checkNewVersion = function () {
         if (!$scope.security.showTabCustom) {
             return;
@@ -129,87 +159,10 @@
     }
 
     $scope.load();
-
-    $scope.noteId = '';
-    $scope.notePage = 1;
-    $scope.addNote = function () {
-        $scope.noteId = '';
-        $("#txtAddNote").val('');
-        $("#modal-add-note").modal();
-        $scope.focusInput = true;
-    }
-    $scope.editNote = function (id) {
-        $scope.noteId = id;
-        var note = findInArray($scope.pager.items, 'Id', id);
-        $("#txtEditNote").val(note.Note);
-        $("#modal-edit-note").modal();
-        $scope.focusInput = true;
-    }
-    $scope.deleteNote = function (id) {
-        var note = { 'Id': id };
-        dataService.deleteItem("/api/quicknotes/", note)
-        .success(function (data) {
-            toastr.success($rootScope.lbl.completed);
-            $scope.load();
-            $("#modal-edit-note").modal('hide');
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.failed);
-            $("#modal-edit-note").modal('hide');
-        });
-    }
-    saveNote = function () {
-        if ($scope.noteId === '') {
-            $scope.addNewNote();
-        }
-        else {
-            $scope.updateNote();
-        }
-        $scope.focusInput = false;
-    }
-    $scope.addNewNote = function () {
-        if ($("#txtAddNote").val().length < 1) {
-            toastr.error($rootScope.lbl.isRequiredField);
-            return false;
-        }
-        var note = { 'Id': '', 'Note': $("#txtAddNote").val() };
-        dataService.addItem("/api/quicknotes/add", note)
-        .success(function (data) {
-            toastr.success($rootScope.lbl.completed);
-            $scope.load();
-            $("#modal-add-note").modal('hide');
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.failed);
-            $("#modal-add-note").modal('hide');
-        });
-    }
-    $scope.updateNote = function () {
-        if ($("#txtEditNote").val().length < 1) {
-            toastr.error($rootScope.lbl.isRequiredField);
-            return false;
-        }
-        var note = { 'Id': $scope.noteId, 'Note': $("#txtEditNote").val() };
-        dataService.updateItem("/api/quicknotes/" + $scope.noteId, note)
-        .success(function (data) {
-            toastr.success($rootScope.lbl.completed);
-            $scope.load();
-            $("#modal-edit-note").modal('hide');
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.failed);
-            $("#modal-edit-note").modal('hide');
-        });
-    }
-    $scope.notePrevPage = function () {
-        if ($scope.notePage > 1) {
-            $scope.notePage--;
-        }
-        alert($scope.notePage);
-    }
-    $scope.noteNextPage = function () {
-        $scope.notePage++;
-        alert($scope.notePage);
-    }
-
 }]);
+
+var newDraft = {
+    show: UserVars.Rights.indexOf("CreateNewPosts") > 0,
+    title: "",
+    text: ""
+}

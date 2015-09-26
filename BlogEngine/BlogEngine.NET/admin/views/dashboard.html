@@ -62,25 +62,22 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
+                <div ng-if="qd.show" class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
-                            Quick Notes
-                            <span class="pull-right">
-                                <a href="" ng-if="pager.currentPage != 0" data-ng-click="pager.prevPage()"><i class="fa fa-angle-left fa-sm"></i></a>
-                                <a href="" ng-if="pager.currentPage + 1 < pager.pagedItems.length" data-ng-click="pager.nextPage()"><i class="fa fa-angle-right"></i></a>&nbsp;
-                                <a title="{{lbl.add}}" href="" ng-click="addNote()"><i class="fa fa-plus fa-sm"></i></a>
-                            </span>
+                            Quick Draft
                         </div>
                     </div>
                     <ul class="list-group list-group panel-collapse collaps in" id="collapseFour">
-                        <li class="list-group-item clearfix" data-ng-repeat="note in pager.pagedItems[pager.currentPage]">
-                            <a title="{{note.Title}}" href="" ng-click="editNote(note.Id)">{{note.Title}}</a>
-                            <span class="pull-right">
-                                <a title="{{lbl.doDelete}}" href="" ng-click="deleteNote(note.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
-                            </span>
+                        <li class="list-group-item clearfix">
+                            <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
+                            <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
                         </li>
-                        <li ng-if="pager.pagedItems.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
+                        <li class="list-group-item clearfix">
+                            <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-success btn-sm" title="{{lbl.publish}}">
+                                {{lbl.save}}
+                            </button>
+                        </li>
                     </ul>
                 </div>
                 <div class="panel panel-default">

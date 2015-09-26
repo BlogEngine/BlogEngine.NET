@@ -144,7 +144,7 @@ namespace BlogEngine.Core.Data
         static void Save(Post post, PostDetail detail)
         {
             post.Title = detail.Title;
-            post.Author = detail.Author;
+            post.Author = string.IsNullOrEmpty(detail.Author) ? Security.CurrentUser.Identity.Name : detail.Author;
             post.Description = GetDescription(detail.Description, detail.Content);
             post.Content = detail.Content;
             post.IsPublished = detail.IsPublished;
@@ -165,6 +165,10 @@ namespace BlogEngine.Core.Data
         static void UpdatePostCategories(Post post, List<CategoryItem> categories)
         {
             post.Categories.Clear();
+
+            if (categories == null)
+                return;
+
             foreach (var cat in categories)
             {
                 // add if category does not exist
@@ -185,6 +189,10 @@ namespace BlogEngine.Core.Data
         static void UpdatePostTags(Post post, List<TagItem> tags)
         {
             post.Tags.Clear();
+
+            if (tags == null)
+                return;
+
             foreach (var t in tags)
             {
                 post.Tags.Add(t.TagName);
@@ -194,6 +202,10 @@ namespace BlogEngine.Core.Data
         static List<TagItem> FilterTags(List<TagItem> tags)
         {
             var uniqueTags = new List<TagItem>();
+
+            if (tags == null)
+                return uniqueTags;
+
             foreach (var t in tags)
             {
                 if (!uniqueTags.Any(u => u.TagName == t.TagName))
