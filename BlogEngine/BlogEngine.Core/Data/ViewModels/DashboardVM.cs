@@ -125,7 +125,7 @@ namespace BlogEngine.Core.Data.ViewModels
         {
             var posts = Post.ApplicablePosts.Where(p => p.IsVisible);
             DraftPosts = new List<PostItem>();
-            foreach (var p in posts.Where(p => p.IsPublished == false).ToList())
+            foreach (var p in posts.Where(p => p.IsPublished == false && p.IsDeleted == false).ToList())
             {
                 DraftPosts.Add(Json.GetPost(p));
             }
@@ -145,7 +145,7 @@ namespace BlogEngine.Core.Data.ViewModels
         {
             var pages = Page.Pages.Where(p => p.IsVisible);
             DraftPages = new List<PageItem>();
-            foreach (var p in pages.Where(p => p.IsPublished == false).ToList())
+            foreach (var p in pages.Where(p => p.IsPublished == false && p.IsDeleted == false).ToList())
             {
                 DraftPages.Add(Json.GetPage(p));
             }
@@ -155,7 +155,7 @@ namespace BlogEngine.Core.Data.ViewModels
 
         private void LoadTrash()
         {
-            var posts = Post.ApplicablePosts.Where(p => p.IsDeleted);
+            var posts = Post.DeletedPosts;
             _trash = new List<TrashItem>();
             if (posts.Count() > 0)
             {
@@ -172,7 +172,7 @@ namespace BlogEngine.Core.Data.ViewModels
                     );
                 }
             }
-            var pages = Page.Pages.Where(p => p.IsDeleted);
+            var pages = Page.DeletedPages;
             if (pages.Count() > 0)
             {
                 foreach (var page in pages)
@@ -205,6 +205,7 @@ namespace BlogEngine.Core.Data.ViewModels
                     );
                 }
             }
+            Trash = _trash;
         }
 
         IEnumerable<SelectOption> GetLogFile()

@@ -1,7 +1,5 @@
 ﻿angular.module('blogAdmin').controller('DashboardController', ["$rootScope", "$scope", "$location", "$log", "$filter", "dataService", function ($rootScope, $scope, $location, $log, $filter, dataService) {
     $scope.vm = {};
-    $scope.trash = [];
-    $scope.logItems = [];
     $scope.itemToPurge = {};
     $scope.security = $rootScope.security;
     $scope.pager = {};
@@ -10,21 +8,13 @@
     $scope.focusInput = false;
 
     $scope.openLogFile = function () {
-        dataService.getItems('/api/logs/getlog/file')
-        .success(function (data) {
-            angular.copy(data, $scope.logItems);
-            $("#modal-log-file").modal();
-            return false;
-        })
-        .error(function (data) {
-            toastr.error($rootScope.lbl.errorGettingLogFile);
-        });
+        $("#modal-log-file").modal();
+        return false;
     }
-
     $scope.purgeLog = function () {
         dataService.updateItem('/api/logs/purgelog/file', $scope.itemToPurge)
         .success(function (data) {
-            $scope.logItems = [];
+            $scope.vm.Logs = [];
             $("#modal-log-file").modal('hide');
             toastr.success($rootScope.lbl.purged);
             return false;
@@ -36,11 +26,15 @@
 
     $scope.purge = function (id) {
         if (id) {
-            $scope.itemToPurge = findInArray($scope.trash.Items, "Id", id);
+            $scope.itemToPurge = findInArray($scope.vm.Trash, "Id", id);
         }
         dataService.updateItem('/api/trash/purge/' + id, $scope.itemToPurge)
         .success(function (data) {
-            $scope.loadTrash();
+            for (var i = 0; i < $scope.vm.Trash.length; i++)
+            if ($scope.vm.Trash[i].Id === id) {
+                $scope.vm.Trash.splice(i, 1);
+                break;
+            }
             toastr.success($rootScope.lbl.purged);
             return false;
         })
@@ -48,11 +42,10 @@
             toastr.error($rootScope.lbl.errorPurging);
         });
     }
-
     $scope.purgeAll = function () {
         dataService.updateItem('/api/trash/purgeall/all')
         .success(function (data) {
-            $scope.loadTrash();
+            $scope.vm.Trash = [];
             toastr.success($rootScope.lbl.purged);
             return false;
         })
@@ -60,14 +53,17 @@
             toastr.error($rootScope.lbl.errorPurging);
         });
     }
-
     $scope.restore = function (id) {
         if (id) {
-            $scope.itemToPurge = findInArray($scope.trash.Items, "Id", id);
+            $scope.itemToPurge = findInArray($scope.vm.Trash, "Id", id);
         }
         dataService.updateItem('/api/trash/restore/' + id, $scope.itemToPurge)
         .success(function (data) {
-            $scope.loadTrash();
+            for (var i = 0; i < $scope.vm.Trash.length; i++)
+            if ($scope.vm.Trash[i].Id === id) {
+                $scope.vm.Trash.splice(i, 1);
+                break;
+            }
             toastr.success($rootScope.lbl.restored);
             return false;
         })
@@ -86,28 +82,12 @@
         $scope.loadPackages();
 
         dataService.getItems('/api/dashboard')
-            .success(function (data) { angular.copy(data, $scope.vm); })
-            .error(function (data) { toastr.success($rootScope.lbl.errorGettingStats); });
-
-        dataService.getItems('/api/logs/getlog/file')
-            .success(function (data) {
-                angular.copy(data, $scope.logItems);
-                if ($scope.logItems.length > 0) { $('#tr-log-spinner').hide(); }
-                else { $('#div-log-spinner').html($rootScope.lbl.empty); }
-            })
-            .error(function (data) { toastr.error($rootScope.lbl.errorGettingLogFile); });
-
-        $scope.loadTrash();
-        $scope.loadNotes();
-    }
-
-    $scope.loadNotes = function () {
-        dataService.getItems('/api/quicknotes', { type: 0, take: 5, skip: 0 })
-            .success(function (data) {
-                angular.copy(data, $scope.pager.items);
-                listPagerInit($scope.pager);
-            })
-            .error(function () { toastr.error($rootScope.lbl.errorLoadingTrash); });
+        .success(function (data) {
+            angular.copy(data, $scope.vm);
+            $scope.pager.items = $scope.vm.Notes;
+            listPagerInit($scope.pager);
+        })
+        .error(function (data) { toastr.success($rootScope.lbl.errorGettingStats); });
     }
 
     $scope.loadPackages = function () {
@@ -147,16 +127,6 @@
             }
         });
     }
-
-    $scope.loadTrash = function () {
-        dataService.getItems('/api/trash', { type: 0, take: 5, skip: 0 })
-            .success(function (data) { angular.copy(data, $scope.trash); })
-            .error(function () { toastr.error($rootScope.lbl.errorLoadingTrash); });
-    }
-
-    $(document).ready(function () {
-        
-    });
 
     $scope.load();
 
