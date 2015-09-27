@@ -1,24 +1,24 @@
 ﻿/*[Dashboard]*/
-.panel {  border-radius:0px; border:none; overflow:hidden;}
-.panel .panel-heading {padding:0 20px; line-height:45px; background-color: #ddd; border-bottom:none; text-transform: uppercase; border-radius:0;color:#666; }
-.panel .panel-heading .panel-title { font-size: 14px; color:#666;}
-.panel .panel-heading a  {color:#666;}
-.panel .panel-heading i {margin-right:10px;}
-.panel .list-group-item {border-color:#F1F4F5; color:#666;}
-.panel .list-group-item:last-child{border-bottom:none;}
-.panel .list-group-item.item-empty {text-transform:uppercase; font-size:12px; color:#ccc;}
+.panel { border-radius: 0px; border: none; overflow: hidden; box-shadow:0 2px 2px #ddd  }
+.panel .panel-heading { padding: 0 20px; line-height: 45px; background-color: #fff; border-color: rgba(0, 95, 133, 0.1) !important; text-transform: uppercase; border-radius: 0; color: #666; }
+.panel .panel-heading .panel-title { font-size: 14px; font-weight: 500; color: #666; }
+.panel .panel-heading a { color: #666; }
+.panel .panel-heading i { margin-right: 10px; }
+.panel .list-group-item { border-color: #F1F4F5; color: #666; }
+.panel .list-group-item:last-child { border-bottom: none; }
+.panel .list-group-item.item-empty { text-transform: uppercase; font-size: 12px; color: #ccc; }
+.panel-body p:last-child { margin-bottom: 0; }
+/*[]*/
+.dashboard-stats li { padding: 0; }
+.dashboard-stats li a { display: block; padding: 0 20px; height: 48px; line-height: 45px; position: relative; }
+.dashboard-stats li a .item-stats-info { position: absolute; right: 12px; top: 12px; height: 24px; min-width: 24px; padding: 0 5px; line-height: 23px; background-color: #aaa; color: #fff; text-align: center; }
+.dashboard-stats li a .item-stats-info-green { background-color: #31AA75; }
+.dashboard-stats li a .item-stats-info-yellow { background-color: #E59C35; }
+.dashboard-stats li a .item-stats-info-red { background-color: #F96868; }
 
 /*[]*/
-.dashboard-stats li {padding:0;}
-.dashboard-stats li a {display:block; padding:0 20px; height:48px; line-height:45px; position:relative;}
-.dashboard-stats li a .item-stats-info {position:absolute; right:12px; top:12px; height:24px; min-width:24px; padding:0 5px; line-height:23px; background-color:#aaa; color:#fff; text-align:center;}
-.dashboard-stats li a .item-stats-info-green {background-color:#31AA75;}
-.dashboard-stats li a .item-stats-info-yellow {background-color:#E59C35;}
-.dashboard-stats li a .item-stats-info-red {background-color:#F96868;}
-
-/*[]*/
-.dashboard-gallery-item {position:relative; height:48px; padding:0;}
-.dashboard-gallery-item .item-link {display:block; height:100%; color:#666; padding-left:50px;}
-.dashboard-gallery-item .item-img {position:absolute; left:7px; top:7px; background-color:#fff; width:32px; height:32px;}
-.dashboard-gallery-item .item-title {display:block;font-size:12px; padding-top:6px;}
-.dashboard-gallery-item .item-desc {display: block;font-size:12px; color:#aaa;}
+.dashboard-gallery-item { position: relative; height: 48px; padding: 0; }
+.dashboard-gallery-item .item-link { display: block; height: 100%; color: #666; padding-left: 50px; }
+.dashboard-gallery-item .item-img { position: absolute; left: 7px; top: 7px; background-color: #fff; width: 32px; height: 32px; }
+.dashboard-gallery-item .item-title { display: block; font-size: 12px; padding-top: 6px; }
+.dashboard-gallery-item .item-desc { display: block; font-size: 12px; color: #aaa; }

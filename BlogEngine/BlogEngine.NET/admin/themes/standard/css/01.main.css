@@ -3,31 +3,19 @@
 .rtl-dir { direction: rtl; }
 a:hover, a:focus { text-decoration: none; }
 img { max-width: 100%; }
-label {
-    font-weight:normal;
-}
-input[type=checkbox]{
-    position:relative;
-    top:2px;
-}
-.checkbox input[type=checkbox]{
-    position:relative;
-    top:1px;
-}
-
+label { font-weight: normal; }
+input[type=checkbox] { position: relative; top: 2px; }
+.checkbox input[type=checkbox] { position: relative; top: 1px; }
 .text-ellipsis { display: block; overflow: hidden; white-space: nowrap; max-width: 350px; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; }
 .text-ellipsis-sm { max-width: 100px !important; text-align: center !important; margin: 0 auto; }
 .loading { display: inline-block; }
 .loaded { display: none; }
-
-
 .wrapper { display: table; width: 100%; height: 100%; }
-.sidebar { display: table-cell; vertical-align: top; width: 250px; min-width: 250px; background-color: #2f353f; font-weight: 400; font-size: 13px; transition: all ease 0.5s; }
+.sidebar { display: table-cell; vertical-align: top; width: 250px; min-width: 250px; background: #2f353f; font-weight: 400; font-size: 13px; transition: all ease 0.5s; position: relative; }
 .sidebar-icon .sidebar { min-width: 50px; width: 50px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
+.sidebar-logo { height: 41px; position: absolute; bottom: 30px; left:0; width: 100%; text-align: center; overflow: hidden; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
+.sidebar-logo a { display: inline-block; height: 100%; outline:none !important; }
+.sidebar-icon .sidebar-logo  {visibility:hidden; opacity:0;}
 .content { display: table-cell; vertical-align: top; width: 100%; }
-.content-inner { padding: 20px; }
-
-.well {
-    background-color:#fff;
-
-}
+.content-inner { padding: 25px; }
+.well { background-color: #fff; border-radius: 0; }

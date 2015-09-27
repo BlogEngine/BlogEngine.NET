@@ -39,7 +39,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.stats}}</div>
                     </div>
-                    <ul class="list-group panel-collapse dashboard-stats collaps in" id="collapseOne">
+                    <ul class="list-group dashboard-stats collaps in" id="collapseOne">
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=pub">{{lbl.publishedPosts}} <span class="item-stats-info item-stats-info-green">{{vm.PostPublishedCnt}}</span></a></li>
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=pub">{{lbl.publishedPages}} <span class="item-stats-info item-stats-info-green">{{vm.PagePublishedCnt}}</span></a></li>
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=dft">{{lbl.draftPosts}} <span class="item-stats-info item-stats-info-yellow">{{vm.PostDraftCnt}}</span></a></li>
@@ -53,7 +53,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.latestComments}}</div>
                     </div>
-                    <ul class="list-group panel-collapse collaps in " id="collapseTwo">
+                    <ul class="list-group collaps in " id="collapseTwo">
                         <li class="list-group-item" data-ng-repeat="comment in vm.Comments">
                             <span><a href="{{comment.RelativeLink}}" target="_new" class="text-ellipsis">{{comment.Title}}</a></span>
                         </li>
@@ -68,7 +68,7 @@
                             Quick Draft
                         </div>
                     </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseFour">
+                    <ul class="list-group list-group collaps in" id="collapseFour">
                         <li class="list-group-item clearfix">
                             <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
                             <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
@@ -84,7 +84,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.draftPosts}}</div>
                     </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseThree">
+                    <ul class="list-group list-group collaps in" id="collapseThree">
                         <li class="list-group-item clearfix" data-ng-repeat="post in vm.DraftPosts">
                             <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{post.Title}}</a>
                             <a title="{{post.Title}}" class="external-link pull-right" target="_new" href="{{post.RelativeLink}}"><i class="fa fa-external-link"></i></a>
@@ -96,7 +96,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.draftPages}}</div>
                     </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseFour">
+                    <ul class="list-group list-group collaps in" id="collapseFour">
                         <li class="list-group-item clearfix" data-ng-repeat="page in vm.DraftPages">
                             <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{page.Title}}</a>
                             <a title="{{page.Title}}" class="external-link pull-right" target="_new" href="{{SiteVars.RelativeWebRoot}}page/{{page.Slug}}"><i class="fa fa-external-link"></i></a>
@@ -130,7 +130,7 @@
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.logs}}</div>
                     </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseSeven">
+                    <ul class="list-group list-group collaps in" id="collapseSeven">
                         <li data-ng-if="vm.Logs.length > 0" class="list-group-item">
                             <a href="" data-ng-click="openLogFile()">{{lbl.loggedMessages}}</a>
                         </li>
@@ -147,7 +147,7 @@
                             </span>
                         </div>
                     </div>
-                    <ul class="list-group list-group panel-collapse collaps in" id="collapseFive">
+                    <ul class="list-group list-group collaps in" id="collapseFive">
                         <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
                             <a href="{{t.RelativeUrl}}" class="text-ellipsis pull-left">{{t.Title}}</a>
                             <span class="pull-right">

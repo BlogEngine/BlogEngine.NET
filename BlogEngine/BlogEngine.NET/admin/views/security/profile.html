@@ -31,118 +31,43 @@
 
     <div class="content-inner">
 
-        <div id="frm-user-edit" class="form-horizontal ">
+        <div id="frm-user-edit" class="form-width-limited">
             <div class="form-group">
-                <label class="control-label col-md-4"> </label>
-                <div class="col col-md-8 profile-picture-wrpaper">
+                <div class="profile-picture-wrpaper">
                     <img ng-src="{{photo}}" width="80" class="pull-left profile-picture" title="Profile Picture" />
                     <h4>{{user.Profile.DisplayName}}</h4>
-                    <div class="roles-name">{{lbl.roles}}: <span data-ng-repeat ="role in user.Roles" >{{role.RoleName}}</span></div>
+                    <div class="roles-name">{{lbl.roles}}: <span data-ng-repeat="role in user.Roles">{{role.RoleName}}</span></div>
                     <div class="btn-group">
                         <a class="btn btn-sm btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
                         <a class="btn btn-sm btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
                         <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
                     </div>
-
-
-
                 </div>
             </div>
-
             <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.displayName}}</label>
-                <div class="col col-md-8">
+                <label>{{lbl.displayName}}</label>
+                <div>
                     <input type="text" class="form-control" data-ng-model="user.Profile.DisplayName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-md-4" for="txtFirstName">{{lbl.firstName}}</label>
-                <div class="col col-md-8">
-                    <input type="text" id="txtFirstName" name="txtFirstName" class="form-control" data-ng-model="user.Profile.FirstName" />
-                </div>
+                <label for="txtFirstName">{{lbl.firstName}}</label>
+                <input type="text" id="txtFirstName" name="txtFirstName" class="form-control" data-ng-model="user.Profile.FirstName" />
             </div>
             <div class="form-group">
-                <label class="control-label col-md-4" for="txtLastName">{{lbl.lastName}}</label>
-                <div class="col col-md-8">
-                    <input type="text" id="txtLastName" name="txtLastName" class="form-control" data-ng-model="user.Profile.LastName" />
-                </div>
-            </div>
-            <!--
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.middleName}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.MiddleName" />
-                </div>
+                <label for="txtLastName">{{lbl.lastName}}</label>
+                <input type="text" id="txtLastName" name="txtLastName" class="form-control" data-ng-model="user.Profile.LastName" />
             </div>
 
-            <div class="form-group ">
-                <label class="control-label col-md-4">{{lbl.aboutMe}}</label>
-                <div class="col col-md-8">
-                    <textarea class="form-control about-textarea" data-ng-model="user.Profile.AboutMe" cols="69"></textarea>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.birthday}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.Birthday" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.country}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.Country" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.regionState}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.RegionState" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.cityTown}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.CityTown" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.phoneMain}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.PhoneMain" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4">{{lbl.phoneMobile}}</label>
-                <div class="col col-md-8">
-                    <input type="text" class="form-control" data-ng-model="user.Profile.PhoneMobile" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-4"></label>
-                <div class="col col-md-8">
-                    <div class="checkbox">
-                        <label>
-                            <input id="cbPrivate" type="checkbox" name="ckEnabled" data-ng-model="user.Profile.Private" />
-                            {{lbl.isPrivate}}
-                        </label>
-                    </div>
-                </div>
-            </div>
-            -->
-
+            <hr />
             <div id="frm-custom-edit ">
-
+                <h4>Custom field</h4>
                 <div class="form-group">
-                    <label class="control-label col-md-4">Custom field</label>
-                    <div class="col col-md-8">
-                        <button data-ng-click="showCustom()" class="btn btn-primary" type="button">
-                            <i class="fa fa-plus"></i> {{lbl.add}} Custom field
-                        </button>
-                    </div>
+                   
+                    <button data-ng-click="showCustom()" class="btn btn-primary" type="button">
+                        <i class="fa fa-plus"></i> {{lbl.add}} Custom field
+                    </button>
                 </div>
-
-
                 <div data-ng-repeat="item in customFields ">
                     <div class="form-group">
                         <label class="control-label col-md-4">{{item.Key}}</label>

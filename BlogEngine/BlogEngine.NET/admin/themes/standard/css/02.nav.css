@@ -8,7 +8,7 @@
 .nav-primary > li.active { background-color: #272c35; outline: none; }
 .nav-primary > li.active > a { color: #fff; }
 .nav-primary > li.active > i { color: #fff; }
-.nav-primary > li.active:after { position: absolute; right: 0; top: 15px; content: ""; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #eee; z-index: 4; }
+.nav-primary > li.active:after { position: absolute; right: 0; top: 15px; content: ""; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f4f6; z-index: 4; }
 .sidebar-icon .sidebar .nav-primary > li.active:after { display: none; }
 .nav-primary ul { display: none; }
 .nav-primary > li.active ul { display: block; padding-left: 50px; padding-bottom: 20px; }
@@ -37,13 +37,14 @@
 .user-nav { position: absolute; z-index: 5; right: 20px; top: 12px; width: 26px; height: 26px; }
 .user-nav-toggle { width: 50px; height: 50px; line-height: 50px; text-align: center; }
 .user-nav:hover .user-nav-toggle { background-color: #eee; }
-.user-nav img { border-radius: 2px; }
-.user-nav ul { display: none; position: absolute; width: 150px; z-index: 5; top: 26px; right: 0; list-style: none; margin: 0; padding: 12px 0 0; }
+.user-nav img { border-radius: 2px;  cursor:pointer;}
+.user-nav ul { display: none; position: absolute; width: 180px; z-index: 5; top: 26px; right: 0; list-style: none; margin: 0; padding: 12px 0 0; }
 .user-nav ul:after { content: ""; position: absolute; right: 5px; top: 5px; width: 0; height: 0; border-bottom: 7px solid #333; border-left: 7px solid transparent; border-right: 7px solid transparent; }
 .user-nav:hover ul { display: block; }
 .user-nav ul li { background: #2f353f; }
-.user-nav ul li:first-child { border-bottom: 1px solid #252c37; }
-.user-nav ul li a { line-height: 40px; font-size: 12px; padding: 0 10px; color: #a7b1c2; display: block; text-transform: uppercase; }
+.user-nav ul li:first-child { border-top:none; }
+.user-nav ul li { border-top: 1px solid #252c37; }
+.user-nav ul li a { line-height: 50px; font-size: 12px; padding: 0 20px; color: #a7b1c2; display: block; text-transform: uppercase; }
 .user-nav ul li:hover a { color: #fff; }
 .user-nav ul li a i { font-size: 13px; margin-right: 5px; }
 .user-nav ul li:first-child { -webkit-border-top-left-radius: 2px; -webkit-border-top-right-radius: 2px; -moz-border-radius-topleft: 2px; -moz-border-radius-topright: 2px; border-top-left-radius: 2px; border-top-right-radius: 2px; }

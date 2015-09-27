@@ -1,7 +1,7 @@
 ﻿
 /*[HEADER]*/
-.page-header { position: relative; background-color: #fff; margin: 0; height: 50px; padding: 0 56px 0 20px; border: none; box-shadow: 0px 2px 1px rgba( 0,0,0,0.02); }
-.page-header .page-title { margin: 0; font-weight: 400; line-height: 50px; height: 50px; text-transform: uppercase; font-size: 13px; margin-right: 16px; }
+.page-header { position: relative; background-color: #fff; margin: 0; height: 50px; padding: 0 56px 0 20px; border: none;  box-shadow: 0 2px 2px #ddd  }
+.page-header .page-title { margin: 0; font-weight: 500; line-height: 50px; height: 50px; color:#666; text-transform: uppercase; font-size: 14px; margin-right: 16px; }
 .page-header .btn { margin-right: 10px; border-radius: 2px; border: none !important; margin-top: 12px; line-height: 24px; font-weight: 400; height: 26px; font-size: 12px; text-align: center; padding: 0 15px 0 26px; display: block; text-transform: uppercase; position: relative; }
 .page-header .btn i { padding: 0; height: 26px; line-height: 26px; font-size: 10px; width: 26px; height: 26px; left: 0; position: absolute; }
 .page-header .befdv:before { content: ""; float: left; display: block; width: 1px; height: 26px; background-color: #ddd; margin-top: 12px; margin-right: 10px; }
@@ -12,7 +12,7 @@
 .page-header .help-link { color: #888; display: none; }
 .page-header .dropdown .btn { margin-right: 0; padding: 0 26px 0 10px; }
 .page-header .dropdown .btn i { right: 0; left: auto; font-size: 14px; }
-.page-header .dropdown .btn-default { background-color: #fff; }
+.page-header .dropdown .btn-default { }
 
 /*[SEARCH]*/
 .search { width: 26px; height: 26px; position: relative; margin-top: 12px; margin-left: 10px; }

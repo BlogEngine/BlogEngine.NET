@@ -68,14 +68,18 @@
                 <hr />
                 <h4>{{lbl.tools}}</h4>
                 <div class="form-group">
-                    <p>{{lbl.selectSavedBlogMlFle}}</p>
-                    <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" />
-                    <hr />
-                    <p>{{lbl.exportIntoBlogML}}</p>
-                    <button class="btn btn-primary btn-sm" data-ng-click="exportToXml()" type="button">{{lbl.export}}</button>
-                    <hr />
-                    <p ng-bind-html="lbl.runClickOnceApplicationToImport"></p>
-                    <button class="btn btn-primary btn-sm" style="margin-top: 5px" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
+                    <p>
+                        <div>{{lbl.selectSavedBlogMlFle}}</div>
+                        <input type="file" onchange="angular.element(this).scope().uploadFile(this.files)" />
+                    </p>
+                    <p>
+                        <div>{{lbl.exportIntoBlogML}}</div>
+                        <button class="btn btn-primary" data-ng-click="exportToXml()" type="button">{{lbl.export}}</button>
+                    </p>
+                    <p>
+                        <div ng-bind-html="lbl.runClickOnceApplicationToImport"></div>
+                        <button class="btn btn-primary" ng-click="importClickOnce()" type="button">{{lbl.importWithClickOnce}}</button>
+                    </p>
                 </div>
                 <hr />
                 <div class="form-group">
@@ -98,35 +102,35 @@
                 </div>
                 <div class="form-group">
                     <label>{{lbl.enablePingbacks}}</label>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
-                                {{lbl.send}}
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
-                                {{lbl.receive}}
-                            </label>
-                        </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="ckEnableTrackBackSend" data-ng-model="settings.EnableTrackBackSend" />
+                            {{lbl.send}}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" />
+                            {{lbl.receive}}
+                        </label>
+                    </div>
                 </div>
 
                 <hr />
-                        <h4>  {{lbl.securitySettings}}</h4>
+                <h4>  {{lbl.securitySettings}}</h4>
                 <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="ckAllowRemoteFileDownloads" data-ng-model="settings.AllowServerToDownloadRemoteFiles" />
-                                {{lbl.allowRemoteFileDownloads}}
-                            </label>
-                        </div>
-                        <label class="control-label" for="txtRemoteFileDownloadTimeout">{{lbl.remoteTimeout}}</label>
-                        <input type="text" class=" form-control" id="txtRemoteFileDownloadTimeout" name="txtRemoteFileDownloadTimeout" data-ng-model="settings.RemoteFileDownloadTimeout" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="ckAllowRemoteFileDownloads" data-ng-model="settings.AllowServerToDownloadRemoteFiles" />
+                            {{lbl.allowRemoteFileDownloads}}
+                        </label>
+                    </div>
+                    <label class="control-label" for="txtRemoteFileDownloadTimeout">{{lbl.remoteTimeout}}</label>
+                    <input type="text" class=" form-control" id="txtRemoteFileDownloadTimeout" name="txtRemoteFileDownloadTimeout" data-ng-model="settings.RemoteFileDownloadTimeout" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                 </div>
                 <div class="form-group">
-                        <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
-                        <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
+                    <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
+                    <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                 </div>
 
             </div>
