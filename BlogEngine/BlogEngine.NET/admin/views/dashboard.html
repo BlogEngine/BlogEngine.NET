@@ -110,7 +110,7 @@
                     <div class="panel-heading">
                         <div class="panel-title clearfix">
                             <span class="pull-left">{{lbl.latestFromTheGallery}}</span>
-                            <div id="tr-gal-spinner" class="pull-right">
+                            <div id="tr-gal-spinner" class="pull-right" style="margin-top: 15px">
                                 <div id="div-gal-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                         <div class="panel-title">
                             {{lbl.trash}}
                             <small ng-if="vm.Trash.length > 0">({{vm.Trash.length}})</small>
-                            <span ng-if="vm.Trash.length > 0" class="pull-right">
+                            <span ng-if="vm.Trash.length > 0" class="pull-right" style="margin-top: 15px; cursor: pointer">
                                 <span class="purgeall label label-danger" data-ng-click="purgeAll()"><i class="fa fa-times"></i> {{lbl.purgeAll}}</span>
                             </span>
                         </div>

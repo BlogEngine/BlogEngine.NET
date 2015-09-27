@@ -61,6 +61,28 @@
         </form>
 
         <form id="form" action="">
+            <div id="modal-custom-fields" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                            <h4 class="modal-title">{{lbl.add}}</h4>
+                        </div>
+                        <div class="modal-body modal-roles">
+                            <div class="form-group">
+                                <label class="control-label" for="txtKey">Key</label>
+                                <input type="text" id="txtKey" name="txtKey" class="form-control" data-ng-model="editItem.Key" focus-me="focusInput" />
+                                <label class="control-label" for="txtValue">Value</label>
+                                <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-ng-click="saveCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col col-md-9">
                     <div class="form-group">
@@ -142,15 +164,11 @@
 
                             <div class="panel-body">
                                 <a ng-disabled="post.Id === null || post.Id === ''" class="btn btn-success btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal"><i class="fa fa-plus"></i>{{lbl.add}}</a>
-                                <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix">
-                                    <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
-                                        <label class="control-label col-md-4">{{item.Key}}</label>
-                                        <div class="col col-md-7">
-                                            <input type="text" class="form-control" data-ng-model="item.Value" />
-                                        </div>
-                                        <div class="col col-md-1">
-                                            <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
-                                        </div>
+                                <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="padding: 5px 0">
+                                    <div data-ng-repeat="item in customFields">
+                                        <label class="control-label">{{item.Key}}</label>
+                                        <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" class="pull-right" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                                        <input type="text" class="form-control" data-ng-model="item.Value" />
                                     </div>
                                 </div>
                             </div>

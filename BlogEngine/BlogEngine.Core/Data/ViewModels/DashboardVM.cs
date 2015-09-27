@@ -189,7 +189,15 @@ namespace BlogEngine.Core.Data.ViewModels
                 }
             }
 
-            var comms = _comments.Where(c => c.IsDeleted);
+            var comms = new List<Comment>();
+            foreach (var p in Post.Posts)
+            {
+                if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
+                    if (p.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
+                        continue;
+
+                comms.AddRange(p.DeletedComments);
+            }
             if (comms.Count() > 0)
             {
                 foreach (var c in comms)

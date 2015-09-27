@@ -7,98 +7,129 @@
         Security.RedirectForUnauthorizedRequest();
     }
 }
-<style>
-    .input-page-title { font-size: 18px; height: 30px; margin: 0; margin-top: 7px; line-height: 30px; border: 0; font-weight: 500; font-family: "Helvetica"; }
-</style>
 <div class="content" ng-controller="PageEditorController">
-    <form id="form" action="">
-        <div class="page-header clearfix">
-            <div style="margin: 0 18px !important">
-                <input type="text" id="txtTitle" name="txtTitle" placeholder="{{lbl.titleOfPage}}..." class="pull-left input-page-title" data-ng-model="page.Title" />
-                <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-default btn-tabkey pull-right" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
-                <a href="#" data-ng-click="save()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</a>
-                <a href="" onclick="window.history.back()" class="btn btn-default btn-tabkey pull-right"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
-                <span id="spinner" class="loaded btn-tabkey pull-right"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+    <div class="page-header clearfix">
+        <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
+        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
+        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
+        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
+        <span ng-if="page.Id && page.IsPublished"><a href="#" class="btn btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
+        <a href="" onclick="window.history.back()" class="btn btn-default pull-left"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+        <span id="spinner" class="loaded btn-tabkey"><i class='fa fa-spinner fa-spin fa-lg'></i></span>
+        <span id="spinner" class="loaded pull-left"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+    </div>
+    <div class="content-inner newpost">
+        <form id="form" action="">
+            <div id="modal-custom-fields" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                            <h4 class="modal-title">{{lbl.add}}</h4>
+                        </div>
+                        <div class="modal-body modal-roles">
+                            <div class="form-group">
+                                <label class="control-label" for="txtKey">Key</label>
+                                <input type="text" id="txtKey" name="txtKey" class="form-control" data-ng-model="editItem.Key" focus-me="focusInput" />
+                                <label class="control-label" for="txtValue">Value</label>
+                                <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-ng-click="saveCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="content-inner">
-            <div class="col col-md-9">
-                <div id="overlay-editor">
+            <div class="row">
+                <div class="col col-md-9">
+                    <div class="form-group">
+                        <input type="text" id="txtTitle" name="txtTitle" title="Please enter title" placeholder="{{lbl.titleOfPage}}..." class="form-control newpost-title" data-ng-model="page.Title" />
+                    </div>                   
                     @RenderPage(BlogConfig.DefaultEditor)
+
                 </div>
 
-                <div style="border-bottom: 1px solid #e5e5e5; display: inline-block; width: 100%; margin: 8px 0">
-                    <h4 class="page-title pull-left">{{lbl.customFields}}</h4>
-                    <a href="" ng-disabled="page.Id === null || page.Id === ''" class="btn btn-default btn-header pull-right" type="button" id="btnCustomFields" ng-click="showCustom()" toggle="modal"><i class="fa fa-plus"></i>{{lbl.add}}</a>
-                </div>
-                <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix">
-                    <div style="display: inline-block; width: 100%; padding:  0 0 15px 0" data-ng-repeat="item in customFields">
-                        <label class="control-label col-md-4">{{item.Key}}</label>
-                        <div class="col col-md-7">
-                            <input type="text" class="form-control" data-ng-model="item.Value" />
+                <div class="col col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pagemeta" aria-expanded="false" aria-controls="pagemeta">
+                                <i class="fa fa-file"></i> {{lbl.pageMeta}}
+                            </a>
                         </div>
-                        <div class="col col-md-1">
-                            <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col col-md-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-file"></i> {{lbl.pageMeta}}
-                    </div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label class="control-label" for="txtSlug">{{lbl.slug}}</label>
-                            <input type="text" class="form-control" id="txtSlug" data-ng-model="page.Slug" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="txtDate">{{lbl.datePublished}}</label>
-                            <input type="text" class="form-control dateFormatted" id="txtDate" name="txtDate" data-ng-model="page.DateCreated" />
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="txtExcerpt">{{lbl.description}}</label>
-                            <textarea class="form-control" rows="2" id="txtExcerpt" data-ng-model="page.Description"> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="txtKeywords">{{lbl.keywords}}</label>
-                            <textarea class="form-control" rows="2" id="txtKeywords" data-ng-model="page.Keywords"> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="selParents">{{lbl.parent}}</label>
-                            <select id="selParents" class="form-control" data-ng-options="o.OptionName for o in lookups.PageList" data-ng-model="selectedParent"></select>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="txtSortOrder">{{lbl.sortOrder}}</label>
-                            <input type="text" class="form-control" id="txtSortOrder" data-ng-model="page.SortOrder" />
-                        </div>
-                        <div class="clearfix">
-                            <div class="col-sm-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" data-ng-model="page.IsFrontPage" name="cbFrontPage" />
-                                        {{lbl.isFrontPage}}
-                                    </label>
+                        <div id="pagemeta" class="panel-collapse collapse" role="tabpanel" aria-labelledby="pagemeta">
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label class="control-label" for="txtSlug">{{lbl.slug}}</label>
+                                    <input type="text" class="form-control" id="txtSlug" data-ng-model="page.Slug" />
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" data-ng-model="page.ShowInList" name="cbShowInList" />
-                                        {{lbl.showInList}}
-                                    </label>
+                                <div class="form-group">
+                                    <label class="control-label" for="txtDate">{{lbl.datePublished}}</label>
+                                    <input type="text" class="form-control dateFormatted" id="txtDate" name="txtDate" data-ng-model="page.DateCreated" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="txtExcerpt">{{lbl.description}}</label>
+                                    <textarea class="form-control" rows="2" id="txtExcerpt" data-ng-model="page.Description"> </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="txtKeywords">{{lbl.keywords}}</label>
+                                    <textarea class="form-control" rows="2" id="txtKeywords" data-ng-model="page.Keywords"> </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="selParents">{{lbl.parent}}</label>
+                                    <select id="selParents" class="form-control" data-ng-options="o.OptionName for o in lookups.PageList" data-ng-model="selectedParent"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="txtSortOrder">{{lbl.sortOrder}}</label>
+                                    <input type="text" class="form-control" id="txtSortOrder" data-ng-model="page.SortOrder" />
+                                </div>
+                                <div class="clearfix">
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" data-ng-model="page.IsFrontPage" name="cbFrontPage" />
+                                                {{lbl.isFrontPage}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" data-ng-model="page.ShowInList" name="cbShowInList" />
+                                                {{lbl.showInList}}
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#customfil" aria-expanded="false" aria-controls="pagemeta">
+                                <i class="fa fa-cog"></i> {{lbl.customFields}}
+                            </a>
+                        </div>
+                        <div id="customfil" class="panel-collapse collapse" role="tabpanel" aria-labelledby="customfil">
+                            <div class="panel-body">
+                                <a ng-disabled="page.Id === null || page.Id === ''" class="btn btn-success btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal"><i class="fa fa-plus"></i>{{lbl.add}}</a>
+                                <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="margin: 5px 0">
+                                    <div data-ng-repeat="item in customFields">
+                                        <label class="control-label">{{item.Key}}</label>
+                                        <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" class="pull-right" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                                        <input type="text" class="form-control" data-ng-model="item.Value" />                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 @Scripts.Render("~/scripts/wysiwyg")

@@ -55,6 +55,11 @@
         });
     }
 
+    $scope.publish = function (doPublish) {
+        $scope.page.IsPublished = doPublish;
+        $scope.save();
+    }
+
     $scope.save = function () {
         if (!$('#form').valid()) {
             return false;
@@ -123,6 +128,17 @@
         })
         .error(function () { toastr.error("Import failed"); });
     }
+
+    $scope.status = function () {
+        // 0 - unpublished; 1 - saved; 2 - published;
+        if ($scope.page && $scope.page.Id && $scope.page.IsPublished) {
+            return 2;
+        }
+        if ($scope.page && $scope.page.Id && !$scope.page.IsPublished) {
+            return 1;
+        }
+        return 0;
+    };
 
     $scope.load();
 
@@ -245,5 +261,5 @@ var newPage = {
     "DateCreated": moment().format("YYYY-MM-DD HH:mm"),
     "Slug": "",
     "ShowInList": true,
-    "IsPublished": true
+    "IsPublished": false
 }
