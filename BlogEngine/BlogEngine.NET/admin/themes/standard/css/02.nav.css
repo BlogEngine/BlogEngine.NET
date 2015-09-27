@@ -8,7 +8,7 @@
 .nav-primary > li.active { background-color: #272c35; outline: none; }
 .nav-primary > li.active > a { color: #fff; }
 .nav-primary > li.active > i { color: #fff; }
-.nav-primary > li.active:after { position: absolute; right: 0; top: 15px; content: ""; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #f0f4f6; z-index: 4; }
+.nav-primary > li.active:after { position: absolute; right: 0; top: 15px; content: ""; width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #eee; z-index: 4; }
 .sidebar-icon .sidebar .nav-primary > li.active:after { display: none; }
 .nav-primary ul { display: none; }
 .nav-primary > li.active ul { display: block; padding-left: 50px; padding-bottom: 20px; }
