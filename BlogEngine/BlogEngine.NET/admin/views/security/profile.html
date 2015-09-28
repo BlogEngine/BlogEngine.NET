@@ -26,7 +26,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.myProfile}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <button data-ng-click="save()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
+        <button data-ng-click="save()" class="btn btn-success btn-hasicon btn-sm btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
     </div>
 
     <div class="content-inner">
@@ -38,8 +38,8 @@
                     <h4>{{user.Profile.DisplayName}}</h4>
                     <div class="roles-name">{{lbl.roles}}: <span data-ng-repeat="role in user.Roles">{{role.RoleName}}</span></div>
                     <div class="btn-group">
-                        <a class="btn btn-sm btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
-                        <a class="btn btn-sm btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
+                        <a class="btn btn-sm btn-hasicon btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
+                        <a class="btn btn-sm btn-hasicon btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
                         <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
                     </div>
                 </div>
@@ -63,8 +63,7 @@
             <div id="frm-custom-edit ">
                 <h4>Custom field</h4>
                 <div class="form-group">
-                   
-                    <button data-ng-click="showCustom()" class="btn btn-primary" type="button">
+                    <button data-ng-click="showCustom()" class="btn btn-hasicon btn-primary" type="button">
                         <i class="fa fa-plus"></i> {{lbl.add}} Custom field
                     </button>
                 </div>

@@ -3,16 +3,16 @@
         <h2 class="page-title pull-left">
             {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-        <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
+        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
+        <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                SHOW : LATEST
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                LATEST
                 <i class="fa fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-filter">

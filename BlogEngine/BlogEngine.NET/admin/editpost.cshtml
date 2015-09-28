@@ -9,14 +9,13 @@
 }
 <div class="content" ng-controller="PostEditorController">
     <div class="page-header clearfix">
-        <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
-        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
-        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
-        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
-        <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
-        <a href="" onclick="window.history.back()" class="btn btn-default pull-left"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
-        <span id="spinner" class="loaded btn-tabkey"><i class='fa fa-spinner fa-spin fa-lg'></i></span>
-        <span id="spinner" class="loaded pull-left"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+        <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-sm btn-hasicon btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
+        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
+        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-hasicon btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
+        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
+        <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-sm btn-hasicon btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
+        <a href="" onclick="window.history.back()" class="btn btn-sm btn-hasicon btn-default pull-left"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+        <span id="spinner" class="loaded pull-right"><i class='fa fa-spinner fa-spin fa-large'></i></span>
     </div>
     <div class="content-inner newpost">
         <form id="cat-form" action="">

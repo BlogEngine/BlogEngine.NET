@@ -3,14 +3,12 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-
         <div class="btn-group  pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
             <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
             <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" title="{{lbl.unapprove}}"><i class="fa fa-archive"></i></button>
             <button ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" title="{{lbl.approve}}"><i class="fa fa-check"></i></button>
         </div>
-
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
@@ -18,8 +16,8 @@
         </div>
 
         <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Show : ALL
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                ALL
                 <i class="fa fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-filter">
@@ -30,36 +28,36 @@
                 <li><a id="fltr-png" data-value="{{lbl.pingbacks}}" ng-click="gridFilter('Email','pingback','png')">{{lbl.pingbacks}}</a></li>
             </ul>
         </div>
-        <a href="#/content/filters" class="btn btn-success pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
+        <a href="#/content/filters" class="btn btn-success btn-sm pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
 
     </div>
     <div class="content-inner">
-        <table class="table table-responsive">
+        <table class="table table-item-comments">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
-                    <th class="hmax768">&nbsp;</th>
-                    <th class="table-item-title table-item-w50"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
-                    <th class="hmax480"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
-                    <th class="hmax768"><a data-ng-click="sort_by('Author',$event)">{{lbl.author}}</a></th>
-                    <th>{{lbl.approved}}</th>
-                    <th class="hmax992">{{lbl.spam}}</th>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
+                    <th class="item-avatar">&nbsp;</th>
+                    <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
+                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
+                    <th class="item-author"><a data-ng-click="sort_by('Author',$event)">{{lbl.author}}</a></th>
+                    <th class="item-state">{{lbl.approved}}</th>
+                    <th class="item-state">{{lbl.spam}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                    <td>
+                    <td class="item-checkbox">
                         <input type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" data-ng-disabled="item.HasChildren || item.Email === 'pingback'" />
                     </td>
-                    <td class="table-item-avatar hmax768"><img ng-src="{{item.Avatar}}" alt="{{item.Author}}" title="{{item.Author}}" /></td>
-                    <td class="table-item-title">
-                        <a title=" {{item.title}}" class="pull-left" target="_blank" href="{{item.RelativeLink}}"> <span class="text-ellipsis">{{item.Title}}</span></a>
-                        <a title="{{item.Title}}" class="external-link pull-right" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
+                    <td class="item-avatar"><img ng-src="{{item.Avatar}}" alt="{{item.Author}}" title="{{item.Author}}" /></td>
+                    <td class="item-title">
+                        <a title="click to reply" target="_blank" href="{{item.RelativeLink}}"> {{item.Title}}</a>
+                        <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
                     </td>
-                    <td class="hmax480">{{item.DateCreated}}</td>
-                    <td class="hmax768"><span class="text-ellipsis-sm text-ellipsis">{{item.Author}}</span></td>
-                    <td><input type="checkbox" data-ng-model="item.IsApproved" data-ng-disabled="true"></td>
-                    <td class="hmax992"><input type="checkbox" data-ng-model="item.IsSpam" data-ng-disabled="true"></td>
+                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-author"><span>{{item.Author}}</span></td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsApproved" data-ng-disabled="true"></td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsSpam" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>

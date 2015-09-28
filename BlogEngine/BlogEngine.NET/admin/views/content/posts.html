@@ -1,13 +1,14 @@
 ﻿<div data-ng-controller="PostsController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+        <h2 class="page-title pull-left">
+            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.posts}}
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success pull-left"><i class="fa fa-plus"></i>New</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>New Post</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
-            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
-            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
+            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
+            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
@@ -15,8 +16,8 @@
             <i class="fa fa-times-circle"></i>
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Show : ALL
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                ALL
                 <i class="fa fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-filter">
@@ -27,26 +28,26 @@
         </div>
     </div>
     <div class="content-inner">
-        <table class="table table-responsive">
+        <table class="table table-item-post">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w60"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
-                    <th class="hmax992">{{lbl.author}}</th>
-                    <th class="hmax479">{{lbl.comments}}</th>
-                    <th class="hmax768"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
-                    <th>{{lbl.published}}</th>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
+                    <th class="item-author">{{lbl.author}}</th>
+                    <th class="item-comments">{{lbl.comments}}</th>
+                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.date}}</a></th>
+                    <th class="item-state">{{lbl.published}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                    <td><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" /></td>
-                    <td class="table-item-title">
-                        <a title="{{item.Title}}" class="pull-left" href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{item.Id}}"> <span class="text-ellipsis">{{item.Title}}</span> </a>
-                        <a title="{{item.Title}}" class="external-link pull-right" target="_blank" href="{{item.RelativeLink}}"><i class="fa fa-external-link"></i></a>
+                    <td class="item-checkbox"><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" /></td>
+                    <td class="item-title">
+                        <a title="click to edit" href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{item.Id}}">{{item.Title}}</a>
+                        <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"><i class="fa fa-external-link"></i></a>
                     </td>
-                    <td class="hmax992"><a href="" title="{{item.Author}}" ng-click="gridFilter('Author',item.Author,'')">{{item.Author}}</a></td>
-                    <td class="item-comment-post hmax479">
+                    <td class="item-author"><a href="" title="{{item.Author}}" ng-click="gridFilter('Author',item.Author,'')">{{item.Author}}</a></td>
+                    <td class="item-comments">
                         <div ng-if="item.Comments">
                             <span class="item-comment-count item-comment-approved" ng-if="item.Comments[1] != 0" title="{{lbl.approved}}: {{item.Comments[1]}}">
                                 <a href="{{item.RelativeLink}}#comment" target="_blank">{{item.Comments[1]}}</a>
@@ -59,8 +60,8 @@
                             </span>
                         </div>
                     </td>
-                    <td class="hmax768">{{item.DateCreated}}</td>
-                    <td><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
+                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="6"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>

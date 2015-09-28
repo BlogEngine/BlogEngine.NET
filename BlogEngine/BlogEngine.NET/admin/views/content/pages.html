@@ -3,11 +3,11 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.pages}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml" class="btn btn-success pull-left"><i class="fa fa-plus"></i>New</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>New Page</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
-            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" title="{{lbl.unpublish}}"><i class="fa fa-archive"></i></button>
+            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" title="{{lbl.publish}}"><i class="fa fa-check"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
@@ -15,8 +15,8 @@
             <i class="fa fa-times-circle"></i>
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Show : ALL
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                ALL
                 <i class="fa fa-angle-down"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-filter">
@@ -27,30 +27,30 @@
         </div>
     </div>
     <div class="content-inner">
-        <table class="table table-responsive">
+        <table class="table table-item-page">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w50"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
-                    <th class="hmax992">{{lbl.parent}}</th>
-                    <th><a data-ng-click="sort_by('SortOrder', $event)">{{lbl.sortOrder}}</a></th>
-                    <th class="hmax580"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
-                    <th class="hmax768">{{lbl.showInList}}</th>
-                    <th>{{lbl.published}}</th>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
+                    <th class="item-parent">{{lbl.parent}}</th>
+                    <th class="item-sort"><a data-ng-click="sort_by('SortOrder', $event)">{{lbl.sortOrder}}</a></th>
+                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
+                    <th class="item-show">{{lbl.showInList}}</th>
+                    <th class="item-stats">{{lbl.published}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                    <td><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" ng-disabled="item.HasChildren === true" /></td>
-                    <td class="table-item-title">
-                        <a title="{{item.Title}}" class="pull-left text-ellipsis" href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{item.Id}}"><span class="text-ellipsis">{{item.Title}}</span></a>
-                        <a title="{{item.Title}}" target="_blank" href="{{item.RelativeLink}}" class="pull-right external-link"><i class="fa fa-external-link"></i></a>
+                    <td class="item-checkbox"><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" ng-disabled="item.HasChildren === true" /></td>
+                    <td class="item-title">
+                        <a title="click to edit" href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{item.Id}}">{{item.Title}}</a>
+                        <a title="click to view" target="_blank" href="{{item.RelativeLink}}" class="external-link"><i class="fa fa-external-link"></i></a>
                     </td>
-                    <td class="hmax992">{{item.Parent.OptionName}}</td>
-                    <td>{{item.SortOrder}}</td>
-                    <td class="hmax580">{{item.DateCreated}}</td>
-                    <td class="hmax768"><input type="checkbox" data-ng-model="item.ShowInList" data-ng-disabled="true"></td>
-                    <td><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
+                    <td class="item-parent">{{item.Parent.OptionName}}</td>
+                    <td class="item-sort">{{item.SortOrder}}</td>
+                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-show"><input type="checkbox" data-ng-model="item.ShowInList" data-ng-disabled="true"></td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>

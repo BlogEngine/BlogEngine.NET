@@ -1,13 +1,18 @@
 ﻿/*[Dashboard]*/
-.panel { border-radius: 0px; border: none; overflow: hidden; box-shadow:0 2px 2px #ddd  }
-.panel .panel-heading { padding: 0 20px; line-height: 45px; background-color: #fff; border-color: rgba(0, 95, 133, 0.1) !important; text-transform: uppercase; border-radius: 0; color: #666; }
-.panel .panel-heading .panel-title { font-size: 14px; font-weight: 500; color: #666; }
+.panel { border-radius: 0px;  overflow: hidden; border:1px solid #e2e6ed; box-shadow:none ; background:#f3f5f8; }
+.panel .panel-heading { padding: 0 20px; line-height: 45px; background-color: #e2e6ed; border: none; text-transform: uppercase; border-radius: 0; color: #666; }
+.panel .panel-heading .panel-title { font-size: 14px; font-weight: 500; color: #687994; }
 .panel .panel-heading a { color: #666; }
 .panel .panel-heading i { margin-right: 10px; }
-.panel .list-group-item { border-color: #F1F4F5; color: #666; }
+.panel .list-group-item { border-color: #F1F4F5; background:none; border-top:1px solid #e2e6ed !important; color: #666; }
 .panel .list-group-item:last-child { border-bottom: none; }
 .panel .list-group-item.item-empty { text-transform: uppercase; font-size: 12px; color: #ccc; }
 .panel-body p:last-child { margin-bottom: 0; }
+
+.panel .form-control {border-color:#e2e6ed !important;}
+.panel .form-control:hover,
+.panel .form-control:focus {border-color:#d4dae6 !important;}
+
 /*[]*/
 .dashboard-stats li { padding: 0; }
 .dashboard-stats li a { display: block; padding: 0 20px; height: 48px; line-height: 45px; position: relative; }

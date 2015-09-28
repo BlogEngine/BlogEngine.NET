@@ -4,9 +4,9 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
-            <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
+            <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

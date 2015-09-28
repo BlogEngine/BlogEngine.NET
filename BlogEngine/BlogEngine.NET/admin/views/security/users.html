@@ -56,9 +56,9 @@
             <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
                 {{lbl.users}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
             </h2>
-            <button data-ng-click="loadEditForm()" class="btn btn-success btn-header pull-left" type="button"><i class="fa fa-plus"></i>New</button>
+            <button data-ng-click="loadEditForm()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-plus"></i>{{lbl.createUser}}</button>
             <div class="btn-group pull-left">
-                <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+                <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
             </div>
             <div class="search pull-right">
                 <i class="fa fa-search"></i>
@@ -67,21 +67,21 @@
             </div>
         </div>
         <div class="content-inner">
-            <table class="table table-responsive">
+            <table class="table table-item-users">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
-                        <th class="table-item-title table-item-w90"><a data-ng-click="sort_by('UserName',$event)">{{lbl.title}}</a></th>
-                        <th>{{lbl.roles}}</th>
-                        <th class="hmax479">{{lbl.email}}</th>
+                        <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
+                        <th class="item-title"><a data-ng-click="sort_by('UserName',$event)">{{lbl.title}}</a></th>
+                        <th class="item-roles">{{lbl.roles}}</th>
+                        <th class="item-email">{{lbl.email}}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
-                        <td><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
-                        <td class="table-item-title"><a title="{{item.UserName}}" href="" ng-click="loadEditForm(item.UserName)">{{item.UserName}}</a></td>
-                        <td><span ng-repeat="r in item.Roles"> <a href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles?id={{r.RoleName}}">{{r.RoleName}}</a> </span> </td>
-                        <td class="hmax479">{{item.Email}}</td>
+                        <td class="item-checkbox"><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
+                        <td class="item-title"><a title="click to edit" href="" ng-click="loadEditForm(item.UserName)">{{item.UserName}}</a></td>
+                        <td class="item-roles"><span ng-repeat="r in item.Roles"> <a href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles?id={{r.RoleName}}">{{r.RoleName}}</a> </span> </td>
+                        <td class="item-email">{{item.Email}}</td>
                     </tr>
                     <tr id="tr-spinner"><td colspan="4"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
                 </tbody>

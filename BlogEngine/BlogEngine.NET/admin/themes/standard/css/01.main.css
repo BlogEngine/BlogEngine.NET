@@ -1,4 +1,4 @@
-﻿body { font-family: 'Roboto', sans-serif; background-color: #eee; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
+﻿body { font-family: 'Roboto', sans-serif; background-color: #fff; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
 .ltr-dir { direction: ltr; }
 .rtl-dir { direction: rtl; }
 a:hover, a:focus { text-decoration: none; }
@@ -10,12 +10,14 @@ input[type=checkbox] { position: relative; top: 2px; }
 .text-ellipsis-sm { max-width: 100px !important; text-align: center !important; margin: 0 auto; }
 .loading { display: inline-block; }
 .loaded { display: none; }
-.wrapper { display: table; width: 100%; height: 100%; }
-.sidebar { display: table-cell; vertical-align: top; width: 250px; min-width: 250px; background: #2f353f; font-weight: 400; font-size: 13px; transition: all ease 0.5s; position: relative; }
-.sidebar-icon .sidebar { min-width: 50px; width: 50px; -moz-transition: all ease 0.3s; -o-transition: all ease 0.3s; -webkit-transition: all ease 0.3s; transition: all ease 0.3s; }
-.sidebar-logo { height: 41px; position: absolute; bottom: 30px; left:0; width: 100%; text-align: center; overflow: hidden; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
-.sidebar-logo a { display: inline-block; height: 100%; outline:none !important; }
-.sidebar-icon .sidebar-logo  {visibility:hidden; opacity:0;}
-.content { display: table-cell; vertical-align: top; width: 100%; }
-.content-inner { padding: 25px; }
 .well { background-color: #fff; border-radius: 0; }
+hr { border-color: rgba(0, 95, 133, 0.2); }
+
+h1, h2, h3, h4, h5, h6 { font-weight: 500; }
+
+/*[]*/
+.wrapper { width: 100%; height: 100%; padding-left: 250px; }
+.sidebar { position: fixed; left: 0; top: 0; width: 250px; height: 100%; overflow: auto; background: #2f353f; font-size: 13px; }
+.sidebar a { color: #a7b1c2; }
+.content { width: 100%; }
+.content-inner { padding: 30px; }

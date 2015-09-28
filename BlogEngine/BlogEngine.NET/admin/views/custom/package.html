@@ -3,7 +3,7 @@
         <h2 class="page-title pull-left">
             Package Details <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <button type="button" class="btn btn-default pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>back</button>
+        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>back</button>
         <button ng-if="IsPrimary" ng-disabled="(package.OnlineVersion == '' || (package.OnlineVersion != '' && package.LocalVersion == '')) || id == activeTheme" data-ng-click="uninstallPackage()" class="btn btn-danger pull-left"><i class="fa fa-trash"></i>{{lbl.remove}}</button>
     </div>
     <div class="content-inner">
