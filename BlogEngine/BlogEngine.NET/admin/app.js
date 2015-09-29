@@ -56,6 +56,38 @@
         };
     }]);
 
+    app.directive('angularTooltip', function () {
+        return {
+            restrict: 'A',
+            replace: false,
+            scope: {
+                tooltipPlacement: '=?',
+                tooltip: '='
+            },
+            compile: function compile(tElement, tAttributes) {
+                return function postLink(scope, element, attributes, controller) {
+                    if (scope.tooltip !== '') {
+                        element.attr('data-toggle', 'tooltip');
+                        element.attr('data-placement', scope.tooltipPlacement || 'bottom');
+                        element.attr('title', scope.tooltip);
+                        element.tooltip();
+                    }
+
+                    scope.$watch('tooltip', function (newVal) {
+                        if (!element.attr('data-toggle')) {
+                            element.attr('data-toggle', 'tooltip');
+                            element.attr('data-placement', scope.tooltipPlacement || 'bottom');
+                            element.attr('title', scope.tooltip);
+                            element.tooltip();
+                        }
+                        element.attr('title', '');
+                        element.attr('data-original-title', newVal);
+                    });
+                };
+            }
+        };
+    });
+
     var run = ["$rootScope", "$log", function ($rootScope, $log) {
 
         $rootScope.lbl = BlogAdmin.i18n;

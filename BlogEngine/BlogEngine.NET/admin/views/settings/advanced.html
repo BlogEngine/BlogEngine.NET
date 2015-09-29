@@ -125,12 +125,16 @@
                             {{lbl.allowRemoteFileDownloads}}
                         </label>
                     </div>
-                    <label class="control-label" for="txtRemoteFileDownloadTimeout">{{lbl.remoteTimeout}}</label>
-                    <input type="text" class=" form-control" id="txtRemoteFileDownloadTimeout" name="txtRemoteFileDownloadTimeout" data-ng-model="settings.RemoteFileDownloadTimeout" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
                 </div>
-                <div class="form-group">
-                    <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
-                    <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" data-ng-disabled="settings.AllowServerToDownloadRemoteFiles == false" />
+                <div ng-if="settings.AllowServerToDownloadRemoteFiles" class="form-group">
+                    <div class="form-group">
+                        <label class="control-label" for="txtRemoteFileDownloadTimeout">{{lbl.remoteTimeout}}</label>
+                        <input type="text" class=" form-control" id="txtRemoteFileDownloadTimeout" name="txtRemoteFileDownloadTimeout" data-ng-model="settings.RemoteFileDownloadTimeout" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtRemoteMaxFileSize">{{lbl.maximumRemoteFileSize}}</label>
+                        <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" />
+                    </div>
                 </div>
 
             </div>

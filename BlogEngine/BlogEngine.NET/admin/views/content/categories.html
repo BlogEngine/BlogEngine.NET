@@ -43,9 +43,9 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.categories}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a data-ng-click="addNew()" title="{{lbl.addNewCategory}}" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.newCategory}}</a>
+        <a data-ng-click="addNew()" angular-tooltip tooltip="lbl.add" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" title="{{lbl.doDelete}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

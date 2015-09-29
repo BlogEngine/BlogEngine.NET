@@ -3,7 +3,8 @@
 @{
     var name = Security.CurrentUser.Identity.Name;
     var email = Membership.Provider.GetUser(name, true).Email;
-    var profile = new AuthorProfile(name);
+    var profile = AuthorProfile.GetProfile(name);
+
     var src = profile.PhotoUrl;
     if (string.IsNullOrEmpty(src))
     {
@@ -14,7 +15,7 @@
     @*<img src="@src" />*@
     <img src="~/admin/themes/standard/img/profile.png" />
     <div class="user-nav-info">
-        <div class="user-nav-name"><a href="~/admin/#/security/profile">User Name</a></div>
+        <div class="user-nav-name"><a href="~/admin/#/security/profile">@profile.DisplayName</a></div>
         <ul class="user-nav-options">
             <li><a href="~/" target="_blank"><i class="fa fa-globe"></i> View Blog</a></li>
             <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i> Sign Out</a></li>

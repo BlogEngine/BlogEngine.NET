@@ -51,14 +51,14 @@
                         <span>{{lbl.showDescriptionInPostList}}</span>
                     </label>
                 </div>
-                <div class="form-group">
+                <div ng-if="settings.ShowDescriptionInPostList" class="form-group">
                     <label for="txtDescriptionCharacters">{{lbl.numberOfCharacters}}</label>
                     <div>
-                        <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" data-ng-disabled="settings.ShowDescriptionInPostList == false" />
+                        <input type="text" class="form-control" id="txtDescriptionCharacters" name="txtDescriptionCharacters" data-ng-model="settings.DescriptionCharacters" />
                     </div>
                 </div>
 
-                <div ng-if="usageScenario != 'singleblog'">
+                <div ng-if="usageScenario == 'multiblogs'">
                     <div class="form-group">
                         <label>
                             <input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" />
