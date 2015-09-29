@@ -11,22 +11,22 @@
             <div class="form-width-limited">
                 <div class="form-group">
                     <label>Comments provider</label>
-                    <div>
-                        <div class="radio">
-                            <label><input type="radio" value="0" data-ng-model="settings.CommentProvider" ng-change="selectProvider('be')" /> BlogEngine</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" value="1" data-ng-model="settings.CommentProvider" ng-change="selectProvider('dq')" /> Disqus</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" value="2" data-ng-model="settings.CommentProvider" ng-change="selectProvider('fb')" /> Facebook</label>
-                        </div>
+                    <div class="input-radio">
+                        <label><input type="radio" value="0" data-ng-model="settings.CommentProvider" ng-change="selectProvider('be')" /> BlogEngine</label>
+                    </div>
+                    <div class="input-radio">
+                        <label><input type="radio" value="1" data-ng-model="settings.CommentProvider" ng-change="selectProvider('dq')" /> Disqus</label>
+                    </div>
+                    <div class="input-radio">
+                        <label><input type="radio" value="2" data-ng-model="settings.CommentProvider" ng-change="selectProvider('fb')" /> Facebook</label>
                     </div>
                 </div>
+
+
                 <hr />
 
                 <div id="be-provider">
-                    <div class="form-group">
+                    <div class="input-checkbox">
                         <label>
                             <input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" />
                             {{lbl.enableComments}}

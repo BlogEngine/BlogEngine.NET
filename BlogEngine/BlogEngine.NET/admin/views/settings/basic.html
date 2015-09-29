@@ -11,33 +11,27 @@
             <div class="form-width-limited">
                 <div class="form-group">
                     <label for="txtName">Blog Title</label>
-                    <div>
                         <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="txtDescription">{{lbl.description}}</label>
-                    <div>
                         <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="selCultures">Blog Language</label>
-                    <div>
                         <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
-                    </div>
                 </div>
                 <div class="form-group">
                     <label for="selZone">{{lbl.timezone}}</label>
-                    <div>
                         <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
-                    </div>
                 </div>
                 <div class="form-group">
-                    <label>
-                        <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
-                        {{lbl.timeStampPostLinks}}
-                    </label>
+                    <div class="input-checkbox">
+                        <label>
+                            <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
+                            {{lbl.timeStampPostLinks}}
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="txtPostsPerPage">{{lbl.postPerPage}}</label>

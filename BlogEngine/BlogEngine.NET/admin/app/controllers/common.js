@@ -159,4 +159,9 @@ function bindCommon() {
     $(".search input").blur(function () {
         $(".search").removeClass("search-wide");
     });
+
+    //
+    //$('.input-radio input').after('<span class="outer"><span class="inner"></span></span>')
+    //$('.input-checkbox input').after('<span class="outer"><span class="inner"></span></span>')
+
 }

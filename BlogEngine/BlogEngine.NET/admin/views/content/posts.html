@@ -4,7 +4,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.posts}}
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-sm btn-hasicon pull-left" angular-tooltip tooltip="lbl.add"><i class="fa fa-plus"></i>{{lbl.add}}</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div class="btn-group befdv pull-left">
             <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
             <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.unpublish"><i class="fa fa-archive"></i></button>
