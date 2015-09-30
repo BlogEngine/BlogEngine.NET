@@ -48,7 +48,12 @@
 <body>
     <script type="text/javascript" src="admin.res.axd"></script>
     <div class="wrapper @Resources.labels.LangDirection">
-        
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="overlay-wrapper"></div>
         <div class="sidebar">
             @RenderPage("sidebar.cshtml")
         </div>
@@ -57,8 +62,17 @@
     <script>
         $(document).ready(function () {
             $(".nav-toggle").click(function () {
-                $(".wrapper").toggleClass("sidebar-icon");
-            })
+                $(".wrapper").toggleClass("sidebar-active");
+            });
+            $(".overlay-wrapper").click(function () {
+                $(".wrapper").removeClass("sidebar-active");
+            });
+
+            $(window).resize(function () {
+                if ($(window).width() > 1023) {
+                    $(".wrapper").removeClass("sidebar-active");
+                }
+            });
         });
     </script>
 </body>

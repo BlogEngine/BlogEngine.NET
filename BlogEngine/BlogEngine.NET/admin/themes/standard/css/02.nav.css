@@ -1,11 +1,8 @@
-﻿.sidebar-logo { display: none; height: 41px; position: absolute; bottom: 30px; left: 0; width: 100%; text-align: center; overflow: hidden; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
-.sidebar-logo a { display: inline-block; height: 100%; outline: none !important; }
-
-/*[user-nav]*/
+﻿/*[user-nav]*/
 .user-nav { height: 60px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #272c35; }
 .user-nav img { width: 30px; height: 30px; position: absolute; left: 15px; top: 15px; }
 .user-nav .user-nav-info { text-transform: uppercase; }
-.user-nav .user-nav-info .user-nav-name { height: 15px; line-height: 12px; font-size: 14px; }
+.user-nav .user-nav-info .user-nav-name { height: 15px; line-height: 12px; font-size: 12px; }
 .user-nav .user-nav-info ul { list-style: none; padding: 0; margin: 0; height: 15px; }
 .user-nav .user-nav-info ul li { display: inline-block; margin-right: 5px; }
 .user-nav .user-nav-info ul li:first-child:after { content: ""; display: inline-block; width: 1px; height: 7px; background: #909bae; margin-left: 8px; }
@@ -19,20 +16,22 @@
 .nav-primary > li > .fa-icon { position: absolute; z-index: 5; font-size: 14px; left: 15px; top: 15px; width: 30px; height: 20px; line-height: 20px; color: #909bae; text-align: center; }
 .nav-primary > li > a { outline: none !important; text-transform: uppercase; cursor: pointer; z-index: 6; position: relative; line-height: 48px; height: 50px; padding-left: 60px; display: block; }
 .nav-primary > li > a span { }
-.nav-primary > li > a .fa-arrow {display:none; position: absolute; z-index: 5; font-size: 18px; right: 15px; top: 15px; width: 30px; height: 20px; line-height: 16px; color: #909bae; text-align: center; }
+.nav-primary > li > a .fa-arrow { display: none; position: absolute; z-index: 5; font-size: 18px; right: 15px; top: 15px; width: 30px; height: 20px; line-height: 16px; color: #909bae; text-align: center; }
 .nav-primary > li > a .fa-arrow:hover { color: #fff; }
-
-
 
 /**/
 .nav-primary > li.active { background: #272c35; }
 .nav-primary > li.active > a { color: #fff; }
 .nav-primary > li.active > .fa { color: #fff; }
 .nav-primary > li.active ul { display: block; }
-
-
+.nav-primary > li.active:after { content: ""; display: block; width: 0; height: 0; border-right: 8px solid #fff; border-bottom: 8px solid transparent; border-top: 8px solid transparent; position: absolute; top: 17px; right: 0; }
 
 /**/
 .nav-primary ul { display: none; padding: 0 0 15px 60px; margin: 0; list-style: none; }
 .nav-primary ul li a { display: block; line-height: 30px; outline: none; }
-.nav-primary ul li.active a {color:#fff;}
+.nav-primary ul li.active a { color: #fff; }
+
+
+@media screen and (max-width:1023px) {
+    .nav-primary > li.active:after { display:none; }
+}

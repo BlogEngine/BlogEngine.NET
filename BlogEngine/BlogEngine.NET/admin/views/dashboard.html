@@ -1,7 +1,7 @@
 ﻿<div class="admin-views-dashboard" data-ng-controller="DashboardController">
-    <!--<div class="page-header clearfix">
+    <div class="page-header clearfix">
         <div class="page-title pull-left"><a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a> {{lbl.dashboard}}</div>
-    </div>-->
+    </div>
     <div data-ng-include src="'views/shared/_addnote.html'"></div>
     <div data-ng-include src="'views/shared/_editnote.html'"></div>
     <div id="modal-log-file" class="modal fade">
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="content-inner">
+    <div class="content-inner content-dashboard">
         <div id="versionMsg">
             <div class="alert alert-info">
                 <span><i class="fa fa-info-circle"></i> New BlogEngine.NET version <span id="vNumber"></span> available for upgrade</span>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-xs-6 col-md-6 col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.stats}}</div>
@@ -61,7 +61,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-xs-6 col-md-6 col-lg-4">
                 <div ng-if="qd.show" class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
@@ -105,7 +105,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-xs-6 col-md-6 col-lg-4">
                 <div class="panel panel-default" data-ng-if="security.showTabCustom">
                     <div class="panel-heading">
                         <div class="panel-title clearfix">

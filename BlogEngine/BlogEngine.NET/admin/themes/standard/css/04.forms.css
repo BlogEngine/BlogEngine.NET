@@ -1,11 +1,16 @@
 ﻿/*[FORMS]*/
 .form-width-limited, .form-horizontal { max-width: 400px; }
+.modal-body .form-horizontal {
+    max-width:100%;
+}
+.modal-footer .btn {margin-left:10px;}
 .content-inner .btn,
 .content-inner .form-control { border-radius: 0px; }
 .form-group { margin-bottom: 18px; }
 .form-group > label { font-size: 12px; font-weight: 500; color: #666; }
 .form-control { box-shadow: none; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 2px; border-color: #ddd; }
 .form-control:focus { border-color: #a9b5c8; outline: 0px none; box-shadow: none; }
+.panel .form-control { border-width: 1px; }
 .input-group .input-group-addon { border-radius: 0; }
 .alert { border-radius: 0; }
 .tooltip-inner { border-radius: 0; }
@@ -13,7 +18,7 @@
 
 /*[BTN]*/
 
-.btn { padding: 0; border-radius: 0; border: none; cursor: pointer; text-transform: uppercase; height: 34px; line-height: 34px; padding: 0 15px; position: relative; color: #fff !important; }
+.btn { padding: 0; border-radius: 0; border: none; cursor: pointer; text-transform: uppercase; font-size: 12px; height: 34px; line-height: 30px; padding: 0 15px; position: relative; color: #fff !important; }
 .btn:active { box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1) inset; }
 .btn:focus, .btn:active:focus, .btn.active:focus { outline: 0 none; }
 .btn-sm { height: 30px; line-height: 30px; }
@@ -21,31 +26,40 @@
 
 .btn-default { background: #687994; }
 .btn-default:hover,
-.btn-default:focus { background: #546683; }
+.btn-default:focus { background: #546683 !important; }
+.btn-default:active { background: #687994 !important; }
+.btn-default.disabled, .btn-default.disabled.active, .btn-default.disabled.focus, .btn-default.disabled:active, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default[disabled], .btn-default.active[disabled], .btn-default.focus[disabled], .btn-default[disabled]:active, .btn-default[disabled]:focus, .btn-default[disabled]:hover, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default.active, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover { background: #687994 !important; }
+
 
 /*[]*/
 .btn-success { background: #37bc9b; }
 .btn-success:hover,
 .btn-success:focus { background: #48cfad !important; }
 .btn-success:active { background: #37bc9b !important; }
+.btn-success.disabled, .btn-success.disabled.active, .btn-success.disabled.focus, .btn-success.disabled:active, .btn-success.disabled:focus, .btn-success.disabled:hover, .btn-success[disabled], .btn-success.active[disabled], .btn-success.focus[disabled], .btn-success[disabled]:active, .btn-success[disabled]:focus, .btn-success[disabled]:hover, fieldset[disabled] .btn-success, fieldset[disabled] .btn-success.active, fieldset[disabled] .btn-success.focus, fieldset[disabled] .btn-success:active, fieldset[disabled] .btn-success:focus, fieldset[disabled] .btn-success:hover { background: #37bc9b !important; }
+
 
 /*[]*/
 .btn-danger { background: #da4453; }
 .btn-danger:hover,
 .btn-danger:focus { background: #ed5565 !important; }
 .btn-danger:active { background: #da4453 !important; }
+.btn-danger.disabled, .btn-danger.disabled.active, .btn-danger.disabled.focus, .btn-danger.disabled:active, .btn-danger.disabled:focus, .btn-danger.disabled:hover, .btn-danger[disabled], .btn-danger.active[disabled], .btn-danger.focus[disabled], .btn-danger[disabled]:active, .btn-danger[disabled]:focus, .btn-danger[disabled]:hover, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger.active, fieldset[disabled] .btn-danger.focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:hover { background: #da4453 !important; }
 
 /*[]*/
 .btn-warning { background: #f6bb42; }
 .btn-warning:hover,
 .btn-warning:focus { background: #ffce54 !important; }
 .btn-warning:active { background: #f6bb42 !important; }
+.btn-warning.disabled, .btn-warning.disabled.active, .btn-warning.disabled.focus, .btn-warning.disabled:active, .btn-warning.disabled:focus, .btn-warning.disabled:hover, .btn-warning[disabled], .btn-warning.active[disabled], .btn-warning.focus[disabled], .btn-warning[disabled]:active, .btn-warning[disabled]:focus, .btn-warning[disabled]:hover, fieldset[disabled] .btn-warning, fieldset[disabled] .btn-warning.active, fieldset[disabled] .btn-warning.focus, fieldset[disabled] .btn-warning:active, fieldset[disabled] .btn-warning:focus, fieldset[disabled] .btn-warning:hover { background: #f6bb42 !important; }
 
 /*[]*/
 .btn-primary { background: #3bafda; }
 .btn-primary:hover,
 .btn-primary:focus { background: #4fc1e9 !important; }
 .btn-primary:active { background: #3bafda !important; }
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary.active[disabled], .btn-primary.focus[disabled], .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover { background: #3bafda !important; }
+
 
 /*[]*/
 .btn-hasicon { padding-left: 45px; }
@@ -62,24 +76,12 @@
 
 
 
-/*.input-radio { display:block; }
-.input-radio label  {cursor:pointer;}
-.input-radio label:hover .inner { -webkit-transform: scale(0.8); -ms-transform: scale(0.8); transform: scale(0.8); opacity: .5; }
-.input-radio input { width: 1px; height: 1px; opacity: 0;  display:none;}
-.input-radio input:checked + .outer .inner { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
-.input-radio input:checked + .outer { border: 2px solid #546683; }
-.input-radio input:focus + .outer .inner { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; background-color: #546683; }
-.input-radio .outer {  width: 16px; height: 16px; display: inline-block; top:3px; position:relative;margin-right:5px; padding:1px;  border: 2px solid #546683; border-radius: 50%; background-color: #fff; }
-.input-radio .inner { -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; width: 10px; height: 10px; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); display: block; margin: 0px; border-radius: 50%; background-color: #546683; opacity: 0; }
 
-.input-checkbox { display:block; }
-.input-checkbox label  {cursor:pointer;}
-.input-checkbox label:hover .inner { -webkit-transform: scale(0.8); -ms-transform: scale(0.8); transform: scale(0.8); opacity: .5; }
-.input-checkbox input { width: 1px; height: 1px; opacity: 0;  display:none;}
-.input-checkbox input:checked + .outer .inner { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
-.input-checkbox input:checked + .outer { border: 2px solid #546683; }
-.input-checkbox input:focus + .outer .inner { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; background-color: #546683; }
-.input-checkbox .outer {  width: 16px; height: 16px; display: inline-block; top:3px; position:relative;margin-right:5px; padding:0px;  border: 2px solid #546683; border-radius: 0; background-color: #fff; }
-.input-checkbox .inner { -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; width: 12px; height: 12px; -webkit-transform: scale(0); -ms-transform: scale(0); transform: scale(0); display: block; margin: 0px;opacity: 0; }
-.input-checkbox .inner:after {font-family:FontAwesome; content:"\f00c"; position:absolute; top:0; left:0; width:12px; height:12px; line-height:12px; font-size:10px; text-align:center; display:block; }*/
+@media screen and (max-width:1023px) {
 
+   .form-width-limited
+       {
+           padding-left:40px;
+           padding-top:40px;
+       }
+ }
