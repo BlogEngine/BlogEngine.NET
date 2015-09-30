@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button ng-click="createFolder()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                                <button type="button" ng-click="createFolder()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="btn-group befdv pull-left">
                             <button type="button" ng-click="addFolder()" class="btn btn-sm btn-warning" type="submit" title="Add folder"><i class="fa fa-folder"></i></button>
-                            <button ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            <button type="button" ng-disabled="itemsChecked() === false" ng-click="processChecked('delete')" title="Delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                         </div>
                         <div class="pull-left" style="margin-left: 5px">
                             <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-grid pull-right" placeholder="{{lbl.search}}" />

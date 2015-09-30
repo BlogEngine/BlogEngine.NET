@@ -50,13 +50,13 @@
                     <td class="item-comments">
                         <div ng-if="item.Comments">
                             <span class="item-comment-count item-comment-approved" ng-if="item.Comments[1] != 0" title="{{lbl.approved}}: {{item.Comments[1]}}">
-                                <a href="{{item.RelativeLink}}#comment" target="_blank">{{item.Comments[1]}}</a>
+                                <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=apr">{{item.Comments[1]}}</a>
                             </span>
                             <span class="item-comment-count item-comment-pending" ng-if="item.Comments[0] != 0" title="{{lbl.pending}}: {{item.Comments[0]}}">
-                                <a href="{{item.RelativeLink}}#comment" target="_blank">{{item.Comments[0]}}</a>
+                                <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=pnd">{{item.Comments[0]}}</a>
                             </span>
                             <span class="item-comment-count item-comment-spam" ng-if="item.Comments[2] != 0" title="{{lbl.spam}}: {{item.Comments[2]}}">
-                                <a href="{{item.RelativeLink}}#comment" target="_blank">{{item.Comments[2]}}</a>
+                                <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">{{item.Comments[2]}}</a>
                             </span>
                         </div>
                     </td>

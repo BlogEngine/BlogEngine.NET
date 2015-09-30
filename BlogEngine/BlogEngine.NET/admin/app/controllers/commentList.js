@@ -3,10 +3,18 @@
     $scope.item = {};
     $scope.id = ($location.search()).id;
     $scope.filter = ($location.search()).fltr;
+    $scope.sortingOrder = 'DateCreated';
+    $scope.reverse = true;
     $scope.commentsPage = true;
 
     if ($scope.id) {
         $("#modal-add-item").modal();
+    }
+
+    $scope.showEditForm = function (id) {
+        $("#modal-comment-edit").modal();
+        $scope.id = id;
+        $scope.focusInput = true;
     }
 
     $scope.load = function () {

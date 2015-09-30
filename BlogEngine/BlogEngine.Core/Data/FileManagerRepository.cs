@@ -31,7 +31,7 @@ namespace BlogEngine.Core.Data
                 {
                     FileSize = "",
                     FileType = FileType.Directory,
-                    Created = "",
+                    Created = DateTime.Now.ToString(),
                     FullPath = directory.Parent.FullPath,
                     Name = "..."
                 });

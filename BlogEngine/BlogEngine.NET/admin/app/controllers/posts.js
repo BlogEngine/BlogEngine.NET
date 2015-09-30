@@ -1,6 +1,8 @@
 ﻿angular.module('blogAdmin').controller('PostsController', ["$rootScope", "$scope", "$location", "$http", "$filter", "dataService", function ($rootScope, $scope, $location, $http, $filter, dataService) {
     $scope.items = [];
     $scope.filter = ($location.search()).fltr;
+    $scope.sortingOrder = 'DateCreated';
+    $scope.reverse = true;
 
     $scope.load = function () {
         var url = '/api/posts';

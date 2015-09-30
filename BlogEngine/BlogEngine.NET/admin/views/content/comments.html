@@ -1,4 +1,32 @@
 ﻿<div data-ng-controller="CommentListController">
+
+    <form id="cat-form" action="">
+        <div id="modal-comment-edit" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title">{{id}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-horizontal clearfix">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="txtCatTitle">{{lbl.title}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="saveCategory()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
     <div class="page-header clearfix">
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
@@ -51,7 +79,7 @@
                     </td>
                     <td class="item-avatar"><img ng-src="{{item.Avatar}}" alt="{{item.Author}}" title="{{item.Author}}" /></td>
                     <td class="item-title">
-                        <a title="click to reply" target="_blank" href="{{item.RelativeLink}}"> {{item.Title}}</a>
+                        <a title="click to reply" ng-click="showEditForm(item.Id)" href=""> {{item.Title}}</a>
                         <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
                     </td>
                     <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
