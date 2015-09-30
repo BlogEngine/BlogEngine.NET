@@ -1,4 +1,44 @@
-﻿<div class="admin-views-about" ng-controller="AboutController">
+﻿@using System.Web.Optimization
+@using BlogEngine.Core
+@using BlogEngine.Core.Providers
+@using System.Web.Configuration
+@{
+    Layout = "~/admin/themes/standard/layout.cshtml";
+    if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+    {
+        Security.RedirectForUnauthorizedRequest();
+    }
+    var usage = "Single blog";
+    if (BlogConfig.UsageScenario == "multiusers") { usage = "Multiple users"; }
+    if (BlogConfig.UsageScenario == "multiblogs") { usage = "Multiple blogs"; }
+
+    var blogProviderSection = (BlogProviderSection)WebConfigurationManager.GetSection("BlogEngine/blogProvider");
+    var membershipSection = (MembershipSection)WebConfigurationManager.GetSection("system.web/membership");
+    var roleSection = (RoleManagerSection)WebConfigurationManager.GetSection("system.web/roleManager");
+
+    var trust = AspNetHostingPermissionLevel.None;
+    foreach (AspNetHostingPermissionLevel trustLevel in new AspNetHostingPermissionLevel[]
+    {
+        AspNetHostingPermissionLevel.Unrestricted,
+        AspNetHostingPermissionLevel.High,
+        AspNetHostingPermissionLevel.Medium,
+        AspNetHostingPermissionLevel.Low,
+        AspNetHostingPermissionLevel.Minimal
+    })
+    {
+        try
+        {
+            new AspNetHostingPermission(trustLevel).Demand();
+            trust = trustLevel;
+            break;
+        }
+        catch (System.Security.SecurityException)
+        {
+            continue;
+        }
+    };
+}
+<div class="admin-views-about" ng-controller="AboutController">
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">About BlogEngine.NET</h2>
     </div>
@@ -44,11 +84,30 @@
                         <li class="list-group-item"><a href="#">or you tell us, how can you help.</a></li>
                     </ul>
                 </div>
-
             </div>
             <div class="col-md-6">
-
-
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">BlogEngine.NET @BlogSettings.Instance.Version()</div>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Configuration: @usage
+                        </li>
+                        <li class="list-group-item">
+                            Trust level: @trust
+                        </li>
+                        <li class="list-group-item">
+                            Blog provider: @blogProviderSection.DefaultProvider
+                        </li>
+                        <li class="list-group-item">
+                            Membership provider: @membershipSection.DefaultProvider
+                        </li>
+                        <li class="list-group-item">
+                            Role provider: @roleSection.DefaultProvider
+                        </li>
+                    </ul>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">Latest News</div>
@@ -97,3 +156,4 @@
         </div>
     </div>
 </div>
+@Scripts.Render("~/scripts/blogadmin")

@@ -36,6 +36,11 @@
         $(".nav-primary > li").removeClass("active");
         $("#mu-content").addClass("active");
     }
+
+    if ($location.$$absUrl.indexOf("about.cshtml") > -1) {
+        $(".nav-primary > li").removeClass("active");
+        $("#mu-about").addClass("active");
+    }
 }]);
 
 if (typeof String.prototype.startsWith != 'function') {
