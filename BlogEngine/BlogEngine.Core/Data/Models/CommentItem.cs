@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
 
 namespace BlogEngine.Core.Data.Models
 {
@@ -18,6 +16,16 @@ namespace BlogEngine.Core.Data.Models
         ///     Gets or sets the Comment Id
         /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        ///     Parent comment Id
+        /// </summary>
+        public Guid ParentId { get; set; }
+
+        /// <summary>
+        ///     Comment post ID
+        /// </summary>
+        public Guid PostId { get; set; }
 
         /// <summary>
         /// Is approved
@@ -63,6 +71,11 @@ namespace BlogEngine.Core.Data.Models
         ///     Gets or sets the comment title
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        ///     Comment content
+        /// </summary>
+        public string Content { get; set; }
 
         /// <summary>
         ///     Gets or sets the author's website

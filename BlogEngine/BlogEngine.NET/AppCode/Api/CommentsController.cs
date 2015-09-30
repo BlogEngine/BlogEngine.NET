@@ -29,6 +29,15 @@ public class CommentsController : ApiController
         return Request.CreateResponse(HttpStatusCode.OK, result);
     }
 
+    public HttpResponseMessage Post([FromBody]CommentItem item)
+    {
+        var result = repository.Add(item);
+        if (result == null)
+            return Request.CreateResponse(HttpStatusCode.NotModified);
+
+        return Request.CreateResponse(HttpStatusCode.Created, result);
+    }
+
     public HttpResponseMessage Put([FromBody]CommentItem item)
     {
         repository.Update(item, "update");

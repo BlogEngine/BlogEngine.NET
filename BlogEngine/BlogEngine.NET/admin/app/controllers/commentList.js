@@ -6,15 +6,32 @@
     $scope.sortingOrder = 'DateCreated';
     $scope.reverse = true;
     $scope.commentsPage = true;
-
-    if ($scope.id) {
-        $("#modal-add-item").modal();
-    }
+    $scope.commentReply = {};
 
     $scope.showEditForm = function (id) {
-        $("#modal-comment-edit").modal();
         $scope.id = id;
+        $scope.item = findInArray($scope.items, 'Id', id);
+        $("#modal-comment-edit").modal();
         $scope.focusInput = true;
+    }
+
+    $scope.reply = function () {
+        var comment = {
+            "ParentId": $scope.item.Id,
+            "PostId": $scope.item.PostId,
+            "IsApproved": true,
+            "Content": $scope.commentReply.text
+        }
+        dataService.addItem("/api/comments", comment)
+        .success(function (data) {
+            toastr.success($rootScope.lbl.commentUpdated);
+            $scope.load();
+            $("#modal-comment-edit").modal('hide');
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.updateFailed);
+            $("#modal-comment-edit").modal('hide');
+        });
     }
 
     $scope.load = function () {

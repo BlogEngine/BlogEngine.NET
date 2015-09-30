@@ -320,10 +320,8 @@
                 {
                     Id = Guid.NewGuid(),
                     ParentId = replyToCommentId,
-                 //   Author = Server.HtmlEncode(author),
                     Author = HttpUtility.HtmlAttributeEncode(author),
                     Email = Server.HtmlEncode(email),
-                 //   Content = Server.HtmlEncode(content),
                     Content = HttpUtility.HtmlAttributeEncode(content),
                     IP = Utils.GetClientIP(),
                     Country = Server.HtmlEncode(country),

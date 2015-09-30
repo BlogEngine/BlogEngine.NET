@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
+using System.Web;
+using System.Web.Security;
 
 namespace BlogEngine.Core.Data
 {
@@ -104,7 +106,45 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.CreateComments))
                 throw new UnauthorizedAccessException();
 
-            return null;
+            var c = new Comment();
+            try
+            {
+                var post = Post.Posts.Where(p => p.Id == item.PostId).FirstOrDefault();
+
+                c.Id = Guid.NewGuid();
+                c.ParentId = item.ParentId;
+                c.IsApproved = item.IsApproved;
+                c.Content = HttpUtility.HtmlAttributeEncode(item.Content);
+
+                if (string.IsNullOrEmpty(item.Author))
+                {
+                    c.Author = Security.CurrentUser.Identity.Name;
+                    var profile = AuthorProfile.GetProfile(c.Author);
+                    if(profile != null && !string.IsNullOrEmpty(profile.DisplayName))
+                    {
+                        c.Author = profile.DisplayName;
+                    }
+                }  
+
+                if (string.IsNullOrEmpty(item.Email))
+                    c.Email = Membership.Provider.GetUser(Security.CurrentUser.Identity.Name, true).Email;
+
+                c.IP = Utils.GetClientIP();
+                c.DateCreated = DateTime.Now;
+                c.Parent = post;
+
+                post.AddComment(c);
+                post.Save();
+
+                var newComm = post.Comments.Where(cm => cm.Content == c.Content).FirstOrDefault();
+
+                return Json.GetComment(newComm, post.Comments);
+            }
+            catch (Exception ex)
+            {
+                Utils.Log("Core.Data.CommentsRepository.Add", ex);
+                return null;
+            }
         }
 
         /// <summary>
@@ -140,6 +180,7 @@ namespace BlogEngine.Core.Data
                         return true;
                     }
 
+                    c.Content = item.Content;
                     c.Author = item.Author;
                     c.Email = item.Email;
                     c.Website = string.IsNullOrEmpty(item.Website) ? null : new Uri(item.Website);
@@ -176,11 +217,11 @@ namespace BlogEngine.Core.Data
         public bool Remove(Guid id)
         {
             if (!Security.IsAuthorizedTo(Rights.ModerateComments))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
 
             foreach (var p in Post.Posts.ToArray())
             {
-                BlogEngine.Core.Comment item = (from cmn in p.AllComments
+                Comment item = (from cmn in p.AllComments
                     where cmn.Id == id select cmn).FirstOrDefault();
 
                 if (item != null)

@@ -132,12 +132,15 @@ namespace BlogEngine.Core.Data.Services
         {
             var jc = new CommentItem();
             jc.Id = c.Id;
+            jc.ParentId = c.ParentId;
+            jc.PostId = c.Parent.Id;
             jc.IsApproved = c.IsApproved;
             jc.IsSpam = c.IsSpam;
             jc.IsPending = !c.IsApproved && !c.IsSpam;
             jc.Email = c.Email == "trackback" ? "pingback" : c.Email;
             jc.Author = c.Author;
-            jc.Title = c.Teaser;
+            jc.Title = c.Teaser.Length < 80 ? c.Teaser : c.Teaser.Substring(0, 80) + "...";
+            jc.Content = c.Content;
             jc.Website = c.Website == null ? "" : c.Website.ToString();
             jc.AuthorAvatar = c.Avatar;
             jc.Ip = c.IP;
@@ -175,6 +178,8 @@ namespace BlogEngine.Core.Data.Services
                 item.IsSpam = true;
             }
 
+            item.ParentId = c.ParentId;
+            item.Content = c.Content;
             item.Email = c.Email;
             item.Author = c.Author;
             item.Website = string.IsNullOrEmpty(c.Website) ? null : new Uri(c.Website);

@@ -18,7 +18,7 @@ namespace BlogEngine.Core.Data.Contracts
         /// <param name="filter">Filter expression</param>
         /// <param name="order">Sort order</param>
         /// <returns>List of comments</returns>
-        IEnumerable<BlogEngine.Core.Data.Models.CommentItem> GetComments(CommentType commentType = CommentType.All, int take = 10, int skip = 0, string filter = "", string order = "");
+        IEnumerable<CommentItem> GetComments(CommentType commentType = CommentType.All, int take = 10, int skip = 0, string filter = "", string order = "");
         /// <summary>
         /// Single commnet by ID
         /// </summary>
@@ -28,20 +28,20 @@ namespace BlogEngine.Core.Data.Contracts
         /// <returns>
         /// A JSON Comment
         /// </returns>
-        BlogEngine.Core.Data.Models.CommentItem FindById(Guid id);
+        CommentItem FindById(Guid id);
         /// <summary>
         /// Add item
         /// </summary>
         /// <param name="item">Comment</param>
         /// <returns>Comment object</returns>
-        Data.Models.CommentItem Add(Data.Models.CommentItem item);
+        CommentItem Add(CommentItem item);
         /// <summary>
         /// Update item
         /// </summary>
         /// <param name="item">Item to update</param>
         /// <param name="action">Action (approve/unapprove)</param>
         /// <returns>True on success</returns>
-        bool Update(Data.Models.CommentItem item, string action);
+        bool Update(CommentItem item, string action);
         /// <summary>
         /// Delete item
         /// </summary>

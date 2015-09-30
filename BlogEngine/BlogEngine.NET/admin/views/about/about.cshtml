@@ -50,7 +50,7 @@
                         <div class="panel-title">Introduction</div>
                     </div>
                     <div class="panel-body  text-justify">
-                        <p class="text-center" style="padding:30px 0"><a href="http://dotnetblogengine.net/"><img src="/Content/images/blog/logo.png" /></a></p>
+                        <p class="text-center" style="padding:30px 0"><a href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo.png" /></a></p>
                         <p>
                            BlogEngine.NET is an open source ASP.NET project that was born out of desire for a better blogging platform. We focused on simplicity, ease of use, extendibility and innovative design while taking advantage of the latest .NET features.
                         </p>
@@ -96,6 +96,9 @@
                         </li>
                         <li class="list-group-item">
                             Trust level: @trust
+                        </li>
+                        <li class="list-group-item">
+                            Identity: @System.Security.Principal.WindowsIdentity.GetCurrent().Name
                         </li>
                         <li class="list-group-item">
                             Blog provider: @blogProviderSection.DefaultProvider
