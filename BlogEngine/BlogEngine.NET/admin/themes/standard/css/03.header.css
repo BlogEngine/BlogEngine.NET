@@ -8,13 +8,30 @@
 .page-header .dropdown { margin-left: 15px; }
 .page-header .btn-group { margin-right: 15px; }
 .page-header .btn-group .btn { padding: 0; width: 50px; margin: 0px 1px 0 0; font-size: 14px; }
+.page-header .btn-group .btn i {font-size:14px;}
+
 
 .page-header .dropdown-menu { background: #546683; width: 180px; }
 .page-header .dropdown-menu li a { color: #fff; cursor: pointer; }
 .page-header .dropdown-menu li:hover a { color: #fff; background: #687994; }
 .page-header .btn-default.active,
 .page-header .btn-default:active,
-.page-header .open > .dropdown-toggle.btn-default { background: #546683 !important; box-shadow:none; color: #fff; }
+.page-header .open > .dropdown-toggle.btn-default { background: #546683 !important; box-shadow: none; color: #fff; }
+
+.page-header .icon-header-trash {margin-left:10px; cursor:pointer;  width: 30px; height: 30px;display:block; text-align:center; position:relative;}
+.page-header .icon-header-trash i { width:100%; height:100%; display:block; line-height:30px; font-size:23px; color:#687994;}
+.page-header .icon-header-trash:hover i {color:#da4453}
+.page-header .icon-header-trash span {display:block; position:absolute; top:-1px; right:-1px; width:16px; height:16px; line-height:14px; background:#da4453; color:#fff; font-size:10px; border-radius:100%; }
+.page-header .icon-header-trash:hover span {display:none;}
+
+
+.page-header .icon-header-logs {cursor:pointer;  width: 30px; height: 30px; display:block; text-align:center; position:relative;}
+.page-header .icon-header-logs i { width:100%; height:100%; display:block; line-height:30px; font-size:23px; color:#687994;}
+.page-header .icon-header-logs:hover i {color:#f8ac0e}
+.page-header .icon-header-logs span {display:block; position:absolute; top:-1px; right:-1px; width:16px; height:16px; line-height:14px; background:#f8ac0e; color:#fff; font-size:10px; border-radius:100%; }
+.page-header .icon-header-logs:hover span {display:none;}
+
+
 
 /*[SEARCH]*/
 .search { width: 30px; height: 30px; position: relative; margin-top: 0; margin-left: 15px; }

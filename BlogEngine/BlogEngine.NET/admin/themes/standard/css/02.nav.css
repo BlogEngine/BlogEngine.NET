@@ -1,5 +1,5 @@
 ﻿/*[user-nav]*/
-.user-nav { height: 60px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #272c35; }
+.user-nav { width:230px; height: 60px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #272c35; }
 .user-nav img { width: 30px; height: 30px; position: absolute; left: 15px; top: 15px; }
 .user-nav .user-nav-info { text-transform: uppercase; }
 .user-nav .user-nav-info .user-nav-name { height: 15px; line-height: 12px; font-size: 12px; }
@@ -9,9 +9,8 @@
 .user-nav .user-nav-info ul li a { font-size: 10px; }
 .user-nav .user-nav-info ul li a i { display: none; }
 
-
 /*[primary-nav]*/
-.nav-primary { list-style: none; padding: 0; margin: 0; }
+.nav-primary { width:230px; list-style: none; padding: 0; margin: 0; }
 .nav-primary > li { position: relative; }
 .nav-primary > li > .fa-icon { position: absolute; z-index: 5; font-size: 14px; left: 15px; top: 15px; width: 30px; height: 20px; line-height: 20px; color: #909bae; text-align: center; }
 .nav-primary > li > a { outline: none !important; text-transform: uppercase; cursor: pointer; z-index: 6; position: relative; line-height: 48px; height: 50px; padding-left: 60px; display: block; }

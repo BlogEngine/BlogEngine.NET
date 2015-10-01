@@ -159,6 +159,11 @@
     }
 
     $scope.load();
+
+
+    $(document).ready(function () {
+        bindCommon();
+    });
 }]);
 
 var newDraft = {

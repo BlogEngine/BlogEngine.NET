@@ -1,6 +1,8 @@
 ﻿<div class="admin-views-dashboard" data-ng-controller="DashboardController">
     <div class="page-header clearfix">
         <div class="page-title pull-left"><a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a> {{lbl.dashboard}}</div>
+        <a class="icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>5</span></a>
+        <a class="icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>2</span></a>
     </div>
     <div data-ng-include src="'views/shared/_addnote.html'"></div>
     <div data-ng-include src="'views/shared/_editnote.html'"></div>
@@ -35,11 +37,11 @@
         </div>
         <div class="row">
             <div class="col-xs-6 col-md-6 col-lg-4">
-                <div class="panel panel-default">
+                <div class="panel panel-default dashboard-stats dashboard-list">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.stats}}</div>
                     </div>
-                    <ul class="list-group dashboard-stats collaps in" id="collapseOne">
+                    <ul class="list-group">
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=pub">{{lbl.publishedPosts}} <span class="item-stats-info item-stats-info-green">{{vm.PostPublishedCnt}}</span></a></li>
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages?fltr=pub">{{lbl.publishedPages}} <span class="item-stats-info item-stats-info-green">{{vm.PagePublishedCnt}}</span></a></li>
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts?fltr=dft">{{lbl.draftPosts}} <span class="item-stats-info item-stats-info-yellow">{{vm.PostDraftCnt}}</span></a></li>
@@ -49,11 +51,11 @@
                         <li class="list-group-item"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">{{lbl.spamComments}}<span class="item-stats-info item-stats-info-red">{{vm.SpamCommentsCnt}}</span></a></li>
                     </ul>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default dashboard-list">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.latestComments}}</div>
                     </div>
-                    <ul class="list-group collaps in " id="collapseTwo">
+                    <ul class="list-group">
                         <li class="list-group-item" data-ng-repeat="comment in vm.Comments">
                             <span><a href="{{comment.RelativeLink}}" target="_new" class="text-ellipsis">{{comment.Title}}</a></span>
                         </li>
@@ -62,61 +64,57 @@
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 col-lg-4">
-                <div ng-if="qd.show" class="panel panel-default">
+                <div ng-if="qd.show" class="panel panel-default dashboard-quickdraft">
                     <div class="panel-heading">
                         <div class="panel-title">
                             Quick Draft
                         </div>
                     </div>
-                    <ul class="list-group list-group collaps in" id="collapseFour">
-                        <li class="list-group-item clearfix">
-                            <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
-                            <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
-                        </li>
-                        <li class="list-group-item clearfix">
-                            <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-success btn-sm" title="{{lbl.publish}}">
-                                {{lbl.save}}
-                            </button>
-                        </li>
-                    </ul>
+                    <div class="panel-body">
+                        <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
+                        <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
+                        <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-block btn-success btn-sm" title="{{lbl.publish}}">
+                            {{lbl.save}}
+                        </button>
+                    </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default dashboard-list">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.draftPosts}}</div>
                     </div>
-                    <ul class="list-group list-group collaps in" id="collapseThree">
+                    <ul class="list-group list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="post in vm.DraftPosts">
-                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{post.Title}}</a>
-                            <a title="{{post.Title}}" class="external-link pull-right" target="_new" href="{{post.RelativeLink}}"><i class="fa fa-external-link"></i></a>
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{post.Title}}</a>
+                            <a title="{{post.Title}}" class="external-link" target="_new" href="{{post.RelativeLink}}"><i class="fa fa-external-link"></i></a>
                         </li>
                         <li ng-if="vm.DraftPosts.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-default dashboard-list">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.draftPages}}</div>
                     </div>
-                    <ul class="list-group list-group collaps in" id="collapseFour">
+                    <ul class="list-group list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="page in vm.DraftPages">
-                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/" class="text-ellipsis pull-left">{{page.Title}}</a>
-                            <a title="{{page.Title}}" class="external-link pull-right" target="_new" href="{{SiteVars.RelativeWebRoot}}page/{{page.Slug}}"><i class="fa fa-external-link"></i></a>
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{page.Title}}</a>
+                            <a title="{{page.Title}}" class="external-link" target="_new" href="{{SiteVars.RelativeWebRoot}}page/{{page.Slug}}"><i class="fa fa-external-link"></i></a>
                         </li>
                         <li ng-if="vm.DraftPages.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
             </div>
             <div class="col-xs-6 col-md-6 col-lg-4">
-                <div class="panel panel-default" data-ng-if="security.showTabCustom">
+                <div class="panel panel-default dashboard-gallery" data-ng-if="security.showTabCustom">
                     <div class="panel-heading">
                         <div class="panel-title clearfix">
                             <span class="pull-left">{{lbl.latestFromTheGallery}}</span>
-                            <div id="tr-gal-spinner" class="pull-right" style="margin-top: 15px">
+                            <div id="tr-gal-spinner" class="pull-right">
                                 <div id="div-gal-spinner"><i class="fa fa-spinner fa-spin"></i></div>
                             </div>
                         </div>
                     </div>
                     <ul class="list-group">
-                        <li class="list-group-item dashboard-gallery-item clearfix" data-ng-repeat="pkg in packages">
+                        <li class="list-group-item clearfix" data-ng-repeat="pkg in packages">
                             <a href="#/custom/package?id={{pkg.Id}}" class="item-link">
                                 <img ng-if="pkg.IconUrl.length > 0" class="item-img" width="50" height="50" ng-src="{{pkg.IconUrl}}" />
                                 <img ng-if="pkg.IconUrl.length == 0" class="item-img" width="50" height="50" src="../Content/Images/blog/pkg.png" />
@@ -126,11 +124,25 @@
                         </li>
                     </ul>
                 </div>
+                <div class="panel panel-default dashboard-news dashboard-list">
+                    <div class="panel-heading">
+                        <div class="panel-title">Latest News</div>
+                    </div>
+                    <ul class="list-group list-group">
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 4.0 Released</a> <span>New</span></li>
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 2.0 Released</a></li>
+                        <li class="list-group-item"><a href="#">BlogEngine.NET 1.0 Released</a></li>
+                    </ul>
+                </div>
+
                 <div class="panel panel-default" data-ng-if="security.viewErrorMessages">
                     <div class="panel-heading">
                         <div class="panel-title">{{lbl.logs}}</div>
                     </div>
-                    <ul class="list-group list-group collaps in" id="collapseSeven">
+                    <ul class="list-group list-group">
                         <li data-ng-if="vm.Logs.length > 0" class="list-group-item">
                             <a href="" data-ng-click="openLogFile()">{{lbl.loggedMessages}}</a>
                         </li>
@@ -147,7 +159,7 @@
                             </span>
                         </div>
                     </div>
-                    <ul class="list-group list-group collaps in" id="collapseFive">
+                    <ul class="list-group list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
                             <a href="{{t.RelativeUrl}}" class="text-ellipsis pull-left">{{t.Title}}</a>
                             <span class="pull-right">
