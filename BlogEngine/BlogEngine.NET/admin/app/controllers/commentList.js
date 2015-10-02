@@ -1,25 +1,41 @@
 ﻿angular.module('blogAdmin').controller('CommentListController', ["$rootScope", "$scope", "$location", "$filter", "$log", "dataService", function ($rootScope, $scope, $location, $filter, $log, dataService) {
+    $scope.vm = {};
     $scope.items = [];
-    $scope.item = {};
-    $scope.id = ($location.search()).id;
     $scope.filter = ($location.search()).fltr;
     $scope.sortingOrder = 'DateCreated';
     $scope.reverse = true;
     $scope.commentsPage = true;
-    $scope.commentReply = {};
+    $scope.focusInput = false;
+
+    $scope.load = function () {
+        dataService.getItems('/api/comments')
+        .success(function (data) {
+            angular.copy(data, $scope.vm);
+            $scope.items = $scope.vm.Items;
+            gridInit($scope, $filter);
+        })
+        .error(function (data) {
+            toastr.error($rootScope.lbl.failed);
+        });
+    }
 
     $scope.showEditForm = function (id) {
-        $scope.id = id;
-        $scope.item = findInArray($scope.items, 'Id', id);
-        $("#modal-comment-edit").modal();
-        $scope.focusInput = true;
+        $scope.vm.SelectedItem = findInArray($scope.items, 'Id', id);
+        dataService.getItems("/api/comments/" + id)
+        .success(function (data) {
+            angular.copy(data, $scope.vm.Detail);
+            $("#modal-comment-edit").modal();
+            $scope.focusInput = true;
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+        });
     }
 
     $scope.reply = function () {
         var comment = {
-            "ParentId": $scope.item.Id,
-            "PostId": $scope.item.PostId,
-            "IsApproved": true,
+            "ParentId": $scope.vm.Detail.ParentId,
+            "PostId": $scope.vm.Detail.PostId,
             "Content": $scope.commentReply.text
         }
         dataService.addItem("/api/comments", comment)
@@ -34,36 +50,6 @@
         });
     }
 
-    $scope.load = function () {
-        var p = { type: 5, take: 0, skip: 0, filter: "", order: "" };
-        dataService.getItems('/api/comments', p)
-        .success(function (data) {
-            angular.copy(data, $scope.items);
-            gridInit($scope, $filter);
-            if ($scope.filter) {
-                $scope.setFilter();
-            }
-            rowSpinOff($scope.filteredItems);
-        })
-        .error(function (data) {
-            toastr.error($rootScope.lbl.errorGettingTags);
-        });
-    }
-
-    $scope.setFilter = function () {
-        if ($scope.filter === 'pnd') {
-            $scope.gridFilter('IsPending', true, 'pnd');
-        }
-        if ($scope.filter === 'apr') {
-            $scope.gridFilter('IsApproved', true, 'apr');
-        }
-        if ($scope.filter === 'spm') {
-            $scope.gridFilter('IsSpam', true, 'spm');
-        }
-    }
-
-    $scope.load();
-	
     $scope.processChecked = function (action) {
         processChecked("/api/comments/processchecked/", action, $scope, dataService);
 	}
@@ -86,35 +72,9 @@
 	    }
 	}
 
-	$scope.showPage = function (n, current, total) {
-	    if (!current) {
-	        current = 0;
-	    }
-	    if (n === 0 || n - 1 === current || n - 2 === current || n - 3 === current) {
-	        return true;
-	    }
-	    if (n === current || n + 1 === current || n + 2 === current || n + 3 === current) {
-	        return true;
-	    }
-	    if (n + 1 === total) {
-	        return true;
-	    }
-	    return false;
-	}
-
-    $scope.save = function () {
-        if ($scope.tag) {
-            dataService.updateItem("/api/comments", { item: $scope.item })
-           .success(function (data) {
-               toastr.success($rootScope.lbl.commentUpdated);
-               $scope.load();
-           })
-           .error(function () { toastr.error($rootScope.lbl.updateFailed); });
-        }
-        $("#modal-add-item").modal('hide');
-    }
-
     $(document).ready(function () {
         bindCommon();
     });
+
+    $scope.load();
 }]);

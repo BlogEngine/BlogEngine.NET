@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 
 namespace BlogEngine.Core.Data.Contracts
 {
@@ -10,31 +10,22 @@ namespace BlogEngine.Core.Data.Contracts
     public interface ICommentsRepository
     {
         /// <summary>
-        /// Comments list
+        /// Comments view model
         /// </summary>
-        /// <param name="commentType">Comment type</param>
-        /// <param name="take">Items to take</param>
-        /// <param name="skip">Items to skip</param>
-        /// <param name="filter">Filter expression</param>
-        /// <param name="order">Sort order</param>
-        /// <returns>List of comments</returns>
-        IEnumerable<CommentItem> GetComments(CommentType commentType = CommentType.All, int take = 10, int skip = 0, string filter = "", string order = "");
+        /// <returns></returns>
+        CommentsVM Get();
         /// <summary>
-        /// Single commnet by ID
+        /// Comment by ID
         /// </summary>
-        /// <param name="id">
-        /// Comment id
-        /// </param>
-        /// <returns>
-        /// A JSON Comment
-        /// </returns>
-        CommentItem FindById(Guid id);
+        /// <param name="id"></param>
+        /// <returns></returns>
+        CommentDetail FindById(Guid id);
         /// <summary>
         /// Add item
         /// </summary>
         /// <param name="item">Comment</param>
         /// <returns>Comment object</returns>
-        CommentItem Add(CommentItem item);
+        CommentItem Add(CommentDetail item);
         /// <summary>
         /// Update item
         /// </summary>

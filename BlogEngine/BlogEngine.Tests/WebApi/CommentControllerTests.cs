@@ -37,15 +37,8 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void CommentsControllerGet()
         {
-            var results = _ctrl.Get(0, 0);
-            Assert.IsTrue(results.Count() > 0);
-        }
-
-        [TestMethod]
-        public void CommentsControllerGetById()
-        {
-            var item = _ctrl.Get("96d5b379-7e1d-4dac-a6ba-1e50db561b04");
-            Assert.IsNotNull(item);
+            var results = _ctrl.Get();
+            Assert.IsTrue(results.Items.Count() > 0);
         }
 
         //[TestMethod]

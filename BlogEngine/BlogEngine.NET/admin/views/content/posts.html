@@ -60,7 +60,7 @@
                             </span>
                         </div>
                     </td>
-                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-date">{{item.DateCreated.replace('-','/').replace('-','/').substring(0,10)}}</td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="6"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>

@@ -1,5 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 
@@ -7,19 +8,19 @@ namespace BlogEngine.Tests.Fakes
 {
     class FakeCommentRepository : ICommentsRepository
     {
-        public IEnumerable<CommentItem> GetComments(CommentType commentType = CommentType.All, int take = 10, int skip = 0, string filter = "", string order = "")
+        public CommentsVM Get()
         {
-            var items = new List<CommentItem>();
-            items.Add(new CommentItem() { Id = Guid.NewGuid() });
-            return items;
+            //var items = new List<CommentItem>();
+            //items.Add(new CommentItem() { Id = Guid.NewGuid() });
+            return null;
         }
 
-        public CommentItem FindById(Guid id)
+        public CommentDetail FindById(Guid id)
         {
-            return new CommentItem() { Id = Guid.NewGuid() };
+            return new CommentDetail() { Id = Guid.NewGuid() };
         }
 
-        public CommentItem Add(CommentItem item)
+        public CommentItem Add(CommentDetail item)
         {
             return new CommentItem() { Id = Guid.NewGuid() };
         }

@@ -19,12 +19,12 @@
                         <div class="form-horizontal clearfix">
                             <div class="form-group">
                                 <div class="col col-md-12">
-                                    <pre>{{item.Content}}</pre>
+                                    <pre>{{vm.Detail.Content}}</pre>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col col-md-12">
-                                    <textarea ng-model="commentReply.text" placeholder="Reply..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
+                                    <textarea ng-model="commentReply.text" placeholder="Reply..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
         </h2>
         <div class="btn-group  pull-left">
             <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
-            <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></button>
+            <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></button>
             <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></button>
             <button ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></button>
         </div>
@@ -93,7 +93,7 @@
                         <a title="click to reply" ng-click="showEditForm(item.Id)" href=""> {{item.Title}}</a>
                         <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
                     </td>
-                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-date">{{item.DateCreated.replace('-','/').replace('-','/').substring(0,10)}}</td>
                     <td class="item-author"><span>{{item.Author}}</span></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsApproved" data-ng-disabled="true"></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsSpam" data-ng-disabled="true"></td>
@@ -106,7 +106,7 @@
                 <li data-ng-class="{disabled: currentPage == 0}">
                     <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
                 </li>
-                <li ng-if="showPage(n, currentPage, pagedItems.length)" data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
                     <a data-ng-bind="n + 1">1</a>
                 </li>
                 <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">

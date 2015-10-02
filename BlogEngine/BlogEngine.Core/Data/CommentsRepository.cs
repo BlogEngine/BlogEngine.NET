@@ -1,6 +1,7 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
 using BlogEngine.Core.Data.Services;
+using BlogEngine.Core.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,68 +25,40 @@ namespace BlogEngine.Core.Data
         /// <param name="filter">Filter expression</param>
         /// <param name="order">Sort order</param>
         /// <returns>List of comments</returns>
-        public IEnumerable<CommentItem> GetComments(CommentType commentType = CommentType.All, int take = 10, int skip = 0, string filter = "", string order = "")
+        public CommentsVM Get()
         {
             if (!Security.IsAuthorizedTo(Rights.ViewPublicComments))
                 throw new UnauthorizedAccessException();
 
-            if (string.IsNullOrEmpty(filter)) filter = "1==1";
-            if (string.IsNullOrEmpty(order)) order = "DateCreated desc";
-
-            var items = new List<Comment>();
-            var query = items.AsQueryable().Where(filter);
-            var comments = new List<CommentItem>();
+            var vm = new CommentsVM();
+            var comments = new List<Comment>();
+            var items = new List<CommentItem>();
 
             var all = Security.IsAuthorizedTo(Rights.EditOtherUsersPosts);
-
             foreach (var p in Post.Posts)
             {
                 if (all || p.Author.ToLower() == Security.CurrentUser.Identity.Name.ToLower())
                 {
-                    switch (commentType)
-                    {
-                        case CommentType.Pending:
-                            items.AddRange(p.NotApprovedComments);
-                            break;
-                        case CommentType.Pingback:
-                            items.AddRange(p.Pingbacks);
-                            break;
-                        case CommentType.Spam:
-                            items.AddRange(p.SpamComments);
-                            break;
-                        case CommentType.Approved:
-                            items.AddRange(p.ApprovedComments);
-                            break;
-                        default:
-                            items.AddRange(p.Comments);
-                            break;
-                    }
+                    comments.AddRange(p.Comments);
                 }
-            }
-
-            // if take passed in as 0, return all
-            if (take == 0) take = items.Count;        
-
-            var itemList = query.OrderBy(order).Skip(skip).Take(take).ToList();
-
-            foreach (var item in itemList)
+            }  
+            foreach (var c in comments)
             {
-                comments.Add(Json.GetComment(item, itemList));               
+                items.Add(Json.GetComment(c, comments));               
             }
+            vm.Items = items;
 
-            return comments;
+            vm.Detail = new CommentDetail();
+            vm.SelectedItem = new CommentItem();
+
+            return vm;
         }
-
         /// <summary>
-        /// Single commnet by ID
+        /// Find by ID
         /// </summary>
-        /// <param name="id">
-        /// Comment id
-        /// </param>
-        /// <returns>
-        /// A JSON Comment
-        /// </returns>
-        public CommentItem FindById(Guid id)
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public CommentDetail FindById(Guid id)
         {
             if (!Security.IsAuthorizedTo(Rights.ViewPublicComments))
                 throw new UnauthorizedAccessException();
@@ -93,7 +66,7 @@ namespace BlogEngine.Core.Data
             return (from p in Post.Posts
                     from c in p.AllComments
                     where c.Id == id
-                    select Json.GetComment(c, p.AllComments)).FirstOrDefault();
+                    select Json.GetCommentDetail(c)).FirstOrDefault();
         }
 
         /// <summary>
@@ -101,7 +74,7 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="item">Comment</param>
         /// <returns>Comment object</returns>
-        public CommentItem Add(CommentItem item)
+        public CommentItem Add(CommentDetail item)
         {
             if (!Security.IsAuthorizedTo(Rights.CreateComments))
                 throw new UnauthorizedAccessException();
@@ -113,22 +86,17 @@ namespace BlogEngine.Core.Data
 
                 c.Id = Guid.NewGuid();
                 c.ParentId = item.ParentId;
-                c.IsApproved = item.IsApproved;
+                c.IsApproved = true;
                 c.Content = HttpUtility.HtmlAttributeEncode(item.Content);
 
-                if (string.IsNullOrEmpty(item.Author))
+                c.Author = Security.CurrentUser.Identity.Name;
+                var profile = AuthorProfile.GetProfile(c.Author);
+                if (profile != null && !string.IsNullOrEmpty(profile.DisplayName))
                 {
-                    c.Author = Security.CurrentUser.Identity.Name;
-                    var profile = AuthorProfile.GetProfile(c.Author);
-                    if(profile != null && !string.IsNullOrEmpty(profile.DisplayName))
-                    {
-                        c.Author = profile.DisplayName;
-                    }
-                }  
+                    c.Author = profile.DisplayName;
+                }
 
-                if (string.IsNullOrEmpty(item.Email))
-                    c.Email = Membership.Provider.GetUser(Security.CurrentUser.Identity.Name, true).Email;
-
+                c.Email = Membership.Provider.GetUser(Security.CurrentUser.Identity.Name, true).Email;
                 c.IP = Utils.GetClientIP();
                 c.DateCreated = DateTime.Now;
                 c.Parent = post;
@@ -137,7 +105,6 @@ namespace BlogEngine.Core.Data
                 post.Save();
 
                 var newComm = post.Comments.Where(cm => cm.Content == c.Content).FirstOrDefault();
-
                 return Json.GetComment(newComm, post.Comments);
             }
             catch (Exception ex)
@@ -180,10 +147,10 @@ namespace BlogEngine.Core.Data
                         return true;
                     }
 
-                    c.Content = item.Content;
+                    //c.Content = item.Content;
                     c.Author = item.Author;
                     c.Email = item.Email;
-                    c.Website = string.IsNullOrEmpty(item.Website) ? null : new Uri(item.Website);
+                    //c.Website = string.IsNullOrEmpty(item.Website) ? null : new Uri(item.Website);
 
                     if (item.IsPending)
                     {

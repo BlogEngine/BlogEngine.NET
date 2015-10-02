@@ -1,5 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
+using BlogEngine.Core.Data.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -15,21 +16,21 @@ public class CommentsController : ApiController
         this.repository = repository;
     }
 
-    public IEnumerable<CommentItem> Get(int type = 1, int take = 0, int skip = 0, string filter = "IsDeleted == false", string order = "DateCreated descending")
+    public CommentsVM Get()
     {
-        return repository.GetComments((CommentType)type, take, skip, filter, order);
+        return repository.Get();
     }
 
     public HttpResponseMessage Get(string id)
     {
-        var result = repository.FindById(new System.Guid(id));
+        var result = repository.FindById(new Guid(id));
         if (result == null)
             return Request.CreateResponse(HttpStatusCode.NotFound);
 
         return Request.CreateResponse(HttpStatusCode.OK, result);
     }
 
-    public HttpResponseMessage Post([FromBody]CommentItem item)
+    public HttpResponseMessage Post([FromBody]CommentDetail item)
     {
         var result = repository.Add(item);
         if (result == null)

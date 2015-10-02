@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Globalization;
-using System.Linq;
 
 namespace BlogEngine.Core.Data.Models
 {
@@ -10,83 +8,28 @@ namespace BlogEngine.Core.Data.Models
     public class CommentDetail
     {
         /// <summary>
-        /// If checked in the UI
-        /// </summary>
-        public bool IsChecked { get; set; }
-
-        /// <summary>
         ///     Gets or sets the Comment Id
         /// </summary>
         public Guid Id { get; set; }
-
         /// <summary>
-        /// Is approved
+        ///     Parent comment Id
         /// </summary>
-        public bool IsApproved { get; set; }
-
+        public Guid ParentId { get; set; }
         /// <summary>
-        /// Is spam
+        ///     Comment post ID
         /// </summary>
-        public bool IsSpam { get; set; }
-
-        /// <summary>
-        /// Comment pending approval
-        /// </summary>
-        public bool IsPending { get; set; }
-
-        /// <summary>
-        /// Can be: approved, pending, spam, pingback
-        /// </summary>
-        public string CommentType { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the Email
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the Author
-        /// </summary>
-        public string Author { get; set; }
-
-        /// <summary>
-        ///     Gets the avatar image
-        /// </summary>
-        public string Avatar { get; set; }
-
-        /// <summary>
-        ///     Gets a value indicating whether this comment has nested comments
-        /// </summary>
-        public bool HasChildren { get; set; }
-
-        /// <summary>
-        ///     Gets or sets the comment title
-        /// </summary>
-        public string Title { get; set; }
-
+        public Guid PostId { get; set; }
         /// <summary>
         ///     Gets or sets the author's website
         /// </summary>
         public string Website { get; set; }
-
-        /// <summary>
-        /// Static avatar image
-        /// </summary>
-        public string AuthorAvatar { get; set; }
-
         /// <summary>
         ///     Gets or sets the ip
         /// </summary>
         public string Ip { get; set; }
-
         /// <summary>
-        ///     Gets or sets the date published
+        ///     Comment content
         /// </summary>
-        public string DateCreated { get; set; }
-
-        /// <summary>
-        /// Comment link
-        /// </summary>
-        public string RelativeLink { get; set; }
+        public string Content { get; set; }
     }
 }

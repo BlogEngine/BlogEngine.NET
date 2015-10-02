@@ -122,6 +122,7 @@
     <Compile Include="Data\Contracts\IDashboardRepository.cs" />
     <Compile Include="Data\DashboardRepository.cs" />
     <Compile Include="Data\Services\Json.cs" />
+    <Compile Include="Data\ViewModels\CommentsVM.cs" />
     <Compile Include="Data\ViewModels\DashboardVM.cs" />
     <Compile Include="Data\ViewModels\SettingsVM.cs" />
     <Compile Include="Services\Syndication\BlogML\BaseReader.cs" />
