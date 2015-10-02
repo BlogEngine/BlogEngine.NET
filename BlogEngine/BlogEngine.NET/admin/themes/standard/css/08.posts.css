@@ -1,8 +1,5 @@
-﻿
-
-/*[POSTS]*/
-.item-comment-count { display: inline-block; min-width:20px; border-radius:100px; height:20px; background-color: #999; color:#fff; font-family: sans-serif;  }
-.item-comment-approved { background-color: #5cb85c; }
-.item-comment-pending { background-color: #f0ad4e; }
-.item-comment-spam { background-color: #d9534f; }
+﻿.item-comment-count { display: inline-block; min-width:20px; border-radius:100px; height:20px; background-color: #999; color:#fff; font-family: sans-serif;  }
+.item-comment-approved { background-color: #37bc9b; }
+.item-comment-pending { background-color: #f6bb42; }
+.item-comment-spam { background-color: #da4453; }
 .item-comment-count a { display: block; color: #fff !important; padding: 0px 5px; }

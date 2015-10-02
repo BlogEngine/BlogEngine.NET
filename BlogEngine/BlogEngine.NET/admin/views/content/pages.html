@@ -34,7 +34,7 @@
                     <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
                     <th class="item-parent">{{lbl.parent}}</th>
                     <th class="item-sort"><a data-ng-click="sort_by('SortOrder', $event)">{{lbl.sortOrder}}</a></th>
-                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
+                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.date}}</a></th>
                     <th class="item-show">{{lbl.showInList}}</th>
                     <th class="item-stats">{{lbl.published}}</th>
                 </tr>
@@ -48,26 +48,24 @@
                     </td>
                     <td class="item-parent">{{item.Parent.OptionName}}</td>
                     <td class="item-sort">{{item.SortOrder}}</td>
-                    <td class="item-date">{{item.DateCreated.replace('-','/').replace('-','/').substring(0,10)}}</td>
+                    <td class="item-date" title="{{item.DateCreated}}">2014-02-04</td>
                     <td class="item-show"><input type="checkbox" data-ng-model="item.ShowInList" data-ng-disabled="true"></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>
         </table>
-        <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
-            <ul class="pagination pagination-sm">
-                <li data-ng-class="{disabled: currentPage == 0}">
-                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
-                </li>
-                <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                    <a data-ng-bind="n + 1">1</a>
-                </li>
-                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="pagination" ng-if="items.length > itemsPerPage">
+            <li data-ng-class="{disabled: currentPage == 0}">
+                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
+            </li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                <a data-ng-bind="n + 1">1</a>
+            </li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
+            </li>
+        </ul>
     </div>
 </div>
 
