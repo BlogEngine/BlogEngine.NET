@@ -1,40 +1,38 @@
-﻿.table { font-size: 13px; font-weight: normal; background: #f7f9fb; border:1px solid #ebeef6;}
+﻿.table { font-size: 13px; font-weight: normal; background: #f7f9fb; border: 1px solid #ebeef6; }
 .table > thead > tr > th,
-.table > tbody > tr > td { padding: 0 15px; height:50px; border: none; border-bottom: 1px solid #ebeef6; vertical-align: middle; text-align: center; }
+.table > tbody > tr > td { padding: 0 15px; height: 44px; border: none; border-bottom: 1px solid #ebeef6; vertical-align: middle; text-align: center; }
 .table > tbody > tr > td { border-right: 1px solid #ebeef6; }
 .table > tbody > tr > td:last-child { border-right: 0px solid #ebeef6; }
 .table > thead { background: #f0f2f7; color: #455a7c; text-transform: uppercase; }
 .table > thead > tr > th { font-size: 13px; font-weight: 500; }
 .table > thead > tr > th a { color: #455a7c; cursor: pointer; }
 .table > tbody > tr > td,
-.table > tbody > tr > td a { color: #9fa2a5; }
+.table > tbody > tr > td a { color: #b3b9c7; }
 .table input { top: 0; }
-
-.table > tbody > tr:hover {background:rgba(255, 255, 255, 0.49);}
-
+.table > tbody > tr:hover { background: rgba(255, 255, 255, 0.49); }
 
 /*[all pages]*/
-.table .item-checkbox { width: 50px;padding:0; }
+.table .item-checkbox { width: 44px; min-width: 44px; padding: 0; }
 .table .item-title { position: relative; text-align: left; }
-.table td.item-title { padding: 0; }
-.table td.item-title a { color: #6581ad; display: block; height: 100%; line-height: 50px; padding-left: 15px; }
-.table .external-link { position: absolute; top: 0; right: 0; display: block; width: 50px; height: 100%; text-align: center; }
-.table .external-link i { width: 100%; height: 100%; line-height: 48px; color: #aaa; }
+.table td.item-title { padding: 0; max-width: 100px; }
+.table td.item-title a:first-child { color: #6581ad; height: 100%; line-height: 44px; padding: 0 50px 0 15px; display: block; overflow: hidden; -webkit-text-overflow: ellipsis; -moz-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
+.table .external-link { position: absolute; top: 0; right: 0; display: block; width: 44px; height: 100%; text-align: center; }
+.table .external-link i { width: 100%; height: 100%; line-height: 48px; color: #b3b9c7; }
 .table td.item-title .external-link { padding-left: 0; }
 
 /*[content/post]*/
 .table-item-post { }
 .table-item-post .item-title { }
-.table-item-post td.item-title a {  }
+.table-item-post td.item-title a { }
 .table-item-post .item-author { width: 80px; }
 .table-item-post .item-comments { width: 80px; }
-.table-item-post .item-date { width: 80px; }
+.table-item-post .item-date { width: 100px; }
 .table-item-post .item-state { width: 100px; }
 
 /*[content/comment]*/
 .table-item-comments { }
-.table-item-comments .item-avatar { width: 40px; padding: 0; }
-.table-item-comments .item-avatar img { width: 50px; height: 50px; }
+.table-item-comments .item-avatar { width: 44px; padding: 0; }
+.table-item-comments .item-avatar img { width: 44px; height: 44px; }
 .table-item-comments .item-title { }
 .table-item-comments .item-date { width: 120px; }
 .table-item-comments .item-author { width: 80px; }
@@ -45,7 +43,7 @@
 .table-item-page .item-title { }
 .table-item-page .item-parent { width: 80px; }
 .table-item-page .item-sort { width: 120px; }
-.table-item-page .item-date { width:120px; }
+.table-item-page .item-date { width: 120px; }
 .table-item-page .item-show { width: 140px; }
 .table-item-page .item-state { width: 120px; }
 
@@ -64,21 +62,21 @@
 
 /*[content/filters]*/
 .table-item-filters .item-checkbox { }
-.table-item-filters .item-action { text-align:left;}
-.table-item-filters .item-subject { width:100px;}
-.table-item-filters .item-operator { width:100px; }
-.table-item-filters .item-filter {  width:100px;}
+.table-item-filters .item-action { text-align: left; }
+.table-item-filters .item-subject { width: 100px; }
+.table-item-filters .item-operator { width: 100px; }
+.table-item-filters .item-filter { width: 100px; }
 
 
 /*[security/roles]*/
-.table-item-roles {}
-.table-item-roles .item-checkbox{}
-.table-item-roles .item-title{}
-.table-item-roles .item-sysrole{width:120px;}
+.table-item-roles { }
+.table-item-roles .item-checkbox { }
+.table-item-roles .item-title { }
+.table-item-roles .item-sysrole { width: 120px; }
 
 /*[security/users]*/
-.table-item-users {}
-.table-item-users .item-checkbox{}
-.table-item-users .item-title{}
-.table-item-users .item-roles{width:120px;}
-.table-item-users .item-email{width:120px;}
+.table-item-users { }
+.table-item-users .item-checkbox { }
+.table-item-users .item-title { }
+.table-item-users .item-roles { width: 120px; }
+.table-item-users .item-email { width: 120px; }

@@ -77,7 +77,7 @@
                     <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
                     <th class="item-avatar">&nbsp;</th>
                     <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
-                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.createdOn}}</a></th>
+                    <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.date}}</a></th>
                     <th class="item-author"><a data-ng-click="sort_by('Author',$event)">{{lbl.author}}</a></th>
                     <th class="item-state">{{lbl.approved}}</th>
                     <th class="item-state">{{lbl.spam}}</th>
@@ -93,7 +93,7 @@
                         <a title="click to reply" ng-click="showEditForm(item.Id)" href=""> {{item.Title}}</a>
                         <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
                     </td>
-                    <td class="item-date"><!--{{item.DateCreated}}-->2014/02/04</td>
+                    <td class="item-date" title="{{item.DateCreated}}">2014-02-04</td>
                     <td class="item-author"><span>{{item.Author}}</span></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsApproved" data-ng-disabled="true"></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsSpam" data-ng-disabled="true"></td>
@@ -101,18 +101,16 @@
                 <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>
         </table>
-        <div class="text-right pagination-wrapper" ng-if="items.length > itemsPerPage">
-            <ul class="pagination pagination-sm">
-                <li data-ng-class="{disabled: currentPage == 0}">
-                    <a data-ng-click="prevPage()">« {{lbl.prev}}</a>
-                </li>
-                <li ng-if="showPage(n, currentPage, pagedItems.length)" data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                    <a data-ng-bind="n + 1">1</a>
-                </li>
-                <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                    <a data-ng-click="nextPage()">{{lbl.next}} »</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="pagination" ng-if="items.length > itemsPerPage">
+            <li data-ng-class="{disabled: currentPage == 0}">
+                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
+            </li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
+                <a data-ng-bind="n + 1">1</a>
+            </li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
+            </li>
+        </ul>
     </div>
 </div>

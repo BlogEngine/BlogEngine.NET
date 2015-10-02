@@ -1,14 +1,12 @@
 ﻿/*[FORMS]*/
 .form-width-limited, .form-horizontal { max-width: 400px; }
-.modal-body .form-horizontal {
-    max-width:100%;
-}
-.modal-footer .btn {margin-left:10px;}
+.modal-body .form-horizontal { max-width: 100%; }
+.modal-footer .btn { margin-left: 10px; }
 .content-inner .btn,
 .content-inner .form-control { border-radius: 0px; }
 .form-group { margin-bottom: 18px; }
 .form-group > label { font-size: 12px; font-weight: 500; color: #666; }
-.form-control {-webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important;  font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 2px; border-color: #ddd; }
+.form-control { -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 2px; border-color: #ddd; }
 .form-control:focus { border-color: #a9b5c8; outline: 0px none; box-shadow: none; }
 .panel .form-control { border-width: 1px; }
 .input-group .input-group-addon { border-radius: 0; }
@@ -73,21 +71,19 @@
 .dropdown-toggle i { position: absolute; font-size: 14px; top: 0; right: 0; width: 30px; line-height: 30px; border-left: 1px solid rgba(0, 0, 0, 0.10); }
 
 /*[]*/
-#toast-container > div {opacity:1;}
-.toast {border-radius:0 !important; opacity:1;}
+#toast-container > div { opacity: 1; }
+.toast { border-radius: 0 !important; opacity: 1; }
 .toast-success { background-color: #37bc9b; }
 .toast-error { background-color: #da4453; }
 .toast-info { background-color: #3bafda; }
 .toast-warning { background-color: #f6bb42; }
 
-
-
+/*[]*/
+.pagination a { border-radius: 0 !important; width: 35px !important; color: #687994 !important; text-align: center !important; background: #f7f9fb !important; border-color: #ebeef6 !important; cursor: pointer; }
+.pagination a:hover { background-color: #ebeef6 !important; }
+.pagination i { line-height: 20px; }
+.pagination > .active > a { z-index: 4; border-color: #f0f2f7 !important; background-color: #687994 !important; color: #fff !important; }
 
 @media screen and (max-width:1023px) {
-
-   .form-width-limited
-       {
-           padding-left:40px;
-           padding-top:40px;
-       }
- }
+    .form-width-limited { padding-left: 40px; padding-top: 40px; }
+}
