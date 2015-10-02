@@ -251,7 +251,7 @@
     <Content Include="admin\index.cshtml" />
     <Content Include="admin\themes\standard\css\admin.css" />
     <Content Include="admin\views\content\blogs.html" />
-    <None Include="admin\views\about\about.cshtml" />
+    <Content Include="admin\about.cshtml" />
     <Content Include="admin\views\content\filters.html" />
     <Content Include="admin\views\custom\gallery.html" />
     <Content Include="admin\views\custom\package.html" />
