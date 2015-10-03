@@ -1,67 +1,66 @@
-﻿.newpost {
-}
+﻿.newpost { }
+.newpost .form-group { position: relative; }
+.newpost .form-control { border-width: 1px; }
+#txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 56px; left: 15px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
+#txtTitle-error:before { position: absolute; top: -4px; left: 10px; border-bottom: 4px solid #D8000C; border-right: 4px solid transparent; border-left: 4px solid transparent; content: ""; display: block; }
 
-.newspost .form-group {
-    position: relative;
-}
-
-#txtTitle-error {
-    position: absolute;
-    background: #D8000C;
-    color: #fff;
-    top: 58px;
-    left: 15px;
-    display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    padding: 0 10px;
-    z-index: 1000;
-    text-transform: capitalize;
-    border-radius: 3px;
-}
-
-#txtTitle-error:before {
-    position: absolute;
-    top: -6px;
-    left: 10px;
-    border-bottom: 6px solid #D8000C;
-    border-right: 6px solid transparent;
-    border-left: 6px solid transparent;
-    content: "";
-    display: block;
-}
-
-
-
-.newpost-title {
-    height: 50px;
-    padding: 10px 20px;
-    font-weight: 500;
-    font-size: 18px;
-    border: 1px solid #ddd;
-}
-
-.newpost-title:focus {
-    border-color: #ddd;
-}
-
-.newpost-title.error {
-    border-color: #D8000C;
-}
-
-
+/**/
+.newpost-title { height: 40px; border-color: #d8dfea; padding: 10px 10px; font-weight: 400; font-size: 14px; margin-bottom: 30px; }
+.newpost-title:focus { border-color: #d8dfea; }
+.newpost-title.error { border-color: #D8000C; }
 
 /*[]*/
-.post-tags-selector {
-    padding:20px;
-}
+.post-tags-selector { }
 
-.post-tags-selector .text-core,
-.post-tags-selector .text-wrap,
-.post-tags-selector .text-tags,
-.post-tags-selector textarea {
-    min-height: 27px !important;
-      width: 100% !important;
-    max-width: 100% !important;
-}
+.post-tags-selector textarea {  width: 200px !important;  border:none !important; }
+.text-core {overflow:hidden; width:100% !important;  min-height:40px !important; border:1px solid #ddd; height:auto !important;  padding:10px;background:#fff; }
+.text-core .text-wrap {position:static !important;}
+.text-core .text-wrap textarea, .text-core .text-wrap input { border-radius: 0px !important; border-color: #CCC !important; box-shadow: none; font-size: 13px !important; }
+.text-core .text-wrap .text-tags .text-tag .text-button { font-size:12px !important; border: none !important; background: #d8dfea !important; color: #495b78 !important; border-radius:0 !important;}
+.text-dropdown.text-position-below {margin-top:20px !important; left:0;}
+.text-dropdown .text-list {}
 
+/*[]*/
+.newpost-widget { background-color: #f0f2f7; padding: 15px; margin-bottom: 30px; min-height: 40px; }
+.newpost-widget .form-group:last-child { margin-bottom: 0; }
+.newpost-widget.enable-comment { padding: 0; line-height: 40px; height: 40px; }
+.newpost-widget.enable-comment input { margin-right: 10px; cursor: pointer; }
+.newpost-widget.enable-comment label { display: block; padding: 0px 15px; cursor: pointer; user-select: none; -moz-user-select: none; -webkit-user-select: none; }
+.newpost-widget .newpost-widget-title { color: #495b78; font-size: 11px; text-transform: uppercase; user-select: none; -moz-user-select: none; -webkit-user-select: none; }
+.newpost-widget .add-cat { color: #495b78; font-size: 12px; position: relative; top: 3px; right: 3px; font-weight: normal; }
+
+/*[]*/
+.categories-list { max-height: 156px; overflow: auto; background: #fff; padding: 0; margin: 0; border: 1px solid #ddd; list-style: none; }
+.categories-list li { border-bottom: 1px solid #eee; }
+.categories-list li:last-child { border: none; }
+.categories-list li label { user-select: none; -webkit-user-select: none; -moz-user-select: none; font-size: 12px; cursor: pointer; display: block; height: 30px; padding: 0 10px; line-height: 28px; margin: 0; overflow: hidden; -webkit-text-overflow: ellipsis; -moz-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; }
+.categories-list li input { position: relative; top: 3px; margin-right: 5px; }
+
+/**/
+.editor-wrapper { margin-bottom: 30px; }
+.mce-panel { background-color: #f0f2f7 !important; padding: 0 !important; height: auto !important; margin: 0 !important; border-color: #d8dfea !important; }
+.mce-panel * { margin: 0; padding: 0; }
+.mce-flow-layout-item { margin: 0 !important; }
+.mce-btn { background: none !important; border: none !important; text-shadow: none !important; color: #495b78 !important; }
+.mce-menu-item .mce-ico, .mce-menu-item .mce-text { color: #495b78 !important; }
+.mce-btn button { height: 35px; padding: 0 10px !important; margin: 0 !important; color: #495b78 !important; }
+.mce-ico { color: #495b78 !important; }
+.mce-btn button:hover { background: #d6dded !important; }
+.mce-btn-group:not(:first-child) { margin: 0 !important; padding: 0 !important; border-color: #d6dded !important; }
+.mce-splitbtn .mce-open,
+.mce-colorbutton .mce-open { border: none !important; outline: none !important; padding: 0 5px !important; }
+.mce-splitbtn .mce-open i,
+.mce-colorbutton .mce-open i { margin: 0 !important; }
+.mce-floatpanel.mce-popover.mce-bottom > .mce-arrow { border-bottom-color: #d6dded !important; }
+.mce-floatpanel.mce-popover.mce-bottom > .mce-arrow::after { border-bottom-color: #f0f2f7 !important; }
+.mce-menu { margin-left: -1px !important; }
+.mce-menu-item-normal.mce-active,
+.mce-menu-item-normal.mce-active:hover { background-color: #495b78 !important; color: #fff !important; }
+.mce-menu-item:hover, .mce-menu-item.mce-selected, .mce-menu-item:focus,
+.mce-splitbtn .mce-open.mce-active { background-color: #d6dded !important; }
+.mce-menu-item-normal.mce-active .mce-text { color: #fff !important; }
+.mce-statusbar { display: none !important; }
+#mceu_20 { margin-right: -1px !important; }
+.mce-i-filemanager:before { content: "\f07c"; font-family: FontAwesome; font-size: 14px; position: relative; top: 2px; left: 1px; }
+.mce-abs-layout button { background: #fff !important; border: 1px solid #ccc !important; }
+.mce-btn.mce-active { background-color: #d8dfea !important; }

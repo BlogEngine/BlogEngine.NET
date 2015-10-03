@@ -34,11 +34,12 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 .sidebar-active .overlay-wrapper { content: ""; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.30); position: absolute; top: 0; left: 0; z-index: 101; }
 .sidebar-active .nav-toggle { left: 240px; }
 
+
 .sidebar-logo { height: 41px; position: absolute; bottom: 30px; left: 0; width: 100%; text-align: center; overflow: hidden; }
 .sidebar-logo a { display: inline-block; height: 100%; outline: none !important; }
 .sidebar-active .sidebar-logo { width: 100%; }
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width:1024px) {
     .nav-toggle { display: block; }
     .wrapper { padding-left: 0; }
     .sidebar { width: 0; }
@@ -51,3 +52,6 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 @media screen and (max-height:620px) {
     .sidebar-logo {display:none;}
 }
+
+
+.mce-fullscreen .sidebar {display:none;}

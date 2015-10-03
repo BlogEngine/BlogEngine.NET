@@ -43,6 +43,6 @@
 .search.search-wide .fa-search { left: 0; z-index: 7; background: none; color: #aaa; top: 15px; left: 15px; }
 .search.search-wide .fa-times-circle { display: block; font-size: 22px; position: absolute; width: 30px; height: 30px; right: 25px; top: 18px; z-index: 50; text-align: center; color: rgb(233, 102, 102); }
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width:1024px) {
     .page-header { padding: 10px 10px 10px 55px; background: #f0f2f7; height: 50px; }
 }

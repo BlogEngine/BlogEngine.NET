@@ -10,11 +10,11 @@
 <div class="content" ng-controller="PostEditorController">
     <div class="page-header clearfix">
         <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-sm btn-hasicon btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
-        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
-        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-hasicon btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
-        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
         <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-sm btn-hasicon btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
-        <a href="" onclick="window.history.back()" class="btn btn-sm btn-hasicon btn-default pull-left"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-hasicon btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
+        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
+        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
+        <a href="" onclick="window.history.back()" class="btn btn-sm btn-hasicon btn-default pull-right"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
         <span id="spinner" class="loaded pull-right"><i class='fa fa-spinner fa-spin fa-large'></i></span>
     </div>
     <div class="content-inner newpost">
@@ -58,7 +58,6 @@
                 </div>
             </div>
         </form>
-
         <form id="form" action="">
             <div id="modal-custom-fields" class="modal fade">
                 <div class="modal-dialog">
@@ -83,92 +82,65 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-md-9">
-                    <div class="form-group">
-                        <input type="text" id="txtTitle" name="txtTitle" title="Please enter title" placeholder="{{lbl.titleOfPost}}..." class="form-control newpost-title" data-ng-model="post.Title" />
+                <div class="col-sm-8  col-md-9">
+                    <input type="text" id="txtTitle" name="txtTitle" autocomplete="off" placeholder="{{lbl.titleOfPost}}..." class="form-control newpost-title" data-ng-model="post.Title" />
+                    <div class="editor-wrapper">
+                        @RenderPage(BlogConfig.DefaultEditor)
                     </div>
-                    @RenderPage(BlogConfig.DefaultEditor)
+                    <div class="newpost-widget">
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.slug}}</label>
+                            <input type="text" class="form-control" id="txtSlug" data-ng-model="post.Slug" />
+                        </div>
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.description}}</label>
+                            <textarea class="form-control" rows="4" id="txtExcerpt" data-ng-model="post.Description"> </textarea>
+                        </div>
+                    </div>
                 </div>
-                <div class="col col-md-3">
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-tag fa-sm"></i> {{lbl.tags}}
-                        </div>
-                        <div class="post-tags-selector">
-                            <textarea id="postTags" class="form-control" style="width:100%;" placeholder="{{lbl.typeAndEnter}}..." rows="1"></textarea>
-                        </div>
+                <div class="col-sm-4 col-md-3">
+                    <div class="newpost-widget enable-comment">
+                        <label><input type="checkbox" name="ckEnableComments" data-ng-model="post.HasCommentsEnabled" />{{lbl.enableComments}}</label>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <div class="panel-title">
-                                <i class="fa fa-folder"></i> {{lbl.categories}}
-                                <span class="pull-right" style="margin-top: 15px">
-                                    <a title="{{lbl.add}}" href="" ng-click="addCagegory()"><i class="fa fa-plus fa-sm"></i></a>
-                                </span>
+                    <div class="newpost-widget">
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.categories}}</label>
+                            <a title="{{lbl.add}}" href="" class="pull-right add-cat" ng-click="addCagegory()"><i class="fa fa-plus fa-sm"></i></a>
+                            <ul class="categories-list">
+                                <li ng-repeat="cat in lookups.CategoryList">
+                                    <label>
+                                        <input type="checkbox" id="cat-{{cat.OptionValue}}" data-ng-model="cat.IsSelected" />
+                                        {{cat.OptionName}}
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.tags}}</label>
+                            <div class="post-tags-selector">
+                                <textarea id="postTags" class="form-control" style="width:100%;" placeholder="{{lbl.typeAndEnter}}..." rows="1"></textarea>
                             </div>
                         </div>
-                        <ul class="list-group categories-list">
-                            <li class="list-group-item" ng-repeat="cat in lookups.CategoryList">
-                                <label>
-                                    <input type="checkbox" id="cat-{{cat.OptionValue}}" data-ng-model="cat.IsSelected" />
-                                    {{cat.OptionName}}
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#postmeta" aria-expanded="false" aria-controls="postmeta">
-                                <i class="fa fa-file"></i> {{lbl.postMeta}}
-                            </a>
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.datePublished}}</label>
+                            <input type="text" class="form-control dateFormatted" id="txtDate" name="txtDate" data-ng-model="post.DateCreated" />
                         </div>
-                        <div id="postmeta" class="panel-collapse collapse" role="tabpanel" aria-labelledby="postmeta">
-                            <div class="panel-body">
-                                <div class="form-group">
-                                    <label class="control-label" for="selAuthors">{{lbl.author}}</label>
-                                    <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="txtDate">{{lbl.datePublished}}</label>
-                                    <input type="text" class="form-control dateFormatted" id="txtDate" name="txtDate" data-ng-model="post.DateCreated" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="txtSlug">{{lbl.slug}}</label>
-                                    <input type="text" class="form-control" id="txtSlug" data-ng-model="post.Slug" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="txtExcerpt">{{lbl.description}}</label>
-                                    <textarea class="form-control" id="txtExcerpt" data-ng-model="post.Description"> </textarea>
-                                </div>
-                                <div class="form-group">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" name="ckEnableComments" data-ng-model="post.HasCommentsEnabled" />
-                                            {{lbl.enableComments}}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label class="newpost-widget-title">{{lbl.author}}</label>
+                            <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#customfil" aria-expanded="false" aria-controls="postmeta">
-                                <i class="fa fa-cog"></i> {{lbl.customFields}}
-                            </a>
-                        </div>
-                        <div id="customfil" class="panel-collapse collapse" role="tabpanel" aria-labelledby="customfil">
-
-                            <div class="panel-body">
-                                <a ng-disabled="post.Id === null || post.Id === ''" class="btn btn-success btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal"><i class="fa fa-plus"></i>{{lbl.add}}</a>
-                                <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="padding: 5px 0">
-                                    <div data-ng-repeat="item in customFields">
-                                        <label class="control-label">{{item.Key}}</label>
-                                        <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" class="pull-right" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
-                                        <input type="text" class="form-control" data-ng-model="item.Value" />
-                                    </div>
+                    <div class="newpost-widget">
+                        <div class="form-group">
+                            <label class="newpost-widget-title">
+                                {{lbl.customFields}}
+                            </label>
+                            <a ng-disabled="post.Id === null || post.Id === ''" class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</a>
+                            <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="padding: 5px 0">
+                                <div data-ng-repeat="item in customFields">
+                                    <label class="control-label">{{item.Key}}</label>
+                                    <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" class="pull-right" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
+                                    <input type="text" class="form-control" data-ng-model="item.Value" />
                                 </div>
                             </div>
                         </div>
@@ -178,8 +150,6 @@
         </form>
     </div>
 </div>
-
-
 @Scripts.Render("~/scripts/wysiwyg")
 @{
     if (BlogConfig.DefaultEditor == "~/admin/editors/tinymce/editor.cshtml")

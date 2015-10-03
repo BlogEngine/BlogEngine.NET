@@ -31,6 +31,6 @@
 .nav-primary ul li.active a { color: #fff; }
 
 
-@media screen and (max-width:1023px) {
+@media screen and (max-width:1024px) {
     .nav-primary > li.active:after { display:none; }
 }

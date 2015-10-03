@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="AIQiniu">
+  <AdminPage />
+  <Author>&lt;a href="http://www.zhangx.net"&gt;zhangx.net&lt;/a&gt;</Author>
+  <Description>使用七牛云镜像</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <ShowSettings>true</ShowSettings>
+  <Version>3.1.0.1</Version>
+</ManagedExtension>
