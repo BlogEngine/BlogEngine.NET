@@ -950,6 +950,17 @@ namespace BlogEngine.Core.Providers
             Provider.DeleteCustomField(field);
         }
 
+        /// <summary>
+        /// Clear custom fields for a type (post, theme etc)
+        /// </summary>
+        /// <param name="blogId">Blog id</param>
+        /// <param name="customType">Custom type</param>
+        /// <param name="objectType">Custom object</param>
+        public static void ClearCustomFields(string blogId, string customType, string objectType)
+        {
+            Provider.ClearCustomFields(blogId, customType, objectType);
+        }
+
         #endregion
 
         #endregion

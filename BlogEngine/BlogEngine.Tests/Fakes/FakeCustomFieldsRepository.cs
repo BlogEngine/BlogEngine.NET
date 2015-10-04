@@ -33,5 +33,10 @@ namespace BlogEngine.Tests.Fakes
         {
             return true;
         }
+
+        public void ClearCustomFields(string customType, string objectType)
+        {
+
+        }
     }
 }

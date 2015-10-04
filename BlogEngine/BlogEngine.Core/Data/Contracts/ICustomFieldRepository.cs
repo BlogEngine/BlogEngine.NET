@@ -43,5 +43,11 @@ namespace BlogEngine.Core.Data.Contracts
         /// <param name="key">Key in the key/value for a field</param>
         /// <returns>True on success</returns>
         bool Remove(string type, string id, string key);
+        /// <summary>
+        /// Crear fields for object type (post, theme etc)
+        /// </summary>
+        /// <param name="type">Custom type</param>
+        /// <param name="id">Object id</param>
+        void ClearCustomFields(string type, string id);
     }
 }

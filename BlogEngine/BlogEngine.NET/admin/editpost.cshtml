@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" data-ng-click="saveCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                             <label class="newpost-widget-title">
                                 {{lbl.customFields}}
                             </label>
-                            <a ng-disabled="post.Id === null || post.Id === ''" class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</a>
+                            <a class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</a>
                             <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="padding: 5px 0">
                                 <div data-ng-repeat="item in customFields">
                                     <label class="control-label">{{item.Key}}</label>

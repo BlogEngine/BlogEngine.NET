@@ -126,6 +126,7 @@
                if (data.Id) {
                    angular.copy(data, $scope.post);
                    var x = $scope.post.Id;
+                   $scope.updateCustom();
                }
                $("#modal-form").modal('hide');
                spinOff();
@@ -255,7 +256,7 @@
         });
     }
 
-    $scope.saveCustom = function () {
+    $scope.addCustom = function () {
         var customField = {
             "CustomType": "POST",
             "ObjectId": $scope.post.Id,
@@ -266,44 +267,28 @@
             toastr.error("Custom key is required");
             return false;
         }
-        dataService.addItem("/api/customfields", customField)
-        .success(function (data) {
-            toastr.success('New item added');
-            $scope.loadCustom();
-            $("#modal-custom-fields").modal('hide');
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.updateFailed);
-            $("#modal-custom-fields").modal('hide');
+        $scope.customFields.push(customField);
+        $("#modal-custom-fields").modal('hide');
+    }
+
+    $scope.deleteCustom = function (key, objId) {
+        $.each($scope.customFields, function (index, result) {
+            if (result["Key"] == key && result["ObjectId"] == objId) {
+                $scope.customFields.splice(index, 1);
+            }
         });
     }
 
     $scope.updateCustom = function () {
+        for (var i = 0; i < $scope.customFields.length; i++) {
+            $scope.customFields[i].ObjectId = $scope.post.Id;
+        }
         dataService.updateItem("/api/customfields", $scope.customFields)
         .success(function (data) {
             spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.updateFailed);
-            spinOff();
-        });
-    }
-
-    $scope.deleteCustom = function (key, objId) {
-        var customField = {
-            "CustomType": "POST",
-            "Key": key,
-            "ObjectId": objId
-        };
-        spinOn();
-        dataService.deleteItem("/api/customfields", customField)
-        .success(function (data) {
-            toastr.success("Item deleted");
-            spinOff();
-            $scope.loadCustom();
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.couldNotDeleteItem);
             spinOff();
         });
     }

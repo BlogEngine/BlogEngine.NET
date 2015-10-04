@@ -3115,6 +3115,36 @@ namespace BlogEngine.Core.Providers
             }
         }
 
+        /// <summary>
+        /// Clear custom fields for a type (post, theme etc)
+        /// </summary>
+        /// <param name="blogId">Blog id</param>
+        /// <param name="customType">Custom type</param>
+        /// <param name="objectType">Custom object</param>
+        public override void ClearCustomFields(string blogId, string customType, string objectType)
+        {
+            using (var conn = this.CreateConnection())
+            {
+                if (conn.HasConnection)
+                {
+                    string conPrv = System.Web.Configuration.WebConfigurationManager.ConnectionStrings["BlogEngine"].ProviderName;
+                    var sqlQuery = "delete from {0}CustomFields where CustomType = {1}customtype and BlogId = {1}blogid and ObjectId = {1}objectid";
+                    if (conPrv == "MySql.Data.MySqlClient")
+                    {
+                        sqlQuery = "delete from {0}CustomFields where CustomType = {1}customtype and BlogId = {1}blogid and ObjectId = {1}objectid";
+                    }
+                    using (var cmd = conn.CreateTextCommand(string.Format(sqlQuery, this.tablePrefix, this.parmPrefix)))
+                    {
+                        var p = cmd.Parameters;
+                        p.Add(conn.CreateParameter(FormatParamName("customtype"), customType));
+                        p.Add(conn.CreateParameter(FormatParamName("blogid"), blogId));
+                        p.Add(conn.CreateParameter(FormatParamName("objectid"), objectType));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
         #endregion
 
         /// <summary>

@@ -43,9 +43,11 @@ public class CustomFieldsController : ApiController
     {
         if (items != null && items.Count > 0)
         {
+            repository.ClearCustomFields(items[0].CustomType, items[0].ObjectId);
+
             foreach (var item in items)
             {
-                repository.Update(item);
+                repository.Add(item);
             }
         }
         return Request.CreateResponse(HttpStatusCode.OK);

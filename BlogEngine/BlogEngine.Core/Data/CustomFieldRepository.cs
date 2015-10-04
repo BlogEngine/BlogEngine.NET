@@ -111,8 +111,8 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Remove(string type, string id, string key)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
             try
             {
                 var item = new CustomField
@@ -123,7 +123,7 @@ namespace BlogEngine.Core.Data
                     Key = key
                 };
 
-                BlogEngine.Core.Providers.BlogService.DeleteCustomField(item);
+                Providers.BlogService.DeleteCustomField(item);
                 CustomFieldsParser.ClearCache();
                 return true;
             }
@@ -131,6 +131,26 @@ namespace BlogEngine.Core.Data
             {
                 Utils.Log("Error updaging custom field", ex);
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Crear fields for object type (post, theme etc)
+        /// </summary>
+        /// <param name="type">Custom type</param>
+        /// <param name="id">Object id</param>
+        public void ClearCustomFields(string type, string id)
+        {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
+            try
+            {
+                Providers.BlogService.ClearCustomFields(Blog.CurrentInstance.BlogId.ToString(), type, id);
+                CustomFieldsParser.ClearCache();
+            }
+            catch (Exception ex)
+            {
+                Utils.Log("Error updaging custom field", ex);
             }
         }
 

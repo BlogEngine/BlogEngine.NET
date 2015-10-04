@@ -469,6 +469,13 @@
         /// </summary>
         /// <param name="field">Object field</param>
         public abstract void DeleteCustomField(BlogEngine.Core.Data.Models.CustomField field);
+        /// <summary>
+        /// Clear custom fields for a type (post, theme etc)
+        /// </summary>
+        /// <param name="blogId">Blog id</param>
+        /// <param name="customType">Custom type</param>
+        /// <param name="objectType">Custom object</param>
+        public abstract void ClearCustomFields(string blogId, string customType, string objectType);
 
         #endregion
 

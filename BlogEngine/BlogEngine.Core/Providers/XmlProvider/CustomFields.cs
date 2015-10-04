@@ -19,13 +19,13 @@ namespace BlogEngine.Core.Providers
         /// Saves custom field
         /// </summary>
         /// <param name="field">Object custom field</param>
-        public override void SaveCustomField(BlogEngine.Core.Data.Models.CustomField field)
+        public override void SaveCustomField(Data.Models.CustomField field)
         {
             var fileName = Path.Combine(this.Folder, _customFieldsFile);
 
             var x = FillCustomFields();
 
-            var items = FillCustomFields() ?? new List<BlogEngine.Core.Data.Models.CustomField>();
+            var items = FillCustomFields() ?? new List<Data.Models.CustomField>();
             int idx = -1;
 
             for (int index = 0; index < items.Count; index++)
@@ -71,18 +71,18 @@ namespace BlogEngine.Core.Providers
         /// </summary>
         /// <param name="blog">Current blog</param>
         /// <returns>List of custom fields</returns>
-        public override List<BlogEngine.Core.Data.Models.CustomField> FillCustomFields()
+        public override List<Data.Models.CustomField> FillCustomFields()
         {
             var fileName = Path.Combine(this.Folder, _customFieldsFile);
 
             if (!File.Exists(fileName))
-                return new List<BlogEngine.Core.Data.Models.CustomField>();
+                return new List<Data.Models.CustomField>();
 
             var doc = new XmlDocument();
             doc.Load(fileName);
 
             return (from XmlNode node in doc.SelectNodes("CustomFields/item")
-                    select new BlogEngine.Core.Data.Models.CustomField
+                    select new Data.Models.CustomField
                     {
                         CustomType = node.Attributes["customtype"].InnerText,
                         ObjectId = node.Attributes["objectid"].InnerText,
@@ -97,7 +97,7 @@ namespace BlogEngine.Core.Providers
         /// Deletes custom field
         /// </summary>
         /// <param name="field">Object field</param>
-        public override void DeleteCustomField(BlogEngine.Core.Data.Models.CustomField field)
+        public override void DeleteCustomField(Data.Models.CustomField field)
         {
             var fileName = Path.Combine(this.Folder, _customFieldsFile);
             var xmlDoc = new XmlDocument();
@@ -119,6 +119,42 @@ namespace BlogEngine.Core.Providers
                             && field.BlogId.ToString() == items[i].Attributes["blogid"].InnerText
                             && field.ObjectId == items[i].Attributes["objectid"].InnerText
                             && field.Key == items[i].Attributes["key"].InnerText)
+                        {
+                            if (items[i].ParentNode != null)
+                                items[i].ParentNode.RemoveChild(items[i]);
+                        }
+                    }
+                }
+            }
+            xmlDoc.Save(fileName);
+        }
+
+        /// <summary>
+        /// Clear custom fields for a type (post, theme etc)
+        /// </summary>
+        /// <param name="blogId">Blog id</param>
+        /// <param name="customType">Custom type</param>
+        /// <param name="objectType">Custom object</param>
+        public override void ClearCustomFields(string blogId, string customType, string objectType)
+        {
+            var fileName = Path.Combine(this.Folder, _customFieldsFile);
+            var xmlDoc = new XmlDocument();
+
+            xmlDoc.Load(fileName);
+            var items = xmlDoc.SelectNodes("CustomFields/item");
+
+            if (items != null && items.Count > 0)
+            {
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (items[i].Attributes != null
+                        && items[i].Attributes["customtype"] != null
+                        && items[i].Attributes["blogid"] != null
+                        && items[i].Attributes["objectid"] != null)
+                    {
+                        if (items[i].Attributes["customtype"].InnerText == customType
+                            && items[i].Attributes["blogid"].InnerText == blogId
+                            && items[i].Attributes["objectid"].InnerText == objectType)
                         {
                             if (items[i].ParentNode != null)
                                 items[i].ParentNode.RemoveChild(items[i]);
