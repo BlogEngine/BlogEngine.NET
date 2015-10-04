@@ -1,7 +1,7 @@
 ﻿.newpost { }
 .newpost .form-group { position: relative; }
 .newpost .form-control { border-width: 1px; }
-#txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 56px; left: 15px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
+#txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 45px; left: 15px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
 #txtTitle-error:before { position: absolute; top: -4px; left: 10px; border-bottom: 4px solid #D8000C; border-right: 4px solid transparent; border-left: 4px solid transparent; content: ""; display: block; }
 
 /**/
@@ -21,13 +21,20 @@
 .text-dropdown .text-list {}
 
 /*[]*/
-.newpost-widget { background-color: #f0f2f7; padding: 15px; margin-bottom: 30px; min-height: 40px; }
-.newpost-widget .form-group:last-child { margin-bottom: 0; }
+.newpost-widget-wrapper {margin-bottom:30px;}
+.newpost-widget { background-color: #f0f2f7; padding: 10px 15px 10px; min-height: 40px; }
+
+.newpost-widget:first-child { padding-top:15px; }
+.newpost-widget:last-child { padding-bottom:15px; }
+
 .newpost-widget.enable-comment { padding: 0; line-height: 40px; height: 40px; }
 .newpost-widget.enable-comment input { margin-right: 10px; cursor: pointer; }
 .newpost-widget.enable-comment label { display: block; padding: 0px 15px; cursor: pointer; user-select: none; -moz-user-select: none; -webkit-user-select: none; }
 .newpost-widget .newpost-widget-title { color: #495b78; font-size: 11px; text-transform: uppercase; user-select: none; -moz-user-select: none; -webkit-user-select: none; }
 .newpost-widget .add-cat { color: #495b78; font-size: 12px; position: relative; top: 3px; right: 3px; font-weight: normal; }
+
+.newpost-widget .form-group:hover  .newpost-widget-title .help-popover { -moz-transform: scale(1.1); -ms-transform: scale(1.1); -o-transform: scale(1.1); -webkit-transform: scale(1.1); transform: scale(1.1); position:relative; }
+.newpost-widget .form-group .form-control {max-width:100%;}
 
 /*[]*/
 .categories-list { max-height: 156px; overflow: auto; background: #fff; padding: 0; margin: 0; border: 1px solid #ddd; list-style: none; }

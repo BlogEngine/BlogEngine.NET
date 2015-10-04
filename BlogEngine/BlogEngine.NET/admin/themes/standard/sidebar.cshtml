@@ -34,7 +34,7 @@
     <li id="mu-content" class="hasul">
         <i class="fa fa-icon fa-align-justify"></i>
         
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts"><span>@Resources.labels.content</span> <i class="fa fa-arrow fa-angle-down"></i></a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts"><span>@Resources.labels.content</span> </a>
         <ul>
             <li data-ng-class="{ active: isActive('/content/posts')}">
                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts">@Resources.labels.posts</a>
@@ -56,7 +56,7 @@
     {
         <li id="mu-custom" class="hasul">
             <i class="fa fa-icon fa-sliders"></i>
-            <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins"><span>@Resources.labels.custom</span><i class="fa fa-arrow fa-angle-down"></i></a>
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins"><span>@Resources.labels.custom</span></a>
             <ul>
                 <li data-ng-class="{ active: isActive('/custom/plugins')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins">Plugins</a></li>
                 <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes">@Resources.labels.themes</a></li>
@@ -67,7 +67,7 @@
     {
         <li id="mu-users" class="hasul">
             <i class="fa fa-icon fa-user"></i>
-            <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><span>@Resources.labels.users</span><i class="fa fa-arrow fa-angle-down"></i></a>
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><span>@Resources.labels.users</span></a>
             <ul>
                 <li data-ng-class="{ active: isActive('/security/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile">@Resources.labels.profile</a></li>
                 @if (Security.IsAuthorizedTo(Rights.ViewRoles))
@@ -85,7 +85,7 @@
     {
         <li id="mu-settings" class="hasul">
             <i class="fa fa-icon fa-cog"></i>
-            <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic"><span>@Resources.labels.settings</span><i class="fa fa-arrow fa-angle-down"></i></a>
+            <a href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic"><span>@Resources.labels.settings</span></a>
             <ul>
                 <li data-ng-class="{ active: isActive('/settings/basic')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/basic">@Resources.labels.basic</a></li>
                 <li data-ng-class="{ active: isActive('/settings/email')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/email">@Resources.labels.email</a></li>
