@@ -1,12 +1,4 @@
 ﻿<div data-ng-controller="CommentListController">
-    <style>
-        pre {
-            display: block;
-            font-family: monospace;
-            white-space: pre-wrap;
-            height: 200px;
-        } 
-    </style>
     <form id="cat-form" action="">
         <div id="modal-comment-edit" class="modal fade">
             <div class="modal-dialog">
@@ -16,22 +8,12 @@
                         <h4 class="modal-title">{{item.Title}}</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal clearfix">
-                            <div class="form-group">
-                                <div class="col col-md-12">
-                                    <pre>{{vm.Detail.Content}}</pre>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col col-md-12">
-                                    <textarea ng-model="commentReply.text" placeholder="Reply..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
-                                </div>
-                            </div>
-                        </div>
+                        <pre class="comment-view-box">{{vm.Detail.Content}}</pre>
+                        <textarea ng-model="commentReply.text" placeholder="Reply..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" ng-click="reply()" ng-disabled="commentReply.text.length < 1" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" ng-click="reply()" ng-disabled="commentReply.text.length < 1" class="btn btn-hasicon btn-success"><i class="fa fa-check"></i>{{lbl.send}}</button>
                     </div>
                 </div>
             </div>
@@ -39,14 +21,15 @@
     </form>
 
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+        <h2 class="page-title pull-left">
+            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
         <div class="btn-group  pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
-            <button ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></button>
-            <button ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></button>
-            <button ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></button>
+            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+            <a ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></a>
+            <a ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></a>
+            <a ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></a>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

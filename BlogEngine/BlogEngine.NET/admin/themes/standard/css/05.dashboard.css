@@ -42,8 +42,25 @@
 .dashboard-news ul li span { border-radius: 50px; position: absolute; font-size: 10px; right: 12px; top: 10px; height: 22px; min-width: 22px; padding: 0 10px; line-height: 22px; background-color: #37bc9b; text-transform: uppercase; color: #fff; text-align: center; }
 
 /*[]*/
-.dashboard-quickdraft textarea { height: 80px; min-height: 80px; }
+.dashboard-quickdraft textarea { height: 81px; min-height: 81px; }
 .dashboard-quickdraft .panel-body .btn { margin-top: 5px; }
+
+/*[]*/
+.trash-list{padding:40px;}
+.trash-list .list-group {border-radius:0; border-top:none;margin-bottom:0;}
+.trash-list .list-group .list-group-item { border-radius:0; position:relative;}
+.trash-list .list-group .list-group-item .restorethis,
+.trash-list .list-group .list-group-item .purgethis {margin:0; top:0; margin-left:10px; text-align:center; color:#666; position:absolute; right:0; width:41px; height:41px; border-left:1px solid #ddd; display:block;}
+.trash-list .list-group .list-group-item .restorethis {right:41px;}
+.trash-list .list-group .list-group-item .fa {display:block; height:100%; text-align:center; line-height:42px;}
+.trash-list .list-group .list-group-item .text-ellipsis {padding-right:85px;}
+
+
+/*[]*/
+.logs-list{padding:40px;}
+.logs-list .list-group {border-radius:0; border-top:none;margin-bottom:0;}
+.logs-list .list-group .list-group-item { border-radius:0; position:relative;}
+
 
 @media screen and (max-width:640px) {
     .content-dashboard .col-xs-6 { float: none !important; width: 100%; }

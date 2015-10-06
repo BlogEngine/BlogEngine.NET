@@ -8,21 +8,6 @@
     }
 }
 <div class="content" ng-controller="PostEditorController">
-
-
-
-    <div class="page-header clearfix">
-        <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-sm btn-hasicon btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
-        <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-sm btn-hasicon btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
-        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-hasicon btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
-        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
-        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
-        <a class="btn btn-sm btn-icon btn-default pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-sliders"></i></a>
-
-        <a href="" onclick="window.history.back()" class="btn btn-sm btn-hasicon btn-default pull-right"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
-        <span id="spinner" class="loaded pull-right"><i class='fa fa-spinner fa-spin fa-large'></i></span>
-    </div>
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -56,49 +41,49 @@
             </div>
         </div>
     </div>
-
-
-    <div class="content-inner newpost">
-        <form id="cat-form" action="">
-            <div id="modal-add-cat" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
-                            <h4 class="modal-title">{{lbl.addNewCategory}}</h4>
+    <form id="cat-form">
+        <div id="modal-add-cat" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <h4 class="modal-title">{{lbl.addNewCategory}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtCatTitle">{{lbl.title}}</label>
+                                <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
                         </div>
-                        <div class="modal-body">
-                            <div class="form-horizontal clearfix">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4" for="txtCatTitle">{{lbl.title}}</label>
-                                    <div class="col col-md-8">
-                                        <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4" for="txtExcerpt">{{lbl.description}}</label>
-                                    <div class="col col-md-8">
-                                        <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-4" for="selAuthors">{{lbl.parent}}</label>
-                                    <div class="col col-md-8">
-                                        <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
-                                            <option value="">-- {{lbl.select.toLowerCase()}} --</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="txtExcerpt">{{lbl.description}}</label>
+                                <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" ng-click="saveCategory()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <div class="form-group">
+                            <label for="selAuthors">{{lbl.parent}}</label>
+                                <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
+                                    <option value="">-- {{lbl.select.toLowerCase()}} --</option>
+                                </select>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-hasicon btn-default" data-dismiss="modal" tabindex="-1" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" ng-click="saveCategory()" class="btn btn-hasicon btn-success"><i class="fa fa-check"></i>{{lbl.add}}</button>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+    </form>
+    <div class="page-header clearfix">
+        <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-sm btn-hasicon btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
+        <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-sm btn-hasicon btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
+        <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-hasicon btn-success pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
+        <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
+        <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-hasicon btn-primary pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
+        <a class="btn btn-sm btn-icon btn-default pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-sliders"></i></a>
+        <a href="" onclick="window.history.back()" class="btn btn-sm btn-hasicon btn-default pull-right"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+        <span id="spinner" class="loaded pull-right"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+    </div>
+    <div class="content-inner newpost">
         <form id="form" action="">
             <div id="modal-custom-fields" class="modal fade">
                 <div class="modal-dialog">
@@ -154,6 +139,7 @@
                                         {{cat.OptionName}}
                                     </label>
                                 </li>
+                                <li ng-if="lookups.CategoryList.length == 0" class="item-empty">{{lbl.empty}}</li>
                             </ul>
                         </div>
                         <div class="newpost-widget">

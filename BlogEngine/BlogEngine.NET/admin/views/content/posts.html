@@ -6,9 +6,9 @@
         </h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
-            <button ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.unpublish"><i class="fa fa-archive"></i></button>
-            <button ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" angular-tooltip tooltip="lbl.publish"><i class="fa fa-check"></i></button>
+            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+            <a ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.unpublish"><i class="fa fa-archive"></i></a>
+            <a ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" angular-tooltip tooltip="lbl.publish"><i class="fa fa-check"></i></a>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
@@ -49,13 +49,13 @@
                     <td class="item-author"><a href="" title="{{item.Author}}" ng-click="gridFilter('Author',item.Author,'')">{{item.Author}}</a></td>
                     <td class="item-comments">
                         <div ng-if="item.Comments">
-                            <span class="item-comment-count item-comment-approved" ng-if="item.Comments[1] != 0" title="{{lbl.approved}}: {{item.Comments[1]}}">
+                            <span class="item-comment-approved" title="{{lbl.approved}}: {{item.Comments[1]}}">
                                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=apr">{{item.Comments[1]}}</a>
                             </span>
-                            <span class="item-comment-count item-comment-pending" ng-if="item.Comments[0] != 0" title="{{lbl.pending}}: {{item.Comments[0]}}">
+                            <span class="item-comment-pending" title="{{lbl.pending}}: {{item.Comments[0]}}">
                                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=pnd">{{item.Comments[0]}}</a>
                             </span>
-                            <span class="item-comment-count item-comment-spam" ng-if="item.Comments[2] != 0" title="{{lbl.spam}}: {{item.Comments[2]}}">
+                            <span class="item-comment-spam"  title="{{lbl.spam}}: {{item.Comments[2]}}">
                                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">{{item.Comments[2]}}</a>
                             </span>
                         </div>

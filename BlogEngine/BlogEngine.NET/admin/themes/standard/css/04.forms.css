@@ -2,8 +2,8 @@
 .form-width-limited, .form-horizontal { max-width: 400px; }
 .modal-body .form-horizontal { max-width: 100%; }
 .modal-footer .btn { margin-left: 10px; }
-.content-inner .btn,
-.content-inner .form-control { border-radius: 0px; }
+.btn,
+.form-control { border-radius: 0px; }
 .form-group { margin-bottom: 18px; }
 .form-group > label { font-size: 12px; font-weight: 500; color: #666; }
 .form-control { -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 2px; border-color: #ddd; }
@@ -12,16 +12,23 @@
 .input-group .input-group-addon { border-radius: 0; }
 .alert { border-radius: 0; }
 .tooltip-inner { border-radius: 0; }
+.form-group > label.error { color: #da4453 !important; }
 
+/*[]*/
+.modal-content { border-radius: 0 !important; }
+.modal-header .close { position: relative; top: 3px; margin: 0; }
+.modal-content .form-control { border-width: 1px; }
 
 /*[BTN]*/
-
 .btn { padding: 0; border-radius: 0; border: none; cursor: pointer; text-transform: uppercase; font-size: 12px; height: 34px; line-height: 30px; padding: 0 15px; position: relative; color: #fff !important; }
 .btn:active { box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1) inset; }
 .btn:focus, .btn:active:focus, .btn.active:focus { outline: 0 none; }
 .btn-sm { height: 30px; line-height: 30px; }
 .btn-lg { height: 46px; line-height: 46px; }
 
+.btn[disabled] + .tooltip { display: none; }
+
+/*[]*/
 .btn-default { background: #687994; }
 .btn-default:hover,
 .btn-default:focus { background: #546683 !important; }
@@ -62,12 +69,12 @@
 /*[]*/
 .btn-hasicon { padding-left: 45px; }
 .btn-hasicon i { position: absolute; font-size: 14px; top: 0; left: 0; width: 30px; border-right: 1px solid rgba(0, 0, 0, 0.04); }
-.btn-hasicon.btn i { line-height: 38px; width: 34px; height: 34px; }
+.btn-hasicon.btn i { line-height: 35px; width: 34px; height: 34px; }
 .btn-hasicon.btn-sm i { line-height: 30px; width: 30px; height: 30px; }
 
 /*[]*/
 .btn-icon { padding: 0; width: 50px; margin: 0px 1px 0 0; font-size: 14px; }
-.btn-icon i {font-size:14px; line-height:28px;}
+.btn-icon i { font-size: 14px; line-height: 28px; }
 
 /*[]*/
 .dropdown-menu { border-radius: 0; margin-top: 0px; border: none; }

@@ -11,17 +11,16 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{lbl.logFile}}</h4>
                 </div>
-                <div class="modal-body modal-logfile">
-                    <div class="form-horizontal clearfix">
-                        <div class="col col-md-12" data-ng-repeat="log in vm.Logs">
+                <div class="modal-body logs-list">
+                    <ul class="list-group">
+                        <li class="list-group-item" data-ng-repeat="log in vm.Logs">
                             <div ng-bind-html="log.OptionValue"></div>
-                            <hr />
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
-                    <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-danger"><i class="fa fa-times"></i> {{lbl.purge}}</button>
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
+                    <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>
                 </div>
             </div>
         </div>
@@ -33,22 +32,18 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{lbl.trash}}</h4>
                 </div>
-                <div class="modal-body modal-logfile">
-                    <div class="form-horizontal clearfix">
-                        <ul class="list-group list-group">
-                            <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
-                                <a href="{{t.RelativeUrl}}" class="text-ellipsis pull-left">{{t.Title}}</a>
-                                <span class="pull-right">
-                                    <a title="{{lbl.restore}}" href="" data-ng-click="restore(t.Id)" class="restorethis"><i class="fa fa-refresh fa-sm"></i></a>
-                                    <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="modal-body trash-list">
+                    <ul class="list-group">
+                        <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
+                            <a href="{{t.RelativeUrl}}" class="text-ellipsis">{{t.Title}}</a>
+                            <a title="{{lbl.restore}}" href="" data-ng-click="restore(t.Id)" class="restorethis"><i class="fa fa-refresh"></i></a>
+                            <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-trash"></i></a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
-                    <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-danger"><i class="fa fa-times"></i> {{lbl.purgeAll}}</button>
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
+                    <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purgeAll}}</button>
                 </div>
             </div>
         </div>

@@ -1,26 +1,6 @@
 ﻿<div data-ng-controller="CommentFilterController">
-    <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
-            {{lbl.filters}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-        </h2>
-        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-        <button data-toggle="modal" data-target="#AddFilter" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</button>
-
-        <div class="btn-group pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-            <button data-ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" type="button" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></button>
-        </div>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
-            <i class="fa fa-times-circle"></i>
-        </div>
-    </div>
-
     <div class="modal fade" id="AddFilter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" ng-click="focusInput=false" aria-hidden="true"><i class="fa fa-times"></i></button>
@@ -74,9 +54,27 @@
                 </div>
                 <!--</form>-->
             </div>
-
         </div>
     </div>
+
+    <div class="page-header clearfix">
+        <h2 class="page-title pull-left">
+            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+            {{lbl.filters}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
+        </h2>
+        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
+        <button data-toggle="modal" data-target="#AddFilter" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+        <div class="btn-group pull-left">
+            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></a>
+            <a data-ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.deleteAll}}"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="search pull-right">
+            <i class="fa fa-search"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <i class="fa fa-times-circle"></i>
+        </div>
+    </div>
+    
     <div class="content-inner">
         <table class="table table-item-filters">
             <thead>

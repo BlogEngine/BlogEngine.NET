@@ -1,6 +1,6 @@
 ﻿.table { font-size: 13px; font-weight: normal; background: #f7f9fb; border: 1px solid #ebeef6; }
 .table > thead > tr > th,
-.table > tbody > tr > td { padding: 0 15px; height: 44px; border: none; border-bottom: 1px solid #ebeef6; vertical-align: middle; text-align: center; }
+.table > tbody > tr > td { padding: 0; height: 44px; border: none; border-bottom: 1px solid #ebeef6; vertical-align: middle; text-align: center; }
 .table > tbody > tr > td { border-right: 1px solid #ebeef6; }
 .table > tbody > tr > td:last-child { border-right: 0px solid #ebeef6; }
 .table > thead { background: #f0f2f7; color: #455a7c; text-transform: uppercase; }
@@ -25,7 +25,7 @@
 .table-item-post .item-title { }
 .table-item-post td.item-title a { }
 .table-item-post .item-author { width: 80px; }
-.table-item-post .item-comments { width: 80px; }
+.table-item-post .item-comments { width: 120px; padding:0; }
 .table-item-post .item-date { width: 100px; }
 .table-item-post .item-state { width: 100px; }
 

@@ -1,5 +1,6 @@
-﻿.item-comment-count { display: inline-block; min-width:20px; border-radius:100px; height:20px; background-color: #999; color:#fff; font-family: sans-serif;  }
-.item-comment-approved { background-color: #37bc9b; }
-.item-comment-pending { background-color: #f6bb42; }
-.item-comment-spam { background-color: #da4453; }
-.item-comment-count a { display: block; color: #fff !important; padding: 0px 5px; }
+﻿.item-comments > div {height:18px; }
+.item-comments span {display:inline-block;   border-radius:100px; overflow:hidden;}
+.item-comments span a {display:block; height:100%; text-align:center; padding:0 10px; font-size:10px; color:#fff !important; height:18px; line-height:18px;  outline:none;}
+.item-comments .item-comment-approved { background-color: #37bc9b; }
+.item-comments .item-comment-pending { background-color: #f6bb42; }
+.item-comments .item-comment-spam { background-color: #da4453; }

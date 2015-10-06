@@ -45,7 +45,7 @@
         </h2>
         <a data-ng-click="addNew()" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
