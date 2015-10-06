@@ -1,11 +1,9 @@
 ﻿<div class="admin-views-dashboard" data-ng-controller="DashboardController">
     <div class="page-header clearfix">
         <div class="page-title pull-left"><a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a> {{lbl.dashboard}}</div>
-        <a class="icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>5</span></a>
-        <a class="icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>2</span></a>
+        <a href="" ng-click="openTrash()" ng-if="vm.Trash.length > 0" class="icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>{{vm.Trash.length}}</span></a>
+        <a href="" ng-click="openLogFile()" ng-if="vm.Logs.length > 0" class="icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>{{vm.Logs.length}}</span></a>
     </div>
-    <div data-ng-include src="'views/shared/_addnote.html'"></div>
-    <div data-ng-include src="'views/shared/_editnote.html'"></div>
     <div id="modal-log-file" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -24,6 +22,33 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
                     <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-danger"><i class="fa fa-times"></i> {{lbl.purge}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-trash" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{lbl.trash}}</h4>
+                </div>
+                <div class="modal-body modal-logfile">
+                    <div class="form-horizontal clearfix">
+                        <ul class="list-group list-group">
+                            <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
+                                <a href="{{t.RelativeUrl}}" class="text-ellipsis pull-left">{{t.Title}}</a>
+                                <span class="pull-right">
+                                    <a title="{{lbl.restore}}" href="" data-ng-click="restore(t.Id)" class="restorethis"><i class="fa fa-refresh fa-sm"></i></a>
+                                    <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
+                    <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-danger"><i class="fa fa-times"></i> {{lbl.purgeAll}}</button>
                 </div>
             </div>
         </div>
@@ -132,45 +157,8 @@
                         <li class="list-group-item"><a href="#">BlogEngine.NET 4.0 Released</a> <span>New</span></li>
                         <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
                         <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 2.0 Released</a></li>
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 1.0 Released</a></li>
                     </ul>
                 </div>
-
-                <div class="panel panel-default" data-ng-if="security.viewErrorMessages">
-                    <div class="panel-heading">
-                        <div class="panel-title">{{lbl.logs}}</div>
-                    </div>
-                    <ul class="list-group list-group">
-                        <li data-ng-if="vm.Logs.length > 0" class="list-group-item">
-                            <a href="" data-ng-click="openLogFile()">{{lbl.loggedMessages}}</a>
-                        </li>
-                        <li ng-if="vm.Logs.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
-                    </ul>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            {{lbl.trash}}
-                            <small ng-if="vm.Trash.length > 0">({{vm.Trash.length}})</small>
-                            <span ng-if="vm.Trash.length > 0" class="pull-right" style="margin-top: 15px; cursor: pointer">
-                                <span class="purgeall label label-danger" data-ng-click="purgeAll()"><i class="fa fa-times"></i> {{lbl.purgeAll}}</span>
-                            </span>
-                        </div>
-                    </div>
-                    <ul class="list-group list-group">
-                        <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
-                            <a href="{{t.RelativeUrl}}" class="text-ellipsis pull-left">{{t.Title}}</a>
-                            <span class="pull-right">
-                                <a title="{{lbl.restore}}" href="" data-ng-click="restore(t.Id)" class="restorethis"><i class="fa fa-refresh fa-sm"></i></a>
-                                <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-times fa-sm"></i></a>
-                            </span>
-                        </li>
-                        <li ng-if="vm.Trash.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
-                    </ul>
-                </div>
-
             </div>
         </div>
     </div>

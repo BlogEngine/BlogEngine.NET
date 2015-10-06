@@ -41,6 +41,11 @@
         .error(function () { toastr.error($rootScope.lbl.failedAddingNewPost); });
     }
 
+    $scope.openTrash = function () {
+        $("#modal-trash").modal();
+        return false;
+    }
+
     $scope.openLogFile = function () {
         $("#modal-log-file").modal();
         return false;
@@ -80,6 +85,7 @@
         dataService.updateItem('/api/trash/purgeall/all')
         .success(function (data) {
             $scope.vm.Trash = [];
+            $("#modal-trash").modal('hide');
             toastr.success($rootScope.lbl.purged);
             return false;
         })
