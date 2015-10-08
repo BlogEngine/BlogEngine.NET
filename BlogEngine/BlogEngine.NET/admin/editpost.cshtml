@@ -18,7 +18,7 @@
                 <div class="modal-body modal-roles">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="slugOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" data-ng-model="slugOption" ng-true-value="true" ng-false-value="false" />
                             Slug Field
                         </label>
                         <p class="small text-muted">Slug is optional and will auto generat from title post.</p>
@@ -52,17 +52,17 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="txtCatTitle">{{lbl.title}}</label>
-                                <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
+                            <input type="text" class="form-control" id="txtCatTitle" name="txtCatTitle" data-ng-model="category.Title" focus-me="focusInput" />
                         </div>
                         <div class="form-group">
                             <label for="txtExcerpt">{{lbl.description}}</label>
-                                <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
+                            <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
                         </div>
                         <div class="form-group">
                             <label for="selAuthors">{{lbl.parent}}</label>
-                                <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
-                                    <option value="">-- {{lbl.select.toLowerCase()}} --</option>
-                                </select>
+                            <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
+                                <option value="">-- {{lbl.select.toLowerCase()}} --</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -73,6 +73,30 @@
             </div>
         </div>
     </form>
+    <div id="modal-custom-fields" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{lbl.add}} {{lbl.customFields}}</h4>
+                </div>
+                <div class="modal-body modal-roles">
+                    <div class="form-group">
+                        <label class="control-label" for="txtKey">Key</label>
+                        <input type="text" id="txtKey" name="txtKey" class="form-control" data-ng-model="editItem.Key" focus-me="focusInput" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="txtValue">Value</label>
+                        <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-hasicon"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="page-header clearfix">
         <span ng-if="post.Id"><a href="{{post.RelativeLink}}" class="btn btn-sm btn-hasicon btn-success pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPost}}</a></span>
         <span ng-if="post.Id && post.IsPublished"><a href="#" class="btn btn-sm btn-hasicon btn-warning pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
@@ -85,28 +109,6 @@
     </div>
     <div class="content-inner newpost">
         <form id="form" action="">
-            <div id="modal-custom-fields" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
-                            <h4 class="modal-title">{{lbl.add}}</h4>
-                        </div>
-                        <div class="modal-body modal-roles">
-                            <div class="form-group">
-                                <label class="control-label" for="txtKey">Key</label>
-                                <input type="text" id="txtKey" name="txtKey" class="form-control" data-ng-model="editItem.Key" focus-me="focusInput" />
-                                <label class="control-label" for="txtValue">Value</label>
-                                <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-sm-8  col-md-9">
                     <input type="text" id="txtTitle" name="txtTitle" autocomplete="off" placeholder="{{lbl.titleOfPost}}..." class="form-control newpost-title" data-ng-model="post.Title" />
@@ -157,14 +159,13 @@
                             <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
                         </div>
                     </div>
-
                     <div class="newpost-widget" data-ng-show="customFieldOption">
                         <label class="newpost-widget-title">
                             {{lbl.customFields}}
                         </label>
                         <a class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</a>
-                        <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0" class="form-horizontal clearfix" style="padding: 5px 0">
-                            <div data-ng-repeat="item in customFields">
+                        <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0">
+                            <div class="form-group" data-ng-repeat="item in customFields">
                                 <label class="control-label">{{item.Key}}</label>
                                 <a href="" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}" class="pull-right" style="position: relative; top: 10px; color: red"><i class="fa fa-times"></i></a>
                                 <input type="text" class="form-control" data-ng-model="item.Value" />

@@ -8,39 +8,32 @@
                         <h4 class="modal-title">{{lbl.addNewCategory}}</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-horizontal clearfix">
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtSlug">{{lbl.title}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtSlug" name="txtSlug" data-ng-model="category.Title" focus-me="focusInput" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="txtExcerpt">{{lbl.description}}</label>
-                                <div class="col col-md-8">
-                                    <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4" for="selAuthors">{{lbl.parent}}</label>
-                                <div class="col col-md-8">
-                                    <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
-                                        <option value="">-- {{lbl.select.toLowerCase()}} --</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="txtSlug">{{lbl.title}}</label>
+                            <input type="text" class="form-control" id="txtSlug" name="txtSlug" data-ng-model="category.Title" focus-me="focusInput" />
+                        </div>
+                        <div class="form-group">
+                            <label for="txtExcerpt">{{lbl.description}}</label>
+                            <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="selAuthors">{{lbl.parent}}</label>
+                            <select id="selAuthors" class="form-control" data-ng-options="o.OptionValue as o.OptionName for o in lookups.CategoryList" data-ng-model="category.Parent.OptionValue">
+                                <option value="">-- {{lbl.select.toLowerCase()}} --</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" ng-click="save()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" class="btn btn-default btn-hasicon" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" ng-click="save()" class="btn btn-success btn-hasicon"><i class="fa fa-check"></i>{{lbl.save}}</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+        <h2 class="page-title pull-left">
+            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.categories}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
         <a data-ng-click="addNew()" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
@@ -49,7 +42,7 @@
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <input type="text" angular-tooltip tooltip="lbl.search" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
     </div>

@@ -10,8 +10,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button data-ng-click="save()" class="btn btn-success pull-right btn-tabkey" type="submit"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button type="button" class="btn btn-default btn-hasicon" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button data-ng-click="save()" class="btn btn-success btn-hasicon" type="submit"><i class="fa fa-check"></i>{{lbl.save}}</button>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
+            <input type="text" angular-tooltip tooltip="lbl.search" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
             <i class="fa fa-times-circle"></i>
         </div>
     </div>
