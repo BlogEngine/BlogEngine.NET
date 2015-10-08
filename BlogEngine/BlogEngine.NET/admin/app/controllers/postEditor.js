@@ -89,6 +89,11 @@
         if (!$('#form').valid()) {
             return false;
         }
+        if ($scope.post.Content.length == 0) {
+            toastr.error('Content field is required');
+            tinymce.execCommand('mceFocus', false, 'txtContent');
+            return false;
+        }
         spinOn();
         $scope.post.Content = editorGetHtml();
         $scope.post.Author = $scope.selectedAuthor.OptionValue;

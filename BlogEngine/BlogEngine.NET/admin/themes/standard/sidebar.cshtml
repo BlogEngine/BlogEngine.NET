@@ -36,14 +36,14 @@
         
         <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts"><span>@Resources.labels.content</span> </a>
         <ul>
-            <li data-ng-class="{ active: isActive('/content/posts')}">
+            <li id="mu-posts" data-ng-class="{ active: isActive('/content/posts')}">
                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts">@Resources.labels.posts</a>
             </li>
             @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
             {
-                <li data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
+                <li id="mu-comments" data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
             }
-            <li data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
+            <li id="mu-pages" data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
             <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
             <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
             @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && BlogConfig.UsageScenario == "multiblogs")

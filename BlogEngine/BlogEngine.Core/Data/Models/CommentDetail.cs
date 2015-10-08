@@ -20,6 +20,10 @@ namespace BlogEngine.Core.Data.Models
         /// </summary>
         public Guid PostId { get; set; }
         /// <summary>
+        /// Comment title
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
         ///     Gets or sets the author's website
         /// </summary>
         public string Website { get; set; }

@@ -155,6 +155,7 @@ namespace BlogEngine.Core.Data.Services
             jc.Id = c.Id;
             jc.ParentId = c.ParentId;
             jc.PostId = c.Parent.Id;
+            jc.Title = c.Teaser.Length < 80 ? c.Teaser : c.Teaser.Substring(0, 80) + "...";
             jc.Content = c.Content;
             jc.Website = c.Website == null ? "" : c.Website.ToString();
             jc.Ip = c.IP;

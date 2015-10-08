@@ -35,7 +35,7 @@
                 <div class="modal-body trash-list">
                     <ul class="list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="t in vm.Trash">
-                            <a href="{{t.RelativeUrl}}" class="text-ellipsis">{{t.Title}}</a>
+                            <span class="text-ellipsis">{{t.Title}}</span>
                             <a title="{{lbl.restore}}" href="" data-ng-click="restore(t.Id)" class="restorethis"><i class="fa fa-refresh"></i></a>
                             <a title="{{lbl.purge}}" href="" data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-trash"></i></a>
                         </li>

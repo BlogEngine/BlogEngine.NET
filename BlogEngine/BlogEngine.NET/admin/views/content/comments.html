@@ -5,7 +5,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
-                        <h4 class="modal-title">{{item.Title}}</h4>
+                        <h4 class="modal-title">{{vm.Detail.Title}}</h4>
                     </div>
                     <div class="modal-body">
                         <pre class="comment-view-box">{{vm.Detail.Content}}</pre>
@@ -50,7 +50,7 @@
                 <li><a id="fltr-png" data-value="{{lbl.pingbacks}}" ng-click="gridFilter('Email','pingback','png')">{{lbl.pingbacks}}</a></li>
             </ul>
         </div>
-        <a href="#/content/filters" class="btn btn-success btn-sm btn-hasicon pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
+        <a href="#/content/comments/filters" class="btn btn-success btn-sm btn-hasicon pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
 
     </div>
     <div class="content-inner">
@@ -76,7 +76,7 @@
                         <a title="click to reply" ng-click="showEditForm(item.Id)" href=""> {{item.Title}}</a>
                         <a title="click to view" class="external-link" target="_blank" href="{{item.RelativeLink}}"> <i class="fa fa-external-link"></i> </a>
                     </td>
-                    <td class="item-date" title="{{item.DateCreated}}">2014-02-04</td>
+                    <td class="item-date" title="{{item.DateCreated}}">{{item.DateCreated.substring(0,10)}}</td>
                     <td class="item-author"><span>{{item.Author}}</span></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsApproved" data-ng-disabled="true"></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsSpam" data-ng-disabled="true"></td>

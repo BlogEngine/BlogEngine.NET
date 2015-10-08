@@ -13,6 +13,16 @@
             angular.copy(data, $scope.vm);
             $scope.items = $scope.vm.Items;
             gridInit($scope, $filter);
+
+            if ($scope.filter == 'apr') {
+                $scope.gridFilter('IsApproved', true, 'apr');
+            }
+            if ($scope.filter == 'pnd') {
+                $scope.gridFilter('IsPending', true, 'pnd');
+            }
+            if ($scope.filter == 'spm') {
+                $scope.gridFilter('IsSpam', true, 'spm');
+            }
         })
         .error(function (data) {
             toastr.error($rootScope.lbl.failed);
