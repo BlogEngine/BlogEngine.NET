@@ -6,7 +6,7 @@
         </h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>Add</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
-            <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+            <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
@@ -14,29 +14,24 @@
         </div>
     </div>
     <div class="content-inner">
-
         <div class="row">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-3">
-                <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'package-item package-item-active' : 'package-item'">
-                    <div class="package-item-img">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-4">
+                <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'theme-item theme-item-active' : 'theme-item'">
+                    <div class="item-img">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />
                         <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
                     </div>
-                    <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
-                    <div class="package-item-info clearfix">
-                        <div class=" pull-left">
-                            <span>{{item.Title}}</span>
-                        </div>
-                        <div class=" pull-right">
-                            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                            <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
+                    <input class="item-checkbox" ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.Id === activeTheme.Theme || item.Id === activeTheme.Mobile || item.OnlineVersion === ''" />
+                    <div class="item-info clear">
+                        <div class="pull-left item-title">{{item.Title}} <span ng-if="item.Id === activeTheme">(Activated)</span></div>
+                        <div class="item-buttons pull-right">
+                            <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-default"><i class="fa fa-check"></i> {{lbl.active}}</button>
+                            <a class="btn btn-sm btn-icon btn-default" href="#/custom/package?id={{item.Id}}" angular-tooltip title="customize"><i class="fa fa-sliders"></i></a>
                         </div>
                     </div>
-                    <div class="package-item-button">
-                        <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-success"><i class="fa fa-check"></i> {{lbl.active}}</button>
-                        <a class="btn btn-sm btn-primary" href="#/custom/package?id={{item.Id}}"><i class="fa fa-cog"></i> Customize</a>
-                    </div>
+                    <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
+                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
+                    <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
                 </div>
             </div>
         </div>

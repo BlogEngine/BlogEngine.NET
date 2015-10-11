@@ -14,30 +14,21 @@
         </div>
     </div>
     <div class="content-inner">
-        <div class="row">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-3">
-                <div class="package-item">
-                    <div class="package-item-img">
-                        <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
-                            <img ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
-                            <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
-                        </a>
-                    </div>
-                    <input ng-if="IsPrimary" type="checkbox" class="info-box-check pull-right" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
-                    <div class="package-item-info">
-                        <span ng-if="!item.Enabled">{{item.Title}} (Disabled)</span>
-                        <span ng-if="item.Enabled">{{item.Title}}</span>
-                    </div>
-                    <div class="package-item-button">
-                        <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
-                        <a ng-if="IsPrimary && !item.Enabled" href="" ng-click="enableExtension(item, true)" class="btn btn-sm btn-success">Enable</a>
-                        <a ng-if="item.SettingsUrl != ''" href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-primary">Customize</a>
-                    </div>
-                    <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                    <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
-                </div>
-            </div>
+        <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+            <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
+            <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
+                <img width="48" ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
+                <img width="48" ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
+            </a>
+            <p ng-if="!item.Enabled">{{item.Title}} (Disabled)</p>
+            <p ng-if="item.Enabled">{{item.Title}}</p>
+            <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
+            <a ng-if="IsPrimary && !item.Enabled" href="" ng-click="enableExtension(item, true)" class="btn btn-sm btn-success">Enable</a>
+            <a ng-if="item.SettingsUrl != ''" href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-default">Customize</a>
+            <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
+            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
+            <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
+            <hr />
         </div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
             <li data-ng-class="{disabled: currentPage == 0}">
