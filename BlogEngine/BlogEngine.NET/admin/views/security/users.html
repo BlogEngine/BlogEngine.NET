@@ -62,8 +62,7 @@
             </div>
             <div class="search pull-right">
                 <i class="fa fa-search"></i>
-                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
-                <i class="fa fa-times-circle"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
             </div>
         </div>
         <div class="content-inner">
@@ -83,9 +82,9 @@
                         <td class="item-roles"><span ng-repeat="r in item.Roles"> <a href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles?id={{r.RoleName}}">{{r.RoleName}}</a> </span> </td>
                         <td class="item-email">{{item.Email}}</td>
                     </tr>
-                    <tr id="tr-spinner"><td colspan="4"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
                 </tbody>
             </table>
+            <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
             <ul class="pagination" ng-if="items.length > itemsPerPage">
                 <li data-ng-class="{disabled: currentPage == 0}">
                     <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>

@@ -166,7 +166,9 @@ function bindCommon() {
     $(".search input").focus(function () {
         $(".search").addClass("search-wide");
     });
-    $(".search input").blur(function () {
-        $(".search").removeClass("search-wide");
+    $('.search input').blur(function () {
+        if ($(this).val().length == 0) {
+            $(".search").removeClass("search-wide");
+        }
     });
 }

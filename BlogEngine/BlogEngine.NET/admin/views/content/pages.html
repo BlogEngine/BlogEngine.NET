@@ -11,8 +11,7 @@
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
-            <input type="text" angular-tooltip tooltip="lbl.search" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
-            <i class="fa fa-times-circle"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
         <div class="dropdown pull-right">
             <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -52,9 +51,9 @@
                     <td class="item-show"><input type="checkbox" data-ng-model="item.ShowInList" data-ng-disabled="true"></td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
-                <tr id="tr-spinner"><td colspan="7"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>
         </table>
+        <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
             <li data-ng-class="{disabled: currentPage == 0}">
                 <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
