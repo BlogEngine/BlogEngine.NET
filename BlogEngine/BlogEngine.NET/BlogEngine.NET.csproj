@@ -130,6 +130,7 @@
     <Content Include="admin\themes\standard\css\09.custom.css" />
     <Content Include="admin\themes\standard\css\10.newpost.css" />
     <Content Include="admin\themes\standard\css\11.blogengine.css" />
+    <Content Include="admin\themes\standard\css\12.comments.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
     <Content Include="App_Data\posts\f39c3289-e861-48f7-a4b7-edaaffe6f6dc.xml" />
