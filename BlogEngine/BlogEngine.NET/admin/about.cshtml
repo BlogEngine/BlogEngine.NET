@@ -38,123 +38,62 @@
         }
     };
 }
-<div class="admin-views-about" ng-controller="AboutController">
+<div ng-controller="AboutController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">About BlogEngine.NET</h2>
+        <h2 class="page-title pull-left">About</h2>
     </div>
     <div class="content-inner">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Introduction</div>
-                    </div>
-                    <div class="panel-body  text-justify">
-                        <p class="text-center" style="padding:30px 0"><a href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo.png" /></a></p>
-                        <p>
-                           BlogEngine.NET is an open source ASP.NET project that was born out of desire for a better blogging platform. We focused on simplicity, ease of use, extendibility and innovative design while taking advantage of the latest .NET features.
-                        </p>
-                        <p>
-                            BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills. With BlogEngine.NET, it is easy to make your blog look and function exactly how you’d like.
-                        </p>
-                        <hr />
-                        <ul class="list-inline">
-                            <li><a target="_blank" href="http://dotnetblogengine.net/"><i class="fa fa-globe"></i> Official Website</a></li>
-                            <li><a target="_blank" href="https://github.com/rxtur/BlogEngine.NET/"><i class="fa fa-github-square"></i> Github</a></li>
-                            <li><a target="_blank" href="https://www.facebook.com/BlogEngine.NET"><i class="fa fa-facebook-square"></i> Facebook</a></li>
-                            <li><a target="_blank" href="https://twitter.com/blogenginenet"><i class="fa fa-twitter-square"></i> Twitter</a></li>
-                            <li><a target="_blank" href="https://www.youtube.com/user/blogenginenet"><i class="fa fa-youtube-square"></i> Youtube</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Contribute</div>
-                    </div>
-                    <div class="panel-body">
-                        <p>
-                            There are tons of ways to contribute to the BlogEngine.NET project and become a part of the team.
-                        </p>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="#">Create a new theme and share it.</a></li>
-                        <li class="list-group-item"><a href="#">Develope a Plugin and share it.</a></li>
-                        <li class="list-group-item"><a href="#">Answer a question on the discussion board.</a></li>
-                        <li class="list-group-item"><a href="#">Put BlogEngine logo on your blog.</a></li>
-                        <li class="list-group-item"><a href="#">or you tell us, how can you help.</a></li>
-                    </ul>
+        <div class="about-page">
+            <div class="about-section">
+                <p style="margin-bottom:30px"><a href="http://dotnetblogengine.net/"><img src="~/Content/images/blog/logo.png" /></a></p>
+                <p class="text-justify">
+                    BlogEngine.NET is an open source ASP.NET project that was born out of desire for a better blogging platform. We focused on simplicity, ease of use, extendibility and innovative design while taking advantage of the latest .NET features.
+                </p>
+                <p class="text-justify">
+                    BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills. With BlogEngine.NET, it is easy to make your blog look and function exactly how you’d like.
+                </p>
+                <div class="social-networks">
+
+                    <a class="btn btn-default btn-hasicon btn-sm" target="_blank" href="http://dotnetblogengine.net/"><i class="fa fa-globe"></i> Website</a>
+                    <a class="btn btn-default btn-hasicon btn-sm" target="_blank" href="http://dnbe.net/docs"><i class="fa fa-question-circle"></i> Docs</a>
+                    <a class="btn btn-default btn-hasicon btn-sm" target="_blank" href="http://dnbe.net/v01"><i class="fa fa-cube"></i> Gallery</a>
+                    &nbsp;|&nbsp;
+                    <a class="btn btn-default btn-icon btn-sm" target="_blank" href="https://github.com/rxtur/BlogEngine.NET/"><i class="fa fa-github"></i> </a>
+                    <a class="btn btn-default btn-icon btn-sm" target="_blank" href="https://www.facebook.com/BlogEngine.NET"><i class="fa fa-facebook"></i> </a>
+                    <a class="btn btn-default btn-icon btn-sm" target="_blank" href="https://twitter.com/blogenginenet"><i class="fa fa-twitter"></i> </a>
+                    <a class="btn btn-default btn-icon btn-sm" target="_blank" href="https://www.youtube.com/user/blogenginenet"><i class="fa fa-youtube"></i> </a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">BlogEngine.NET @BlogSettings.Instance.Version()</div>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            Configuration: @usage
-                        </li>
-                        <li class="list-group-item">
-                            Trust level: @trust
-                        </li>
-                        <li class="list-group-item">
-                            Identity: @System.Security.Principal.WindowsIdentity.GetCurrent().Name
-                        </li>
-                        <li class="list-group-item">
-                            Blog provider: @blogProviderSection.DefaultProvider
-                        </li>
-                        <li class="list-group-item">
-                            Membership provider: @membershipSection.DefaultProvider
-                        </li>
-                        <li class="list-group-item">
-                            Role provider: @roleSection.DefaultProvider
-                        </li>
-                    </ul>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">Latest News</div>
-                    </div>
-                    <ul class="list-group list-blogenigne-news">
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>Update 3.1.1.0 With Security Patch</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>Upgrade to BlogEngine.NET 3.1</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>BlogEngine.NET 3.0 Is Here</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>Patch for BlogEngine.NET 2.9</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>BlogEngine.NET 2.9 Released</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <h4>BlogEngine.NET 2.9 Beta Release</h4>
-                                <p>BlogEngine.NET is easily customizable. We have many downloadable themes, widgets, and extensions or you can make your own with some basic .NET skills.</p>
-                            </a>
-                        </li>
+            
 
-                    </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">Your BlogEngine.NET Specification</div>
                 </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span> Version:</span> @BlogSettings.Instance.Version()
+                    </li>
+                    <li class="list-group-item">
+                        <span>Configuration:</span> @usage
+                    </li>
+                    <li class="list-group-item">
+                        <span>Trust level:</span> @trust
+                    </li>
+                    <li class="list-group-item">
+                        <span>Identity:</span> @System.Security.Principal.WindowsIdentity.GetCurrent().Name
+                    </li>
+                    <li class="list-group-item">
+                        <span>Blog provider:</span> @blogProviderSection.DefaultProvider
+                    </li>
+                    <li class="list-group-item">
+                        <span>Membership provider:</span> @membershipSection.DefaultProvider
+                    </li>
+                    <li class="list-group-item">
+                        <span>Role provider:</span> @roleSection.DefaultProvider
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

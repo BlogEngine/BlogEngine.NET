@@ -2,7 +2,7 @@
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
-            {{lbl.extensions}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
+            Plugins <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
@@ -24,7 +24,7 @@
                     <th class="item-version">{{lbl.version}}</th>
                     <th class="item-priority">{{lbl.priority}}</th>
                     <th class="item-checkbox">{{lbl.enabled}}</th>
-                    <th class="item-button">&nbsp;</th>
+                    <th class="item-button">{{lbl.status}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,8 +39,8 @@
                     </td>
                     <td class="item-desc"><span class=" text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version">
-                        <p ng-if="item.OnlineVersion.length == 0">{{item.LocalVersion}}</p>
-                        <p ng-if="item.OnlineVersion.length > 0">{{item.OnlineVersion}}</p>
+                        <span ng-if="item.OnlineVersion.length == 0">{{item.LocalVersion}}</span>
+                        <span ng-if="item.OnlineVersion.length > 0">{{item.OnlineVersion}}</span>
                     </td>
                     <td class="item-priority">{{item.Priority}}</td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
