@@ -6,7 +6,7 @@
 .form-control { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 .form-group { margin-bottom: 18px; }
 .form-group > label { font-size: 12px; font-weight: 500; color: #707f95; }
-.form-control { border-color: #e0e0e0; -moz-box-shadow:  0 1px 0 #eee !important; -webkit-box-shadow:  0 1px 0 #eee !important; box-shadow:  0 1px 0 #eee !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 1px; color: #888; }
+.form-control { border-color: #e0e0e0; -moz-box-shadow: 0 1px 0 #eee !important; -webkit-box-shadow: 0 1px 0 #eee !important; box-shadow: 0 1px 0 #eee !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 1px; color: #888; }
 .form-control:focus { border-color: #c5ccd7; outline: none; }
 .panel .form-control { border-width: 1px; }
 .input-group .input-group-addon { border-radius: 0; }
@@ -119,10 +119,16 @@
 .pagination i { line-height: 20px; }
 .pagination > .active > a { z-index: 4; border-color: #e9e9e9 !important; background-color: #687994 !important; color: #fff !important; }
 
+/*[]*/
+.be-input { margin-right: 10px; }
+.be-input input { height: 1px; width: 1px; opacity: 0; }
+.be-checkbox, .be-radio { position: relative; border: 2px solid #687994; display: inline-block; width: 16px; height: 16px; top: 3px; margin-right: 3px; }
+.be-radio { border-radius: 100%; }
+.be-input.active .be-checkbox:before { position: absolute; top: 0; left: 0; width: 12px; text-align: center; height: 12px; content: "\f00c"; font-family: FontAwesome; font-size: 10px; line-height: 14px; margin: 0; }
+.be-input.active .be-radio:before { content: ""; width: 8px; height: 8px; background: #687994; position: absolute; top: 2px; left: 2px; border-radius: 100%; }
+
+/*[]*/
 @media screen and (max-width:1023px) {
     .form-width-limited { padding-left: 40px; padding-top: 40px; }
-      .form-control {
--webkit-appearance: none; -moz-appearance: none; appearance: none; 
-
-    }
+    .form-control { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 }

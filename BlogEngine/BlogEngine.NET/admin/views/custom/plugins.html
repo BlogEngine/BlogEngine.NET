@@ -15,16 +15,16 @@
     </div>
     <div class="content-inner">
 
-        <table class="table table-item-post">
+        <table class="table table-item-plugins">
             <thead>
                 <tr>
                     <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
                     <th class="item-title">{{lbl.title}}</th>
                     <th class="item-desc">{{lbl.description}}</th>
-                    <th class="item">{{lbl.version}}</th>
-                    <th class="item">{{lbl.priority}}</th>
+                    <th class="item-version">{{lbl.version}}</th>
+                    <th class="item-priority">{{lbl.priority}}</th>
                     <th class="item-checkbox">{{lbl.enabled}}</th>
-                    <th class="item">&nbsp;</th>
+                    <th class="item-button">&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,12 +37,12 @@
                             {{item.Title}} 
                         </a>
                     </td>
-                    <td class="item-desc">{{item.Description}}</td>
-                    <td class="item">
+                    <td class="item-desc"><span class=" text-ellipsis">{{item.Description}}</span></td>
+                    <td class="item-version">
                         <p ng-if="item.OnlineVersion.length == 0">{{item.LocalVersion}}</p>
                         <p ng-if="item.OnlineVersion.length > 0">{{item.OnlineVersion}}</p>
                     </td>
-                    <td class="item">{{item.Priority}}</td>
+                    <td class="item-priority">{{item.Priority}}</td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
                     <td>
                         <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
