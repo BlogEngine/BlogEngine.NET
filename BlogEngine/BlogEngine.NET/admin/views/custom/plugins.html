@@ -14,7 +14,46 @@
         </div>
     </div>
     <div class="content-inner">
-        <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+
+        <table class="table table-item-post">
+            <thead>
+                <tr>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="item-title">{{lbl.title}}</th>
+                    <th class="item-desc">{{lbl.description}}</th>
+                    <th class="item">{{lbl.version}}</th>
+                    <th class="item">{{lbl.priority}}</th>
+                    <th class="item-checkbox">{{lbl.enabled}}</th>
+                    <th class="item">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in pagedItems[currentPage]">
+                    <td class="item-checkbox">
+                        <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
+                    </td>
+                    <td class="item-title">
+                        <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
+                            {{item.Title}} 
+                        </a>
+                    </td>
+                    <td class="item-desc">{{item.Description}}</td>
+                    <td class="item">
+                        <p ng-if="item.OnlineVersion.length == 0">{{item.LocalVersion}}</p>
+                        <p ng-if="item.OnlineVersion.length > 0">{{item.OnlineVersion}}</p>
+                    </td>
+                    <td class="item">{{item.Priority}}</td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
+                    <td>
+                        <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
+                        <a ng-if="IsPrimary && !item.Enabled" href="" ng-click="enableExtension(item, true)" class="btn btn-sm btn-success">Enable</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!--<div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
             <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="item.OnlineVersion === ''" />
             <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
                 <img width="48" ng-if="item.IconUrl === ''" src="../Content/images/blog/ext.png" />
@@ -25,11 +64,8 @@
             <a ng-if="IsPrimary && item.Enabled" href="" ng-click="enableExtension(item, false)" class="btn btn-sm btn-danger">Disable</a>
             <a ng-if="IsPrimary && !item.Enabled" href="" ng-click="enableExtension(item, true)" class="btn btn-sm btn-success">Enable</a>
             <a ng-if="item.SettingsUrl != ''" href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-default">Customize</a>
-            <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-            <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-            <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
             <hr />
-        </div>
+        </div>-->
         <ul class="pagination" ng-if="items.length > itemsPerPage">
             <li data-ng-class="{disabled: currentPage == 0}">
                 <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
