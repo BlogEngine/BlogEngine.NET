@@ -29,20 +29,17 @@
 
 
         <h4>Radio Buttons</h4>
-        <div class="form-group">
-            <label class="be-input active">
+        <div class="form-group" id="social-buttons">
+            <label id="radio1" class="be-input active" ng-click="radioClick('radio1')">
                 <span class="be-radio"></span>
-                <input type="radio" name="" value="" />
                 Facebook
             </label>
-            <label class="be-input">
+            <label id="radio2" class="be-input" ng-click="radioClick('radio2')">
                 <span class="be-radio"></span>
-                <input type="radio" name="" value="" />
                 Twitter
             </label>
-            <label class="be-input" ng-class="{active: checkbox2}">
+            <label id="radio3" class="be-input" ng-click="radioClick('radio3')">
                 <span class="be-radio"></span>
-                <input type="radio" name="" value="" />
                 Google Plus
             </label>
         </div>
