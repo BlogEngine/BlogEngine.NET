@@ -35,7 +35,17 @@ namespace BlogEngine.Core.Data
             {
                 if (!Security.IsAuthorizedTo(Rights.ManageExtensions))
                     throw new UnauthorizedAccessException();
-                pkgsToLoad = Packaging.FileSystem.LoadExtensions();
+
+                var fullList = Packaging.FileSystem.LoadExtensions();
+                string[] coreExts = { "bbcode", "logger", "breakpost", "resolvelinks", "sendcommentmail", "sendpings", "smilies" };
+
+                foreach (var pkg in fullList)
+                {
+                    if(!coreExts.Contains(pkg.Id.ToLower()))
+                    {
+                        pkgsToLoad.Add(pkg);
+                    }
+                }
             }
             else if (filter.ToLower() == "themes")
             {
@@ -112,6 +122,7 @@ namespace BlogEngine.Core.Data
                         if (ext != null)
                         {
                             ext.Priority = item.Priority;
+                            ext.Enabled = item.Enabled;
                             ExtensionManager.ChangeStatus(item.Id, item.Enabled);
                             ExtensionManager.SaveToStorage(ext);
                             Blog.CurrentInstance.Cache.Remove(Constants.CacheKey);

@@ -56,6 +56,23 @@ public class PackagesController : ApiController
                         throw new HttpResponseException(HttpStatusCode.InternalServerError);
                 }
             }
+
+            if (action == "enable")
+            {
+                foreach (var item in items)
+                {
+                    item.Enabled = true;
+                    repository.Update(item);
+                }
+            }
+            if (action == "disable")
+            {
+                foreach (var item in items)
+                {
+                    item.Enabled = false;
+                    repository.Update(item);
+                }
+            }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
         catch (System.Exception ex)

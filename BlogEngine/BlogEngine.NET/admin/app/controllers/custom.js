@@ -15,8 +15,8 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.lst = ($location.search()).lst;
     $scope.galleryFilter = getFromQueryString('ftr');
 
-    $scope.order = 'LastUpdated desc';
-    $scope.sortingOrder = 'LastUpdated';
+    $scope.order = 'DownloadCount desc';
+    $scope.sortingOrder = 'DownloadCount';
     $scope.reverse = true;
 
     $scope.showRating = false;
@@ -170,12 +170,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
             toastr.error($rootScope.lbl.failed);
             $scope.spin = false;
         });
-    }
-
-    $scope.enableExtension = function (item, enable) {
-        $scope.package = item;
-        $scope.package.Enabled = enable;
-        $scope.save();
     }
 
     $scope.setFilter = function () {
