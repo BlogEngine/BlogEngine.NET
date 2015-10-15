@@ -39,6 +39,8 @@ namespace BlogEngine.Core.Data
 
             LoadThemes();
 
+            LoadEditorOptions();
+
             return lookups;
         }
 
@@ -151,5 +153,45 @@ namespace BlogEngine.Core.Data
             lookups.InstalledThemes = items;
         }
 
+        void LoadEditorOptions()
+        {
+            var bs = BlogSettings.Instance;
+
+            lookups.PostOptions = new EditorOptions {
+                OptionType ="Post",
+                ShowSlug = bs.PostOptionsSlug,
+                ShowDescription = bs.PostOptionsDescription,
+                ShowCustomFields = bs.PostOptionsCustomFields
+            };
+
+            lookups.PageOptions = new EditorOptions {
+                OptionType = "Page",
+                ShowSlug = bs.PageOptionsSlug,
+                ShowDescription = bs.PageOptionsDescription,
+                ShowCustomFields = bs.PageOptionsCustomFields
+            };
+        }
+
+        /// <summary>
+        /// Editor options
+        /// </summary>
+        /// <param name="options">Options</param>
+        public void SaveEditorOptions(EditorOptions options)
+        {
+            var bs = BlogSettings.Instance;
+            if (options.OptionType == "Post")
+            {
+                bs.PostOptionsSlug = options.ShowSlug;
+                bs.PostOptionsDescription = options.ShowDescription;
+                bs.PostOptionsCustomFields = options.ShowCustomFields;
+            }
+            if (options.OptionType == "Page")
+            {
+                bs.PageOptionsSlug = options.ShowSlug;
+                bs.PageOptionsDescription = options.ShowDescription;
+                bs.PageOptionsCustomFields = options.ShowCustomFields;
+            }
+            bs.Save();
+        }
     }
 }

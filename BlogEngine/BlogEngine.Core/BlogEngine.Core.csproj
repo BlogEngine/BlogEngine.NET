@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="Data\Contracts\IDashboardRepository.cs" />
     <Compile Include="Data\DashboardRepository.cs" />
+    <Compile Include="Data\Models\EditorOptions.cs" />
     <Compile Include="Data\Services\Json.cs" />
     <Compile Include="Data\ViewModels\CommentsVM.cs" />
     <Compile Include="Data\ViewModels\DashboardVM.cs" />

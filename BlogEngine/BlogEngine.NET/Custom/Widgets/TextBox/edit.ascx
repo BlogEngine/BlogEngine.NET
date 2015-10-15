@@ -11,6 +11,9 @@
             "insertdatetime media table contextmenu paste sh4tinymce"
 	    ],
 	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | sh4tinymce",
+	    menubar: false,
+	    relative_urls: false,
+	    browser_spellcheck: true,
 	    autosave_ask_before_unload: false,
 	    max_height: 300,
 	    min_height: 160,

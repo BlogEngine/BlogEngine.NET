@@ -31,5 +31,8 @@ namespace BlogEngine.Core.Data.Models
         /// List of installed themes
         /// </summary>
         public IEnumerable<SelectOption> InstalledThemes { get; set; }
+
+        public EditorOptions PostOptions { get; set; }
+        public EditorOptions PageOptions { get; set; }
     }
 }

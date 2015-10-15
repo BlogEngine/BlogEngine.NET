@@ -219,6 +219,16 @@
         });
     }
 
+    $scope.saveEditOptions = function () {
+        dataService.updateItem('api/lookups/update/foo', $scope.lookups.PostOptions)
+           .success(function (data) {
+               toastr.success($rootScope.lbl.postUpdated);
+               $("#myModal").modal('hide');
+               spinOff();
+           })
+           .error(function () { toastr.error($rootScope.lbl.updateFailed); });
+    }
+
     $scope.load();
 
     $(document).ready(function () {

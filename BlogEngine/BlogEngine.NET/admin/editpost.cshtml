@@ -18,25 +18,29 @@
                 <div class="modal-body modal-roles">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" data-ng-model="slugOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" data-ng-model="lookups.PostOptions.ShowSlug" ng-true-value="true" ng-false-value="false" />
                             Slug Field
                         </label>
                         <p class="small text-muted">Slug is optional and will auto generat from title post.</p>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="descriptionOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" name="name" data-ng-model="lookups.PostOptions.ShowDescription" ng-true-value="true" ng-false-value="false" />
                             Description Field
                         </label>
                         <p class="small text-muted">Description is optional and will auto generat from content post.</p>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="customFieldOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" name="name" data-ng-model="lookups.PostOptions.ShowCustomFields" ng-true-value="true" ng-false-value="false" />
                             Custom Field
                         </label>
                         <p class="small text-muted">Custom Field is a feature for advanced blogging. <a href="http://www.dnbe.net/docs/post/custom-fields" target="_blank">Learn more.</a></p>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
                 </div>
             </div>
         </div>
@@ -115,11 +119,11 @@
                     <div class="editor-wrapper">
                         @RenderPage(BlogConfig.DefaultEditor)
                     </div>
-                    <div class="newpost-widget" data-ng-show="slugOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PostOptions.ShowSlug">
                         <label class=" newpost-widget-title">{{lbl.slug}}</label>
                         <input type="text" class="form-control" id="txtSlug" data-ng-model="post.Slug" />
                     </div>
-                    <div class="newpost-widget" data-ng-show="descriptionOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PostOptions.ShowDescription">
                         <label class="newpost-widget-title">{{lbl.description}}</label>
                         <textarea class="form-control" rows="4" id="txtExcerpt" data-ng-model="post.Description"> </textarea>
                     </div>
@@ -159,7 +163,7 @@
                             <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
                         </div>
                     </div>
-                    <div class="newpost-widget" data-ng-show="customFieldOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PostOptions.ShowCustomFields">
                         <label class="newpost-widget-title">
                             {{lbl.customFields}}
                         </label>

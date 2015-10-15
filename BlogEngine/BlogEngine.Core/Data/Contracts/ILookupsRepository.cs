@@ -1,5 +1,4 @@
 ﻿using BlogEngine.Core.Data.Models;
-using System.Collections.Generic;
 
 namespace BlogEngine.Core.Data.Contracts
 {
@@ -13,5 +12,11 @@ namespace BlogEngine.Core.Data.Contracts
         /// </summary>
         /// <returns>Lookups</returns>
         Lookups GetLookups();
+
+        /// <summary>
+        /// Editor options
+        /// </summary>
+        /// <param name="options">Options</param>
+        void SaveEditorOptions(EditorOptions options);
     }
 }

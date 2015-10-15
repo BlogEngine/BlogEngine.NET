@@ -1415,5 +1415,17 @@
 
         #endregion
 
+        #region EditorOptions
+
+        public bool PostOptionsSlug { get; set; }
+        public bool PostOptionsDescription { get; set; }
+        public bool PostOptionsCustomFields { get; set; }
+
+        public bool PageOptionsSlug { get; set; }
+        public bool PageOptionsDescription { get; set; }
+        public bool PageOptionsCustomFields { get; set; }
+
+        #endregion
+
     }
 }

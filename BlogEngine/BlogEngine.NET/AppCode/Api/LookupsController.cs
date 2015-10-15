@@ -17,4 +17,23 @@ public class LookupsController : ApiController
     {
         return repository.GetLookups();
     }
+
+    [HttpPut]
+    public bool Update([FromBody]EditorOptions item)
+    {
+        try
+        {
+            repository.SaveEditorOptions(item);
+            return true;
+        }
+        catch (UnauthorizedAccessException)
+        {
+            throw new HttpResponseException(HttpStatusCode.Unauthorized);
+        }
+        catch (Exception ex)
+        {
+            BlogEngine.Core.Utils.Log("Error updating", ex);
+            throw new HttpResponseException(HttpStatusCode.InternalServerError);
+        }
+    }
 }

@@ -18,25 +18,29 @@
                 <div class="modal-body modal-roles">
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="slugOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" name="name" data-ng-model="lookups.PageOptions.ShowSlug" ng-true-value="true" ng-false-value="false" />
                             Slug Field
                         </label>
                         <p class="small text-muted">Slug is optional and will auto generat from title page.</p>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="descriptionOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" name="name" data-ng-model="lookups.PageOptions.ShowDescription" ng-true-value="true" ng-false-value="false" />
                             Description Field
                         </label>
                         <p class="small text-muted">Description is optional and will auto generat from content page.</p>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="name" data-ng-model="customFieldOption" ng-true-value="true" ng-false-value="false" />
+                            <input type="checkbox" name="name" data-ng-model="lookups.PageOptions.ShowCustomFields" ng-true-value="true" ng-false-value="false" />
                             Custom Field
                         </label>
                         <p class="small text-muted">Custom Field is a feature for advanced blogging. <a href="#">Learn more.</a></p>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
                 </div>
             </div>
         </div>
@@ -84,11 +88,11 @@
                     <div class="editor-wrapper">
                         @RenderPage(BlogConfig.DefaultEditor)
                     </div>
-                    <div class="newpost-widget" data-ng-show="slugOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PageOptions.ShowSlug">
                         <label class="newpost-widget-title" for="txtSlug">{{lbl.slug}}</label>
                         <input type="text" class="form-control" id="txtSlug" data-ng-model="page.Slug" />
                     </div>
-                    <div class="newpost-widget" data-ng-show="descriptionOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PageOptions.ShowDescription">
                         <label class="newpost-widget-title" for="txtExcerpt">{{lbl.description}}</label>
                         <textarea class="form-control" rows="4" id="txtExcerpt" data-ng-model="page.Description"> </textarea>
                     </div>
@@ -126,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="newpost-widget" data-ng-show="customFieldOption">
+                    <div class="newpost-widget" data-ng-show="lookups.PageOptions.ShowCustomFields">
                         <label class="newpost-widget-title">{{lbl.customFields}}</label>
                         <a class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</a>
                         <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0">

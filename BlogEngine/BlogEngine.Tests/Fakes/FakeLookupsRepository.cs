@@ -1,7 +1,5 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
-using System;
-using System.Collections.Generic;
 
 namespace BlogEngine.Tests.Fakes
 {
@@ -10,6 +8,11 @@ namespace BlogEngine.Tests.Fakes
         public Lookups GetLookups()
         {
             return new Lookups();
+        }
+
+        public void SaveEditorOptions(EditorOptions options)
+        {
+
         }
     }
 }

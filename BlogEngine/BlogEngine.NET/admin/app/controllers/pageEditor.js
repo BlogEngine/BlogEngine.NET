@@ -166,6 +166,16 @@
         }
     }
 
+    $scope.saveEditOptions = function () {
+        dataService.updateItem('api/lookups/update/foo', $scope.lookups.PageOptions)
+           .success(function (data) {
+               toastr.success($rootScope.lbl.pageUpdated);
+               $("#myModal").modal('hide');
+               spinOff();
+           })
+           .error(function () { toastr.error($rootScope.lbl.updateFailed); });
+    }
+
     /* custom fields */
 
     $scope.showCustom = function () {
