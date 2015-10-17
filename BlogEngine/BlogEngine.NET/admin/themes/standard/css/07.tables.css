@@ -55,14 +55,14 @@
 .table-item-categories { }
 .table-item-categories .item-checkbox { }
 .table-item-categories .item-title { }
-.table-item-categories .item-desc { width: 80px; }
-.table-item-categories .item-count { width: 40px; }
+.table-item-categories .item-desc { width: 80px; padding: 0 10px; }
+.table-item-categories .item-count { width: 70px; }
 .table-item-categories .item-parent { width: 80px; }
 
 /*[content/tags]*/
 .table-item-tags { }
 .table-item-tags .item-checkbox { }
-.table-item-tags .item-count { width: 40px; }
+.table-item-tags .item-count { width: 70px; }
 
 /*[content/filters]*/
 .table-item-filters .item-checkbox { }
@@ -88,9 +88,11 @@
 
 .table-item-plugins { }
 .table-item-plugins .item-checkbox { }
-.table-item-plugins .item-title { }
-.table-item-plugins .item-desc { width: 320px; max-width: 10px; }
-.table-item-plugins .item-desc span { width: 350px; max-width: 100%; text-align: left; padding: 0 20px; }
+.table-item-plugins .item-title { width: 100px; padding-right:150px; }
+.table-item-plugins th.item-desc { padding-left: 20px; }
+.table-item-plugins .item-desc { max-width: 100px;  text-align: left; }
+.table-item-plugins .item-desc span { width: 450px; max-width: 100%; text-align: left; padding: 0 20px; }
 .table-item-plugins .item-priority { width: 100px; }
 .table-item-plugins .item-version { width: 100px; }
-.table-item-plugins .item-button { width: 100px; }
+.table-item-plugins .item-state { width: 100px; }
+.table-item-plugins .item-edit { width: 120px; padding:0 10px }

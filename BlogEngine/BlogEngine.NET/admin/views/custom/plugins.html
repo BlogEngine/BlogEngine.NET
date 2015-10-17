@@ -20,12 +20,13 @@
         <table class="table table-item-plugins">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th>{{lbl.title}}</th>
-                    <th>{{lbl.description}}</th>
-                    <th>{{lbl.version}}</th>
-                    <th>{{lbl.priority}}</th>
-                    <th>{{lbl.enabled}}</th>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="item-title">{{lbl.title}}</th>
+                    <th class="item-desc">{{lbl.description}}</th>
+                    <th class="item-version">{{lbl.version}}</th>
+                    <th class="item-priority">{{lbl.priority}}</th>
+                    <th class="item-state">{{lbl.enabled}}</th>
+                    <th class="item-edit">Customize</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,13 +39,16 @@
                             {{item.Title}} 
                         </a>
                     </td>
-                    <td class="item"><span class="text-ellipsis">{{item.Description}}</span></td>
+                    <td class="item-desc"><span class="text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version">
                         <span ng-if="item.OnlineVersion.length == 0">{{item.LocalVersion}}</span>
                         <span ng-if="item.OnlineVersion.length > 0">{{item.OnlineVersion}}</span>
                     </td>
                     <td class="item-priority">{{item.Priority}}</td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
+                    <td class="item-edit">
+                        <a class="btn btn-sm btn-default btn-hasicon" href="#/custom/package?id={{item.Id}}"><i class="fa fa-sliders"></i> Customize</a>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -1,4 +1,5 @@
-﻿body { font-family: 'Roboto', sans-serif; background-color: #f6f6f6; color: #707f95; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
+﻿html, body {height:100%;}
+body { font-family: 'Roboto', sans-serif; background-color: #f6f6f6; color: #707f95; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
 .ltr-dir { direction: ltr; }
 .rtl-dir { direction: rtl; }
 a:hover, a:focus { text-decoration: none; }
@@ -17,9 +18,9 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
 /*[]*/
 .wrapper { width: 100%; height: 100%; padding-left: 230px; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
-.sidebar { z-index: 1; position: fixed; white-space: nowrap; left: 0; top: 0; width: 230px; height: 100%; overflow: auto; background: #282c37; font-size: 13px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
+.sidebar { z-index: 1; position: fixed; white-space: nowrap; left: 0; top: 0; width: 230px; height: 100%; overflow-x: hidden; overflow-y: auto; background: #282c37; font-size: 13px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
 .sidebar a { color: #74808f; }
-.content { width: 100%; left: 0; position: relative; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
+.content { height:100%; width: 100%; left: 0; position: relative; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
 .content-inner { padding: 30px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
 .modal-open .content { position: static; }
 

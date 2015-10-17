@@ -26,6 +26,7 @@
 .btn i { margin: 0 5px 0 0; }
 .btn-link { color: #666 !important; text-decoration: none !important; }
 .btn [class*="fa-angle-"] { font-size: 16px; }
+.btn-default { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 
 /**/
 .btn { height: 35px; line-height: 35px; padding: 0 20px; font-size: 12px; }
@@ -45,8 +46,8 @@
 .btn-hasicon.btn-sm i { width: 30px; line-height: 31px; }
 .btn-hasicon.btn-lg i { width: 40px; line-height: 40px; }
 
-.btn-default.btn-hasicon i { width: 34px; line-height: 35px; }
-.btn-default.btn-hasicon.btn-sm i { width: 29px; line-height: 30px; }
+.btn-default.btn-hasicon i { width: 34px; line-height: 34px; }
+.btn-default.btn-hasicon.btn-sm i { width: 29px; line-height: 29px; }
 .btn-default.btn-hasicon.btn-lg i { width: 39px; line-height: 39px; }
 
 /*[]*/
@@ -55,6 +56,12 @@
 .btn-icon i { line-height: 36px; }
 .btn-icon.btn-sm i { line-height: 30px; }
 .btn-icon.btn-lg i { line-height: 40px; }
+
+.btn-default.btn-icon i { line-height: 34px; }
+.btn-default.btn-icon.btn-sm i { line-height: 28px; }
+.btn-default.btn-icon.btn-lg i { line-height: 28px; }
+
+
 
 /*[]*/
 .btn-default { background: #fff; color: #888 !important; border: 1px solid #ddd; }

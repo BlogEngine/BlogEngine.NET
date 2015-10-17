@@ -1,5 +1,5 @@
 ﻿/*[user-nav]*/
-.user-nav { width: 230px; height: 60px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #1f222d; }
+.user-nav { width: 230px; height: 61px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #1f222d; }
 .user-nav img { width: 30px; height: 30px; position: absolute; left: 15px; top: 15px; border-radius: 100%; background: #1f222d; }
 .user-nav .user-nav-info { text-transform: uppercase; }
 .user-nav .user-nav-info .user-nav-name { height: 15px; line-height: 12px; font-size: 12px; }

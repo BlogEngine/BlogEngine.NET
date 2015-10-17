@@ -585,6 +585,22 @@
     <Content Include="Custom\Themes\Standard-2014\theme.png" />
     <Content Include="Custom\Themes\Standard-2014\theme.xml" />
     <Content Include="Custom\Themes\Standard-2014\WidgetContainer.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\CommentForm.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\CommentView.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\css\bootstrap-theme.min.css" />
+    <Content Include="Custom\Themes\Standard-minimal\css\bootstrap.min.css" />
+    <Content Include="Custom\Themes\Standard-minimal\css\font-awesome.min.css" />
+    <Content Include="Custom\Themes\Standard-minimal\css\rtl.css" />
+    <Content Include="Custom\Themes\Standard-minimal\css\styles.css" />
+    <Content Include="Custom\Themes\Standard-minimal\img\logo.png" />
+    <Content Include="Custom\Themes\Standard-minimal\js\bootstrap.min.js" />
+    <Content Include="Custom\Themes\Standard-minimal\newsletter.html" />
+    <Content Include="Custom\Themes\Standard-minimal\PostNavigation.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\PostView.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\Standard-minimal\theme.png" />
+    <Content Include="Custom\Themes\Standard-minimal\theme.xml" />
+    <Content Include="Custom\Themes\Standard-minimal\WidgetContainer.ascx" />
     <Content Include="Custom\Themes\Standard\css\styles.css" />
     <Content Include="Custom\Themes\Standard\fonts\fontello.svg" />
     <Content Include="Custom\Widgets\Post List\edit.ascx" />
@@ -654,6 +670,14 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.eot" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.svg" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.woff" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\FontAwesome.otf" />
+    <Content Include="Custom\Themes\Standard-minimal\fonts\Yekan.woff" />
+    <Content Include="Custom\Themes\Standard-minimal\site.master" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2206,6 +2230,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Custom\Themes\Standard-2014\site.master.designer.cs">
+      <DependentUpon>site.master</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Themes\Standard-minimal\site.master.cs">
+      <DependentUpon>site.master</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\Themes\Standard-minimal\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
     <Compile Include="Custom\Widgets\Post List\edit.ascx.cs">

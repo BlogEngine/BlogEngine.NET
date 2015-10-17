@@ -1,14 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" EnableViewState="false" Inherits="BlogEngine.Core.Web.Controls.CommentFormBase" %>
 <%@ Import Namespace="BlogEngine.Core" %>
-<style>
-    textarea {
-        height: 1em;
-        transition: all 0.5s ease;
-    }
-    textarea:focus {
-        height: 200px;
-    }
-</style>
 <div class="comment-form well-global">
     <div class="well-global-title clearfix">
         <h3 class="float-left" id="addcomment"><%=Resources.labels.addComment %></h3>
@@ -48,7 +39,7 @@
         <div class="form-group" id="commentCompose">
             <label for="txtContent" class="col-md-2 control-label"><%=Resources.labels.comment%> *</label>
             <div class="col-md-10">
-                <textarea class="form-control" id="txtContent" cols="50" rows="1" name="txtContent"></textarea>
+                <textarea class="form-control" id="txtContent" cols="50" rows="4" name="txtContent"></textarea>
             </div>
         </div>
         <% if(BlogSettings.Instance.ShowLivePreview){ %>
