@@ -42,7 +42,7 @@
         $("#mu-content").addClass("active");
         $("#mu-pages").addClass("active");
     }
-    if ($location.$$absUrl.indexOf("about.cshtml") > -1) {
+    if ($location.$$absUrl.indexOf("admin/about") > -1) {
         $(".nav-primary > li").removeClass("active");
         $("#mu-about").addClass("active");
     }

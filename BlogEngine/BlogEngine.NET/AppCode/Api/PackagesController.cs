@@ -153,7 +153,9 @@ public class PackagesController : ApiController
     {
         if (!string.IsNullOrEmpty(id))
         {
-            BlogEngine.Core.BlogSettings.Instance.Theme = id;
+            var bs = BlogEngine.Core.BlogSettings.Instance;
+            bs.Theme = id;
+            bs.Save();
         }
         return Request.CreateResponse(HttpStatusCode.OK);
     }

@@ -7,6 +7,7 @@
     $scope.security = $rootScope.security;
     $scope.UserVars = UserVars;
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
+    $scope.customFields = [];
 
     $scope.load = function () {
         var lookupsUrl = '/api/lookups';
@@ -93,7 +94,7 @@
                $log.log(data);
                if (data.Id) {
                    angular.copy(data, $scope.page);
-                   var x = $scope.page.Id;
+                   $scope.updateCustom();
                }
                $("#modal-form").modal('hide');
                spinOff();
@@ -195,7 +196,7 @@
         });
     }
 
-    $scope.saveCustom = function () {
+    $scope.addCustom = function () {
         var customField = {
             "CustomType": "PAGE",
             "ObjectId": $scope.page.Id,
@@ -206,19 +207,22 @@
             toastr.error("Custom key is required");
             return false;
         }
-        dataService.addItem("/api/customfields", customField)
-        .success(function (data) {
-            toastr.success('New item added');
-            $scope.loadCustom();
-            $("#modal-custom-fields").modal('hide');
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.updateFailed);
-            $("#modal-custom-fields").modal('hide');
+        $scope.customFields.push(customField);
+        $("#modal-custom-fields").modal('hide');
+    }
+
+    $scope.deleteCustom = function (key, objId) {
+        $.each($scope.customFields, function (index, result) {
+            if (result["Key"] == key && result["ObjectId"] == objId) {
+                $scope.customFields.splice(index, 1);
+            }
         });
     }
 
     $scope.updateCustom = function () {
+        for (var i = 0; i < $scope.customFields.length; i++) {
+            $scope.customFields[i].ObjectId = $scope.page.Id;
+        }
         dataService.updateItem("/api/customfields", $scope.customFields)
         .success(function (data) {
             spinOff();
@@ -227,37 +231,6 @@
             toastr.error($rootScope.lbl.updateFailed);
             spinOff();
         });
-    }
-
-    $scope.deleteCustom = function (key, objId) {
-        var customField = {
-            "CustomType": "PAGE",
-            "Key": key,
-            "ObjectId": objId
-        };
-        spinOn();
-        dataService.deleteItem("/api/customfields", customField)
-        .success(function (data) {
-            toastr.success("Item deleted");
-            spinOff();
-            $scope.loadCustom();
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.couldNotDeleteItem);
-            spinOff();
-        });
-    }
-
-    function findCustomItem(key) {
-        var arr = $scope.profileCustomFields;
-        if (arr && arr.length > 0) {
-            for (var i = 0, len = arr.length; i < len; i++) {
-                if (arr[i].Key == key) {
-                    return arr[i];
-                }
-            };
-        }
-        return null;
     }
 
     /* end custom fields */
