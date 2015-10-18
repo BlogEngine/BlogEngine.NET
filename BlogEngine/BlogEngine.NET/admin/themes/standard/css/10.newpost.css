@@ -2,10 +2,10 @@
 .newpost .content-inner form {height:100%;}
 .newpost-wrapper {display:table; width:100%; height:100%; }
 .newpost-wrapper .newpost-content {display:table-cell; width:100%;vertical-align:top; padding:30px;  }
-.newpost-wrapper .newpost-sidebar {display:table-cell; min-width:200px; width:200px;vertical-align:top; max-width:200px; padding:30px;border-left:1px solid #eee; background:#fff; }
+.newpost-wrapper .newpost-sidebar {display:table-cell; min-width:260px; width:260px; vertical-align:top; border-left:1px solid #eee; background:#fff; }
 .newpost-wrapper .newpost-sidebar hr {border-color:#eee;}
 .newpost-wrapper .newpost-sidebar .btn {margin-bottom:5px;}
-
+.newpost-sidebar-content {padding:30px;}
 /**/
 .newpost-widget {margin-bottom:15px; }
 .newpost-widget .newpost-widget-title { color: #666; font-size: 11px; text-transform: uppercase; user-select: none; -moz-user-select: none; -webkit-user-select: none; }
@@ -23,7 +23,7 @@
 #txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 45px; left: 15px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
 #txtTitle-error:before { position: absolute; top: -4px; left: 10px; border-bottom: 4px solid #D8000C; border-right: 4px solid transparent; border-left: 4px solid transparent; content: ""; display: block; }
 
-/*[]*/
+/**/
 .post-tags-selector textarea { width: 180px !important; border: none !important; box-shadow: none; }
 .text-core { width: 100% !important; min-height: 30px !important; border: 1px solid #ddd; height: auto !important; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; padding: 4px 5px 5px;  background: #fff; }
 .text-core .text-wrap { position: static !important; }
@@ -32,7 +32,7 @@
 .text-core .text-wrap .text-tags{overflow:hidden;}
 .text-dropdown.text-position-below { margin-top: 10px !important; left: 0; }
 
-/*[]*/
+/**/
 .categories-list { max-height: 156px; overflow: auto; background: #fff; padding: 0; margin: 0; border: 1px solid #ddd; list-style: none; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; }
 .categories-list li { border-bottom: 1px solid #eee; }
 .categories-list li:last-child { border: none; }

@@ -1,7 +1,12 @@
-﻿
-/*[users]*/
-.profile-picture { margin-right: 10px; }
-.profile-picture-wrpaper { position: relative; }
-.profile-picture-wrpaper h4 { margin: 0px; }
-.profile-picture-wrpaper .roles-name { margin-bottom: 8px; }
-.profile-picture-wrpaper .btn { margin-right: 3px; }
+﻿.profile-info {margin-bottom:10px;}
+.profile-info .profile-info-img{ border-radius:100%; margin-right:20px; max-width:100px;}
+.profile-info .profile-info-title {padding-top:14px; font-size:18px; margin-bottom:3px; color:#000;}
+.profile-info .profile-info-role {color:#888; margin-bottom:3px;}
+.profile-info .btn-link-picture {display:inline-block; font-size:10px; cursor:pointer; margin-right:5px; text-transform:uppercase; color:#888;}
+.profile-info .btn-link-picture-change:hover {color:#00b578;}
+.profile-info .btn-link-picture-remove:hover {color:#dd4949;}
+
+/**/
+.modal-roles .section-role {background:#f9f9f9; margin-bottom:10px; border:1px solid #eee;}
+.modal-roles .section-role-title { background:#f9f9f9;  border-bottom:1px solid #eee; padding:5px 15px;}
+.modal-roles .section-role-body { padding:5px 0; font-size:12px;}

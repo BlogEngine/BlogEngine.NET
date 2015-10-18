@@ -5,7 +5,7 @@
 .btn,
 .form-control { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 .form-group { margin-bottom: 18px; }
-.form-group > label { font-size: 12px; font-weight: 500; color: #707f95; }
+.form-group > label { font-size: 12px; font-weight: 500; color: #777; }
 .form-control { border-color: #e0e0e0; -moz-box-shadow: 0 1px 0 #eee !important; -webkit-box-shadow: 0 1px 0 #eee !important; box-shadow: 0 1px 0 #eee !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 1px; color: #888; }
 .form-control:focus { border-color: #c5ccd7; outline: none; }
 .panel .form-control { border-width: 1px; }
@@ -15,9 +15,10 @@
 .form-group > label.error { color: #ea5a5a !important; }
 
 /*[]*/
-.modal-content { border-radius: 0 !important; }
+.modal-content { border-radius: 3px !important; border: none; }
 .modal-header .close { position: relative; top: 3px; margin: 0; }
 .modal-content .form-control { border-width: 1px; }
+.modal-footer .btn:focus { outline: 1px dotted rgba(255, 255, 255, 0.36); }
 
 /*[BTN]*/
 .btn { padding: 0; font-size: 12px; letter-spacing: 1px; position: relative; color: #fff !important; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; border: none; cursor: pointer; text-transform: uppercase; }
@@ -61,8 +62,6 @@
 .btn-default.btn-icon.btn-sm i { line-height: 28px; }
 .btn-default.btn-icon.btn-lg i { line-height: 28px; }
 
-
-
 /*[]*/
 .btn-default { background: #fff; color: #888 !important; border: 1px solid #ddd; }
 .btn-default:hover,
@@ -105,10 +104,9 @@
 .dropdown-toggle.btn-sm { padding-left: 15px; padding-right: 44px; }
 .dropdown-toggle.btn-lg { padding-left: 25px; padding-right: 64px; }
 
-
 /*[]*/
 #toast-container > div { opacity: 1; }
-.toast { border-radius: 0 !important; opacity: 1; }
+.toast { opacity: 1; }
 .toast-success { background-color: #24b685; }
 .toast-error { background-color: #ea5a5a; }
 .toast-info { background-color: #23b1f7; }
@@ -139,3 +137,6 @@
     .form-width-limited { padding-left: 40px; padding-top: 40px; }
     .form-control { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 }
+
+/*[]*/
+.input-file-hidden { width: 1px; height: 1px; display: none; visibility: hidden; opacity: 0; overflow: hidden; }

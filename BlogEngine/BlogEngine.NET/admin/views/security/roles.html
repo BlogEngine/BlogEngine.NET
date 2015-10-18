@@ -10,26 +10,27 @@
                     <div class="modal-body modal-roles">
                         <div class="form-group" data-ng-if="newItem">
                             <label class="control-label" for="txtRoleName">{{lbl.name}}</label>
-                            <input type="text" id="txtRoleName" name="txtRoleName" class="form-control" data-ng-model="editItem.RoleName" focus-me="focusInput" />
+                            <input type="text" id="txtRoleName" autofocus="" name="txtRoleName" class="form-control" data-ng-model="editItem.RoleName" focus-me="focusInput" />
                         </div>
                         <div data-ng-repeat="item in rights | orderBy:Title">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><span>{{item.Title}}</span></div>
-                                <div class="panel-body">
-                                    <div class="col col-sm-6" data-ng-repeat="p in item.Permissions"><label><input type="checkbox" data-ng-model="p.IsChecked" /> {{p.Title}}</label></div>
+                            <div class="section-role">
+                                <div class="section-role-title"><span>{{item.Title}}</span></div>
+                                <div class="section-role-body clearfix">
+                                        <div class="col-sm-6" data-ng-repeat="p in item.Permissions"><label><input type="checkbox" data-ng-model="p.IsChecked" /> {{p.Title}}</label></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button data-ng-click="save()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" class="btn btn-default btn-hasicon" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button data-ng-click="save()" class="btn btn-success btn-hasicon "><i class="fa fa-save"></i>{{lbl.save}}</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="page-header clearfix">
-            <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+            <h2 class="page-title pull-left">
+                <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
                 {{lbl.roles}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
             </h2>
             <button data-ng-click="loadRightsForm()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-plus"></i>{{lbl.createRole}}</button>

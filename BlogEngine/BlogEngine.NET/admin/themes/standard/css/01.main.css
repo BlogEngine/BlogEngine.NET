@@ -1,5 +1,5 @@
 ﻿html, body {height:100%;}
-body { font-family: 'Roboto', sans-serif; background-color: #f6f6f6; color: #707f95; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
+body { font-family: 'Roboto', sans-serif; background-color: #f6f6f6; color: #666; cursor: default; font-weight: 400; font-size: 14px; height: 100%; overflow-y: scroll; }
 .ltr-dir { direction: ltr; }
 .rtl-dir { direction: rtl; }
 a:hover, a:focus { text-decoration: none; }
@@ -12,7 +12,7 @@ input[type=checkbox] { position: relative; top: 2px; }
 .loading { display: inline-block; }
 .loaded { display: none; }
 .well { background-color: #fff; border-radius: 0; }
-hr { border-color: rgba(0, 95, 133, 0.2); }
+hr { border-color:#ddd; }
 form { margin: 0; }
 h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 

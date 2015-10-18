@@ -31,17 +31,16 @@
     <div class="content-inner">
         <div id="frm-user-edit" class="form-width-limited">
             <div class="form-group">
-                <div class="profile-picture-wrpaper">
-                    <img ng-src="{{photo}}" width="80" class="pull-left profile-picture" title="Profile Picture" />
-                    <h4>{{user.Profile.DisplayName}}</h4>
-                    <div class="roles-name">{{lbl.roles}}: <span data-ng-repeat="role in user.Roles">{{role.RoleName}}</span></div>
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-hasicon btn-danger" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove</a>
-                        <a class="btn btn-sm btn-hasicon btn-primary" id="picChange" data-ng-click="changePicture()"><i class="fa fa-picture-o"></i> Change</a>
-                        <input type="file" title="Change Picture" data-role="magic-overlay" data-target="#picChange" onchange="angular.element(this).scope().changePicture(this.files)" />
-                    </div>
+                <div class="profile-info clearfix">
+                    <img ng-src="{{photo}}" width="100" class="pull-left profile-info-img" title="Profile Picture" />
+                    <div class="profile-info-title">{{user.Profile.DisplayName}}</div>
+                    <div class="profile-info-role">{{lbl.roles}}: <span data-ng-repeat="role in user.Roles">{{role.RoleName}}</span></div>
+                    <input type="file" class="input-file-hidden" onchange="angular.element(this).scope().changePicture(this.files)" />
+                    <a class="btn-link-picture btn-link-picture-change btn-input-file prev"><i class="fa fa-picture-o"></i> Change Picture</a>
+                    <a class="btn-link-picture btn-link-picture-remove" data-ng-click="removePicture()" title="Remove Picture"><i class="fa fa-times-circle"></i> Remove Picture</a>
                 </div>
             </div>
+            <hr />
             <div class="form-group">
                 <label>{{lbl.displayName}}</label>
                 <div>
@@ -85,8 +84,10 @@
 </div>
 
 <script>
-    $('[data-role=magic-overlay]').each(function () {
-        var overlay = $(this), target = $(overlay.data('target'));
-        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+    $(".btn-input-file.prev").click(function () {
+        $(this).prev('input').click();
+    });
+    $(".btn-input-file.next").click(function () {
+        $(this).next('input').click();
     });
 </script>

@@ -83,7 +83,7 @@
 .table-item-users .item-checkbox { }
 .table-item-users .item-title { }
 .table-item-users .item-roles { width: 120px; }
-.table-item-users .item-email { width: 120px; }
+.table-item-users .item-email { width: 200px; max-width:200px; padding:0 10px ; }
 
 
 .table-item-plugins { }

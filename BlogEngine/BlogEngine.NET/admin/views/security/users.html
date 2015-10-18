@@ -8,35 +8,25 @@
                         <h4 class="modal-title">{{editItem.UserName ? editItem.UserName : lbl.addNewUser}}</h4>
                     </div>
                     <div class="modal-body">
-                        <div id="frm-user-edit" class="form-horizontal clearfix">
+                        <div id="frm-user-edit">
                             <div class="form-group">
-                                <label class="control-label col-md-4" for="txtUserName">{{lbl.name}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem" />
-                                </div>
+                                <label for="txtUserName">{{lbl.name}}</label>
+                                <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem" />
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4" for="txtEmail">{{lbl.email}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
-                                </div>
+                                <label for="txtEmail">{{lbl.email}}</label>
+                                <input type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
                             </div>
                             <div class="form-group" data-ng-if="isNewItem">
-                                <label class="control-label col-md-4" for="txtPassword">{{lbl.password}}</label>
-                                <div class="col col-md-8">
-                                    <input type="password" class="form-control ltr-dir" id="txtPassword" name="txtPassword" data-ng-model="editItem.Password" />
-                                </div>
+                                <label for="txtPassword">{{lbl.password}}</label>
+                                <input type="password" class="form-control ltr-dir" id="txtPassword" name="txtPassword" data-ng-model="editItem.Password" />
                             </div>
                             <div class="form-group" data-ng-if="isNewItem">
-                                <label class="control-label col-md-4" for="txtConfirmPassword">{{lbl.confirmPassword}}</label>
-                                <div class="col col-md-8">
-                                    <input type="password" class="form-control ltr-dir" id="txtConfirmPassword" name="txtConfirmPassword" />
-                                </div>
+                                <label for="txtConfirmPassword">{{lbl.confirmPassword}}</label>
+                                <input type="password" class="form-control ltr-dir" id="txtConfirmPassword" name="txtConfirmPassword" />
                             </div>
-                            <br />
-                            <h4>{{lbl.roles}}</h4>
-                            <hr />
-                            <div class="col-md-offset-4 col-md-8">
+                            <div class="form-group" data-ng-if="isNewItem">
+                                <label>{{lbl.roles}}</label>
                                 <div class="checkbox" data-ng-repeat="role in roles">
                                     <label>
                                         <input type="checkbox" data-ng-model="role.IsChecked" /> {{role.RoleName}}
@@ -46,14 +36,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" data-ng-click="saveUser()" class="btn btn-success pull-right btn-tabkey"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" class="btn btn-default btn-hasicon" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                        <button type="button" data-ng-click="saveUser()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="page-header clearfix">
-            <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
+            <h2 class="page-title pull-left">
+                <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
                 {{lbl.users}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
             </h2>
             <button data-ng-click="loadEditForm()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-plus"></i>{{lbl.createUser}}</button>
@@ -80,7 +71,7 @@
                         <td class="item-checkbox"><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
                         <td class="item-title"><a title="click to edit" href="" ng-click="loadEditForm(item.UserName)">{{item.UserName}}</a></td>
                         <td class="item-roles"><span ng-repeat="r in item.Roles"> <a href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles?id={{r.RoleName}}">{{r.RoleName}}</a> </span> </td>
-                        <td class="item-email">{{item.Email}}</td>
+                        <td class="item-email"><span class="text-ellipsis"><a href="mailto:{{item.Email}}">{{item.Email}}</a></span></td>
                     </tr>
                 </tbody>
             </table>

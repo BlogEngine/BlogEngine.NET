@@ -11,33 +11,32 @@
             <div class="form-width-limited">
                 <div class="form-group">
                     <label for="txtName">Blog Title</label>
-                        <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
+                    <input type="text" class="form-control" id="txtName" name="txtName" data-ng-model="settings.Name" />
                 </div>
                 <div class="form-group">
                     <label for="txtDescription">{{lbl.description}}</label>
-                        <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
+                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" data-ng-model="settings.Description" />
                 </div>
                 <div class="form-group">
                     <label for="selCultures">Blog Language</label>
-                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
+                    <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.Cultures" data-ng-model="selectedLanguage"></select>
                 </div>
                 <div class="form-group">
                     <label for="selZone">{{lbl.timezone}}</label>
-                        <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
+                    <select id="selZone" class="form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
                 </div>
-                <div class="form-group">
-                    <div class="input-checkbox">
-                        <label>
-                            <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
-                            {{lbl.timeStampPostLinks}}
-                        </label>
-                    </div>
-                </div>
+
                 <div class="form-group">
                     <label for="txtPostsPerPage">{{lbl.postPerPage}}</label>
                     <div>
                         <input type="text" class="form-control" id="txtPostsPerPage" name="txtPostsPerPage" data-ng-model="settings.PostsPerPage" />
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="ckTimeStampPostLinks" data-ng-model="settings.TimeStampPostLinks" />
+                        {{lbl.timeStampPostLinks}}
+                    </label>
                 </div>
                 <div class="form-group">
                     <label>
@@ -66,10 +65,10 @@
                         </div>
                     </div>
                     <div ng-if="SiteVars.IsPrimary">
-                            <label>
-                                <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
-                                {{lbl.createBlogOnSelfRegistration}}
-                            </label>
+                        <label>
+                            <input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" />
+                            {{lbl.createBlogOnSelfRegistration}}
+                        </label>
                     </div>
                 </div>
             </div>
