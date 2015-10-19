@@ -15,10 +15,12 @@
 .form-group > label.error { color: #ea5a5a !important; }
 
 /*[]*/
+.modal-open .content { position: static; }
 .modal-content { border-radius: 3px !important; border: none; }
 .modal-header .close { position: relative; top: 3px; margin: 0; }
 .modal-content .form-control { border-width: 1px; }
 .modal-footer .btn:focus { outline: 1px dotted rgba(255, 255, 255, 0.36); }
+.modal .modal-body { margin:0; padding:40px; max-height: 76%; overflow:hidden; overflow-y: auto; }
 
 /*[BTN]*/
 .btn { padding: 0; font-size: 12px; letter-spacing: 1px; position: relative; color: #fff !important; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; border: none; cursor: pointer; text-transform: uppercase; }
@@ -90,7 +92,7 @@
 .btn-primary:focus { background: #169fe2 !important; }
 
 /*[]*/
-.dropdown-menu { font-size: 13px; width: 180px; overflow: hidden; padding: 0; border-color: #ddd; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+.dropdown-menu { width:100%; font-size: 13px; min-width: 180px; overflow: hidden; padding: 0; border-color: #ddd; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
 .dropdown-menu li a { cursor: pointer; padding: 10px 20px; color: #888; }
 .dropdown-menu li { border-bottom: 1px solid #eee; }
 .dropdown-menu li:last-child { border: none; }

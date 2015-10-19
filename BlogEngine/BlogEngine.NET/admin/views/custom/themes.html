@@ -7,43 +7,44 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
-                <div class="modal-body modal-roles">                  
-                    <div class="panel panel-default">
-                        <ul class="list-group ">
-                            <li class="list-group-item">
-                                <img ng-if="!package.PackageUrl" class="pkg-img" width="260" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                                <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
-                                    <img class="pkg-img" width="260" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <span ng-bind-html="package.Description"></span>
-                            </li>
-                            <li class="list-group-item">
-                                <i class="fa fa-user"></i> {{lbl.author}}
-                                <span ng-bind-html="package.Authors"></span>
-                            </li>
-                            <li class="list-group-item" ng-if="package.Website">
-                                <span><i class="fa fa-link"></i> {{lbl.website}}:</span>
-                                <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
-                            </li>
-                            <li class="list-group-item" ng-if="package.Tags">
-                                <span class="control-label"><i class="fa fa-tags"></i> {{lbl.tags}}: </span>
-                                <span ng-bind-html="package.Tags"></span>
-                            </li>
-                            <li class="list-group-item" ng-if="package.LastUpdated">
-                                <span class="control-label"><i class="fa fa-calendar"></i> {{lbl.date}}: </span>
-                                <span ng-bind-html="package.LastUpdated"></span>
-                            </li>
-                            <li class="list-group-item" ng-if="package.DownloadCount">
-                                <span class="control-label"><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
-                                <span>{{package.DownloadCount}}</span>
-                            </li>
-                        </ul>
+                <div class="modal-body">
+                    <div class="modal-theme-info">
+                           <p ng-bind-html="package.Description"></p>
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <span class="col-md-3">{{lbl.author}}</span>
+                                <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div>
+                            </div>
+                            <div class="form-group" ng-if="package.Website">
+                                <span class="col-md-3">{{lbl.website}}</span>
+                                <div class="col-md-9">
+                                    <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.Tags">
+                                <span class="col-md-3">{{lbl.tags}}</span>
+                                <div class="col-md-9">
+                                    <span ng-bind-html="package.Tags"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.LastUpdated">
+                                <span class="col-md-3">{{lbl.date}}</span>
+                                <div class="col-md-9">
+                                    <span ng-bind-html="package.LastUpdated"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.DownloadCount">
+                                <span class="col-md-3">{{lbl.downloads}}</span>
+                                <div class="col-md-9">{{package.DownloadCount}}</div>
+                            </div>
+                        </div>
+                        <hr />
+                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
+                            <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                        </a>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
                 </div>
             </div>
         </div>
@@ -56,14 +57,12 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{lbl.customFields}}</h4>
                 </div>
-                <div class="modal-body modal-roles">
-                    <div class="well clearfix" data-ng-if="customFields.length > 0">
-                        <div class="form-horizontal">
-                            <div data-ng-repeat="item in customFields" class="form-group">
-                                <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
-                                <div class="col col-md-8">
-                                    <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
-                                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal form-customfiled" data-ng-if="customFields.length > 0">
+                        <div data-ng-repeat="item in customFields" class="form-group">
+                            <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
+                            <div class="col col-md-8">
+                                <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
                             </div>
                         </div>
                     </div>
@@ -81,7 +80,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>Add</a>
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>Add from Gallery</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
         </div>
