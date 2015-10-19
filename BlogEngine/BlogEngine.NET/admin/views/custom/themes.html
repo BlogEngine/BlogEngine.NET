@@ -1,4 +1,81 @@
 ﻿<div data-ng-controller="CustomController">
+
+    <div id="modal-info" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{package.Title}}</h4>
+                </div>
+                <div class="modal-body modal-roles">                  
+                    <div class="panel panel-default">
+                        <ul class="list-group ">
+                            <li class="list-group-item">
+                                <img ng-if="!package.PackageUrl" class="pkg-img" width="260" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                                <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
+                                    <img class="pkg-img" width="260" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <span ng-bind-html="package.Description"></span>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="fa fa-user"></i> {{lbl.author}}
+                                <span ng-bind-html="package.Authors"></span>
+                            </li>
+                            <li class="list-group-item" ng-if="package.Website">
+                                <span><i class="fa fa-link"></i> {{lbl.website}}:</span>
+                                <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
+                            </li>
+                            <li class="list-group-item" ng-if="package.Tags">
+                                <span class="control-label"><i class="fa fa-tags"></i> {{lbl.tags}}: </span>
+                                <span ng-bind-html="package.Tags"></span>
+                            </li>
+                            <li class="list-group-item" ng-if="package.LastUpdated">
+                                <span class="control-label"><i class="fa fa-calendar"></i> {{lbl.date}}: </span>
+                                <span ng-bind-html="package.LastUpdated"></span>
+                            </li>
+                            <li class="list-group-item" ng-if="package.DownloadCount">
+                                <span class="control-label"><i class="fa fa-download"></i> {{lbl.downloads}}: </span>
+                                <span>{{package.DownloadCount}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-settings" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{lbl.customFields}}</h4>
+                </div>
+                <div class="modal-body modal-roles">
+                    <div class="well clearfix" data-ng-if="customFields.length > 0">
+                        <div class="form-horizontal">
+                            <div data-ng-repeat="item in customFields" class="form-group">
+                                <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
+                                <div class="col col-md-8">
+                                    <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <button data-ng-if="customFields.length > 0" data-ng-click="save()" class="btn btn-success btn-header pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
@@ -27,8 +104,8 @@
                         <div class="pull-left item-title">{{item.Title}}</div>
                         <div class="item-buttons pull-right">
                             <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-hasicon btn-default"><i class="fa fa-check"></i> {{lbl.active}}</button>
-                            <a class="btn btn-sm btn-hasicon btn-default" ng-if="item.Id === activeTheme" href="#/custom/package?id={{item.Id}}"><i class="fa fa-sliders"></i> customize</a>
-                            <a class="btn btn-sm btn-icon btn-default" href="#/custom/package?id={{item.Id}}" angular-tooltip title="Information"><i class="fa fa-info-circle"></i></a>
+                            <a class="btn btn-sm btn-hasicon btn-default" ng-if="item.Id === activeTheme" href="" ng-click="showSettings(item.Id)"><i class="fa fa-sliders"></i> customize</a>
+                            <a class="btn btn-sm btn-icon btn-default" href="" ng-click="showInfo(item.Id)" angular-tooltip title="Information"><i class="fa fa-info-circle"></i></a>
                         </div>
                     </div>
                     <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>

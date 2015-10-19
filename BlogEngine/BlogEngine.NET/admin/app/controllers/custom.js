@@ -65,25 +65,26 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
 
     $scope.loadCustomFields = function (id) {
         $scope.editId = id;
-        $scope.extEditSrc = SiteVars.RelativeWebRoot + "admin/Extensions/Settings.aspx?ext=" + id + "&enb=False";
-        $scope.customFields = [];
+        //$scope.extEditSrc = SiteVars.RelativeWebRoot + "admin/Extensions/Settings.aspx?ext=" + id + "&enb=False";
+        //$scope.customFields = [];
 
-        for (var i = 0, len = $scope.items.length; i < len; i++) {
-            if ($scope.items[i].Id === id) {
-                angular.copy($scope.items[i], $scope.package);
+        //for (var i = 0, len = $scope.items.length; i < len; i++) {
+        //    if ($scope.items[i].Id === id) {
+        //        angular.copy($scope.items[i], $scope.package);
 
-                if ($scope.package) {
-                    $scope.removeEmptyReviews();
+        //        if ($scope.package) {
+        //            $scope.removeEmptyReviews();
 
-                    if($scope.package.SettingsUrl){
-                        $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
-                    }
-                }
-            }
-        }
+        //            if($scope.package.SettingsUrl){
+        //                $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
+        //            }
+        //        }
+        //    }
+        //}
         dataService.getItems('/api/customfields', { filter: 'CustomType == "THEME" && ObjectId == "' + id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
+            $("#modal-settings").modal();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingCustomFields);
@@ -208,6 +209,27 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         $scope.sortingOrder = ord;
         $scope.reverse = true;
         $scope.load();
+    }
+
+    $scope.showSettings = function (id) {
+        $scope.loadCustomFields(id);   
+    }
+
+    $scope.showInfo = function (id) {
+        for (var i = 0, len = $scope.items.length; i < len; i++) {
+            if ($scope.items[i].Id === id) {
+                angular.copy($scope.items[i], $scope.package);
+
+                if ($scope.package) {
+                    //$scope.removeEmptyReviews();
+
+                    if($scope.package.SettingsUrl){
+                        $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
+                    }
+                }
+            }
+        }
+        $("#modal-info").modal();
     }
 
     $scope.load();
