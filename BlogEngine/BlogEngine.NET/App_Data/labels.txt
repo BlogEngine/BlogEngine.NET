@@ -665,6 +665,7 @@ theComment
 theme
 themeCookieName
 themes
+theNew
 thePost
 thereAreXDrafts
 theValuesSaved

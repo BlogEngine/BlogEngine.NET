@@ -3,7 +3,7 @@
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.pages}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
         </h2>
-        <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
+        <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div class="btn-group befdv pull-left">
             <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
             <a ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.unpublish"><i class="fa fa-archive"></i></a>

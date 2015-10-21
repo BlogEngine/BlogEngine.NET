@@ -555,6 +555,7 @@ namespace BlogEngine.Core.Web
             AddResource("moveWidgetTo");
             AddResource("myProfile");
             AddResource("name");
+            AddResource("theNew");
             AddResource("never");
             AddResource("newAndConfirmPasswordMismatch");
             AddResource("newCategory");

@@ -76,7 +76,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             Plugins <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</a>
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=plugin" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <a ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
             <a ng-click="processChecked('disable')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.disable"><i class="fa fa-close"></i></a>

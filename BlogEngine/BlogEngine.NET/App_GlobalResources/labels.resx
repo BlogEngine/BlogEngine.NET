@@ -2543,4 +2543,7 @@
   <data name="userNewsletter" xml:space="preserve">
     <value>Members</value>
   </data>
+  <data name="theNew" xml:space="preserve">
+    <value>New</value>
+  </data>
 </root>

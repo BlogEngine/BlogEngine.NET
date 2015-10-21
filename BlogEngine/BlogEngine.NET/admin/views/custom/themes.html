@@ -80,7 +80,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
         </h2>
-        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>Add from Gallery</a>
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
         </div>

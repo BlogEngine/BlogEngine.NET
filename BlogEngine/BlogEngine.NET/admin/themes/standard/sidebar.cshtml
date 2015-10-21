@@ -1,20 +1,20 @@
 ﻿@using BlogEngine.Core
-@using BlogEngine.Core.Data.Services
 @{
     var name = Security.CurrentUser.Identity.Name;
-    var email = Membership.Provider.GetUser(name, true).Email;
-    var profile = AuthorProfile.GetProfile(name);
+    var src = Utils.ApplicationRelativeWebRoot + "Content/images/blog/noavatar.jpg";
+    var displayName = "Anonymous";
 
-    var src = profile.PhotoUrl;
-    if (string.IsNullOrEmpty(src))
+    var profile = AuthorProfile.GetProfile(name);
+    if (profile != null && !string.IsNullOrEmpty(profile.PhotoUrl))
     {
-        src = Avatar.GetSrc(email);
+        src = profile.PhotoUrl;
+        displayName = profile.DisplayName;
     }
 }
 <div class="user-nav">
     <img src="@src" />
     <div class="user-nav-info">
-        <div class="user-nav-name"><a href="~/admin/#/security/profile">@profile.DisplayName</a></div>
+        <div class="user-nav-name"><a href="~/admin/#/security/profile">@displayName</a></div>
         <ul class="user-nav-options">
             <li><a href="~/" target="_blank"><i class="fa fa-globe"></i> View Blog</a></li>
             <li><a href="~/Account/login.aspx?logoff"><i class="fa fa-sign-out"></i> Sign Out</a></li>
