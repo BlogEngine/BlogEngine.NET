@@ -65,22 +65,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
 
     $scope.loadCustomFields = function (id) {
         $scope.editId = id;
-        //$scope.extEditSrc = SiteVars.RelativeWebRoot + "admin/Extensions/Settings.aspx?ext=" + id + "&enb=False";
-        //$scope.customFields = [];
 
-        //for (var i = 0, len = $scope.items.length; i < len; i++) {
-        //    if ($scope.items[i].Id === id) {
-        //        angular.copy($scope.items[i], $scope.package);
-
-        //        if ($scope.package) {
-        //            $scope.removeEmptyReviews();
-
-        //            if($scope.package.SettingsUrl){
-        //                $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
-        //            }
-        //        }
-        //    }
-        //}
         dataService.getItems('/api/customfields', { filter: 'CustomType == "THEME" && ObjectId == "' + id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
@@ -198,11 +183,50 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         });
     }
 
+    $scope.setPriority = function (upDown) {
+        if (upDown == 'up') {
+            $scope.package.Priority++;
+        }
+        else {
+            if ($scope.package.Priority > 0) {
+                $scope.package.Priority--;
+            }
+        }
+        $scope.save();
+    }
+
+    $scope.submitRating = function () {
+        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
+        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
+
+        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
+        .success(function (data) {
+            //if (data != null) {
+            //    data = JSON.parse(data);
+            //}
+            if (data.length === 0) {
+                toastr.success($rootScope.lbl.completed);
+            }
+            else {
+                toastr.error(data);
+            }
+            $("#modal-info").modal("hide");
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $("#modal-info").modal("hide");
+        });
+    }
+
     $scope.checkStar = function (item, rating) {
         if (item === rating) {
             return true;
         }
         return false;
+    }
+
+    $scope.setRating = function (rating) {
+        $scope.selectedRating = rating;
     }
 
     $scope.sortBy = function (ord) {
@@ -224,8 +248,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
                 angular.copy($scope.items[i], $scope.package);
 
                 if ($scope.package) {
-                    //$scope.removeEmptyReviews();
-
                     if($scope.package.SettingsUrl){
                         $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
                     }
@@ -241,8 +263,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
                 angular.copy($scope.items[i], $scope.package);
 
                 if ($scope.package) {
-                    //$scope.removeEmptyReviews();
-
                     if($scope.package.SettingsUrl){
                         $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
                     }
@@ -253,20 +273,36 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.showPluginInfo = function (id) {
-        for (var i = 0, len = $scope.items.length; i < len; i++) {
-            if ($scope.items[i].Id === id) {
-                angular.copy($scope.items[i], $scope.package);
+        dataService.getItems('/api/packages/' + id)
+        .success(function (data) {
+            angular.copy(data, $scope.package);
+            $scope.selectedRating = $scope.package.Rating;
 
-                if ($scope.package) {
-                    //$scope.removeEmptyReviews();
+            $scope.extEditSrc = SiteVars.RelativeWebRoot + "admin/Extensions/Settings.aspx?ext=" + $scope.id + "&enb=False";
+            if ($scope.package.SettingsUrl) {
+                $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
+            }
+            $scope.removeEmptyReviews();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.errorLoadingPackages);
+            $scope.spin = false;
+        });
 
-                    if ($scope.package.SettingsUrl) {
-                        $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
-                    }
+        $("#modal-info").modal();
+    }
+
+    $scope.removeEmptyReviews = function () {
+        if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
+            var reviews = [];
+            for (var i = 0; i < $scope.package.Extra.Reviews.length; i++) {
+                var review = $scope.package.Extra.Reviews[i];
+                if (review.Body.length > 0) {
+                    reviews.push(review);
                 }
             }
+            $scope.package.Extra.Reviews = reviews;
         }
-        $("#modal-info").modal();
     }
 
     $scope.load();

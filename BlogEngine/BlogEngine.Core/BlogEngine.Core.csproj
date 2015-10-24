@@ -239,7 +239,6 @@
     <Compile Include="Services\Packaging\InstalledPackage.cs" />
     <Compile Include="Services\Packaging\Installer.cs" />
     <Compile Include="Services\Packaging\PackageFile.cs" />
-    <Compile Include="Services\Packaging\PackagingSource.cs" />
     <Compile Include="Services\Packaging\Pager.cs" />
     <Compile Include="Helpers\Pager.cs" />
     <Compile Include="Services\Messaging\Ping\Manager.cs" />

@@ -5,9 +5,12 @@
     var displayName = "Anonymous";
 
     var profile = AuthorProfile.GetProfile(name);
-    if (profile != null && !string.IsNullOrEmpty(profile.PhotoUrl))
+    if (profile != null)
     {
-        src = profile.PhotoUrl;
+        if (!string.IsNullOrEmpty(profile.PhotoUrl))
+        {
+            src = profile.PhotoUrl;
+        }
         displayName = profile.DisplayName;
     }
 }
