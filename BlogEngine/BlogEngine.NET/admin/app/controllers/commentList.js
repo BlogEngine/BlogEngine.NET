@@ -8,6 +8,7 @@
     $scope.focusInput = false;
 
     $scope.load = function () {
+        spinOn();
         dataService.getItems('/api/comments')
         .success(function (data) {
             angular.copy(data, $scope.vm);
@@ -23,9 +24,11 @@
             if ($scope.filter == 'spm') {
                 $scope.gridFilter('IsSpam', true, 'spm');
             }
+            spinOff();
         })
         .error(function (data) {
             toastr.error($rootScope.lbl.failed);
+            spinOff();
         });
     }
 

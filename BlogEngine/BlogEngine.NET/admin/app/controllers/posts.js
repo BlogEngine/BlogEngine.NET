@@ -7,6 +7,8 @@
     $scope.load = function () {
         var url = '/api/posts';
         var p = { take: 0, skip: 0 }
+
+        spinOn();
         dataService.getItems(url, p)
         .success(function (data) {
             angular.copy(data, $scope.items);
@@ -14,10 +16,11 @@
             if ($scope.filter) {
                 $scope.setFilter($scope.filter);
             }
-            rowSpinOff($scope.items);
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPosts);
+            spinOff();
         });
     }
 

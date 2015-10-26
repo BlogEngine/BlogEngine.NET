@@ -1,7 +1,7 @@
 ﻿<div data-ng-controller="CustomController">
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
-            {{lbl.gallery}} <i ng-if="spin" class="fa fa-spinner fa-spin"></i>
+            {{lbl.gallery}}
         </h2>
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
         <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>

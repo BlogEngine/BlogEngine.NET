@@ -124,8 +124,12 @@
         dataService.getItems('/api/dashboard')
         .success(function (data) {
             angular.copy(data, $scope.vm);
+            spinOff();
         })
-        .error(function (data) { toastr.success($rootScope.lbl.errorGettingStats); });
+        .error(function (data) {
+            toastr.success($rootScope.lbl.errorGettingStats);
+            spinOff();
+        });
     }
     $scope.loadPackages = function () {
         if (!$scope.security.showTabCustom) {

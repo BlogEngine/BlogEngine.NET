@@ -23,7 +23,6 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
     $scope.activeTheme = ActiveTheme;
-    $scope.spin = true;
     
     if ($location.path().indexOf("/custom/plugins") == 0) {
         $scope.fltr = 'extensions';
@@ -40,26 +39,24 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.load = function () {
-        $scope.spin = true;
+        spinOn();
         dataService.getItems('/api/packages', { take: 0, skip: 0, filter: $scope.fltr, order: 'LastUpdated desc' })
         .success(function (data) {
             angular.copy(data, $scope.items);
-
             gridInit($scope, $filter);
             if ($scope.galleryFilter) {
                 $scope.setFilter();
             }
-            $scope.spin = false;
-
             var pkgId = getFromQueryString('pkgId');
             if (pkgId != null) {
                 $scope.query = pkgId;
                 $scope.search();
             }
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
@@ -77,26 +74,25 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.save = function () {
-        $scope.spin = true;
+        spinOn();
 
         dataService.updateItem("/api/packages/update/foo", $scope.package)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
-            $scope.spin = false;
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            $scope.spin = false;
+            spinOff();
         });
 
         dataService.updateItem("/api/customfields", $scope.customFields)
         .success(function (data) {
             $scope.load();
-            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.updateFailed);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
@@ -117,44 +113,41 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.installPackage = function (pkgId) {
-        $scope.spin = true;
+        spinOn();
         dataService.updateItem("/api/packages/install/" + pkgId, pkgId)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
             $scope.load();
-            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
     $scope.uninstallPackage = function (pkgId) {
-        $scope.spin = true;
+        spinOn();
         dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
             $scope.load();
-            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
     $scope.refreshGalleryList = function () {
-        $scope.spin = true;
+        spinOn();
         dataService.updateItem("/api/packages/refresh/list", { })
         .success(function (data) {
             toastr.success($rootScope.lbl.completed);
-            $scope.spin = false;
             $scope.load();
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
@@ -168,18 +161,17 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
     }
 
     $scope.setDefaultTheme = function (id) {
-        $scope.spin = true;
+        spinOn();
         dataService.updateItem("/api/packages/settheme/" + id, id)
         .success(function (data) {
             ActiveTheme = id;
             $scope.activeTheme = id;
             toastr.success($rootScope.lbl.completed);
             $scope.load();
-            $scope.spin = false;
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);
-            $scope.spin = false;
+            spinOff();
         });
     }
 
@@ -286,9 +278,7 @@ angular.module('blogAdmin').controller('CustomController', ["$rootScope", "$scop
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
-            $scope.spin = false;
         });
-
         $("#modal-info").modal();
     }
 

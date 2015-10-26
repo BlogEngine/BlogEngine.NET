@@ -190,9 +190,11 @@
         dataService.getItems('/api/customfields', { filter: 'CustomType == "PAGE" && ObjectId == "' + $scope.page.Id + '"' })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingCustomFields);
+            spinOff();
         });
     }
 

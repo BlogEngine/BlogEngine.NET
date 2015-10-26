@@ -55,13 +55,13 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 function spinOn() {
-    $("#spinner").removeClass("loaded");
-    $("#spinner").addClass("loading");
+    $("#ng-view").hide();
+    $("#global-loading").show();
 }
 
 function spinOff() {
-    $("#spinner").removeClass("loading");
-    $("#spinner").addClass("loaded");
+    $("#ng-view").show();
+    $("#global-loading").hide();
 }
 
 function loading(id) {
