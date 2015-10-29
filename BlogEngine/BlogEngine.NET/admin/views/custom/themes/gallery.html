@@ -1,4 +1,55 @@
-﻿<div data-ng-controller="CustomController">
+﻿<div data-ng-controller="CustomThemesController">
+
+    <div id="modal-info" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{package.Title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-theme-info">
+                        <p ng-bind-html="package.Description"></p>
+                        <hr />
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <span class="col-md-3">{{lbl.author}}</span>
+                                <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div>
+                            </div>
+                            <div class="form-group" ng-if="package.Website">
+                                <span class="col-md-3">{{lbl.website}}</span>
+                                <div class="col-md-9">
+                                    <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.Tags">
+                                <span class="col-md-3">{{lbl.tags}}</span>
+                                <div class="col-md-9">
+                                    <span ng-bind-html="package.Tags"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.LastUpdated">
+                                <span class="col-md-3">{{lbl.date}}</span>
+                                <div class="col-md-9">
+                                    <span ng-bind-html="package.LastUpdated"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-if="package.DownloadCount">
+                                <span class="col-md-3">{{lbl.downloads}}</span>
+                                <div class="col-md-9">{{package.DownloadCount}}</div>
+                            </div>
+                        </div>
+                        <hr />
+                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
+                            <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.gallery}}
@@ -35,7 +86,7 @@
                         </div>
                         <div class="item-buttons">
                             <a ng-click="installPackage(item.Id)" class="btn btn-sm btn-default btn-left" angular-tooltip tooltip="lbl.download"><i class="fa fa-download"></i></a>
-                            <a href="#/custom/package?id={{item.Id}}" class="btn btn-sm btn-default btn-right" angular-tooltip tooltip="lbl.view"><i class="fa fa-info-circle"></i></a>
+                            <a href="" ng-click="showInfo(item.Id)" class="btn btn-sm btn-default btn-right" angular-tooltip tooltip="lbl.view"><i class="fa fa-info-circle"></i></a>
                             <!--
                     <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
                     <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>

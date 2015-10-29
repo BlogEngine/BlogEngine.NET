@@ -119,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\account.master" />
+    <Content Include="admin\app\controllers\customPlugins.js" />
+    <Content Include="admin\app\controllers\customThemes.js" />
     <Content Include="admin\themes\standard\css\01.main.css" />
     <Content Include="admin\themes\standard\css\02.nav.css" />
     <Content Include="admin\themes\standard\css\03.header.css" />
@@ -133,6 +135,10 @@
     <Content Include="admin\themes\standard\css\12.comments.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
+    <Content Include="admin\views\custom\plugins\gallery.html" />
+    <Content Include="admin\views\custom\plugins\local.html" />
+    <Content Include="admin\views\custom\themes\gallery.html" />
+    <Content Include="admin\views\custom\themes\local.html" />
     <Content Include="App_Data\posts\f39c3289-e861-48f7-a4b7-edaaffe6f6dc.xml" />
     <Content Include="Content\images\blog\icon-left.svg" />
     <Content Include="Content\images\blog\icon-pass.svg" />
@@ -145,7 +151,6 @@
     <Content Include="admin\app\editor-helpers.js" />
     <Content Include="admin\app\controllers\help.js" />
     <Content Include="admin\app\listpager.js" />
-    <Content Include="admin\app\controllers\custom.js" />
     <Content Include="admin\app\controllers\package.js" />
     <Content Include="admin\app\controllers\pageEditor.js" />
     <Content Include="admin\app\controllers\pings.js" />
@@ -254,8 +259,6 @@
     <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\about.cshtml" />
     <Content Include="admin\views\content\filters.html" />
-    <Content Include="admin\views\custom\gallery.html" />
-    <Content Include="admin\views\custom\package.html" />
     <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
@@ -1564,8 +1567,6 @@
     <Content Include="admin\views\content\pages.html" />
     <Content Include="admin\views\content\posts.html" />
     <Content Include="admin\views\content\tags.html" />
-    <Content Include="admin\views\custom\plugins.html" />
-    <Content Include="admin\views\custom\themes.html" />
     <Content Include="admin\views\custom\widgets.html" />
     <Content Include="admin\views\dashboard.html" />
     <Content Include="admin\views\settings\advanced.html" />
@@ -2234,6 +2235,7 @@
     </Compile>
     <Compile Include="Custom\Themes\Standard-minimal\site.master.cs">
       <DependentUpon>site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Custom\Themes\Standard-minimal\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>

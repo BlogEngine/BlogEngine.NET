@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="CustomController">
+﻿<div data-ng-controller="CustomThemesController">
 
     <div id="modal-info" class="modal fade">
         <div class="modal-dialog">
@@ -80,7 +80,7 @@
             <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
             {{lbl.themes}}
         </h2>
-        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/gallery?ftr=theme" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
+        <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes/gallery" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
         </div>
@@ -107,9 +107,6 @@
                             <a class="btn btn-sm btn-icon btn-default" href="" ng-click="showInfo(item.Id)" angular-tooltip title="Information"><i class="fa fa-info-circle"></i></a>
                         </div>
                     </div>
-                    <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                    <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
                 </div>
             </div>
         </div>
