@@ -119,8 +119,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\account.master" />
-    <Content Include="admin\app\controllers\customPlugins.js" />
-    <Content Include="admin\app\controllers\customThemes.js" />
+    <Content Include="admin\app\custom\plugins\pluginsController.js" />
+    <Content Include="admin\app\custom\plugins\pluginsGallery.html" />
+    <Content Include="admin\app\custom\plugins\pluginsList.html" />
+    <Content Include="admin\app\custom\themes\themesController.js" />
+    <Content Include="admin\app\custom\themes\themesGallery.html" />
+    <Content Include="admin\app\custom\themes\themesList.html" />
+    <Content Include="admin\app\custom\widgets\widgetsList.html" />
     <Content Include="admin\themes\standard\css\01.main.css" />
     <Content Include="admin\themes\standard\css\02.nav.css" />
     <Content Include="admin\themes\standard\css\03.header.css" />
@@ -135,10 +140,6 @@
     <Content Include="admin\themes\standard\css\12.comments.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
-    <Content Include="admin\views\custom\plugins\gallery.html" />
-    <Content Include="admin\views\custom\plugins\local.html" />
-    <Content Include="admin\views\custom\themes\gallery.html" />
-    <Content Include="admin\views\custom\themes\local.html" />
     <Content Include="App_Data\posts\f39c3289-e861-48f7-a4b7-edaaffe6f6dc.xml" />
     <Content Include="Content\images\blog\icon-left.svg" />
     <Content Include="Content\images\blog\icon-pass.svg" />
@@ -1567,7 +1568,6 @@
     <Content Include="admin\views\content\pages.html" />
     <Content Include="admin\views\content\posts.html" />
     <Content Include="admin\views\content\tags.html" />
-    <Content Include="admin\views\custom\widgets.html" />
     <Content Include="admin\views\dashboard.html" />
     <Content Include="admin\views\settings\advanced.html" />
     <Content Include="admin\views\settings\basic.html" />

@@ -13,11 +13,11 @@
         .when("/content/tags", { templateUrl: "views/content/tags.html" })
         .when("/content/comments/filters", { templateUrl: "views/content/filters.html" })
 
-        .when("/custom/plugins", { templateUrl: "views/custom/plugins/local.html" })
-        .when("/custom/plugins/gallery", { templateUrl: "views/custom/plugins/gallery.html" })
-        .when("/custom/themes", { templateUrl: "views/custom/themes/local.html" })
-        .when("/custom/themes/gallery", { templateUrl: "views/custom/themes/gallery.html" })
-        .when("/custom/widgets", { templateUrl: "views/custom/widgets.html" })
+        .when("/custom/plugins", { templateUrl: "app/custom/plugins/pluginsList.html" })
+        .when("/custom/plugins/gallery", { templateUrl: "app/custom/plugins/pluginsGallery.html" })
+        .when("/custom/themes", { templateUrl: "app/custom/themes/themesList.html" })
+        .when("/custom/themes/gallery", { templateUrl: "app/custom/themes/themesGallery.html" })
+        .when("/custom/widgets", { templateUrl: "app/custom/widgets/widgetsList.html" })
 
         .when("/security/profile", { templateUrl: "views/security/profile.html" })
         .when("/security/roles", { templateUrl: "views/security/roles.html" })

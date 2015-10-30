@@ -140,8 +140,8 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/controllers/commentFilters.js")
                 .Include("~/admin/app/controllers/blogRoll.js")
                 .Include("~/admin/app/controllers/pings.js")
-                .Include("~/admin/app/controllers/customThemes.js")
-                .Include("~/admin/app/controllers/customPlugins.js")
+                .Include("~/admin/app/custom/plugins/pluginsController.js")
+                .Include("~/admin/app/custom/themes/themesController.js")
                 .Include("~/admin/app/controllers/package.js")
                 .Include("~/admin/app/controllers/common.js")               
                 );
