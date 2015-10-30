@@ -95,6 +95,29 @@
         $scope.selectedRating = rating;
     }
 
+    $scope.submitRating = function () {
+        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
+        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
+
+        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
+        .success(function (data) {
+            //if (data != null) {
+            //    data = JSON.parse(data);
+            //}
+            if (data.length === 0) {
+                toastr.success($rootScope.lbl.completed);
+            }
+            else {
+                toastr.error(data);
+            }
+            $("#modal-info").modal("hide");
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $("#modal-info").modal("hide");
+        });
+    }
+
     $scope.setPriority = function (upDown) {
         if (upDown == 'up') {
             $scope.package.Priority++;

@@ -40,17 +40,15 @@
     }
 
     $scope.showInfo = function (id) {
-        for (var i = 0, len = $scope.items.length; i < len; i++) {
-            if ($scope.items[i].Id === id) {
-                angular.copy($scope.items[i], $scope.package);
-
-                if ($scope.package) {
-                    if ($scope.package.SettingsUrl) {
-                        $scope.extEditSrc = $scope.package.SettingsUrl.replace("~/", SiteVars.RelativeWebRoot);
-                    }
-                }
-            }
-        }
+        dataService.getItems('/api/packages/' + id)
+        .success(function (data) {
+            angular.copy(data, $scope.package);
+            $scope.selectedRating = $scope.package.Rating;
+            $scope.removeEmptyReviews();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.errorLoadingPackages);
+        });
         $("#modal-info").modal();
     }
 
@@ -102,6 +100,29 @@
         $scope.selectedRating = rating;
     }
 
+    $scope.submitRating = function () {
+        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
+        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
+
+        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
+        .success(function (data) {
+            //if (data != null) {
+            //    data = JSON.parse(data);
+            //}
+            if (data.length === 0) {
+                toastr.success($rootScope.lbl.completed);
+            }
+            else {
+                toastr.error(data);
+            }
+            $("#modal-info").modal("hide");
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $("#modal-info").modal("hide");
+        });
+    }
+
     $scope.sortBy = function (ord) {
         $scope.sortingOrder = ord;
         $scope.reverse = true;
@@ -136,6 +157,19 @@
             toastr.error($rootScope.lbl.failed);
             spinOff();
         });
+    }
+
+    $scope.removeEmptyReviews = function () {
+        if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
+            var reviews = [];
+            for (var i = 0; i < $scope.package.Extra.Reviews.length; i++) {
+                var review = $scope.package.Extra.Reviews[i];
+                if (review.Body.length > 0) {
+                    reviews.push(review);
+                }
+            }
+            $scope.package.Extra.Reviews = reviews;
+        }
     }
 
     $scope.load();
