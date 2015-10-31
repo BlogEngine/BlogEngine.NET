@@ -133,12 +133,16 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/content/comments/commentController.js")
                 .Include("~/admin/app/content/comments/commentFilters.js")
 
+                .Include("~/admin/app/security/users/userController.js")
+                .Include("~/admin/app/security/roles/roleController.js")
+                .Include("~/admin/app/security/profile/profileController.js")
+
                 .Include("~/admin/app/controllers/help.js")
                 .Include("~/admin/app/controllers/about.js")
-                .Include("~/admin/app/controllers/fileManager.js")               
-                .Include("~/admin/app/controllers/users.js")
-                .Include("~/admin/app/controllers/roles.js")
-                .Include("~/admin/app/controllers/profile.js")
+                .Include("~/admin/app/controllers/fileManager.js")  
+                             
+                
+
                 .Include("~/admin/app/controllers/settings.js")
                 .Include("~/admin/app/controllers/tools.js")
                 

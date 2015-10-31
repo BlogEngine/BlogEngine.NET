@@ -19,9 +19,9 @@
         .when("/custom/themes/gallery", { templateUrl: "app/custom/themes/themesGallery.html" })
         .when("/custom/widgets", { templateUrl: "app/custom/widgets/widgetsList.html" })
 
-        .when("/security/profile", { templateUrl: "views/security/profile.html" })
-        .when("/security/roles", { templateUrl: "views/security/roles.html" })
-        .when("/security/users", { templateUrl: "views/security/users.html" })
+        .when("/security/profile", { templateUrl: "app/security/profile/profileView.html" })
+        .when("/security/roles", { templateUrl: "app/security/roles/roleView.html" })
+        .when("/security/users", { templateUrl: "app/security/users/userView.html" })
 
         .when("/settings/basic", { templateUrl: "views/settings/basic.html" })
         .when("/settings/feed", { templateUrl: "views/settings/feed.html" })

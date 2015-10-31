@@ -1560,11 +1560,11 @@
     <Content Include="admin\app\controllers\dashboard.js" />
     <Content Include="admin\app\content\pages\pageController.js" />
     <Content Include="admin\app\content\posts\postController.js" />
-    <Content Include="admin\app\controllers\profile.js" />
-    <Content Include="admin\app\controllers\roles.js" />
+    <Content Include="admin\app\security\profile\profileController.js" />
+    <Content Include="admin\app\security\roles\roleController.js" />
     <Content Include="admin\app\controllers\settings.js" />
     <Content Include="admin\app\content\tags\tagController.js" />
-    <Content Include="admin\app\controllers\users.js" />
+    <Content Include="admin\app\security\users\userController.js" />
     <Content Include="admin\Extensions\Settings.ascx" />
     <Content Include="admin\Extensions\Settings.aspx" />
     <Content Include="admin\menu.ascx" />
@@ -1573,9 +1573,9 @@
     <Content Include="admin\views\settings\basic.html" />
     <Content Include="admin\views\settings\email.html" />
     <Content Include="admin\views\settings\feed.html" />
-    <Content Include="admin\views\security\users.html" />
-    <Content Include="admin\views\security\profile.html" />
-    <Content Include="admin\views\security\roles.html" />
+    <Content Include="admin\app\security\users\userView.html" />
+    <Content Include="admin\app\security\profile\profileView.html" />
+    <Content Include="admin\app\security\roles\roleView.html" />
     <Content Include="admin\WidgetEditor.aspx" />
     <Content Include="App_Data\blogroll.xml" />
     <Content Include="App_Data\blogs.xml" />
