@@ -3,42 +3,35 @@
 
     var config = ["$routeProvider", function ($routeProvider) {
         $routeProvider
-        .when("/", { templateUrl: "views/dashboard.html" })
+        .when("/", { templateUrl: "app/dashboard/dashboardView.html" })
         
-        .when("/content/posts", { templateUrl: "app/content/posts/postList.html" })
-        .when("/content/blogs", { templateUrl: "app/content/blogs/blogList.html" })
-        .when("/content/comments", { templateUrl: "app/content/comments/commentList.html" })
+        .when("/content/posts", { templateUrl: "app/content/posts/postView.html" })
+        .when("/content/blogs", { templateUrl: "app/content/blogs/blogView.html" })
+        .when("/content/comments", { templateUrl: "app/content/comments/commentView.html" })
         .when("/content/comments/filters", { templateUrl: "app/content/comments/commentFilters.html" })
-        .when("/content/pages", { templateUrl: "app/content/pages/pageList.html" })
-        .when("/content/categories", { templateUrl: "app/content/categories/categoryList.html" })
-        .when("/content/tags", { templateUrl: "app/content/tags/tagList.html" })
+        .when("/content/pages", { templateUrl: "app/content/pages/pageView.html" })
+        .when("/content/categories", { templateUrl: "app/content/categories/categoryView.html" })
+        .when("/content/tags", { templateUrl: "app/content/tags/tagView.html" })
 
-        .when("/custom/plugins", { templateUrl: "app/custom/plugins/pluginsList.html" })
-        .when("/custom/plugins/gallery", { templateUrl: "app/custom/plugins/pluginsGallery.html" })
-        .when("/custom/themes", { templateUrl: "app/custom/themes/themesList.html" })
-        .when("/custom/themes/gallery", { templateUrl: "app/custom/themes/themesGallery.html" })
-        .when("/custom/widgets", { templateUrl: "app/custom/widgets/widgetsList.html" })
+        .when("/custom/plugins", { templateUrl: "app/custom/plugins/pluginView.html" })
+        .when("/custom/plugins/gallery", { templateUrl: "app/custom/plugins/pluginGallery.html" })
+        .when("/custom/themes", { templateUrl: "app/custom/themes/themeView.html" })
+        .when("/custom/themes/gallery", { templateUrl: "app/custom/themes/themeGallery.html" })
+        .when("/custom/widgets", { templateUrl: "app/custom/widgets/widgetView.html" })
 
         .when("/security/profile", { templateUrl: "app/security/profile/profileView.html" })
         .when("/security/roles", { templateUrl: "app/security/roles/roleView.html" })
         .when("/security/users", { templateUrl: "app/security/users/userView.html" })
 
-        .when("/settings/basic", { templateUrl: "views/settings/basic.html" })
-        .when("/settings/feed", { templateUrl: "views/settings/feed.html" })
-        .when("/settings/email", { templateUrl: "views/settings/email.html" })
-        .when("/settings/comments", { templateUrl: "views/settings/comments.html" })
-        .when("/settings/controls", { templateUrl: "views/settings/controls.html" })
-        .when("/settings/advanced", { templateUrl: "views/settings/advanced.html" })
-
-        .when("/settings/theme", { templateUrl: "views/settings/theme.html" })
-
-        .when("/settings/controls/blogroll", { templateUrl: "views/settings/controls/blogroll.html" })
-        .when("/settings/controls/pings", { templateUrl: "views/settings/controls/pings.html" })
-
-        .when("/settings/tools", { templateUrl: "views/settings/tools/check.html" })
-
-        .when("/help", { templateUrl: "views/help/index.html" })
-        .when("/about", { templateUrl: "views/about/index.html" })
+        .when("/settings/basic", { templateUrl: "app/settings/basicView.html" })
+        .when("/settings/feed", { templateUrl: "app/settings/feedView.html" })
+        .when("/settings/email", { templateUrl: "app/settings/emailView.html" })
+        .when("/settings/comments", { templateUrl: "app/settings/commentView.html" })
+        .when("/settings/controls", { templateUrl: "app/settings/controlView.html" })
+        .when("/settings/advanced", { templateUrl: "app/settings/advancedView.html" })
+        .when("/settings/controls/blogroll", { templateUrl: "app/settings/controls/blogrollView.html" })
+        .when("/settings/controls/pings", { templateUrl: "app/settings/controls/pingView.html" })
+        .when("/settings/tools", { templateUrl: "app/settings/tools/checkView.html" })
 
         .otherwise({ redirectTo: "/" });
     }];

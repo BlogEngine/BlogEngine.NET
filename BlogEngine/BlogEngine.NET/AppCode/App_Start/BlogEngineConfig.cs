@@ -117,13 +117,16 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/Q.js")
                 .Include("~/Scripts/angular.min.js")
                 .Include("~/Scripts/angular-route.min.js")
-                .Include("~/Scripts/angular-sanitize.min.js")             
-                .Include("~/admin/app.js")
+                .Include("~/Scripts/angular-sanitize.min.js") 
+                            
+                .Include("~/admin/app/app.js")
                 .Include("~/admin/app/listpager.js")
                 .Include("~/admin/app/grid-helpers.js")
                 .Include("~/admin/app/data-service.js")
+                .Include("~/admin/app/fileManager.js")
+                .Include("~/admin/app/common.js")
 
-                .Include("~/admin/app/controllers/dashboard.js")
+                .Include("~/admin/app/dashboard/dashboardController.js")
 
                 .Include("~/admin/app/content/blogs/blogController.js")
                 .Include("~/admin/app/content/posts/postController.js")
@@ -133,25 +136,17 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/content/comments/commentController.js")
                 .Include("~/admin/app/content/comments/commentFilters.js")
 
+                .Include("~/admin/app/custom/plugins/pluginController.js")
+                .Include("~/admin/app/custom/themes/themeController.js")
+
                 .Include("~/admin/app/security/users/userController.js")
                 .Include("~/admin/app/security/roles/roleController.js")
                 .Include("~/admin/app/security/profile/profileController.js")
 
-                .Include("~/admin/app/controllers/help.js")
-                .Include("~/admin/app/controllers/about.js")
-                .Include("~/admin/app/controllers/fileManager.js")  
-                             
-                
-
-                .Include("~/admin/app/controllers/settings.js")
-                .Include("~/admin/app/controllers/tools.js")
-                
-                .Include("~/admin/app/controllers/blogRoll.js")
-                .Include("~/admin/app/controllers/pings.js")
-                .Include("~/admin/app/custom/plugins/pluginsController.js")
-                .Include("~/admin/app/custom/themes/themesController.js")
-                .Include("~/admin/app/controllers/package.js")
-                .Include("~/admin/app/controllers/common.js")               
+                .Include("~/admin/app/settings/settingController.js")
+                .Include("~/admin/app/settings/tools/toolController.js")
+                .Include("~/admin/app/settings/controls/blogrollController.js")
+                .Include("~/admin/app/settings/controls/pingController.js")      
                 );
 
             bundles.Add(
@@ -170,10 +165,10 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app.js")
                 .Include("~/admin/app/grid-helpers.js")
                 .Include("~/admin/app/editor-helpers.js")
-                .Include("~/admin/app/controllers/postEditor.js")
-                .Include("~/admin/app/controllers/pageEditor.js")
-                .Include("~/admin/app/controllers/fileManager.js")
-                .Include("~/admin/app/controllers/common.js")
+                .Include("~/admin/app/postEditor.js")
+                .Include("~/admin/app/pageEditor.js")
+                .Include("~/admin/app/fileManager.js")
+                .Include("~/admin/app/common.js")
                 .Include("~/admin/app/data-service.js")
                 );
 

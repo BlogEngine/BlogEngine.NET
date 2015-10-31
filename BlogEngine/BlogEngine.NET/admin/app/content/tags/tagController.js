@@ -18,7 +18,7 @@
         .success(function (data) {
             angular.copy(data, $scope.items);
             gridInit($scope, $filter);
-            rowSpinOff($scope.items);
+            spinOff();
         })
         .error(function (data) {
             toastr.success($rootScope.lbl.errorGettingTags);
