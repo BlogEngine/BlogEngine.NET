@@ -162,7 +162,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/scripts/bootstrap.js")
                 .Include("~/scripts/textext.js")
                 .Include("~/scripts/moment.js")
-                .Include("~/admin/app.js")
+                .Include("~/admin/app/app.js")
                 .Include("~/admin/app/grid-helpers.js")
                 .Include("~/admin/app/editor-helpers.js")
                 .Include("~/admin/app/postEditor.js")
