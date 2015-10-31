@@ -104,7 +104,7 @@
                     </div>
                     <ul class="list-group list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="post in vm.DraftPosts">
-                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpost.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{post.Title}}</a>
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/app/editor/editpost.cshtml?id={{post.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{post.Title}}</a>
                             <a title="{{post.Title}}" class="external-link" target="_new" href="{{post.RelativeLink}}"><i class="fa fa-external-link"></i></a>
                         </li>
                         <li ng-if="vm.DraftPosts.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
@@ -116,7 +116,7 @@
                     </div>
                     <ul class="list-group list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="page in vm.DraftPages">
-                            <a href="{{SiteVars.RelativeWebRoot}}admin/editpage.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{page.Title}}</a>
+                            <a href="{{SiteVars.RelativeWebRoot}}admin/app/editor/editpage.cshtml?id={{page.Id}}&returnUrl={{SiteVars.RelativeWebRoot}}admin/#/">{{page.Title}}</a>
                             <a title="{{page.Title}}" class="external-link" target="_new" href="{{SiteVars.RelativeWebRoot}}page/{{page.Slug}}"><i class="fa fa-external-link"></i></a>
                         </li>
                         <li ng-if="vm.DraftPages.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>

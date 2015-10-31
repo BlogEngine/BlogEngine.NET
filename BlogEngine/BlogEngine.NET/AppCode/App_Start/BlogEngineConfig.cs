@@ -123,7 +123,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/listpager.js")
                 .Include("~/admin/app/grid-helpers.js")
                 .Include("~/admin/app/data-service.js")
-                .Include("~/admin/app/fileManager.js")
+                .Include("~/admin/app/editor/filemanagerController.js")
                 .Include("~/admin/app/common.js")
 
                 .Include("~/admin/app/dashboard/dashboardController.js")
@@ -164,10 +164,10 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/scripts/moment.js")
                 .Include("~/admin/app/app.js")
                 .Include("~/admin/app/grid-helpers.js")
-                .Include("~/admin/app/editor-helpers.js")
-                .Include("~/admin/app/postEditor.js")
-                .Include("~/admin/app/pageEditor.js")
-                .Include("~/admin/app/fileManager.js")
+                .Include("~/admin/app/editor/editor-helpers.js")
+                .Include("~/admin/app/editor/posteditorController.js")
+                .Include("~/admin/app/editor/pageeditorController.js")
+                .Include("~/admin/app/editor/filemanagerController.js")
                 .Include("~/admin/app/common.js")
                 .Include("~/admin/app/data-service.js")
                 );
