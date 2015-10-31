@@ -5,13 +5,13 @@
         $routeProvider
         .when("/", { templateUrl: "views/dashboard.html" })
         
-        .when("/content/posts", { templateUrl: "views/content/posts.html" })
-        .when("/content/blogs", { templateUrl: "views/content/blogs.html" })
-        .when("/content/comments", { templateUrl: "views/content/comments.html" })
-        .when("/content/pages", { templateUrl: "views/content/pages.html" })
-        .when("/content/categories", { templateUrl: "views/content/categories.html" })
-        .when("/content/tags", { templateUrl: "views/content/tags.html" })
-        .when("/content/comments/filters", { templateUrl: "views/content/filters.html" })
+        .when("/content/posts", { templateUrl: "app/content/posts/postList.html" })
+        .when("/content/blogs", { templateUrl: "app/content/blogs/blogList.html" })
+        .when("/content/comments", { templateUrl: "app/content/comments/commentList.html" })
+        .when("/content/comments/filters", { templateUrl: "app/content/comments/commentFilters.html" })
+        .when("/content/pages", { templateUrl: "app/content/pages/pageList.html" })
+        .when("/content/categories", { templateUrl: "app/content/categories/categoryList.html" })
+        .when("/content/tags", { templateUrl: "app/content/tags/tagList.html" })
 
         .when("/custom/plugins", { templateUrl: "app/custom/plugins/pluginsList.html" })
         .when("/custom/plugins/gallery", { templateUrl: "app/custom/plugins/pluginsGallery.html" })

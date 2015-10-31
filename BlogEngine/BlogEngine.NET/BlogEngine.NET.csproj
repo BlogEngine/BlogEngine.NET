@@ -119,6 +119,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\account.master" />
+    <Content Include="admin\app\content\blogs\blogList.html" />
+    <Content Include="admin\app\content\categories\categoryList.html" />
+    <Content Include="admin\app\content\comments\commentList.html" />
+    <Content Include="admin\app\content\comments\commentFilters.html" />
+    <Content Include="admin\app\content\pages\pageList.html" />
+    <Content Include="admin\app\content\posts\postList.html" />
+    <Content Include="admin\app\content\tags\tagList.html" />
     <Content Include="admin\app\custom\plugins\pluginsController.js" />
     <Content Include="admin\app\custom\plugins\pluginsGallery.html" />
     <Content Include="admin\app\custom\plugins\pluginsList.html" />
@@ -148,7 +155,7 @@
     <Content Include="Account\Web.Config" />
     <Content Include="admin\app\controllers\about.js" />
     <Content Include="admin\app\grid-helpers.js" />
-    <Content Include="admin\app\controllers\commentFilters.js" />
+    <Content Include="admin\app\content\comments\commentFilters.js" />
     <Content Include="admin\app\editor-helpers.js" />
     <Content Include="admin\app\controllers\help.js" />
     <Content Include="admin\app\listpager.js" />
@@ -257,9 +264,7 @@
     <Content Include="admin\admin.master" />
     <Content Include="admin\index.cshtml" />
     <Content Include="admin\themes\standard\css\admin.css" />
-    <Content Include="admin\views\content\blogs.html" />
     <Content Include="admin\about.cshtml" />
-    <Content Include="admin\views\content\filters.html" />
     <Content Include="admin\views\settings\controls.html" />
     <Content Include="admin\views\settings\controls\blogroll.html" />
     <Content Include="admin\views\settings\controls\pings.html" />
@@ -1548,26 +1553,21 @@
     <Content Include="Account\password-retrieval.aspx" />
     <Content Include="Account\register.aspx" />
     <Content Include="admin\app.js" />
-    <Content Include="admin\app\controllers\blogList.js" />
-    <Content Include="admin\app\controllers\categories.js" />
-    <Content Include="admin\app\controllers\commentList.js" />
+    <Content Include="admin\app\content\blogs\blogController.js" />
+    <Content Include="admin\app\content\categories\categoryController.js" />
+    <Content Include="admin\app\content\comments\commentController.js" />
     <Content Include="admin\app\controllers\common.js" />
     <Content Include="admin\app\controllers\dashboard.js" />
-    <Content Include="admin\app\controllers\pages.js" />
-    <Content Include="admin\app\controllers\posts.js" />
+    <Content Include="admin\app\content\pages\pageController.js" />
+    <Content Include="admin\app\content\posts\postController.js" />
     <Content Include="admin\app\controllers\profile.js" />
     <Content Include="admin\app\controllers\roles.js" />
     <Content Include="admin\app\controllers\settings.js" />
-    <Content Include="admin\app\controllers\tags.js" />
+    <Content Include="admin\app\content\tags\tagController.js" />
     <Content Include="admin\app\controllers\users.js" />
     <Content Include="admin\Extensions\Settings.ascx" />
     <Content Include="admin\Extensions\Settings.aspx" />
     <Content Include="admin\menu.ascx" />
-    <Content Include="admin\views\content\categories.html" />
-    <Content Include="admin\views\content\comments.html" />
-    <Content Include="admin\views\content\pages.html" />
-    <Content Include="admin\views\content\posts.html" />
-    <Content Include="admin\views\content\tags.html" />
     <Content Include="admin\views\dashboard.html" />
     <Content Include="admin\views\settings\advanced.html" />
     <Content Include="admin\views\settings\basic.html" />
