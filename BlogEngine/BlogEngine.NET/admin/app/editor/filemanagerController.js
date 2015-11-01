@@ -19,7 +19,7 @@
                 angular.copy(data, $scope.items);
                 gridInit($scope, $filter);
                 $scope.currentPath = path ? path : $scope.rootStorage;
-                rowSpinOff($scope.items);
+                spinOff();
             })
             .error(function (data) {
                 toastr.error($rootScope.lbl.Error);
@@ -145,13 +145,4 @@
     }
 
     $scope.load('');
-
-    function rowSpinOff(items) {
-        if (items.length > 0) {
-            $('#tr-spinner').hide();
-        }
-        else {
-            $('#div-spinner').html(BlogAdmin.i18n.empty);
-        }
-    }
 }]);

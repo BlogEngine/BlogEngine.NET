@@ -133,7 +133,7 @@
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item clearfix" data-ng-repeat="pkg in packages">
-                            <a href="#/custom/package?id={{pkg.Id}}" class="item-link">
+                            <a href="" ng-click="getGalleryLink(pkg.PackageType, pkg.Id)" class="item-link">
                                 <img ng-if="pkg.IconUrl.length > 0" class="item-img" width="50" height="50" ng-src="{{pkg.IconUrl}}" />
                                 <img ng-if="pkg.IconUrl.length == 0" class="item-img" width="50" height="50" src="../Content/Images/blog/pkg.png" />
                                 <span class="item-title">{{pkg.Title}}</span>

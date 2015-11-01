@@ -12,7 +12,7 @@ angular.module('blogAdmin').controller('CommentFilterController', ["$rootScope",
             gridInit($scope, $filter);
             $('#txtFilter').val('');
             $('#txtFilter').focus();
-            rowSpinOff($scope.items);
+            spinOff();
             callback;
         })
         .error(function () {

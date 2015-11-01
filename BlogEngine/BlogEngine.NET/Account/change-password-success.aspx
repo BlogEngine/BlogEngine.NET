@@ -10,5 +10,9 @@
         <div id="ChangePwd" class="alert alert-success">
             <%=Resources.labels.passwordChangeSuccess %>
         </div>
+        <br />
+        <div class="btn-wrapper">
+	        <input type="button" class="btn btn-block btn-success" id="goHome" onclick="window.location.href='<%=BlogEngine.Core.Utils.RelativeWebRoot%>'" value="<%=Resources.labels.home %>" />
+        </div>
     </div>
 </asp:Content>

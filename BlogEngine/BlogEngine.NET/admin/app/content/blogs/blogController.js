@@ -35,7 +35,7 @@ angular.module('blogAdmin').controller('BlogListController', ["$rootScope", "$sc
             angular.copy(data, $scope.items);
             gridInit($scope, $filter);
             callback;
-            rowSpinOff($scope.items);
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingBlogs);

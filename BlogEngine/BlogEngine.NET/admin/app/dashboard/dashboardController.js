@@ -167,6 +167,15 @@
             }
         });
     }
+    $scope.getGalleryLink = function (tp, id) {
+        var lk = "#/custom/themes/gallery";
+        if(tp == "Extension"){
+            lk = "#/custom/plugins/gallery";
+        }
+        $(".nav-primary > li").removeClass("active");
+        $("#mu-custom").addClass("active");
+        window.location.href = lk + "?pkgId=" + id;
+    }
 
     $scope.load();
 
