@@ -107,40 +107,40 @@
     </div>
     <div class="page-header clearfix">
         <h2 class="page-title pull-left"> <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
-        {{lbl.blogs}}</h2>
-        <button data-ng-click="modalNew()" class="btn btn-success btn-header pull-left"><i class="fa fa-plus"></i>New</button>
+            {{lbl.blogs}}
+        </h2>
+        <button data-ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
         <div class="btn-group befdv pull-left">
             <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}" />
-            <i class="fa fa-times-circle"></i>
+            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
     </div>
     <div class="content-inner">
-        <table class="table table-responsive">
+        <table class="table table-item-post">
             <thead>
                 <tr>
-                    <th><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
-                    <th class="table-item-title table-item-w60"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
-                    <th class="hmax768">{{lbl.virtualPath}}</th>
-                    <th>{{lbl.primary}}</th>
-                    <th>{{lbl.active}}</th>
-                    <th class="hmax768">{{lbl.isForSiteAggregation}}</th>
+                    <th class="item-checkbox"><input type="checkbox" id="chkAll" ng-click="checkAll($event)" /></th>
+                    <th class="item-title"><a data-ng-click="sort_by('Title',$event)">{{lbl.title}}</a></th>
+                    <th class="item-author">{{lbl.virtualPath}}</th>
+                    <th class="item-state">{{lbl.primary}}</th>
+                    <th class="item-state">{{lbl.active}}</th>
+                    <th class="item-state">{{lbl.isForSiteAggregation}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                     <td><input type="checkbox" id="{{item.Slug}}" ng-model="item.IsChecked" data-ng-disabled="item.IsPrimary" /></td>
-                    <td class="table-item-title">
+                    <td class="item-title">
                         <a title="{{item.Name}}" href="" ng-click="modalEdit(item.Id)">{{item.Name}}</a>
                         <a title="{{item.Name}}" class="external-link pull-right" target="_blank" href="{{item.RelativeWebRoot}}"><i class="fa fa-external-link"></i></a>
                     </td>
-                    <td class="ltr-dir hmax768">{{item.VirtualPath}}</td>
-                    <td><input type="checkbox" ng-model="item.IsPrimary" data-ng-disabled="true" /></td>
-                    <td><input type="checkbox" ng-model="item.IsActive" data-ng-disabled="true" /></td>
-                    <td class="hmax768"><input type="checkbox" data-ng-model="item.IsSiteAggregation" data-ng-disabled="true"></td>
+                    <td class="item-author">{{item.VirtualPath}}</td>
+                    <td class="item-state"><input type="checkbox" ng-model="item.IsPrimary" data-ng-disabled="true" /></td>
+                    <td class="item-state"><input type="checkbox" ng-model="item.IsActive" data-ng-disabled="true" /></td>
+                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsSiteAggregation" data-ng-disabled="true"></td>
                 </tr>
                 <tr id="tr-spinner"><td colspan="6"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
             </tbody>

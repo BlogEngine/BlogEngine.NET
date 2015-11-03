@@ -86,32 +86,30 @@
             <h2 class="page-title pull-left">
                 {{lbl.blogroll}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
             </h2>
-            <a href="" ng-click="modalNew()" class="btn btn-success pull-left"><i class="fa fa-plus"></i>New</a>
+            <a href="" ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>New</a>
             <div class="btn-group befdv pull-left">
-                <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
+                <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
             </div>
         </div>
         <div class="content-inner">
-            <table class="table table-bordered table-striped table-hover table-responsive">
+            <table class="table table-item-blogroll">
                 <thead>
                     <tr>
-                        <th>
-                            <input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" />
-                        </th>
-                        <th class="table-item-title ">{{lbl.title}}</th>
-                        <th class="hmax768">{{lbl.description}}</th>
-                        <th class="hmax768">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
+                        <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
+                        <th class="item-title">{{lbl.title}}</th>
+                        <th class="item-desc">{{lbl.description}}</th>
+                        <th class="item-state">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-ng-repeat="item in pagedItems[currentPage]">
-                        <td> <input type="checkbox" data-ng-model="item.IsChecked" /> </td>
-                        <td class="table-item-title">
+                        <td class="item-checkbox"><input type="checkbox" data-ng-model="item.IsChecked" /> </td>
+                        <td class="item-title">
                             <a title="{{item.Title}}" href="" ng-click="modalEdit(item.Id)" class="text-ellipsis pull-left">{{item.Title}}</a>
                             <a title="{{item.FeedUrl}}" class="external-link pull-right" target="_blank" href="{{item.FeedUrl}}"><i class="fa fa-external-link"></i></a>
                         </td>
-                        <td class="hmax768"><span class="pull-left">{{item.Description}}</span></td>
-                        <td class="hmax768"><span class="pull-left">{{item.Xfn}}</span></td>
+                        <td class="item-desc"><span class="pull-left">{{item.Description}}</span></td>
+                        <td class="item-state"><span class="pull-left">{{item.Xfn}}</span></td>
                     </tr>
                     <tr id="tr-spinner"><td colspan="4"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></td></tr>
                 </tbody>
