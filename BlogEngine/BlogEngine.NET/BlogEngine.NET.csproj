@@ -1496,6 +1496,7 @@
     <Content Include="setup\SQLServer\DbWeb.Config" />
     <Content Include="setup\SQL_CE\Archive\SQL_CE_Setup_3.1.sql" />
     <Content Include="setup\SQL_CE\Archive\SQL_CE_UpgradeFrom3.0to3.1.sql" />
+    <Content Include="setup\SQL_CE\BlogEngine.sdf" />
     <Content Include="setup\SQL_CE\SQL_CE_Web.Config" />
     <Content Include="setup\TestFiles\sample.flv" />
     <Content Include="setup\upgrade\bootstrap.min.css" />
