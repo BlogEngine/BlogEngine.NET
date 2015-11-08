@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 .wrapper { width: 100%; height: 100%; padding-left: 230px; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
 .sidebar { z-index: 1; position: fixed; white-space: nowrap; left: 0; top: 0; width: 230px; height: 100%; overflow-x: hidden; overflow-y: auto; background: #282c37; font-size: 13px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
 .sidebar a { color: #74808f; }
-.content { height:100%; width: 100%; left: 0; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
+.content { height: 100%; width: 100%; position: relative; left: 0; -moz-transition: all ease .5s; -o-transition: all ease .5s; -webkit-transition: all ease .5s; transition: all ease .5s; }
 .content-inner { padding: 30px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
 
 /*[]*/
@@ -54,8 +54,21 @@ h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 }
 
 /*[]*/
-.loading-bar {position:absolute; top:0; left:0; overflow:hidden;  width:100%; height:2px; z-index:10100000;}
-.loading-bar .loading-bar-process { background: #1cac7b; height: 2px; -moz-transition: all ease 1s; -o-transition: all ease 1s; -webkit-transition: all ease 1s; transition: all ease 1s; }
+.loader-wrapper { -moz-user-select: none; -ms-user-select: none; -webkit-user-select: none; user-select: none; background: none; border: 2px solid #1cac7b; text-transform: uppercase; border-radius: 4px; padding: 6px 8px; position: fixed; right: 30px; bottom: 30px; z-index: 10000; }
+.loader { display: inline-block; width: 20px; height: 20px; box-sizing: border-box; border: solid 3px #aaa; border-left-color: #1cac7b; border-radius: 50%; -webkit-animation: nprogress-spinner 400ms linear infinite; animation: nprogress-spinner 400ms linear infinite; }
+.loader-text { font-size: 10px; color: #666; vertical-align: top; position: relative; top: 4px; margin-left: 6px; display: inline-block; }
+
+@-webkit-keyframes nprogress-spinner {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes nprogress-spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
 
 /*[]*/
 .about-page { width: 50%; }
