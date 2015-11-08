@@ -73,7 +73,7 @@ public partial class contact : BlogBasePage, ICallbackEventHandler
 	/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 	private void btnSend_Click(object sender, EventArgs e)
 	{
-		if (Page.IsValid && txtAttachment.HasFile)
+		if (Page.IsValid)
 		{
             if (!UseCaptcha || IsCaptchaValid)
             {
