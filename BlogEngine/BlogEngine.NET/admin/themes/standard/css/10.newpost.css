@@ -20,7 +20,7 @@
 .newpost-title { height: 40px; padding: 10px 10px; font-weight: 400; font-size: 14px; margin-bottom: 30px; }
 .newpost-title:focus { border-color: #ddd; }
 .newpost-title.error { border-color: #D8000C; }
-#txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 45px; left: 15px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
+#txtTitle-error { position: absolute; background: #D8000C; color: #fff; top: 75px; left: 30px; border-radius:2px; display: inline-block; height: 20px; line-height: 20px; font-size: 12px; padding: 0 5px; z-index: 1000; text-transform: capitalize; }
 #txtTitle-error:before { position: absolute; top: -4px; left: 10px; border-bottom: 4px solid #D8000C; border-right: 4px solid transparent; border-left: 4px solid transparent; content: ""; display: block; }
 
 /**/
