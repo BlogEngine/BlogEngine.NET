@@ -669,15 +669,12 @@
     <Content Include="admin\app\editor\filemanager.cshtml" />
     <Content Include="admin\app\editor\Web.Config" />
     <Content Include="admin\themes\standard\sass\base\_base.scss" />
-    <Content Include="admin\themes\standard\sass\base\_font.scss" />
     <Content Include="admin\themes\standard\sass\base\_mixins.scss" />
     <Content Include="admin\themes\standard\sass\base\_variables.scss" />
-    <Content Include="admin\themes\standard\sass\layout\_footer.scss" />
     <Content Include="admin\themes\standard\sass\layout\_main.scss" />
     <Content Include="admin\themes\standard\sass\layout\_sidebar.scss" />
     <Content Include="admin\themes\standard\sass\modules\_btn.scss" />
     <Content Include="admin\themes\standard\sass\modules\_forms.scss" />
-    <Content Include="admin\themes\standard\sass\modules\_modals.scss" />
     <Content Include="admin\themes\standard\sass\styles.scss" />
     <Content Include="admin\themes\standard\css\styles.css.map" />
     <None Include="admin\themes\standard\sass\base\_reset.scss" />
