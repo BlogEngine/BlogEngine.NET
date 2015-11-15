@@ -1,0 +1,102 @@
+﻿//
+@mixin border-radius($border-radius) {
+    -moz-border-radius: $border-radius;
+    -webkit-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+//
+@mixin box-shadow($box-shadow) {
+    -moz-box-shadow: $box-shadow;
+    -webkit-box-shadow: $box-shadow;
+    box-shadow: $box-shadow;
+}
+
+//
+@mixin user-select($user-select) {
+    -moz-user-select: $user-select;
+    -ms-user-select: $user-select;
+    -webkit-user-select: $user-select;
+    user-select: $user-select;
+}
+
+//
+@mixin text-overflow($text-overflow) {
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+//
+@mixin transition($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+//
+@mixin transform($transform...) {
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    -webkit-transform: $transform;
+    transform: $transform;
+}
+
+//
+@mixin triangle($direction, $size, $color) {
+    width: 0;
+    height: 0;
+
+    @if $direction == 'up' {
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+    }
+    @else if $direction == 'down' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+    }
+    @else if $direction == 'left' {
+        border-top: $size solid transparent;
+        border-right: $size solid $color;
+        border-bottom: $size solid transparent;
+    }
+    @else if $direction == 'right' {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+    }
+}
+
+@mixin corner-triangle($corner, $size, $color) {
+    width: 0;
+    height: 0;
+
+    @if $corner == 'top-left' {
+        border-top: $size solid $color;
+        border-right: $size solid transparent;
+    }
+    @else if $corner == 'top-right' {
+        border-top: $size solid $color;
+        border-left: $size solid transparent;
+    }
+    @else if $corner == 'bottom-left' {
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+    }
+    @else if $corner == 'bottom-right' {
+        border-bottom: $size solid $color;
+        border-left: $size solid transparent;
+    }
+}
+
+
+//
+@mixin list-unstyled() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

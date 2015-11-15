@@ -1,0 +1,38 @@
+﻿.wrapper {
+    width: 100%;
+    height: 100%;
+    padding-left: 230px;
+    @include transition(all ease 0.5s);
+}
+
+.sidebar {
+    z-index: 1;
+    position: fixed;
+    white-space: nowrap;
+    left: 0;
+    top: 0;
+    width: 230px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #282c37;
+    font-size: 13px;
+    @include transition(all ease 0.5s);
+
+    a {
+        color: #74808f;
+    }
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    left: 0;
+    @include transition(all ease 0.5s);
+
+    .content-inner {
+        padding: 30px;
+        @include transition(all ease 0.5s);
+    }
+}

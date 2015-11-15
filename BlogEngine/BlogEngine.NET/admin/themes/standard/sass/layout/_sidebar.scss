@@ -1,4 +1,19 @@
-﻿/*[user-nav]*/
+﻿/*[00.SIDEBAR]*/
+.nav-toggle { z-index: 1; width: 30px; height: 30px; cursor: pointer; position: absolute; top: 10px; left: 10px; padding: 9px 7px; display: none; background: #666; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; -moz-transition: all ease 0.5s; -o-transition: all ease 0.5s; -webkit-transition: all ease 0.5s; transition: all ease 0.5s; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: #fff; margin-bottom: 3px; }
+.nav-toggle span:last-child { margin: 0; }
+.sidebar-logo { height: 41px; position: absolute; bottom: 30px; left: 0; width: 100%; text-align: center; overflow: hidden; }
+.sidebar-logo a { display: inline-block; height: 100%; outline: none !important; }
+.sidebar-active { overflow: hidden; }
+.sidebar-active .sidebar { width: 230px; box-shadow: 1px 0 5px rgba(0, 0, 0, 0.39); }
+.sidebar-active .content { left: 230px; }
+.sidebar-active .overlay-wrapper { z-index: 1; content: ""; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.30); position: absolute; top: 0; left: 0; }
+.sidebar-active .nav-toggle { left: 240px; }
+.sidebar-active .sidebar-logo { width: 100%; }
+.mce-fullscreen .sidebar { display: none; }
+
+
+/*[user-nav]*/
 .user-nav { width: 230px; height: 61px; position: relative; padding: 15px; padding-left: 60px; border-bottom: 1px solid #1f222d; }
 .user-nav img { width: 30px; height: 30px; position: absolute; left: 15px; top: 15px; border-radius: 100%; background: #1f222d; }
 .user-nav .user-nav-info { text-transform: uppercase; }

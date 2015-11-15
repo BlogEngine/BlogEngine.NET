@@ -1,5 +1,4 @@
 ﻿<div data-ng-controller="CustomThemesController">
-
     <div id="modal-info" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -69,7 +68,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="panel-title">user</div>
@@ -82,12 +80,10 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
     <div id="modal-settings" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -112,12 +108,8 @@
             </div>
         </div>
     </div>
-
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            <a href="#" class="help-link" data-title=""><i class="fa fa-question-circle"></i></a>
-            {{lbl.themes}}
-        </h2>
+        <h2 class="page-title pull-left">{{lbl.themes}}</h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes/gallery" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <button ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
