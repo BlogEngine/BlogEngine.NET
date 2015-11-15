@@ -195,6 +195,21 @@ namespace BlogEngine.Core.Web
         /// <param name="url">The URL string.</param>
         public static void RewriteCalendar(HttpContext context, string url)
         {
+            // prevent fake URLs
+            // valid:   "/calendar/"
+            // valid:   "/calendar/default.aspx"
+            // invalid: "/fake-value/calendar/default.aspx"
+            // invalid: "/calendar/fake-value/default.aspx"
+
+            url = url.ToLower();
+            var validUrl = Utils.RelativeWebRoot.ToLower() + "calendar";
+            
+            if (!url.StartsWith(validUrl))
+                throw new HttpException(404, "File not found");
+            
+            if(url.Contains("default.aspx") && !url.Contains("calendar/default.aspx"))
+                throw new HttpException(404, "File not found");
+
             context.RewritePath(string.Format("{0}default.aspx?calendar=show", Utils.ApplicationRelativeWebRoot), false);
         }
 

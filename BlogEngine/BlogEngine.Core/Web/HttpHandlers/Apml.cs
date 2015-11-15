@@ -42,6 +42,9 @@
         /// </param>
         public void ProcessRequest(HttpContext context)
         {
+            if (context.Request.FilePath.ToLower() != Utils.RelativeWebRoot + "apml.axd")
+                throw new HttpException(404, "File not found");
+
             context.Response.ContentType = "text/xml";
             WriteApmlDocument(context.Response.OutputStream);
         }
