@@ -149,9 +149,10 @@
                         <div class="panel-title">Latest News</div>
                     </div>
                     <ul class="list-group list-group">
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 4.0 Released</a> <span>New</span></li>
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
-                        <li class="list-group-item"><a href="#">BlogEngine.NET 3.0 Released</a></li>
+                        <li class="list-group-item" data-ng-repeat="n in news">
+                            <a href="{{n.OptionValue}}.aspx" target="_blank">{{n.OptionName}}</a>
+                        </li>
+                        <li ng-if="news.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
             </div>

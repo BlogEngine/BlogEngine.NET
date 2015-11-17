@@ -67,6 +67,7 @@
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -1956,7 +1957,6 @@
     <Compile Include="AppCode\Api\LookupsController.cs" />
     <Compile Include="AppCode\Api\PackageExtraController.cs" />
     <Compile Include="AppCode\Api\PackagesController.cs" />
-    <Compile Include="AppCode\Api\QuickNotesController.cs" />
     <Compile Include="AppCode\Api\SetupController.cs" />
     <Compile Include="AppCode\Api\PagerController.cs" />
     <Compile Include="AppCode\Api\PagesController.cs" />
@@ -1964,6 +1964,7 @@
     <Compile Include="AppCode\Api\PostsController.cs" />
     <Compile Include="AppCode\Api\RolesController.cs" />
     <Compile Include="AppCode\Api\SettingsController.cs" />
+    <Compile Include="AppCode\Api\NewsFeedController.cs" />
     <Compile Include="AppCode\Api\StatsController.cs" />
     <Compile Include="AppCode\Api\TagsController.cs" />
     <Compile Include="AppCode\Api\TrashController.cs" />

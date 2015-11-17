@@ -1,6 +1,7 @@
 ﻿angular.module('blogAdmin').controller('DashboardController', ["$rootScope", "$scope", "$location", "$log", "$filter", "dataService", function ($rootScope, $scope, $location, $log, $filter, dataService) {
     $scope.vm = {};
     $scope.itemToPurge = {};
+    $scope.news = [];
     $scope.security = $rootScope.security;
     $scope.focusInput = false;
     $scope.qd = angular.copy(newDraft);
@@ -120,6 +121,7 @@
         spinOn();
 
         $scope.loadPackages();
+        $scope.loadNewsFeed();
 
         dataService.getItems('/api/dashboard')
         .success(function (data) {
@@ -144,6 +146,15 @@
                 $('#tr-gal-spinner').hide();
             }
             else { $('#div-gal-spinner').html(BlogAdmin.i18n.empty); }
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.errorLoadingPackages);
+        });
+    }
+    $scope.loadNewsFeed = function () {
+        dataService.getItems('/api/newsfeed', { take: 5, skip: 0 })
+        .success(function (data) {
+            angular.copy(data, $scope.news);
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
