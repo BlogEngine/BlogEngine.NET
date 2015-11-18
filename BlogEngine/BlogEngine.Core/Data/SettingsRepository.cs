@@ -159,7 +159,7 @@ namespace BlogEngine.Core.Data
             ns.TimeStampPostLinks = bs.TimeStampPostLinks;
             ns.ShowPostNavigation = bs.ShowPostNavigation;
             ns.Culture = bs.Culture;
-            ns.TimeZoneId = bs.TimeZoneId == null ? "UTC" : bs.TimeZoneId;
+            ns.TimeZoneId = string.IsNullOrEmpty(bs.TimeZoneId) ? "UTC" : bs.TimeZoneId;
             ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
             ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;
             ns.DesktopTheme = bs.Theme;
@@ -243,7 +243,7 @@ namespace BlogEngine.Core.Data
             ns.DisqusAddCommentsToPages = bs.DisqusAddCommentsToPages;
             ns.DisqusWebsiteName = bs.DisqusWebsiteName;
             ns.FacebookAppId = bs.FacebookAppId;
-            ns.FacebookLanguage = bs.FacebookLanguage == null ? "en_US" : bs.FacebookLanguage;
+            ns.FacebookLanguage = string.IsNullOrEmpty(bs.FacebookLanguage) ? "en_US" : bs.FacebookLanguage;
 
             // custom filters
             ns.TrustAuthenticatedUsers = bs.TrustAuthenticatedUsers;
