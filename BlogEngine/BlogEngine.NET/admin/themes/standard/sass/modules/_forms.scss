@@ -26,8 +26,8 @@
 .dropdown-menu li:last-child { border: none; }
 
 .dropdown-toggle i { font-size: 14px; border-left: 1px solid rgba(0, 0, 0, 0.10); height: 100%; margin: 0; text-align: center; position: absolute; top: 0; right: 0; display: block; vertical-align: middle; }
-.dropdown-toggle i { width: 35px; line-height: 36px; }
-.dropdown-toggle.btn-sm i { width: 30px; line-height: 30px; }
+.dropdown-toggle i { width: 35px; line-height: 36px;  }
+.dropdown-toggle.btn-sm i { width: 30px; line-height: 30px;margin:0; }
 .dropdown-toggle.btn-lg i { width: 40px; line-height: 40px; }
 .dropdown-toggle { padding-left: 20px; padding-right: 54px; }
 .dropdown-toggle.btn-sm { padding-left: 15px; padding-right: 44px; }

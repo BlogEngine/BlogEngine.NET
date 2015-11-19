@@ -1,0 +1,35 @@
+﻿.post-view {
+    //
+    .item-comments {
+        > div {
+            height: 18px;
+        }
+        span {
+            display: inline-block;
+            border-radius: 100px;
+            overflow: hidden;
+            a {
+                display: block;
+                height: 100%;
+                text-align: center;
+                padding: 0 10px;
+                font-size: 10px;
+                color: #fff !important;
+                height: 18px;
+                line-height: 18px;
+                outline: none;
+            }
+        }
+        .item-comment-approved {
+            background-color: #24b685;
+        }
+
+        .item-comment-pending {
+            background-color: #f6bb42;
+        }
+
+        .item-comment-spam {
+            background-color: #ea5a5a;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿.comments-view {
+    //
+    .comment-view-reply {
+        .comment-view-box {
+            margin-bottom: 10px;
+            display: block;
+            font-family: monospace;
+            white-space: pre-wrap;
+            min-height: 100px;
+            max-height: 200px;
+            overflow: auto;
+            @include border-radius(2px);
+        }
+    }
+}

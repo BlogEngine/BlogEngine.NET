@@ -1,9 +1,6 @@
-﻿
-<div data-ng-controller="PostsController">
+﻿<div class="post-view" data-ng-controller="PostsController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.posts}}
-        </h2>
+        <h2 class="page-title pull-left">{{lbl.posts}}</h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/app/editor/editpost.cshtml" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div class="btn-group befdv pull-left">
             <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
@@ -15,14 +12,11 @@
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                ALL
-                <i class="fa fa-angle-down"></i>
-            </button>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> ALL <i class="fa fa-angle-down"></i></button>
             <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a>            </li>
+                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a> </li>
                 <li><a id="fltr-pub" data-value="{{lbl.published}}" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</a> </li>
-                <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a>      </li>
+                <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a> </li>
             </ul>
         </div>
     </div>
@@ -54,7 +48,7 @@
                             <span ng-if="item.Comments[0] > 0" class="item-comment-pending" title="{{lbl.pending}}: {{item.Comments[0]}}">
                                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=pnd">{{item.Comments[0]}}</a>
                             </span>
-                            <span ng-if="item.Comments[2] > 0" class="item-comment-spam"  title="{{lbl.spam}}: {{item.Comments[2]}}">
+                            <span ng-if="item.Comments[2] > 0" class="item-comment-spam" title="{{lbl.spam}}: {{item.Comments[2]}}">
                                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments?fltr=spm">{{item.Comments[2]}}</a>
                             </span>
                         </div>
@@ -66,15 +60,9 @@
         </table>
         <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>

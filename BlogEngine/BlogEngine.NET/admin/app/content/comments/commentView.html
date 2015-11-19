@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="CommentListController">
+﻿<div class="comments-view" data-ng-controller="CommentListController">
     <form id="cat-form" action="">
         <div id="modal-comment-edit" class="modal fade">
             <div class="modal-dialog">
@@ -8,8 +8,10 @@
                         <h4 class="modal-title">{{vm.Detail.Title}}</h4>
                     </div>
                     <div class="modal-body">
-                        <pre class="comment-view-box">{{vm.Detail.Content}}</pre>
-                        <textarea ng-model="commentReply.text" placeholder="Reply..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
+                        <div class="comment-view-reply">
+                            <pre class="comment-view-box">{{vm.Detail.Content}}</pre>
+                            <textarea ng-model="commentReply.text" placeholder="Reply..." class="form-control ltr-dir" rows="4" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
@@ -19,12 +21,9 @@
             </div>
         </div>
     </form>
-
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.comments}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-        </h2>
-        <div class="btn-group  pull-left">
+        <h2 class="page-title pull-left">{{lbl.comments}}</h2>
+        <div class="btn-group pull-left">
             <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
             <a ng-if="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></a>
             <a ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></a>
@@ -34,12 +33,8 @@
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
-
         <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                ALL
-                <i class="fa fa-angle-down"></i>
-            </button>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
             <ul class="dropdown-menu dropdown-menu-filter">
                 <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsApproved','all','all')">      {{lbl.all}}</a></li>
                 <li><a id="fltr-pnd" data-value="{{lbl.pending}}" ng-click="gridFilter('IsPending',true,'pnd')">    {{lbl.pending}}</a></li>
@@ -83,15 +78,9 @@
         </table>
         <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>

@@ -1,8 +1,6 @@
-﻿<div data-ng-controller="PagesController">
+﻿<div class="page-view" data-ng-controller="PagesController">
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left"> 
-            {{lbl.pages}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-        </h2>
+        <h2 class="page-title pull-left"> {{lbl.pages}}</h2>
         <a href="{{SiteVars.RelativeWebRoot}}admin/app/editor/editpage.cshtml" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div class="btn-group befdv pull-left">
             <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
@@ -14,10 +12,7 @@
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                ALL
-                <i class="fa fa-angle-down"></i>
-            </button>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
             <ul class="dropdown-menu dropdown-menu-filter">
                 <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a>            </li>
                 <li><a id="fltr-pub" data-value="{{lbl.published}}" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</a> </li>
@@ -55,15 +50,9 @@
         </table>
         <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>

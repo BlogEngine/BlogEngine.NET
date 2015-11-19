@@ -1,32 +1,47 @@
 ﻿/*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    1.0
+    Version:    2.0
 
 */
 
-// base
+// Base
 @import "base/variables";
 @import "base/mixins";
 @import "base/reset";
 @import "base/base";
 @import "base/utilites";
 
-// layout
+// Layout
 @import "layout/_header.scss";
 @import "layout/sidebar";
 @import "layout/main";
 
-// modules
+// Modules
 @import "modules/forms";
 @import "modules/btn";
 @import "modules/tables";
 @import "modules/panels";
 
-// pages
-@import "pages/users";
-@import "pages/about";
-@import "pages/custom";
-@import "pages/dashboard";
-@import "pages/newpost";
-@import "pages/posts";
+// Dashboard section
+@import "pages/dashboard/dashboard";
+
+// Content section
+@import "pages/content/posts";
+@import "pages/content/newpost";
+@import "pages/content/comments";
+@import "pages/content/page";
+@import "pages/content/categories";
+@import "pages/content/tags";
+
+// Custom section
+@import "pages/custom/custom";
+
+// Users Section
+@import "pages/users/users";
+
+// Settings Section
+@import "pages/settings/settings";
+
+// About Section
+@import "pages/about/about";

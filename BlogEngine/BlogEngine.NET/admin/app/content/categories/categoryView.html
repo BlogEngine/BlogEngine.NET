@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="CategoriesController">
+﻿<div class="categories-view" data-ng-controller="CategoriesController">
     <form id="form" action="" style="margin:0;">
         <div id="modal-add-cat" class="modal fade">
             <div class="modal-dialog">
@@ -32,9 +32,7 @@
         </div>
     </form>
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.categories}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-        </h2>
+        <h2 class="page-title pull-left">{{lbl.categories}}</h2>
         <a data-ng-click="addNew()" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div class="btn-group befdv pull-left">
             <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
@@ -70,15 +68,9 @@
         </table>
         <div class="table-item-empty" id="tr-spinner"><div id="div-spinner"><i class="fa fa-spinner fa-spin"></i></div></div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>
