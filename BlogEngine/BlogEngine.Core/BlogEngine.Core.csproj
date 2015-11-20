@@ -75,7 +75,7 @@
     <Reference Include="BlogML">
       <HintPath>..\..\lib\blogml\BlogML.dll</HintPath>
     </Reference>
-    <Reference Include="Dynamic">
+    <Reference Include="Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=68293a411f0cabcc, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamicQuery.1.0\lib\35\Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
@@ -416,7 +416,6 @@
   <ItemGroup>
     <Compile Include="Web\HttpHandlers\JavaScriptHandler.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
