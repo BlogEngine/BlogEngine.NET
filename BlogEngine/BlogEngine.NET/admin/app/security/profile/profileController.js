@@ -139,4 +139,8 @@
             spinOff();
         });
     }
+    $(document).ready(function () {
+        bindCommon();
+    });
+
 }]);

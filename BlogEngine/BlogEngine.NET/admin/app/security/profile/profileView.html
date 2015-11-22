@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="ProfileController">
+﻿<div class="security-profile-view" data-ng-controller="ProfileController">
     <div id="modal-custom" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -6,27 +6,27 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{lbl.add}}</h4>
                 </div>
-                <div class="modal-body modal-roles">
+                <div class="modal-body">
                     <div class="form-group">
                         <label class="control-label" for="txtKey">Key</label>
                         <input type="text" id="txtKey" name="txtKey" class="form-control" data-ng-model="editItem.Key" focus-me="focusInput" />
+                    </div>
+                    <div class="form-group">
                         <label class="control-label" for="txtValue">Value</label>
                         <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button data-ng-click="saveCustom()" class="btn btn-success btn-tabkey pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
+                    <div class="modal-btn-wrapper">
+                        <button data-ng-click="saveCustom()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                        <button type="button" class="btn btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.myProfile}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-        </h2>
+        <h2 class="page-title pull-left">{{lbl.myProfile}}</h2>
         <button data-ng-click="save()" class="btn btn-success btn-hasicon btn-sm btn-header pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
-        <a href="{{SiteVars.RelativeWebRoot}}Account/change-password.aspx" class="btn btn-default btn-sm btn-hasicon pull-left"><i class="fa fa-lock"></i>{{lbl.changePassword}}</a>
+        <a href="{{SiteVars.RelativeWebRoot}}Account/change-password.aspx" class="btn btn-default btn-sm btn-hasicon pull-right"><i class="fa fa-lock"></i>{{lbl.changePassword}}</a>
     </div>
     <div class="content-inner">
         <div id="frm-user-edit" class="form-width-limited">
@@ -55,39 +55,28 @@
                 <label for="txtLastName">{{lbl.lastName}}</label>
                 <input type="text" id="txtLastName" name="txtLastName" class="form-control" data-ng-model="user.Profile.LastName" />
             </div>
-
             <hr />
             <div id="frm-custom-edit ">
-                <h4>Custom field</h4>
-                <div class="form-group">
-                    <button data-ng-click="showCustom()" class="btn btn-hasicon btn-default" type="button">
-                        <i class="fa fa-plus"></i> {{lbl.add}} Custom field
-                    </button>
-                </div>
-                <div data-ng-repeat="item in customFields ">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">{{item.Key}}</label>
-                        <div class="col col-md-8">
-
-                            <div class="input-group">
-                                <input type="text" class="form-control" data-ng-model="item.Value" />
-                                <a href="" class="input-group-addon" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}"><i class="fa fa-times" style="color: red"></i></a>
-                            </div>
-
+                <div class="panel panel-default panel-custom-fields">
+                    <div class="panel-heading clearfix">
+                        <div class="pull-left panel-title">Custom field</div>
+                        <div class="pull-right">
+                            <button data-ng-click="showCustom()" class="btn btn-hasicon btn-sm btn-default" type="button">
+                                <i class="fa fa-plus"></i> {{lbl.add}}
+                            </button>
                         </div>
                     </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" data-ng-repeat="item in customFields ">
+                            <div class="row">
+                                <div class="field-name text-ellipsis">{{item.Key}}</div>
+                                <input type="text" class="input-sm form-control" data-ng-model="item.Value" />
+                                <button class="field-remove" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
-<script>
-    $(".btn-input-file.prev").click(function () {
-        $(this).prev('input').click();
-    });
-    $(".btn-input-file.next").click(function () {
-        $(this).next('input').click();
-    });
-</script>

@@ -1,7 +1,7 @@
 /*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    2.0
+    Version:    2.1
 
 */
 html, body {
@@ -911,6 +911,9 @@ body {
 .btn-primary:focus {
   background: #169fe2 !important; }
 
+.modal-btn-wrapper {
+  margin-top: 30px; }
+
 .table {
   font-size: 13px;
   font-weight: normal;
@@ -1436,13 +1439,13 @@ body {
   .dashboard-view .col-xs-6 {
     float: none !important;
     width: 100%; } }
-.post-view .item-comments > div {
+.content-post-view .item-comments > div {
   height: 18px; }
-.post-view .item-comments span {
+.content-post-view .item-comments span {
   display: inline-block;
   border-radius: 100px;
   overflow: hidden; }
-  .post-view .item-comments span a {
+  .content-post-view .item-comments span a {
     display: block;
     height: 100%;
     text-align: center;
@@ -1452,11 +1455,11 @@ body {
     height: 18px;
     line-height: 18px;
     outline: none; }
-.post-view .item-comments .item-comment-approved {
+.content-post-view .item-comments .item-comment-approved {
   background-color: #24b685; }
-.post-view .item-comments .item-comment-pending {
+.content-post-view .item-comments .item-comment-pending {
   background-color: #f6bb42; }
-.post-view .item-comments .item-comment-spam {
+.content-post-view .item-comments .item-comment-spam {
   background-color: #ea5a5a; }
 
 .newpost .content-inner {
@@ -1777,7 +1780,7 @@ body {
 .mce-btn.mce-active {
   background-color: #e5e5e5 !important; }
 
-.comments-view .comment-view-reply .comment-view-box {
+.content-comments-view .comment-view-reply .comment-view-box {
   margin-bottom: 10px;
   display: block;
   font-family: monospace;
@@ -2044,41 +2047,71 @@ body {
   .modal-package .modal-package-image img {
     width: 100%; }
 
-.profile-info {
+.security-profile-view .profile-info {
   margin-bottom: 10px; }
-  .profile-info .profile-info-img {
+  .security-profile-view .profile-info .profile-info-img {
     border-radius: 100%;
     margin-right: 20px;
     max-width: 100px; }
-  .profile-info .profile-info-title {
+  .security-profile-view .profile-info .profile-info-title {
     padding-top: 14px;
     font-size: 18px;
     margin-bottom: 3px;
     color: #000; }
-  .profile-info .profile-info-role {
+  .security-profile-view .profile-info .profile-info-role {
     color: #888;
     margin-bottom: 3px; }
-  .profile-info .btn-link-picture {
+  .security-profile-view .profile-info .btn-link-picture {
     display: inline-block;
     font-size: 10px;
     cursor: pointer;
     margin-right: 5px;
     text-transform: uppercase;
     color: #888; }
-  .profile-info .btn-link-picture-change:hover {
-    color: #00b578; }
-  .profile-info .btn-link-picture-remove:hover {
-    color: #dd4949; }
+  .security-profile-view .profile-info .btn-link-picture-change:hover {
+    color: #24b685; }
+  .security-profile-view .profile-info .btn-link-picture-remove:hover {
+    color: #ea5a5a; }
+.security-profile-view .panel-custom-fields .panel-heading .panel-title {
+  font-weight: 400; }
+.security-profile-view .panel-custom-fields .panel-heading .btn {
+  margin-top: 8px; }
+.security-profile-view .panel-custom-fields .list-group .list-group-item {
+  position: relative;
+  padding-left: 140px;
+  padding-right: 50px; }
+  .security-profile-view .panel-custom-fields .list-group .list-group-item .form-control {
+    height: 30px; }
+  .security-profile-view .panel-custom-fields .list-group .list-group-item .field-name {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    padding: 0 10px;
+    line-height: 30px;
+    height: 30px;
+    width: 120px;
+    overflow: hidden; }
+  .security-profile-view .panel-custom-fields .list-group .list-group-item .field-remove {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    border: none;
+    background: none;
+    color: #ea5a5a;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    outline: none; }
 
-.modal-roles .section-role {
+.security-roles-view .modal-roles .section-role {
   background: #f9f9f9;
   margin-bottom: 10px;
   border: 1px solid #eee; }
-.modal-roles .section-role-title {
+.security-roles-view .modal-roles .section-role-title {
   background: #f9f9f9;
   border-bottom: 1px solid #eee;
   padding: 5px 15px; }
-.modal-roles .section-role-body {
+.security-roles-view .modal-roles .section-role-body {
   padding: 5px 0;
   font-size: 12px; }
 

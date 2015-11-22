@@ -171,4 +171,11 @@ function bindCommon() {
             $(".search").removeClass("search-wide");
         }
     });
+    //
+    $(".btn-input-file.prev").click(function () {
+        $(this).prev('input').click();
+    });
+    $(".btn-input-file.next").click(function () {
+        $(this).next('input').click();
+    });
 }
