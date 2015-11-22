@@ -1528,17 +1528,9 @@
     <Content Include="setup\upgrade\spinner.gif" />
     <Content Include="setup\upgrade\Updater.asmx" />
     <Content Include="setup\upgrade\Updater.js" />
-    <Content Include="Custom\Themes\Garland-Revisited\CommentForm.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\CommentView.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\PostNavigation.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\PostView.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\RelatedPosts.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\site.cshtml" />
-    <Content Include="Custom\Themes\Garland-Revisited\WidgetContainer.cshtml" />
     <Content Include="Custom\Themes\RazorHost\page.cshtml" />
     <Content Include="Custom\Themes\RazorHost\site.master" />
     <Content Include="Custom\Themes\Standard\site.master" />
-    <Content Include="Custom\Themes\TitaniumX\site.master" />
     <Content Include="setup\upgrade\index.cshtml" />
     <Content Include="Scripts\syntaxhighlighter\syntaxhighlighter.version" />
     <Content Include="setup\Web.config" />
@@ -1739,27 +1731,6 @@
     <Content Include="setup\SQL_CE\Archive\SQL_CE_UpgradeFrom2.6to3.0.sql" />
     <Content Include="setup\TestFiles\sample.png" />
     <Content Include="setup\TestFiles\sample.txt" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-content-left.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-content-right.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-content.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-navigation-item-hover.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-navigation-item.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-navigation.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\bg-tab.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\blockquote.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\blockquote3-img.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\body.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\gradient-inner.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\menu-leaf.gif" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\user-admin.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\images\user-student.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\img\newsletter\bg.jpg" />
-    <Content Include="Custom\Themes\Garland-Revisited\img\newsletter\header.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\img\newsletter\logo.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\newsletter.html" />
-    <Content Include="Custom\Themes\Garland-Revisited\style.css" />
-    <Content Include="Custom\Themes\Garland-Revisited\Theme.png" />
-    <Content Include="Custom\Themes\Garland-Revisited\theme.xml" />
     <Content Include="Custom\Themes\RazorHost\CommentForm.ascx" />
     <Content Include="Custom\Themes\RazorHost\CommentView.ascx" />
     <Content Include="Custom\Themes\RazorHost\PostNavigation.ascx" />
@@ -1778,20 +1749,6 @@
     <Content Include="Custom\Themes\Standard\theme.png" />
     <Content Include="Custom\Themes\Standard\theme.xml" />
     <Content Include="Custom\Themes\Standard\WidgetContainer.ascx" />
-    <Content Include="Custom\Themes\TitaniumX\CommentView.ascx" />
-    <Content Include="Custom\Themes\TitaniumX\download.png" />
-    <Content Include="Custom\Themes\TitaniumX\img\contentbg.png" />
-    <Content Include="Custom\Themes\TitaniumX\img\menubg.png" />
-    <Content Include="Custom\Themes\TitaniumX\img\newsletter\bg.jpg" />
-    <Content Include="Custom\Themes\TitaniumX\img\newsletter\header.png" />
-    <Content Include="Custom\Themes\TitaniumX\img\newsletter\logo.png" />
-    <Content Include="Custom\Themes\TitaniumX\img\widgetbg.png" />
-    <Content Include="Custom\Themes\TitaniumX\newsletter.html" />
-    <Content Include="Custom\Themes\TitaniumX\PostView.ascx" />
-    <Content Include="Custom\Themes\TitaniumX\style.css" />
-    <Content Include="Custom\Themes\TitaniumX\theme.png" />
-    <Content Include="Custom\Themes\TitaniumX\theme.xml" />
-    <Content Include="Custom\Themes\TitaniumX\WidgetContainer.ascx" />
     <Content Include="Custom\Controls\CommentList.ascx" />
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
@@ -2330,13 +2287,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Custom\Themes\Standard\site.master.designer.cs">
-      <DependentUpon>site.master</DependentUpon>
-    </Compile>
-    <Compile Include="Custom\Themes\TitaniumX\site.master.cs">
-      <DependentUpon>site.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Custom\Themes\TitaniumX\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
     <Compile Include="Custom\Controls\CommentList.ascx.cs">
