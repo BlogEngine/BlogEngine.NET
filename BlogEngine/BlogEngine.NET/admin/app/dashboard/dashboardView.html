@@ -137,11 +137,10 @@
                                 <span class="item-desc text-ellipsis">{{pkg.Description}}</span>
                             </a>
                         </li>
-                        <li ng-if="packages.length == 0" class="list-group-item item-spinner text-center">
-                            <div id="tr-gal-spinner">
-                                <div id="div-gal-spinner"><i class="fa fa-spinner fa-spin"></i></div>
-                            </div>
+                        <li id="gal-spinner" class="list-group-item text-center">
+                            <i class="fa fa-spinner fa-spin"></i>
                         </li>
+                        <li ng-if="packages.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
                 <div class="panel panel-default dashboard-news dashboard-list">
@@ -151,6 +150,9 @@
                     <ul class="list-group list-group">
                         <li class="list-group-item" data-ng-repeat="n in news">
                             <a href="{{n.OptionValue}}.aspx" target="_blank">{{n.OptionName}}</a>
+                        </li>
+                        <li id="news-spinner" class="list-group-item text-center">
+                            <i class="fa fa-spinner fa-spin"></i>
                         </li>
                         <li ng-if="news.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>

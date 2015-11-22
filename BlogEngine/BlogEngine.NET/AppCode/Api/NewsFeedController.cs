@@ -28,7 +28,10 @@ public class NewsFeedController : ApiController
                 if (cnt > 2) break;
             }
         }
-        catch (Exception) { }
+        catch (Exception ex)
+        {
+            BlogEngine.Core.Utils.Log("Dashboard news feed", ex);
+        }
         return items;
     }
 }

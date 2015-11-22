@@ -142,22 +142,22 @@
             $scope.packages = [];
             angular.copy(data, $scope.packages);
             $scope.checkNewVersion();
-            if ($scope.packages.length > 0) {
-                $('#tr-gal-spinner').hide();
-            }
-            else { $('#div-gal-spinner').html(BlogAdmin.i18n.empty); }
+            $('#gal-spinner').hide();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
+            $('#gal-spinner').hide();
         });
     }
     $scope.loadNewsFeed = function () {
         dataService.getItems('/api/newsfeed', { take: 5, skip: 0 })
         .success(function (data) {
             angular.copy(data, $scope.news);
+            $('#news-spinner').hide();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
+            $('#news-spinner').hide();
         });
     }
     $scope.checkNewVersion = function () {
