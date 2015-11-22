@@ -695,7 +695,6 @@
     <Content Include="admin\themes\standard\sass\pages\custom\_custom.scss" />
     <Content Include="admin\themes\standard\sass\pages\dashboard\_dashboard.scss" />
     <Content Include="admin\themes\standard\sass\pages\settings\_settings.scss" />
-    <Content Include="admin\themes\standard\sass\pages\users\_users.scss" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -2752,6 +2751,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="admin\themes\standard\sass\pages\users\" />
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />

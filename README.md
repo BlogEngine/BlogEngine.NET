@@ -1,9 +1,9 @@
 ## BlogEngine.NET Source Code
-This repository provides latest source code for BlogEngine.NET project
+This repository provides latest source code for BlogEngine.NET project (https://blogengine.codeplex.com)
+
 ## Environment
-  * Windows 10
-  * Visual Studio 2015 Community
-  * ASP.NET 4.0 +
+  * Visual Studio 2015 Community +
+  * ASP.NET 4.5 +
 
 ## Get started
   1. Clone repository
