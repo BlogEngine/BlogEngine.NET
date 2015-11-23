@@ -1,7 +1,7 @@
 ﻿/*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    2.1
+    Version:    2.2
 
 */
 
@@ -13,7 +13,7 @@
 @import "base/utilites";
 
 // Layout
-@import "layout/_header.scss";
+@import "layout/header";
 @import "layout/sidebar";
 @import "layout/main"; 
 
@@ -22,6 +22,7 @@
 @import "modules/btn";
 @import "modules/tables";
 @import "modules/panels";
+@import "modules/modals";
 
 // Dashboard section
 @import "pages/dashboard/dashboard";
@@ -40,7 +41,7 @@
 // Security Section
 @import "pages/security/profile";
 @import "pages/security/roles";
-
+@import "pages/security/users";
 
 // Settings Section
 @import "pages/settings/settings";

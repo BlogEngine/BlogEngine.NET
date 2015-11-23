@@ -1,1 +1,26 @@
-﻿
+﻿.settings-view {
+    h4 {
+        margin-bottom: 20px;
+    }
+    .avatar-sample {
+        border: 1px solid #ddd;
+        padding: 5px;
+        display: block;
+        background-color: #fff;
+        @include border-radius(2px);
+        height: 43px;
+        cursor: pointer;
+
+        img {
+            margin-right: 10px;
+            @include border-radius(2px);
+            background: #eee;
+        }
+
+        input {
+            position: relative;
+            top: 2px;
+            margin-right: 10px;
+        }
+    }
+}

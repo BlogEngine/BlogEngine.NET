@@ -4,23 +4,15 @@ $color-danger: #ea5a5a;
 $color-warning: #f6bb42;
 $color-base: #ccc;
 
-
 // fonts
 $font-family-roboto: "Roboto";
-$font-family-base: $font-family-roboto, tahoma, arial, sans-serif;
+$font-family-base: $font-family-roboto, "Helvetica Neue",Helvetica,Arial,sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.8;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-bold: 500;
-
-$font-size-h1: 20px;
-$font-size-h2: 19px;
-$font-size-h3: 18px;
-$font-size-h4: 17px;
-$font-size-h5: 16px;
-$font-size-h6: 14px;
 
 // direction
 $dir-ltr: ltr;

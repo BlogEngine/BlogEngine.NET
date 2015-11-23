@@ -1,9 +1,7 @@
-﻿<div data-ng-controller="SettingsController">
+﻿<div class="settings-view" data-ng-controller="SettingsController">
     <form id="form" action="">
         <div class="page-header clearfix">
-            <h2 class="page-title pull-left">
-                {{lbl.controls}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-            </h2>
+            <h2 class="page-title pull-left">{{lbl.controls}}</h2>
             <button data-ng-click="save()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
@@ -24,21 +22,14 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6">
-                            <label>
-                                <input type="checkbox" name="ckEnableContactAttachments" data-ng-model="settings.EnableContactAttachments" />
-                                {{lbl.enableAttachments}}
-                            </label>
+                            <label><input type="checkbox" name="ckEnableContactAttachments" data-ng-model="settings.EnableContactAttachments" /> {{lbl.enableAttachments}}</label>
                         </div>
                         <div class="col-md-6">
-                            <label>
-                                <input type="checkbox" name="ckEnableRecaptchaOnContactForm" data-ng-model="settings.EnableRecaptchaOnContactForm" />
-                                {{lbl.enableRecaptcha}}
-                            </label>
+                            <label><input type="checkbox" name="ckEnableRecaptchaOnContactForm" data-ng-model="settings.EnableRecaptchaOnContactForm" /> {{lbl.enableRecaptcha}}</label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-width-limited">
+                <hr />
                 <h4>{{lbl.errorPage}}</h4>
                 <div class="form-group">
                     <label for="txtErrorTitle">{{lbl.txtErrorTitle}}</label>
@@ -48,8 +39,7 @@
                     <label for="txtErrorText">{{lbl.txtErrorText}}</label>
                     <textarea class="form-control ltr-dir" rows="3" id="txtErrorText" data-ng-model="settings.ErrorText"></textarea>
                 </div>
-            </div>
-            <div class="form-width-limited">
+                <hr />
                 <h4>{{lbl.customCode}}</h4>
                 <div class="form-group">
                     <label for="txtHtmlHeader">{{lbl.addCustomCodeToHeader}}</label>

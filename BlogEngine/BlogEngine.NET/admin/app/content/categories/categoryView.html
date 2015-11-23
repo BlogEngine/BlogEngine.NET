@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtExcerpt">{{lbl.description}}</label>
-                            <textarea class="form-control" id="txtExcerpt" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
+                            <textarea class="form-control" id="txtExcerpt" rows="4" name="txtExcerpt" data-ng-model="category.Description"> </textarea>
                         </div>
                         <div class="form-group">
                             <label for="selAuthors">{{lbl.parent}}</label>
@@ -22,10 +22,10 @@
                                 <option value="">-- {{lbl.select.toLowerCase()}} --</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-hasicon" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                        <button type="button" ng-click="save()" class="btn btn-success btn-hasicon"><i class="fa fa-check"></i>{{lbl.save}}</button>
+                        <div class="modal-buttons">
+                            <button type="button" ng-click="save()" class="btn btn-success btn-hasicon"><i class="fa fa-check"></i>{{lbl.save}}</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                        </div>
                     </div>
                 </div>
             </div>

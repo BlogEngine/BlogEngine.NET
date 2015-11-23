@@ -95,15 +95,18 @@
                     <div class="form-horizontal form-customfiled" data-ng-if="customFields.length > 0">
                         <div data-ng-repeat="item in customFields" class="form-group">
                             <label class="control-label col-md-4" for="txtSlug">{{item.Key}}</label>
-                            <div class="col col-md-8">
+                            <div class="col-md-8">
                                 <input type="text" class="form-control" id="txtSlug" data-ng-model="item.Value" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-4"></label>
+                            <div class="col-md-8 modal-buttons">
+                                <button data-ng-if="customFields.length > 0" data-ng-click="save()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                    <button data-ng-if="customFields.length > 0" data-ng-click="save()" class="btn btn-success btn-hasicon btn-header pull-right"><i class="fa fa-save"></i>{{lbl.save}}</button>
                 </div>
             </div>
         </div>

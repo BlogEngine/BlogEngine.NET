@@ -11,11 +11,11 @@
                         <div class="comment-view-reply">
                             <pre class="comment-view-box">{{vm.Detail.Content}}</pre>
                             <textarea ng-model="commentReply.text" placeholder="Reply..." class="form-control ltr-dir" rows="4" id="txtDraftText" name="txtDraftText" focus-me="focusInput"></textarea>
+                            <div class="modal-buttons">
+                                <button type="button" ng-click="reply()" ng-disabled="commentReply.text.length < 1" class="btn btn-hasicon btn-success"><i class="fa fa-check"></i>{{lbl.send}}</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                        <button type="button" ng-click="reply()" ng-disabled="commentReply.text.length < 1" class="btn btn-hasicon btn-success"><i class="fa fa-check"></i>{{lbl.send}}</button>
                     </div>
                 </div>
             </div>

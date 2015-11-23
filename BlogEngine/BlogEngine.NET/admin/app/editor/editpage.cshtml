@@ -34,10 +34,10 @@
                             Custom Field <a href="http://www.dnbe.net/docs/post/custom-fields" target="_blank">(Learn more)</a>
                         </label>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                    <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                    <div class="modal-buttons">
+                        <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,10 +58,10 @@
                         <label class="control-label" for="txtValue">Value</label>
                         <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-ban"></i>{{lbl.cancel}}</button>
-                    <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-hasicon"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+                    <div class="modal-button">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
+                        <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-hasicon"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+                    </div>
                 </div>
             </div>
         </div>

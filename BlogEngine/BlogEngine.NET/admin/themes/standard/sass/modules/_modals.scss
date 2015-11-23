@@ -1,0 +1,25 @@
+﻿.modal {
+    .modal-buttons {
+        margin-top: 30px;
+
+        .btn {
+            float: left;
+            margin-right:10px;
+            
+        }
+        &:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+    }
+
+    .modal-header {
+        padding: 20px 40px;
+    }
+
+    .modal-footer {
+        text-align: left;
+        padding: 20px 40px;
+    }
+}

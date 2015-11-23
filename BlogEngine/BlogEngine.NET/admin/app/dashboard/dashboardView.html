@@ -1,9 +1,4 @@
 ﻿<div class="dashboard-view" data-ng-controller="DashboardController">
-    <div class="page-header clearfix">
-        <div class="page-title pull-left">{{lbl.dashboard}}</div>
-        <a ng-click="openTrash()" ng-if="vm.Trash.length > 0" class="icon-header-dashboard icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>{{vm.Trash.length}}</span></a>
-        <a ng-click="openLogFile()" ng-if="vm.Logs.length > 0" class="icon-header-dashboard icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>{{vm.Logs.length}}</span></a>
-    </div>
     <div id="modal-log-file" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -17,10 +12,10 @@
                             <div ng-bind-html="log.OptionValue"></div>
                         </li>
                     </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
-                    <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>
+                    <div class="modal-buttons text-right">
+                        <button type="button" class="btn btn-default" tabindex="-1" data-dismiss="modal">{{lbl.close}}</button>
+                        <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,13 +35,18 @@
                             <button tooltip="lbl.purge" angular-tooltip data-ng-click="purge(t.Id)" class="purgethis"><i class="fa fa-trash"></i></button>
                         </li>
                     </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-hasicon btn-default" tabindex="-1" data-dismiss="modal"><i class="fa fa-ban"></i> {{lbl.close}}</button>
-                    <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purgeAll}}</button>
+                    <div class="modal-buttons text-right">
+                        <button type="button" class="btn btn-default" tabindex="-1" data-dismiss="modal">{{lbl.close}}</button>
+                        <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purgeAll}}</button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="page-header clearfix">
+        <div class="page-title pull-left">{{lbl.dashboard}}</div>
+        <a ng-click="openTrash()" ng-if="vm.Trash.length > 0" class="icon-header-dashboard icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>{{vm.Trash.length}}</span></a>
+        <a ng-click="openLogFile()" ng-if="vm.Logs.length > 0" class="icon-header-dashboard icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>{{vm.Logs.length}}</span></a>
     </div>
     <div class="content-inner content-dashboard">
         <div class="version-alert" id="versionMsg">

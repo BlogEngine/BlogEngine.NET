@@ -11,12 +11,12 @@
     //
     .page-title {
         font-size: 16px;
-        color: #707f95;
-        line-height: 30px;
+        color: #666;
+        line-height: 31px;
         height: 30px;
         margin: 0 20px 0 0;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: $font-weight-bold;
     }
     //
     .dropdown {

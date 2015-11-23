@@ -1,7 +1,7 @@
 /*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    2.1
+    Version:    2.2
 
 */
 html, body {
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
 body {
-  font-family: "Roboto", tahoma, arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #666;
@@ -129,8 +129,8 @@ body {
   position: relative; }
   .page-header .page-title {
     font-size: 16px;
-    color: #707f95;
-    line-height: 30px;
+    color: #666;
+    line-height: 31px;
     height: 30px;
     margin: 0 20px 0 0;
     text-transform: uppercase;
@@ -484,9 +484,6 @@ body {
 .modal-body .form-horizontal {
   max-width: 100%; }
 
-.modal-footer .btn {
-  margin-left: 10px; }
-
 .btn,
 .form-control {
   -moz-border-radius: 2px;
@@ -495,11 +492,6 @@ body {
 
 .form-group {
   margin-bottom: 18px; }
-
-.form-group > label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #777; }
 
 .form-control {
   border-color: #e0e0e0;
@@ -911,9 +903,6 @@ body {
 .btn-primary:focus {
   background: #169fe2 !important; }
 
-.modal-btn-wrapper {
-  margin-top: 30px; }
-
 .table {
   font-size: 13px;
   font-weight: normal;
@@ -1238,6 +1227,21 @@ body {
   -moz-border-radius-bottomleft: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
+
+.modal .modal-buttons {
+  margin-top: 30px; }
+  .modal .modal-buttons .btn {
+    float: left;
+    margin-right: 10px; }
+  .modal .modal-buttons:after {
+    content: "";
+    display: table;
+    clear: both; }
+.modal .modal-header {
+  padding: 20px 40px; }
+.modal .modal-footer {
+  text-align: left;
+  padding: 20px 40px; }
 
 .dashboard-view .dashboard-list ul li {
   padding: 0;
@@ -2114,6 +2118,29 @@ body {
 .security-roles-view .modal-roles .section-role-body {
   padding: 5px 0;
   font-size: 12px; }
+
+.settings-view h4 {
+  margin-bottom: 20px; }
+.settings-view .avatar-sample {
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: block;
+  background-color: #fff;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  height: 43px;
+  cursor: pointer; }
+  .settings-view .avatar-sample img {
+    margin-right: 10px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #eee; }
+  .settings-view .avatar-sample input {
+    position: relative;
+    top: 2px;
+    margin-right: 10px; }
 
 .about-view .content-inner {
   width: 640px;

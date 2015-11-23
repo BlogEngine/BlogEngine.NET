@@ -1,10 +1,9 @@
 ﻿.form-width-limited, .form-horizontal { max-width: 400px; }
 .modal-body .form-horizontal { max-width: 100%; }
-.modal-footer .btn { margin-left: 10px; }
 .btn,
 .form-control { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; }
 .form-group { margin-bottom: 18px; }
-.form-group > label { font-size: 12px; font-weight: 500; color: #777; }
+.form-group > label {  }
 .form-control { border-color: #e0e0e0; -moz-box-shadow: 0 1px 0 #eee !important; -webkit-box-shadow: 0 1px 0 #eee !important; box-shadow: 0 1px 0 #eee !important; font-weight: 400; font-size: 13px; height: 40px; padding-left: 10px; border-width: 1px; color: #888; }
 .form-control:focus { border-color: #c5ccd7; outline: none; }
 .panel .form-control { border-width: 1px; }
