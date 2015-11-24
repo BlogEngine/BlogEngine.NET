@@ -15,15 +15,16 @@
     $scope.load = function (path) {
         var p = path ? { take: 0, skip: 0, path: path } : { take: 0, skip: 0 };
         dataService.getItems('/api/filemanager', p)
-            .success(function (data) {
-                angular.copy(data, $scope.items);
-                gridInit($scope, $filter);
-                $scope.currentPath = path ? path : $scope.rootStorage;
-                spinOff();
-            })
-            .error(function (data) {
-                toastr.error($rootScope.lbl.Error);
-            });
+        .success(function (data) {
+            angular.copy(data, $scope.items);
+            gridInit($scope, $filter);
+            $scope.currentPath = path ? path : $scope.rootStorage;
+            $('#file-spinner').hide();
+        })
+        .error(function (data) {
+            toastr.error($rootScope.lbl.Error);
+            $('#file-spinner').hide();
+        });
     }
 
     $scope.processChecked = function (action) {
@@ -77,14 +78,19 @@
     $scope.uploadFile = function (files) {
         var fd = new FormData();
         fd.append("file", files[0]);
+        $('#file-spinner').show();
 
         dataService.uploadFile("/api/upload?action=filemgr&dirPath=" + $scope.currentPath, fd)
         .success(function (data) {
             $scope.load($scope.currentPath);
             gridInit($scope, $filter);
             toastr.success($rootScope.lbl.completed);
+            $('#file-spinner').hide();
         })
-        .error(function () { toastr.error($rootScope.lbl.failed); });
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $('#file-spinner').hide();
+        });
     }
 
     $scope.addFolder = function () {
