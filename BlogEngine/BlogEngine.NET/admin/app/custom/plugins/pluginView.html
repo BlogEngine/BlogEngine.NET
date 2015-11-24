@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="CustomPluginsController">
+﻿<div class="custom-plugins-view" data-ng-controller="CustomPluginsController">
     <div id="modal-info" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -7,71 +7,56 @@
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="modal-theme-info">
-                        <p ng-bind-html="package.Description"></p>
-                        <hr />
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <span class="col-md-3">{{lbl.author}}</span>
-                                <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div>
-                            </div>
-                            <div class="form-group" ng-if="package.Website">
-                                <span class="col-md-3">{{lbl.website}}</span>
-                                <div class="col-md-9">
-                                    <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
+                    <div class="modal-plugin-info">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="item-image">
+                                    <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" />
+                                    <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank"><img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" /></a>
                                 </div>
                             </div>
-                            <div class="form-group" ng-if="package.Tags">
-                                <span class="col-md-3">{{lbl.tags}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.Tags"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.LastUpdated">
-                                <span class="col-md-3">{{lbl.date}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.LastUpdated"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.DownloadCount">
-                                <span class="col-md-3">{{lbl.downloads}}</span>
-                                <div class="col-md-9">{{package.DownloadCount}}</div>
-                            </div>
-                            <div class="form-group" ng-if="IsPrimary && package.LocalVersion != ''">
-                                <span class="control-label"><i class="fa fa-sort-amount-asc"></i> {{lbl.priority}}: {{package.Priority}} &nbsp;</span>
-                                <div class="btn-group">
-                                    <a class="btn btn-default" href="" ng-click="setPriority('up')"><i class="fa fa-long-arrow-up"></i> {{lbl.up}}</a>
-                                    <a class="btn btn-default" href="" ng-click="setPriority('down')"><i class="fa fa-long-arrow-down"></i> {{lbl.down}}</a>
+                            <div class="col-md-9">
+                                <p class="item-desc" ng-bind-html="package.Description"></p>
+                                <div class="form-horizontal">
+                                    <div class="form-group"><span class="col-md-3">{{lbl.author}}</span> <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
+                                    <div class="form-group" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a></div></div>
+                                    <div class="form-group" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
+                                    <div class="form-group" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"> <span ng-bind-html="package.LastUpdated"></span> </div></div>
+                                    <div class="form-group" ng-if="package.DownloadCount"> <span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div></div>
+                                    <div class="form-group" ng-if="IsPrimary && package.LocalVersion != ''"> <span class="col-md-3">{{lbl.priority}}: {{package.Priority}}</span><div class="btn-group"><button class="btn btn-default btn-sm" href="" ng-click="setPriority('up')"><i class="fa fa-long-arrow-up"></i></button> <button class="btn btn-default btn-sm" href="" ng-click="setPriority('down')"><i class="fa fa-long-arrow-down"></i></button> </div></div>
                                 </div>
                             </div>
                         </div>
-                        <hr />
-                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
-                            <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        </a>
                     </div>
-
-                    <div ng-if="package.Extra != null">
+                    <div class="modal-plugin-review" ng-if="package.Extra != null">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="panel-title">{{lbl.writeReview}}</div>
                             </div>
                             <div class="panel-body">
-                                <input class="form-control ltr-dir" style="margin-bottom: 10px" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text" placeholder="author">
-                                <textarea rows="3" maxlength="450" style="width: 100%; height: 68px; margin-bottom: 15px" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}"></textarea>
-                                <div class="text-right">
-                                    <span class="star-rating">
+                                <div class="form-group">
+                                    <input class="form-control ltr-dir" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <textarea rows="3" maxlength="450" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}..."></textarea>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="star-rating pull-left">
                                         <input type="radio" name="rated" value="1" ng-checked="selectedRating == 1" ng-click="setRating(1)"><i></i>
                                         <input type="radio" name="rated" value="2" ng-checked="selectedRating == 2" ng-click="setRating(2)"><i></i>
                                         <input type="radio" name="rated" value="3" ng-checked="selectedRating == 3" ng-click="setRating(3)"><i></i>
                                         <input type="radio" name="rated" value="4" ng-checked="selectedRating == 4" ng-click="setRating(4)"><i></i>
                                         <input type="radio" name="rated" value="5" ng-checked="selectedRating == 5" ng-click="setRating(5)"><i></i>
-                                    </span>
-                                    <button data-ng-click="submitRating()" class="btn btn-success "><i class="fa fa-star"></i>Rate</button>
+                                    </div>
+                                    <button data-ng-click="submitRating()" class=" pull-right btn btn-success btn-sm">Submit</button>
                                 </div>
                             </div>
-                            <ul ng-if="package.Extra.Reviews != null" class="list-group">
+                        </div>
+                        <div class="panel panel-default" ng-if="package.Extra.Reviews != null">
+                            <div class="panel-heading">
+                                <div class="panel-title">user</div>
+                            </div>
+                            <ul class="list-group">
                                 <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
                                     <span class="badge">{{review.Rating}}</span>
                                     <b>{{review.Name}}:</b> {{review.Body}}
@@ -79,12 +64,10 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
     <div id="modal-settings" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -93,16 +76,13 @@
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe id="settingsFrame" class="iframe-package" onload="setIframeBg();" ng-src="{{extEditSrc}}" style="width: 100%;"></iframe>
+                    <iframe id="settingsFrame" class="iframe-package" onload="setIframeBg();" ng-src="{{extEditSrc}}"></iframe>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            Plugins
-        </h2>
+        <h2 class="page-title pull-left">Plugins</h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins/gallery" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-if="IsPrimary" class="btn-group befdv pull-left">
             <a ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
@@ -115,7 +95,6 @@
         </div>
     </div>
     <div class="content-inner">
-
         <table class="table table-item-plugins">
             <thead>
                 <tr>
@@ -130,34 +109,20 @@
             </thead>
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage]">
-                    <td class="item-checkbox">
-                        <input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" />
-                    </td>
-                    <td class="item-title">
-                        <a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)">
-                            {{item.Title}} 
-                        </a>
-                    </td>
+                    <td class="item-checkbox"><input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" /></td>
+                    <td class="item-title"><a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)"> {{item.Title}} </a></td>
                     <td class="item-desc"><span class="text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version"><span>{{item.LocalVersion}}</span></td>
                     <td class="item-priority">{{item.Priority}}</td>
                     <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
-                    <td class="item-edit">
-                        <a ng-if="item.SettingsUrl" class="btn btn-sm btn-default btn-hasicon" href="" ng-click="showPluginSettings(item.Id)"><i class="fa fa-sliders"></i> Customize</a>
-                    </td>
+                    <td class="item-edit"><a ng-if="item.SettingsUrl" class="btn btn-sm btn-default btn-hasicon" href="" ng-click="showPluginSettings(item.Id)"><i class="fa fa-sliders"></i> Customize</a></td>
                 </tr>
             </tbody>
         </table>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>

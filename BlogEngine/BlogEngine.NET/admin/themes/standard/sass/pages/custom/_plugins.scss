@@ -1,0 +1,31 @@
+﻿.custom-plugins-view {
+    .modal-plugin-info {
+        .item-image {
+            text-align: center;
+        }
+
+        .item-desc {
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+            line-height: 30px;
+
+            .btn {
+                i {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .modal-plugin-review {
+        margin-top: 40px;
+
+        .star-rating {
+            margin-top: 6px;
+            width: 75px;
+        }
+    }
+}

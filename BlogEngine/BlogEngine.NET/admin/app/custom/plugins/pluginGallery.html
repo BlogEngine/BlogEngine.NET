@@ -1,5 +1,4 @@
-﻿<div data-ng-controller="CustomPluginsController">
-
+﻿<div class="custom-plugins-gallery-view" data-ng-controller="CustomPluginsController">
     <div id="modal-info" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -8,52 +7,32 @@
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="modal-theme-info">
-                        <p ng-bind-html="package.Description"></p>
-                        <hr />
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <span class="col-md-3">{{lbl.author}}</span>
-                                <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div>
-                            </div>
-                            <div class="form-group" ng-if="package.Website">
-                                <span class="col-md-3">{{lbl.website}}</span>
-                                <div class="col-md-9">
-                                    <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
+                    <div class="modal-plugin-info">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="item-image">
+                                    <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" />
+                                    <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank"><img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" /></a>
                                 </div>
                             </div>
-                            <div class="form-group" ng-if="package.Tags">
-                                <span class="col-md-3">{{lbl.tags}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.Tags"></span>
+                            <div class="col-md-9">
+                                <p class="item-desc" ng-bind-html="package.Description"></p>
+                                <div class="form-horizontal">
+                                    <div class="form-group"><span class="col-md-3">{{lbl.author}}</span> <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
+                                    <div class="form-group" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" class="text-ellipsis" title="Author website" target="_blank">{{package.Website}}</a></div></div>
+                                    <div class="form-group" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
+                                    <div class="form-group" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"> <span ng-bind-html="package.LastUpdated"></span> </div></div>
+                                    <div class="form-group" ng-if="package.DownloadCount"> <span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div></div>
                                 </div>
-                            </div>
-                            <div class="form-group" ng-if="package.LastUpdated">
-                                <span class="col-md-3">{{lbl.date}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.LastUpdated"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.DownloadCount">
-                                <span class="col-md-3">{{lbl.downloads}}</span>
-                                <div class="col-md-9">{{package.DownloadCount}}</div>
                             </div>
                         </div>
-                        <hr />
-                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
-                            <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="page-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.gallery}}
-        </h2>
+        <h2 class="page-title pull-left">{{lbl.gallery}}</h2>
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
         <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
         <div class="search pull-right">
@@ -61,10 +40,7 @@
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
         <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Most downloaded
-                <i class="fa fa-angle-down"></i>
-            </button>
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
             <ul class="dropdown-menu dropdown-menu-filter">
                 <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
                 <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
@@ -87,11 +63,6 @@
                         <div class="item-buttons">
                             <a ng-click="installPackage(item.Id)" class="btn btn-sm btn-default btn-left" angular-tooltip tooltip="lbl.download"><i class="fa fa-download"></i></a>
                             <a href="" ng-click="showPluginInfo(item.Id)" class="btn btn-sm btn-default btn-right" angular-tooltip tooltip="lbl.view"><i class="fa fa-info-circle"></i></a>
-                            <!--
-                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                    <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>
-                    -->
                         </div>
                     </div>
                     <div class="item-details-right">
@@ -114,16 +85,9 @@
             </div>
         </div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>
-

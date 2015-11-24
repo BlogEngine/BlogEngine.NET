@@ -1,7 +1,7 @@
 ﻿/*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    2.2
+    Version:    2.3
 
 */
 
@@ -36,7 +36,10 @@
 @import "pages/content/tags";
 
 // Custom section
-@import "pages/custom/custom";
+@import "pages/custom/themes";
+@import "pages/custom/themes.gallery";
+@import "pages/custom/plugins";
+@import "pages/custom/plugins.gallery";
 
 // Security Section
 @import "pages/security/profile";

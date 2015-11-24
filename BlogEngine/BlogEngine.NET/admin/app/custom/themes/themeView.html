@@ -1,4 +1,4 @@
-﻿<div data-ng-controller="CustomThemesController">
+﻿<div class="custom-themes-view" data-ng-controller="CustomThemesController">
     <div id="modal-info" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -7,54 +7,29 @@
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
                 <div class="modal-body modal-package">
-                    <div class="modal-package-info">
+                    <div class="modal-themes-info">
                         <p class="item-desc" ng-bind-html="package.Description"></p>
                         <div class="form-horizontal">
-                            <div class="form-group">
-                                <span class="col-md-3">{{lbl.author}}</span>
-                                <div class="col-md-9"><span ng-bind-html="package.Authors"></span></div>
-                            </div>
-                            <div class="form-group" ng-if="package.Website">
-                                <span class="col-md-3">{{lbl.website}}</span>
-                                <div class="col-md-9">
-                                    <a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.Tags">
-                                <span class="col-md-3">{{lbl.tags}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.Tags"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.LastUpdated">
-                                <span class="col-md-3">{{lbl.date}}</span>
-                                <div class="col-md-9">
-                                    <span ng-bind-html="package.LastUpdated"></span>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-if="package.DownloadCount">
-                                <span class="col-md-3">{{lbl.downloads}}</span>
-                                <div class="col-md-9">{{package.DownloadCount}}</div>
-                            </div>
+                            <div class="form-group"><span class="col-md-3">{{lbl.author}}</span><div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
+                            <div class="form-group" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a></div></div>
+                            <div class="form-group" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
+                            <div class="form-group" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"><span ng-bind-html="package.LastUpdated"></span></div></div>
+                            <div class="form-group" ng-if="package.DownloadCount"><span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div> </div>
                         </div>
                     </div>
                     <div class="modal-package-image">
-                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank">
-                            <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" title="" />
-                        </a>
+                        <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" />
+                        <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank"> <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" /> </a>
                     </div>
                     <div class="modal-package-review" ng-if="package.Extra != null">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <div class="panel-title">{{lbl.writeReview}}</div>
-                            </div>
+                            <div class="panel-heading"><div class="panel-title">{{lbl.writeReview}}</div></div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                    <input class="form-control ltr-dir" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text" placeholder="author">
+                                    <input class="form-control ltr-dir" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text" placeholder="Name">
                                 </div>
                                 <div class="form-group">
-                                    <textarea rows="3" maxlength="450" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}"></textarea>
+                                    <textarea rows="3" maxlength="450" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}..."></textarea>
                                 </div>
                                 <div class="clearfix">
                                     <div class="star-rating pull-left">
@@ -68,11 +43,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" ng-if="package.Extra.Reviews != null">
                             <div class="panel-heading">
                                 <div class="panel-title">user</div>
                             </div>
-                            <ul ng-if="package.Extra.Reviews != null" class="list-group">
+                            <ul class="list-group">
                                 <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
                                     <span class="badge">{{review.Rating}}</span>
                                     <b>{{review.Name}}:</b> {{review.Body}}
@@ -144,17 +119,9 @@
             </div>
         </div>
         <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
+            <li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
         </ul>
     </div>
 </div>
-
-
