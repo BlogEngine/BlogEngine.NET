@@ -183,7 +183,7 @@
         spinOn();
         dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
         .success(function (data) {
-            $scope.installPackage();
+            $scope.installPackage(pkgId);
         })
         .error(function () {
             toastr.error($rootScope.lbl.failed);

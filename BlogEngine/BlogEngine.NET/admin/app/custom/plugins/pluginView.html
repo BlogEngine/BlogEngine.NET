@@ -28,10 +28,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item-alert">
+                    <div ng-if="package.OnlineVersion.length > 0 && package.OnlineVersion > package.LocalVersion" class="item-alert">
                         <div class="alert alert-warning">
                             Update available for this theme.
-                            <button class="btn btn-sm btn-warning pull-right">Update</button>
+                            <button ng-click="upgradePackage(package.Id)" class="btn btn-sm btn-warning pull-right">Update</button>
                         </div>
                     </div>
                     <div class="modal-plugin-review" ng-if="package.Extra != null">
@@ -58,9 +58,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default" ng-if="package.Extra.Reviews != null">
+                        <div class="panel panel-default" ng-if="package.Extra.Reviews != null && package.Extra.Reviews.length > 0">
                             <div class="panel-heading">
-                                <div class="panel-title">user</div>
+                                <div class="panel-title">Reviews</div>
                             </div>
                             <ul class="list-group">
                                 <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
@@ -82,7 +82,7 @@
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe id="settingsFrame" class="iframe-package" onload="setIframeBg();" ng-src="{{extEditSrc}}"></iframe>
+                    <iframe id="settingsFrame" class="iframe-package" ng-src="{{extEditSrc}}"></iframe>
                 </div>
             </div>
         </div>
@@ -116,7 +116,7 @@
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage]">
                     <td class="item-checkbox"><input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" /></td>
-                    <td class="item-title"><a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)"> {{item.Title}} <span class="notify-icon"><i class="fa fa-info-circle notify"></i></span> </a></td>
+                    <td class="item-title"><a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)"> {{item.Title}} <span ng-if="item.OnlineVersion.length > 0 && item.OnlineVersion > item.LocalVersion" class="notify-icon"><i class="fa fa-info-circle notify"></i></span> </a></td>
                     <td class="item-desc"><span class="text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version"><span>{{item.LocalVersion}}</span></td>
                     <td class="item-priority">{{item.Priority}}</td>

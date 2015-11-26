@@ -41,7 +41,6 @@
     <div class="page-header clearfix">
         <h2 class="page-title pull-left">{{lbl.gallery}}</h2>
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-        <button ng-click="processChecked('install')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-check"></i>{{lbl.install}}</button>
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
@@ -60,7 +59,6 @@
             <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-xs-6 col-md-6 col-lg-4">
                 <div class="gallery-item">
                     <div class="item-details-left">
-                        <input class="item-checkbox" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" ng-disabled="items.length == 0" />
                         <div class="item-img-box"><span><img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" /> <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" /></span></div>
                         <div class="item-buttons">
                             <a ng-click="installPackage(item.Id)" class="btn btn-sm btn-default btn-left" angular-tooltip tooltip="lbl.download"><i class="fa fa-download"></i></a>
