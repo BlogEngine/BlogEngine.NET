@@ -43,9 +43,7 @@
             <hr />
             <div class="form-group">
                 <label>{{lbl.displayName}}</label>
-                <div>
-                    <input type="text" class="form-control" data-ng-model="user.Profile.DisplayName" />
-                </div>
+                <input type="text" class="form-control" data-ng-model="user.Profile.DisplayName" />
             </div>
             <div class="form-group">
                 <label for="txtFirstName">{{lbl.firstName}}</label>
@@ -68,11 +66,9 @@
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item" data-ng-repeat="item in customFields ">
-                            <div class="row">
                                 <div class="field-name text-ellipsis">{{item.Key}}</div>
                                 <input type="text" class="input-sm form-control" data-ng-model="item.Value" />
                                 <button class="field-remove" ng-click="deleteCustom(item.Key, item.ObjectId)" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
-                            </div>
                         </li>
                     </ul>
                 </div>

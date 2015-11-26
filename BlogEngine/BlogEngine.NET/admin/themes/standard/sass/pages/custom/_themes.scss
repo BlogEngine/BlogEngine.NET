@@ -126,13 +126,38 @@
                 color: #fff;
             }
         }
+
+        .notify {
+            color: #ffa400;
+            position: relative;
+            animation: notify .1s 10;
+        }
+
+        @keyframes notify {
+            0% {
+                left: 0;
+            }
+
+            25% {
+                left: 2px;
+            }
+
+            75% {
+                left: -2px;
+            }
+
+
+            100% {
+                left: 0;
+            }
+        }
     }
     //
     .modal-package {
         padding: 0 !important;
 
         .modal-themes-info {
-            padding: 30px;
+            padding: 40px;
             background: #fff;
 
             p {
@@ -147,10 +172,33 @@
                     margin-bottom: 0;
                 }
             }
+
+            border-bottom: 1px solid #eee;
         }
 
-        .modal-package-review {
-            padding: 30px;
+        .item-alert {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+
+            .alert {
+                margin: 0;
+                .btn {
+                    position: relative;
+                    top: -4px;
+                }
+            }
+        }
+
+        .modal-theme-image {
+            padding: 40px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .modal-theme-review {
+            padding: 40px;
             background: #eee;
 
             .panel:last-child {
@@ -160,15 +208,6 @@
             .star-rating {
                 margin-top: 5px;
                 width: 75px;
-            }
-        }
-
-        .modal-package-image {
-            padding: 30px;
-            border-top: 1px solid #eee;
-
-            img {
-                width: 100%;
             }
         }
     }

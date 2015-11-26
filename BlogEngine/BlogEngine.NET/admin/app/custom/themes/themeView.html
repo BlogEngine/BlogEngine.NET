@@ -17,11 +17,17 @@
                             <div class="form-group" ng-if="package.DownloadCount"><span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div> </div>
                         </div>
                     </div>
-                    <div class="modal-package-image">
+                    <div class="item-alert">
+                        <div class="alert alert-warning">
+                            Update available for this theme.
+                            <button class="btn btn-sm btn-warning pull-right">Update</button>
+                        </div>
+                    </div>
+                    <div class="modal-theme-image">
                         <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" />
                         <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank"> <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" /> </a>
                     </div>
-                    <div class="modal-package-review" ng-if="package.Extra != null">
+                    <div class="modal-theme-review" ng-if="package.Extra != null">
                         <div class="panel panel-default">
                             <div class="panel-heading"><div class="panel-title">{{lbl.writeReview}}</div></div>
                             <div class="panel-body">
@@ -111,8 +117,9 @@
                         <div class="pull-left item-title">{{item.Title}}</div>
                         <div class="item-buttons pull-right">
                             <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-hasicon btn-default"><i class="fa fa-check"></i> {{lbl.active}}</button>
-                            <a class="btn btn-sm btn-hasicon btn-default" ng-if="item.Id === activeTheme" href="" ng-click="showSettings(item.Id)"><i class="fa fa-sliders"></i> customize</a>
-                            <a class="btn btn-sm btn-icon btn-default" href="" ng-click="showInfo(item.Id)" angular-tooltip title="Information"><i class="fa fa-info-circle"></i></a>
+                            <button class="btn btn-sm btn-icon btn-default" ng-if="item.Id === activeTheme" ng-click="showSettings(item.Id)"  angular-tooltip title="Customize"><i class="fa fa-sliders"></i></button>
+                            <button class="btn btn-sm btn-icon btn-default" angular-tooltip title="Delete"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-sm btn-icon btn-default" ng-click="showInfo(item.Id)" angular-tooltip title="Information"> <i class="fa fa-info-circle notify"></i> </button>
                         </div>
                     </div>
                 </div>

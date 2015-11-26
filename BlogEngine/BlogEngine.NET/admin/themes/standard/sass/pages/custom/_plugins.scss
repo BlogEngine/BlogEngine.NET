@@ -1,31 +1,89 @@
 ﻿.custom-plugins-view {
-    .modal-plugin-info {
-        .item-image {
-            text-align: center;
-        }
+    .modal-package {
+        padding: 0 !important;
 
-        .item-desc {
-            margin-bottom: 8px;
-        }
+        .modal-plugin-info {
+            border-bottom: 1px solid #eee;
+            padding: 40px;
 
-        .form-group {
-            margin-bottom: 4px;
-            line-height: 30px;
+            .item-image {
+                text-align: center;
+            }
 
-            .btn {
-                i {
-                    margin: 0;
+            .item-desc {
+                margin-bottom: 8px;
+            }
+
+            .form-group {
+                margin-bottom: 4px;
+                line-height: 30px;
+
+                .btn {
+                    i {
+                        margin: 0;
+                    }
                 }
+            }
+        }
+
+        .item-alert {
+            padding: 40px;
+            border-bottom: 1px solid #eee;
+
+            .alert {
+                margin: 0;
+
+                .btn {
+                    position: relative;
+                    top: -4px;
+                }
+            }
+        }
+
+        .modal-plugin-review {
+            padding: 40px;
+            background: #eee;
+
+            .panel:last-child {
+                margin-bottom: 0;
+            }
+
+            .star-rating {
+                margin-top: 6px;
+                width: 75px;
             }
         }
     }
 
-    .modal-plugin-review {
-        margin-top: 40px;
+    .table-item-plugins .item-title .notify-icon {
+        position: absolute;
+        right: 10px;
+        top: 15px;
 
-        .star-rating {
-            margin-top: 6px;
-            width: 75px;
+        .notify {
+            color: #ffa400;
+            position: relative;
+            animation: notify .1s 10;
+            font-size: 14px;
+        }
+
+        @keyframes notify {
+            0% {
+                left: 0;
+            }
+
+            25% {
+                left: 2px;
+            }
+
+            75% {
+                left: -2px;
+            }
+
+
+            100% {
+                left: 0;
+            }
         }
     }
 }

@@ -13,8 +13,8 @@
                         </li>
                     </ul>
                     <div class="modal-buttons text-right">
-                        <button type="button" class="btn btn-default" tabindex="-1" data-dismiss="modal">{{lbl.close}}</button>
                         <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{lbl.close}}</button>
                     </div>
                 </div>
             </div>
@@ -36,8 +36,8 @@
                         </li>
                     </ul>
                     <div class="modal-buttons text-right">
-                        <button type="button" class="btn btn-default" tabindex="-1" data-dismiss="modal">{{lbl.close}}</button>
                         <button type="button" ng-if="vm.Trash.length > 0" data-ng-click="purgeAll()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purgeAll}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{lbl.close}}</button>
                     </div>
                 </div>
             </div>

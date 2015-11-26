@@ -688,8 +688,6 @@
     <Content Include="admin\themes\standard\sass\pages\about\_about.scss" />
     <Content Include="admin\themes\standard\sass\pages\content\_categories.scss" />
     <Content Include="admin\themes\standard\sass\pages\content\_comments.scss" />
-    <Content Include="admin\themes\standard\sass\pages\content\_newpost.scss" />
-    <Content Include="admin\themes\standard\sass\pages\content\_page.scss" />
     <Content Include="admin\themes\standard\sass\pages\content\_posts.scss" />
     <Content Include="admin\themes\standard\sass\pages\content\_tags.scss" />
     <Content Include="admin\themes\standard\sass\pages\dashboard\_dashboard.scss" />
@@ -706,6 +704,11 @@
     <Content Include="admin\themes\standard\sass\pages\custom\_themes.scss" />
     <Content Include="admin\themes\standard\sass\pages\custom\_themes.gallery.scss" />
     <Content Include="admin\themes\standard\sass\pages\custom\_plugins.gallery.scss" />
+    <Content Include="admin\themes\standard\sass\pages\content\_posts.new.scss" />
+    <Content Include="admin\themes\standard\sass\pages\content\_pages.scss" />
+    <Content Include="admin\themes\standard\sass\modules\_modals.scss" />
+    <Content Include="admin\themes\standard\sass\modules\_editors.scss" />
+    <Content Include="admin\themes\standard\sass\pages\content\_pages.new.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2707,7 +2710,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="admin\themes\standard\sass\pages\users\" />
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />

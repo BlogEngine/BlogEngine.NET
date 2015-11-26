@@ -23,15 +23,17 @@
 @import "modules/tables";
 @import "modules/panels";
 @import "modules/modals";
+@import "modules/editors";
 
 // Dashboard section
 @import "pages/dashboard/dashboard";
 
 // Content section
 @import "pages/content/posts";
-@import "pages/content/newpost";
+@import "pages/content/posts.new";
 @import "pages/content/comments";
-@import "pages/content/page";
+@import "pages/content/pages";
+@import "pages/content/pages.new";
 @import "pages/content/categories";
 @import "pages/content/tags";
 

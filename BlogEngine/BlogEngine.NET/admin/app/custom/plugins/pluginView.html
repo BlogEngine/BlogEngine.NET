@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-package">
                     <div class="modal-plugin-info">
                         <div class="row">
                             <div class="col-md-3">
@@ -26,6 +26,12 @@
                                     <div class="form-group" ng-if="IsPrimary && package.LocalVersion != ''"> <span class="col-md-3">{{lbl.priority}}: {{package.Priority}}</span><div class="btn-group"><button class="btn btn-default btn-sm" href="" ng-click="setPriority('up')"><i class="fa fa-long-arrow-up"></i></button> <button class="btn btn-default btn-sm" href="" ng-click="setPriority('down')"><i class="fa fa-long-arrow-down"></i></button> </div></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="item-alert">
+                        <div class="alert alert-warning">
+                            Update available for this theme.
+                            <button class="btn btn-sm btn-warning pull-right">Update</button>
                         </div>
                     </div>
                     <div class="modal-plugin-review" ng-if="package.Extra != null">
@@ -110,7 +116,7 @@
             <tbody>
                 <tr data-ng-repeat="item in pagedItems[currentPage]">
                     <td class="item-checkbox"><input ng-if="IsPrimary" type="checkbox" id="{{item.Id}}" data-ng-model="item.IsChecked" /></td>
-                    <td class="item-title"><a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)"> {{item.Title}} </a></td>
+                    <td class="item-title"><a title="{{item.Title}}" href="" ng-click="showPluginInfo(item.Id)"> {{item.Title}} <span class="notify-icon"><i class="fa fa-info-circle notify"></i></span> </a></td>
                     <td class="item-desc"><span class="text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version"><span>{{item.LocalVersion}}</span></td>
                     <td class="item-priority">{{item.Priority}}</td>
