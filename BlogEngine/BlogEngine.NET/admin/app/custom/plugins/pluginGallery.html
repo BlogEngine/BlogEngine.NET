@@ -27,6 +27,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="panel panel-default" ng-if="package.Extra.Reviews != null && package.Extra.Reviews.length > 0">
+                        <div class="panel-heading">
+                            <div class="panel-title">Reviews</div>
+                        </div>
+                        <ul class="list-group">
+                            <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
+                                <span class="badge">{{review.Rating}}</span>
+                                <b>{{review.Name}}:</b> {{review.Body}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
