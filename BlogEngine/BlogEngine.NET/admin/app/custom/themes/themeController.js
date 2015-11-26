@@ -159,6 +159,18 @@
         });
     }
 
+    $scope.upgradePackage = function (pkgId) {
+        spinOn();
+        dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
+        .success(function (data) {
+            $scope.installPackage(pkgId);
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            spinOff();
+        });
+    }
+
     $scope.removeEmptyReviews = function () {
         if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
             var reviews = [];
