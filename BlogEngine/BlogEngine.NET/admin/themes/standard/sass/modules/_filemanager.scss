@@ -1,0 +1,91 @@
+﻿.filemanager {
+    overflow-y: auto;
+
+    .filemanager-content {
+        padding: 30px;
+    }
+
+    .filemanager-path {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .search-form {
+        width: 200px;
+        height: 30px;
+        box-shadow: none !important;
+    }
+
+    .filemanager-list {
+        .item-file {
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            background: #fff;
+            width: 220px;
+            overflow: hidden;
+            @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.10));
+            @include transition(all ease .2s);
+
+            &:hover {
+                @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.30));
+            }
+
+            .item-file-image {
+                height: 200px;
+                background: #fff;
+                overflow: hidden;
+                position: relative;
+
+                a {
+                    display: block;
+                    height: 100%;
+
+                    img {
+                        height: 200px;
+                        max-width: none;
+                        width: auto;
+                        min-width: 100%;
+                    }
+
+                    i {
+                        display: block;
+                        text-align: center;
+                        height: 100%;
+                        width: 100%;
+                        line-height: 210px;
+                        color: #444;
+                        font-size: 100px;
+                    }
+
+                    .fa-folder {
+                        font-size: 180px;
+                        line-height: 215px;
+                        color: #ede079;
+                    }
+                }
+            }
+
+            .item-file-name {
+                height: 40px;
+                line-height: 40px;
+                display: block;
+                position: relative;
+                @include user-select(none);
+                background: #fafafa;
+
+                label {
+                    display: block;
+                    padding: 0 10px 0 35px;
+                }
+
+                input {
+                    position: absolute;
+                    left: 13px;
+                    top: 14px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

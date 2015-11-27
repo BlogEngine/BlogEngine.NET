@@ -709,6 +709,8 @@
     <Content Include="admin\themes\standard\sass\modules\_modals.scss" />
     <Content Include="admin\themes\standard\sass\modules\_editors.scss" />
     <Content Include="admin\themes\standard\sass\pages\content\_pages.new.scss" />
+    <Content Include="admin\themes\standard\sass\pages\content\_comments.filters.scss" />
+    <Content Include="admin\themes\standard\sass\modules\_filemanager.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

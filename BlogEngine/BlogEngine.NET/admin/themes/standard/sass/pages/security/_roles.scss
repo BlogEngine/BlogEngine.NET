@@ -1,4 +1,5 @@
 ﻿.security-roles-view {
+    //
     .modal-roles {
         .section-role {
             background: #f9f9f9;
@@ -16,5 +17,10 @@
             padding: 5px 0;
             font-size: 12px;
         }
+    }
+
+    // table 
+    .table-item-roles {
+        .item-sysrole { width: 120px; }
     }
 }

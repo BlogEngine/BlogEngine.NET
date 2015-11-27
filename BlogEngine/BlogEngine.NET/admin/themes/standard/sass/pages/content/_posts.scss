@@ -4,10 +4,12 @@
         > div {
             height: 18px;
         }
+
         span {
             display: inline-block;
             border-radius: 100px;
             overflow: hidden;
+
             a {
                 display: block;
                 height: 100%;
@@ -20,6 +22,7 @@
                 outline: none;
             }
         }
+
         .item-comment-approved {
             background-color: #24b685;
         }
@@ -30,6 +33,25 @@
 
         .item-comment-spam {
             background-color: #ea5a5a;
+        }
+    }
+    // table
+    .table-item-post {
+        .item-author {
+            width: 80px;
+        }
+
+        .item-comments {
+            width: 120px;
+            padding: 0;
+        }
+
+        .item-date {
+            width: 100px;
+        }
+
+        .item-state {
+            width: 100px;
         }
     }
 }

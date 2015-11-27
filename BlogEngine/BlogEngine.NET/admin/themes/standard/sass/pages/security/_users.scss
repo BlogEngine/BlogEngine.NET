@@ -1,1 +1,14 @@
-﻿.security-users-view {}
+﻿.security-users-view {
+    // table
+    .table-item-users {
+        .item-roles {
+            width: 120px;
+        }
+
+        .item-email {
+            width: 200px;
+            max-width: 200px;
+            padding: 0 10px;
+        }
+    }
+}

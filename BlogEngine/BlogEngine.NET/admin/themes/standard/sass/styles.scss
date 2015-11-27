@@ -1,7 +1,7 @@
 ﻿/*
 
     Author:     Farzin Seyfolahi - http://seyfolahi.net/
-    Version:    2.3
+    Version:    2.4
 
 */
 
@@ -24,6 +24,7 @@
 @import "modules/panels";
 @import "modules/modals";
 @import "modules/editors";
+@import "modules/filemanager";
 
 // Dashboard section
 @import "pages/dashboard/dashboard";
@@ -32,6 +33,7 @@
 @import "pages/content/posts";
 @import "pages/content/posts.new";
 @import "pages/content/comments";
+@import "pages/content/comments.filters";
 @import "pages/content/pages";
 @import "pages/content/pages.new";
 @import "pages/content/categories";

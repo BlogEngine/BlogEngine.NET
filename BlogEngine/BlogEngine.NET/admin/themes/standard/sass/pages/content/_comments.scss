@@ -12,4 +12,29 @@
             @include border-radius(2px);
         }
     }
+
+    // table
+    .table-item-comments {
+        .item-avatar {
+            width: 44px;
+            padding: 0;
+        }
+
+        .item-avatar img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .item-date {
+            width: 120px;
+        }
+
+        .item-author {
+            width: 80px;
+        }
+
+        .item-state {
+            width: 80px;
+        }
+    }
 }
