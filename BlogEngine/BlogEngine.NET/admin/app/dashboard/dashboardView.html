@@ -7,11 +7,9 @@
                     <h4 class="modal-title">{{lbl.logFile}}</h4>
                 </div>
                 <div class="modal-body logs-list">
-                    <ul class="list-group">
-                        <li class="list-group-item" data-ng-repeat="log in vm.Logs">
-                            <div ng-bind-html="log.OptionValue"></div>
-                        </li>
-                    </ul>
+                    <div class="form-group">
+                        <textarea ng-bind="vm.Logs" rows="12" maxlength="450" class="form-control" id="txtLogs"></textarea>
+                    </div>
                     <div class="modal-buttons text-right">
                         <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">{{lbl.close}}</button>
@@ -46,7 +44,7 @@
     <div class="page-header clearfix">
         <div class="page-title pull-left">{{lbl.dashboard}}</div>
         <a ng-click="openTrash()" ng-if="vm.Trash.length > 0" class="icon-header-dashboard icon-header-trash pull-right" angular-tooltip tooltip="lbl.trash"><i class="fa fa-trash-o"></i> <span>{{vm.Trash.length}}</span></a>
-        <a ng-click="openLogFile()" ng-if="vm.Logs.length > 0" class="icon-header-dashboard icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i> <span>{{vm.Logs.length}}</span></a>
+        <a ng-click="openLogFile()" ng-if="vm.Logs.length > 0" class="icon-header-dashboard icon-header-logs pull-right" angular-tooltip tooltip="lbl.logs"><i class="fa fa-warning"></i></a>
     </div>
     <div class="content-inner content-dashboard">
         <div class="version-alert" id="versionMsg">

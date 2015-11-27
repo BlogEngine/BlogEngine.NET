@@ -102,11 +102,11 @@ namespace BlogEngine.Core.Data.ViewModels
         /// <summary>
         /// Log items counter
         /// </summary>
-        public List<SelectOption> Logs
+        public string Logs
         {
             get
             {
-                return GetLogFile().ToList();
+                return GetLogFile();
             }
         }
 
@@ -216,7 +216,7 @@ namespace BlogEngine.Core.Data.ViewModels
             Trash = _trash;
         }
 
-        IEnumerable<SelectOption> GetLogFile()
+        IEnumerable<SelectOption> GetLogs()
         {
             string fileLocation = HostingEnvironment.MapPath(Path.Combine(BlogConfig.StorageLocation, "logger.txt"));
             var items = new List<SelectOption>();
@@ -256,6 +256,24 @@ namespace BlogEngine.Core.Data.ViewModels
             else
             {
                 return new List<SelectOption>();
+            }
+        }
+
+        string GetLogFile()
+        {
+            string fileLocation = HostingEnvironment.MapPath(Path.Combine(BlogConfig.StorageLocation, "logger.txt"));
+            var items = new List<SelectOption>();
+
+            if (File.Exists(fileLocation))
+            {
+                using (var sw = new StreamReader(fileLocation))
+                {
+                    return sw.ReadToEnd();
+                }
+            }
+            else
+            {
+                return string.Empty;
             }
         }
 
