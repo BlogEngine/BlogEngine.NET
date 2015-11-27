@@ -78,14 +78,14 @@
                             <i class="fa fa-arrow-left"></i>
                         </a>
                         <a ng-if="item.FileType === 1" title="{{item.Name}}" href="" ng-click="insertFile(item)">
-                            <img ng-src="{{root}}Content/images/blog/placeholders/{{item.ImgPlaceholder}}" />
+                            <i ng-class="item.ImgPlaceholder"></i>
                         </a>
                         <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item)">
                             <img ng-src="@imgHandler{{item.FullPath}}" />
                         </a>
                     </div>
                     <div class="item-file-name">
-                        <label><input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> <span class="text-ellipsis">{{item.Name.substring(0,12)}} dfg as5dfg 41asd g16as1g 6as8d4g68a sdg6as</span></label>
+                        <label><input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> <span class="text-ellipsis">{{item.Name.substring(0,12)}}</span></label>
                     </div>
                 </div>
             </div>

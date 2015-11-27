@@ -42,26 +42,26 @@ namespace BlogEngine.Core.FileSystem
 
             if (file.EndsWith(".zip") || file.EndsWith(".gzip") || file.EndsWith(".7zip") || file.EndsWith(".rar"))
             {
-                return "zip.png";
+                return "fa fa-file-archive-o";
             }
             if (file.EndsWith(".doc") || file.EndsWith(".docx"))
             {
-                return "doc.png";
+                return "fa fa-file-word-o";
             }
             if (file.EndsWith(".xls") || file.EndsWith(".xlsx"))
             {
-                return "xls.png";
+                return "fa fa-file-excel-o";
             }
             if (file.EndsWith(".pdf"))
             {
-                return "pdf.png";
+                return "fa fa-file-pdf-o";
             }
             if (file.EndsWith(".txt"))
             {
-                return "txt.png";
+                return "fa fa-file-text-o";
             }
 
-            return "new.png";
+            return "fa fa-file-o";
         }
     }
 
