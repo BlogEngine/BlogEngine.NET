@@ -1237,7 +1237,9 @@ body {
     padding: 30px; }
   .filemanager .filemanager-path {
     display: block;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-weight: 500; }
   .filemanager .search-form {
     width: 200px;
     height: 30px;
@@ -1247,7 +1249,7 @@ body {
     margin-right: 20px;
     margin-bottom: 20px;
     background: #fff;
-    width: 220px;
+    width: 160px;
     overflow: hidden;
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -1260,34 +1262,52 @@ body {
       -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
+      .filemanager .filemanager-list .item-file:hover .item-file-name {
+        background: #eee; }
     .filemanager .filemanager-list .item-file .item-file-image {
-      height: 200px;
+      height: 150px;
       background: #fff;
       overflow: hidden;
       position: relative; }
       .filemanager .filemanager-list .item-file .item-file-image a {
         display: block;
-        height: 100%; }
+        height: 100%;
+        position: relative; }
         .filemanager .filemanager-list .item-file .item-file-image a img {
-          height: 200px;
+          height: 150px;
           max-width: none;
           width: auto;
-          min-width: 100%; }
+          min-width: 100%;
+          position: absolute;
+          left: 50%;
+          -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          -o-transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
         .filemanager .filemanager-list .item-file .item-file-image a i {
           display: block;
           text-align: center;
           height: 100%;
           width: 100%;
-          line-height: 210px;
+          line-height: 155px;
           color: #444;
-          font-size: 100px; }
+          font-size: 80px; }
         .filemanager .filemanager-list .item-file .item-file-image a .fa-folder {
-          font-size: 180px;
-          line-height: 215px;
+          font-size: 120px;
+          line-height: 160px;
           color: #ede079; }
+        .filemanager .filemanager-list .item-file .item-file-image a .fa-file-archive-o {
+          color: #654aa7; }
+        .filemanager .filemanager-list .item-file .item-file-image a .fa-file-excel-o {
+          color: #217346; }
+        .filemanager .filemanager-list .item-file .item-file-image a .fa-file-word-o {
+          color: #2b579a; }
+        .filemanager .filemanager-list .item-file .item-file-image a .fa-file-pdf-o {
+          color: #dd4a4a; }
     .filemanager .filemanager-list .item-file .item-file-name {
-      height: 40px;
-      line-height: 40px;
+      height: 35px;
+      line-height: 35px;
       display: block;
       position: relative;
       -moz-user-select: none;
@@ -1301,7 +1321,7 @@ body {
       .filemanager .filemanager-list .item-file .item-file-name input {
         position: absolute;
         left: 13px;
-        top: 14px;
+        top: 11px;
         margin: 0; }
 
 .dashboard-view .dashboard-list ul li {
@@ -2264,6 +2284,8 @@ body {
   .custom-themes-gallery-view .gallery-item:hover .item-checkbox {
     opacity: 1; }
 
+.custom-plugins-view .iframe-package iframe {
+  height: 100%; }
 .custom-plugins-view .modal-package {
   padding: 0 !important; }
   .custom-plugins-view .modal-package .modal-plugin-info {

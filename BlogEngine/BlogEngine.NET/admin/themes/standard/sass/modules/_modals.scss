@@ -4,14 +4,14 @@
 
         .btn {
             float: left;
-            margin-right:10px;
-            
+            margin-right: 10px;
         }
+
         &:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+            content: "";
+            display: table;
+            clear: both;
+        }
     }
 
     .modal-header {

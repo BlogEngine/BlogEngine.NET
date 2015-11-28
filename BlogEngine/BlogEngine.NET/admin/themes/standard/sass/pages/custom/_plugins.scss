@@ -1,5 +1,14 @@
 ﻿.custom-plugins-view {
     //
+    .iframe-package {
+        .modal-body {
+        }
+
+        iframe {
+            height: 100%;
+        }
+    }
+
     .modal-package {
         padding: 0 !important;
 

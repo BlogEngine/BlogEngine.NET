@@ -32,8 +32,6 @@
         var editVars = { id: '@id', storageLocation: '@BlogConfig.StorageLocation' };
     </script>
     <script type="text/javascript" src="admin.res.axd"></script>
-    <style>
-    </style>
 </head>
 <body class="filemanager @Resources.labels.LangDirection" ng-controller="FileManagerController">
     @Scripts.Render("~/scripts/wysiwyg")
@@ -51,7 +49,7 @@
                             <input type="text" class="form-control" id="txtFolder" name="txtFolder" data-ng-model="dirName" focus-me="focusInput" />
                         </div>
                         <div class="modal-buttons">
-                            <button type="button" ng-click="createFolder()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" ng-click="createFolder()" class="btn btn-success btn-hasicon"><i class="fa fa-check"></i>{{lbl.save}}</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
                         </div>
                     </div>
@@ -81,7 +79,7 @@
                             <i ng-class="item.ImgPlaceholder"></i>
                         </a>
                         <a ng-if="item.FileType === 2" title="{{item.Name}}" href="" ng-click="insertFile(item)">
-                            <img ng-src="@imgHandler{{item.FullPath}}" />
+                           <img ng-src="@imgHandler{{item.FullPath}}" />
                         </a>
                     </div>
                     <div class="item-file-name">

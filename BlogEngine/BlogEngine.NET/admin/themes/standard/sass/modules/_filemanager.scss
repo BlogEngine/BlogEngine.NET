@@ -8,6 +8,8 @@
     .filemanager-path {
         display: block;
         margin-bottom: 30px;
+        letter-spacing: 1px;
+        font-weight: $font-weight-bold;
     }
 
     .search-form {
@@ -22,17 +24,21 @@
             margin-right: 20px;
             margin-bottom: 20px;
             background: #fff;
-            width: 220px;
+            width: 160px;
             overflow: hidden;
             @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.10));
             @include transition(all ease .2s);
 
             &:hover {
                 @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.30));
+
+                .item-file-name {
+                    background: #eee;
+                }
             }
 
             .item-file-image {
-                height: 200px;
+                height: 150px;
                 background: #fff;
                 overflow: hidden;
                 position: relative;
@@ -40,35 +46,59 @@
                 a {
                     display: block;
                     height: 100%;
+                    position: relative;
 
                     img {
-                        height: 200px;
+                        height: 150px;
                         max-width: none;
                         width: auto;
                         min-width: 100%;
+                        position: absolute;
+                        left: 50%;
+                        @include transform(translateX(-50%));
                     }
+
 
                     i {
                         display: block;
                         text-align: center;
                         height: 100%;
                         width: 100%;
-                        line-height: 210px;
+                        line-height: 155px;
                         color: #444;
-                        font-size: 100px;
+                        font-size: 80px;
                     }
 
                     .fa-folder {
-                        font-size: 180px;
-                        line-height: 215px;
+                        font-size: 120px;
+                        line-height: 160px;
                         color: #ede079;
+                    }
+
+                    .fa-file-archive-o {
+                        color: #654aa7;
+                    }
+
+                    .fa-file-excel-o {
+                        color: #217346;
+                    }
+
+                    .fa-file-word-o {
+                        color: #2b579a;
+                    }
+
+                    .fa-file-pdf-o {
+                        color: #dd4a4a;
+                    }
+
+                    .fa-file-text-o {
                     }
                 }
             }
 
             .item-file-name {
-                height: 40px;
-                line-height: 40px;
+                height: 35px;
+                line-height: 35px;
                 display: block;
                 position: relative;
                 @include user-select(none);
@@ -82,7 +112,7 @@
                 input {
                     position: absolute;
                     left: 13px;
-                    top: 14px;
+                    top: 11px;
                     margin: 0;
                 }
             }
