@@ -2284,13 +2284,6 @@
     <Compile Include="Custom\Themes\RazorHost\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
-    <Compile Include="Custom\Themes\Standard\site.master.cs">
-      <DependentUpon>site.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Custom\Themes\Standard\site.master.designer.cs">
-      <DependentUpon>site.master</DependentUpon>
-    </Compile>
     <Compile Include="Custom\Controls\CommentList.ascx.cs">
       <DependentUpon>CommentList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

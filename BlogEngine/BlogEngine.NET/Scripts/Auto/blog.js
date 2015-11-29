@@ -284,6 +284,9 @@ BlogEngine = {
     // Searches the blog based on the entered text and
     // searches comments as well if chosen.
     search: function (root, searchfield) {
+        if (!searchfield) {
+            searchfield = 'searchfield';
+        }
         var input = this.$(searchfield);
         var check = this.$("searchcomments");
 
@@ -299,6 +302,9 @@ BlogEngine = {
 	,
     // Clears the search fields on focus.
     searchClear: function (defaultText, searchfield) {
+        if (!searchfield) {
+            searchfield = 'searchfield';
+        }
         var input = this.$(searchfield);
         if (input.value == defaultText)
             input.value = "";

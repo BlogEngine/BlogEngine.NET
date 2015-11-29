@@ -1,6 +1,29 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="StandardSite" CodeBehind="site.master.cs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" %>
 <%@ Import Namespace="BlogEngine.Core" %>
-<%@ Import Namespace="System.Linq" %>
+<%
+    Page.Header.DataBind();
+
+    //TO fix the bug related TO Perisan Culture
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.LCID == 1065)
+        System.Threading.Thread.CurrentThread.CurrentCulture = new PersianCulture();
+    // for supported of RTL languages
+    if (Resources.labels.LangDirection.Equals("rtl", StringComparison.OrdinalIgnoreCase))
+    {
+        var lc = new LiteralControl("<link href=\"" + Utils.RelativeWebRoot + "Custom/Themes/Standard/css/rtl.css\" rel=\"stylesheet\" />");
+        HeadContent.Controls.Add(lc);
+    }
+
+    if (Security.IsAuthenticated)
+    {
+        aLogin.InnerText = Resources.labels.logoff;
+        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?logoff";
+    }
+    else
+    {
+        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx";
+        aLogin.InnerText = Resources.labels.login;
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -10,10 +33,10 @@
     <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%# ShRoot %>scripts/XRegExp.js"></script>
-    <script type="text/javascript" src="<%# ShRoot %>scripts/shCore.js"></script>
-    <script type="text/javascript" src="<%# ShRoot %>scripts/shAutoloader.js"></script>
-    <script type="text/javascript" src="<%# ShRoot %>shActivator.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shAutoloader.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/shActivator.js"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
