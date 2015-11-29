@@ -1,4 +1,4 @@
-﻿.page-header {
+﻿.main-header {
     margin: 0;
     background: #fff;
     border-bottom: 1px solid #e9e9e9;
@@ -26,13 +26,18 @@
     .btn.pull-left {
         margin-right: 10px;
     }
-   
+
+    .btn.pull-right {
+        margin-left: 10px;
+    }
+
     .btn-group {
         .btn {
             padding: 0;
             width: 50px;
             margin: 0 1px 0 0;
             font-size: 14px;
+
             i {
                 font-size: 14px;
                 display: block;
@@ -144,6 +149,7 @@
                 cursor: text;
             }
         }
+
         &.search-wide {
             width: 120px;
 
@@ -154,10 +160,9 @@
     }
 }
 
-
+// [RESPONSIVE]
 @media screen and (max-width:1024px) {
-    .page-header {
-        padding: 10px 10px 10px 55px;
-        height: 50px;
+    .main-header {
+        padding-left: 75px;
     }
 }

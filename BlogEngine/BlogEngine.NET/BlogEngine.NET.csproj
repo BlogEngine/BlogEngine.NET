@@ -673,7 +673,6 @@
     <Content Include="admin\themes\standard\css\styles.css.map" />
     <None Include="admin\themes\standard\sass\base\_reset.scss" />
     <Content Include="admin\themes\standard\sass\base\_utilites.scss" />
-    <Content Include="admin\themes\standard\sass\base\_responsive.scss" />
     <Content Include="admin\themes\standard\sass\modules\_tables.scss" />
     <Content Include="admin\themes\standard\sass\modules\_panels.scss" />
     <Content Include="admin\themes\standard\sass\layout\_header.scss" />
@@ -2706,7 +2705,7 @@
   <ItemGroup>
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
-    <Folder Include="App_Data\packages\SimpleBlog.1.1.0\" />
+    <Folder Include="App_Data\packages\" />
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>

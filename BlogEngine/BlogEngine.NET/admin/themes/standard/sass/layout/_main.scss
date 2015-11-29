@@ -1,38 +1,100 @@
-﻿.wrapper {
+﻿//
+.main-wrapper {
     width: 100%;
     height: 100%;
-    padding-left: 230px;
-    @include transition(all ease 0.5s);
+    padding-left: 240px;
 }
-
-.sidebar {
-    z-index: 1;
+//
+.main-sidebar {
     position: fixed;
-    white-space: nowrap;
     left: 0;
     top: 0;
-    width: 230px;
+    width: 240px;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background: #282c37;
-    font-size: 13px;
-    @include transition(all ease 0.5s);
-
-    a {
-        color: #74808f;
-    }
+    background: $color-base;
+    white-space: nowrap;
+    z-index: 3;
 }
-
-.content {
+//
+.main-content {
     height: 100%;
     width: 100%;
-    position: relative;
-    left: 0;
-    @include transition(all ease 0.5s);
 
     .content-inner {
         padding: 30px;
-        @include transition(all ease 0.5s);
+    }
+}
+//
+.sidebar-toggle {
+    width: $sidebar-global-height;
+    height: $sidebar-global-height;
+    position: absolute;
+    z-index: 1;
+    padding: 20px 18px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-right: 1px solid #eee;
+    display: none;
+    outline: none !important;
+
+    span {
+        display: block;
+        height: 4px;
+        width: 24px;
+        margin-bottom: 4px;
+        background-color: #666;
+        @include border-radius(8px);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+//
+.main-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.70);
+    display: none;
+
+    .sidebar-open & {
+        display: block;
+    }
+}
+
+// [RESPONSIVE]
+@media screen and (min-width:1025px) {
+    .sidebar-toggle,
+    .main-overlay {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:1024px) {
+
+    .main-wrapper {
+        padding-left: 0;
+
+        &.sidebar-open {
+        }
+    }
+
+    .main-sidebar {
+        display: none;
+
+        .sidebar-open & {
+            display: block;
+        }
+    }
+
+    .sidebar-toggle {
+        display: block;
     }
 }

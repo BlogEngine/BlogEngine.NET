@@ -6,7 +6,7 @@
     $scope.isActive = function (viewLocation) {
         return viewLocation === $location.path() || $location.path().startsWith(viewLocation + "/");
     };
-    $(".nav-primary > li").removeClass("active");
+    $(".nav-sidebar > ul > li").removeClass("active");
 
     if ($location.path().indexOf("content") > -1) {
         $("#mu-content").addClass("active");
@@ -27,23 +27,23 @@
         $("#mu-dashboard").addClass("active");
     }
 
-    $(".nav-primary > li > a").click(function () {
-        $(".nav-primary > li").removeClass("active");
+    $(".nav-sidebar > ul > li > a").click(function () {
+        $(".nav-sidebar > ul > li").removeClass("active");
         $(this).parent().addClass("active");
     });
 
     if ($location.$$absUrl.indexOf("editpost.cshtml") > -1) {
-        $(".nav-primary > li").removeClass("active");
+        $(".nav-sidebar > ul > li").removeClass("active");
         $("#mu-content").addClass("active");
         $("#mu-posts").addClass("active");
     }
     if ($location.$$absUrl.indexOf("editpage.cshtml") > -1) {
-        $(".nav-primary > li").removeClass("active");
+        $(".nav-sidebar > ul > li").removeClass("active");
         $("#mu-content").addClass("active");
         $("#mu-pages").addClass("active");
     }
     if ($location.$$absUrl.indexOf("admin/about") > -1) {
-        $(".nav-primary > li").removeClass("active");
+        $(".nav-sidebar > ul > li").removeClass("active");
         $("#mu-about").addClass("active");
     }
 }]);

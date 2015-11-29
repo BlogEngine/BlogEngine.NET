@@ -10,7 +10,6 @@
 <head id="Head1" runat="server">
     <title>BlogEngine.NET Admin</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet"/>
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet"/>
     <style>
         .alert-info { margin-right: 10px; }
         input[type="checkbox"]{ margin-right: 6px !important; }

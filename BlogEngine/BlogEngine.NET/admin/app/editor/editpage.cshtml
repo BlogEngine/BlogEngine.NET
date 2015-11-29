@@ -59,7 +59,7 @@
             </div>
         </div>
         @* please do not remove this page-header we used it in mobile size. *@
-        <div class="page-header clearfix hidden">
+        <div class="main-header clearfix hidden">
             <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-success btn-sm btn-hasicon pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
             <span ng-if="page.Id && page.IsPublished"><a href="#" class="btn btn-sm btn-warning btn-hasicon pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
             <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-success btn-hasicon pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>

@@ -20,17 +20,17 @@
 }
 <html ng-app="blogAdmin">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@BlogSettings.Instance.Name (@Security.CurrentMembershipUser.UserName)</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    @Styles.Render("~/Content/admincss")
+    <link href="~/admin/themes/standard/css/styles.css?ver=2" rel="stylesheet">
     <link rel="shortcut icon" href="@Href(Utils.ApplicationRelativeWebRoot + "Content/images/blog/blogengine.ico")" type="image/x-icon" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
-    @Styles.Render("~/Content/admincss")
-    <link href="~/admin/themes/standard/css/styles.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
         var ActiveTheme = '@BlogSettings.Instance.Theme'
@@ -45,35 +45,29 @@
         }
     </script>
 </head>
-<body>
+<body class="@Resources.labels.LangDirection-dir">
     <script type="text/javascript" src="admin.res.axd"></script>
-    <div class="wrapper @Resources.labels.LangDirection">
-        <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="overlay-wrapper"></div>
-        <div class="sidebar">
+    <div class="main-wrapper">
+        <div class="main-sidebar">
             @RenderPage("sidebar.cshtml")
         </div>
-        @RenderBody()
+        <div class="main-content">
+            @RenderBody()
+        </div>
+        <div class="main-overlay"></div>
     </div>
     <script>
-        $(document).ready(function () {
-            $(".nav-toggle").click(function () {
-                $(".wrapper").toggleClass("sidebar-active");
-            });
-            $(".overlay-wrapper").click(function () {
-                $(".wrapper").removeClass("sidebar-active");
-            });
-
-            $(window).resize(function () {
-                if ($(window).width() > 1023) {
-                    $(".wrapper").removeClass("sidebar-active");
-                }
-            });
+        $(".sidebar-toggle").click(function () {
+            $(".main-wrapper").toggleClass("sidebar-open");
         });
+        $(".main-overlay").click(function () {
+            $(".main-wrapper").removeClass("sidebar-open");
+        });
+        $(window).resize(function () {
+            if ($(window).width() > 1025) {
+                $(".main-wrapper").removeClass("sidebar-open");
+            }
+        })
     </script>
 </body>
 </html>

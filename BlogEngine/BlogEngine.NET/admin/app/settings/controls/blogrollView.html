@@ -6,7 +6,6 @@
 
 <div data-ng-controller="BlogRollController">
     <form id="form" action="">
-
         <div id="modal-edit" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -81,11 +80,8 @@
                 </div>
             </div>
         </div>
-
-        <div class="page-header clearfix">
-            <h2 class="page-title pull-left">
-                {{lbl.blogroll}} <span id="spinner" class="loaded"><i class="fa fa-spinner fa-spin fa-sm"></i></span>
-            </h2>
+        <div class="main-header clearfix">
+            <h2 class="page-title pull-left">{{lbl.blogroll}} </h2>
             <a href="" ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>New</a>
             <div class="btn-group befdv pull-left">
                 <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa  fa-trash"></i></button>
