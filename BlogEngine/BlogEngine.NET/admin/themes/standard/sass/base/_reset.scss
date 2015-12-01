@@ -14,16 +14,6 @@ label {
     font-weight: $font-weight-normal;
 }
 
-input[type=checkbox] {
-    position: relative;
-    top: 2px;
-}
-
-.checkbox input[type=checkbox] {
-    position: relative;
-    top: 1px;
-}
-
 hr {
     border-color: #ddd;
 }
@@ -36,7 +26,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     margin: 0;
 }
+
 iframe {
-    width:100%;
-    border:none;
+    width: 100%;
+    border: none;
 }

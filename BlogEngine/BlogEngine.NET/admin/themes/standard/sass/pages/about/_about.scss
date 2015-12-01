@@ -2,22 +2,26 @@
     .content-inner {
         width: 640px;
         max-width: 100%;
-        direction:ltr;
+        direction: ltr;
     }
     //
     .about-section {
-        
         margin-bottom: 25px;
-        .about-logo{
-            margin-bottom:20px;
+
+        .about-logo {
+            margin-bottom: 20px;
         }
+
         .about-external-link {
             margin-top: 35px;
 
             .fa-cube {
                 line-height: 28px !important;
             }
-            li {margin-bottom:10px;}
+
+            li {
+                margin-bottom: 10px;
+            }
         }
     }
     //
@@ -31,6 +35,15 @@
                 display: inline-block;
                 min-width: 180px;
             }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .about-view {
+        .content-inner {
+            width: 640px;
+            margin:0 auto;
         }
     }
 }

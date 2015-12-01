@@ -150,6 +150,7 @@ function getFromQueryString(param) {
 }
 
 function bindCommon() {
+  
     //
     $(".dropdown-menu-filter li a").click(function () {
         $(this).parents(".dropdown").find('.btn').html('<span class="show-label"></span> ' + $(this).text() + ' <i class="fa fa-angle-down"></i>');
@@ -157,20 +158,15 @@ function bindCommon() {
     });
 
     //
-    $(".page-header .btn, .help-link").tooltip({
-        placement: "bottom",
-        container: '.page-header',
-    });
-
-    //
     $(".search input").focus(function () {
-        $(".search").addClass("search-wide");
+        $(".search").addClass("active");
     });
     $('.search input').blur(function () {
         if ($(this).val().length == 0) {
-            $(".search").removeClass("search-wide");
+            $(".search").removeClass("active");
         }
     });
+
     //
     $(".btn-input-file.prev").click(function () {
         $(this).prev('input').click();
@@ -178,4 +174,11 @@ function bindCommon() {
     $(".btn-input-file.next").click(function () {
         $(this).next('input').click();
     });
+
+    //
+    $(".main-header .btn").tooltip({
+        placement: "bottom",
+        container: '.main-header',
+    });
+
 }

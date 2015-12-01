@@ -5,7 +5,7 @@
             <button data-ng-click="save()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-            <div class="form-width-limited">
+            <div class="form-content">
                 <h4>{{lbl.contactForm}}</h4>
                 <div class="form-group">
                     <label for="txtContactFormMessage">{{lbl.formMessage}}</label>
@@ -29,7 +29,6 @@
                         </div>
                     </div>
                 </div>
-                <hr />
                 <h4>{{lbl.errorPage}}</h4>
                 <div class="form-group">
                     <label for="txtErrorTitle">{{lbl.txtErrorTitle}}</label>
@@ -39,7 +38,6 @@
                     <label for="txtErrorText">{{lbl.txtErrorText}}</label>
                     <textarea class="form-control ltr-dir" rows="3" id="txtErrorText" data-ng-model="settings.ErrorText"></textarea>
                 </div>
-                <hr />
                 <h4>{{lbl.customCode}}</h4>
                 <div class="form-group">
                     <label for="txtHtmlHeader">{{lbl.addCustomCodeToHeader}}</label>

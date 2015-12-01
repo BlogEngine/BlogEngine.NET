@@ -5,7 +5,9 @@
             <button data-ng-click="save()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-check"></i>{{lbl.save}}</button>
         </div>
         <div class="content-inner">
-            <div class="form-width-limited">
+
+            <div class="form-content">
+                <h4>General</h4>
                 <div class="form-group">
                     <label>{{lbl.handleWwwSubdomain}}</label>
                     <div class="row">
@@ -22,8 +24,7 @@
                     <div class="checkbox"><label><input type="checkbox" name="ckShowPostNavigation" data-ng-model="settings.ShowPostNavigation" /> {{lbl.showPostNavigation}}</label></div>
                     <div class="checkbox"><label><input type="checkbox" name="ckEnablePasswordReset" data-ng-model="settings.EnablePasswordReset" /> {{lbl.enablePasswordReset}}</label></div>
                 </div>
-                <hr />
-                <h4>{{lbl.comments}}</h4><br />
+                <h4>{{lbl.comments}}</h4>
                 <div class="form-group">
                     <label>{{lbl.enableTrackbacks}}</label>
                     <div class="row">
@@ -38,7 +39,6 @@
                         <div class="col-md-6"><label><input type="checkbox" name="ckEnableTrackBackReceive" data-ng-model="settings.EnableTrackBackReceive" /> {{lbl.receive}}</label></div>
                     </div>
                 </div>
-                <hr />
                 <h4>  {{lbl.securitySettings}}</h4>
                 <div class="form-group">
                     <div class="checkbox"><label><input type="checkbox" name="ckAllowRemoteFileDownloads" data-ng-model="settings.AllowServerToDownloadRemoteFiles" /> {{lbl.allowRemoteFileDownloads}}</label></div>
@@ -53,8 +53,7 @@
                         <input type="text" class=" form-control" id="txtRemoteMaxFileSize" name="txtRemoteMaxFileSize" data-ng-model="settings.RemoteMaxFileSize" />
                     </div>
                 </div>
-                <hr />
-                <h4>{{lbl.tools}}</h4><br />
+                <h4>{{lbl.tools}}</h4>
                 <div class="form-group">
                     <p>{{lbl.selectSavedBlogMlFle}}</p>
                     <button class="btn btn-default btn-input-file next">{{lbl.import}}</button>

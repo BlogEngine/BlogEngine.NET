@@ -8,7 +8,7 @@
                 </div>
                 <div class="modal-body logs-list">
                     <div class="form-group">
-                        <textarea ng-bind="vm.Logs" rows="12" maxlength="450" class="form-control" id="txtLogs"></textarea>
+                        <textarea ng-bind="vm.Logs" readonly="readonly" rows="12" maxlength="450" class="form-control" id="txtLogs"></textarea>
                     </div>
                     <div class="modal-buttons text-right">
                         <button type="button" data-ng-if="vm.Logs.length > 0" data-ng-click="purgeLog()" class="btn btn-hasicon btn-danger"><i class="fa fa-trash"></i> {{lbl.purge}}</button>

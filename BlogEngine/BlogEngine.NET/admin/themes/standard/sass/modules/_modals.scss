@@ -1,4 +1,12 @@
-﻿.modal {
+﻿
+.modal-open .content { position: static; }
+.modal-content { border-radius: 3px !important; border: none; }
+.modal-header .close { position: relative; top: 3px; margin: 0; }
+.modal-content .form-control { border-width: 1px; }
+.modal-footer .btn:focus { outline: 1px dotted rgba(255, 255, 255, 0.36); }
+.modal .modal-body { margin:0; padding:40px; max-height: 76%; overflow:hidden; overflow-y: auto; }
+
+.modal {
     .modal-buttons {
         margin-top: 30px;
 
