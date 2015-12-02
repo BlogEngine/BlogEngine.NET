@@ -50,8 +50,26 @@
             width: 100px;
         }
 
-        .item-state {
+        .item-status {
             width: 100px;
+        }
+
+        @media screen and (max-width:1023px) {
+            .item-comments {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .item-author {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:640px) {
+            .item-status {
+                display: none;
+            }
         }
     }
 }

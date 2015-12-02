@@ -30,7 +30,7 @@
                     <th class="item-sort"><a data-ng-click="sort_by('SortOrder', $event)">{{lbl.sortOrder}}</a></th>
                     <th class="item-date"><a data-ng-click="sort_by('DateCreated',$event)">{{lbl.date}}</a></th>
                     <th class="item-show">{{lbl.showInList}}</th>
-                    <th class="item-stats">{{lbl.published}}</th>
+                    <th class="item-status">{{lbl.published}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +44,7 @@
                     <td class="item-sort">{{item.SortOrder}}</td>
                     <td class="item-date" title="{{item.DateCreated}}">{{item.DateCreated.substring(0,10)}}</td>
                     <td class="item-show"><input type="checkbox" data-ng-model="item.ShowInList" data-ng-disabled="true"></td>
-                    <td class="item-state"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
+                    <td class="item-status"><input type="checkbox" data-ng-model="item.IsPublished" data-ng-disabled="true"></td>
                 </tr>
             </tbody>
         </table>

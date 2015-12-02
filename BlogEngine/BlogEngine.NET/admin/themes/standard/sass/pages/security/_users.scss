@@ -10,5 +10,12 @@
             max-width: 200px;
             padding: 0 10px;
         }
+
+        @media screen and (max-width:768px) {
+            .item-email {
+                display: none;
+            }
+        }
+
     }
 }

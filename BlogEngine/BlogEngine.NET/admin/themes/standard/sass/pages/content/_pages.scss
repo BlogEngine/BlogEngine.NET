@@ -17,8 +17,22 @@
             width: 140px;
         }
 
-        .item-state {
+        .item-status {
             width: 120px;
+        }
+
+        @media screen and (max-width:1200px) {
+            .item-parent,
+            .item-sort,
+            .item-show {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:640px) {
+            .item-status {
+                display: none;
+            }
         }
     }
 }

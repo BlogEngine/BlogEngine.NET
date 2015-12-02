@@ -178,5 +178,17 @@
         &:hover .item-checkbox {
             opacity: 1;
         }
+
+
+        @media screen and (max-width:1024px) {
+            margin-bottom: 15px;
+        }
+    }
+
+    @media screen and (max-width:700px) {
+        .col-xs-6 {
+            float: none !important;
+            width: 100%;
+        }
     }
 }
