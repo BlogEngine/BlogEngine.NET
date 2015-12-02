@@ -112,11 +112,11 @@
                     <div class="item-info clear">
                         <div class="pull-left item-title">{{item.Title}}</div>
                         <div class="item-buttons pull-right">
-                            <button ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-hasicon btn-default"><i class="fa fa-check"></i> {{lbl.active}}</button>
-                            <button class="btn btn-sm btn-icon btn-default" ng-if="item.Id === activeTheme" ng-click="showSettings(item.Id)"  angular-tooltip title="Customize"><i class="fa fa-sliders"></i></button>
-                            <button ng-if="IsPrimary && item.OnlineVersion.length > 0 && item.Id != activeTheme" ng-click="uninstallPackage(item.Id)" class="btn btn-sm btn-icon btn-default" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
-                            <button ng-if="item.OnlineVersion.length == 0 || item.OnlineVersion == item.LocalVersion" class="btn btn-sm btn-icon btn-default" ng-click="showInfo(item.Id)" angular-tooltip title="Information"> <i class="fa fa-info-circle"></i> </button>
-                            <button ng-if="item.OnlineVersion.length > 0 && item.OnlineVersion > item.LocalVersion" class="btn btn-sm btn-icon btn-default" ng-click="showInfo(item.Id)" angular-tooltip title="Information"> <i class="fa fa-info-circle notify"></i> </button>
+                            <a ng-click="setDefaultTheme(item.Id)" ng-if="item.Id != activeTheme" class="btn btn-sm btn-hasicon btn-default"><i class="fa fa-check"></i> {{lbl.active}}</a>
+                            <a class="btn btn-sm btn-icon btn-default" ng-if="item.Id === activeTheme" ng-click="showSettings(item.Id)"  angular-tooltip title="Customize"><i class="fa fa-sliders"></i></a>
+                            <a ng-if="IsPrimary && item.OnlineVersion.length > 0 && item.Id != activeTheme" ng-click="uninstallPackage(item.Id)" class="btn btn-sm btn-icon btn-default" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+                            <a ng-if="item.OnlineVersion.length == 0 || item.OnlineVersion == item.LocalVersion" class="btn btn-sm btn-icon btn-default" ng-click="showInfo(item.Id)" angular-tooltip title="Information"> <i class="fa fa-info-circle"></i> </a>
+                            <a ng-if="item.OnlineVersion.length > 0 && item.OnlineVersion > item.LocalVersion" class="btn btn-sm btn-icon btn-default" ng-click="showInfo(item.Id)" angular-tooltip title="Information"> <i class="fa fa-info-circle notify"></i> </a>
                         </div>
                     </div>
                 </div>

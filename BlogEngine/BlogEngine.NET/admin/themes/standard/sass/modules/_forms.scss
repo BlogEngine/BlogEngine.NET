@@ -26,6 +26,14 @@
     }
 }
 
+input[type=text],
+input[type=password],
+input[type=email],
+textarea {
+    -webkit-appearance: none;
+}
+
+
 // checkbox
 input[type=checkbox],
 input[type=radio] {
@@ -58,16 +66,15 @@ input[type=radio] {
 
 // tooltip
 .tooltip-inner {
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-size:10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
     @include border-radius(2px);
-    padding-top:4px;
+    padding-top: 4px;
 }
 
-
 @media screen and (max-width:1024px) {
-    .form-content{
-        margin:0 auto;
+    .form-content {
+        padding:30px;
     }
 }

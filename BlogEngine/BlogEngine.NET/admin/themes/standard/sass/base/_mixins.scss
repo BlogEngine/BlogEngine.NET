@@ -127,8 +127,6 @@
     }
 }
 
-
-
 // triangle
 @mixin triangle($direction, $size, $color) {
     width: 0;
@@ -177,7 +175,6 @@
         border-left: $size solid transparent;
     }
 }
-
 
 // list-unstyled
 @mixin list-unstyled() {

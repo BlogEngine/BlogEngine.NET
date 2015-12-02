@@ -8,6 +8,7 @@
     }
 }
 <div class="content" ng-controller="PageEditorController">
+    <button tabindex="-1" class="sidebar-toggle"><span></span><span></span><span></span></button>
     <div class="content-pages-new-view">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog">
@@ -58,8 +59,8 @@
                 </div>
             </div>
         </div>
-        @* please do not remove this page-header we used it in mobile size. *@
-        <div class="main-header clearfix hidden">
+        @* please do not remove this main-header we used it in mobile size. *@
+        <div class="main-header clearfix">
             <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-success btn-sm btn-hasicon pull-left" target="_blank"><i class="fa fa-eye"></i> {{lbl.goToPage}}</a></span>
             <span ng-if="page.Id && page.IsPublished"><a href="#" class="btn btn-sm btn-warning btn-hasicon pull-left" ng-click="publish(false)"><i class="fa fa-undo"></i> {{lbl.unpublish}}</a></span>
             <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-success btn-hasicon pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
@@ -86,14 +87,16 @@
                     </div>
                     <div class="newpage-sidebar">
                         <div class="newpage-sidebar-content">
-                            <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-sm btn-block btn-success" target="_blank">{{lbl.goToPage}}</a></span>
-                            <span ng-if="page.Id && page.IsPublished"><a href="#" class="btn btn-sm btn-block btn-warning" ng-click="publish(false)">{{lbl.unpublish}}</a></span>
-                            <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-block btn-success">{{lbl.publish}}</a>
-                            <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-block btn-primary">{{lbl.save}}</a>
-                            <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-block btn-primary">{{lbl.save}}</a></span>
-                            <a href="" onclick="window.history.back()" class="btn btn-block btn-sm btn-default">{{lbl.cancel}}</a>
-                            <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-large'></i></span>
-                            <hr />
+                            <div class="newpage-sidebar-buttons">
+                                <span ng-if="page.Id"><a href="{{page.RelativeLink}}" class="btn btn-sm btn-block btn-success" target="_blank">{{lbl.goToPage}}</a></span>
+                                <span ng-if="page.Id && page.IsPublished"><a href="#" class="btn btn-sm btn-block btn-warning" ng-click="publish(false)">{{lbl.unpublish}}</a></span>
+                                <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-block btn-success">{{lbl.publish}}</a>
+                                <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-sm btn-block btn-primary">{{lbl.save}}</a>
+                                <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-block btn-primary">{{lbl.save}}</a></span>
+                                <a href="" onclick="window.history.back()" class="btn btn-block btn-sm btn-default">{{lbl.cancel}}</a>
+                                <span id="spinner" class="loaded"><i class='fa fa-spinner fa-spin fa-large'></i></span>
+                                <hr />
+                            </div>
                             <div class="newpage-widget">
                                 <label class="newpage-widget-title" for="txtKeywords">{{lbl.keywords}}</label>
                                 <textarea class="form-control" rows="3" id="txtKeywords" data-ng-model="page.Keywords"> </textarea>

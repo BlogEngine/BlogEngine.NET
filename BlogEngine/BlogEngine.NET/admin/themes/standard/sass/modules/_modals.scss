@@ -1,12 +1,4 @@
-﻿
-.modal-open .content { position: static; }
-.modal-content { border-radius: 3px !important; border: none; }
-.modal-header .close { position: relative; top: 3px; margin: 0; }
-.modal-content .form-control { border-width: 1px; }
-.modal-footer .btn:focus { outline: 1px dotted rgba(255, 255, 255, 0.36); }
-.modal .modal-body { margin:0; padding:40px; max-height: 76%; overflow:hidden; overflow-y: auto; }
-
-.modal {
+﻿.modal {
     .modal-buttons {
         margin-top: 30px;
 
@@ -23,11 +15,50 @@
     }
 
     .modal-header {
-        padding: 20px 40px;
+        padding: 0 40px;
+        min-height: 60px;
+        height: 60px;
+        line-height: 60px;
+
+        .modal-title {
+            line-height: 62px;
+            font-size: 18px;
+        }
+
+        .close {
+            position: relative;
+            margin: 0;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            outline: none !important;
+
+            i {
+                color: #000;
+            }
+        }
+    }
+
+    .modal-content {
+        @include border-radius(3px);
+        border: none;
+    }
+
+    .modal-body {
+        margin: 0;
+        padding: 40px;
+        height:auto;
+        max-height: 76%;
+        overflow: hidden;
+        overflow-y: auto;
     }
 
     .modal-footer {
         text-align: left;
         padding: 20px 40px;
+    }
+
+    .form-control {
+        max-width:100%;
     }
 }

@@ -1,5 +1,9 @@
 ﻿.content-posts-new-view {
     //
+    .main-header {
+        display: none;
+    }
+    //
     .content-inner {
         padding: 0;
 
@@ -45,6 +49,7 @@
     }
     //
     .newpost-title {
+        position:relative;
         .form-control {
             height: 50px;
             padding: 15px 15px 14px;
@@ -66,8 +71,8 @@
             position: absolute;
             background: #D8000C;
             color: #fff;
-            top: 85px;
-            left: 30px;
+            top: 55px;
+            left: 0;
             border-radius: 2px;
             display: inline-block;
             height: 20px;
@@ -269,6 +274,18 @@
 
         input {
             margin-right: 5px;
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .content-posts-new-view {
+        .main-header {
+            display: block;
+        }
+
+        .newpost-sidebar-buttons {
+            display: none;
         }
     }
 }

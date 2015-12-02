@@ -89,9 +89,7 @@
                     <div class="panel-body">
                         <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
                         <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
-                        <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-block btn-default" title="{{lbl.publish}}">
-                            {{lbl.save}}
-                        </button>
+                        <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-block btn-default" title="{{lbl.publish}}">{{lbl.save}}</button>
                     </div>
                 </div>
                 <div class="panel panel-default dashboard-list">
@@ -135,10 +133,9 @@
                                 <span class="item-desc text-ellipsis">{{pkg.Description}}</span>
                             </a>
                         </li>
-                        <li id="gal-spinner" class="list-group-item text-center">
+                        <li id="gal-spinner" class="list-group-item item-spinner">
                             <i class="fa fa-spinner fa-spin"></i>
                         </li>
-                        <li ng-if="packages.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
                 <div class="panel panel-default dashboard-news dashboard-list">
@@ -149,13 +146,12 @@
                         <li class="list-group-item" data-ng-repeat="n in news">
                             <a href="{{n.OptionValue}}.aspx" target="_blank">{{n.OptionName}}</a>
                         </li>
-                        <li id="news-spinner" class="list-group-item text-center">
+                        <li id="news-spinner" class="list-group-item item-spinner">
                             <i class="fa fa-spinner fa-spin"></i>
                         </li>
-                        <li ng-if="news.length == 0" class="list-group-item item-empty">{{lbl.empty}}</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> 

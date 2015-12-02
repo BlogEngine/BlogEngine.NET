@@ -1,11 +1,17 @@
 ﻿.dashboard-view {
     //
+    [readonly] {
+        background: none;
+        @include box-shadow(none !important);
+        border-color: #eee;
+    }
+    //
     .dashboard-list {
         ul {
             li {
                 padding: 0;
                 position: relative;
-                @include transition(all ease 0.5s);
+                @include transition(background ease 0.5s);
 
                 &:hover, &:focus {
                     background: #fafafa;
@@ -24,7 +30,7 @@
                     display: block;
                     overflow: hidden;
                     white-space: nowrap;
-                    @include text-overflow(ellipsis)
+                    @include text-overflow(ellipsis);
                 }
             }
 
@@ -57,28 +63,28 @@
                     .item-stats-info {
                         border-radius: 100px;
                         position: absolute;
-                        font-size: 13px;
+                        font-size: 12px;
                         right: 12px;
                         top: 10px;
                         height: 22px;
                         min-width: 34px;
                         padding: 0 5px;
-                        line-height: 22px;
+                        line-height: 23px;
                         background-color: #aaa;
                         color: #fff;
                         text-align: center;
                     }
 
                     .item-stats-info-green {
-                        background-color: #24b685;
+                        background-color: $color-success;
                     }
 
                     .item-stats-info-yellow {
-                        background-color: #f6bb42;
+                        background-color: $color-warning;
                     }
 
                     .item-stats-info-red {
-                        background-color: #ea5a5a;
+                        background-color: $color-danger;
                     }
                 }
             }
@@ -91,7 +97,12 @@
                 position: relative;
                 height: 57px;
                 padding: 0;
-                @include transition (all ease 0.5s);
+                @include transition (background ease 0.5s);
+                background: #fff;
+
+                &:hover {
+                    background: #fafafa;
+                }
 
                 .item-link {
                     display: block;
@@ -111,30 +122,14 @@
 
                 .item-title {
                     display: block;
-                    font-size: 12px;
+                    font-size: 14px;
                     padding-top: 6px;
                 }
 
                 .item-desc {
                     display: block;
                     font-size: 12px;
-                    color: #aaa;
-                }
-
-                &:hover {
-                    background: #fafafa;
-                }
-
-                &.item-spinner {
-                    height: 45px;
-                    padding: 0;
-                    background: #fff !important;
-
-                    div i {
-                        line-height: 45px;
-                        font-size: 14px;
-                        color: #aaa;
-                    }
+                    color: #888;
                 }
             }
         }
@@ -177,7 +172,7 @@
         padding: 40px;
 
         .list-group {
-            border-radius: 0;
+            @include border-radius(0);
             border-top: none;
             margin-bottom: 0;
 
@@ -240,21 +235,6 @@
         p {
             line-height: 35px;
             margin: 0;
-        }
-    }
-    //
-    .logs-list {
-        padding: 40px;
-
-        .list-group {
-            border-radius: 0;
-            border-top: none;
-            margin-bottom: 0;
-
-            .list-group-item {
-                border-radius: 0;
-                position: relative;
-            }
         }
     }
     //
