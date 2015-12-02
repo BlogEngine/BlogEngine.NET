@@ -22,8 +22,8 @@ namespace BlogEngine.Core.Data
         /// <returns>List of posts</returns>
         public IEnumerable<CustomField> Find(string filter)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             if (string.IsNullOrEmpty(filter))
                 filter = "1 == 1";
@@ -46,8 +46,8 @@ namespace BlogEngine.Core.Data
         /// <returns></returns>
         public CustomField FindById(string type, string id, string key)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var cf = Find("").Where(f => f.CustomType == type && f.ObjectId == id && f.Key == key).FirstOrDefault();
             return cf;
@@ -60,14 +60,14 @@ namespace BlogEngine.Core.Data
         /// <returns>Added field</returns>
         public CustomField Add(CustomField item)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
             try
             {
-                if (AlreadyExists(item))
-                    throw new ApplicationException("Custom field already exists");
+                //if (AlreadyExists(item))
+                //    throw new ApplicationException("Custom field already exists");
 
-                BlogEngine.Core.Providers.BlogService.SaveCustomField(item);
+                Providers.BlogService.SaveCustomField(item);
                 CustomFieldsParser.ClearCache();
                 return item;
             }
@@ -85,13 +85,13 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Update(CustomField item)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
             try
             {
-                item.BlogId = BlogEngine.Core.Blog.CurrentInstance.Id;
+                item.BlogId = Blog.CurrentInstance.Id;
 
-                BlogEngine.Core.Providers.BlogService.SaveCustomField(item);
+                Providers.BlogService.SaveCustomField(item);
                 CustomFieldsParser.ClearCache();
                 return true;
             }
@@ -146,6 +146,7 @@ namespace BlogEngine.Core.Data
             try
             {
                 Providers.BlogService.ClearCustomFields(Blog.CurrentInstance.BlogId.ToString(), type, id);
+
                 CustomFieldsParser.ClearCache();
             }
             catch (Exception ex)

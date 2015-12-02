@@ -133,6 +133,21 @@
         processChecked("/api/packages/processchecked/", action, $scope, dataService);
     }
 
+    $scope.save = function () {
+        spinOn();
+        dataService.updateItem("/api/customfields", $scope.customFields)
+        .success(function (data) {
+            $("#modal-settings").modal('hide');
+            toastr.success($rootScope.lbl.completed);
+            $scope.load();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.updateFailed);
+            spinOff();
+            $("#modal-settings").modal('hide');
+        });
+    }
+
     $scope.installPackage = function (pkgId) {
         spinOn();
         dataService.updateItem("/api/packages/install/" + pkgId, pkgId)
