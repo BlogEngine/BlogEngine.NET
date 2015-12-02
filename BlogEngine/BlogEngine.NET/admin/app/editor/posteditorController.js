@@ -130,7 +130,7 @@
                toastr.success($rootScope.lbl.postAdded);
                if (data.Id) {
                    angular.copy(data, $scope.post);
-                   var x = $scope.post.Id;
+                   $scope.id = $scope.post.Id;
                    $scope.updateCustom();
                }
                $("#modal-form").modal('hide');

@@ -94,6 +94,7 @@
                $log.log(data);
                if (data.Id) {
                    angular.copy(data, $scope.page);
+                   $scope.id = $scope.page.Id;
                    $scope.updateCustom();
                }
                $("#modal-form").modal('hide');
