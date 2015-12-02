@@ -10,3 +10,5 @@ This repository provides latest source code for BlogEngine.NET project (https://
   2. Open solution in Visual Studio 2015
   3. Builld and run solution to load website in the browser
   4. Use admin/admin to log into website administration
+   
+![be-admin-post](https://cloud.githubusercontent.com/assets/1932785/11539012/6b67b35a-98ea-11e5-8ffe-81c034a6ac3e.png)
