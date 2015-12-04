@@ -126,13 +126,49 @@
             width: 100px;
         }
 
-        .item-state {
+        .item-status {
             width: 100px;
         }
 
         .item-edit {
             width: 120px;
             padding: 0 10px;
+        }
+
+        @media screen and (max-width:1199px) {
+            .item-desc {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            .item-priority {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:639px) {
+            .item-status {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .item-version {
+                display: none;
+            }
+
+            .item-edit {
+                width:80px ;
+                padding:0 5px; 
+                .btn-hasicon{
+                    width:100%;
+                    padding:0 5px !important;
+                    i {
+                      display:none !important;
+                    }
+                }
+            }
         }
     }
 }

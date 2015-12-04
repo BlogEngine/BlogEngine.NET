@@ -181,4 +181,14 @@ function bindCommon() {
         container: '.main-header',
     });
 
+    //
+    $(".right-side-toggle").click(function () {
+        $(".right-side").toggleClass("active");
+    });
+
+    $(window).resize(function () {
+        if ($(window).width() > 640) {
+            $(".right-side").removeClass("active");
+        }
+    });
 }

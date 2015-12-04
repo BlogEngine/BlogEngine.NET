@@ -7,17 +7,20 @@
             <a ng-click="processChecked('unpublish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.unpublish"><i class="fa fa-archive"></i></a>
             <a ng-click="processChecked('publish')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" angular-tooltip tooltip="lbl.publish"><i class="fa fa-check"></i></a>
         </div>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
-        </div>
-        <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
-            <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a>            </li>
-                <li><a id="fltr-pub" data-value="{{lbl.published}}" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</a> </li>
-                <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a>      </li>
-            </ul>
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
+            <div class="dropdown pull-right">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu dropdown-menu-filter">
+                    <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsPublished','all','all')">{{lbl.all}}</a>            </li>
+                    <li><a id="fltr-pub" data-value="{{lbl.published}}" ng-click="gridFilter('IsPublished',true,'pub')">{{lbl.published}}</a> </li>
+                    <li><a id="fltr-dft" data-value="{{lbl.drafts}}" ng-click="gridFilter('IsPublished',false,'dft')">{{lbl.drafts}}</a>      </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="content-inner">

@@ -95,9 +95,12 @@
             <a ng-click="processChecked('disable')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-warning" angular-tooltip tooltip="lbl.disable"><i class="fa fa-close"></i></a>
             <a ng-click="processChecked('enable')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-success" angular-tooltip tooltip="lbl.enable"><i class="fa fa-check"></i></a>
         </div>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
         </div>
     </div>
     <div class="content-inner">
@@ -109,7 +112,7 @@
                     <th class="item-desc">{{lbl.description}}</th>
                     <th class="item-version">{{lbl.version}}</th>
                     <th class="item-priority">{{lbl.priority}}</th>
-                    <th class="item-state">{{lbl.enabled}}</th>
+                    <th class="item-status">{{lbl.enabled}}</th>
                     <th class="item-edit">Customize</th>
                 </tr>
             </thead>
@@ -120,7 +123,7 @@
                     <td class="item-desc"><span class="text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-version"><span>{{item.LocalVersion}}</span></td>
                     <td class="item-priority">{{item.Priority}}</td>
-                    <td class="item-state"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
+                    <td class="item-status"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
                     <td class="item-edit"><a ng-if="item.SettingsUrl" class="btn btn-sm btn-default btn-hasicon" href="" ng-click="showPluginSettings(item.Id)"><i class="fa fa-sliders"></i> Customize</a></td>
                 </tr>
             </tbody>

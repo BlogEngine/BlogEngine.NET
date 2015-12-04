@@ -35,16 +35,16 @@
     height: $sidebar-global-height;
     position: absolute;
     z-index: 1;
-    padding: 20px 18px;
+    padding: 0;
     cursor: pointer;
     border: none;
     background: none;
-    border-right: 1px solid #eee;
     display: none;
     outline: none !important;
 
     span {
         display: block;
+        margin:0 auto;
         height: 4px;
         width: 24px;
         margin-bottom: 4px;
@@ -55,6 +55,12 @@
             margin-bottom: 0;
         }
     }
+     @media screen and (max-width:640px) {
+         width:$sidebar-global-height - 10px;
+         height:$sidebar-global-height - 10px;
+         
+
+     }
 }
 
 //
@@ -108,3 +114,9 @@
         display: block;
     }
 }
+
+    @media screen and (max-width:639px) { 
+        body{
+            overflow-y:auto;
+        }
+    }

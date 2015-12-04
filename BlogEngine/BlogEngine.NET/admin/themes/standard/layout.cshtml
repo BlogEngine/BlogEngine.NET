@@ -63,11 +63,17 @@
         $(".main-overlay").click(function () {
             $(".main-wrapper").removeClass("sidebar-open");
         });
+
+        $(".sub-nav-sidebar li").click(function () {
+            $(".main-wrapper").removeClass("sidebar-open");
+        });
+
         $(window).resize(function () {
             if ($(window).width() > 1025) {
                 $(".main-wrapper").removeClass("sidebar-open");
             }
-        })
+        });
+
     </script>
 </body>
 </html>

@@ -86,4 +86,13 @@
             }
         }
     }
+
+
+    @media screen and (max-width:639px) {
+        .main-header {
+            .btn-default{
+                display:none;
+            } 
+        }
+    }
 }

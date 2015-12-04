@@ -29,22 +29,24 @@
             <a ng-if="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></a>
             <a ng-if="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></a>
         </div>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
+            <div class="dropdown pull-right">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu dropdown-menu-filter">
+                    <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsApproved','all','all')">      {{lbl.all}}</a></li>
+                    <li><a id="fltr-pnd" data-value="{{lbl.pending}}" ng-click="gridFilter('IsPending',true,'pnd')">    {{lbl.pending}}</a></li>
+                    <li><a id="fltr-apr" data-value="{{lbl.approved}}" ng-click="gridFilter('IsApproved',true,'apr')">  {{lbl.approved}} </a></li>
+                    <li><a id="fltr-spm" data-value="{{lbl.spam}}" ng-click="gridFilter('IsSpam',true,'spm')">          {{lbl.spam}}</a></li>
+                    <li><a id="fltr-png" data-value="{{lbl.pingbacks}}" ng-click="gridFilter('Email','pingback','png')">{{lbl.pingbacks}}</a></li>
+                </ul>
+            </div>
+            <a href="#/content/comments/filters" class="btn btn-success btn-sm btn-hasicon pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
         </div>
-        <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
-            <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsApproved','all','all')">      {{lbl.all}}</a></li>
-                <li><a id="fltr-pnd" data-value="{{lbl.pending}}" ng-click="gridFilter('IsPending',true,'pnd')">    {{lbl.pending}}</a></li>
-                <li><a id="fltr-apr" data-value="{{lbl.approved}}" ng-click="gridFilter('IsApproved',true,'apr')">  {{lbl.approved}} </a></li>
-                <li><a id="fltr-spm" data-value="{{lbl.spam}}" ng-click="gridFilter('IsSpam',true,'spm')">          {{lbl.spam}}</a></li>
-                <li><a id="fltr-png" data-value="{{lbl.pingbacks}}" ng-click="gridFilter('Email','pingback','png')">{{lbl.pingbacks}}</a></li>
-            </ul>
-        </div>
-        <a href="#/content/comments/filters" class="btn btn-success btn-sm btn-hasicon pull-right"><i class="fa fa-filter"></i>{{lbl.filters}}</a>
-
     </div>
     <div class="content-inner">
         <table class="table table-item-comments">
