@@ -203,6 +203,7 @@ namespace BlogEngine.Core.Web
             AddResource("automoderation");
             AddResource("available");
             AddResource("avatars");
+            AddResource("back");
             AddResource("backcolor");
             AddResource("basic");
             AddResource("beTheFirstToRate");
@@ -525,6 +526,7 @@ namespace BlogEngine.Core.Web
             AddResource("lastUpdated");
             AddResource("latestComments");
             AddResource("latestFromTheGallery");
+            AddResource("latestNews");
             AddResource("latitude");
             AddResource("link");
             AddResource("ListIsEmpty");
@@ -662,6 +664,7 @@ namespace BlogEngine.Core.Web
             AddResource("purged");
             AddResource("purgeSelected");
             AddResource("quickAddNewCategory");
+            AddResource("quickDraft");
             AddResource("raters");
             AddResource("rateThisXStars");
             AddResource("rating");
@@ -797,6 +800,7 @@ namespace BlogEngine.Core.Web
             AddResource("theme");
             AddResource("themeCookieName");
             AddResource("themes");
+            AddResource("theNew");
             AddResource("thePost");
             AddResource("thereAreXDrafts");
             AddResource("theValuesSaved");

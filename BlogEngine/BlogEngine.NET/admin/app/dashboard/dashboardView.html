@@ -84,11 +84,11 @@
             <div class="col-xs-6 col-md-6 col-lg-4">
                 <div ng-if="qd.show" class="panel panel-default dashboard-quickdraft">
                     <div class="panel-heading">
-                        <div class="panel-title">Quick Draft</div>
+                        <div class="panel-title">{{lbl.quickDraft}}</div>
                     </div>
                     <div class="panel-body">
-                        <input ng-model="qd.title" type="text" placeholder="Title" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
-                        <textarea ng-model="qd.text" placeholder="Type here..." style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
+                        <input ng-model="qd.title" type="text" placeholder="{{lbl.title}}" class="form-control" id="txtDraftTitle" name="txtDraftTitle" />
+                        <textarea ng-model="qd.text" placeholder="{{lbl.typeHere}}" style="margin-top: 5px" class="form-control ltr-dir" rows="2" id="txtDraftText" name="txtDraftText"></textarea>
                         <button type="button" ng-click="postDraft()" ng-disabled="qd.title.length == 0 || qd.text.length == 0" class="btn btn-block btn-default" title="{{lbl.publish}}">{{lbl.save}}</button>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="panel panel-default dashboard-news dashboard-list">
                     <div class="panel-heading">
-                        <div class="panel-title">Latest News</div>
+                        <div class="panel-title">{{lbl.latestNews}}</div>
                     </div>
                     <ul class="list-group list-group">
                         <li class="list-group-item" data-ng-repeat="n in news">

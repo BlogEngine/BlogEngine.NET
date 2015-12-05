@@ -36,7 +36,7 @@
                 <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
             </div>
             <div class="dropdown pull-right">
-                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">ALL<i class="fa fa-angle-down"></i></button>
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{lbl.all}}<i class="fa fa-angle-down"></i></button>
                 <ul class="dropdown-menu dropdown-menu-filter">
                     <li><a id="fltr-all" data-value="{{lbl.all}}" ng-click="gridFilter('IsApproved','all','all')">      {{lbl.all}}</a></li>
                     <li><a id="fltr-pnd" data-value="{{lbl.pending}}" ng-click="gridFilter('IsPending',true,'pnd')">    {{lbl.pending}}</a></li>

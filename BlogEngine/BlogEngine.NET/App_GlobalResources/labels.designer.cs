@@ -781,6 +781,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string back {
+            get {
+                return ResourceManager.GetString("back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Backcolor.
         /// </summary>
         internal static string backcolor {
@@ -3752,6 +3761,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Latest News.
+        /// </summary>
+        internal static string latestNews {
+            get {
+                return ResourceManager.GetString("latestNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latitude.
         /// </summary>
         internal static string latitude {
@@ -5053,6 +5071,15 @@ namespace Resources {
         internal static string quickAddNewCategory {
             get {
                 return ResourceManager.GetString("quickAddNewCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Draft.
+        /// </summary>
+        internal static string quickDraft {
+            get {
+                return ResourceManager.GetString("quickDraft", resourceCulture);
             }
         }
         

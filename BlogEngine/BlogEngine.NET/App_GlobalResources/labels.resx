@@ -2546,4 +2546,13 @@
   <data name="theNew" xml:space="preserve">
     <value>New</value>
   </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="latestNews" xml:space="preserve">
+    <value>Latest News</value>
+  </data>
+  <data name="quickDraft" xml:space="preserve">
+    <value>Quick Draft</value>
+  </data>
 </root>

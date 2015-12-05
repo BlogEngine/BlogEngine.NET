@@ -65,6 +65,7 @@ automatically
 automoderation
 available
 avatars
+back
 backcolor
 basic
 beTheFirstToRate
@@ -391,6 +392,7 @@ lastUpdate
 lastUpdated
 latestComments
 latestFromTheGallery
+latestNews
 latitude
 link
 ListIsEmpty
@@ -527,6 +529,7 @@ purgeAll
 purged
 purgeSelected
 quickAddNewCategory
+quickDraft
 raters
 rateThisXStars
 rating

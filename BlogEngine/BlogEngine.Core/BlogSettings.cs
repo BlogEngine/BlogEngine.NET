@@ -1427,5 +1427,12 @@
 
         #endregion
 
+        #region Legacy
+
+        public enum Moderation { Manual, Auto, Disqus }
+        public Moderation ModerationType { get { return Moderation.Auto; } }
+
+        #endregion
+
     }
 }

@@ -1949,7 +1949,7 @@
     <value>Размер шрифта</value>
   </data>
   <data name="forceMainTheme" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="forecolor" xml:space="preserve">
     <value>Цвет шрифта</value>
@@ -2208,5 +2208,23 @@
   </data>
   <data name="customFields" xml:space="preserve">
     <value>Дополнительные настройки</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="latestNews" xml:space="preserve">
+    <value>Последние Новости</value>
+  </data>
+  <data name="quickDraft" xml:space="preserve">
+    <value>Черновая Запись</value>
+  </data>
+  <data name="sortOrder" xml:space="preserve">
+    <value>Порядок</value>
+  </data>
+  <data name="theNew" xml:space="preserve">
+    <value>Новая</value>
+  </data>
+  <data name="typeHere" xml:space="preserve">
+    <value>Текст...</value>
   </data>
 </root>
