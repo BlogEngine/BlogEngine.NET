@@ -2224,6 +2224,9 @@
   <data name="theNew" xml:space="preserve">
     <value>Новая</value>
   </data>
+  <data name="theOperator" xml:space="preserve">
+    <value>Оператор</value>
+  </data>
   <data name="typeHere" xml:space="preserve">
     <value>Текст...</value>
   </data>

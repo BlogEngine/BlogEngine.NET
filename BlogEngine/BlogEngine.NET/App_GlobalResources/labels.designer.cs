@@ -6389,6 +6389,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operator.
+        /// </summary>
+        internal static string theOperator {
+            get {
+                return ResourceManager.GetString("theOperator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to the post.
         /// </summary>
         internal static string thePost {

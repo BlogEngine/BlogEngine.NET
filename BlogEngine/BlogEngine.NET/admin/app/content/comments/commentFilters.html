@@ -4,11 +4,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" ng-click="focusInput=false" aria-hidden="true"><i class="fa fa-times"></i></button>
-                    <h4 class="modal-title">Add Filter</h4>
+                    <h4 class="modal-title">{{lbl.add_Entry}}</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Action</label>
+                        <label>{{lbl.action}}</label>
                         <select class="form-control" id="ddAction" name="ddAction">
                             <option value="Block" selected="selected">Block</option>
                             <option value="Allow">Allow</option>
@@ -16,7 +16,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Subject</label>
+                        <label>{{lbl.subject}}</label>
                         <select class="form-control" id="ddSubject" name="ddSubject">
                             <option value="IP" selected="selected">IP</option>
                             <option value="Author">Author</option>
@@ -26,19 +26,19 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Operator</label>
+                        <label>{{lbl.theOperator}}</label>
                         <select class="form-control" id="ddOperator" name="ddOperator">
                             <option value="Equals" selected="selected">Equals</option>
                             <option value="Contains">Contains</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Filter</label>
+                        <label>{{lbl.filter}}</label>
                         <input type="text" class="form-control" id="txtFilter" maxlength="250" name="txtFilter">
                     </div>
                     <div class="modal-buttons">
-                        <button type="button" class="btn btn-success btn-hasicon" data-ng-click="addFilter()"><i class="fa fa-check"></i> Add Filter</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">Cancel</button>
+                        <button type="button" class="btn btn-success btn-hasicon" data-ng-click="addFilter()"><i class="fa fa-check"></i> {{lbl.add}}</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
                     </div>
                 </div>
             </div>
@@ -62,10 +62,10 @@
             <thead>
                 <tr>
                     <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
-                    <th class="item-action">Action</th>
-                    <th class="item-subject">Subject</th>
-                    <th class="item-operator">Operator</th>
-                    <th class="item-filter">Filter</th>
+                    <th class="item-action">{{lbl.action}}</th>
+                    <th class="item-subject">{{lbl.subject}}</th>
+                    <th class="item-operator">{{lbl.theOperator}}</th>
+                    <th class="item-filter">{{lbl.filter}}</th>
                 </tr>
             </thead>
             <tbody>

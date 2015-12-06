@@ -801,6 +801,7 @@ namespace BlogEngine.Core.Web
             AddResource("themeCookieName");
             AddResource("themes");
             AddResource("theNew");
+            AddResource("theOperator");
             AddResource("thePost");
             AddResource("thereAreXDrafts");
             AddResource("theValuesSaved");

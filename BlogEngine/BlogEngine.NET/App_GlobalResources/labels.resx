@@ -2555,4 +2555,7 @@
   <data name="quickDraft" xml:space="preserve">
     <value>Quick Draft</value>
   </data>
+  <data name="theOperator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
 </root>

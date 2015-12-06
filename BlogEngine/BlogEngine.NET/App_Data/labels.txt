@@ -669,6 +669,7 @@ theme
 themeCookieName
 themes
 theNew
+theOperator
 thePost
 thereAreXDrafts
 theValuesSaved
