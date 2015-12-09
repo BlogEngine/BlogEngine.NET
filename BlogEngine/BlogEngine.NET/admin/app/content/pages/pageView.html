@@ -41,7 +41,7 @@
                     <td class="item-checkbox"><input type="checkbox" id="{{item.Slug}}" data-ng-model="item.IsChecked" ng-disabled="item.HasChildren === true" /></td>
                     <td class="item-title">
                         <a title="click to edit" href="{{SiteVars.RelativeWebRoot}}admin/app/editor/editpage.cshtml?id={{item.Id}}">{{item.Title}}</a>
-                        <a title="click to view" target="_blank" href="{{item.RelativeLink}}" class="external-link"><i class="fa fa-external-link"></i></a>
+                        <a title="click to view" target="_blank" href="{{SiteVars.RelativeWebRoot}}page/{{item.Slug}}" class="external-link"><i class="fa fa-external-link"></i></a>
                     </td>
                     <td class="item-parent">{{item.Parent.OptionName}}</td>
                     <td class="item-sort">{{item.SortOrder}}</td>

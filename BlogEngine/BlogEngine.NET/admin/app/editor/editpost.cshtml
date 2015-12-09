@@ -158,7 +158,7 @@
                                 <label class="newpost-widget-title">
                                     {{lbl.customFields}}
                                 </label>
-                                <button class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</button>
+                                <button type="button" class="btn btn-default btn-sm btn-block" id="btnCustomFields" ng-click="showCustom()" data-toggle="modal">{{lbl.add}}</button>
                                 <div id="frm-custom-edit" ng-if="customFields && customFields.length > 0">
                                     <div class="newpost-custom-fields" data-ng-repeat="item in customFields">
                                         <div class="field-name text-ellipsis">{{item.Key}}</div>

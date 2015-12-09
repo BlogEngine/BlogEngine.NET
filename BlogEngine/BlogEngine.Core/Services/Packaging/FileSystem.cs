@@ -172,16 +172,25 @@ namespace BlogEngine.Core.Packaging
                     var folder = new DirectoryInfo(fullPath);
                     if (folder.Exists)
                     {
-                        if(folder.GetFileSystemInfos().Length == 0)
+                        try
                         {
-                            ForceDeleteDirectory(fullPath);
+                            Directory.Delete(fullPath, true);
                         }
-                        else
+                        catch (Exception)
                         {
-                            Utils.Log(string.Format("Package Uninstaller: can not remove directory if it is not empty ({0})", fullPath));
+                            // this is to fix locking issue that
+                            // sometimes happens in recursive deletes
+                            System.Threading.Thread.Sleep(1);
+                            try
+                            {
+                                Directory.Delete(fullPath, true);
+                            }
+                            catch (Exception ex)
+                            {
+                                Utils.Log("Error deleting directory " + fullPath + "; " + ex.Message);
+                            }
                         }
                     }
-
                 }
                 else if (File.Exists(fullPath))
                 {
