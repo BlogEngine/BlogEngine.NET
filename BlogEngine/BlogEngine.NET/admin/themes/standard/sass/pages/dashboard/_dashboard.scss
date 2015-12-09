@@ -267,10 +267,8 @@
             }
         }
     }
-}
 
-@media screen and (max-width:700px) {
-    .dashboard-view {
+    @media screen and (max-width:700px) {
         .col-xs-6 {
             float: none !important;
             width: 100%;

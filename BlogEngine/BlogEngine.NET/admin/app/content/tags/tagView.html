@@ -19,9 +19,12 @@
         <div class="btn-group pull-left">
             <a data-ng-click="processChecked('delete')" angular-tooltip tooltip="lbl.doDelete" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
         </div>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
         </div>
     </div>
     <div class="content-inner">

@@ -34,9 +34,12 @@
             <div class="btn-group pull-left">
                 <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
             </div>
-            <div class="search pull-right">
-                <i class="fa fa-search"></i>
-                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+            <div class="right-side pull-right">
+                <div class="search pull-right">
+                    <i class="fa fa-search"></i>
+                    <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+                </div>
             </div>
         </div>
         <div class="content-inner">

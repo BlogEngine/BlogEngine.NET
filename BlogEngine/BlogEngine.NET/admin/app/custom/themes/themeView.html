@@ -95,14 +95,17 @@
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.themes}}</h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes/gallery" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
         </div>
     </div>
     <div class="content-inner">
         <div class="row">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-4">
+            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                 <div id="pkg-{{item.Id}}" ng-class="(item.Id == activeTheme) ? 'theme-item theme-item-active' : 'theme-item'">
                     <div class="item-img">
                         <img ng-if="item.IconUrl === ''" src="../Content/images/blog/pkg.png" />

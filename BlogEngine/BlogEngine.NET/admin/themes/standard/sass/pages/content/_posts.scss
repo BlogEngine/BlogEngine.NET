@@ -70,6 +70,42 @@
             .item-status {
                 display: none;
             }
+
+            .item-checkbox {
+                border-right: none;
+                width: 15px;
+                min-width: 15px;
+                padding-left: 15px;
+            }
+
+            .item-date {
+                width: 80px;
+            }
+        }
+    }
+
+
+    @media screen and (max-width:639px) {
+        .content-inner {
+            padding: 0;
+        }
+        .main-header{
+            @include box-shadow(none);
+            border-bottom-width:1px;
+            border-color:#eee;
+        }
+    }
+
+    @media screen and (max-width:359px) {
+        .main-header {
+            .btn-success.btn-hasicon {
+                padding: 0;
+                width: 60px;
+
+                .fa {
+                    display: none;
+                }
+            }
         }
     }
 }
