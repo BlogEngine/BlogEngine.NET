@@ -45,10 +45,10 @@
         });
     }
 
-    $scope.reply = function () {
+    $scope.reply = function (parentId, postId) {
         var comment = {
-            "ParentId": $scope.vm.Detail.ParentId,
-            "PostId": $scope.vm.Detail.PostId,
+            "ParentId": parentId,
+            "PostId": postId,
             "Content": $scope.commentReply.text
         }
         dataService.addItem("/api/comments", comment)
