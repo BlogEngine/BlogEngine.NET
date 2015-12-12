@@ -11,4 +11,4 @@ This repository provides latest source code for BlogEngine.NET project (https://
   3. Builld and run solution to load website in the browser
   4. Use admin/admin to log into website administration
    
-![be-admin-dashboard](https://cloud.githubusercontent.com/assets/1932785/11539168/5bb8c970-98eb-11e5-8ca6-1e5dcceac0a4.png)
+![dashboard-3](https://cloud.githubusercontent.com/assets/1932785/11760070/0012f9d8-a052-11e5-84a8-e9097cb85f23.png)
