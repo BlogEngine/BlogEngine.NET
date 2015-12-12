@@ -67,7 +67,7 @@
         <div class="filemanager-content">
             <div class="filemanager-path">{{currentPath}}</div>
             <div class="filemanager-list">
-                <div class="item-file" ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                <div class="item-file" ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder">
                     <div class="item-file-image">
                         <a ng-if="item.FileType === 0 && item.Name != '...'" title="{{item.Name}}" href="" ng-click="load(item.FullPath)">
                             <i class="fa fa-folder"></i>

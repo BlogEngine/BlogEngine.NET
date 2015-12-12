@@ -22,7 +22,7 @@ public class Updater  : WebService {
     private string _root;
     private string _newZip;
     private string _oldZip;
-    private static string _upgradeReleases = BlogConfig.GalleryFeedUrl.Replace("nuget", "/Releases/");
+    private static string _upgradeReleases = "http://dnbe.net/v01/Releases/"; // BlogConfig.GalleryFeedUrl.Replace("nuget", "/Releases/");
     private string _downloadUrl = _upgradeReleases + "{0}.zip";
     private string _versionsTxt = _upgradeReleases + "versions.txt";
     private bool _test = false;    // when set to "true" will run in test mode without actually updating site

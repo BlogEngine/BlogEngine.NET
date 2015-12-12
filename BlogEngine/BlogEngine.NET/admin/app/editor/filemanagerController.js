@@ -2,8 +2,8 @@
     $scope.data = dataService;
     $scope.items = [];
     $scope.itemsPerPage = 45; // page size - pass into grid on init
-    $scope.sortingOrder = 'Created';
-    $scope.reverse = true;
+    $scope.sortingOrder = 'SortOrder';
+    $scope.reverse = false;
     $scope.id = {};
     $scope.file = {};
     $scope.dirName = '';    

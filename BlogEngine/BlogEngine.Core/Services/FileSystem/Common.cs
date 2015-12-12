@@ -16,6 +16,7 @@ namespace BlogEngine.Core.FileSystem
     public class FileInstance
     {
         public bool IsChecked { get; set; }
+        public int SortOrder { get; set; }
         public string Created { get; set; }
         public string Name { get; set; }
         public string FileSize { get; set; }

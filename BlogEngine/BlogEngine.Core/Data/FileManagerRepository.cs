@@ -59,6 +59,11 @@ namespace BlogEngine.Core.Data
                     Name = file.Name
                 });
 
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].SortOrder = i;
+            }
+
             return list;
         }
     }
