@@ -61,7 +61,7 @@
                     <td class="item-checkbox"><input type="checkbox" id="{{item.Slug}}" ng-model="item.IsChecked" /></td>
                     <td class="item-title">
                         <a title="click to edit" href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories/?id={{item.Id}}">{{item.Title}}</a>
-                        <a title="click to view" class="external-link" target="_blank" href="{{SiteVars.RelativeWebRoot}}category/{{item.Title}}"><i class="fa fa-external-link"></i></a>
+                        <a title="click to view" class="external-link" target="_blank" href="{{SiteVars.RelativeWebRoot}}category/{{item.Title.replace('.', '')}}"><i class="fa fa-external-link"></i></a>
                     </td>
                     <td class="item-desc" title="{{item.Description}}"><span class="text-ellipsis-sm text-ellipsis">{{item.Description}}</span></td>
                     <td class="item-count">{{item.Count}}</td>
