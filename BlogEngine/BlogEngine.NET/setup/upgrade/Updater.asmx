@@ -242,7 +242,6 @@ public class Updater  : WebService {
             ReplaceDir("\\setup\\SQL_CE");
             ReplaceDir("\\setup\\SQLite");
             ReplaceDir("\\setup\\SQLServer");
-            ReplaceDir("\\setup\\VistaDB");
 
             ReplaceDir("\\App_GlobalResources");
             ReplaceDir("\\Scripts");
