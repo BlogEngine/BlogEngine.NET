@@ -94,5 +94,24 @@
                 display:none;
             } 
         }
+
+        .profile-info {
+            text-align:center;
+            .profile-info-img {
+                float:none !important;
+                text-align:center;
+                width:100%;
+                display:block;
+                margin:0 auto;
+            }
+           .profile-info-role{
+               margin-bottom:20px;
+           }
+           .btn-link-picture{
+               border:1px solid #ccc;
+               background:#fff;
+               padding:5px 5px 4px;
+           }
+        }
     }
 }

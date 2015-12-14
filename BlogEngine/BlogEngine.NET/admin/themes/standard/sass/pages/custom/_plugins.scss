@@ -166,17 +166,21 @@
             .item-version {
                 display: none;
             }
-
+             th.item-edit{
+                 font-size:0 !important;
+               
+             }
             .item-edit {
-                width: 80px;
+                width: 50px;
                 padding: 0 5px;
-
+                
                 .btn-hasicon {
                     width: 100%;
                     padding: 0 5px !important;
-
+                    font-size:0;
                     i {
-                        display: none !important;
+                        width:100%;
+                        border:none;
                     }
                 }
             }

@@ -2,12 +2,15 @@
     <div id="modal-add-tag" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">{{lbl.tags}}<a class="close" data-dismiss="modal" ng-click="focusInput=false"><i class="fa fa-times"></i></a></div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title">{{lbl.tags}}</h4>
+                </div>
                 <div class="modal-body">
                     <label class="control-label" for="txtTag">{{lbl.Tag}}</label>
                     <input type="text" class="form-control" id="txtTag" data-ng-model="tag" focus-me="focusInput" />
                     <div class="modal-buttons">
-                        <button data-ng-click="save()" class="btn btn-success btn-hasicon" type="submit"><i class="fa fa-check"></i>{{lbl.save}}</button>
+                        <button data-ng-click="save()" class="btn btn-success" type="submit">{{lbl.save}}</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
                     </div>
                 </div>

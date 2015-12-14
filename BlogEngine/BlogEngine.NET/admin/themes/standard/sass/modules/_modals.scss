@@ -7,6 +7,10 @@
             margin-right: 10px;
         }
 
+        .btn-success {
+            min-width:100px;
+        }
+
         &:after {
             content: "";
             display: table;
@@ -28,7 +32,7 @@
         .close {
             position: relative;
             margin: 0;
-            width: 60px;
+            width: 30px;
             height: 60px;
             line-height: 60px;
             outline: none !important;
@@ -47,7 +51,7 @@
     .modal-body {
         margin: 0;
         padding: 40px;
-        height:auto;
+        height: auto;
         max-height: 76%;
         overflow: hidden;
         overflow-y: auto;
@@ -56,9 +60,48 @@
     .modal-footer {
         text-align: left;
         padding: 20px 40px;
+        .btn-success {
+            min-width:100px;
+        }
     }
 
     .form-control {
-        max-width:100%;
+        max-width: 100%;
+        @include box-shadow(none !important);
+    }
+
+    @media screen and (max-width:640px) {
+        .modal-header {
+            padding: 0 15px;
+            min-height: 50px;
+            height: 50px;
+            line-height: 50px;
+
+            .modal-title {
+                line-height: 52px;
+            }
+
+            .close {
+                min-height: 50px;
+                height: 50px;
+                line-height: 50px;
+            }
+        }
+
+        .modal-footer {
+            padding: 15px;
+        }
+
+        .modal-body {
+            padding: 15px;
+
+            .form-group {
+                margin-bottom: 10px;
+            }
+        }
+
+        .modal-buttons {
+            margin-top: 15px;
+        }
     }
 }

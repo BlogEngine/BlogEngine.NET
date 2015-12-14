@@ -47,8 +47,9 @@
             .item-status {
                 display: none;
             }
-             .item-date {
-                border-right:1px solid #eee;
+
+            .item-date {
+                border-right: 1px solid #eee;
             }
         }
 
@@ -56,7 +57,7 @@
             .item-date {
                 width: 80px;
             }
-            
+
             .item-checkbox {
                 border-right: none;
                 width: 15px;
@@ -65,19 +66,23 @@
             }
         }
     }
-
-
-
-
+      @media screen and (max-width:1023px) {
+        .main-header {
+            .btn-success.btn-sm.btn-hasicon.pull-right {
+                display:none;
+            }
+        }
+    }
     @media screen and (max-width:639px) {
         .content-inner {
             padding: 0;
         }
 
         .main-header {
-               @include box-shadow(none);
-            border-bottom-width:1px;
-            border-color:#eee;
+            @include box-shadow(none);
+            border-bottom-width: 1px;
+            border-color: #eee;
+
             .right-side {
                 .btn-success.btn-sm.btn-hasicon {
                     width: 100%;
@@ -87,4 +92,5 @@
             }
         }
     }
+   
 }

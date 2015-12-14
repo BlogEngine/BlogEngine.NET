@@ -28,7 +28,7 @@
                             <label><input type="checkbox" data-ng-model="lookups.PageOptions.ShowCustomFields" ng-true-value="true" ng-false-value="false" /> Custom Field <a href="http://www.dnbe.net/docs/post/custom-fields" target="_blank">(Learn more)</a></label>
                         </div>
                         <div class="modal-buttons">
-                            <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success btn-hasicon"><i class="fa fa-save"></i>{{lbl.save}}</button>
+                            <button type="button" data-ng-click="saveEditOptions()" class="btn btn-success">{{lbl.save}}</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <input type="text" id="txtValue" name="txtValue" class="form-control" data-ng-model="editItem.Value" />
                         </div>
                         <div class="modal-buttons">
-                            <button type="button" data-ng-click="addCustom()" class="btn btn-success btn-hasicon"><i class="fa fa-plus"></i>{{lbl.add}}</button>
+                            <button type="button" data-ng-click="addCustom()" class="btn btn-success">{{lbl.add}}</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="focusInput=false">{{lbl.cancel}}</button>
                         </div>
                     </div>
@@ -66,8 +66,7 @@
             <a ng-if="status() < 2" href="#" data-ng-click="publish(true)" class="btn btn-sm btn-success btn-hasicon pull-left"><i class="fa fa-check"></i>{{lbl.publish}}</a>
             <a ng-if="status() == 2" href="#" data-ng-click="save()" class="btn btn-primary btn-sm btn-hasicon pull-left"><i class="fa fa-save"></i>{{lbl.save}}</a>
             <span ng-if="status() < 2"><a href="#" ng-click="save()" class="btn btn-sm btn-primary btn-hasicon pull-left"><i class="fa fa-save"></i> {{lbl.save}}</a></span>
-            <a class="btn btn-sm btn-icon btn-default pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-sliders"></i></a>
-            <a href="" onclick="window.history.back()" class="btn btn-default btn-sm btn-hasicon pull-right"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
+            <a href="" onclick="window.history.back()" class="btn btn-default btn-sm btn-hasicon pull-left"><i class="fa fa-ban"></i>{{lbl.cancel}}</a>
             <span id="spinner" class="loaded pull-left"><i class='fa fa-spinner fa-spin fa-large'></i></span>
         </div>
         <div class="content-inner">

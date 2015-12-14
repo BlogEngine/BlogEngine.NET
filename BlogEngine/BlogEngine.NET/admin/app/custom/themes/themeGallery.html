@@ -10,11 +10,11 @@
                     <div class="modal-themes-info">
                         <p class="item-desc" ng-bind-html="package.Description"></p>
                         <div class="form-horizontal">
-                            <div class="form-group"><span class="col-md-3">{{lbl.author}}</span><div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
-                            <div class="form-group" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" class="text-ellipsis" title="Author website" target="_blank">{{package.Website}}</a></div></div>
-                            <div class="form-group" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
-                            <div class="form-group" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"><span ng-bind-html="package.LastUpdated"></span></div></div>
-                            <div class="form-group" ng-if="package.DownloadCount"><span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div> </div>
+                            <div class="form-group"><span class="col-sm-3 col-md-3">{{lbl.author}}</span><div class="col-sm-9 col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
+                            <div class="form-group" ng-if="package.Website"><span class="col-sm-3 col-md-3">{{lbl.website}}</span> <div class="col-sm-9 col-md-9"><a href="{{package.Website}}" class="text-ellipsis" title="Author website" target="_blank">{{package.Website}}</a></div></div>
+                            <div class="form-group" ng-if="package.Tags"><span class="col-sm-3 col-md-3">{{lbl.tags}}</span> <div class="col-sm-9 col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
+                            <div class="form-group" ng-if="package.LastUpdated"><span class="col-sm-3 col-md-3">{{lbl.date}}</span> <div class="col-sm-9 col-md-9"><span ng-bind-html="package.LastUpdated"></span></div></div>
+                            <div class="form-group" ng-if="package.DownloadCount"><span class="col-sm-3 col-md-3">{{lbl.downloads}}</span> <div class="col-sm-9 col-md-9">{{package.DownloadCount}}</div> </div>
                         </div>
                     </div>
                     <div class="modal-package-image">
@@ -41,17 +41,20 @@
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.gallery}}</h2>
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
-        </div>
-        <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
-            <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
-                <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
-                <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
-            </ul>
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
+            <div class="dropdown pull-right">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu dropdown-menu-filter">
+                    <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
+                    <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
+                    <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="content-inner">

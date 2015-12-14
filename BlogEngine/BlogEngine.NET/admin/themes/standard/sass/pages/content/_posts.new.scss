@@ -49,10 +49,11 @@
     }
     //
     .newpost-title {
-        position:relative;
+        position: relative;
+
         .form-control {
-            height: 50px;
-            padding: 15px 15px 14px;
+            height: 40px;
+            padding: 0 10px;
             font-weight: 400;
             font-size: 16px;
             margin-bottom: 30px;
@@ -276,16 +277,110 @@
             margin-right: 5px;
         }
     }
-}
 
-@media screen and (max-width:1024px) {
-    .content-posts-new-view {
+
+    @media screen and (max-width:1280px) {
+        .newpost-wrapper {
+            .newpost-content {
+                padding: 20px;
+            }
+
+            .newpost-sidebar {
+                min-width: 220px;
+                max-width: 220px;
+                width: 220px;
+
+                .newpost-sidebar-content {
+                    padding: 20px;
+                }
+            }
+        }
+
+        .newpost-title {
+            .form-control {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    @media screen and (max-width:1024px) {
         .main-header {
             display: block;
         }
 
         .newpost-sidebar-buttons {
             display: none;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .newpost-wrapper {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            .newpost-content {
+                display: block;
+                width: 100%;
+                padding: 15px 15px 0;
+
+                .newpost-title {
+                    .form-control {
+                        margin-bottom: 15px;
+                        @include box-shadow(none !important);
+                        @include border-radius(0 !important);
+                    }
+                }
+            }
+
+            .newpost-sidebar {
+                padding-top: 0;
+                display: block;
+                min-width: 100%;
+                max-width: 100%;
+                width: 100%;
+                vertical-align: top;
+                border-left: none;
+                background: #F6F6F6;
+
+                .newpost-sidebar-content {
+                    padding: 0 15px 15px;
+                }
+
+                hr {
+                    border-color: #ddd;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:639px) {
+        .main-header {
+            .btn-hasicon {
+                padding: 0 15px;
+
+                i {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        .main-header {
+            .btn-hasicon {
+                padding: 0 5px;
+            }
+        }
+    }
+
+    @media screen and (max-width:359px) {
+        .main-header {
+            .btn-hasicon {
+                padding: 0 5px;
+                font-size: 10px;
+                line-height: 28px;
+            }
         }
     }
 }

@@ -37,17 +37,50 @@
             }
         }
     }
-}
 
-@media screen and (max-width:1024px) {
-    .about-view {
+    @media screen and (max-width:1024px) {
         .content-inner {
             width: 640px;
-            margin:0 auto;
+            margin: 0 auto;
         }
-        .about-logo{
-            text-align:center;
-            margin:40px 0;
+
+        .about-logo {
+            text-align: center;
+            margin: 40px 0;
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        .about-section {
+            .about-external-link {
+                li {
+                    width: 49%;
+                    margin-bottom: 10px;
+
+                    .btn {
+                        width: 100%;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+
+        .panel {
+            .list-group-item {
+                span {
+                    min-width: 10px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:320px) {
+        .about-section {
+            .about-external-link {
+                li {
+                    width: 100%;
+                }
+            }
         }
     }
 }

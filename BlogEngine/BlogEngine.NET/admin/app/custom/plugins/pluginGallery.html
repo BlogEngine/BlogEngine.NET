@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
                     <h4 class="modal-title">{{package.Title}}</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-package">
                     <div class="modal-plugin-info">
                         <div class="row">
                             <div class="col-md-3">
@@ -47,17 +47,20 @@
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.gallery}}</h2>
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
-        </div>
-        <div class="dropdown pull-right">
-            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
-            <ul class="dropdown-menu dropdown-menu-filter">
-                <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
-                <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
-                <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
-            </ul>
+        <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
+        <div class="right-side pull-right">
+            <div class="search pull-right">
+                <i class="fa fa-search"></i>
+                <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
+            </div>
+            <div class="dropdown pull-right">
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu dropdown-menu-filter">
+                    <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
+                    <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
+                    <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="content-inner">
@@ -73,7 +76,7 @@
                         </div>
                         <div class="item-buttons">
                             <a ng-click="installPackage(item.Id)" class="btn btn-sm btn-default btn-left" angular-tooltip tooltip="lbl.download"><i class="fa fa-download"></i></a>
-                            <a href="" ng-click="showPluginInfo(item.Id)" class="btn btn-sm btn-default btn-right" angular-tooltip tooltip="lbl.view"><i class="fa fa-info-circle"></i></a>
+                            <a ng-click="showPluginInfo(item.Id)" class="btn btn-sm btn-default btn-right" angular-tooltip tooltip="lbl.view"><i class="fa fa-info-circle"></i></a>
                         </div>
                     </div>
                     <div class="item-details-right">

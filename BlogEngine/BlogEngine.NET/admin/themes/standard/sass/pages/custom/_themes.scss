@@ -224,6 +224,16 @@
             }
         }
     }
+
+    @media screen and (max-width:640px) {
+        .modal-package {
+            .modal-themes-info,.modal-theme-image {
+                padding: 15px;
+            }
+            
+        }
+    }
+
     @media screen and (max-width:639px) {
 
         .main-header {
