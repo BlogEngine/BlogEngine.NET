@@ -1,12 +1,4 @@
-﻿// LTR - RTL
-.ltr-dir {
-    direction: $dir-ltr;
-}
-.rtl-dir {
-    direction: $dir-rtl;
-}
-
-// main-loading
+﻿// main-loading
 .main-loading {
     @include user-select(none);
     @include border-radius(3px);

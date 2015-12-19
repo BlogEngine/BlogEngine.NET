@@ -31,3 +31,9 @@ iframe {
     width: 100%;
     border: none;
 }
+
+button {
+    &:focus {
+        outline: none !important;
+    }
+}

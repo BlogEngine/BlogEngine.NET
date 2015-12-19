@@ -705,6 +705,7 @@
     <Content Include="admin\themes\standard\sass\modules\_alerts.scss" />
     <Content Include="admin\themes\standard\sass\modules\_pagination.scss" />
     <Content Include="admin\themes\standard\sass\modules\_dropdown.scss" />
+    <Content Include="admin\themes\standard\sass\layout\_rtl.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

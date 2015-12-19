@@ -158,7 +158,7 @@
             width: 5px;
             margin-bottom: 4px;
             background-color: #666;
-            border-radius: 8px;
+            @include border-radius(8px);
 
             &:last-child {
                 margin-bottom: 0px;
