@@ -27,22 +27,22 @@ public class Updater  : WebService {
     private string _versionsTxt = _upgradeReleases + "versions.txt";
     private bool _test = false;    // when set to "true" will run in test mode without actually updating site
     private int _tries;
-    
+
     public Updater()
     {
-        _root = System.Web.Hosting.HostingEnvironment.MapPath("~/");
+        _root = HostingEnvironment.MapPath("~/");
         if (_root.EndsWith("\\")) _root = _root.Substring(0, _root.Length - 1);
 
         _newZip = _root + "\\setup\\upgrade\\backup\\new.zip";
         _oldZip = _root + "\\setup\\upgrade\\backup\\old.zip";
-        
+
         _ignoreDirs = new StringCollection();
         _ignoreDirs.Add(_root + "\\Custom");
         _ignoreDirs.Add(_root + "\\setup\\upgrade");
-        
+
         _installed = new List<InstalledLog>();
     }
-   
+
     [WebMethod]
     public string Check(string version)
     {
@@ -52,7 +52,7 @@ public class Updater  : WebService {
             Stream stream = client.OpenRead(_versionsTxt);
             StreamReader reader = new StreamReader(stream);
             string line = "";
-            
+
             while (reader.Peek() >= 0)
             {
                 line = reader.ReadLine();
@@ -61,7 +61,7 @@ public class Updater  : WebService {
                     var iCurrent = int.Parse(version.Replace(".", ""));
                     var iFrom = int.Parse(line.Substring(0, line.IndexOf("|")).Replace(".", ""));
                     var iTo = int.Parse(line.Substring(line.LastIndexOf("|") + 1).Replace(".", ""));
-                    
+
                     if (iCurrent >= iFrom  && iCurrent < iTo)
                     {
                         return line.Substring(line.LastIndexOf("|") + 1);
@@ -75,10 +75,10 @@ public class Updater  : WebService {
             return "";
         }
     }
-    
+
     [WebMethod]
     public string Download(string version)
-    {      
+    {
         if (_test)
         {
             System.Threading.Thread.Sleep(2000);
@@ -91,10 +91,10 @@ public class Updater  : WebService {
 
             if (File.Exists(_newZip))
                 File.Delete(_newZip);
-            
-            DateTime startTime = DateTime.UtcNow;
-            WebRequest request = System.Net.WebRequest.Create(string.Format(_downloadUrl, version.Replace(".", "")));
-            WebResponse response = request.GetResponse();
+
+            var startTime = DateTime.UtcNow;
+            var request = WebRequest.Create(string.Format(_downloadUrl, version.Replace(".", "")));
+            var response = request.GetResponse();
             using (Stream responseStream = response.GetResponseStream())
             {
                 using (Stream fileStream = File.OpenWrite(_newZip))
@@ -125,20 +125,20 @@ public class Updater  : WebService {
 
     [WebMethod]
     public string Extract()
-    {     
+    {
         if (_test)
         {
             System.Threading.Thread.Sleep(2000);
             return "";
         }
-        
+
         ZipFile zf = null;
         string outFolder = _root + "\\setup\\upgrade\\backup\\be";
         try
         {
             if (!Directory.Exists(outFolder))
                 Directory.CreateDirectory(outFolder);
-                     
+
             FileStream fs = File.OpenRead(_newZip);
             zf = new ZipFile(fs);
 
@@ -181,13 +181,13 @@ public class Updater  : WebService {
 
     [WebMethod]
     public string Backup()
-    {      
+    {
         if (_test)
         {
             System.Threading.Thread.Sleep(2000);
             return "";
         }
-        
+
         try
         {
             var backupDir = HostingEnvironment.MapPath("~/setup/upgrade/backup");
@@ -198,7 +198,7 @@ public class Updater  : WebService {
 
             if (File.Exists(_oldZip))
                 File.Delete(_oldZip);
-            
+
             var fsOut = File.Create(_oldZip);
             var zipStream = new ZipOutputStream(fsOut);
 
@@ -209,7 +209,7 @@ public class Updater  : WebService {
 
             zipStream.IsStreamOwner = true;
             zipStream.Close();
-            
+
             return "";
         }
         catch (Exception ex)
@@ -232,11 +232,11 @@ public class Updater  : WebService {
             DeleteDir("\\editors");
             DeleteDir("\\Modules");
             DeleteDir("\\pics");
-            
+
             ReplaceDir("\\Account");
-            ReplaceDir("\\admin");          
+            ReplaceDir("\\admin");
             ReplaceDir("\\fonts");
-            
+
             ReplaceDir("\\setup\\Mono");
             ReplaceDir("\\setup\\MySQL");
             ReplaceDir("\\setup\\SQL_CE");
@@ -246,7 +246,7 @@ public class Updater  : WebService {
             ReplaceDir("\\App_GlobalResources");
             ReplaceDir("\\Scripts");
             ReplaceDir("\\Content");
-            
+
             return "";
         }
         catch (Exception ex)
@@ -261,7 +261,7 @@ public class Updater  : WebService {
         if (_test)
         {
             CopyWebConfig();
-            
+
             System.Threading.Thread.Sleep(2000);
             return "";
         }
@@ -283,15 +283,15 @@ public class Updater  : WebService {
             ReplaceLabelsFile();
 
             CopyWebConfig();
-            
+
             ReplaceFile("Global.asax");
 
             FixSH();
 
-            Directory.Delete(_root + "\\setup\\upgrade\\backup\\be", true);
+            Directory.Delete(_root + "\\setup\\upgrade\\backup", true);
 
             Utils.Log(string.Format("Upgrade completed by {0}", Security.CurrentUser.Identity.Name));
-          
+
             return "";
         }
         catch (Exception ex)
@@ -329,57 +329,16 @@ public class Updater  : WebService {
         }
     }
 
-    /// <summary>
-    /// Replace default validation and decription keys
-    /// </summary>
-    /// <param name="content">Content of the web.config</param>
     void ReplaceXMLConfig(string content)
-    {     
+    {
         string targetFile = _root + "\\Web.config";
         DeleteFile(targetFile);
 
-        content = ReplaceMachineKey(content);
+        content = UpdateWebConfig(content);
 
         var writer = new StreamWriter(targetFile);
         writer.Write(content);
         writer.Close();
-    }
-
-    string ReplaceMachineKey(string content)
-    {
-        var defaultValidationKey = "D9F7287EFDE8DF4CAFF79011D5308643D8F62AE10CDF30DAB640B7399BF6C57B0269D60A23FBCCC736FC2487ED695512BA95044DE4C58DC02C2BA0C4A266454C";
-        var defaultDecryptionKey = "BDAAF7E00B69BA47B37EEAC328929A06A6647D4C89FED3A7D5C52B12B23680F4";
-
-        string validationKey = CreateKey(System.Convert.ToInt32(64));
-        string decryptionKey = CreateKey(System.Convert.ToInt32(24));
-
-        content = content.Replace(defaultValidationKey, validationKey);
-        content = content.Replace(defaultDecryptionKey, decryptionKey);
-
-        // replace old editor path in web.config
-        content = content.Replace("~/editors", "~/admin/editors");
-
-        return content;
-    }
-
-    static String CreateKey(int numBytes)
-    {
-        var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-        byte[] buff = new byte[numBytes];
-
-        rng.GetBytes(buff);
-        return BytesToHexString(buff);
-    }
-
-    static String BytesToHexString(byte[] bytes)
-    {
-        var hexString = new System.Text.StringBuilder(64);
-
-        for (int counter = 0; counter < bytes.Length; counter++)
-        {
-            hexString.Append(String.Format("{0:X2}", bytes[counter]));
-        }
-        return hexString.ToString();
     }
 
     void ReplaceDbConfig(string content)
@@ -421,11 +380,67 @@ public class Updater  : WebService {
         reader.Close();
 
         webContent = webContent.Replace(defCon, oldCon);
-        webContent = ReplaceMachineKey(webContent);
+        webContent = UpdateWebConfig(webContent);
 
         StreamWriter writer = new StreamWriter(targetFile);
         writer.Write(webContent);
         writer.Close();
+    }
+
+    string UpdateWebConfig(string content)
+    {
+        var defaultValidationKey = "D9F7287EFDE8DF4CAFF79011D5308643D8F62AE10CDF30DAB640B7399BF6C57B0269D60A23FBCCC736FC2487ED695512BA95044DE4C58DC02C2BA0C4A266454C";
+        var defaultDecryptionKey = "BDAAF7E00B69BA47B37EEAC328929A06A6647D4C89FED3A7D5C52B12B23680F4";
+
+        string validationKey = CreateKey(Convert.ToInt32(64));
+        string decryptionKey = CreateKey(Convert.ToInt32(24));
+
+        content = content.Replace(defaultValidationKey, validationKey);
+        content = content.Replace(defaultDecryptionKey, decryptionKey);
+
+        // replace old editor path in web.config
+        content = content.Replace("~/editors", "~/admin/editors");
+
+        // replace runtime tag in web.config
+        var newWebConfig = _root + "\\setup\\upgrade\\backup\\be\\Web.Config";
+        try
+        {
+            StreamReader reader = new StreamReader(newWebConfig);
+            string newContent = reader.ReadToEnd();
+            reader.Close();
+
+            var oldRuntimeTag = content.Substring(content.IndexOf("<runtime>"), (content.IndexOf  ("</runtime>") - content.IndexOf("<runtime>") + 11));
+            var newRuntimeTag = newContent.Substring(newContent.IndexOf("<runtime>"), (newContent.IndexOf  ("</runtime>") - newContent.IndexOf("<runtime>") + 11));
+
+            if(oldRuntimeTag.Length > 0 && newRuntimeTag.Length > 0)
+            {
+                content = content.Replace(oldRuntimeTag, newRuntimeTag);
+            }
+        }
+        catch (Exception)
+        {
+        }
+        return content;
+    }
+
+    static String CreateKey(int numBytes)
+    {
+        var rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+        byte[] buff = new byte[numBytes];
+
+        rng.GetBytes(buff);
+        return BytesToHexString(buff);
+    }
+
+    static String BytesToHexString(byte[] bytes)
+    {
+        var hexString = new System.Text.StringBuilder(64);
+
+        for (int counter = 0; counter < bytes.Length; counter++)
+        {
+            hexString.Append(String.Format("{0:X2}", bytes[counter]));
+        }
+        return hexString.ToString();
     }
 
     [WebMethod]
@@ -445,7 +460,7 @@ public class Updater  : WebService {
                 }
                 else
                 {
-                    File.Copy(item.To, item.From, true);  
+                    File.Copy(item.To, item.From, true);
                 }
             }
             return "";
@@ -478,7 +493,7 @@ public class Updater  : WebService {
                 _tries = 0;
                 throw new ApplicationException(string.Format("Failed to replace directory {0}; error: {1}", dir, ex.Message));
             }
-            
+
             if (_tries < 4)
             {
                 ReplaceDir(dir);
@@ -490,15 +505,15 @@ public class Updater  : WebService {
     {
         if (Directory.Exists(_root + dir))
         {
-            Directory.Delete(_root + dir, true);   
+            Directory.Delete(_root + dir, true);
         }
     }
-    
+
     void CopyDir(string dir)
     {
         var source = new DirectoryInfo(_root + "\\setup\\upgrade\\backup\\be\\" + dir);
         var target = new DirectoryInfo(_root + "\\" + dir);
-        
+
         //Log(source.FullName, target.FullName, true);
         CopyRecursive(source, target);
     }
@@ -549,14 +564,14 @@ public class Updater  : WebService {
             ReplaceFile(dir + "\\" + fileName);
         }
     }
-    
+
     //---------------------------------------------------
 
     void CompressFolder(string path, ZipOutputStream zipStream, int folderOffset)
     {
         if (IgnoredDirectory(path))
             return;
-        
+
         string[] files = Directory.GetFiles(path);
 
         foreach (string filename in files)
@@ -651,7 +666,7 @@ public class Updater  : WebService {
     {
         return _ignoreDirs.Contains(item) ? true : false;
     }
-    
+
     //----------------------------------------------------
     void FixSH()
     {
@@ -705,7 +720,7 @@ public class Updater  : WebService {
     //void Log(string from, string to = "", bool directory = false, Operation action = Operation.Copy)
     //{
     //    _installed.Add(new InstalledLog { IsDirectory = directory, Action = action, From = from, To = to });
-        
+
     //    string s = action == Operation.Copy ? "UPGRADE: Copy " : "UPGRADE: Delete ";
     //    s = s + (directory ? "directory " : "file ");
 
