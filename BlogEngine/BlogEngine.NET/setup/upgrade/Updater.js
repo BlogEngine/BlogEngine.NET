@@ -38,7 +38,7 @@ function CheckVersion() {
         dataType: "json",
         async: false,
         success: function (result) {
-            newVersion = result.d;
+            newVersion = result.d; // "3.2.0.0";
         }
     });
 }
@@ -221,10 +221,6 @@ function ShowError(item, msg) {
     //Rollback();
     $("#btnRun").prop("disabled", false);
     $("#btnRun").html('Restart');
-}
-
-function goHome() {
-    window.location.href = AppRoot;
 }
 
 function CheckPermissions() {
