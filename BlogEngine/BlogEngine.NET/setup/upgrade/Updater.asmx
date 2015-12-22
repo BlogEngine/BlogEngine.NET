@@ -193,8 +193,8 @@ public class Updater  : WebService {
             var backupDir = HostingEnvironment.MapPath("~/setup/upgrade/backup");
             var blogDir = HostingEnvironment.MapPath("~/");
 
-            if (!System.IO.Directory.Exists(backupDir))
-                System.IO.Directory.CreateDirectory(backupDir);
+            if (!Directory.Exists(backupDir))
+                Directory.CreateDirectory(backupDir);
 
             if (File.Exists(_oldZip))
                 File.Delete(_oldZip);
@@ -288,8 +288,15 @@ public class Updater  : WebService {
 
             FixSH();
 
-            Directory.Delete(_root + "\\setup\\upgrade\\backup", true);
+            // add few new custom controls
+            string from = "{0}\\setup\\upgrade\\backup\\be\\Custom\\Controls\\{1}";
+            string to = "{0}\\Custom\\Controls\\{1}";
+            CopyFile(string.Format(from, _root, "CommentList.ascx"), string.Format(to, _root, "CommentList.ascx"));
+            CopyFile(string.Format(from, _root, "PostList.ascx"), string.Format(to, _root, "PostList.ascx"));
+            CopyFile(string.Format(from, _root, "Defaults\\CommentView.ascx"), string.Format(to, _root, "Defaults\\CommentView.ascx"));
+            CopyFile(string.Format(from, _root, "Defaults\\PostView.ascx"), string.Format(to, _root, "Defaults\\PostView.ascx"));
 
+            Directory.Delete(_root + "\\setup\\upgrade\\backup", true);
             Utils.Log(string.Format("Upgrade completed by {0}", Security.CurrentUser.Identity.Name));
 
             return "";
@@ -542,15 +549,13 @@ public class Updater  : WebService {
 
     void DeleteFile(string file)
     {
-        //Log(file, "", false, Operation.Delete);
         if (File.Exists(file))
             File.Delete(file);
     }
 
     void CopyFile(string from, string to)
     {
-        //Log(from, to);
-        File.Copy(from, to);
+        File.Copy(from, to, true);
     }
 
     void ReplaceFilesInDir(string dir)
