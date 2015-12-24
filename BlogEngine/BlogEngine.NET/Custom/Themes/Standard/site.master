@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" %>
+
 <%@ Import Namespace="BlogEngine.Core" %>
 <%
     Page.Header.DataBind();
@@ -15,8 +16,8 @@
 
     if (Security.IsAuthenticated)
     {
-        aLogin.InnerText = Resources.labels.logoff;
-        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?logoff";
+        aLogin.InnerText = Resources.labels.admin;
+        aLogin.HRef = Utils.RelativeWebRoot + "admin/";
     }
     else
     {
@@ -28,7 +29,7 @@
 <html lang="en">
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
@@ -41,30 +42,32 @@
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
     <form runat="Server">
-        <header class="header text-uppercase">
-            <div class="container">
-                <div class="header-title float-left">
-                    <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
-                    <p><%=BlogSettings.Instance.Description %></p>
+        <div class="wrapper">
+            <header class="header text-uppercase">
+                <div class="container">
+                    <div class="header-title float-left">
+                        <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
+                        <p><%=BlogSettings.Instance.Description %></p>
+                    </div>
+                    <nav class="header-nav float-right">
+                        <ul>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                            <li><a runat="server" id="aLogin"></a></li>
+                        </ul>
+                    </nav>
                 </div>
-                <nav class="header-nav float-right">
-                    <ul>
-                        <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
-                        <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
-                        <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
-                        <li><a runat="server" id="aLogin"></a></li>
-                    </ul>
-                </nav>
+            </header>
+            <div class="container">
+                <div class="content-wrapper float-left">
+                    <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+                </div>
+                <aside class="sidebar-wrapper float-right">
+                    <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
+                </aside>
             </div>
-        </header>
-        <div class="container">
-            <div class="content-wrapper float-left">
-                <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
-                <asp:ContentPlaceHolder ID="cphBody" runat="server" />
-            </div>
-            <aside class="sidebar-wrapper float-right">
-                <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
-            </aside>
         </div>
         <footer class="footer">
             <div class="container">

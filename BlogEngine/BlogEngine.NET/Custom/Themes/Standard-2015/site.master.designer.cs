@@ -9,7 +9,7 @@
 
 
 
-public partial class StandardSite2014 {
+public partial class StandardSite2015 {
     
     /// <summary>
     /// HeadContent control.
@@ -19,7 +19,7 @@ public partial class StandardSite2014 {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-       
+    
     /// <summary>
     /// aLogin control.
     /// </summary>

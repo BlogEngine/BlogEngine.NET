@@ -547,46 +547,42 @@
     <Content Include="Custom\Controls\Defaults\PostView.ascx" />
     <Content Include="Custom\Media\sample.mp4" />
     <Content Include="Custom\Media\sample.flv" />
-    <Content Include="Custom\Themes\Standard-2014\CommentForm.ascx" />
-    <Content Include="Custom\Themes\Standard-2014\CommentView.ascx" />
-    <Content Include="Custom\Themes\Standard-2014\css\bootstrap.min.css" />
-    <Content Include="Custom\Themes\Standard-2014\css\main.css" />
-    <Content Include="Custom\Themes\Standard-2014\css\responsive.css" />
-    <Content Include="Custom\Themes\Standard-2014\css\rtl.css" />
-    <Content Include="Custom\Themes\Standard-2014\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Custom\Themes\Standard-2014\images\carrow.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\facebook.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\googleplus.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\logo.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\rss.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\sarrow.png" />
-    <Content Include="Custom\Themes\Standard-2014\images\twitter.png" />
-    <Content Include="Custom\Themes\Standard-2014\js\bootstrap.min.js" />
-    <Content Include="Custom\Themes\Standard-2014\newsletter.html" />
-    <Content Include="Custom\Themes\Standard-2014\PostNavigation.ascx" />
-    <Content Include="Custom\Themes\Standard-2014\PostView.ascx" />
-    <Content Include="Custom\Themes\Standard-2014\RelatedPosts.ascx" />
-    <Content Include="Custom\Themes\Standard-2014\theme.png" />
-    <Content Include="Custom\Themes\Standard-2014\theme.xml" />
-    <Content Include="Custom\Themes\Standard-2014\WidgetContainer.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\CommentForm.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\CommentView.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\css\bootstrap-theme.min.css" />
-    <Content Include="Custom\Themes\Standard-minimal\css\bootstrap.min.css" />
-    <Content Include="Custom\Themes\Standard-minimal\css\font-awesome.min.css" />
-    <Content Include="Custom\Themes\Standard-minimal\css\rtl.css" />
-    <Content Include="Custom\Themes\Standard-minimal\css\styles.css" />
-    <Content Include="Custom\Themes\Standard-minimal\img\logo.png" />
-    <Content Include="Custom\Themes\Standard-minimal\js\bootstrap.min.js" />
-    <Content Include="Custom\Themes\Standard-minimal\newsletter.html" />
-    <Content Include="Custom\Themes\Standard-minimal\PostNavigation.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\PostView.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\RelatedPosts.ascx" />
-    <Content Include="Custom\Themes\Standard-minimal\theme.png" />
-    <Content Include="Custom\Themes\Standard-minimal\theme.xml" />
-    <Content Include="Custom\Themes\Standard-minimal\WidgetContainer.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\CommentForm.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\CommentView.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\css\bootstrap.min.css" />
+    <Content Include="Custom\Themes\Standard-2015\css\main.css" />
+    <Content Include="Custom\Themes\Standard-2015\css\responsive.css" />
+    <Content Include="Custom\Themes\Standard-2015\css\rtl.css" />
+    <Content Include="Custom\Themes\Standard-2015\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Custom\Themes\Standard-2015\images\carrow.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\facebook.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\googleplus.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\logo.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\rss.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\sarrow.png" />
+    <Content Include="Custom\Themes\Standard-2015\images\twitter.png" />
+    <Content Include="Custom\Themes\Standard-2015\js\bootstrap.min.js" />
+    <Content Include="Custom\Themes\Standard-2015\newsletter.html" />
+    <Content Include="Custom\Themes\Standard-2015\PostNavigation.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\PostView.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\Standard-2015\theme.png" />
+    <Content Include="Custom\Themes\Standard-2015\theme.xml" />
+    <Content Include="Custom\Themes\Standard-2015\WidgetContainer.ascx" />
+    <Content Include="Custom\Themes\Standard\CommentForm.ascx" />
+    <Content Include="Custom\Themes\Standard\CommentView.ascx" />
+    <Content Include="Custom\Themes\Standard\css\rtl.css" />
     <Content Include="Custom\Themes\Standard\css\styles.css" />
     <Content Include="Custom\Themes\Standard\fonts\fontello.svg" />
+    <Content Include="Custom\Themes\Standard\images\carrow.png" />
+    <Content Include="Custom\Themes\Standard\images\sarrow.png" />
+    <Content Include="Custom\Themes\Standard\newsletter.html" />
+    <Content Include="Custom\Themes\Standard\PostNavigation.ascx" />
+    <Content Include="Custom\Themes\Standard\PostView.ascx" />
+    <Content Include="Custom\Themes\Standard\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\Standard\theme.png" />
+    <Content Include="Custom\Themes\Standard\theme.xml" />
+    <Content Include="Custom\Themes\Standard\WidgetContainer.ascx" />
     <Content Include="Custom\Widgets\Post List\edit.ascx" />
     <Content Include="Custom\Widgets\Post List\widget.ascx" />
     <Content Include="Custom\Widgets\Post List\widget.xml" />
@@ -623,14 +619,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\contact.js" />
-    <Content Include="Custom\Themes\Standard-2014\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Custom\Themes\Standard-2014\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Custom\Themes\Standard-2014\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Custom\Themes\Standard-2014\site.master" />
-    <Content Include="Custom\Themes\Standard\fonts\fontello.eot" />
-    <Content Include="Custom\Themes\Standard\fonts\fontello.ttf" />
-    <Content Include="Custom\Themes\Standard\fonts\fontello.woff" />
-    <Content Include="Custom\Themes\Standard\fonts\Yekan.woff" />
+    <Content Include="Custom\Themes\Standard-2015\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Custom\Themes\Standard-2015\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Custom\Themes\Standard-2015\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Custom\Themes\Standard-2015\site.master" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -650,14 +642,6 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.eot" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.svg" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.woff" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\FontAwesome.otf" />
-    <Content Include="Custom\Themes\Standard-minimal\fonts\Yekan.woff" />
-    <Content Include="Custom\Themes\Standard-minimal\site.master" />
     <Content Include="admin\app\editor\editpage.cshtml" />
     <Content Include="admin\app\editor\editpost.cshtml" />
     <Content Include="admin\app\editor\filemanager.cshtml" />
@@ -720,6 +704,11 @@
     <Content Include="admin\themes\standard\sass\rtl\_rtl.settings.scss" />
     <Content Include="admin\themes\standard\sass\rtl\_rtl.sidebar.scss" />
     <Content Include="admin\themes\standard\sass\rtl\_rtl.tables.scss" />
+    <Content Include="Custom\Themes\Standard\fonts\fontello.eot" />
+    <Content Include="Custom\Themes\Standard\fonts\fontello.ttf" />
+    <Content Include="Custom\Themes\Standard\fonts\fontello.woff" />
+    <Content Include="Custom\Themes\Standard\fonts\Yekan.woff" />
+    <Content Include="Custom\Themes\Standard\site.master" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1550,7 +1539,6 @@
     <Content Include="setup\upgrade\Updater.js" />
     <Content Include="Custom\Themes\RazorHost\page.cshtml" />
     <Content Include="Custom\Themes\RazorHost\site.master" />
-    <Content Include="Custom\Themes\Standard\site.master" />
     <Content Include="setup\upgrade\index.cshtml" />
     <Content Include="Scripts\syntaxhighlighter\syntaxhighlighter.version" />
     <Content Include="setup\Web.config" />
@@ -1757,18 +1745,6 @@
     <Content Include="Custom\Themes\RazorHost\PostView.ascx" />
     <Content Include="Custom\Themes\RazorHost\RelatedPosts.ascx" />
     <Content Include="Custom\Themes\RazorHost\WidgetContainer.ascx" />
-    <Content Include="Custom\Themes\Standard\CommentForm.ascx" />
-    <Content Include="Custom\Themes\Standard\CommentView.ascx" />
-    <Content Include="Custom\Themes\Standard\css\rtl.css" />
-    <Content Include="Custom\Themes\Standard\images\carrow.png" />
-    <Content Include="Custom\Themes\Standard\images\sarrow.png" />
-    <Content Include="Custom\Themes\Standard\newsletter.html" />
-    <Content Include="Custom\Themes\Standard\PostNavigation.ascx" />
-    <Content Include="Custom\Themes\Standard\PostView.ascx" />
-    <Content Include="Custom\Themes\Standard\RelatedPosts.ascx" />
-    <Content Include="Custom\Themes\Standard\theme.png" />
-    <Content Include="Custom\Themes\Standard\theme.xml" />
-    <Content Include="Custom\Themes\Standard\WidgetContainer.ascx" />
     <Content Include="Custom\Controls\CommentList.ascx" />
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
@@ -2210,18 +2186,11 @@
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Custom\Themes\Standard-2014\site.master.cs">
+    <Compile Include="Custom\Themes\Standard-2015\site.master.cs">
       <DependentUpon>site.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Custom\Themes\Standard-2014\site.master.designer.cs">
-      <DependentUpon>site.master</DependentUpon>
-    </Compile>
-    <Compile Include="Custom\Themes\Standard-minimal\site.master.cs">
-      <DependentUpon>site.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Custom\Themes\Standard-minimal\site.master.designer.cs">
+    <Compile Include="Custom\Themes\Standard-2015\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
     <Compile Include="Custom\Widgets\Post List\edit.ascx.cs">
