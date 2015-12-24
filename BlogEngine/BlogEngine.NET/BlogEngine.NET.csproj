@@ -707,7 +707,6 @@
     <Content Include="Custom\Themes\Standard\fonts\fontello.eot" />
     <Content Include="Custom\Themes\Standard\fonts\fontello.ttf" />
     <Content Include="Custom\Themes\Standard\fonts\fontello.woff" />
-    <Content Include="Custom\Themes\Standard\fonts\Yekan.woff" />
     <Content Include="Custom\Themes\Standard\site.master" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />

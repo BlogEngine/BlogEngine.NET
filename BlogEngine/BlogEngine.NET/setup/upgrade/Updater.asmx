@@ -246,6 +246,7 @@ public class Updater  : WebService {
             ReplaceDir("\\App_GlobalResources");
             ReplaceDir("\\Scripts");
             ReplaceDir("\\Content");
+            ReplaceDir("\\Custom\\Themes\\Standard");
 
             return "";
         }
