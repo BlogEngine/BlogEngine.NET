@@ -282,7 +282,7 @@ form, body, html { height: 100%; }
 /*[16]*/
 .blogroll ul li A { padding-right: 3px; }
 .blogroll ul li img { display: none; }
-.blogroll ul li a:first-child:before { font-family: 'fontello'; content: '\e814'; color: #f28115; margin-right: 10px; }
+.blogroll ul > li a:first-child:before { font-family: 'fontello'; content: '\e814'; color: #f28115; margin-right: 10px; }
 .blogroll ul ul { margin-left: 15px !important; }
 .blogroll ul ul li { margin: 0; border-bottom: 1px dotted #DDD; line-height: 24px; }
 .blogroll ul ul li A { display: block; padding-left: 0 !important; }

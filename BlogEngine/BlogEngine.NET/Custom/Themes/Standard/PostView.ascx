@@ -11,7 +11,7 @@
             <a href="<%=Post.RelativeOrAbsoluteLink %>"><%=Server.HtmlEncode(Post.Title) %></a>
         </h2>
         <div class="post-info clearfix">
-            <span class="post-date"><i class="icon-calendar"></i><%=Post.DateCreated.ToString("dd MMMM yyyy hh:mm") %></span>
+            <span class="post-date"><i class="icon-calendar"></i><%=Post.DateCreated.ToString("dd MMMM yyyy") %></span>
             <span class="post-author"><i class=" icon-user"></i><a href="<%=Utils.AbsoluteWebRoot + "author/" + Utils.RemoveIllegalCharacters(Post.Author) + BlogConfig.FileExtension %>"><%=Post.AuthorProfile != null ? Post.AuthorProfile.DisplayName : Post.Author %></a></span>
             <span class="post-category"><i class=" icon-folder"></i><%=CategoryLinks(", ") %></span>
 
