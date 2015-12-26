@@ -6,7 +6,7 @@
 <head id="Head1" runat="server">
     <title>Account Login</title>
     <meta name="description" content="Account Login Membership User Password" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
     <link href="account.css" rel="stylesheet" />
     <script src="../Scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="account.js"></script>

@@ -25,4 +25,9 @@
     @import "rtl.dashboard";
     @import "rtl.settings";
     @import "rtl.about";
+
+    .main-loading {
+        right: auto;
+        left: 30px;
+    }
 }

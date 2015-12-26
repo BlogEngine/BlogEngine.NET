@@ -153,7 +153,7 @@ textarea.form-control { height: auto; }
 .container:before { display: table; }
 .container:after { clear: both; content: ""; }
 form, body, html { height: 100%; }
-.wrapper { min-height: 100%; margin-bottom: -100px; position: relative; }
+.wrapper { min-height: 100%; margin-bottom: -100px; }
 .wrapper:after { content: ""; display: block; }
 .footer, .wrapper:after { height: 100px; }
 
@@ -439,6 +439,9 @@ form, body, html { height: 100%; }
     .header-nav ul li { margin: 0 10px !important; }
     .post .post-info .pull-right { display: none; }
     .post-home .post-info { display: none; }
+    .post-home .post-header { padding: 0; }
+    .post-home .post-header .post-title { margin: 0; }
+    .post-home .post-header .post-title a { padding: 15px; display: block; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
     .comment-item .comment-content { margin: 0 0 10px !important; }
     .comment-item .comment-gravatar { display: none; }
     .footer { padding: 15px 0; }
