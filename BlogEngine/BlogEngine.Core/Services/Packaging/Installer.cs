@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Web;
-using System.Collections.Generic;
 using BlogEngine.Core.Providers;
 using NuGet;
-using BlogEngine.Core.Data.Models;
 using BlogEngine.Core.Data.Services;
 
 namespace BlogEngine.Core.Packaging
@@ -30,12 +27,16 @@ namespace BlogEngine.Core.Packaging
         {
             try
             {
-                if(BlogService.InstalledFromGalleryPackages() != null && 
-                    BlogService.InstalledFromGalleryPackages().Find(p => p.PackageId == pkgId) != null)
-                    UninstallPackage(pkgId);
-
-                var packageManager = new PackageManager(
-                    _repository,
+                // if package already installed - uninstall it
+                if (BlogService.InstalledFromGalleryPackages() != null)
+                {
+                    if(BlogService.InstalledFromGalleryPackages().Find(p => p.PackageId == pkgId) != null)
+                    {
+                        UninstallPackage(pkgId);
+                    }
+                }
+                    
+                var packageManager = new PackageManager( _repository,
                     new DefaultPackagePathResolver(BlogConfig.GalleryFeedUrl),
                     new PhysicalFileSystem(HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + "App_Data/packages"))
                 );
@@ -77,14 +78,14 @@ namespace BlogEngine.Core.Packaging
             try
             {
                 FileSystem.UninstallPackage(pkgId);
-                Utils.Log(string.Format("Uninstalled package {0}: installed package files removed. ", pkgId));
+                // Utils.Log(string.Format("Uninstalled package {0}: installed package files removed. ", pkgId));
 
                 // remove packagefiles.xml and packages.xml (or DB records)
                 BlogService.DeletePackage(pkgId);
-                Utils.Log(string.Format("Uninstalled package {0}: package records removed. ", pkgId));
+                // Utils.Log(string.Format("Uninstalled package {0}: package records removed. ", pkgId));
 
                 UninstallGalleryPackage(pkgId);
-                Utils.Log(string.Format("Uninstalled package {0}: NuGet file removed. ", pkgId));
+                // Utils.Log(string.Format("Uninstalled package {0}: NuGet file removed. ", pkgId));
 
                 // reset cache
                 Blog.CurrentInstance.Cache.Remove(Constants.CacheKey);

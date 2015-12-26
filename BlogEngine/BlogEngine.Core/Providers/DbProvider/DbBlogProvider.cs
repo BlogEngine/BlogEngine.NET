@@ -2742,15 +2742,18 @@ namespace BlogEngine.Core.Providers
                         {
                             while (rdr.Read())
                             {
-                                var f = new PackageFile()
+                                if(packageId == rdr.GetString(0))
                                 {
-                                    PackageId = rdr.GetString(0),
-                                    FileOrder = rdr.GetInt32(1),
-                                    FilePath = rdr.GetString(2),
-                                    IsDirectory = rdr.GetBoolean(3)
-                                };
+                                    var f = new PackageFile()
+                                    {
+                                        PackageId = rdr.GetString(0),
+                                        FileOrder = rdr.GetInt32(1),
+                                        FilePath = rdr.GetString(2),
+                                        IsDirectory = rdr.GetBoolean(3)
+                                    };
 
-                                files.Add(f);
+                                    files.Add(f);
+                                }
                             }
                         }
                     }
