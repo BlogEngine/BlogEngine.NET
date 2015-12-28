@@ -39,8 +39,8 @@
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav ">
                             <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
-                            <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
-                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
                             <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList).OrderBy(p => p.SortOrder))
                               { %>
                             <li class="page-menu clearfix">
@@ -65,23 +65,23 @@
             </div>
             <div class="title-wrapper">
                 <div class="container">
-                    <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo Address|Custom/Themes/Standard-2014/images/logo.png/]" class="pull-left logo" alt="<%=BlogSettings.Instance.Name %>" />
+                    <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard-2015|Logo Address|Custom/Themes/Standard-2015/images/logo.png/]" class="pull-left logo" alt="<%=BlogSettings.Instance.Name %>" />
                     <hgroup class="pull-left">
                         <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
                         <h3><%=BlogSettings.Instance.Description %></h3>
                     </hgroup>
                     <div id="social-icons" class="pull-right social-icon">
-                        <a href="http://facebook.com/[CUSTOMFIELD|THEME|Standard|Facebook account|BlogEngine.NET/]">
-                            <img src="~/Custom/Themes/Standard-2014/images/facebook.png" runat="server" />
+                        <a href="https://facebook.com/[CUSTOMFIELD|THEME|Standard-2015|Facebook account|BlogEngine.NET/]">
+                            <img src="~/Custom/Themes/Standard-2015/images/facebook.png" runat="server" />
                         </a>
-                        <a href="http://twitter.com/[CUSTOMFIELD|THEME|Standard|Twitter account|blogenginenet/]">
-                            <img src="~/Custom/Themes/Standard-2014/images/twitter.png" runat="server" />
+                        <a href="https://twitter.com/[CUSTOMFIELD|THEME|Standard-2015|Twitter account|blogenginenet/]">
+                            <img src="~/Custom/Themes/Standard-2015/images/twitter.png" runat="server" />
                         </a>
-                        <a href="https://plus.google.com/[CUSTOMFIELD|THEME|Standard|Google plus|u/0/]">
-                            <img src="~/Custom/Themes/Standard-2014/images/googleplus.png" runat="server" />
+                        <a href="https://plus.google.com/[CUSTOMFIELD|THEME|Standard-2015|Google plus|u/0/]">
+                            <img src="~/Custom/Themes/Standard-2015/images/googleplus.png" runat="server" />
                         </a>
                         <a href="<%=Utils.FeedUrl %>">
-                            <img src="~/Custom/Themes/Standard-2014/images/rss.png" runat="server" />
+                            <img src="~/Custom/Themes/Standard-2015/images/rss.png" runat="server" />
                         </a>
                     </div>
                 </div>
@@ -114,8 +114,8 @@
             links = document.getElementById('social-icons').getElementsByTagName('a');
             for (index = 0; index < links.length; ++index) {
                 link = links[index];
-                if (link.href == 'http://facebook.com/') { link.style.display = "none"; }
-                if (link.href == 'http://twitter.com/') { link.style.display = "none"; }
+                if (link.href == 'https://facebook.com/') { link.style.display = "none"; }
+                if (link.href == 'https://twitter.com/') { link.style.display = "none"; }
                 if (link.href == 'https://plus.google.com/') { link.style.display = "none"; }
             }
         </script>

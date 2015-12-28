@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Net;
 using System.Security;
 using System.IO;
@@ -96,7 +93,7 @@ namespace BlogEngine.Core
             if (contentLength <= -1)
             {
                 response.Close();
-                Utils.Log("An attempt to download a remote file has been halted due to unknown content length: {0}", Uri);
+                //Utils.Log("An attempt to download a remote file has been halted due to unknown content length: {0}", Uri);
                 return null;
             }
             else if ((BlogSettings.Instance.RemoteMaxFileSize > 0) && (contentLength > BlogSettings.Instance.RemoteMaxFileSize))

@@ -9,7 +9,7 @@
     {
         if (!string.IsNullOrEmpty(profile.PhotoUrl))
         {
-            src = profile.PhotoUrl;
+            src = Utils.ApplicationRelativeWebRoot + "image.axd?picture=/avatars/" + profile.PhotoUrl;
         }
         displayName = profile.DisplayName;
     }
