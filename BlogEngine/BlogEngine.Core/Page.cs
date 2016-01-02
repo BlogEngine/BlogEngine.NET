@@ -5,7 +5,7 @@
     using System.Linq;
 
     using BlogEngine.Core.Providers;
-
+    using Data.Models;
     /// <summary>
     /// A page is much like a post, but is not part of the
     ///     blog chronology and is more static in nature.
@@ -699,6 +699,34 @@
         {
             this.AddRule("Title", "Title must be set", string.IsNullOrEmpty(this.Title));
             this.AddRule("Content", "Content must be set", string.IsNullOrEmpty(this.Content));
+        }
+
+        #endregion
+
+        #region Custom Fields
+
+        /// <summary>
+        /// Custom fields
+        /// </summary>
+        public Dictionary<String, CustomField> CustomFields
+        {
+            get
+            {
+                var pageFields = BlogService.Provider.FillCustomFields().Where(f =>
+                    f.CustomType == "PAGE" &&
+                    f.ObjectId == this.Id.ToString()).ToList();
+
+                if (pageFields == null || pageFields.Count < 1)
+                    return null;
+
+                var fields = new Dictionary<String, CustomField>();
+
+                foreach (var item in pageFields)
+                {
+                    fields.Add(item.Key, item);
+                }
+                return fields;
+            }
         }
 
         #endregion
