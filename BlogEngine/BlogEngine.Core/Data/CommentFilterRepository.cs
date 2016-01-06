@@ -31,8 +31,8 @@ namespace BlogEngine.Core.Data
         /// <returns>List of comment filters</returns>
         public IEnumerable<CommentFilterItem> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var filterList = new List<CommentFilterItem>();
             try
@@ -89,8 +89,8 @@ namespace BlogEngine.Core.Data
         /// <returns>New item</returns>
         public CommentFilterItem Add(CommentFilterItem item)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             try
             {
@@ -107,7 +107,7 @@ namespace BlogEngine.Core.Data
                         Filters.Parameters[4].Values[i] == item.Filter;
                     if (exists)
                     {
-                        throw new System.ApplicationException("Item already exists");
+                        throw new ApplicationException("Item already exists");
                     }
                 }
 
@@ -153,6 +153,9 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool RemoveAll()
         {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
+
             try
             {
                 for (int i = 0; i < Filters.Parameters.Count; i++)
@@ -181,6 +184,9 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Remove(Guid id)
         {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
+
             int idx = 0;
             foreach (ExtensionParameter par in Filters.Parameters)
             {

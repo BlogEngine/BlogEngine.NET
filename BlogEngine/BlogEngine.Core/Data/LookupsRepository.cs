@@ -24,8 +24,8 @@ namespace BlogEngine.Core.Data
         /// <returns>List of cultures</returns>
         public Lookups GetLookups()
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             LoadCultures();
 
@@ -178,6 +178,9 @@ namespace BlogEngine.Core.Data
         /// <param name="options">Options</param>
         public void SaveEditorOptions(EditorOptions options)
         {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
+
             var bs = BlogSettings.Instance;
             if (options.OptionType == "Post")
             {

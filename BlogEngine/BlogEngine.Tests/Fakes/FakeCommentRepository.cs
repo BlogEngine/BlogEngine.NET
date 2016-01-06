@@ -10,9 +10,10 @@ namespace BlogEngine.Tests.Fakes
     {
         public CommentsVM Get()
         {
-            //var items = new List<CommentItem>();
-            //items.Add(new CommentItem() { Id = Guid.NewGuid() });
-            return null;
+            var vm = new CommentsVM();
+            vm.Items = new List<CommentItem>();
+            vm.Items.Add(new CommentItem() { Id = Guid.NewGuid() });
+            return vm;
         }
 
         public CommentDetail FindById(Guid id)

@@ -185,7 +185,7 @@
             }
 
             // only when page is requested
-            if (context.CurrentHandler is Page && context.Request["HTTP_X_MICROSOFTAJAX"] == null && context.Request.HttpMethod == "GET")
+            if (context.CurrentHandler is Page && context.Request["HTTP_X_MICROSOFTAJAX"] == null && (context.Request.HttpMethod == "GET" || context.Request.HttpMethod == "POST"))
             {
                 CompressResponse(context);
 

@@ -15,6 +15,9 @@ namespace BlogEngine.Core.Data
         /// <returns>Settings object</returns>
         public SettingsVM Get()
         {
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
+                throw new System.UnauthorizedAccessException();
+
             var vm = new SettingsVM();
 
             vm.Settings = GetSettings();
@@ -29,7 +32,7 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Update(Settings ns)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminSettingsPages))
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
                 throw new System.UnauthorizedAccessException();
 
             var bs = BlogSettings.Instance;

@@ -22,12 +22,12 @@ namespace BlogEngine.Core.Data
         /// <returns>List of items</returns>
         public IEnumerable<CategoryItem> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ViewPublicPosts))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.ViewPublicPosts))
+                throw new UnauthorizedAccessException();
 
             // get post categories with counts
             var items = new List<CategoryItem>();
-            foreach (var p in BlogEngine.Core.Post.ApplicablePosts)
+            foreach (var p in Post.ApplicablePosts)
             {
                 foreach (var c in p.Categories)
                 {
@@ -66,20 +66,20 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="id">Item id</param>
         /// <returns>Object</returns>
-        public Data.Models.CategoryItem FindById(Guid id)
+        public CategoryItem FindById(Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ViewPublicPosts))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.ViewPublicPosts))
+                throw new UnauthorizedAccessException();
 
             // get post categories
-            var items = new List<Data.Models.CategoryItem>();
-            foreach (var p in BlogEngine.Core.Post.ApplicablePosts)
+            var items = new List<CategoryItem>();
+            foreach (var p in Post.ApplicablePosts)
             {
                 foreach (var c in p.Categories)
                 {
                     var tmp = items.FirstOrDefault(cat => cat.Id == c.Id);
                     if (tmp == null)
-                        items.Add(new Data.Models.CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 1 });
+                        items.Add(new CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 1 });
                     else
                         tmp.Count++;
                 }
@@ -89,7 +89,7 @@ namespace BlogEngine.Core.Data
             {
                 var x = items.Where(i => i.Id == c.Id).FirstOrDefault();
                 if (x == null)
-                    items.Add(new Data.Models.CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 0 });
+                    items.Add(new CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 0 });
             }
             return items.Where(c => c.Id == id).FirstOrDefault();
         }
@@ -98,10 +98,10 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="item">Post</param>
         /// <returns>Saved item with new ID</returns>
-        public Data.Models.CategoryItem Add(CategoryItem item)
+        public CategoryItem Add(CategoryItem item)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.CreateNewPosts))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.CreateNewPosts))
+                throw new UnauthorizedAccessException();
 
             var cat = (from c in Category.Categories.ToList() where c.Title == item.Title select c).FirstOrDefault();
             if (cat != null)
@@ -126,8 +126,8 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Update(CategoryItem item)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.EditOwnPosts))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.EditOwnPosts))
+                throw new UnauthorizedAccessException();
 
             var cat = (from c in Category.Categories.ToList() where c.Title == item.Title && c.Id != item.Id select c).FirstOrDefault();
             if (cat != null)
@@ -149,8 +149,8 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool Remove(Guid id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.DeleteOwnPosts))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.DeleteOwnPosts))
+                throw new UnauthorizedAccessException();
             try
             {
                 var core = (from c in Category.Categories.ToList() where c.Id == id select c).FirstOrDefault();

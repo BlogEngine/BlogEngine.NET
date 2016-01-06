@@ -545,7 +545,6 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="Custom\Controls\Defaults\CommentView.ascx" />
     <Content Include="Custom\Controls\Defaults\PostView.ascx" />
-    <Content Include="Custom\Media\sample.mp4" />
     <Content Include="Custom\Media\sample.flv" />
     <Content Include="Custom\Themes\Standard-2015\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard-2015\CommentView.ascx" />

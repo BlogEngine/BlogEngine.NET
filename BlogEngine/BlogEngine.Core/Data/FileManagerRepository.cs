@@ -16,6 +16,9 @@ namespace BlogEngine.Core.Data
 
         public IEnumerable<FileInstance> Find(int take = 10, int skip = 0, string path = "", string order = "")
         {
+            if (!Security.IsAuthorizedTo(Rights.EditOwnPosts))
+                throw new UnauthorizedAccessException();
+
             var list = new List<FileInstance>();
             var rwr = Utils.RelativeWebRoot;
             var responsePath = "root";

@@ -32,7 +32,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
     <script type="text/javascript">
-        var UserVars = { Name: '@Security.CurrentUser.Identity.Name', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
+        var UserVars = { Name: '@Html.Raw(Security.CurrentUser.Identity.Name)', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)'] };
         var ActiveTheme = '@BlogSettings.Instance.Theme'
         var UsageScenario = '@BlogConfig.UsageScenario'
         var ServerTime = '@DateTime.Now'

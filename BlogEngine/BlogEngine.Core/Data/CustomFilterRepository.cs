@@ -23,8 +23,8 @@ namespace BlogEngine.Core.Data
         /// <returns>List of filters</returns>
         public IEnumerable<CustomFilter> GetCustomFilters()
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var filterList = new List<CustomFilter>();
             try
@@ -63,8 +63,8 @@ namespace BlogEngine.Core.Data
         /// <returns>Json response</returns>
         public JsonResponse ResetCounters(string filterName)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
             try
             {
                 if (!string.IsNullOrEmpty(filterName))

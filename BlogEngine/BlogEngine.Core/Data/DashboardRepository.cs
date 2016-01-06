@@ -14,6 +14,9 @@ namespace BlogEngine.Core.Data
         /// <returns>Dashboard view model</returns>
         public DashboardVM Get()
         {
+            if (!Security.IsAuthorizedTo(Rights.ViewDashboard))
+                throw new System.UnauthorizedAccessException();
+
             return new DashboardVM();
         }
     }

@@ -24,8 +24,8 @@ namespace BlogEngine.Core.Data
         /// <returns>List of users</returns>
         public IEnumerable<BlogUser> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var users = new List<BlogUser>();
             int count;
@@ -58,8 +58,8 @@ namespace BlogEngine.Core.Data
         /// <returns>User object</returns>
         public BlogUser FindById(string id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.AccessAdminPages))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
+                throw new UnauthorizedAccessException();
 
             var users = new List<BlogUser>();
             int count;
@@ -87,8 +87,8 @@ namespace BlogEngine.Core.Data
         /// <returns>Saved user</returns>
         public BlogUser Add(BlogUser user)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.CreateNewUsers))
-                throw new System.UnauthorizedAccessException();
+            if (!Security.IsAuthorizedTo(Rights.CreateNewUsers))
+                throw new UnauthorizedAccessException();
 
             if (user == null || string.IsNullOrEmpty(user.UserName)
                 || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
@@ -97,7 +97,7 @@ namespace BlogEngine.Core.Data
             }
 
             if (!Security.IsAuthorizedTo(Rights.CreateNewUsers))
-                throw new ApplicationException("Not authorized");
+                throw new UnauthorizedAccessException();
 
             // create user
             var usr = Membership.CreateUser(user.UserName, user.Password, user.Email);
@@ -120,7 +120,7 @@ namespace BlogEngine.Core.Data
         public bool Update(BlogUser user)
         {
             if (!Security.IsAuthorizedTo(Rights.EditOwnUser))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
 
             if (user == null || string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Email))
                 throw new ApplicationException("Error adding new user; Missing required fields");
@@ -152,6 +152,12 @@ namespace BlogEngine.Core.Data
         /// <returns>True on success</returns>
         public bool SaveProfile(BlogUser user)
         {
+            if (Self(user.UserName) && !Security.IsAuthorizedTo(Rights.EditOwnUser))
+                throw new UnauthorizedAccessException();
+
+            if (!Self(user.UserName) && !Security.IsAuthorizedTo(Rights.EditOtherUsers))
+                    throw new UnauthorizedAccessException();
+
             return UpdateUserProfile(user);
         }
 
@@ -161,16 +167,15 @@ namespace BlogEngine.Core.Data
         /// <param name="id">User ID</param>
         /// <returns>True on success</returns>
         public bool Remove(string id){
+
             if (string.IsNullOrEmpty(id))
                 return false;
 
-            bool isSelf = id.Equals(Security.CurrentUser.Identity.Name, StringComparison.OrdinalIgnoreCase);
+            if (Self(id) && !Security.IsAuthorizedTo(Rights.DeleteUserSelf))
+                throw new UnauthorizedAccessException();
 
-            if (isSelf && !Security.IsAuthorizedTo(Rights.DeleteUserSelf))
-                throw new ApplicationException("Not authorized");
-
-            else if (!isSelf && !Security.IsAuthorizedTo(Rights.DeleteUsersOtherThanSelf))
-                throw new ApplicationException("Not authorized");
+            else if (!Self(id) && !Security.IsAuthorizedTo(Rights.DeleteUsersOtherThanSelf))
+                throw new UnauthorizedAccessException();
 
             // Last check - it should not be possible to remove the last use who has the right to Add and/or Edit other user accounts. If only one of such a 
             // user remains, that user must be the current user, and can not be deleted, as it would lock the user out of the BE environment, left to fix
@@ -182,7 +187,7 @@ namespace BlogEngine.Core.Data
                 string[] roles = Roles.GetRolesForUser(user.UserName);
 
                 // look for admins other than 'id' 
-                if (!id.Equals(user.UserName, StringComparison.OrdinalIgnoreCase) && (Right.HasRight(Rights.EditOtherUsers, roles) || Right.HasRight(Rights.CreateNewUsers, roles)))
+                if (!Self(id) && (Right.HasRight(Rights.EditOtherUsers, roles) || Right.HasRight(Rights.CreateNewUsers, roles)))
                 {
                     adminsExist = true;
                     break;
@@ -206,7 +211,7 @@ namespace BlogEngine.Core.Data
                 var pf = AuthorProfile.GetProfile(id);
                 if (pf != null)
                 {
-                    BlogEngine.Core.Providers.BlogService.DeleteProfile(pf);
+                    Providers.BlogService.DeleteProfile(pf);
                 }
             }
             catch (Exception ex)
@@ -256,17 +261,17 @@ namespace BlogEngine.Core.Data
             return null;
         }
 
-        static List<Data.Models.RoleItem> GetRoles(string id)
+        static List<RoleItem> GetRoles(string id)
         {
-            var roles = new List<Data.Models.RoleItem>();
-            var userRoles = new List<Data.Models.RoleItem>();
+            var roles = new List<RoleItem>();
+            var userRoles = new List<RoleItem>();
 
-            roles.AddRange(System.Web.Security.Roles.GetAllRoles().Select(r => new Data.Models.RoleItem { RoleName = r, IsSystemRole = Security.IsSystemRole(r) }));
+            roles.AddRange(Roles.GetAllRoles().Select(r => new RoleItem { RoleName = r, IsSystemRole = Security.IsSystemRole(r) }));
             roles.Sort((r1, r2) => string.Compare(r1.RoleName, r2.RoleName));
 
             foreach (var r in roles)
             {
-                if (System.Web.Security.Roles.IsUserInRole(id, r.RoleName))
+                if (Roles.IsUserInRole(id, r.RoleName))
                 {
                     userRoles.Add(r);
                 }
@@ -346,10 +351,6 @@ namespace BlogEngine.Core.Data
             }
         }
 
-        /// <summary>
-        /// Remove any existing profile images
-        /// </summary>
-        /// <param name="profile">User profile</param>
         static void UpdateProfileImage(AuthorProfile profile)
         {
             var dir = BlogEngine.Core.Providers.BlogService.GetDirectory("/avatars");
@@ -382,15 +383,14 @@ namespace BlogEngine.Core.Data
             }
         }
 		
-		/// <summary>
-        /// Change user password
-        /// </summary>
-        /// <param name="password"></param>
-        /// <param name="newPassword"></param>
-        /// <returns></returns>
         bool ChangePassword(MembershipUser user, string password, string newPassword)
         {
             return user.ChangePassword(password, newPassword);
+        }
+
+        bool Self(string id)
+        {
+            return id.Equals(Security.CurrentUser.Identity.Name, StringComparison.OrdinalIgnoreCase);
         }
 
         #endregion

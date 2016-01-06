@@ -22,17 +22,17 @@ namespace BlogEngine.Core.Data
         /// <param name="filter">Filter expression</param>
         /// <param name="order">Order expression</param>
         /// <returns>List of blogs</returns>
-        public IEnumerable<BlogEngine.Core.Data.Models.Blog> Find(int take = 10, int skip = 0, string filter = "", string order = "")
+        public IEnumerable<Models.Blog> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
             // sub-blogs not allowed to see other blogs
             if (!(Blog.CurrentInstance.IsPrimary && Security.IsAdministrator))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
 
             if (take == 0) take = Blog.Blogs.Count;
             if (string.IsNullOrEmpty(filter)) filter = "1==1";
             if (string.IsNullOrEmpty(order)) order = "Name";
 
-            var items = new List<BlogEngine.Core.Data.Models.Blog>();
+            var items = new List<Models.Blog>();
             var query = Blog.Blogs.AsQueryable().Where(filter);
 
             foreach (var item in query.OrderBy(order).Skip(skip).Take(take))
@@ -46,11 +46,11 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="id">Id</param>
         /// <returns>Blog</returns>
-        public BlogEngine.Core.Data.Models.Blog FindById(Guid id)
+        public Models.Blog FindById(Guid id)
         {
             // sub-blogs not allowed to see other blogs
             if (!(Blog.CurrentInstance.IsPrimary && Security.IsAdministrator))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
 
             var blog = Blog.Blogs.Where(b => b.Id == id).FirstOrDefault();
             return ToJson(blog);
@@ -61,12 +61,12 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="item">Blog item</param>
         /// <returns>Saved blog with new ID</returns>
-        public BlogEngine.Core.Data.Models.Blog Add(BlogItem item)
+        public Models.Blog Add(BlogItem item)
         {
             // has to be on primary blog and be an admin
             // or blog allows create new on self registration
             if (!(Blog.CurrentInstance.IsPrimary && (Security.IsAdministrator || BlogSettings.Instance.CreateBlogOnSelfRegistration)))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
 
             string message;
             if (!BlogGenerator.ValidateProperties(item.Name, item.UserName, item.Email, out message))
@@ -85,11 +85,11 @@ namespace BlogEngine.Core.Data
         /// </summary>
         /// <param name="blog">Blog to update</param>
         /// <returns>True on success</returns>
-        public bool Update(BlogEngine.Core.Data.Models.Blog blog)
+        public bool Update(Models.Blog blog)
         {
             // sub-blogs not allowed to see other blogs
             if (!(Blog.CurrentInstance.IsPrimary && Security.IsAdministrator))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
             try
             {
                 var coreBlog = Blog.Blogs.Where(b => b.Id == blog.Id).FirstOrDefault();
@@ -110,7 +110,7 @@ namespace BlogEngine.Core.Data
         {
             // sub-blogs not allowed to see other blogs
             if (!(Blog.CurrentInstance.IsPrimary && Security.IsAdministrator))
-                throw new System.UnauthorizedAccessException();
+                throw new UnauthorizedAccessException();
             try
             {
                 var blog = Blog.Blogs.Where(b => b.Id == id).FirstOrDefault();
