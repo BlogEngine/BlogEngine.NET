@@ -112,16 +112,27 @@
 		<value>2.0</value>
 	</resheader>
 	<resheader name="reader">
+<<<<<<< HEAD
 		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+=======
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+>>>>>>> master
 	</resheader>
 	<data name="add" xml:space="preserve">
     <value>Додати</value>
   </data>
 	<data name="add_Entry" xml:space="preserve">
+<<<<<<< HEAD
     <value>Додати допис</value>
+=======
+    <value>Додати запис</value>
+>>>>>>> master
   </data>
 	<data name="addComment" xml:space="preserve">
     <value>Додати коментар</value>
@@ -172,13 +183,18 @@
     <value>BlogEngine.NET &lt;a href="http://blogml.codeplex.com/" target="_blank"&gt;BlogML&lt;/a&gt; использует в качестве формата для экспорта. Импорт поддерживает и BlogML и RSS.</value>
   </data>
 	<data name="blogroll" xml:space="preserve">
+<<<<<<< HEAD
     <value>Посилання на інші блоги</value>
+=======
+    <value>Блоги</value>
+>>>>>>> master
   </data>
 	<data name="buttonText" xml:space="preserve">
     <value>Текст кнопки</value>
   </data>
 	<data name="categories" xml:space="preserve">
     <value>Теми</value>
+<<<<<<< HEAD
   </data>
 	<data name="category" xml:space="preserve">
     <value>Тема</value>
@@ -191,6 +207,17 @@
   </data>
 	<data name="closeCommetsAfter" xml:space="preserve">
     <value>Закрити подальші коментарі</value>
+=======
+  </data>
+	<data name="category" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+	<data name="closeCommetsAfter" xml:space="preserve">
+    <value>Закрити подальші коментарі</value>
+  </data>
+	<data name="combine" xml:space="preserve">
+    <value>Комбінація</value>
+>>>>>>> master
   </data>
 	<data name="comment" xml:space="preserve">
     <value>Коментар</value>
@@ -198,9 +225,12 @@
 	<data name="commentLabelText" xml:space="preserve">
     <value>Текст коментаря</value>
   </data>
+<<<<<<< HEAD
 	<data name="commentRSS" xml:space="preserve">
     <value>RSS коментарів</value>
   </data>
+=======
+>>>>>>> master
 	<data name="comments" xml:space="preserve">
     <value>Коментарі</value>
   </data>
@@ -249,9 +279,12 @@
 	<data name="displayRatingsOnRecentPosts" xml:space="preserve">
     <value>Показати рейтинг</value>
   </data>
+<<<<<<< HEAD
 	<data name="downloadOPML" xml:space="preserve">
     <value>Завантажити OPML файл</value>
   </data>
+=======
+>>>>>>> master
 	<data name="edit" xml:space="preserve">
     <value>Редагувати</value>
   </data>
@@ -261,6 +294,7 @@
 	<data name="emailAddress" xml:space="preserve">
     <value>E-mail адреса</value>
   </data>
+<<<<<<< HEAD
 	<data name="emailSubjectPrefix" xml:space="preserve">
     <value>Заголовок</value>
   </data>
@@ -269,31 +303,57 @@
   </data>
 	<data name="enableComments" xml:space="preserve">
     <value>Дозволити коментування</value>
+=======
+	<data name="enableAttachments" xml:space="preserve">
+    <value>Увімкнути приєднання</value>
+  </data>
+	<data name="enableCoComments" xml:space="preserve">
+    <value>Дозволити coComments</value>
+  </data>
+	<data name="enableComments" xml:space="preserve">
+    <value>Увімкнути коментування</value>
+>>>>>>> master
   </data>
 	<data name="enableCommentsDescription" xml:space="preserve">
     <value>Ця опція дозволяє/забороняє коментарі до всіх записів</value>
   </data>
 	<data name="enableCommentSearch" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дозволити пошук у коментарях</value>
+=======
+    <value>Увімкнути пошук по коментарях</value>
+>>>>>>> master
   </data>
 	<data name="enableCommentsModeration" xml:space="preserve">
     <value>Модерування коментарів</value>
   </data>
 	<data name="enableGravatars" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дозволити Gravatars</value>
   </data>
 	<data name="enableHttpCompression" xml:space="preserve">
     <value>Використовувати HTTP-компресію</value>
+=======
+    <value>Увімкнути Gravatar</value>
+  </data>
+	<data name="enableHttpCompression" xml:space="preserve">
+    <value>Увімкнути стискання HTTP</value>
+>>>>>>> master
   </data>
 	<data name="enableHttpCompressionDescription" xml:space="preserve">
     <value>Прискорює завантаження сторінок (рекомендовано).</value>
   </data>
 	<data name="enableOpenSearch" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дозволити OpenSearch</value>
+=======
+    <value>Увімкнути OpenSearch</value>
+>>>>>>> master
   </data>
 	<data name="enableOpenSearchDescription" xml:space="preserve">
     <value>Добавляє функцію пошуку у всі сучасні браузери (рекомендовано).</value>
   </data>
+<<<<<<< HEAD
 	<data name="enablePingbacks" xml:space="preserve">
     <value>Увімкнути пінгбеки</value>
   </data>
@@ -305,28 +365,46 @@
   </data>
 	<data name="enableSearchHighlight" xml:space="preserve">
     <value>Виділення результатів пошуку</value>
+=======
+	<data name="enableRating" xml:space="preserve">
+    <value>Увімкнути рейтинги</value>
+  </data>
+	<data name="enableReferrerTracking" xml:space="preserve">
+    <value>Увімкнути відслідковування реферів</value>
+  </data>
+	<data name="enableSearchHighlight" xml:space="preserve">
+    <value>Увімкнути підсвітку результатів пошуку</value>
+>>>>>>> master
   </data>
 	<data name="enableSearchHighlightDescription" xml:space="preserve">
     <value>Виділяє кольором результати пошуку на сторінці.</value>
   </data>
 	<data name="enableSsl" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дозволити SSL</value>
   </data>
 	<data name="enableTrackbacks" xml:space="preserve">
     <value>Увімкнути трекбеки</value>
   </data>
+=======
+    <value>Увімкнути SSL</value>
+  </data>
+>>>>>>> master
 	<data name="endorsment" xml:space="preserve">
     <value>Посилання (bLink)</value>
   </data>
 	<data name="enforce" xml:space="preserve">
     <value>Обов'язково</value>
   </data>
+<<<<<<< HEAD
 	<data name="enterValidEmail" xml:space="preserve">
     <value>Будь ласка, введіть дійсну адресу електронної пошти</value>
   </data>
 	<data name="enterValidUrl" xml:space="preserve">
     <value>Введіть припустиму URL-адресу</value>
   </data>
+=======
+>>>>>>> master
 	<data name="export" xml:space="preserve">
     <value>Експортувати</value>
   </data>
@@ -352,9 +430,12 @@
 	<data name="import" xml:space="preserve">
     <value>Імпортувати</value>
   </data>
+<<<<<<< HEAD
 	<data name="incorrectSimpleCaptcha" xml:space="preserve">
     <value>Значення Captcha неправильне</value>
   </data>
+=======
+>>>>>>> master
 	<data name="isFrontPage" xml:space="preserve">
     <value>Перша сторінка</value>
   </data>
@@ -382,21 +463,32 @@
 	<data name="message" xml:space="preserve">
     <value>Повідомлення</value>
   </data>
+<<<<<<< HEAD
 	<data name="themeCookieName" xml:space="preserve">
     <value>Cookie-ім'я для теми</value>
   </data>
 	<data name="more" xml:space="preserve">
     <value>Більше</value>
+=======
+	<data name="monster" xml:space="preserve">
+    <value>Monster</value>
+  </data>
+	<data name="more" xml:space="preserve">
+    <value>Детальніше</value>
+>>>>>>> master
   </data>
 	<data name="name" xml:space="preserve">
     <value>Ім'я</value>
   </data>
+<<<<<<< HEAD
 	<data name="nextPost" xml:space="preserve">
     <value>Наступний запис</value>
   </data>
 	<data name="nextPosts" xml:space="preserve">
     <value>Новіші записи</value>
   </data>
+=======
+>>>>>>> master
 	<data name="none" xml:space="preserve">
     <value>Не показувати</value>
   </data>
@@ -416,7 +508,11 @@
     <value>Кількість показаних записів</value>
   </data>
 	<data name="numberOfPosts" xml:space="preserve">
+<<<<<<< HEAD
     <value>Кількість дописів</value>
+=======
+    <value>Кількість записів</value>
+>>>>>>> master
   </data>
 	<data name="page" xml:space="preserve">
     <value>Сторінка</value>
@@ -443,6 +539,7 @@
     <value>Кількість дописів на сторінці</value>
   </data>
 	<data name="posts" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дописи</value>
   </data>
 	<data name="postsPerFeed" xml:space="preserve">
@@ -454,6 +551,13 @@
 	<data name="previousPosts" xml:space="preserve">
     <value>Давніші записи</value>
   </data>
+=======
+    <value>Дописів</value>
+  </data>
+	<data name="postsPerFeed" xml:space="preserve">
+    <value>Кількість записів у видачі</value>
+  </data>
+>>>>>>> master
 	<data name="publish" xml:space="preserve">
     <value>Опублікувати</value>
   </data>
@@ -463,9 +567,12 @@
 	<data name="rating" xml:space="preserve">
     <value>Рейтинг</value>
   </data>
+<<<<<<< HEAD
 	<data name="receive" xml:space="preserve">
     <value>Отримати</value>
   </data>
+=======
+>>>>>>> master
 	<data name="recentComments" xml:space="preserve">
     <value>Свіжі коментарі</value>
   </data>
@@ -484,9 +591,12 @@
 	<data name="remove" xml:space="preserve">
     <value>Видалити</value>
   </data>
+<<<<<<< HEAD
 	<data name="required" xml:space="preserve">
     <value>Вимагається</value>
   </data>
+=======
+>>>>>>> master
 	<data name="save" xml:space="preserve">
     <value>Зберегти</value>
   </data>
@@ -502,9 +612,12 @@
 	<data name="saveSettings" xml:space="preserve">
     <value>Зберегти параметри</value>
   </data>
+<<<<<<< HEAD
 	<data name="savingTheComment" xml:space="preserve">
     <value>Збереження коментарів</value>
   </data>
+=======
+>>>>>>> master
 	<data name="search" xml:space="preserve">
     <value>Пошук</value>
   </data>
@@ -523,9 +636,12 @@
 	<data name="selectParent" xml:space="preserve">
     <value>Обрати сторінку верхнього рівня</value>
   </data>
+<<<<<<< HEAD
 	<data name="send" xml:space="preserve">
     <value>Надіслати</value>
   </data>
+=======
+>>>>>>> master
 	<data name="sendCommentEmail" xml:space="preserve">
     <value>Відправляти коментарі на  e-mail</value>
   </data>
@@ -542,7 +658,11 @@
     <value>Без вибору країни біля коментарів не будуть показуватися прапори.</value>
   </data>
 	<data name="showEnableWebsiteInComments" xml:space="preserve">
+<<<<<<< HEAD
     <value>Дозволити веб-сайт в коментарях</value>
+=======
+    <value>Увімкнути поле веб-сайт у коментарях</value>
+>>>>>>> master
   </data>
 	<data name="showEnableWebsiteInCommentsDescription" xml:space="preserve">
     <value>Вибрати, чи дозволяти веб-сайту публікуватися в коментарях.</value>
@@ -550,18 +670,24 @@
 	<data name="showDescriptionInPostList" xml:space="preserve">
     <value>Короткі описи у списку записів</value>
   </data>
+<<<<<<< HEAD
 	<data name="showDescriptionInPostListForPostsByTagOrCategory" xml:space="preserve">
     <value>Показувати лише опис повідомлення у списках перегляду по тегам або категоріям</value>
   </data>
+=======
+>>>>>>> master
 	<data name="showInList" xml:space="preserve">
     <value>Показувати у списку</value>
   </data>
 	<data name="showLivePreview" xml:space="preserve">
     <value>Показувати попередній перегляд</value>
   </data>
+<<<<<<< HEAD
 	<data name="showPostNavigation" xml:space="preserve">
     <value>Показати, post навігаційні посилання</value>
   </data>
+=======
+>>>>>>> master
 	<data name="showRelatedPosts" xml:space="preserve">
     <value>Показувати записи по темі</value>
   </data>
@@ -601,11 +727,16 @@
 	<data name="trimStylesheetDescription" xml:space="preserve">
     <value>Стискає стилі теми, видаляючи пробіли під час виконання.</value>
   </data>
+<<<<<<< HEAD
 	<data name="type" xml:space="preserve">
     <value>Тип</value>
   </data>
 	<data name="unapprovedcomments" xml:space="preserve">
     <value>Непідтверджені коментарі</value>
+=======
+	<data name="unapprovedcomments" xml:space="preserve">
+    <value>Несхвалені коментарі</value>
+>>>>>>> master
   </data>
 	<data name="updateFrequenzy" xml:space="preserve">
     <value>Частота оновлення (хвилин)</value>
@@ -634,6 +765,7 @@
 	<data name="youAlreadyRated" xml:space="preserve">
     <value>Ви вже оцінили цей допис</value>
   </data>
+<<<<<<< HEAD
 	<data name="userProfiles" xml:space="preserve">
     <value>Профіль користувача (і)</value>
   </data>
@@ -2543,4 +2675,1998 @@
 	<data name="theOperator" xml:space="preserve">
     <value>Оператор</value>
   </data>
+=======
+	<data name="changePassword" xml:space="preserve">
+		<value>Змінити пароль</value>
+	</data>
+	<data name="chooseOtherName" xml:space="preserve">
+		<value>Оберіть інше ім'я, будь-ласка</value>
+	</data>
+	<data name="commentRSS" xml:space="preserve">
+		<value>RSS коментарі</value>
+	</data>
+	<data name="downloadOPML" xml:space="preserve">
+		<value>Завантажити OPML файл</value>
+	</data>
+	<data name="emailSubjectPrefix" xml:space="preserve">
+		<value>Заголовок</value>
+	</data>
+	<data name="enablePingbacks" xml:space="preserve">
+		<value>Увімкнути пінгбеки</value>
+	</data>
+	<data name="enableTrackbacks" xml:space="preserve">
+		<value>Увімкнути трекбеки</value>
+	</data>
+	<data name="enterValidEmail" xml:space="preserve">
+		<value>Будь ласка, введіть дійсну адресу електронної пошти</value>
+	</data>
+	<data name="enterValidUrl" xml:space="preserve">
+		<value>Введіть припустиму URL-адресу</value>
+	</data>
+	<data name="incorrectSimpleCaptcha" xml:space="preserve">
+		<value>Значення Captcha неправильне</value>
+	</data>
+	<data name="mobileTheme" xml:space="preserve">
+		<value>Мобільна тема</value>
+	</data>
+	<data name="themeCookieName" xml:space="preserve">
+		<value>Cookie-ім'я для теми</value>
+	</data>
+	<data name="nextPost" xml:space="preserve">
+		<value>Наступний допис</value>
+	</data>
+	<data name="nextPosts" xml:space="preserve">
+		<value>Новіші дописи</value>
+	</data>
+	<data name="previousPost" xml:space="preserve">
+		<value>Попередній допис</value>
+	</data>
+	<data name="previousPosts" xml:space="preserve">
+		<value>Старіші записи</value>
+	</data>
+	<data name="receive" xml:space="preserve">
+		<value>Отримати</value>
+	</data>
+	<data name="required" xml:space="preserve">
+		<value>Вимагається</value>
+	</data>
+	<data name="savingTheComment" xml:space="preserve">
+		<value>Збереження коментаря</value>
+	</data>
+	<data name="send" xml:space="preserve">
+		<value>Надіслати</value>
+	</data>
+	<data name="showDescriptionInPostListForPostsByTagOrCategory" xml:space="preserve">
+		<value>Показувати лише опис повідомлення у списках перегляду по тегам або категоріям</value>
+	</data>
+	<data name="showPostNavigation" xml:space="preserve">
+		<value>Показати, post навігаційні посилання</value>
+	</data>
+	<data name="type" xml:space="preserve">
+		<value>Тип</value>
+	</data>
+	<data name="userProfiles" xml:space="preserve">
+		<value>Профіль користувача (і)</value>
+	</data>
+	<data name="view" xml:space="preserve">
+		<value>Подання</value>
+	</data>
+	<data name="firstName" xml:space="preserve">
+		<value>Ім'я</value>
+	</data>
+	<data name="aboutMe" xml:space="preserve">
+		<value>Про мене</value>
+	</data>
+	<data name="birthday" xml:space="preserve">
+		<value>День народження</value>
+	</data>
+	<data name="cityTown" xml:space="preserve">
+		<value>Населений пункт</value>
+	</data>
+	<data name="displayName" xml:space="preserve">
+		<value>Коротке ім'я</value>
+	</data>
+	<data name="fullName" xml:space="preserve">
+		<value>Повне ім'я</value>
+	</data>
+	<data name="gender" xml:space="preserve">
+		<value>Стать</value>
+	</data>
+	<data name="industry" xml:space="preserve">
+		<value>Промисловість</value>
+	</data>
+	<data name="interests" xml:space="preserve">
+		<value>Інтереси</value>
+	</data>
+	<data name="isPrivate" xml:space="preserve">
+		<value>Приватний</value>
+	</data>
+	<data name="lastName" xml:space="preserve">
+		<value>Прізвище</value>
+	</data>
+	<data name="occupation" xml:space="preserve">
+		<value>Окупації</value>
+	</data>
+	<data name="photoURL" xml:space="preserve">
+		<value>Фото URL</value>
+	</data>
+	<data name="regionState" xml:space="preserve">
+		<value>Держава або регіон</value>
+	</data>
+	<data name="saveProfile" xml:space="preserve">
+		<value>Зберегти профіль</value>
+	</data>
+	<data name="switchUserProfile" xml:space="preserve">
+		<value>Перейти до профілю користувача</value>
+	</data>
+	<data name="company" xml:space="preserve">
+		<value>Компанія</value>
+	</data>
+	<data name="middleName" xml:space="preserve">
+		<value>По батькові</value>
+	</data>
+	<data name="phoneFax" xml:space="preserve">
+		<value>Телефон факс</value>
+	</data>
+	<data name="phoneMain" xml:space="preserve">
+		<value>Головний телефон</value>
+	</data>
+	<data name="phoneMobile" xml:space="preserve">
+		<value>Мобільний телефон</value>
+	</data>
+	<data name="profile" xml:space="preserve">
+		<value>Профіль</value>
+	</data>
+	<data name="calendar" xml:space="preserve">
+		<value>Календар</value>
+	</data>
+	<data name="commentWaitingModeration" xml:space="preserve">
+		<value>Дякуємо за зворотній зв'язок. Тепер коментар очікує модерації</value>
+	</data>
+	<data name="requireSslForMetaWeblogApi" xml:space="preserve">
+		<value>Використання протоколу SSL для MetaWeblog API</value>
+	</data>
+	<data name="requireSslForMetaWeblogApiDescription" xml:space="preserve">
+		<value>Забезпечення дотримання використання SSL, при спілкуванні з MetaWeblog API</value>
+	</data>
+	<data name="compressWebResource" xml:space="preserve">
+		<value>Стискання WebResource.axd</value>
+	</data>
+	<data name="compressWebResourceDescription" xml:space="preserve">
+		<value>Це може призвести до розірвання сторонні функціональність</value>
+	</data>
+	<data name="useBlogNameInPageTitles" xml:space="preserve">
+		<value>Використовувати ім'я блогу в заголовки сторінок</value>
+	</data>
+	<data name="useBlogNameInPageTitlesDescription" xml:space="preserve">
+		<value>Префікси заголовки сторінок з назва блогу</value>
+	</data>
+	<data name="uncategorized" xml:space="preserve">
+		<value>Без рубрики</value>
+	</data>
+	<data name="cancel" xml:space="preserve">
+		<value>Скасувати</value>
+	</data>
+	<data name="filter" xml:space="preserve">
+		<value>Фільтр</value>
+	</data>
+	<data name="filterByApml" xml:space="preserve">
+		<value>Фільтр за APML</value>
+	</data>
+	<data name="filterByApmlDescription" xml:space="preserve">
+		<value>Введіть URL-адресу вашого веб-сайту або APML документа</value>
+	</data>
+	<data name="login" xml:space="preserve">
+		<value>Увійти</value>
+	</data>
+	<data name="logoff" xml:space="preserve">
+		<value>Вийти</value>
+	</data>
+	<data name="useRawHtmlEditor" xml:space="preserve">
+		<value>Використання raw HTML редактор</value>
+	</data>
+	<data name="enableCommentNesting" xml:space="preserve">
+		<value>Увімкнути вкладених коментарів</value>
+	</data>
+	<data name="enableCommentNestingDescription" xml:space="preserve">
+		<value>Це працює тільки, якщо тема підтримує його.</value>
+	</data>
+	<data name="replyTo" xml:space="preserve">
+		<value>У відповідь на</value>
+	</data>
+	<data name="replyToBase" xml:space="preserve">
+		<value>Оригінальний пост</value>
+	</data>
+	<data name="replyToThis" xml:space="preserve">
+		<value>Відповідь</value>
+	</data>
+	<data name="deleteKeepReplies" xml:space="preserve">
+		<value>Видалити цю, але тримати відповідей</value>
+	</data>
+	<data name="deletePlusReplies" xml:space="preserve">
+		<value>Видалити цю та відповіді:</value>
+	</data>
+	<data name="cancelReply" xml:space="preserve">
+		<value>Скасувати відповідь на коментар</value>
+	</data>
+	<data name="numberOfCharacters" xml:space="preserve">
+		<value>Кількість символів</value>
+	</data>
+	<data name="ratingHasBeenRegistered" xml:space="preserve">
+		<value>Ваш голос буде зареєстровано. Дякую!</value>
+	</data>
+	<data name="rateThisXStars" xml:space="preserve">
+		<value>Оцініть {0} балами {1} з 5</value>
+	</data>
+	<data name="move" xml:space="preserve">
+		<value>Переміщення</value>
+	</data>
+	<data name="moveWidgetTo" xml:space="preserve">
+		<value>Перемістити елемент керування, щоб</value>
+	</data>
+	<data name="link" xml:space="preserve">
+		<value>Посилання</value>
+	</data>
+	<data name="numberOfDaysToKeep" xml:space="preserve">
+		<value>Кількість днів, щоб зберегти</value>
+	</data>
+	<data name="profiles" xml:space="preserve">
+		<value>Профілі</value>
+	</data>
+	<data name="enableErrorLogging" xml:space="preserve">
+		<value>Увімкнути журналювання помилок</value>
+	</data>
+	<data name="enableErrorLoggingDescription" xml:space="preserve">
+		<value>Необроблена помилки будуть записуватися до будь-якого розширення/компоненту підписався на протоколювання повідомлень.</value>
+	</data>
+	<data name="commentNotificationUnsubscriptionHeader" xml:space="preserve">
+		<value>Коментар повідомлення про підписку</value>
+	</data>
+	<data name="commentNotificationUnsubscriptionText" xml:space="preserve">
+		<value>Ви були передплату електронною поштою повідомлення про будь-які майбутні коментарі на цю посаду.</value>
+	</data>
+	<data name="commentNotificationUnsubscribe" xml:space="preserve">
+		<value>Скасувати email підписку на цей допис</value>
+	</data>
+	<data name="accuracy" xml:space="preserve">
+		<value>Точність</value>
+	</data>
+	<data name="addFilter" xml:space="preserve">
+		<value>Додати фільтр</value>
+	</data>
+	<data name="addToWhiteList" xml:space="preserve">
+		<value>Додавання до білого списку, якщо принаймні</value>
+	</data>
+	<data name="allow" xml:space="preserve">
+		<value>Дозволити</value>
+	</data>
+	<data name="alwaysTrust" xml:space="preserve">
+		<value>Якщо користувач аутентифікований, завжди довіряти</value>
+	</data>
+	<data name="approved" xml:space="preserve">
+		<value>Затверджено</value>
+	</data>
+	<data name="authorApproved" xml:space="preserve">
+		<value>Коментарі цього автора були затверджені</value>
+	</data>
+	<data name="authorBlocked" xml:space="preserve">
+		<value>Якщо коментар видалено, завжди блокувати автора</value>
+	</data>
+	<data name="authorRejected" xml:space="preserve">
+		<value>Коментарі цього автора була відкинута</value>
+	</data>
+	<data name="block" xml:space="preserve">
+		<value>Блок</value>
+	</data>
+	<data name="cheked" xml:space="preserve">
+		<value>Перевірив</value>
+	</data>
+	<data name="commentsApprovedByAdmin" xml:space="preserve">
+		<value>Ручний - тільки після того, як коментар буде схвалений адміном, він буде відображатися в блозі.</value>
+	</data>
+	<data name="commentsAuto" xml:space="preserve">
+		<value>Автоматичні - правила та фільтри буде вирішити, якщо коментар спам</value>
+	</data>
+	<data name="commentsBlacklist" xml:space="preserve">
+		<value>Додати в чорний список, якщо хоча б</value>
+	</data>
+	<data name="commentsBlockOnDelete" xml:space="preserve">
+		<value>Блокувати під час видалення</value>
+	</data>
+	<data name="commentsPerPage" xml:space="preserve">
+		<value>Коментарі на сторінку</value>
+	</data>
+	<data name="commentsUnmodApproved" xml:space="preserve">
+		<value>Якщо не модерується, всі коментарі, затверджені за промовчанням</value>
+	</data>
+	<data name="confirmResetCounters" xml:space="preserve">
+		<value>Ви дійсно бажаєте скинути всі лічильники на '0'?</value>
+	</data>
+	<data name="contains" xml:space="preserve">
+		<value>Містить</value>
+	</data>
+	<data name="days" xml:space="preserve">
+		<value>днів</value>
+	</data>
+	<data name="down" xml:space="preserve">
+		<value>Вниз</value>
+	</data>
+	<data name="enabled" xml:space="preserve">
+		<value>Увімкнено</value>
+	</data>
+	<data name="eqls" xml:space="preserve">
+		<value>Дорівнює</value>
+	</data>
+	<data name="filterName" xml:space="preserve">
+		<value>Назва  фільтра</value>
+	</data>
+	<data name="filters" xml:space="preserve">
+		<value>Фільтри</value>
+	</data>
+	<data name="ip" xml:space="preserve">
+		<value>IP</value>
+	</data>
+	<data name="mistakes" xml:space="preserve">
+		<value>Помилки</value>
+	</data>
+	<data name="moderation" xml:space="preserve">
+		<value>Модерація</value>
+	</data>
+	<data name="priority" xml:space="preserve">
+		<value>Пріоритет</value>
+	</data>
+	<data name="reportMistakesToService" xml:space="preserve">
+		<value>Звіт про помилки до служби</value>
+	</data>
+	<data name="resetCounters" xml:space="preserve">
+		<value>Скинути лічильники</value>
+	</data>
+	<data name="rules" xml:space="preserve">
+		<value>Правила</value>
+	</data>
+	<data name="spam" xml:space="preserve">
+		<value>Спам</value>
+	</data>
+	<data name="trustAuthenticated" xml:space="preserve">
+		<value>Довіряти автентифікованим авторам</value>
+	</data>
+	<data name="up" xml:space="preserve">
+		<value>Вгору</value>
+	</data>
+	<data name="all" xml:space="preserve">
+		<value>Всі</value>
+	</data>
+	<data name="clear" xml:space="preserve">
+		<value>Очистити</value>
+	</data>
+	<data name="moderator" xml:space="preserve">
+		<value>Модератор</value>
+	</data>
+	<data name="select" xml:space="preserve">
+		<value>Виберіть</value>
+	</data>
+	<data name="reject" xml:space="preserve">
+		<value>Відхилити</value>
+	</data>
+	<data name="restore" xml:space="preserve">
+		<value>Відновлення</value>
+	</data>
+	<data name="selectedComments" xml:space="preserve">
+		<value>вибраних коментарів</value>
+	</data>
+	<data name="editor" xml:space="preserve">
+		<value>Редактор</value>
+	</data>
+	<data name="total" xml:space="preserve">
+		<value>Всього</value>
+	</data>
+	<data name="update" xml:space="preserve">
+		<value>Оновлення</value>
+	</data>
+	<data name="widget" xml:space="preserve">
+		<value>Віджет</value>
+	</data>
+	<data name="configuration" xml:space="preserve">
+		<value>Конфігурації</value>
+	</data>
+	<data name="inbox" xml:space="preserve">
+		<value>Вхідні</value>
+	</data>
+	<data name="manual" xml:space="preserve">
+		<value>Довідник</value>
+	</data>
+	<data name="unmoderated" xml:space="preserve">
+		<value>Немодеровано</value>
+	</data>
+	<data name="action" xml:space="preserve">
+		<value>Дія</value>
+	</data>
+	<data name="automoderation" xml:space="preserve">
+		<value>Автоматична модерація</value>
+	</data>
+	<data name="custom" xml:space="preserve">
+		<value>Розширення</value>
+	</data>
+	<data name="extensions" xml:space="preserve">
+		<value>Розширення</value>
+	</data>
+	<data name="showPingBacks" xml:space="preserve">
+		<value>Показати pingbacks і trackbacks</value>
+	</data>
+	<data name="register" xml:space="preserve">
+		<value>Зареєструватися</value>
+	</data>
+	<data name="addCommentsToPages" xml:space="preserve">
+		<value>Додавати коментарі до сторінок</value>
+	</data>
+	<data name="addToPages" xml:space="preserve">
+		<value>Додавання до сторінок (на додаток до повідомлень)</value>
+	</data>
+	<data name="alreadyHaveAccount" xml:space="preserve">
+		<value>Вже зареєстровані?</value>
+	</data>
+	<data name="applyChanges" xml:space="preserve">
+		<value>Застосувати зміни</value>
+	</data>
+	<data name="clickToDisable" xml:space="preserve">
+		<value>Натисніть, щоб вимкнути</value>
+	</data>
+	<data name="clickToEnable" xml:space="preserve">
+		<value>Натисніть, щоб включити.</value>
+	</data>
+	<data name="commentsWhere" xml:space="preserve">
+		<value>Коментарі де</value>
+	</data>
+	<data name="confirmNewPassword" xml:space="preserve">
+		<value>Підтвердіть новий пароль</value>
+	</data>
+	<data name="confirmPassword" xml:space="preserve">
+		<value>Підтвердження паролю</value>
+	</data>
+	<data name="createAccount" xml:space="preserve">
+		<value>Створити обліковий запис</value>
+	</data>
+	<data name="createNow" xml:space="preserve">
+		<value>Створити зараз!</value>
+	</data>
+	<data name="createUser" xml:space="preserve">
+		<value>Створити користувача</value>
+	</data>
+	<data name="developmentMode" xml:space="preserve">
+		<value>Режим розробки</value>
+	</data>
+	<data name="developmentModeCheckboxMessage" xml:space="preserve">
+		<value>Позначте цей пункт, коли ви перевіряєте disqus локально</value>
+	</data>
+	<data name="disabled" xml:space="preserve">
+		<value>Вимкнено</value>
+	</data>
+	<data name="disqusSettings" xml:space="preserve">
+		<value>Параметри Disqus</value>
+	</data>
+	<data name="disqusShortName" xml:space="preserve">
+		<value>Коротке ім'я веб-сайту Disqus</value>
+	</data>
+	<data name="disqusSignupMessage" xml:space="preserve">
+		<value>Використовувати Disqus, як ваш коментар менеджер, ви повинні настроїти обліковий запис в &lt;a href="http://disqus.com" target="_new"&gt; disqus.com&lt;/a&gt; &lt; br / &gt; коротке ім'я, що використовується для однозначної ідентифікації вашого сайту на Disqus (веб-сайт shortname в основних налаштуваннях).</value>
+	</data>
+	<data name="dontHaveAccount" xml:space="preserve">
+		<value>У вас ще немає облікового запису?</value>
+	</data>
+	<data name="forgotPassword" xml:space="preserve">
+		<value>Забули пароль?</value>
+	</data>
+	<data name="isAlreadyExists" xml:space="preserve">
+		<value>є вже існує</value>
+	</data>
+	<data name="isRequiredField" xml:space="preserve">
+		<value>Обов'язкове поле</value>
+	</data>
+	<data name="loginNow" xml:space="preserve">
+		<value>Увійдіть зараз!</value>
+	</data>
+	<data name="makeDonation" xml:space="preserve">
+		<value>Зробити пожертву</value>
+	</data>
+	<data name="moderatedByDisqus" xml:space="preserve">
+		<value>Модерується через Disqus.</value>
+	</data>
+	<data name="myProfile" xml:space="preserve">
+		<value>Мій профіль</value>
+	</data>
+	<data name="never" xml:space="preserve">
+		<value>Ніколи не</value>
+	</data>
+	<data name="newPassword" xml:space="preserve">
+		<value>Новий пароль</value>
+	</data>
+	<data name="oldPassword" xml:space="preserve">
+		<value>Старий пароль</value>
+	</data>
+	<data name="or" xml:space="preserve">
+		<value>або</value>
+	</data>
+	<data name="passwordChangeSuccess" xml:space="preserve">
+		<value>Ваш пароль було змінено успішно.</value>
+	</data>
+	<data name="passwordMinimumCharacters" xml:space="preserve">
+		<value>Пароль (min {0} символів)</value>
+	</data>
+	<data name="passwordRetrieval" xml:space="preserve">
+		<value>Відновлення пароля</value>
+	</data>
+	<data name="passwordRetrievalInstructionMessage" xml:space="preserve">
+		<value>Введіть ім'я користувача в поле нижче і натисніть кнопку Надіслати. Подальші інструкції буде надіслано на Ваш email реєстрації.</value>
+	</data>
+	<data name="rememberMe" xml:space="preserve">
+		<value>Запам'ятати мене</value>
+	</data>
+	<data name="requiredPasswordLength" xml:space="preserve">
+		<value>Нові паролі повинні бути не менше {0} символів в довжину.</value>
+	</data>
+	<data name="returnToBlog" xml:space="preserve">
+		<value>Повернутися до блогу</value>
+	</data>
+	<data name="siteUnavailableConfirm" xml:space="preserve">
+		<value>Сайт буде недоступний декілька секунд. \nAre ви впевнені, що бажаєте продовжити?</value>
+	</data>
+	<data name="source" xml:space="preserve">
+		<value>Джерело</value>
+	</data>
+	<data name="sourceViewer" xml:space="preserve">
+		<value>Переглядач коду</value>
+	</data>
+	<data name="status" xml:space="preserve">
+		<value>Статус</value>
+	</data>
+	<data name="theValuesSaved" xml:space="preserve">
+		<value>Значення збережено</value>
+	</data>
+	<data name="version" xml:space="preserve">
+		<value>Версія</value>
+	</data>
+	<data name="addNewRole" xml:space="preserve">
+		<value>Додати нову роль</value>
+	</data>
+	<data name="areYouSureDeleteComment" xml:space="preserve">
+		<value>Ви впевнені, що бажаєте видалити коментар?</value>
+	</data>
+	<data name="areYouSureDeleteEmail" xml:space="preserve">
+		<value>Справді видалити це повідомлення електронної пошти?</value>
+	</data>
+	<data name="areYouSureDeletePage" xml:space="preserve">
+		<value>Ви впевнені, що бажаєте видалити сторінку?</value>
+	</data>
+	<data name="areYouSureDeleteRow" xml:space="preserve">
+		<value>Ви дійсно бажаєте видалити цей рядок?</value>
+	</data>
+	<data name="categoryAlreadyExists" xml:space="preserve">
+		<value>Тема вже існує</value>
+	</data>
+	<data name="close" xml:space="preserve">
+		<value>Закрити</value>
+	</data>
+	<data name="createRole" xml:space="preserve">
+		<value>Створити роль</value>
+	</data>
+	<data name="download" xml:space="preserve">
+		<value>Завантажити</value>
+	</data>
+	<data name="enableEnclosures" xml:space="preserve">
+		<value>Увімкнути Enclosures</value>
+	</data>
+	<data name="enableSelfRegistration" xml:space="preserve">
+		<value>Увімкнути самореєстрацію</value>
+	</data>
+	<data name="enterDate" xml:space="preserve">
+		<value>Будь ласка, введіть дату (РРРР ММ ДД гг)</value>
+	</data>
+	<data name="enterTitle" xml:space="preserve">
+		<value>Будь ласка, введіть назву</value>
+	</data>
+	<data name="enterValidDate" xml:space="preserve">
+		<value>Будь-ласка введи дійсну дату (РРРР ММ ДД гг)</value>
+	</data>
+	<data name="enterValidName" xml:space="preserve">
+		<value>Будь ласка, введіть припустиме ім'я</value>
+	</data>
+	<data name="enterValidNumber" xml:space="preserve">
+		<value>Введіть припустиме число</value>
+	</data>
+	<data name="enterValidNumberPositiveNegative" xml:space="preserve">
+		<value>Укажіть Припустимий номер (позитивне або негативне)</value>
+	</data>
+	<data name="extractFromTitle" xml:space="preserve">
+		<value>Витягти із заголовку</value>
+	</data>
+	<data name="findPosition" xml:space="preserve">
+		<value>Знайти позицію</value>
+	</data>
+	<data name="importFromBlogML" xml:space="preserve">
+		<value>Імпорт із BlogML</value>
+	</data>
+	<data name="invalid" xml:space="preserve">
+		<value>Засіб запобігання недійсним</value>
+	</data>
+	<data name="noValidNumber" xml:space="preserve">
+		<value>Не є припустимим числом</value>
+	</data>
+	<data name="onlyLoggedInCanView" xml:space="preserve">
+		<value>Тільки зареєстровані користувачі можуть подання повідомлення з приватних блог)</value>
+	</data>
+	<data name="parent" xml:space="preserve">
+		<value>Батько</value>
+	</data>
+	<data name="pingService" xml:space="preserve">
+		<value>Ping-сервіси</value>
+	</data>
+	<data name="preview" xml:space="preserve">
+		<value>Попередній перегляд</value>
+	</data>
+	<data name="roles" xml:space="preserve">
+		<value>Ролі</value>
+	</data>
+	<data name="showSelector" xml:space="preserve">
+		<value>Показати селектор</value>
+	</data>
+	<data name="slug" xml:space="preserve">
+		<value>Службове поле (опціонально)</value>
+	</data>
+	<data name="specifyPingService" xml:space="preserve">
+		<value>Будь ласка, вкажіть пінг служби</value>
+	</data>
+	<data name="tags" xml:space="preserve">
+		<value>Мітки</value>
+	</data>
+	<data name="testEmailSettings" xml:space="preserve">
+		<value>Перевірити параметри пошти</value>
+	</data>
+	<data name="trackingScript" xml:space="preserve">
+		<value>Сценарії відстеження</value>
+	</data>
+	<data name="trackingScriptDescription" xml:space="preserve">
+		<value>Відстеження скрипт відвідувачів &lt; br / &gt; &lt; br / &gt; The JavaScript код від тобто Google Analytics. &lt; br / &gt; &lt; br / &gt; будуть додані в нижній частині кожної сторінки, незалежно від теми. &lt; br / &gt; &lt; br /&gt;(remember to add the &amp;lt;script&amp;gt; tags)</value>
+	</data>
+	<data name="upload" xml:space="preserve">
+		<value>Завантажити</value>
+	</data>
+	<data name="usernameAlreadyTaken" xml:space="preserve">
+		<value>Ім'я користувача вже використовується</value>
+	</data>
+	<data name="notifiedPublished" xml:space="preserve">
+		<value>Повідомити, коли нове повідомлення буде опубліковане.</value>
+	</data>
+	<data name="pendingApproval" xml:space="preserve">
+		<value>Коментарі будуть очікувати схвалення адміністратором</value>
+	</data>
+	<data name="Referrers_BindTable_Total" xml:space="preserve">
+		<value>Всього</value>
+	</data>
+	<data name="Configuration_OnInit_Please_specify_a_number" xml:space="preserve">
+		<value>Будь ласка, вкажіть число</value>
+	</data>
+	<data name="Configuration_BtnTestSmtpClick_Test_successfull" xml:space="preserve">
+		<value>Успішні випробування</value>
+	</data>
+	<data name="allowRemoteFileDownloads" xml:space="preserve">
+		<value>Дозволити віддалене завантаження файлу</value>
+	</data>
+	<data name="allowRemoteFileDownloadsDescription" xml:space="preserve">
+		<value>Дозволяють на серверним обробникам завантажувати, кешувати, обробляти ресурси з інших сайтів.</value>
+	</data>
+	<data name="remoteTimeout" xml:space="preserve">
+		<value>Макс час віддаленого завантаження</value>
+	</data>
+	<data name="remoteTimeoutDescription" xml:space="preserve">
+		<value>Максимальний час(milliseconds) сервера, за який можна провести завантаження віддаленого ресурсу. Встановіть 0 для необмеженого. Значенням за промовчанням є 30000.</value>
+	</data>
+	<data name="securitySettings" xml:space="preserve">
+		<value>Параметри безпеки</value>
+	</data>
+	<data name="maximumRemoteFileSize" xml:space="preserve">
+		<value>Макс дистанційного розмір файлу</value>
+	</data>
+	<data name="maximumRemoteFileSizeDescription" xml:space="preserve">
+		<value>Максимальний розмір у байтах файлу віддаленого сервера можна завантажити. Значення 0 для необмежений.</value>
+	</data>
+	<data name="selfRegistrationInitialRole" xml:space="preserve">
+		<value>Початковий роль самостійної реєстрації</value>
+	</data>
+	<data name="enableRecaptcha" xml:space="preserve">
+		<value>Увімкнути Recaptcha</value>
+	</data>
+	<data name="recaptchaConfigureReminder" xml:space="preserve">
+		<value>Переконайтеся, що розширення Recaptcha увімкнено та правильно налаштовано</value>
+	</data>
+	<data name="whitelistIpOnCommentApproval" xml:space="preserve">
+		<value>Автоматично додати IP адресу з коментарів ви затвердити білий список.</value>
+	</data>
+	<data name="blacklistIpOnCommentRejection" xml:space="preserve">
+		<value>Автоматичне додавання IP адресу з коментарів ви відхиляєте в чорний список.</value>
+	</data>
+	<data name="dashboard" xml:space="preserve">
+		<value>Панель керування</value>
+	</data>
+	<data name="groupByYear" xml:space="preserve">
+		<value>Групування по рокам</value>
+	</data>
+	<data name="recentDatesAtTop" xml:space="preserve">
+		<value>Останні дати спочатку</value>
+	</data>
+	<data name="confirmPasswordIsRequired" xml:space="preserve">
+		<value>Підтвердіть пароль</value>
+	</data>
+	<data name="emailIsInvalid" xml:space="preserve">
+		<value>Електронна пошта є неприпустимим</value>
+	</data>
+	<data name="emailIsRequired" xml:space="preserve">
+		<value>Email є обов'язковим</value>
+	</data>
+	<data name="minPassLengthInChars" xml:space="preserve">
+		<value>Мінімальної довжини становить {0} символів</value>
+	</data>
+	<data name="newAndConfirmPasswordMismatch" xml:space="preserve">
+		<value>Новий пароль і підтвредження не збігаються</value>
+	</data>
+	<data name="newPasswordIsRequired" xml:space="preserve">
+		<value>Новий пароль обов'язковий</value>
+	</data>
+	<data name="oldPasswordIsRequired" xml:space="preserve">
+		<value>Старий пароль не потрібно</value>
+	</data>
+	<data name="passwordAndConfirmPasswordMismatch" xml:space="preserve">
+		<value>Пароль і підтвердження пароля не співпадають</value>
+	</data>
+	<data name="passwordIsRequried" xml:space="preserve">
+		<value>Потрібен</value>
+	</data>
+	<data name="passwordAndConfirmPasswordIsMatch" xml:space="preserve">
+		<value>Новий пароль і підтвредження не збігаються</value>
+	</data>
+	<data name="userNameIsRequired" xml:space="preserve">
+		<value>Ім'я користувача обво'язкове</value>
+	</data>
+	<data name="tracking" xml:space="preserve">
+		<value>Відстеження</value>
+	</data>
+	<data name="welcome" xml:space="preserve">
+		<value>Прошу</value>
+	</data>
+	<data name="addNewPage" xml:space="preserve">
+		<value>Додати нову сторінку</value>
+	</data>
+	<data name="admin" xml:space="preserve">
+		<value>Адмін</value>
+	</data>
+	<data name="draftPages" xml:space="preserve">
+		<value>Чернетки сторінок</value>
+	</data>
+	<data name="draftPosts" xml:space="preserve">
+		<value>Чернетки записів</value>
+	</data>
+	<data name="emptyTrash" xml:space="preserve">
+		<value>Спорожнити смітник</value>
+	</data>
+	<data name="recentPendingComments" xml:space="preserve">
+		<value>Останні коментарі в очікуванні</value>
+	</data>
+	<data name="stats" xml:space="preserve">
+		<value>Статистика</value>
+	</data>
+	<data name="trash" xml:space="preserve">
+		<value>Сміття</value>
+	</data>
+	<data name="unapproved" xml:space="preserve">
+		<value>Несхваленого</value>
+	</data>
+	<data name="viewAll" xml:space="preserve">
+		<value>Переглянути всі</value>
+	</data>
+	<data name="writeNewPost" xml:space="preserve">
+		<value>Новий запис</value>
+	</data>
+	<data name="youDontHaveAnyDraftPages" xml:space="preserve">
+		<value>У Вас немає жодної чернетки сторінок.</value>
+	</data>
+	<data name="youDontHaveAnyDraftPosts" xml:space="preserve">
+		<value>У Вас немає жодної чернетки дописів.</value>
+	</data>
+	<data name="notAuthorized" xml:space="preserve">
+		<value>Відсутня авторизація.</value>
+	</data>
+	<data name="userAlreadyExists" xml:space="preserve">
+		<value>Користувача "{0}" вже існує.</value>
+	</data>
+	<data name="commentsDeleted" xml:space="preserve">
+		<value>Коментар видалено</value>
+	</data>
+	<data name="couldNotCreateRole" xml:space="preserve">
+		<value>Не вдалося створити роль: {0}</value>
+	</data>
+	<data name="couldNotCreateUser" xml:space="preserve">
+		<value>Не вдалося створити користувача: {0}: {1}</value>
+	</data>
+	<data name="couldNotDeleteComment" xml:space="preserve">
+		<value>Не вдалося видалити коментар: {0}</value>
+	</data>
+	<data name="couldNotDeleteComments" xml:space="preserve">
+		<value>Не вдалося видалити всі коментарі: {0}</value>
+	</data>
+	<data name="couldNotDeletePage" xml:space="preserve">
+		<value>Не вдалося видалити сторінку: {0}</value>
+	</data>
+	<data name="couldNotDeletePost" xml:space="preserve">
+		<value>Не вдалося видалити пост: {0}</value>
+	</data>
+	<data name="couldNotDeleteRole" xml:space="preserve">
+		<value>Не вдалося видалити роль: {0}</value>
+	</data>
+	<data name="couldNotDeleteTag" xml:space="preserve">
+		<value>Не вдалося видалити тег: {0}</value>
+	</data>
+	<data name="couldNotDeleteUser" xml:space="preserve">
+		<value>Не вдалося видалити користувач: {0}</value>
+	</data>
+	<data name="couldNotUpdateProfile" xml:space="preserve">
+		<value>Не вдалося оновити профілю: {0}</value>
+	</data>
+	<data name="couldNotUpdateRole" xml:space="preserve">
+		<value>Не вдалося оновити ролі: {0}</value>
+	</data>
+	<data name="couldNotUpdateTag" xml:space="preserve">
+		<value>Не вдалося оновити тег: {0}</value>
+	</data>
+	<data name="couldNotUpdateUser" xml:space="preserve">
+		<value>Не вдалося оновити користувач: {0}</value>
+	</data>
+	<data name="displayNameIsRequired" xml:space="preserve">
+		<value>Коротке ім'я є обов'язкове поле</value>
+	</data>
+	<data name="doNotPassRightsWithFalseValue" xml:space="preserve">
+		<value>Не проходять назад прав, які мають значення false.</value>
+	</data>
+	<data name="emailArgumentInvalid" xml:space="preserve">
+		<value>Неприпустимий аргумент електронної пошти.</value>
+	</data>
+	<data name="errorApprovingComment" xml:space="preserve">
+		<value>Помилка затвердження коментар: {0}</value>
+	</data>
+	<data name="errorRejectingComment" xml:space="preserve">
+		<value>Помилка, відкидаючи коментар</value>
+	</data>
+	<data name="idArgumentNull" xml:space="preserve">
+		<value>ID аргумент рівний null.</value>
+	</data>
+	<data name="invalidPageId" xml:space="preserve">
+		<value>Неправильний ID сторінки</value>
+	</data>
+	<data name="invalidPostId" xml:space="preserve">
+		<value>Неприпустимий пост номер</value>
+	</data>
+	<data name="invalidRoleName" xml:space="preserve">
+		<value>Неправильне ім'я ролі </value>
+	</data>
+	<data name="noRightExists" xml:space="preserve">
+		<value>Таких прав немає: {0}</value>
+	</data>
+	<data name="pageDeleted" xml:space="preserve">
+		<value>Видалити сторінку</value>
+	</data>
+	<data name="pageIdRequired" xml:space="preserve">
+		<value>Код сторінки не потрібно</value>
+	</data>
+	<data name="passwordArgumentInvalid" xml:space="preserve">
+		<value>Неприпустимий аргумент пароль.</value>
+	</data>
+	<data name="postDeleted" xml:space="preserve">
+		<value>Видалені дописи</value>
+	</data>
+	<data name="profileUpdated" xml:space="preserve">
+		<value>Профіль {0} оновлено</value>
+	</data>
+	<data name="rightsCanNotBeNull" xml:space="preserve">
+		<value>Права колекції аргумент може бути невизначеним.</value>
+	</data>
+	<data name="rightsUpdatedForRole" xml:space="preserve">
+		<value>Права оновлено для ролі "{0}"</value>
+	</data>
+	<data name="roleAlreadyExists" xml:space="preserve">
+		<value>Роль "{0}" вже існує</value>
+	</data>
+	<data name="roleHasBeenCreated" xml:space="preserve">
+		<value>Роль "{0}" був створений</value>
+	</data>
+	<data name="roleHasBeenDeleted" xml:space="preserve">
+		<value>Роль "{0}", було видалено.</value>
+	</data>
+	<data name="roleNameArgumentNull" xml:space="preserve">
+		<value>roleName аргумент дорівнює null.</value>
+	</data>
+	<data name="roleNameIsRequired" xml:space="preserve">
+		<value>Ім'я ролі поле є обов'язковим.</value>
+	</data>
+	<data name="roleUpdatedFromTo" xml:space="preserve">
+		<value>Роль оновлено з "{0}" до "{1}"</value>
+	</data>
+	<data name="selectedCommentDeleted" xml:space="preserve">
+		<value>Вибрані коментарі видалено</value>
+	</data>
+	<data name="selectedCommentRejected" xml:space="preserve">
+		<value>Вибрані коментарі відхилено</value>
+	</data>
+	<data name="selectedCommentRestored" xml:space="preserve">
+		<value>Вибраних коментарів, відновлений</value>
+	</data>
+	<data name="tagChangedFromTo" xml:space="preserve">
+		<value>Тег оновлено з "{0}" до "{1}"</value>
+	</data>
+	<data name="tagHasBeenDeleted" xml:space="preserve">
+		<value>Тег "{0}", було видалено.</value>
+	</data>
+	<data name="tagIsRequired" xml:space="preserve">
+		<value>Тег це обов'язкове поле.</value>
+	</data>
+	<data name="userArgumentInvalid" xml:space="preserve">
+		<value>Неприпустимий аргумент User.</value>
+	</data>
+	<data name="userHasBeenCreated" xml:space="preserve">
+		<value>Користувача "{0}" був створений</value>
+	</data>
+	<data name="userHasBeenDeleted" xml:space="preserve">
+		<value>Користувача "{0}", було видалено.</value>
+	</data>
+	<data name="userUpdated" xml:space="preserve">
+		<value>Користувача "{0}" оновлено</value>
+	</data>
+	<data name="userWithEmailExists" xml:space="preserve">
+		<value>Користувач із цієї електронної пошти вже існує</value>
+	</data>
+	<data name="valsArgumentNull" xml:space="preserve">
+		<value>Аргумент vasl дорівнює null.</value>
+	</data>
+	<data name="addEditPost" xml:space="preserve">
+		<value>Додати/редагувати пост</value>
+	</data>
+	<data name="addNewCategory" xml:space="preserve">
+		<value>Додати нову категорію</value>
+	</data>
+	<data name="insertImage" xml:space="preserve">
+		<value>Вставити зображення</value>
+	</data>
+	<data name="insertVideo" xml:space="preserve">
+		<value>Вставлення відео</value>
+	</data>
+	<data name="published" xml:space="preserve">
+		<value>Опубліковані</value>
+	</data>
+	<data name="show" xml:space="preserve">
+		<value>Показати</value>
+	</data>
+	<data name="automatically" xml:space="preserve">
+		<value>Автоматично</value>
+	</data>
+	<data name="chooseFromExistingTags" xml:space="preserve">
+		<value>Вибрати з існуючих тегів</value>
+	</data>
+	<data name="clickTag" xml:space="preserve">
+		<value>Виберіть тег:</value>
+	</data>
+	<data name="editPage" xml:space="preserve">
+		<value>Редагувати сторінку</value>
+	</data>
+	<data name="excerpt" xml:space="preserve">
+		<value>Витяги (опціонально)</value>
+	</data>
+	<data name="goToPage" xml:space="preserve">
+		<value>Перейдіть на сторінку</value>
+	</data>
+	<data name="goToPost" xml:space="preserve">
+		<value>Перейти на пост</value>
+	</data>
+	<data name="manually" xml:space="preserve">
+		<value>Вручну</value>
+	</data>
+	<data name="options" xml:space="preserve">
+		<value>Параметри</value>
+	</data>
+	<data name="quickAddNewCategory" xml:space="preserve">
+		<value>Швидко додати нову категорію</value>
+	</data>
+	<data name="setPublishDate" xml:space="preserve">
+		<value>Дата публікації набір</value>
+	</data>
+	<data name="uploadVideo" xml:space="preserve">
+		<value>Вибрати відео (MP4, WMV, FLV, OGG, WebM) або звуковий файл (MP3) ви хочете завантажити</value>
+	</data>
+	<data name="enablePasswordReset" xml:space="preserve">
+		<value>Увімкнути скидання пароля</value>
+	</data>
+	<data name="addNewBlog" xml:space="preserve">
+		<value>Додати новий блог</value>
+	</data>
+	<data name="approvedComments" xml:space="preserve">
+		<value>Затверджених коментарі</value>
+	</data>
+	<data name="commonControls" xml:space="preserve">
+		<value>Звичайні елементи керування</value>
+	</data>
+	<data name="disable" xml:space="preserve">
+		<value>Вимкнути</value>
+	</data>
+	<data name="drafts" xml:space="preserve">
+		<value>Чернетки</value>
+	</data>
+	<data name="enable" xml:space="preserve">
+		<value>Увімкнути</value>
+	</data>
+	<data name="pending" xml:space="preserve">
+		<value>Очікування</value>
+	</data>
+	<data name="pingbacksAndTrackbacks" xml:space="preserve">
+		<value>PingBacks &amp; Trackbacks</value>
+	</data>
+	<data name="viewSource" xml:space="preserve">
+		<value>Перегляд HTML-коду</value>
+	</data>
+	<data name="addNewUser" xml:space="preserve">
+		<value>Додати нового користувача</value>
+	</data>
+	<data name="appearance" xml:space="preserve">
+		<value>Зовнішній вигляд</value>
+	</data>
+	<data name="commentSettings" xml:space="preserve">
+		<value>Коментар настройки</value>
+	</data>
+	<data name="copyRightsFrom" xml:space="preserve">
+		<value>Скопіювати права з</value>
+	</data>
+	<data name="customCode" xml:space="preserve">
+		<value>Користувальницький код</value>
+	</data>
+	<data name="defaultAnonymousRole" xml:space="preserve">
+		<value>за промовчанням роль Anonymous</value>
+	</data>
+	<data name="defaultEditorsRole" xml:space="preserve">
+		<value>за промовчанням роль Editors</value>
+	</data>
+	<data name="editingRightsForRole" xml:space="preserve">
+		<value>Редагування права для ролі</value>
+	</data>
+	<data name="feed" xml:space="preserve">
+		<value>Feed</value>
+	</data>
+	<data name="newUserRoles" xml:space="preserve">
+		<value>Новий користувач ролей</value>
+	</data>
+	<data name="otherSettings" xml:space="preserve">
+		<value>Інші параметри</value>
+	</data>
+	<data name="smtpServer" xml:space="preserve">
+		<value>SMTP-сервер</value>
+	</data>
+	<data name="turnDisqusOnOff" xml:space="preserve">
+		<value>Увімк./вимк. Disqus</value>
+	</data>
+	<data name="useDisqusAsCommentProvider" xml:space="preserve">
+		<value>Використовують Disqus провайдер коментар</value>
+	</data>
+	<data name="antiSpamServices" xml:space="preserve">
+		<value>Сервіс Анти-спаму</value>
+	</data>
+	<data name="exportIntoBlogML" xml:space="preserve">
+		<value>Експортувати вміст вашого блогу в XML-файлу (BlogML)</value>
+	</data>
+	<data name="importFromFile" xml:space="preserve">
+		<value>Імпортувати з файлу</value>
+	</data>
+	<data name="importWithClickOnce" xml:space="preserve">
+		<value>Імпортувати з click-once</value>
+	</data>
+	<data name="pingServiceUrl" xml:space="preserve">
+		<value>URL Ping-сервісу</value>
+	</data>
+	<data name="pingServiceUrlBatch" xml:space="preserve">
+		<value>URL Ping-сервісів (по одному на рядок)</value>
+	</data>
+	<data name="pingServiceNotUnique" xml:space="preserve">
+		<value>URL Ping-сервісу є в списку</value>
+	</data>
+	<data name="runClickOnceApplicationToImport" xml:space="preserve">
+		<value>Запустити клацанням-колись застосунку для імпорту вмісту зберігаються як BlogML або RSS 2.0 у свій блог. &lt;i&gt;Internet Explorer лише.&lt;/i&gt;</value>
+	</data>
+	<data name="selectSavedBlogMlFle" xml:space="preserve">
+		<value>Виберіть збережений файл BlogML і імпортувати його в свій блог. Будь-який веб-переглядач, тільки BlogML.</value>
+	</data>
+	<data name="toDisableSetTo0" xml:space="preserve">
+		<value>Щоб вимкнути, значення "0"</value>
+	</data>
+	<data name="cannotDeleteLastAdmin" xml:space="preserve">
+		<value>Неможливо видалити останній користувач із правами на створення або редагування користувачів. Надати права на ці іншому користувачу спочатку перед видаленням цього користувача.</value>
+	</data>
+	<data name="forceMainTheme" xml:space="preserve">
+		<value>Звичайний сайт</value>
+	</data>
+	<data name="allowMobileTheme" xml:space="preserve">
+		<value>Мобільний сайт</value>
+	</data>
+	<data name="blogs" xml:space="preserve">
+		<value>Блоги</value>
+	</data>
+	<data name="itemsPerPage" xml:space="preserve">
+		<value>Елементів/Сторінок</value>
+	</data>
+	<data name="couldNotDeleteBlog" xml:space="preserve">
+		<value>Не вдалося видалити блог: {0}</value>
+	</data>
+	<data name="blogDeleted" xml:space="preserve">
+		<value>Блог "{0}", було видалено.</value>
+	</data>
+	<data name="blogAdded" xml:space="preserve">
+		<value>Блог "{0}" була додано</value>
+	</data>
+	<data name="invalidBlogId" xml:space="preserve">
+		<value>Неправильний ID блогу </value>
+	</data>
+	<data name="editExistingBlog" xml:space="preserve">
+		<value>Редагувати блог</value>
+	</data>
+	<data name="storageContainerName" xml:space="preserve">
+		<value>Контейнер для зберігання ім'я</value>
+	</data>
+	<data name="virtualPath" xml:space="preserve">
+		<value>Віртуальний шлях</value>
+	</data>
+	<data name="active" xml:space="preserve">
+		<value>Активні</value>
+	</data>
+	<data name="existingBlogToCreateNewBlogFrom" xml:space="preserve">
+		<value>Прототип нового блогу</value>
+	</data>
+	<data name="hostName" xml:space="preserve">
+		<value>Ім'я хоста (опціонально)</value>
+	</data>
+	<data name="acceptAnyTextBeforeHostname" xml:space="preserve">
+		<value>Прийняти будь-який текст, перш ніж ім'я хоста</value>
+	</data>
+	<data name="isForSiteAggregation" xml:space="preserve">
+		<value>Для агрегації сайту</value>
+	</data>
+	<data name="latestFromTheGallery" xml:space="preserve">
+		<value>Останнє з галереї</value>
+	</data>
+	<data name="savedByAtTime" xml:space="preserve">
+		<value>Автор {0}, дата: {1}</value>
+	</data>
+	<data name="available" xml:space="preserve">
+		<value>Доступні</value>
+	</data>
+	<data name="currentTheme" xml:space="preserve">
+		<value>Поточні теми</value>
+	</data>
+	<data name="gallery" xml:space="preserve">
+		<value>Галерея</value>
+	</data>
+	<data name="installed" xml:space="preserve">
+		<value>Встановлений</value>
+	</data>
+	<data name="setAsCurrentTheme" xml:space="preserve">
+		<value>Встановити в якості поточної теми</value>
+	</data>
+	<data name="setAsMobileTheme" xml:space="preserve">
+		<value>Встановити в якості мобільного теми</value>
+	</data>
+	<data name="themes" xml:space="preserve">
+		<value>Теми</value>
+	</data>
+	<data name="alphaNumeric" xml:space="preserve">
+		<value>Буквено-цифрові</value>
+	</data>
+	<data name="downloads" xml:space="preserve">
+		<value>Завантаження</value>
+	</data>
+	<data name="newest" xml:space="preserve">
+		<value>Найновіші</value>
+	</data>
+	<data name="orderBy" xml:space="preserve">
+		<value>Замовити по</value>
+	</data>
+	<data name="activeThemes" xml:space="preserve">
+		<value>Активні теми</value>
+	</data>
+	<data name="enterEmail" xml:space="preserve">
+		<value>Введіть свою адресу електронної пошти</value>
+	</data>
+	<data name="enterEmailAddress" xml:space="preserve">
+		<value>Будь ласка, введіть адресу електронної пошти</value>
+	</data>
+	<data name="notifyMe" xml:space="preserve">
+		<value>Сповістити мене</value>
+	</data>
+	<data name="thankYou" xml:space="preserve">
+		<value>Дякую</value>
+	</data>
+	<data name="nowUnsubscribed" xml:space="preserve">
+		<value>Ви скасували отримання інформаційного бюлетеня</value>
+	</data>
+	<data name="viewLargeCalendar" xml:space="preserve">
+		<value>Перегляд повідомлень у великому календарі</value>
+	</data>
+	<data name="followTwitter" xml:space="preserve">
+		<value>Відслідковувати у Twitter</value>
+	</data>
+	<data name="visitorHi" xml:space="preserve">
+		<value>Привіт</value>
+	</data>
+	<data name="welcomeBack" xml:space="preserve">
+		<value>З поверненням!</value>
+	</data>
+	<data name="commentsAddedSince" xml:space="preserve">
+		<value>Нові коментарі будуть додані до {0} з моменту ваш останній коментар. </value>
+	</data>
+	<data name="writtenCommentsTotal" xml:space="preserve">
+		<value>Ви написали {0} коментарі в цілому.</value>
+	</data>
+	<data name="contactAuthorInformation" xml:space="preserve">
+		<value>Інформація про автора</value>
+	</data>
+	<data name="countryCode" xml:space="preserve">
+		<value>Код країни</value>
+	</data>
+	<data name="contactIPAddress" xml:space="preserve">
+		<value>IP-адреса</value>
+	</data>
+	<data name="contactUserAgent" xml:space="preserve">
+		<value>Агент користувача</value>
+	</data>
+	<data name="filestorage" xml:space="preserve">
+		<value>Керування файлами</value>
+	</data>
+	<data name="galleryFeedUrl" xml:space="preserve">
+		<value>Галерея кормів URL</value>
+	</data>
+	<data name="galleryFeedUrlDescription" xml:space="preserve">
+		<value>URL для стрічки Галереї з пакетами</value>
+	</data>
+	<data name="enableQuickNotes" xml:space="preserve">
+		<value>Увімкнути швидкі замітки</value>
+	</data>
+	<data name="tools" xml:space="preserve">
+		<value>Інструменти</value>
+	</data>
+	<data name="youHaveNotAddedAnyUserSoFar" xml:space="preserve">
+		<value>Ви не додали будь-якого користувача до цих пір. Щоб додати нового користувача використовуйте посилання у правому верхньому куті сторінки.</value>
+	</data>
+	<data name="rights" xml:space="preserve">
+		<value>Права</value>
+	</data>
+	<data name="youHaveNotDefinedAnyRolesSoFar" xml:space="preserve">
+		<value>Не визначено жодної ролі до цих пір. Щоб додати нову роль використовуйте посилання у правому верхньому куті сторінки.</value>
+	</data>
+	<data name="primary" xml:space="preserve">
+		<value>Головний</value>
+	</data>
+	<data name="textBeforeHostName" xml:space="preserve">
+		<value>Текст приймаються до імені хоста</value>
+	</data>
+	<data name="noBlogsWereFound" xml:space="preserve">
+		<value>Немає блоги не виявлено.</value>
+	</data>
+	<data name="unapprove" xml:space="preserve">
+		<value>Скасувати схвалення</value>
+	</data>
+	<data name="createdOn" xml:space="preserve">
+		<value>Створено</value>
+	</data>
+	<data name="trashIsEmpty" xml:space="preserve">
+		<value>Сміття прибране</value>
+	</data>
+	<data name="restoreSelected" xml:space="preserve">
+		<value>Відновити вибране</value>
+	</data>
+	<data name="purgeSelected" xml:space="preserve">
+		<value>Очистити вибрані</value>
+	</data>
+	<data name="purge" xml:space="preserve">
+		<value>Очистити</value>
+	</data>
+	<data name="purgeAll" xml:space="preserve">
+		<value>Очистити все</value>
+	</data>
+	<data name="count" xml:space="preserve">
+		<value>Кількість</value>
+	</data>
+	<data name="youHaveNoTaggedPosts" xml:space="preserve">
+		<value>У вас немає позначених повідомлень.</value>
+	</data>
+	<data name="youHaveNotWrittenAnyPosts" xml:space="preserve">
+		<value>Ви не написали будь-яких повідомлень до цих пір. Щоб написати новий пост скористайтеся посиланням в правому бічному меню.</value>
+	</data>
+	<data name="youHaveNoWrittenAnyPages" xml:space="preserve">
+		<value>Ви не написали жодної сторінки досі. Щоб записати нову сторінку, використовуйте посилання у меню праворуч.</value>
+	</data>
+	<data name="size" xml:space="preserve">
+		<value>Розмір</value>
+	</data>
+	<data name="noFilesFound" xml:space="preserve">
+		<value>Файлів не знайдено.</value>
+	</data>
+	<data name="reset" xml:space="preserve">
+		<value>Скидання</value>
+	</data>
+	<data name="noPackagesToDisplay" xml:space="preserve">
+		<value>Немає жодного пакету для відображення.</value>
+	</data>
+	<data name="install" xml:space="preserve">
+		<value>Встановити</value>
+	</data>
+	<data name="personalDetails" xml:space="preserve">
+		<value>Особисті дані</value>
+	</data>
+	<data name="contactDetails" xml:space="preserve">
+		<value>Контактні дані та адреса</value>
+	</data>
+	<data name="shortBiography" xml:space="preserve">
+		<value>Коротка біографія</value>
+	</data>
+	<data name="deleteSelected" xml:space="preserve">
+		<value>Видалити вибране</value>
+	</data>
+	<data name="approveSelected" xml:space="preserve">
+		<value>Затвердити вибране</value>
+	</data>
+	<data name="rejectSelected" xml:space="preserve">
+		<value>Відхилити вибране</value>
+	</data>
+	<data name="deleteAll" xml:space="preserve">
+		<value>Видалити всі</value>
+	</data>
+	<data name="noSpamHere" xml:space="preserve">
+		<value>Ура, спаму тут нема!</value>
+	</data>
+	<data name="noPendingComments" xml:space="preserve">
+		<value>Там немає відкладених коментарів.</value>
+	</data>
+	<data name="noApprovedComments" xml:space="preserve">
+		<value>Немає затверджених коментарів.</value>
+	</data>
+	<data name="noPingbacksTrackbacks" xml:space="preserve">
+		<value>Pingback`ів або trackback'ів немає. Переконайтеся, що ввімкнуто надсилання й отримання pingback`ів або trackback'ів в додаткових настройках.</value>
+	</data>
+	<data name="thumbnailServiceProvider" xml:space="preserve">
+		<value>Постачальника послуг ескізів</value>
+	</data>
+	<data name="thumbnailServiceProviderHelp" xml:space="preserve">
+		<value>API, що використовується для отримання ескізів (напр.,http://www.robothumb.com/src/?url={0})</value>
+	</data>
+	<data name="spamProtection" xml:space="preserve">
+		<value>Захист від спаму</value>
+	</data>
+	<data name="hasRated" xml:space="preserve">
+		<value>Ви вже оцінили цей допис.</value>
+	</data>
+	<data name="widgets" xml:space="preserve">
+		<value>Віджети</value>
+	</data>
+	<data name="enableOptimization" xml:space="preserve">
+		<value>Увімкнути оптимізацію</value>
+	</data>
+	<data name="enableOptimizationDesc" xml:space="preserve">
+		<value>Об'єднати і мінімізувати скрипти і стилі (рекомендується)</value>
+	</data>
+	<data name="removeExtensionsFromUrls" xml:space="preserve">
+		<value>Видалення розширень з URL-адреси</value>
+	</data>
+	<data name="removeExtensionsFromUrlsDesc" xml:space="preserve">
+		<value>Видаляє розширення . aspx розширення файлу із запису чи з URL-сторінки</value>
+	</data>
+	<data name="redirectToRemoveFileExtension" xml:space="preserve">
+		<value>Переспрямування для видалення розширення. aspx з URL-адреси </value>
+	</data>
+	<data name="redirectToRemoveFileExtensionDesc" xml:space="preserve">
+		<value>Перенаправляє вхідні запити, які містять. aspx розширення файлу на URL-адресу без  розширення.  Видалення розширень з URL-адреси слід також увімкнути.</value>
+	</data>
+	<data name="anotherEmail" xml:space="preserve">
+		<value>Будь ласка виберіть іншу адресу електронної пошти</value>
+	</data>
+	<data name="anotherUserName" xml:space="preserve">
+		<value>Будь ласка, виберіть інше ім'я користувача</value>
+	</data>
+	<data name="emailNotExist" xml:space="preserve">
+		<value>Такий email не існує в нашій системі</value>
+	</data>
+	<data name="loginFailed" xml:space="preserve">
+		<value>Увійти не вдалося</value>
+	</data>
+	<data name="passwordNotChanged" xml:space="preserve">
+		<value>Пароль не змінено</value>
+	</data>
+	<data name="passwordSent" xml:space="preserve">
+		<value>Пароль був відправлений</value>
+	</data>
+	<data name="AllPostsTagged" xml:space="preserve">
+		<value>Всі дописи з тегами </value>
+	</data>
+	<data name="fileManager" xml:space="preserve">
+		<value>Файловий менеджер</value>
+	</data>
+	<data name="emptyLog" xml:space="preserve">
+		<value>Log файл порожній</value>
+	</data>
+	<data name="LangDirection" xml:space="preserve">
+		<value>LTR</value>
+	</data>
+	<data name="apmlDescription" xml:space="preserve">
+		<value>Введіть URL-адресу вашого веб-сайту або APML документа</value>
+	</data>
+	<data name="createBlogOnSelfRegistration" xml:space="preserve">
+		<value>Створити новий блог для самостійного зареєстрованого користувача</value>
+	</data>
+	<data name="AllPostsBy" xml:space="preserve">
+		<value>Всі повідомлення від</value>
+	</data>
+	<data name="Error" xml:space="preserve">
+		<value>Помилка</value>
+	</data>
+	<data name="PageNotFound" xml:space="preserve">
+		<value>Сторінку не знайдено</value>
+	</data>
+	<data name="ListIsEmpty" xml:space="preserve">
+		<value>Цей список не заповнено. Ви можете додати новий пункт в меню вище.</value>
+	</data>
+	<data name="authorDispalyCount" xml:space="preserve">
+		<value>Максимальна авторів у списку</value>
+	</data>
+	<data name="authorDisplayPattern" xml:space="preserve">
+		<value>Відобразити шаблон (автор, кількість постів)</value>
+	</data>
+	<data name="authorDisplayPatternAggregated" xml:space="preserve">
+		<value>Відобразити шаблон у агрегованому блозі (автор, блог, лічильник повідомлень)</value>
+	</data>
+	<data name="noPostsMatchedYourCriteria" xml:space="preserve">
+		<value>Вибачте, немає записів, які відповідають вашим критеріям</value>
+	</data>
+	<data name="Tag" xml:space="preserve">
+		<value>Тег</value>
+	</data>
+	<data name="showIncludeComments" xml:space="preserve">
+		<value>Показати опцію включення коментарів</value>
+	</data>
+	<data name="content" xml:space="preserve">
+		<value>Вміст</value>
+	</data>
+	<data name="publishedPosts" xml:space="preserve">
+		<value>Опубліковані записами</value>
+	</data>
+	<data name="publishedPages" xml:space="preserve">
+		<value>Опубліковані сторінки</value>
+	</data>
+	<data name="spamComments" xml:space="preserve">
+		<value>Спам коментарях</value>
+	</data>
+	<data name="latestComments" xml:space="preserve">
+		<value>Останні коментарі</value>
+	</data>
+	<data name="logs" xml:space="preserve">
+		<value>Журнал</value>
+	</data>
+	<data name="loggedMessages" xml:space="preserve">
+		<value>Повідомлень</value>
+	</data>
+	<data name="prev" xml:space="preserve">
+		<value>Попередня</value>
+	</data>
+	<data name="next" xml:space="preserve">
+		<value>Наступний</value>
+	</data>
+	<data name="unpublish" xml:space="preserve">
+		<value>Скасування публікації</value>
+	</data>
+	<data name="systemRole" xml:space="preserve">
+		<value>Системна роль</value>
+	</data>
+	<data name="pingbacks" xml:space="preserve">
+		<value>PingBack`и</value>
+	</data>
+	<data name="lastUpdated" xml:space="preserve">
+		<value>Останнє оновлення</value>
+	</data>
+	<data name="importExport" xml:space="preserve">
+		<value>Імпорт-експорт</value>
+	</data>
+	<data name="viewMyBlog" xml:space="preserve">
+		<value>Перейти до блогу</value>
+	</data>
+	<data name="blogName" xml:space="preserve">
+		<value>Назва блогу</value>
+	</data>
+	<data name="fullScreen" xml:space="preserve">
+		<value>Повноекранний режим</value>
+	</data>
+	<data name="font" xml:space="preserve">
+		<value>Шрифт</value>
+	</data>
+	<data name="bold" xml:space="preserve">
+		<value>Жирний</value>
+	</data>
+	<data name="italic" xml:space="preserve">
+		<value>Курсив</value>
+	</data>
+	<data name="strikethrough" xml:space="preserve">
+		<value>Закреслення</value>
+	</data>
+	<data name="underline" xml:space="preserve">
+		<value>Підкреслення</value>
+	</data>
+	<data name="bulletList" xml:space="preserve">
+		<value>Список "Маркери" </value>
+	</data>
+	<data name="numberList" xml:space="preserve">
+		<value>Нумерований список</value>
+	</data>
+	<data name="reduceIndent" xml:space="preserve">
+		<value>Зменшити відступ</value>
+	</data>
+	<data name="indent" xml:space="preserve">
+		<value>Відступ</value>
+	</data>
+	<data name="alignLeft" xml:space="preserve">
+		<value>Вирівняти за лівим краєм</value>
+	</data>
+	<data name="center" xml:space="preserve">
+		<value>Центр</value>
+	</data>
+	<data name="alignRight" xml:space="preserve">
+		<value>Вирівняти за правим краєм</value>
+	</data>
+	<data name="justify" xml:space="preserve">
+		<value>Вирівняти по ширині</value>
+	</data>
+	<data name="undo" xml:space="preserve">
+		<value>Скасувати</value>
+	</data>
+	<data name="redo" xml:space="preserve">
+		<value>Повторити</value>
+	</data>
+	<data name="hyperlink" xml:space="preserve">
+		<value>Гіперпосилання</value>
+	</data>
+	<data name="typeHere" xml:space="preserve">
+		<value>Введіть тут</value>
+	</data>
+	<data name="url" xml:space="preserve">
+		<value>URL</value>
+	</data>
+	<data name="postMeta" xml:space="preserve">
+		<value>Meta допису</value>
+	</data>
+	<data name="datePublished" xml:space="preserve">
+		<value>Дата публікації</value>
+	</data>
+	<data name="unpublished" xml:space="preserve">
+		<value>Неопубліковані</value>
+	</data>
+	<data name="publishedOn" xml:space="preserve">
+		<value>Опубліковано на</value>
+	</data>
+	<data name="pageMeta" xml:space="preserve">
+		<value>Meta-дані сторінки</value>
+	</data>
+	<data name="newCategory" xml:space="preserve">
+		<value>Нова тема</value>
+	</data>
+	<data name="errorLoadingCategory" xml:space="preserve">
+		<value>Помилка завантаження категорій</value>
+	</data>
+	<data name="errorLoadingCategories" xml:space="preserve">
+		<value>Помилка завантаження категорій</value>
+	</data>
+	<data name="categoryUpdated" xml:space="preserve">
+		<value>Тема оновлена</value>
+	</data>
+	<data name="updateFailed" xml:space="preserve">
+		<value>Оновлення не вдалося</value>
+	</data>
+	<data name="categoryAdded" xml:space="preserve">
+		<value>Тема додана</value>
+	</data>
+	<data name="failedAddingNewCategory" xml:space="preserve">
+		<value>Не вдалося додати нову категорію</value>
+	</data>
+	<data name="categoryDeleted" xml:space="preserve">
+		<value>Тема видалена</value>
+	</data>
+	<data name="completed" xml:space="preserve">
+		<value>Завершено</value>
+	</data>
+	<data name="failed" xml:space="preserve">
+		<value>Не вдалося</value>
+	</data>
+	<data name="errorGettingTags" xml:space="preserve">
+		<value>Помилка отримання тегів</value>
+	</data>
+	<data name="tagUpdated" xml:space="preserve">
+		<value>Тег оновлено</value>
+	</data>
+	<data name="errorLoadingUsers" xml:space="preserve">
+		<value>Помилка завантаження користувачів</value>
+	</data>
+	<data name="errorLoadingUser" xml:space="preserve">
+		<value>Помилка завантаження користувача</value>
+	</data>
+	<data name="errorLoadingRoles" xml:space="preserve">
+		<value>Помилка завантаження ролей</value>
+	</data>
+	<data name="userAdded" xml:space="preserve">
+		<value>Додано користувача</value>
+	</data>
+	<data name="errorAddingNewUser" xml:space="preserve">
+		<value>Помилка при додаванні нового користувача</value>
+	</data>
+	<data name="userUpdatedShort" xml:space="preserve">
+		<value>Оновлено користувача</value>
+	</data>
+	<data name="errorLoadingSettings" xml:space="preserve">
+		<value>Помилка завантаження налаштування</value>
+	</data>
+	<data name="settingsUpdated" xml:space="preserve">
+		<value>Настройки оновлено</value>
+	</data>
+	<data name="importedFromBlogML" xml:space="preserve">
+		<value>Імпортовано з BlogML</value>
+	</data>
+	<data name="importFailed" xml:space="preserve">
+		<value>Не вдалося виконати імпорт</value>
+	</data>
+	<data name="errorLoadingRights" xml:space="preserve">
+		<value>Помилка завантаження прав</value>
+	</data>
+	<data name="errorLoadingRole" xml:space="preserve">
+		<value>Помилка завантаження ролі</value>
+	</data>
+	<data name="roleAdded" xml:space="preserve">
+		<value>Роль додано</value>
+	</data>
+	<data name="failedAddingNewRole" xml:space="preserve">
+		<value>Не вдалося додати нову роль</value>
+	</data>
+	<data name="rightsSaved" xml:space="preserve">
+		<value>Права збережені</value>
+	</data>
+	<data name="failedToSaveRights" xml:space="preserve">
+		<value>Не вдалося зберегти права</value>
+	</data>
+	<data name="rolesItemDeleted" xml:space="preserve">
+		<value>Створено</value>
+	</data>
+	<data name="couldNotDeleteItem" xml:space="preserve">
+		<value>Не вдалося видалити елемент</value>
+	</data>
+	<data name="errorLoadingPosts" xml:space="preserve">
+		<value>Помилка під час завантаження повідомлення</value>
+	</data>
+	<data name="errorLoadingPages" xml:space="preserve">
+		<value>Помилка завантаження сторінок</value>
+	</data>
+	<data name="errorLoadingPackages" xml:space="preserve">
+		<value>Помилка завантаження пакунків</value>
+	</data>
+	<data name="errorLoadingPackage" xml:space="preserve">
+		<value>Помилка завантаження пакета</value>
+	</data>
+	<data name="errorLoadingCustomFields" xml:space="preserve">
+		<value>Помилка завантаження настроюваних полів</value>
+	</data>
+	<data name="customFieldsUpdated" xml:space="preserve">
+		<value>Настроювані поля оновлено</value>
+	</data>
+	<data name="commentUpdated" xml:space="preserve">
+		<value>Коментар оновлено</value>
+	</data>
+	<data name="errorLoadingBlogs" xml:space="preserve">
+		<value>Помилка завантаження блогів</value>
+	</data>
+	<data name="errorLoadingBlog" xml:space="preserve">
+		<value>Помилка завантаження блогу</value>
+	</data>
+	<data name="blogSaved" xml:space="preserve">
+		<value>Блог збережено</value>
+	</data>
+	<data name="blogAddedShort" xml:space="preserve">
+		<value>Блог додано</value>
+	</data>
+	<data name="errorGettingLogFile" xml:space="preserve">
+		<value>Помилка отримання журналу повідомлень</value>
+	</data>
+	<data name="purged" xml:space="preserve">
+		<value>Видалені</value>
+	</data>
+	<data name="errorPurging" xml:space="preserve">
+		<value>Помилка видалення</value>
+	</data>
+	<data name="restored" xml:space="preserve">
+		<value>Відновлено</value>
+	</data>
+	<data name="errorRestoring" xml:space="preserve">
+		<value>Помилка відновлення</value>
+	</data>
+	<data name="errorGettingStats" xml:space="preserve">
+		<value>Помилка отримання статистики</value>
+	</data>
+	<data name="errorLoadingDraftPosts" xml:space="preserve">
+		<value>Помилка під час завантаження чорновиків повідомлення</value>
+	</data>
+	<data name="errorLoadingDraftPages" xml:space="preserve">
+		<value>Помилка під час завантаження чорновика сторінки</value>
+	</data>
+	<data name="errorLoadingRecentComments" xml:space="preserve">
+		<value>Помилка завантаження останні коментарі</value>
+	</data>
+	<data name="errorLoadingTrash" xml:space="preserve">
+		<value>Помилка завантаження видаленого</value>
+	</data>
+	<data name="errorLoadingPage" xml:space="preserve">
+		<value>Помилка завантаження сторінки</value>
+	</data>
+	<data name="pageUpdated" xml:space="preserve">
+		<value>Сторінку оновлено</value>
+	</data>
+	<data name="pageAdded" xml:space="preserve">
+		<value>Сторінку додано</value>
+	</data>
+	<data name="failedAddingNewPage" xml:space="preserve">
+		<value>Не вдалося додати нову сторінку</value>
+	</data>
+	<data name="uploaded" xml:space="preserve">
+		<value>Завантажено</value>
+	</data>
+	<data name="unpublishedPage" xml:space="preserve">
+		<value>Неопубліковані сторінки</value>
+	</data>
+	<data name="postUpdated" xml:space="preserve">
+		<value>Допис оновлено</value>
+	</data>
+	<data name="postAdded" xml:space="preserve">
+		<value>Допис додано</value>
+	</data>
+	<data name="failedAddingNewPost" xml:space="preserve">
+		<value>Не вдалося додати новий пост</value>
+	</data>
+	<data name="unpublishedPost" xml:space="preserve">
+		<value>Неопубліковані дописи</value>
+	</data>
+	<data name="logFile" xml:space="preserve">
+		<value>Лог-файл</value>
+	</data>
+	<data name="createBlog" xml:space="preserve">
+		<value>Створити новий блог</value>
+	</data>
+	<data name="previewComment" xml:space="preserve">
+		<value>Попередній перегляд</value>
+	</data>
+	<data name="amp" xml:space="preserve">
+		<value>та</value>
+	</data>
+	<data name="disqusWebsiteName" xml:space="preserve">
+		<value>Ім'я веб-сайту Disqus</value>
+	</data>
+	<data name="lastUpdate" xml:space="preserve">
+		<value>Останнє оновлення</value>
+	</data>
+	<data name="pageSource" xml:space="preserve">
+		<value>Початковий код</value>
+	</data>
+	<data name="titleOfPost" xml:space="preserve">
+		<value>Назва поста</value>
+	</data>
+	<data name="titleOfPage" xml:space="preserve">
+		<value>Заголовок сторінки</value>
+	</data>
+	<data name="typeAndEnter" xml:space="preserve">
+		<value>Введіть</value>
+	</data>
+	<data name="fontSize" xml:space="preserve">
+		<value>Розмір шрифту</value>
+	</data>
+	<data name="heading" xml:space="preserve">
+		<value>Заголовок</value>
+	</data>
+	<data name="colors" xml:space="preserve">
+		<value>Кольори</value>
+	</data>
+	<data name="forecolor" xml:space="preserve">
+		<value>Колір тексту</value>
+	</data>
+	<data name="backcolor" xml:space="preserve">
+		<value>Колір фону</value>
+	</data>
+	<data name="unlink" xml:space="preserve">
+		<value>Видалити Link</value>
+	</data>
+	<data name="showTitle" xml:space="preserve">
+		<value>Показати назву</value>
+	</data>
+	<data name="tagMinimumPosts" xml:space="preserve">
+		<value>Мінімум дописів у кожному тегові</value>
+	</data>
+	<data name="tagCloudMaxSize" xml:space="preserve">
+		<value>Максимальний розмір хмара тегів (відсортовано за останні повідомлення)</value>
+	</data>
+	<data name="unlimited" xml:space="preserve">
+		<value>Необмежений</value>
+	</data>
+	<data name="default" xml:space="preserve">
+		<value>За промовчанням</value>
+	</data>
+	<data name="showRssIcon" xml:space="preserve">
+		<value>Показати значок RSS</value>
+	</data>
+	<data name="showPostCount" xml:space="preserve">
+		<value>Показати лічильник коментарів</value>
+	</data>
+	<data name="showComments" xml:space="preserve">
+		<value>Показати коментарі</value>
+	</data>
+	<data name="showRating" xml:space="preserve">
+		<value>Показати рейтинг</value>
+	</data>
+	<data name="visitorInfoApmlFound" xml:space="preserve">
+		<value>Я бачу, у вас є файл APML на</value>
+	</data>
+	<data name="visitorInfoApmlQuestion" xml:space="preserve">
+		<value>Ви хочете фільтрувати вміст цього блогу на основі вашого APML файлу?</value>
+	</data>
+	<data name="visitorInfoApplyFilter" xml:space="preserve">
+		<value>Застосувати фільтр</value>
+	</data>
+	<data name="twitterAccountUrl" xml:space="preserve">
+		<value>URL Вашого запису у Twitter</value>
+	</data>
+	<data name="twitterRssFeedUrl" xml:space="preserve">
+		<value>URL-адреса RSS-каналу Twitter</value>
+	</data>
+	<data name="twitterNumberOfDisplayedTwits" xml:space="preserve">
+		<value>Кількість відображуваних твітів</value>
+	</data>
+	<data name="twitterPollingInterval" xml:space="preserve">
+		<value>Інтервал опитування (#/ хв)</value>
+	</data>
+	<data name="twitterFollowMeText" xml:space="preserve">
+		<value>Текст "Follow me"</value>
+	</data>
+	<data name="enterValidString" xml:space="preserve">
+		<value>Будь ласка, введіть припустимий рядок</value>
+	</data>
+	<data name="addNewLink" xml:space="preserve">
+		<value>Додати нове посилання</value>
+	</data>
+	<data name="openLinkInNewWindow" xml:space="preserve">
+		<value>Відкрити посилання у новому вікні</value>
+	</data>
+	<data name="websiteUrl" xml:space="preserve">
+		<value>URL веб-сайту</value>
+	</data>
+	<data name="addLink" xml:space="preserve">
+		<value>Додати посилання</value>
+	</data>
+	<data name="newWindow" xml:space="preserve">
+		<value>Нове вікно</value>
+	</data>
+	<data name="avatarSize" xml:space="preserve">
+		<value>Розмір аватару (в пікселях)</value>
+	</data>
+	<data name="numberOfCommenters" xml:space="preserve">
+		<value>Кількість коментаторів</value>
+	</data>
+	<data name="maxAgeInDays" xml:space="preserve">
+		<value>Максимум днів</value>
+	</data>
+	<data name="empty" xml:space="preserve">
+		<value>Пусто</value>
+	</data>
+	<data name="defaultMinTag" xml:space="preserve">
+		<value>1 (за замовчуванням)</value>
+	</data>
+	<data name="noNotesYet" xml:space="preserve">
+		<value>У вас поки немає ніяких нотаток.</value>
+	</data>
+	<data name="defaultPostCategory" xml:space="preserve">
+		<value>Тема повідомлення за промовчанням</value>
+	</data>
+	<data name="tagsCommaDelimited" xml:space="preserve">
+		<value>Теги  (з роздільниками-комами)</value>
+	</data>
+	<data name="postSaved" xml:space="preserve">
+		<value>Допис збережено</value>
+	</data>
+	<data name="couldNotSaveQuickPost" xml:space="preserve">
+		<value>Не вдалося зберегти миттєве повідомлення</value>
+	</data>
+	<data name="notAuthorizedToCreateNewPosts" xml:space="preserve">
+		<value>Не дозволено створювати нові пости.</value>
+	</data>
+	<data name="filePicker" xml:space="preserve">
+		<value>Вибір файлу</value>
+	</data>
+	<data name="addFolder" xml:space="preserve">
+		<value>Додати папку</value>
+	</data>
+	<data name="addToPost" xml:space="preserve">
+		<value>Додати до посту</value>
+	</data>
+	<data name="enableTagExport" xml:space="preserve">
+		<value>Увімкнути експорт Тегів</value>
+	</data>
+	<data name="errorPage" xml:space="preserve">
+		<value>Сторінка помилки</value>
+	</data>
+	<data name="txtErrorText" xml:space="preserve">
+		<value>Текст для сторінки помилки</value>
+	</data>
+	<data name="txtErrorTitle" xml:space="preserve">
+		<value>Заголовок для сторінки помилки</value>
+	</data>
+	<data name="sortOrder" xml:space="preserve">
+		<value>Порядок сортування</value>
+	</data>
+	<data name="apmlAddrInvalid" xml:space="preserve">
+		<value>Неприпустима APML адреса</value>
+	</data>
+	<data name="reviews" xml:space="preserve">
+		<value>Відгуки</value>
+	</data>
+	<data name="apmlDocErr" xml:space="preserve">
+		<value>Помилка APML документа</value>
+	</data>
+	<data name="writeReview" xml:space="preserve">
+		<value>Написати відгук</value>
+	</data>
+	<data name="apmlFilteredList" xml:space="preserve">
+		<value>Відфільтрований список APML</value>
+	</data>
+	<data name="customFields" xml:space="preserve">
+		<value>Настроювані поля</value>
+	</data>
+	<data name="apmlInvalidUrl" xml:space="preserve">
+		<value>Не вдалося розв'язати URL-адресу</value>
+	</data>
+	<data name="apmlInvalidXml" xml:space="preserve">
+		<value>APML документ не є припустимим XML</value>
+	</data>
+	<data name="apmlNoConnWebsite" xml:space="preserve">
+		<value>На жаль, я не зміг підключитися до вашого веб-сайту</value>
+	</data>
+	<data name="apmlNoInfoWebsite" xml:space="preserve">
+		<value>Введений веб-сайт не містить будь-якої інформаціюї про APML</value>
+	</data>
+	<data name="apmlNotFound" xml:space="preserve">
+		<value>APML не знайдено</value>
+	</data>
+	<data name="apmlNotFoundDesc" xml:space="preserve">
+		<value>APML документа не знайдено</value>
+	</data>
+	<data name="per" xml:space="preserve">
+		<value>для</value>
+	</data>
+	<data name="errorMessage" xml:space="preserve">
+		<value>Повідомлення про помилку</value>
+	</data>
+	<data name="userNewsletter" xml:space="preserve">
+		<value>Члени</value>
+	</data>
+	<data name="theNew" xml:space="preserve">
+		<value>Нов.</value>
+	</data>
+	<data name="latestNews" xml:space="preserve">
+		<value>Останні новини</value>
+	</data>
+	<data name="back" xml:space="preserve">
+		<value>Назад</value>
+	</data>
+	<data name="quickDraft" xml:space="preserve">
+		<value>Чорновик</value>
+	</data>
+	<data name="theOperator" xml:space="preserve">
+		<value>Оператор</value>
+	</data>
+>>>>>>> master
 </root>
