@@ -60,8 +60,8 @@
             <div class="main-header clearfix">
                 <input type="file" id="file" name="file" class="pull-left input-file-hidden" tabindex="-1" onchange="angular.element(this).scope().uploadFile(this.files)" />
                 <button type="button" class="pull-left btn btn-success btn-sm btn-hasicon btn-input-file prev"><i class="fa fa-plus"></i>{{lbl.upload}}</button>
-                <a ng-click="addFolder()" class="pull-left btn btn-sm btn-success btn-hasicon"><i class="fa fa-folder"></i>{{lbl.theNew}} Folder</a>
-                <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="pull-left btn btn-sm btn-danger btn-icon" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+                <button type="button" class="pull-left btn btn-sm btn-success btn-hasicon" ng-click="addFolder()"><i class="fa fa-folder"></i>{{lbl.theNew}} Folder</button>
+                <button type="button" class="pull-left btn btn-sm btn-danger btn-icon" ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></button>
                 <span id="file-spinner" style="padding-left: 10px; position: relative; top: 5px"><i class="fa fa-spinner fa-spin"></i></span>
                 <input type="text" data-ng-model="query" data-ng-change="search()" class="input-sm form-control search-form pull-right" placeholder="{{lbl.search}}..." />
             </div>

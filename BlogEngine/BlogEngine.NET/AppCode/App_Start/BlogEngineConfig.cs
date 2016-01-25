@@ -138,6 +138,7 @@ namespace BlogEngine.NET.App_Start
 
                 .Include("~/admin/app/custom/plugins/pluginController.js")
                 .Include("~/admin/app/custom/themes/themeController.js")
+                .Include("~/admin/app/custom/widgets/widgetController.js")
 
                 .Include("~/admin/app/security/users/userController.js")
                 .Include("~/admin/app/security/roles/roleController.js")
@@ -231,6 +232,7 @@ namespace BlogEngine.NET.App_Start
             container.Register<IFileManagerRepository, FileManagerRepository>(Lifestyle.Transient);
             container.Register<ICommentFilterRepository, CommentFilterRepository>(Lifestyle.Transient);
             container.Register<IDashboardRepository, DashboardRepository>(Lifestyle.Transient);
+            container.Register<IWidgetsRepository, WidgetsRepository>(Lifestyle.Transient);
 
             container.Verify();
 

@@ -1,47 +1,95 @@
 ﻿<div data-ng-controller="CustomWidgetsController">
+    <style>
+        .sortable-empty {
+            border: 3px dashed #b4b9be;
+            padding: 15px;
+        }
+    </style>
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">
             {{lbl.widgets}}
         </h2>
-        <!-- currently gallery does not have widgets, only plugins and themes
-        <a href="{{SiteVars.RelativeWebRoot}}admin/#/gallery" class="btn btn-success pull-left"><i class="fa fa-plus"></i>Add</a>
-        <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('uninstall')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
-        </div>
-        -->
         <div class="search pull-right">
             <i class="fa fa-search"></i>
             <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
         </div>
     </div>
     <div class="content-inner">
-        <div class="row" style="padding-left: 10px">
-            <div data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse" class="col-sm-6 col-md-4 col-lg-3">
-                <div class="package-item">
-                    <div class="package-item-img">
-                        <a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">
-                            <img ng-if="item.IconUrl === ''" src="../Content/images/blog/widget.png" />
-                            <img ng-if="item.IconUrl != ''" ng-src="{{item.IconUrl}}" />
-                        </a>
+        <div class="row">
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit widget</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Edit widget with id:</p>
+                            <input type="text" name="widgetId" id="widgetId" value="" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
-                    <div class="package-item-info"><a title="{{item.Title}}" href="#/custom/package?id={{item.Id}}">{{item.Title}}</a></div>
-                    <div class="package-item-info">{{item.DownloadCount}} downloads</div>
-                    <!--<a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'download'" title="Install package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-download"></i></a>
-                    <a ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'refresh'" title="Update package" href="" ng-click="installPackage(item.Id)"><i class="fa fa-refresh" style="color:red"></i></a>
-                    <span ng-if="pkgLinkType(item.LocalVersion, item.OnlineVersion) === 'installed'"><i class="fa fa-check" style="color:green"></i></span>-->
                 </div>
             </div>
+
+            <div class="col-lg-8">
+
+                <div class="col-lg-6">
+                    <h3>Widgets</h3>
+                    <div class='unstyled-list'>
+                        <div class="draggable" ng-repeat='iw in installedWidgets' draggable="iw" draggable-target='.sortable'>
+                            <div class="panel panel-primary">
+                                <div class="panel-body">{{ iw.Title }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Zone one</h3>
+                    <div droppable='items.list1' ng-move='moveObject(from, to, fromList, toList)'
+                         ng-create='createObject(object, to, list)' id="list1" class="sortable">
+                        <div ng-if="items.list1.length < 1" class="sortable-empty">Drag widget here</div>
+                        <div class="ui-state-default" ng-repeat="item in items.list1 track by item.id">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    {{ $index }}: {{ item.id }} - {{ item.Title }}
+                                    <div class="btn-group pull-right">
+                                        <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.id}}" class="btn btn-default btn-sm">Edit</button>
+                                        <button type="button" ng-click='deleteItem(item.id)' class="btn btn-danger btn-sm">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Zone two</h3>
+                    <div droppable='items.list2' ng-move='moveObject(from, to, fromList, toList)'
+                         ng-create='createObject(object, to, list)' id="list2" class="sortable">
+                        <div ng-if="items.list2.length < 1" class="sortable-empty">Drag widget here</div>
+                        <div class="ui-state-default" ng-repeat="item in items.list2 track by item.id">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    {{ $index }}: {{ item.id }} - {{ item.Title }}
+                                    <div class="btn-group pull-right">
+                                        <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.id}}" class="btn btn-default btn-sm">Edit</button>
+                                        <button type="button" ng-click='deleteItem(item.id)' class="btn btn-danger btn-sm">X</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <h3>Json data</h3>
+                <pre>{{ items | json }}</pre>
+            </div>
+
         </div>
-        <ul class="pagination" ng-if="items.length > itemsPerPage">
-            <li data-ng-class="{disabled: currentPage == 0}">
-                <a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a>
-            </li>
-            <li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()">
-                <a data-ng-bind="n + 1">1</a>
-            </li>
-            <li data-ng-class="{disabled: currentPage == pagedItems.length - 1}">
-                <a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a>
-            </li>
-        </ul>
+
+
     </div>
 </div>

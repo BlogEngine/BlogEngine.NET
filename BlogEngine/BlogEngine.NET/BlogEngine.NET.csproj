@@ -136,6 +136,7 @@
     <Content Include="admin\app\custom\themes\themeController.js" />
     <Content Include="admin\app\custom\themes\themeGallery.html" />
     <Content Include="admin\app\custom\themes\themeView.html" />
+    <Content Include="admin\app\custom\widgets\widgetController.js" />
     <Content Include="admin\app\custom\widgets\widgetView.html" />
     <Content Include="admin\themes\standard\css\styles.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
@@ -1925,6 +1926,7 @@
     <Compile Include="AppCode\Api\SettingsController.cs" />
     <Compile Include="AppCode\Api\NewsFeedController.cs" />
     <Compile Include="AppCode\Api\StatsController.cs" />
+    <Compile Include="AppCode\Api\WidgetsController.cs" />
     <Compile Include="AppCode\Api\TagsController.cs" />
     <Compile Include="AppCode\Api\TrashController.cs" />
     <Compile Include="AppCode\Api\ToolsController.cs" />

@@ -29,6 +29,7 @@ tinymce.init({
     menubar: false,
     relative_urls: false,
     browser_spellcheck: true,
+    paste_data_images: true,
     setup: function (editor) {
         editor.on('init', function (e) {
             if (htmlContent) {
