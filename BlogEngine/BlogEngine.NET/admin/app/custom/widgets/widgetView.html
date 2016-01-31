@@ -40,7 +40,7 @@
                 <div class="col-lg-6">
                     <h3>Widgets</h3>
                     <div class='unstyled-list'>
-                        <div class="draggable" ng-repeat='iw in installedWidgets' draggable="iw" draggable-target='.sortable'>
+                        <div class="draggable" ng-repeat='iw in vm.AvailableWidgets' draggable="iw" draggable-target='.sortable'>
                             <div class="panel panel-primary">
                                 <div class="panel-body">{{ iw.Title }}</div>
                             </div>
@@ -48,48 +48,69 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <h3>Zone one</h3>
-                    <div droppable='items.list1' ng-move='moveObject(from, to, fromList, toList)'
-                         ng-create='createObject(object, to, list)' id="list1" class="sortable">
-                        <div ng-if="items.list1.length < 1" class="sortable-empty">Drag widget here</div>
-                        <div class="ui-state-default" ng-repeat="item in items.list1 track by item.id">
-                            <div class="panel panel-primary">
-                                <div class="panel-body">
-                                    {{ $index }}: {{ item.id }} - {{ item.Title }}
-                                    <div class="btn-group pull-right">
-                                        <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.id}}" class="btn btn-default btn-sm">Edit</button>
-                                        <button type="button" ng-click='deleteItem(item.id)' class="btn btn-danger btn-sm">X</button>
+                    <div ng-if="widgetZones.titles && widgetZones.titles.length > 0">
+                        <h3>{{widgetZones.titles[0]}}</h3>
+                        <div droppable='widgetZones.list1' ng-move='moveObject(from, to, fromList, toList)'
+                             ng-create='createObject(object, to, list)' id="list1" class="sortable">
+                            <div ng-if="widgetZones.list1.length < 1" class="sortable-empty">Drag widget here</div>
+                            <div class="ui-state-default" ng-repeat="item in widgetZones.list1 track by item.Id">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{item.Title}}
+                                        <div class="btn-group pull-right">
+                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list1)' class="btn btn-danger btn-sm">X</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <h3>Zone two</h3>
-                    <div droppable='items.list2' ng-move='moveObject(from, to, fromList, toList)'
-                         ng-create='createObject(object, to, list)' id="list2" class="sortable">
-                        <div ng-if="items.list2.length < 1" class="sortable-empty">Drag widget here</div>
-                        <div class="ui-state-default" ng-repeat="item in items.list2 track by item.id">
-                            <div class="panel panel-primary">
-                                <div class="panel-body">
-                                    {{ $index }}: {{ item.id }} - {{ item.Title }}
-                                    <div class="btn-group pull-right">
-                                        <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.id}}" class="btn btn-default btn-sm">Edit</button>
-                                        <button type="button" ng-click='deleteItem(item.id)' class="btn btn-danger btn-sm">X</button>
+                    <div ng-if="widgetZones.titles && widgetZones.titles.length > 1">
+                        <h3>{{widgetZones.titles[1]}}</h3>
+                        <div droppable='widgetZones.list2' ng-move='moveObject(from, to, fromList, toList)'
+                             ng-create='createObject(object, to, list)' id="list2" class="sortable">
+                            <div ng-if="widgetZones.list2.length < 1" class="sortable-empty">Drag widget here</div>
+                            <div class="ui-state-default" ng-repeat="item in widgetZones.list2 track by item.Id">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{ item.Title }}
+                                        <div class="btn-group pull-right">
+                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list2)' class="btn btn-danger btn-sm">X</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div ng-if="widgetZones.titles && widgetZones.titles.length > 2">
+                        <h3>{{widgetZones.titles[2]}}</h3>
+                        <div droppable='widgetZones.list3' ng-move='moveObject(from, to, fromList, toList)'
+                             ng-create='createObject(object, to, list)' id="list3" class="sortable">
+                            <div ng-if="widgetZones.list3.length < 1" class="sortable-empty">Drag widget here</div>
+                            <div class="ui-state-default" ng-repeat="item in widgetZones.list3 track by item.Id">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        {{ item.Title }}
+                                        <div class="btn-group pull-right">
+                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list3)' class="btn btn-danger btn-sm">X</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
             </div>
+
             <div class="col-lg-4">
-                <h3>Json data</h3>
-                <pre>{{ items | json }}</pre>
+                <h3>vm.WidgetZones</h3>     
+                <pre>{{ vm.WidgetZones | json }}</pre>
             </div>
 
         </div>
-
-
     </div>
 </div>

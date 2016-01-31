@@ -16,10 +16,9 @@ public class WidgetsController : ApiController
         this.repository = repository;
     }
 
-    public IEnumerable<WidgetZone> Get()
+    public WidgetsVM Get()
     {
-        var widgetsVM = new WidgetsVM();
-        return widgetsVM.WidgetZones;
+        return new WidgetsVM();
     }
 
 }

@@ -111,6 +111,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/Scripts/jquery-{version}.js")
                 .Include("~/Scripts/jquery.form.js")
                 .Include("~/Scripts/jquery.validate.js")
+                .Include("~/Scripts/jquery-ui.js")
                 .Include("~/Scripts/toastr.js")
                 .Include("~/Scripts/bootstrap.js")
                 .Include("~/Scripts/moment.js")

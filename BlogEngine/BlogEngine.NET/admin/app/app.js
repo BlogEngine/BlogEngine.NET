@@ -128,7 +128,7 @@
                     connectWith: ['.draggable', '.sortable'],
                 });
                 element.disableSelection();
-                var list = element.attr('id');
+                var list = element.attr('Id');
                 element.on("sortupdate", function (event, ui) {
 
                     var from = angular.element(ui.item).scope().$index;
@@ -149,7 +149,7 @@
                                     scope.ngMove({
                                         from: from,
                                         to: to,
-                                        fromList: ui.sender.attr('id'),
+                                        fromList: ui.sender.attr('Id'),
                                         toList: list
                                     });
                                     ui.item.remove();

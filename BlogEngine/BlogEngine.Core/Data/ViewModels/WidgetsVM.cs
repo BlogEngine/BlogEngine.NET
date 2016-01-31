@@ -27,6 +27,14 @@ namespace BlogEngine.Core.Data.ViewModels
         {
             try
             {
+                var packages = Packaging.FileSystem.LoadWidgets();
+                AvailableWidgets = new List<WidgetItem>();
+                foreach (var pk in packages)
+                {
+                    AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Title = pk.Title, ShowTitle = false });
+                }
+
+
                 WidgetZones = new List<WidgetZone>();
                 WebClient client = new WebClient();
                 var html = client.DownloadString(Utils.AbsoluteWebRoot);
@@ -45,26 +53,23 @@ namespace BlogEngine.Core.Data.ViewModels
                         zone.Id = zoneId;
 
                         //var ws = new WidgetSettings(zoneId);
-
                         //var abc = ws.GetSettings();
-
                         // var x = (StringDictionary)ws.GetSettings();
-
 
                         var xml = RetrieveXml(zoneId);
                         var wd = new WidgetData { Settings = xml.InnerXml };
 
                         //------------------------------
                         var widgets = xml.SelectSingleNode("widgets");
+                        zone.Widgets = new List<WidgetItem>();
                         if (widgets != null)
                         {
-                            zone.Widgets = new List<WidgetItem>();
                             foreach (XmlNode node in widgets.ChildNodes)
                             {
                                 if (node != null && node.Attributes != null)
                                 {
                                     var item = new WidgetItem();
-                                    item.Id = new Guid(node.Attributes["id"].InnerText);
+                                    item.Id = node.Attributes["id"].InnerText;
                                     item.Title = node.Attributes["title"].InnerText;
                                     item.ShowTitle = bool.Parse(node.Attributes["showTitle"].InnerText);
                                     zone.Widgets.Add(item);
@@ -81,11 +86,12 @@ namespace BlogEngine.Core.Data.ViewModels
             }
             catch (Exception) { }
         }
+        
+        public List<WidgetItem> AvailableWidgets { get; set; }
         /// <summary>
         /// Widget zones
         /// </summary>
         public List<WidgetZone> WidgetZones { get; set; }
-
         private static XmlDocument RetrieveXml(string zoneName)
         {
             var ws = new WidgetSettings(zoneName) { SettingsBehavior = new XmlDocumentBehavior() };
@@ -111,7 +117,7 @@ namespace BlogEngine.Core.Data.ViewModels
 
     public class WidgetItem
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
         public bool ShowTitle { get; set; }
     }
