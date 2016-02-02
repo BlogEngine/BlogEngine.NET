@@ -1,15 +1,20 @@
 ﻿angular.module('blogAdmin').controller('CustomWidgetsController', ["$rootScope", "$scope", "$location", "$filter", "DragDropHandler", "dataService", function ($rootScope, $scope, $location, $filter, DragDropHandler, dataService) {
-    $scope.widgetZones = {
-        titles: [],
-        list1: [],
-        list2: [],
-        list3: []
-    };
+    $scope.widgetZones = {};
+    $scope.widgetZone = {};
     $scope.vm = {};
-    $scope.fltr = 'widgets';
 
     $scope.load = function () {
         spinOn();
+        $scope.widgetZones = {
+            titles: [],
+            list1: [], list2: [], list3: []
+        };
+        $scope.widgetZone = {
+            Id: {}, Widgets: []
+        };
+        $scope.widgetZone = {};
+        $scope.vm = {};
+
         dataService.getItems('/api/widgets', { })
         .success(function (data) {
             angular.copy(data, $scope.vm);
@@ -19,7 +24,8 @@
             }
             if (zones.length > 0) { $scope.widgetZones.list1 = zones[0].Widgets; }
             if (zones.length > 1) { $scope.widgetZones.list2 = zones[1].Widgets; }
-            if (zones.length > 2) { $scope.widgetZones.list3 = zones[2].Widgets; }        
+            if (zones.length > 2) { $scope.widgetZones.list3 = zones[2].Widgets; }
+
             spinOff();
         })
         .error(function () {
@@ -40,13 +46,12 @@
         DragDropHandler.addObject(newItem, $scope.widgetZones[list], to);
     };
 
-    $scope.deleteItem = function (itemId, zones) {
+    $scope.deleteItem = function (itemId, zones, zoneId) {
         for (var i = zones.length - 1; i >= 0; i--) {
             if (zones[i].Id === itemId) {
                 zones.splice(i, 1);
             }
         }
-        $scope.save();
     };
 
     $('#myModal').on('show.bs.modal', function (e) {
@@ -55,10 +60,16 @@
     });
 
     $scope.save = function () {
-        var zones = $scope.vm.WidgetZones;
-        if (zones.length > 0) { zones[0].Widgets = $scope.widgetZones.list1; }
-        if (zones.length > 1) { zones[1].Widgets = $scope.widgetZones.list2; }
-        if (zones.length > 2) { zones[2].Widgets = $scope.widgetZones.list3; }
+        dataService.updateItem("/api/widgets/update/item", $scope.vm.WidgetZones)
+        .success(function (data) {
+            toastr.success($rootScope.lbl.completed);
+            $scope.load();
+            spinOff();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.updateFailed);
+            spinOff();
+        });
     }
 
     $scope.load();
@@ -66,4 +77,5 @@
     $(document).ready(function () {
         bindCommon();
     });
+
 }]);

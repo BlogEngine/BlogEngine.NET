@@ -1,15 +1,7 @@
-﻿using BlogEngine.Core.Data.Models;
-using BlogEngine.Core.DataStore;
-using BlogEngine.Core.Providers;
-using BlogEngine.Core.Providers.CacheProvider;
+﻿using BlogEngine.Core.DataStore;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace BlogEngine.Core.Data.ViewModels
@@ -34,7 +26,6 @@ namespace BlogEngine.Core.Data.ViewModels
                     AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Title = pk.Title, ShowTitle = false });
                 }
 
-
                 WidgetZones = new List<WidgetZone>();
                 WebClient client = new WebClient();
                 var html = client.DownloadString(Utils.AbsoluteWebRoot);
@@ -51,10 +42,6 @@ namespace BlogEngine.Core.Data.ViewModels
                         var zoneId = html.Substring(from, to - from);
                         var zone = new WidgetZone();
                         zone.Id = zoneId;
-
-                        //var ws = new WidgetSettings(zoneId);
-                        //var abc = ws.GetSettings();
-                        // var x = (StringDictionary)ws.GetSettings();
 
                         var xml = RetrieveXml(zoneId);
                         var wd = new WidgetData { Settings = xml.InnerXml };
@@ -86,7 +73,9 @@ namespace BlogEngine.Core.Data.ViewModels
             }
             catch (Exception) { }
         }
-        
+        /// <summary>
+        /// Available widgets
+        /// </summary>
         public List<WidgetItem> AvailableWidgets { get; set; }
         /// <summary>
         /// Widget zones
@@ -114,11 +103,22 @@ namespace BlogEngine.Core.Data.ViewModels
         /// </summary>
         public List<WidgetItem> Widgets { get; set; }
     }
-
+    /// <summary>
+    /// Widget item
+    /// </summary>
     public class WidgetItem
     {
+        /// <summary>
+        /// Widget Id
+        /// </summary>
         public string Id { get; set; }
+        /// <summary>
+        /// Widget Title
+        /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// Show title
+        /// </summary>
         public bool ShowTitle { get; set; }
     }
 }

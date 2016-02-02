@@ -6,13 +6,8 @@
         }
     </style>
     <div class="main-header clearfix">
-        <h2 class="page-title pull-left">
-            {{lbl.widgets}}
-        </h2>
-        <div class="search pull-right">
-            <i class="fa fa-search"></i>
-            <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
-        </div>
+        <h2 class="page-title pull-left">{{lbl.widgets}}</h2>
+        <button type="button" ng-click='save()' class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-save"></i>{{lbl.save}}</button>
     </div>
     <div class="content-inner">
         <div class="row">
@@ -38,7 +33,7 @@
             <div class="col-lg-8">
 
                 <div class="col-lg-6">
-                    <h3>Widgets</h3>
+                    <h3>Available Widgets</h3>
                     <div class='unstyled-list'>
                         <div class="draggable" ng-repeat='iw in vm.AvailableWidgets' draggable="iw" draggable-target='.sortable'>
                             <div class="panel panel-primary">
@@ -59,7 +54,7 @@
                                         {{item.Title}}
                                         <div class="btn-group pull-right">
                                             <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
-                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list1)' class="btn btn-danger btn-sm">X</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list1, widgetZones.titles[0])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +72,7 @@
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
                                             <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
-                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list2)' class="btn btn-danger btn-sm">X</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list2, widgetZones.titles[1])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +90,7 @@
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
                                             <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
-                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list3)' class="btn btn-danger btn-sm">X</button>
+                                            <button type="button" ng-click='deleteItem(item.Id, widgetZones.list3, widgetZones.titles[2])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
                                 </div>
@@ -107,8 +102,8 @@
             </div>
 
             <div class="col-lg-4">
-                <h3>vm.WidgetZones</h3>     
-                <pre>{{ vm.WidgetZones | json }}</pre>
+                <!--<h3>vm.WidgetZones</h3>     
+                <pre>{{ vm.WidgetZones | json }}</pre>-->
             </div>
 
         </div>

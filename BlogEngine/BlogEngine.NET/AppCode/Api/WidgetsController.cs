@@ -21,4 +21,17 @@ public class WidgetsController : ApiController
         return new WidgetsVM();
     }
 
+    [HttpPut]
+    public HttpResponseMessage Update([FromBody]List<WidgetZone> items)
+    {
+        if (repository.Update(items))
+        {
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+        else
+        {
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        }    
+    }
+
 }
