@@ -1,7 +1,8 @@
 ﻿angular.module('blogAdmin').controller('CustomWidgetsController', ["$rootScope", "$scope", "$location", "$filter", "DragDropHandler", "dataService", function ($rootScope, $scope, $location, $filter, DragDropHandler, dataService) {
     $scope.widgetZones = {};
-    $scope.widgetZone = {};
     $scope.vm = {};
+    $scope.editSrc = {};
+    $scope.editId = {};
 
     $scope.load = function () {
         spinOn();
@@ -9,10 +10,6 @@
             titles: [],
             list1: [], list2: [], list3: []
         };
-        $scope.widgetZone = {
-            Id: {}, Widgets: []
-        };
-        $scope.widgetZone = {};
         $scope.vm = {};
 
         dataService.getItems('/api/widgets', { })
@@ -34,6 +31,24 @@
         });
     }
 
+    $scope.loadEditForm = function (id, title) {
+        var sharedSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/shared.cshtml";
+        var customSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/" + title + "/edit.cshtml?id=" + id;
+        $scope.editId = title;
+        $.ajax({
+            type: 'HEAD',
+            url: customSrc,
+            async: false,
+            success: function () {
+                $scope.editSrc = customSrc;
+            },
+            error: function () {
+                $scope.editSrc = sharedSrc;
+            }
+        });
+        $("#edit-widget").modal();
+    }
+
     $scope.moveObject = function (from, to, fromList, toList) {
         var item = $scope.widgetZones[fromList][from];
         DragDropHandler.addObject(item, $scope.widgetZones[toList], to);
@@ -53,11 +68,6 @@
             }
         }
     };
-
-    $('#myModal').on('show.bs.modal', function (e) {
-        $scope.editId = $(e.relatedTarget).data('Id');
-        $(e.currentTarget).find('input[name="widgetId"]').val($scope.editId);
-    });
 
     $scope.save = function () {
         dataService.updateItem("/api/widgets/update/item", $scope.vm.WidgetZones)

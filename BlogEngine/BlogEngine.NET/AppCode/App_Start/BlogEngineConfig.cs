@@ -1,5 +1,4 @@
-﻿using App_Code.Controls;
-using BlogEngine.Core;
+﻿using BlogEngine.Core;
 using BlogEngine.Core.Data;
 using BlogEngine.Core.Data.Contracts;
 using System;
@@ -29,7 +28,6 @@ namespace BlogEngine.NET.App_Start
             {
                 if (_initializedAlready) { return; }
 
-                WidgetZone.PreloadWidgetsAsync("be_WIDGET_ZONE");
                 Utils.LoadExtensions();
 
                 RegisterBundles(BundleTable.Bundles);

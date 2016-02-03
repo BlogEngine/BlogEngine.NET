@@ -12,16 +12,15 @@
     <div class="content-inner">
         <div class="row">
 
-            <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal fade" id="edit-widget" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Edit widget</h4>
+                            <h4 class="modal-title">{{editId}}</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Edit widget with id:</p>
-                            <input type="text" name="widgetId" id="widgetId" value="" />
+                            <iframe id="settingsFrame" ng-src="{{editSrc}}"></iframe>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -31,7 +30,6 @@
             </div>
 
             <div class="col-lg-8">
-
                 <div class="col-lg-6">
                     <h3>Available Widgets</h3>
                     <div class='unstyled-list'>
@@ -53,7 +51,7 @@
                                     <div class="panel-body">
                                         {{item.Title}}
                                         <div class="btn-group pull-right">
-                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list1, widgetZones.titles[0])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
@@ -71,7 +69,7 @@
                                     <div class="panel-body">
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
-                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list2, widgetZones.titles[1])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
@@ -89,7 +87,7 @@
                                     <div class="panel-body">
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
-                                            <button type="button" data-toggle="modal" data-target="#myModal" data-id="{{item.Id}}" class="btn btn-default btn-sm">Edit</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list3, widgetZones.titles[2])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
@@ -97,7 +95,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
