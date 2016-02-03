@@ -15,7 +15,6 @@ namespace App_Code.Controls
         #region Constants and Fields
 
         private string zoneName = "be_WIDGET_ZONE";
-        private const string staticZone = "be_WIDGET_ZONE";
         static WidgetZone() { }
 
         #endregion
@@ -79,10 +78,13 @@ namespace App_Code.Controls
             }
             foreach (XmlNode widget in zone)
             {
-                var fileName = string.Format("{0}Custom/Widgets/{1}/widget.cshtml", Utils.ApplicationRelativeWebRoot, widget.InnerText);
+                var fileName = string.Format("{0}Custom/Widgets/{1}/widget.cshtml", 
+                    Utils.ApplicationRelativeWebRoot, 
+                    widget.InnerText);
                 try
                 {
-                    var lit = new Literal { Text = RazorHelpers.ParseRazor(fileName, null) };
+                    var model = new { Id = widget.Attributes["id"].Value, Title = widget.Attributes["title"].Value };
+                    var lit = new Literal { Text = RazorHelpers.ParseRazor(fileName, model) };
                     Controls.Add(lit);
                 }
                 catch (Exception ex)

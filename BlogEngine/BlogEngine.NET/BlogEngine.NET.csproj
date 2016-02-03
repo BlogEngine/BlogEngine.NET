@@ -141,6 +141,7 @@
     <Content Include="admin\themes\standard\css\styles.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
+    <Content Include="App_Data\datastore\widgets\deb9fd7c-e0f4-4f24-964d-d5f67332bab0.xml" />
     <Content Include="App_Data\posts\f39c3289-e861-48f7-a4b7-edaaffe6f6dc.xml" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -710,6 +711,9 @@
     <Content Include="Custom\Widgets\Tag cloud\widget.cshtml" />
     <Content Include="Custom\Widgets\Tag cloud\edit.cshtml" />
     <Content Include="Custom\Widgets\shared.cshtml" />
+    <Content Include="Custom\Widgets\TextBox\edit.cshtml" />
+    <Content Include="Custom\Widgets\TextBox\widget.cshtml" />
+    <Content Include="Custom\Widgets\Category list\widget.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />

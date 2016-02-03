@@ -2,4 +2,6 @@
 <widgets>
   <widget id="e53c0e19-c61b-4f6e-aa90-09da817488bc" title="Administration" showTitle="True">Administration</widget>
   <widget id="a73fa604-cf51-41cc-abac-f1b11643db73" title="Tag cloud" showTitle="True">Tag cloud</widget>
+  <widget id="deb9fd7c-e0f4-4f24-964d-d5f67332bab0" title="TextBox" showTitle="True">TextBox</widget>
+  <widget id="47fdb964-2c19-4099-9834-7d6ef8eb424b" title="Category list" showTitle="True">Category list</widget>
 </widgets>
