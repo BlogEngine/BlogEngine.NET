@@ -1,0 +1,32 @@
+﻿@using BlogEngine.Core.Helpers
+@{
+    var NumberOfComments = 10;
+    var widgetId = Request.QueryString["id"];
+    var settings = WidgetHelper.GetSettings(widgetId);
+
+    if (IsPost)
+    {
+        settings["numberofcomments"] = Request.Form["txtNumberOfComments"];
+        WidgetHelper.SaveSettings(settings, widgetId);
+    }
+    if (settings != null && settings.Count > 0)
+    {
+        NumberOfComments = int.Parse(settings["numberofcomments"]);
+    }
+}
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+<style>
+    body { background-color: #fff; }
+</style>
+<form method="post">
+    <div class="form-group">
+        <label>@Resources.labels.numberOfComments</label>
+        <input type="text" class="form-control" id="txtNumberOfPosts" name="txtNumberOfComments" value="@NumberOfComments" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success btn-sm pull-left">
+            Save
+        </button>
+    </div>
+</form>

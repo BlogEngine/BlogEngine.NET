@@ -1,0 +1,40 @@
+﻿@using BlogEngine.Core.Helpers
+@{
+    var NumberOfPosts = 10;
+    var ShowComments = true;
+    var widgetId = Request.QueryString["id"];
+    var settings = WidgetHelper.GetSettings(widgetId);
+
+    if (IsPost)
+    {
+        settings["numberofposts"] = Request.Form["txtNumberOfPosts"];
+        settings["showcomments"] = Request.Form["ckShowComments"] == "on" ? "true" : "false";
+        WidgetHelper.SaveSettings(settings, widgetId);
+    }
+    if (settings != null && settings.Count > 0)
+    {
+        NumberOfPosts = int.Parse(settings["numberofposts"]);
+        ShowComments = settings["showcomments"] == "true" ? true : false;
+    }
+}
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+<style>
+    body { background-color: #fff; }
+</style>
+<form method="post">
+    <div class="form-group">
+        <label>@Resources.labels.numberOfPosts</label>
+        <input type="text" class="form-control" id="txtNumberOfPosts" name="txtNumberOfPosts" value="@NumberOfPosts" />
+    </div>
+    <div class="form-group">
+        <label>
+            @Html.CheckBox("ckShowComments", ShowComments) @Resources.labels.showComments
+        </label>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success btn-sm pull-left">
+            Save
+        </button>
+    </div>
+</form>

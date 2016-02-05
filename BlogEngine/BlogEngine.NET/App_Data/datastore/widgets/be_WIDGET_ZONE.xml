@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widgets>
   <widget id="e53c0e19-c61b-4f6e-aa90-09da817488bc" title="Administration" showTitle="True">Administration</widget>
+  <widget id="a305a372-ba9f-49b3-ac49-1453faa3efc0" title="Search" showTitle="True">Search</widget>
   <widget id="a73fa604-cf51-41cc-abac-f1b11643db73" title="Tag cloud" showTitle="True">Tag cloud</widget>
   <widget id="deb9fd7c-e0f4-4f24-964d-d5f67332bab0" title="TextBox" showTitle="True">TextBox</widget>
   <widget id="47fdb964-2c19-4099-9834-7d6ef8eb424b" title="Category list" showTitle="True">Category list</widget>
+  <widget id="ab97b0d9-01c7-498a-96f3-fad1c046216e" title="RecentPosts" showTitle="True">RecentPosts</widget>
+  <widget id="86a54bdc-32ad-4699-9494-d9969d825e8d" title="RecentComments" showTitle="True">RecentComments</widget>
 </widgets>
