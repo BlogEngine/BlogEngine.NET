@@ -22,8 +22,7 @@
         <li><a href="archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
         <li><a href="<%=BlogEngine.Core.Utils.RelativeWebRoot %>">Home page</a></li>
       </ul>
-            <p>You can also try to <strong>search for the page you were looking for</strong>:</p>
-      <blog:SearchBox runat="server" />
+            <p>You can also try to <a href="<%=BlogEngine.Core.Utils.RelativeWebRoot %>search">search for the page you were looking for</a>.</p>     
             <p>I'm sorry for the inconvenience</p>
     </div>
         <div id="divInternalReferrer" runat="server" visible="False">
@@ -32,8 +31,8 @@
         that the developer responsible for this broken link is given 20 lashes 
         (but only after he or she has fixed this problem).
       </p>
-            <p>You can also try to <strong>search for the page you were looking for</strong>:</p>
-      <blog:SearchBox ID="SearchBox2" runat="server" /><br /><br />
+            <p>You can also try to <a href="<%=BlogEngine.Core.Utils.RelativeWebRoot %>search">search for the page you were looking for</a>.</p>          
+            <br /><br />
     </div>
         <div id="divDirectHit" runat="server" visible="False">
       <p>You might find one of the following links useful:</p>
@@ -42,8 +41,7 @@
         <li><a href="archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
         <li><a href="<%=BlogEngine.Core.Utils.RelativeWebRoot %>">Home page</a></li>
       </ul>
-            <p>You can also try to <strong>search for the page you were looking for</strong>:</p>
-      <blog:SearchBox ID="SearchBox1" runat="server" />
+            <p>You can also try to <a href="<%=BlogEngine.Core.Utils.RelativeWebRoot %>search">search for the page you were looking for</a>.</p>
             <hr />
             <p><strong>You may not be able to find the page you were after because of:</strong></p>
       <ol type="a">

@@ -279,7 +279,6 @@
     <Content Include="admin\editors\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="admin\themes\standard\layout.cshtml" />
     <Content Include="admin\themes\standard\sidebar.cshtml" />
-    <Content Include="AppCode\Wlw\TagMiniView.aspx" />
     <Content Include="AppCode\Wlw\wlw.css" />
     <Content Include="App_Data\labels.txt" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -719,6 +718,7 @@
     <Content Include="Custom\Widgets\RecentPosts\edit.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\edit.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\widget.cshtml" />
+    <Content Include="AppCode\Wlw\TagMini.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1878,10 +1878,7 @@
     <Compile Include="AppCode\Api\UnhandledExceptionLogger.cs" />
     <Compile Include="AppCode\Api\UploadController.cs" />
     <Compile Include="AppCode\Api\UsersController.cs" />
-    <Compile Include="AppCode\Controls\AuthorList.cs" />
-    <Compile Include="AppCode\Controls\BlogList.cs" />
     <Compile Include="AppCode\Controls\Blogroll.cs" />
-    <Compile Include="AppCode\Controls\CategoryList.cs" />
     <Compile Include="AppCode\Controls\MobileThemeSwitch.cs" />
     <Compile Include="AppCode\Controls\MonthList.cs" />
     <Compile Include="AppCode\Controls\PageList.cs" />
@@ -1889,9 +1886,7 @@
     <Compile Include="AppCode\Controls\PostCalendar.cs" />
     <Compile Include="AppCode\Controls\PostPager.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
-    <Compile Include="AppCode\Controls\SearchBox.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />
-    <Compile Include="AppCode\Controls\TagCloud.cs" />
     <Compile Include="AppCode\Controls\WidgetBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1903,13 +1898,6 @@
     </Compile>
     <Compile Include="AppCode\Controls\WidgetZone.cs" />
     <Compile Include="AppCode\PersianCulture.cs" />
-    <Compile Include="AppCode\Wlw\TagMiniView.aspx.cs">
-      <DependentUpon>TagMiniView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AppCode\Wlw\TagMiniView.aspx.designer.cs">
-      <DependentUpon>TagMiniView.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AppCode\App_Start\BlogEngineConfig.cs" />
     <Compile Include="Custom\Extensions\AkismetFilter.cs" />
     <Compile Include="Custom\Extensions\BBCode.cs" />

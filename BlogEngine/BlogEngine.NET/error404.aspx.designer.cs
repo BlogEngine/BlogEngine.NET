@@ -48,15 +48,6 @@ public partial class error404 {
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInternalReferrer;
     
     /// <summary>
-    /// SearchBox2 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::App_Code.Controls.SearchBox SearchBox2;
-    
-    /// <summary>
     /// divDirectHit control.
     /// </summary>
     /// <remarks>
@@ -73,13 +64,4 @@ public partial class error404 {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.PlaceHolder phSearchResult;
-    
-    /// <summary>
-    /// SearchBox1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::App_Code.Controls.SearchBox SearchBox1;
 }
