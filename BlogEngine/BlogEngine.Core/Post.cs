@@ -693,6 +693,32 @@
             }
         }
 
+        /// <summary>
+        /// URL of the first image in the post, if any
+        /// </summary>
+        public string FirstImgSrc
+        {
+            get
+            {
+                int idx = Content.IndexOf("<img src=");
+                if (idx > 0)
+                {
+                    try
+                    {
+                        idx = idx + 10;
+                        var idxEnd = Content.IndexOf("\"", idx);
+                        if (idxEnd > idx)
+                        {
+                            var len = idxEnd - idx;
+                            return Content.Substring(idx, len);
+                        }
+                    }
+                    catch (Exception) { }
+                }
+                return "";
+            }
+        }
+
         #endregion
 
         #region Comment Properties

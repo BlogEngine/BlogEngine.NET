@@ -5,6 +5,7 @@
   <widget id="a73fa604-cf51-41cc-abac-f1b11643db73" title="Tag cloud" showTitle="True">Tag cloud</widget>
   <widget id="deb9fd7c-e0f4-4f24-964d-d5f67332bab0" title="TextBox" showTitle="True">TextBox</widget>
   <widget id="47fdb964-2c19-4099-9834-7d6ef8eb424b" title="Category list" showTitle="True">Category list</widget>
-  <widget id="ab97b0d9-01c7-498a-96f3-fad1c046216e" title="RecentPosts" showTitle="True">RecentPosts</widget>
   <widget id="86a54bdc-32ad-4699-9494-d9969d825e8d" title="RecentComments" showTitle="True">RecentComments</widget>
+  <widget id="2c9454ad-9819-4f62-8b24-e92e45273c73" title="Page List" showTitle="True">Page List</widget>
+  <widget id="c5535c01-4401-4b71-b9bb-8c3c794029d4" title="Post List" showTitle="True">Post List</widget>
 </widgets>

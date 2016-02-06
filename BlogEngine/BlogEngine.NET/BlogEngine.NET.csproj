@@ -713,12 +713,13 @@
     <Content Include="Custom\Widgets\TextBox\edit.cshtml" />
     <Content Include="Custom\Widgets\TextBox\widget.cshtml" />
     <Content Include="Custom\Widgets\Category list\widget.cshtml" />
-    <Content Include="Custom\Widgets\RecentPosts\widget.cshtml" />
     <Content Include="Custom\Widgets\Search\widget.cshtml" />
-    <Content Include="Custom\Widgets\RecentPosts\edit.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\edit.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\widget.cshtml" />
     <Content Include="AppCode\Wlw\TagMini.cshtml" />
+    <Content Include="Custom\Widgets\Page List\widget.cshtml" />
+    <Content Include="Custom\Widgets\Post List\edit.cshtml" />
+    <Content Include="Custom\Widgets\Post List\widget.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1881,7 +1882,6 @@
     <Compile Include="AppCode\Controls\Blogroll.cs" />
     <Compile Include="AppCode\Controls\MobileThemeSwitch.cs" />
     <Compile Include="AppCode\Controls\MonthList.cs" />
-    <Compile Include="AppCode\Controls\PageList.cs" />
     <Compile Include="AppCode\Controls\PageMenu.cs" />
     <Compile Include="AppCode\Controls\PostCalendar.cs" />
     <Compile Include="AppCode\Controls\PostPager.cs" />

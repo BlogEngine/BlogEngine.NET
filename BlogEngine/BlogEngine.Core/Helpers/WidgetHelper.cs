@@ -1,10 +1,5 @@
 ﻿using BlogEngine.Core.DataStore;
-using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlogEngine.Core.Helpers
 {
@@ -42,6 +37,6 @@ namespace BlogEngine.Core.Helpers
             ws.SaveSettings(settings);
 
             Blog.CurrentInstance.Cache[cacheId] = settings;
-        }
+        }       
     }
 }

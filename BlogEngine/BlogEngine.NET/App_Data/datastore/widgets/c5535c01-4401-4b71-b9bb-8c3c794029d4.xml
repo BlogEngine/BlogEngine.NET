@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SerializableStringDictionary>
+  <SerializableStringDictionary>
+    <DictionaryEntry Key="author" Value="All" />
+    <DictionaryEntry Key="showdesc" Value="true" />
+    <DictionaryEntry Key="numberofposts" Value="10" />
+    <DictionaryEntry Key="showdate" Value="true" />
+    <DictionaryEntry Key="showimg" Value="true" />
+    <DictionaryEntry Key="sortorder" Value="Published" />
+    <DictionaryEntry Key="cutegory" Value="All" />
+  </SerializableStringDictionary>
+</SerializableStringDictionary>
