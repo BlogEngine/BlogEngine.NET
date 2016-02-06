@@ -1597,7 +1597,6 @@
     <Content Include="admin\app\security\users\userView.html" />
     <Content Include="admin\app\security\profile\profileView.html" />
     <Content Include="admin\app\security\roles\roleView.html" />
-    <Content Include="admin\WidgetEditor.aspx" />
     <Content Include="App_Data\blogroll.xml" />
     <Content Include="App_Data\blogs.xml" />
     <Content Include="App_Data\blogs\_new\categories.xml" />
@@ -1840,13 +1839,6 @@
     <Compile Include="admin\menu.ascx.designer.cs">
       <DependentUpon>menu.ascx</DependentUpon>
     </Compile>
-    <Compile Include="admin\WidgetEditor.aspx.cs">
-      <DependentUpon>WidgetEditor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\WidgetEditor.aspx.designer.cs">
-      <DependentUpon>WidgetEditor.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AppCode\Api\CommentFilterController.cs" />
     <Compile Include="AppCode\Api\BlogRollController.cs" />
     <Compile Include="AppCode\Api\BlogsController.cs" />
@@ -1885,15 +1877,6 @@
     <Compile Include="AppCode\Controls\PostPager.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />
-    <Compile Include="AppCode\Controls\WidgetBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AppCode\Controls\WidgetContainer.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AppCode\Controls\WidgetEditBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="AppCode\Controls\WidgetZone.cs" />
     <Compile Include="AppCode\PersianCulture.cs" />
     <Compile Include="AppCode\App_Start\BlogEngineConfig.cs" />
