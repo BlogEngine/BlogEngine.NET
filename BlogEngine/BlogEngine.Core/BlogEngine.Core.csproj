@@ -230,10 +230,6 @@
     <Compile Include="Services\FileSystem\Image.cs" />
     <Compile Include="Services\FileSystem\FileSystemUtilities.cs" />
     <Compile Include="Data\Models\Settings.cs" />
-    <Compile Include="Services\Notes\QuickNote.cs" />
-    <Compile Include="Services\Notes\QuickNotes.cs" />
-    <Compile Include="Services\Notes\QuickSetting.cs" />
-    <Compile Include="Services\Notes\QuickSettings.cs" />
     <Compile Include="Services\Packaging\Constants.cs" />
     <Compile Include="Services\Packaging\GalleryData.cs" />
     <Compile Include="Services\Packaging\FileSystem.cs" />
@@ -258,7 +254,6 @@
     <Compile Include="Providers\XmlProvider\Blogs.cs" />
     <Compile Include="Providers\XmlProvider\CustomFields.cs" />
     <Compile Include="Providers\XmlProvider\Packaging.cs" />
-    <Compile Include="Providers\XmlProvider\QuickNotes.cs" />
     <Compile Include="Providers\XmlProvider\Rights.cs" />
     <Compile Include="Providers\FileSystemProviders\XmlFileSystemProvider.cs" />
     <Compile Include="RemoteFile.cs" />

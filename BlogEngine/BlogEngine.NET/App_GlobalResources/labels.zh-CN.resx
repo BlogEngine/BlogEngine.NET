@@ -2600,10 +2600,6 @@
     <value>合并并缩小脚本和样式(推荐)</value>
     <comment>Combine and minify scripts and styles (recommended)</comment>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>启用快速笔记</value>
-    <comment>Enable Quick Notes</comment>
-  </data>
   <data name="enableTagExport" xml:space="preserve">
     <value>允许导出标签</value>
     <comment>Enable Tag Export</comment>
@@ -2891,10 +2887,6 @@
   <data name="noFilesFound" xml:space="preserve">
     <value>没有找到任何文件</value>
     <comment>No files found.</comment>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>您当前没有任何笔记</value>
-    <comment>You do not have any notes yet.</comment>
   </data>
   <data name="noPackagesToDisplay" xml:space="preserve">
     <value>没有可以显示的包</value>

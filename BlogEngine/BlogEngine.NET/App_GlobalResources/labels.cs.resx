@@ -1813,9 +1813,6 @@
   <data name="galleryFeedUrlDescription" xml:space="preserve">
     <value>URL k platnému feedu galerie obsahující balíčky ke stažení</value>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Zapnout Rychlé poznámky</value>
-  </data>
   <data name="tools" xml:space="preserve">
     <value>Nástroje</value>
   </data>
@@ -2454,9 +2451,6 @@
   </data>
   <data name="defaultMinTag" xml:space="preserve">
     <value>1 (výchozí)</value>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>Zatím nemáte žádné poznámky.</value>
   </data>
   <data name="defaultPostCategory" xml:space="preserve">
     <value>Výchozí kategorie přísp.</value>

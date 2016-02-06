@@ -386,7 +386,6 @@ namespace BlogEngine.Core.Web
             AddResource("enableOptimizationDesc");
             AddResource("enablePasswordReset");
             AddResource("enablePingbacks");
-            AddResource("enableQuickNotes");
             AddResource("enableRating");
             AddResource("enableRecaptcha");
             AddResource("enableReferrerTracking");

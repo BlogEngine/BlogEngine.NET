@@ -246,9 +246,6 @@
   <data name="displayCommentsOnRecentPosts" xml:space="preserve">
     <value>Afficher les commentaires</value>
   </data>
-  <data name="displayRatingsOnRecentPosts" xml:space="preserve">
-    <value>Afficher les notes</value>
-  </data>
   <data name="downloadOPML" xml:space="preserve">
     <value>Télécharger le fichier OPML</value>
   </data>
@@ -1812,9 +1809,6 @@
   </data>
   <data name="galleryFeedUrlDescription" xml:space="preserve">
     <value>URL valide du flux de la Galerie qui contient les paquetages téléchargeables</value>
-  </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Activer les notes rapides</value>
   </data>
   <data name="tools" xml:space="preserve">
     <value>Outils</value>

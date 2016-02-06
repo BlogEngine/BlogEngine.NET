@@ -4,7 +4,6 @@
     .header .title-wrapper .pull-left,
     .header .title-wrapper .pull-right { float: none !important; text-align: center; margin: 0; padding: 0; }
     .header .title-wrapper hgroup { height: auto; margin-bottom: 10px; }
-    #q-notes { display: none !important; }
     .header .nav > li  {border-bottom:1px solid #333;}
     .header .nav > li.page-menu {width:100%; position:relative;} 
     .header .nav > li.page-menu .dropdown-toggle {float:right !important; position:absolute; right:0; top:0;}

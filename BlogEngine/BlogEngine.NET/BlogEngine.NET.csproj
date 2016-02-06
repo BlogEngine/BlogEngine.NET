@@ -1664,8 +1664,6 @@
     <Content Include="post.aspx" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\admin.js" />
-    <Content Include="Scripts\App\qnotes.js" />
-    <Content Include="Scripts\App\widget.js" />
     <Content Include="Scripts\Auto\01-jquery-1.9.1.min.js" />
     <Content Include="Scripts\Auto\02-jquery.cookie.js" />
     <Content Include="Scripts\Auto\04-jquery-jtemplates.js" />

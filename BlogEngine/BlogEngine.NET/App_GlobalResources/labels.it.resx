@@ -1755,9 +1755,6 @@
   <data name="enableOptimizationDesc" xml:space="preserve">
     <value>Combina e riduce gli script ed i fogli di stile (raccomandato)</value>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Abilita le Note Rapide</value>
-  </data>
   <data name="enterEmail" xml:space="preserve">
     <value>Inserisci la tua e-mail</value>
   </data>
@@ -2504,9 +2501,6 @@
   </data>
   <data name="filePicker" xml:space="preserve">
     <value>Inserisci File</value>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>Non hai ancora note.</value>
   </data>
   <data name="notAuthorizedToCreateNewPosts" xml:space="preserve">
     <value>Non autorizzato per creare nuovi Post.</value>

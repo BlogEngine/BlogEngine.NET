@@ -1791,9 +1791,6 @@
   <data name="galleryFeedUrlDescription" xml:space="preserve">
     <value>URL van de geldige gallerij feed met te downloaden packages</value>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Activeer Quick Notes</value>
-  </data>
   <data name="tools" xml:space="preserve">
     <value>Tools</value>
   </data>
@@ -2282,9 +2279,6 @@
   </data>
   <data name="next" xml:space="preserve">
     <value>Volgende</value>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>Je hebt nog geen notities</value>
   </data>
   <data name="noPostsMatchedYourCriteria" xml:space="preserve">
     <value>Sorry, geen enkel bericht voldoet aan jouw criteria</value>

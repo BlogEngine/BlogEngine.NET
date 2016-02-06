@@ -1813,9 +1813,6 @@
   <data name="galleryFeedUrlDescription" xml:space="preserve">
     <value>URL to the valid Gallery feed containing downloadable packages</value>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Enable Quick Notes</value>
-  </data>
   <data name="tools" xml:space="preserve">
     <value>Tools</value>
   </data>
@@ -2454,9 +2451,6 @@
   </data>
   <data name="defaultMinTag" xml:space="preserve">
     <value>1 (default)</value>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>You do not have any notes yet.</value>
   </data>
   <data name="defaultPostCategory" xml:space="preserve">
     <value>Default post category</value>

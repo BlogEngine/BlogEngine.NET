@@ -72,8 +72,7 @@ namespace BlogEngine.NET.App_Start
 
             // for authenticated users
             bundles.Add(new StyleBundle("~/Content/Auto/cssauth").Include(
-                "~/Content/Auto/*.css",
-                "~/Modules/QuickNotes/Qnotes.css")
+                "~/Content/Auto/*.css")
             );
             bundles.Add(new ScriptBundle("~/Scripts/Auto/jsauth").Include(
                 "~/Scripts/Auto/*.js")

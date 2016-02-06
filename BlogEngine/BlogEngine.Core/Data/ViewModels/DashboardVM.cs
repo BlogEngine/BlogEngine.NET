@@ -1,6 +1,5 @@
 ﻿using BlogEngine.Core.Data.Models;
 using BlogEngine.Core.Data.Services;
-using BlogEngine.Core.Notes;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -89,16 +88,6 @@ namespace BlogEngine.Core.Data.ViewModels
         /// Trash items counter
         /// </summary>
         public List<TrashItem> Trash { get; set; }
-        /// <summary>
-        /// Quick notes counter
-        /// </summary>
-        public List<QuickNote> Notes
-        {
-            get
-            {
-                return new QuickNotes(Security.CurrentUser.Identity.Name).Notes;
-            }
-        }
         /// <summary>
         /// Log items counter
         /// </summary>

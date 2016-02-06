@@ -2474,15 +2474,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Quick Notes.
-        /// </summary>
-        internal static string enableQuickNotes {
-            get {
-                return ResourceManager.GetString("enableQuickNotes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enable post ratings.
         /// </summary>
         internal static string enableRating {
@@ -4180,15 +4171,6 @@ namespace Resources {
         internal static string none {
             get {
                 return ResourceManager.GetString("none", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You do not have any notes yet..
-        /// </summary>
-        internal static string noNotesYet {
-            get {
-                return ResourceManager.GetString("noNotesYet", resourceCulture);
             }
         }
         

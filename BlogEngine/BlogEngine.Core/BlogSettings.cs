@@ -1097,16 +1097,6 @@
 
         #endregion
 
-        #region EnableQuickNotes
-
-        /// <summary>
-        ///     Gets or sets a value indicating if QuickNotes module is enabled
-        /// </summary>
-        /// <value><b>true</b> if QuickNotes is enabled, otherwise returns <b>false</b>.</value>
-        public bool EnableQuickNotes { get; set; }
-
-        #endregion
-
         #region RemoveExtensionsFromUrls
 
         /// <summary>

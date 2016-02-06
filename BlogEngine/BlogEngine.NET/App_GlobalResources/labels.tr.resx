@@ -1813,9 +1813,6 @@
   <data name="galleryFeedUrlDescription" xml:space="preserve">
     <value>İndirilebilir paketler içeren geçerli Galeri feed URL'si</value>
   </data>
-  <data name="enableQuickNotes" xml:space="preserve">
-    <value>Hızlı Notları Etkinleştir</value>
-  </data>
   <data name="tools" xml:space="preserve">
     <value>Araçlar</value>
   </data>
@@ -2454,9 +2451,6 @@
   </data>
   <data name="defaultMinTag" xml:space="preserve">
     <value>1 (varsayılan)</value>
-  </data>
-  <data name="noNotesYet" xml:space="preserve">
-    <value>Henüz herhangi bir notunuz yok.</value>
   </data>
   <data name="defaultPostCategory" xml:space="preserve">
     <value>Standart yazı kategorisi</value>

@@ -17,8 +17,8 @@
         12.bloglist                 26.contact-page
         13.blogroll                 27.search-page
         14.calendar                 28.syntaxhighlighter
-        15.categorylist             29.q-notes
-        16.linklist                 30.footer
+        15.categorylist             29.footer
+        16.linklist                 
 */
 
 body { line-height: 1.8; color: #333333; background-color: #eeeeee; cursor: default; font-weight: 300; }
@@ -250,19 +250,7 @@ table { width: 100%; }
 .syntaxhighlighter .container textarea { font-size: 13px !important; line-height: 20px !important; }
 /*.syntaxhighlighter table td.code .container { top: -15px !important; }*/
 
-/*[29.q-notes]*/
-#q-notes { height: 0; }
-#q-notes .q-tab { height: 0; }
-#q-notes #q-toggle { padding: 0; width: 40px; height: 30px; text-align: center; background-color: #fff; border: 2px solid #DDD; border-top: none; position: relative; top: -2px; margin-right: 5px; z-index: 1000; }
-#q-notes #q-toggle a { padding: 0 !important; margin: 0 !important; float: none !important; }
-#q-notes * { -moz-border-radius: 0 !important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
-#q-notes input[type=text],
-#q-notes select { padding: 5px !important; width: 200px; }
-#q-notes #q-listbox { width: 100% !important; }
-#q-notes input[type=submit] { background-color: #428bca !important; color: #fff; border: none !important; font-weight: normal !important; border-radius: 3px !important; }
-#q-panel {height:180px ;}
-
-/*[30.footer]*/
+/*[29.footer]*/
 .footer { background-color: #222; margin: 0; padding: 0; }
 .footer a { color: #AAA; }
 .footer .widgets-footer .widget { margin-right: 3%; width: 31.3%; float: left; background: none; color: #AAA; padding: 2% 0; box-shadow: none; }

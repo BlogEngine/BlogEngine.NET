@@ -7,7 +7,6 @@
 
     using DataStore;
     using Packaging;
-    using Notes;
 
     /// <summary>
     /// A base class for all custom providers to inherit from.
@@ -420,36 +419,6 @@
         /// <param name="packageId">Package ID</param>
         public abstract void DeletePackage(string packageId);
 
-        #endregion
-
-        #region QuickNotes
-        /// <summary>
-        /// Save quick note
-        /// </summary>
-        /// <param name="note">Quick note</param>
-        public abstract void SaveQuickNote(QuickNote note);
-        /// <summary>
-        /// Save quick setting
-        /// </summary>
-        /// <param name="setting">Quick setting</param>
-        public abstract void SaveQuickSetting(QuickSetting setting);
-        /// <summary>
-        /// Fill quick notes
-        /// </summary>
-        /// <param name="userId">User ID</param>
-        /// <returns>List of user notes</returns>
-        public abstract List<QuickNote> FillQuickNotes(string userId);
-        /// <summary>
-        /// Fill quick settings
-        /// </summary>
-        /// <param name="userId">User ID</param>
-        /// <returns>List of user settings</returns>
-        public abstract List<QuickSetting> FillQuickSettings(string userId);
-        /// <summary>
-        /// Delete quick note
-        /// </summary>
-        /// <param name="noteId">Note ID</param>
-        public abstract void DeleteQuickNote(Guid noteId);
         #endregion
 
         #region CustomFields

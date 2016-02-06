@@ -55,7 +55,6 @@
   <sendmailoncomment>True</sendmailoncomment>
   <culture>Auto</culture>
   <remotemaxfilesize>524288</remotemaxfilesize>
-  <enablequicknotes>True</enablequicknotes>
   <syndicationformat>Rss</syndicationformat>
   <blogrollvisibleposts>3</blogrollvisibleposts>
   <geocodinglatitude>0</geocodinglatitude>
