@@ -83,7 +83,7 @@ namespace App_Code.Controls
                     widget.InnerText);
                 try
                 {
-                    var model = new { Id = widget.Attributes["id"].Value, Title = widget.Attributes["title"].Value };
+                    var model = new { Id = widget.Attributes["id"].Value, Name = widget.InnerText, Title = widget.Attributes["title"].Value };
                     var lit = new Literal { Text = RazorHelpers.ParseRazor(fileName, model) };
                     Controls.Add(lit);
                 }

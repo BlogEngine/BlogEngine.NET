@@ -1,6 +1,6 @@
 ﻿@using BlogEngine.Core
 @{
-    var title = "Blog List";
+    var title = Model.Title;
     var blogs = Blog.Blogs.Where(b => b.IsActive).ToList();
 }
 <div class="widget bloglist">

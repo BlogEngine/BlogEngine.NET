@@ -1,6 +1,6 @@
 ﻿@using BlogEngine.Core
 @{
-    var title = "Category list";
+    var title = Model.Title;
     var dic = BlogEngine.Core.Helpers.CategoryHelper.SortCategories();
 }
 <div class="widget categorylist">

@@ -2,6 +2,7 @@
 @using BlogEngine.Core.Helpers
 @using System.Text.RegularExpressions
 @{
+    var title = Model.Title;
     var numberOfComments = 10;
     var settings = WidgetHelper.GetSettings(Model.Id);
     if (settings != null && settings.Count > 0)
@@ -24,7 +25,7 @@
     }
 </style>
 <div class="widget recentcomments">
-    <h4 class="widget-header">Recent comments</h4>
+    <h4 class="widget-header">@title</h4>
     <div class="widget-content">
         <ul id="recentComments" class="recentcomments">
             @if (list.Count > 0)

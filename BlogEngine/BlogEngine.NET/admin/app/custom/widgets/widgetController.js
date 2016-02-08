@@ -37,6 +37,7 @@
         var customSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
         $scope.editId = id;
         $scope.editTitle = title;
+        $("#txtWidgetTitle").val(title);
         $.ajax({
             type: 'HEAD',
             url: customSrc,
