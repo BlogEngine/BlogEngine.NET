@@ -44,7 +44,7 @@ namespace BlogEngine.Core.Data
                     foreach (var widget in zone.Widgets)
                     {
                         XmlNode node = doc.CreateElement("widget");
-                        node.InnerText = widget.Title;
+                        node.InnerText = widget.Name;
 
                         var id = doc.CreateAttribute("id");
                         // in javascript, new id initiated as random number

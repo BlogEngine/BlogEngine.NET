@@ -23,7 +23,7 @@ namespace BlogEngine.Core.Data.ViewModels
                 AvailableWidgets = new List<WidgetItem>();
                 foreach (var pk in packages)
                 {
-                    AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Title = pk.Title, ShowTitle = false });
+                    AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Name = pk.Title, Title = pk.Title, ShowTitle = false });
                 }
 
                 WidgetZones = new List<WidgetZone>();
@@ -57,6 +57,7 @@ namespace BlogEngine.Core.Data.ViewModels
                                 {
                                     var item = new WidgetItem();
                                     item.Id = node.Attributes["id"].InnerText;
+                                    item.Name = node.InnerText;
                                     item.Title = node.Attributes["title"].InnerText;
                                     item.ShowTitle = bool.Parse(node.Attributes["showTitle"].InnerText);
                                     zone.Widgets.Add(item);
@@ -112,6 +113,10 @@ namespace BlogEngine.Core.Data.ViewModels
         /// Widget Id
         /// </summary>
         public string Id { get; set; }
+        /// <summary>
+        /// Widget name
+        /// </summary>
+        public string Name { get; set; }
         /// <summary>
         /// Widget Title
         /// </summary>

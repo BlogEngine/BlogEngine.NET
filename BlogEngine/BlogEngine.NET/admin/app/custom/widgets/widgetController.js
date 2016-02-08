@@ -3,6 +3,7 @@
     $scope.vm = {};
     $scope.editSrc = {};
     $scope.editId = {};
+    $scope.editTitle = {};
 
     $scope.load = function () {
         spinOn();
@@ -31,22 +32,28 @@
         });
     }
 
-    $scope.loadEditForm = function (id, title) {
+    $scope.loadEditForm = function (id, name, title) {
         var sharedSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/shared.cshtml";
-        var customSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/" + title + "/edit.cshtml?id=" + id;
-        $scope.editId = title;
+        var customSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
+        $scope.editId = id;
+        $scope.editTitle = title;
         $.ajax({
             type: 'HEAD',
             url: customSrc,
             async: false,
             success: function () {
-                $scope.editSrc = customSrc;
+                $scope.editSrc = customSrc + "?id=" + id;
             },
             error: function () {
-                $scope.editSrc = sharedSrc;
+                $scope.editSrc = sharedSrc + "?id=" + id;
             }
         });
         $("#edit-widget").modal();
+    }
+
+    $scope.closeEditForm = function () {
+        $("#edit-widget").modal("hide");
+        $scope.load();
     }
 
     $scope.moveObject = function (from, to, fromList, toList) {
@@ -82,10 +89,26 @@
         });
     }
 
+    $scope.updateTitle = function () {
+        if ($scope.editTitle != $("#txtWidgetTitle").val()) {
+            for (var i = 0; i < $scope.vm.WidgetZones.length; i++) {
+                for (var j = 0; j < $scope.vm.WidgetZones[i].Widgets.length; j++) {
+                    if ($scope.vm.WidgetZones[i].Widgets[j].Id === $scope.editId) {
+                        $scope.vm.WidgetZones[i].Widgets[j].Title = $("#txtWidgetTitle").val();
+                    }
+                }
+            }
+            $scope.save();
+        }  
+    }
+
     $scope.load();
 
     $(document).ready(function () {
         bindCommon();
     });
-
 }]);
+
+var updateTitle = function () {
+    angular.element($('#edit-widget')).scope().updateTitle();
+}

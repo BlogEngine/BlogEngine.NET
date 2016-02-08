@@ -16,14 +16,18 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">{{editId}}</h4>
+                            <button type="button" class="close" ng-click="closeEditForm()">&times;</button>
+                            <h4 class="modal-title">{{editTitle}}</h4>
                         </div>
                         <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txtWidgetTitle">{{lbl.title}}</label>
+                                <input type="text" value="{{editTitle}}" name="txtWidgetTitle" id="txtWidgetTitle" class="form-control">
+                            </div>
                             <iframe id="settingsFrame" ng-src="{{editSrc}}"></iframe>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" ng-click="closeEditForm()">{{lbl.close}}</button>
                         </div>
                     </div>
                 </div>
@@ -51,7 +55,7 @@
                                     <div class="panel-body">
                                         {{item.Title}}
                                         <div class="btn-group pull-right">
-                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Name, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list1, widgetZones.titles[0])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
@@ -69,7 +73,7 @@
                                     <div class="panel-body">
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
-                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Name, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list2, widgetZones.titles[1])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>
@@ -87,7 +91,7 @@
                                     <div class="panel-body">
                                         {{ item.Title }}
                                         <div class="btn-group pull-right">
-                                            <button ng-click="loadEditForm(item.Id, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
+                                            <button ng-click="loadEditForm(item.Id, item.Name, item.Title)" class="btn btn-default btn-sm" type="button">{{lbl.edit}}</button>
                                             <button type="button" ng-click='deleteItem(item.Id, widgetZones.list3, widgetZones.titles[2])' class="btn btn-danger btn-sm">X</button>
                                         </div>
                                     </div>

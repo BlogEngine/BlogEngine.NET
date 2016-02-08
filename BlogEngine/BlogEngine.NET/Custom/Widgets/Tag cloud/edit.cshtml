@@ -59,7 +59,7 @@
         @Html.DropDownList("ddCloudSize", cloudSizeOptions, new { @class = "form-control" })
     </div>
     <div>
-        <button type="submit" class="btn btn-success btn-sm pull-left">
+        <button type="submit" onclick="window.parent.updateTitle()" class="btn btn-success btn-sm pull-left">
             Save
         </button>
     </div>
