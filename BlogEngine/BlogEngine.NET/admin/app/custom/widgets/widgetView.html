@@ -1,9 +1,7 @@
 ﻿<div data-ng-controller="CustomWidgetsController">
     <style>
-        .sortable-empty {
-            border: 3px dashed #b4b9be;
-            padding: 15px;
-        }
+        .sortable-empty { border: 3px dashed #b4b9be; padding: 15px; }
+        .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #ffffff; padding: 5px 15px; display: block; }
     </style>
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.widgets}}</h2>
@@ -23,6 +21,9 @@
                             <div class="form-group">
                                 <label for="txtWidgetTitle">{{lbl.title}}</label>
                                 <input type="text" value="{{editTitle}}" name="txtWidgetTitle" id="txtWidgetTitle" class="form-control">
+                                <span id="titleValidation" class="field-validation-error">
+                                    Field is required
+                                </span>
                             </div>
                             <iframe id="settingsFrame" ng-src="{{editSrc}}"></iframe>
                         </div>

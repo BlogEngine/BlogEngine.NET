@@ -38,6 +38,7 @@
         $scope.editId = id;
         $scope.editTitle = title;
         $("#txtWidgetTitle").val(title);
+        $("#titleValidation").hide();
         $.ajax({
             type: 'HEAD',
             url: customSrc,
@@ -54,7 +55,6 @@
 
     $scope.closeEditForm = function () {
         $("#edit-widget").modal("hide");
-        $scope.load();
     }
 
     $scope.moveObject = function (from, to, fromList, toList) {
@@ -91,22 +91,29 @@
     }
 
     $scope.updateTitle = function () {
-        if ($scope.editTitle != $("#txtWidgetTitle").val()) {
-            for (var i = 0; i < $scope.vm.WidgetZones.length; i++) {
-                for (var j = 0; j < $scope.vm.WidgetZones[i].Widgets.length; j++) {
-                    if ($scope.vm.WidgetZones[i].Widgets[j].Id === $scope.editId) {
-                        $scope.vm.WidgetZones[i].Widgets[j].Title = $("#txtWidgetTitle").val();
+        if ($("#txtWidgetTitle").val().length > 0) {
+            if ($scope.editTitle != $("#txtWidgetTitle").val()) {
+                for (var i = 0; i < $scope.vm.WidgetZones.length; i++) {
+                    for (var j = 0; j < $scope.vm.WidgetZones[i].Widgets.length; j++) {
+                        if ($scope.vm.WidgetZones[i].Widgets[j].Id === $scope.editId) {
+                            $scope.vm.WidgetZones[i].Widgets[j].Title = $("#txtWidgetTitle").val();
+                        }
                     }
                 }
+                $scope.save();
             }
-            $scope.save();
-        }  
+        }
+        else {
+            $("#titleValidation").show();
+            $("#txtWidgetTitle").focus();
+        }
     }
 
     $scope.load();
 
     $(document).ready(function () {
         bindCommon();
+        $("#titleValidation").hide();
     });
 }]);
 
