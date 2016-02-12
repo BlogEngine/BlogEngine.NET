@@ -39,6 +39,7 @@
         $scope.editTitle = title;
         $("#txtWidgetTitle").val(title);
         $("#titleValidation").hide();
+        $("#settingsFrame").contents().find('.field-validation-error').hide();
         $.ajax({
             type: 'HEAD',
             url: customSrc,
@@ -101,11 +102,14 @@
                     }
                 }
                 $scope.save();
+                return true;
             }
+            return false;
         }
         else {
             $("#titleValidation").show();
             $("#txtWidgetTitle").focus();
+            return false;
         }
     }
 
@@ -118,5 +122,5 @@
 }]);
 
 var updateTitle = function () {
-    angular.element($('#edit-widget')).scope().updateTitle();
+    return angular.element($('#edit-widget')).scope().updateTitle();
 }

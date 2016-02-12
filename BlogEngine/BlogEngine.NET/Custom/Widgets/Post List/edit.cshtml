@@ -11,17 +11,24 @@
 
     var widgetId = Request.QueryString["id"];
     var settings = WidgetHelper.GetSettings(widgetId);
-
+    Validation.Add("txtNumberOfPosts",
+        Validator.Required("Field is required"),
+        Validator.Integer("Field is numeric")
+    );
     if (IsPost)
     {
-        settings["numberofposts"] = Request.Form["txtNumberOfPosts"];
-        settings["cutegory"] = Request.Form["ddlCategories"];
-        settings["author"] = Request.Form["ddlAuthors"];
-        settings["sortorder"] = Request.Form["ddlSortBy"];
-        settings["showimg"] = Request.Form["cbShowImg"] == "on" ? "true" : "false";
-        settings["showdesc"] = Request.Form["cbShowDesc"] == "on" ? "true" : "false";
-        settings["showdate"] = Request.Form["cbShowDate"] == "on" ? "true" : "false";
-        WidgetHelper.SaveSettings(settings, widgetId);
+        if (Validation.IsValid())
+        {
+            settings["numberofposts"] = Request.Form["txtNumberOfPosts"];
+            settings["cutegory"] = Request.Form["ddlCategories"];
+            settings["author"] = Request.Form["ddlAuthors"];
+            settings["sortorder"] = Request.Form["ddlSortBy"];
+            settings["showimg"] = Request.Form["cbShowImg"] == "on" ? "true" : "false";
+            settings["showdesc"] = Request.Form["cbShowDesc"] == "on" ? "true" : "false";
+            settings["showdate"] = Request.Form["cbShowDate"] == "on" ? "true" : "false";
+            WidgetHelper.SaveSettings(settings, widgetId);
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+        }
     }
     if (settings != null && settings.Count > 0)
     {
@@ -59,11 +66,13 @@
 <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
 <style>
     body { background-color: #fff; }
+    .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
 </style>
-<form method="post">
+<form method="post" onsubmit="window.parent.updateTitle()">
     <div class="form-group">
         <label for="txtNumberOfPosts">@Resources.labels.numberOfPosts</label>
         @Html.TextBox("txtNumberOfPosts", numberOfPosts, new { @class = "form-control" })
+        @Html.ValidationMessage("txtNumberOfPosts")
     </div>
     <div class="form-group">
         <label for="ddlCategories">@Resources.labels.category</label>
@@ -93,7 +102,7 @@
         </label>
     </div>
     <div>
-        <button type="submit" onclick="window.parent.updateTitle()" class="btn btn-success btn-sm pull-left">
+        <button type="submit" class="btn btn-success btn-sm pull-left">
             @Resources.labels.save
         </button>
     </div>

@@ -32,14 +32,14 @@
     </style>
 </head>
 <body>
-    <form method="post">
+    <form method="post" onsubmit="window.parent.updateTitle()">
         <div class="form-group">
             <label>@Resources.labels.numberOfComments</label>
             <input type="text" class="form-control" id="txtNumberOfComments" name="txtNumberOfComments" value="@NumberOfComments" />
             @Html.ValidationMessage("txtNumberOfComments")
         </div>
         <div>
-            <button type="submit" onclick="window.parent.updateTitle()" class="btn btn-success btn-sm pull-left">
+            <button type="submit" class="btn btn-success btn-sm pull-left">
                 @Resources.labels.save
             </button>
         </div>
