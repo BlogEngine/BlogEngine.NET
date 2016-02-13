@@ -1,9 +1,9 @@
-﻿@using BlogEngine.Core.Helpers
-@using BlogEngine.Core
+﻿@using BlogEngine.Core
+@using BlogEngine.NET.Custom.Widgets
 @{
     var title = Model.Title;
     var id = Model.Id;
-    var settings = WidgetHelper.GetSettings(id);
+    var settings = Common.GetSettings(id);
 
     var visiblePosts = Post.ApplicablePosts.FindAll(p => p.IsVisibleToPublic);
     var numberOfPosts = 10;

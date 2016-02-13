@@ -1,8 +1,8 @@
-﻿@using BlogEngine.Core.Helpers
+﻿@using BlogEngine.NET.Custom.Widgets
 @{
     var NumberOfComments = 10;
     var widgetId = Request.QueryString["id"];
-    var settings = WidgetHelper.GetSettings(widgetId);
+    var settings = Common.GetSettings(widgetId);
     Validation.Add("txtNumberOfComments",
         Validator.Required("Field is required"),
         Validator.Integer("Field is numeric")
@@ -12,7 +12,7 @@
         if (Validation.IsValid() && settings["numberofcomments"] != Request.Form["txtNumberOfComments"])
         {
             settings["numberofcomments"] = Request.Form["txtNumberOfComments"];
-            WidgetHelper.SaveSettings(settings, widgetId);
+            Common.SaveSettings(settings, widgetId);
             @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
     }

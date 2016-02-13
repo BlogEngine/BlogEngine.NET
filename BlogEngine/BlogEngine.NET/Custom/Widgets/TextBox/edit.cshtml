@@ -1,13 +1,13 @@
-﻿@using BlogEngine.Core.Helpers
+﻿@using BlogEngine.NET.Custom.Widgets
 @{
     var widgetId = Request.QueryString["id"];
-    var settings = WidgetHelper.GetSettings(widgetId);
+    var settings = Common.GetSettings(widgetId);
     var txt = "<p>Type here...</p>";
 
     if (IsPost)
     {
         settings["content"] = Request.Form["txtContent"];
-        WidgetHelper.SaveSettings(settings, widgetId);
+        Common.SaveSettings(settings, widgetId);
     }
     if (settings != null && settings.Count > 0)
     {

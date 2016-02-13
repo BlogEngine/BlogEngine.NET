@@ -1,7 +1,8 @@
 ﻿@using BlogEngine.Core
+@using BlogEngine.NET.Custom.Widgets
 @{
     var title = Model.Title;
-    var dic = BlogEngine.Core.Helpers.CategoryHelper.SortCategories();
+    var dic = CategoryList.SortCategories();
 }
 <div class="widget categorylist">
     <h4 class="widget-header">@title</h4>

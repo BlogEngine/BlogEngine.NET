@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using BlogEngine.Core;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace BlogEngine.Core.Helpers
+namespace BlogEngine.NET.Custom.Widgets
 {
-    /// <summary>
-    /// Helper for category list widget
-    /// </summary>
-    public class CategoryHelper
+    public class CategoryList
     {
         private static bool HasPosts(Category cat)
         {

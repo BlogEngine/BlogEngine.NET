@@ -1,6 +1,6 @@
-﻿@using BlogEngine.Core.Helpers
+﻿@using BlogEngine.NET.Custom.Widgets
 @{
-    var settings = WidgetHelper.GetSettings(Model.Id);
+    var settings = Common.GetSettings(Model.Id);
     var txt = "";
     if (settings != null && settings.Count > 0)
     {

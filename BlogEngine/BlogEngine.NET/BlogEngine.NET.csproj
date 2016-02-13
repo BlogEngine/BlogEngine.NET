@@ -706,20 +706,22 @@
     <Content Include="Custom\Themes\Standard\site.master" />
     <Content Include="Custom\Widgets\Administration\widget.cshtml" />
     <Content Include="Custom\Widgets\AuthorList\widget.cshtml" />
-    <Content Include="Custom\Widgets\Blog List\widget.cshtml" />
-    <Content Include="Custom\Widgets\Tag cloud\widget.cshtml" />
-    <Content Include="Custom\Widgets\Tag cloud\edit.cshtml" />
-    <Content Include="Custom\Widgets\shared.cshtml" />
+    <Content Include="Custom\Widgets\BlogList\widget.cshtml" />
+    <Content Include="Custom\Widgets\TagCloud\widget.cshtml" />
+    <Content Include="Custom\Widgets\TagCloud\edit.cshtml" />
+    <Content Include="Custom\Widgets\common.cshtml" />
     <Content Include="Custom\Widgets\TextBox\edit.cshtml" />
     <Content Include="Custom\Widgets\TextBox\widget.cshtml" />
-    <Content Include="Custom\Widgets\Category list\widget.cshtml" />
+    <Content Include="Custom\Widgets\CategoryList\widget.cshtml" />
     <Content Include="Custom\Widgets\Search\widget.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\edit.cshtml" />
     <Content Include="Custom\Widgets\RecentComments\widget.cshtml" />
     <Content Include="AppCode\Wlw\TagMini.cshtml" />
-    <Content Include="Custom\Widgets\Page List\widget.cshtml" />
-    <Content Include="Custom\Widgets\Post List\edit.cshtml" />
-    <Content Include="Custom\Widgets\Post List\widget.cshtml" />
+    <Content Include="Custom\Widgets\PageList\widget.cshtml" />
+    <Content Include="Custom\Widgets\PostList\edit.cshtml" />
+    <Content Include="Custom\Widgets\PostList\widget.cshtml" />
+    <Content Include="Custom\Widgets\Newsletter\edit.cshtml" />
+    <Content Include="Custom\Widgets\Newsletter\widget.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1893,6 +1895,7 @@
     <Compile Include="Custom\Extensions\Recaptcha\RecaptchaValidator.cs" />
     <Compile Include="Custom\Extensions\ResolveLinks.cs" />
     <Compile Include="Custom\Extensions\SendCommentMail.cs" />
+    <Compile Include="Custom\Extensions\Newsletter.cs" />
     <Compile Include="Custom\Extensions\SendPings.cs" />
     <Compile Include="Custom\Extensions\SimpleCaptcha\SimpleCaptcha.cs" />
     <Compile Include="Custom\Extensions\SimpleCaptcha\SimpleCaptchaControl.cs" />
@@ -2106,6 +2109,9 @@
     <Compile Include="Custom\Themes\Standard-2015\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
+    <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
+    <Compile Include="Custom\Widgets\Common.cs" />
+    <Compile Include="Custom\Widgets\Newsletter\Newsletter.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

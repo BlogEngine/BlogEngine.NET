@@ -1601,29 +1601,29 @@
             if (AboutToPublishPost())
             {
                 var e = new CancelEventArgs();
-                this.OnPublishing(e);
+                OnPublishing(e);
                 if (e.Cancel)
                 {
-                    this.isPublished = false;
+                    isPublished = false;
                 }
             }
 
             BlogService.UpdatePost(this);
             Posts.Sort();
             AddRelations(Posts);
-            this.ResetNestedComments();
+            ResetNestedComments();
 
-            if (this.isPublished)
+            if (isPublished && !IsDeleted)
             {
-                this.OnPublished();
+                OnPublished();
             }
         }
 
         bool AboutToPublishPost()
         {
-            if (this.isPublished)
+            if (isPublished && !IsDeleted)
             {
-                var p = DataSelect(this.Id);
+                var p = DataSelect(Id);
                 if (p != null && !p.isPublished)
                 {
                     return true;

@@ -1,12 +1,10 @@
-﻿using BlogEngine.Core.DataStore;
+﻿using BlogEngine.Core;
+using BlogEngine.Core.DataStore;
 using System.Collections.Specialized;
 
-namespace BlogEngine.Core.Helpers
+namespace BlogEngine.NET.Custom.Widgets
 {
-    /// <summary>
-    /// Widgets helper class
-    /// </summary>
-    public class WidgetHelper
+    public class Common
     {
         /// <summary>
         /// Gets widget settings
@@ -37,6 +35,6 @@ namespace BlogEngine.Core.Helpers
             ws.SaveSettings(settings);
 
             Blog.CurrentInstance.Cache[cacheId] = settings;
-        }       
+        }
     }
 }

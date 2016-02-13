@@ -1,4 +1,4 @@
-﻿@using BlogEngine.Core.Helpers
+﻿@using BlogEngine.NET.Custom.Widgets
 @using BlogEngine.Core
 @{
     var numberOfPosts = 10;
@@ -10,7 +10,7 @@
     var showDate = false;
 
     var widgetId = Request.QueryString["id"];
-    var settings = WidgetHelper.GetSettings(widgetId);
+    var settings = Common.GetSettings(widgetId);
     Validation.Add("txtNumberOfPosts",
         Validator.Required("Field is required"),
         Validator.Integer("Field is numeric")
@@ -26,7 +26,7 @@
             settings["showimg"] = Request.Form["cbShowImg"] == "on" ? "true" : "false";
             settings["showdesc"] = Request.Form["cbShowDesc"] == "on" ? "true" : "false";
             settings["showdate"] = Request.Form["cbShowDate"] == "on" ? "true" : "false";
-            WidgetHelper.SaveSettings(settings, widgetId);
+            Common.SaveSettings(settings, widgetId);
             @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
     }
