@@ -1881,6 +1881,12 @@
     <Compile Include="AppCode\Controls\PostPager.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />
+    <Compile Include="AppCode\Controls\WidgetBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppCode\Controls\WidgetContainer.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="AppCode\Controls\WidgetZone.cs" />
     <Compile Include="AppCode\PersianCulture.cs" />
     <Compile Include="AppCode\App_Start\BlogEngineConfig.cs" />
