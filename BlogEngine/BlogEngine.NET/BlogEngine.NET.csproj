@@ -714,14 +714,16 @@
     <Content Include="Custom\Widgets\TextBox\widget.cshtml" />
     <Content Include="Custom\Widgets\CategoryList\widget.cshtml" />
     <Content Include="Custom\Widgets\Search\widget.cshtml" />
-    <Content Include="Custom\Widgets\RecentComments\edit.cshtml" />
-    <Content Include="Custom\Widgets\RecentComments\widget.cshtml" />
     <Content Include="AppCode\Wlw\TagMini.cshtml" />
     <Content Include="Custom\Widgets\PageList\widget.cshtml" />
     <Content Include="Custom\Widgets\PostList\edit.cshtml" />
     <Content Include="Custom\Widgets\PostList\widget.cshtml" />
     <Content Include="Custom\Widgets\Newsletter\edit.cshtml" />
     <Content Include="Custom\Widgets\Newsletter\widget.cshtml" />
+    <Content Include="Custom\Widgets\CommentList\edit.cshtml" />
+    <Content Include="Custom\Widgets\CommentList\widget.cshtml" />
+    <Content Include="Custom\Widgets\LinkList\edit.cshtml" />
+    <Content Include="Custom\Widgets\LinkList\widget.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2111,6 +2113,7 @@
     </Compile>
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
+    <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />
     <Compile Include="Custom\Widgets\Newsletter\Newsletter.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
