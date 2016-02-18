@@ -18,9 +18,7 @@
 <link rel="stylesheet" href="~/Content/bootstrap.min.css">
 <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
 <style>
-    body {
-        background-color: #fff;
-    }
+    body { background-color: #fff; }
 </style>
 <script src="~/admin/editors/tinymce/tinymce.min.js"></script>
 <script>
@@ -35,7 +33,7 @@
         autosave_ask_before_unload: false,
         max_height: 500,
         min_height: 100,
-        height: 100,
+        height: 195,
         menubar: false,
         relative_urls: false,
         browser_spellcheck: true,
@@ -44,8 +42,8 @@
     });
 </script>
 <form method="post">
-    <textarea style="opacity:0; height:180px; width:100%;" id="txtContent" name="txtContent" class="post">@txt</textarea>
-    <div>
+    <textarea style="opacity:0; height:300px; width:100%;" id="txtContent" name="txtContent" class="post">@txt</textarea>
+    <div style="margin-top: 15px">
         <button type="submit" onclick="window.parent.updateTitle()" class="btn btn-success btn-sm pull-left">
             Save
         </button>

@@ -68,7 +68,7 @@
     body { background-color: #fff; }
     .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
 </style>
-<form method="post" onsubmit="window.parent.updateTitle()">
+<form method="post">
     <div class="form-group">
         <label for="txtNumberOfPosts">@Resources.labels.numberOfPosts</label>
         @Html.TextBox("txtNumberOfPosts", numberOfPosts, new { @class = "form-control" })

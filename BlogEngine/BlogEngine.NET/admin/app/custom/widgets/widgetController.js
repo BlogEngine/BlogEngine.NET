@@ -4,6 +4,7 @@
     $scope.editSrc = {};
     $scope.editId = {};
     $scope.editTitle = {};
+    $scope.editZone = {};
 
     $scope.load = function () {
         spinOn();
@@ -12,6 +13,7 @@
             list1: [], list2: [], list3: []
         };
         $scope.vm = {};
+        $("#txtWidgetTitle").removeClass("red-border");
 
         dataService.getItems('/api/widgets', { })
         .success(function (data) {
@@ -32,23 +34,27 @@
         });
     }
 
-    $scope.loadEditForm = function (id, name, title) {
+    $scope.loadEditForm = function (id, name, title, zone) {
         var sharedSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/common.cshtml";
         var customSrc = SiteVars.ApplicationRelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
+
         $scope.editId = id;
         $scope.editTitle = title;
+        $scope.editZone = zone;
+
+        $("#txtWidgetTitle").removeClass("red-border");
         $("#txtWidgetTitle").val(title);
-        $("#titleValidation").hide();
         $("#settingsFrame").contents().find('.field-validation-error').hide();
+
         $.ajax({
             type: 'HEAD',
             url: customSrc,
             async: false,
             success: function () {
-                $scope.editSrc = customSrc + "?id=" + id;
+                $scope.editSrc = customSrc + "?id=" + id + "&zone=" + zone;
             },
             error: function () {
-                $scope.editSrc = sharedSrc + "?id=" + id;
+                $scope.editSrc = sharedSrc + "?id=" + id + "&zone=" + zone;
             }
         });
         $("#edit-widget").modal();
@@ -107,7 +113,7 @@
             return false;
         }
         else {
-            $("#titleValidation").show();
+            $("#txtWidgetTitle").addClass("red-border");
             $("#txtWidgetTitle").focus();
             return false;
         }
@@ -117,7 +123,6 @@
 
     $(document).ready(function () {
         bindCommon();
-        $("#titleValidation").hide();
     });
 }]);
 

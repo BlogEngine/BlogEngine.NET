@@ -11,6 +11,7 @@
         settings["minimumposts"] = Request.Form["ddMinPosts"];
         settings["tagcloudsize"] = Request.Form["ddCloudSize"];
         Common.SaveSettings(settings, widgetId);
+        @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
     }
     if (settings != null && settings.Count > 0)
     {
