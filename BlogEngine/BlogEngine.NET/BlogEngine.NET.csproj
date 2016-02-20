@@ -724,6 +724,7 @@
     <Content Include="Custom\Widgets\CommentList\widget.cshtml" />
     <Content Include="Custom\Widgets\LinkList\edit.cshtml" />
     <Content Include="Custom\Widgets\LinkList\widget.cshtml" />
+    <Content Include="Custom\Widgets\MonthList\widget.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2120,6 +2121,7 @@
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
     <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />
+    <Compile Include="Custom\Widgets\MonthList\MonthList.cs" />
     <Compile Include="Custom\Widgets\Newsletter\Newsletter.cs" />
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

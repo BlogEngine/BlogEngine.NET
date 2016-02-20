@@ -1,6 +1,8 @@
 ﻿<div data-ng-controller="CustomWidgetsController">
     <style>
         .red-border { border: 1px solid red !important; }
+        #w-zones .panel-body { padding: 10px 15px; line-height: 30px; }
+        .panel-primary { margin-bottom: 5px; }
         .modal .modal-body { padding: 10px 40px !important; height: 320px; }
         #settingsFrame { height: 300px; }
         .header-txt { border: 1px solid #e5e5e5; line-height: 32px; margin-top: 10px 10px 0 0; width: 400px; padding: 0 10px; }
@@ -45,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" id="w-zones">
                     <div ng-if="widgetZones.titles && widgetZones.titles.length > 0">
                         <h3>{{widgetZones.titles[0]}}</h3>
                         <div droppable='widgetZones.list1' ng-move='moveObject(from, to, fromList, toList)'
@@ -135,8 +137,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                
+                    </div>             
                 </div>
             </div>
 
