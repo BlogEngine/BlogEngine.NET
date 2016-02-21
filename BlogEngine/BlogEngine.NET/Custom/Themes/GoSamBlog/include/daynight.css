@@ -1,0 +1,229 @@
+.mode-toggle {
+    background: url("../img/light.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    direction: ltr;
+    height: 19px;
+    left: 22px;
+    position: fixed;
+    top: 60px;
+    width: 19px;
+    z-index: 999999;
+}
+.mode-toggle:hover {
+    background-position: 0 -19px;
+}
+.mode-toggle.active {
+    background-position: 0 bottom;
+}
+.mode-toggle.active:hover {
+    background-position: 0 0;
+}
+.mode-toggle:after {
+    display: none;
+}
+.mode-toggle:hover:after {
+    display: block;
+}
+.mode-toggle:after, .mode-toggle.active:after {
+    font-size: 10px;
+    height: 19px;
+    left: 25px;
+    line-height: 17px;
+    min-width: 100px;
+    position: absolute;
+    text-transform: uppercase;
+}
+.mode-toggle.active:hover:after, .mode-toggle:after {
+    color: #666;
+    content: "Night mode off.";
+}
+.mode-toggle:hover:after, .mode-toggle.active:after {
+    content: "Night mode on.";
+}
+body.isnight {
+    background-color: #000;
+    color: #666;
+}
+body.isnight a {
+    color: #888;
+}
+
+.isnight .line-header {
+    background-color: #222;
+}
+
+.isnight .banner-header {
+    background-color: #222;
+}
+
+.isnight #postnavigation {
+    background-color: #222;
+}
+
+.isnight .widget {
+    background-color: #222;
+}
+
+
+body.isnight a:hover {
+    color: #ccc;
+}
+.isnight *::-moz-selection {
+    background-color: #444;
+    color: #ccc;
+}
+.isnight .navbar {
+    background-color: #222;
+}
+.isnight .nav ul li a {
+    border-color: #555;
+}
+.isnight .nav ul li a:hover {
+    background-color: #292929;
+    color: #aaa;
+}
+@media screen and (max-width: 768px) {
+.isnight .navbar {
+    background-color: #222;
+}
+.isnight .navbar .nav {
+    background-color: #111;
+    border-bottom-color: #000;
+}
+.isnight .navbar .nav ul li {
+    border-top-color: #000;
+}
+.isnight .navbar .nav ul li a {
+    color: #ccc;
+}
+.isnight .navigation .btn-navigation span {
+    background-color: #666;
+}
+}
+.isnight .ov, .isnight .ov-nav {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.isnight .search-wrapper {
+    background-color: #333;
+}
+.isnight .search-wrapper input[type="text"] {
+    color: #999;
+}
+.isnight .post {
+    background-color: #222;
+}
+.isnight .post .post-header {
+    border-bottom-color: #000;
+}
+.isnight .post .post-header .post-title a {
+    color: #db3333;
+}
+.isnight .post .post-header .post-title a:hover {
+    color: #ccc;
+}
+.isnight .post .post-header .post-date {
+    color: #555;
+}
+.isnight .post .post-body a {
+    color: #666;
+    text-decoration: underline;
+}
+.isnight .post .post-body a:hover {
+    color: #ccc;
+}
+.isnight .post .post-footer {
+    border-top-color: #000;
+}
+.isnight .lbl-CommentsDisabled {
+    color: #333;
+}
+.isnight.rtl .post .post-body {
+    color: #666;
+}
+.isnight .image-gallery li a {
+    background-color: #fff;
+    border-color: #222;
+}
+.isnight .image-gallery .image-caption {
+    background-color: #444;
+    border-top: medium none;
+}
+.isnight #PostPager li {
+    border-color: transparent !important;
+}
+.isnight #PostPager li a {
+    color: #888;
+}
+.isnight #PostPager li a:hover {
+    color: #ccc;
+}
+.isnight #PostPager .PagerLinkCurrent {
+    background-color: transparent !important;
+    color: #ccc;
+}
+.isnight #PostPager .PagerLinkDisabled {
+    border-color: transparent !important;
+    color: #ccc;
+    padding: 0;
+}
+.isnight #relatedPosts {
+    background-color: #111;
+}
+.isnight #relatedPosts h3 {
+    border-bottom-color: #000;
+}
+.isnight #relatedPosts span {
+    color: #333;
+}
+.isnight .page-global, .isnight .well-global {
+    background-color: #111;
+}
+.isnight .page-global .page-global-title, .isnight .well-global .well-global-title {
+    border-bottom-color: #333;
+}
+.isnight input[type="text"], .isnight textarea {
+    background-color: #111;
+    border-color: #333;
+    max-width: 100%;
+}
+.isnight input[type="text"]:hover, .isnight textarea:hover, .isnight input[type="text"]:focus, .isnight textarea:focus {
+    border-color: #555;
+}
+.isnight .btn {
+    background-color: #111;
+    border-color: #333;
+}
+.isnight .archive-page table th {
+    background: none repeat scroll 0 0 #222;
+    border: 1px solid #222;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0.1875rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+.isnight .archive-page table td {
+    border: 1px solid #222;
+    font-size: 0.875rem;
+    padding: 0.1875rem;
+}
+.isnight .search-page .searchresult {
+    border-bottom-color: #333;
+}
+.isnight .search-page .searchresult span.text {
+    color: #444;
+}
+.isnight .search-page .searchresult span.url {
+    color: #444;
+}
+.isnight .footer {
+    background-color: #111;
+}
+.rtl .mode-toggle {
+    right: auto !important;
+}
+
+.isnight .tagcloud ul li A {
+     background-color: #111;
+
+}
