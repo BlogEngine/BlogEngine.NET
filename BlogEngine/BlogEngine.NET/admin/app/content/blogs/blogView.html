@@ -109,9 +109,9 @@
         <h2 class="page-title pull-left"> 
             {{lbl.blogs}}
         </h2>
-        <button data-ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
-        <div class="btn-group befdv pull-left">
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
+        <div>
+            <button ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
+            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm btn-hasicon pull-left"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

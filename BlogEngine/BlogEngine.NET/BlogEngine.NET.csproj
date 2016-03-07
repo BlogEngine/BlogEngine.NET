@@ -725,6 +725,8 @@
     <Content Include="Custom\Widgets\LinkList\edit.cshtml" />
     <Content Include="Custom\Widgets\LinkList\widget.cshtml" />
     <Content Include="Custom\Widgets\MonthList\widget.cshtml" />
+    <Content Include="Custom\Widgets\BlogRoll\widget.cshtml" />
+    <Content Include="Custom\Widgets\BlogRoll\edit.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -2118,6 +2120,7 @@
     <Compile Include="Custom\Themes\Standard-2015\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
+    <Compile Include="Custom\Widgets\BlogRoll\BlogRoll.cs" />
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
     <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />

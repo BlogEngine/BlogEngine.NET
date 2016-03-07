@@ -52,7 +52,7 @@ namespace BlogEngine.Core.Data
             bs.ShowPostNavigation = ns.ShowPostNavigation;
             bs.Culture = ns.Culture;
             bs.TimeZoneId = ns.TimeZoneId;
-            bs.RemoveExtensionsFromUrls = ns.RemoveExtensionsFromUrls;
+            //bs.RemoveExtensionsFromUrls = ns.RemoveExtensionsFromUrls;
             bs.RedirectToRemoveFileExtension = ns.RedirectToRemoveFileExtension;
             bs.Theme = ns.DesktopTheme;
 
@@ -163,7 +163,7 @@ namespace BlogEngine.Core.Data
             ns.ShowPostNavigation = bs.ShowPostNavigation;
             ns.Culture = bs.Culture;
             ns.TimeZoneId = string.IsNullOrEmpty(bs.TimeZoneId) ? "UTC" : bs.TimeZoneId;
-            ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
+            //ns.RemoveExtensionsFromUrls = bs.RemoveExtensionsFromUrls;
             ns.RedirectToRemoveFileExtension = bs.RedirectToRemoveFileExtension;
             ns.DesktopTheme = bs.Theme;
 

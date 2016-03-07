@@ -1101,9 +1101,10 @@
 
         /// <summary>
         ///     Gets or sets a value indicating if extensions (.aspx) should be removed from URLs
+        ///     -- always returns true to prepare for transition to MVC style routing
         /// </summary>
         /// <value><b>true</b> if should be removed, otherwise returns <b>false</b>.</value>
-        public bool RemoveExtensionsFromUrls { get; set; }
+        public bool RemoveExtensionsFromUrls { get { return true; } }
 
         #endregion
 

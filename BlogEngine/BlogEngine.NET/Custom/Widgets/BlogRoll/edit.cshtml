@@ -1,0 +1,206 @@
+﻿@using BlogEngine.NET.Custom.Widgets
+@using BlogEngine.Core
+@{
+    // check if edit exists, no need to process
+    if (Request.HttpMethod == "HEAD") { return; }
+    var br = new BlogRoll();
+
+    if (Request.Form["btnAdd"] != null || Request.Form["btnUpdate"] != null)
+    {
+        Validation.Add("txtTitle", Validator.Required("Field is required"));
+        Validation.Add("txtDesc", Validator.Required("Field is required"));
+        Validation.Add("txtWebsite", Validator.Required("Field is required"), Validator.Url("Field is URL"));
+        Validation.Add("txtUrl", Validator.Required("Field is required"), Validator.Url("Field is URL"));
+    }
+    var id = Request.Form["hdnId"];
+
+    if (IsPost)
+    {
+        if (Request.Form["btnAdd"] != null)
+        {
+            if (Validation.IsValid())
+            {
+                br.Add(Request.Form);
+                @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+            }
+            else
+            {
+                br.SaveForm(Request.Form);
+            }
+        }
+        else if (Request.Form["btnUpdate"] != null)
+        {
+            if (Validation.IsValid())
+            {
+                br.Update(Request.Form, id);
+                @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+            }
+            else
+            {
+                br.SaveForm(Request.Form);
+            }
+        }
+        else if (Request.Form["btnDelete"] != null)
+        {
+            br.Delete(id);
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+        }
+        else
+        {
+            // load form for update
+            if (!string.IsNullOrEmpty(id))
+            {
+                br = new BlogRoll(id);
+            }
+        }
+    }
+    var rolls = BlogRollItem.BlogRolls;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+    <style>
+        body { background-color: #fff; }
+        #cblXfn td { padding: 0 5px 0 0 !important; margin: 0 !important; }
+        #cblXfn label { margin-left: 5px !important; }
+        .fa-times { color: #e45252; }
+        .fa-pencil { color: #25811a;}
+        .links-row { margin: 0; border-bottom: 1px solid #ccc; }
+        .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
+    </style>
+</head>
+<body>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <form method="post" onsubmit="clearValidation()" id="frm" name="frm">
+        <div class="form-horizontal clearfix">
+            <div class="row links-row">
+
+                <div class="col-xs-6 col-md-6">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label>@Resources.labels.title</label>
+                            <input type="text" class="form-control" id="txtTitle" name="txtTitle" value="@br.Title" />
+                            @Html.ValidationMessage("txtTitle")
+                        </div>
+                        <div class="form-group">
+                            <label>@Resources.labels.website</label>
+                            <input type="text" class="form-control" id="txtWebsite" name="txtWebsite" value="@br.WebSite" />
+                            @Html.ValidationMessage("txtWebsite")
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label>@Resources.labels.description</label>
+                            <input type="text" class="form-control" id="txtDesc" name="txtDesc" value="@br.Description" />
+                            @Html.ValidationMessage("txtDesc")
+                        </div>
+                        <div class="form-group">
+                            <label>@Resources.labels.url</label>
+                            <input type="text" class="form-control" id="txtUrl" name="txtUrl" value="@br.FeedUrl" />
+                            @Html.ValidationMessage("txtUrl")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12" style="padding: 0 !important; margin-top: -10px">
+                    <label class="control-label">XFN tag</label>
+                    <table id="cblXfn" class="nowidth" border="0">
+                        <tbody>
+                            <tr>
+                                <td>@Html.CheckBox("cblXfn_0", br.Xfn.contact)<label for="cblXfn_0">contact</label></td>
+                                <td>@Html.CheckBox("cblXfn_1", br.Xfn.acquaintance)<label for="cblXfn_1">acquaintance </label></td>
+                                <td>@Html.CheckBox("cblXfn_2", br.Xfn.friend)<label for="cblXfn_2">friend </label></td>
+                                <td>@Html.CheckBox("cblXfn_3", br.Xfn.met)<label for="cblXfn_3">met</label></td>
+                                <td>@Html.CheckBox("cblXfn_4", br.Xfn.coworker)<label for="cblXfn_4">co-worker</label></td>
+                                <td>@Html.CheckBox("cblXfn_5", br.Xfn.colleague)<label for="cblXfn_5">colleague </label></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.CheckBox("cblXfn_6", br.Xfn.coresident)<label for="cblXfn_6">co-resident</label></td>
+                                <td>@Html.CheckBox("cblXfn_7", br.Xfn.neighbor)<label for="cblXfn_7">neighbor </label></td>
+                                <td>@Html.CheckBox("cblXfn_8", br.Xfn.child)<label for="cblXfn_8">child</label></td>
+                                <td>@Html.CheckBox("cblXfn_9", br.Xfn.parent)<label for="cblXfn_9">parent</label></td>
+                                <td>@Html.CheckBox("cblXfn_10", br.Xfn.sibling)<label for="cblXfn_10">sibling</label></td>
+                                <td>@Html.CheckBox("cblXfn_11", br.Xfn.spouse)<label for="cblXfn_11">spouse</label></td>
+                            </tr>
+                            <tr>
+                                <td>@Html.CheckBox("cblXfn_12", br.Xfn.kin)<label for="cblXfn_12">kin</label></td>
+                                <td>@Html.CheckBox("cblXfn_13", br.Xfn.muse)<label for="cblXfn_13">muse</label></td>
+                                <td>@Html.CheckBox("cblXfn_14", br.Xfn.crush)<label for="cblXfn_14">crush</label></td>
+                                <td>@Html.CheckBox("cblXfn_15", br.Xfn.date)<label for="cblXfn_15">date</label></td>
+                                <td>@Html.CheckBox("cblXfn_16", br.Xfn.sweetheart)<label for="cblXfn_16">sweetheart</label></td>
+                                <td>@Html.CheckBox("cblXfn_17", br.Xfn.me)<label for="cblXfn_17">me</label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-xs-12 col-md-12">
+                    <div class="form-group">
+                        @if (!string.IsNullOrEmpty(Request.Form["hdnId"]))
+                        {
+                        <button type="submit" id="btnUpdate" onclick="submitForm('@id')" name="btnUpdate" class="btn btn-success btn-sm pull-left">
+                            <i class="fa fa-check"></i>
+                        </button>
+                        <button type="submit" id="btnDelete" onclick="submitForm('@id')" name="btnDelete" class="btn btn-danger btn-sm pull-left">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button type="submit" id="btnCancel" name="btnCancel" class="btn btn-default btn-sm pull-left">
+                            <i class="fa fa-close"></i>
+                        </button>
+                        }
+                        else
+                        {
+                        <button type="submit" id="btnAdd" name="btnAdd" class="btn btn-success btn-sm pull-left">
+                            @Resources.labels.add
+                        </button>
+                        }
+                    </div>
+                </div> 
+                         
+            </div>
+        </div>      
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th width="30%">@Resources.labels.title</th>
+                    <th width="50%">@Resources.labels.description</th>
+                    <th width="20%">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var roll in rolls)
+                {
+                <tr>
+                    <td class="item-title">
+                        <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
+                        <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
+                    </td>
+                    <td>@roll.Description</td>
+                    <td>@roll.Xfn</td>
+                </tr>
+                }
+                @if (rolls == null || rolls.Count == 0)
+                {
+                <tr><td colspan="3">@Resources.labels.empty</td></tr>
+                }
+            </tbody>
+        </table>
+        <input type="hidden" id="hdnId" name="hdnId" value="" />
+    </form>   
+    <script>
+        var submitForm = function (id) {
+            $("#hdnId").val(id);
+            $("#frm").submit();
+        }
+        var clearValidation = function () {
+            $('.field-validation-error').hide();
+        }
+    </script>  
+</body>
+</html>
