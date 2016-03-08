@@ -1,6 +1,7 @@
 ﻿using BlogEngine.Core.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace BlogEngine.Core.Data.Services
@@ -24,7 +25,7 @@ namespace BlogEngine.Core.Data.Services
                 Title = post.Title,
                 Slug = post.Slug,
                 RelativeLink = post.RelativeLink,
-                DateCreated = post.DateCreated.ToString("yyyy-MM-dd HH:mm"),
+                DateCreated = post.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 Categories = GetCategories(post.Categories),
                 Tags = GetTags(post.Tags),
                 Comments = GetComments(post),
@@ -47,7 +48,7 @@ namespace BlogEngine.Core.Data.Services
                 Description = post.Description,
                 RelativeLink = post.RelativeLink,
                 Content = post.Content,
-                DateCreated = post.DateCreated.ToString("yyyy-MM-dd HH:mm"),
+                DateCreated = post.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 Categories = GetCategories(post.Categories),
                 Tags = GetTags(post.Tags),
                 Comments = GetComments(post),
@@ -81,7 +82,7 @@ namespace BlogEngine.Core.Data.Services
                 Slug = page.Slug,
                 Parent = parentOption,
                 Keywords = page.Keywords,
-                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm"),
+                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 HasChildren = page.HasChildPages,
                 IsPublished = page.IsPublished,
                 IsFrontPage = page.IsFrontPage,
@@ -114,7 +115,7 @@ namespace BlogEngine.Core.Data.Services
                 Parent = parentOption,
                 Description = page.Description,
                 Keywords = page.Keywords,
-                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm"),
+                DateCreated = page.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture),
                 HasChildren = page.HasChildPages,
                 IsPublished = page.IsPublished,
                 IsFrontPage = page.IsFrontPage,
@@ -138,7 +139,7 @@ namespace BlogEngine.Core.Data.Services
             jc.Email = c.Email == "trackback" ? "pingback" : c.Email;
             jc.Author = c.Author;
             jc.Title = c.Teaser.Length < 80 ? c.Teaser : c.Teaser.Substring(0, 80) + "...";
-            jc.DateCreated = c.DateCreated.ToString("yyyy-MM-dd HH:mm");
+            jc.DateCreated = c.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             jc.RelativeLink = c.RelativeLink;
             jc.HasChildren = postComments.Where(pc => pc.ParentId == c.Id).FirstOrDefault() != null;
             jc.Avatar = Gravatar(c);
