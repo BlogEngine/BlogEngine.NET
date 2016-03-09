@@ -2139,7 +2139,7 @@ namespace BlogEngine.Core.Providers
 
                         var p = cmd.Parameters;
                         p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
-                        p.Add(conn.CreateParameter(FormatParamName("type"), extensionType));
+                        p.Add(conn.CreateParameter(FormatParamName("type"), extensionType.GetHashCode()));
                         p.Add(conn.CreateParameter(FormatParamName("id"), extensionId));
 
                         cmd.ExecuteNonQuery();
