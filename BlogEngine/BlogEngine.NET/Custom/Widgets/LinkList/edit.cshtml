@@ -10,7 +10,7 @@
     var hdnId = "";
 
     var widgetId = Request.QueryString["id"];
-    var updateLink = BlogEngine.Core.Utils.RelativeOrAbsoluteWebRoot +
+    var updateLink = BlogEngine.Core.Utils.RelativeWebRoot +
         "Custom/Widgets/LinkList/edit.cshtml?id=" + widgetId;
     var settings = Common.GetSettings(widgetId);
     var linkList = new LinkList(widgetId);

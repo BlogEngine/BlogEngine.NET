@@ -173,21 +173,24 @@
                     <th width="20%">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var roll in rolls)
-                {
-                <tr>
-                    <td class="item-title">
-                        <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
-                        <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
-                    </td>
-                    <td>@roll.Description</td>
-                    <td>@roll.Xfn</td>
-                </tr>
-                }
+            <tbody>              
                 @if (rolls == null || rolls.Count == 0)
                 {
                 <tr><td colspan="3">@Resources.labels.empty</td></tr>
+                }
+                else
+                {
+                    foreach (var roll in rolls)
+                    {
+                    <tr>
+                        <td class="item-title">
+                            <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
+                            <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
+                        </td>
+                        <td>@roll.Description</td>
+                        <td>@roll.Xfn</td>
+                    </tr>
+                    }
                 }
             </tbody>
         </table>

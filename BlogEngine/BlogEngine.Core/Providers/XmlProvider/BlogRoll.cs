@@ -101,9 +101,13 @@
         public override void InsertBlogRollItem(BlogRollItem blogRollItem)
         {
             var blogRolls = BlogRollItem.BlogRolls;
+            if(blogRolls == null)
+            {
+                blogRolls = new List<BlogRollItem>();
+            }
             blogRolls.Add(blogRollItem);
 
-            this.WriteBlogRollFile(blogRolls);
+            WriteBlogRollFile(blogRolls);
         }
 
         /// <summary>

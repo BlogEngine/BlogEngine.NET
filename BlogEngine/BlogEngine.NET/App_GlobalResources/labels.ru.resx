@@ -1607,10 +1607,10 @@
     <value>Разрешить</value>
   </data>
   <data name="AllPostsBy" xml:space="preserve">
-    <value>Все запили</value>
+    <value>Все записи</value>
   </data>
   <data name="AllPostsTagged" xml:space="preserve">
-    <value>Все запили отмеченные как</value>
+    <value>Все записи отмеченные как</value>
   </data>
   <data name="anotherEmail" xml:space="preserve">
     <value>Пожалуйста выберите другой email адрес</value>

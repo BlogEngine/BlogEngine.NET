@@ -154,5 +154,29 @@ namespace BlogEngine.Core.Providers.CacheProvider
         {
             return _cache.Remove(_keyPrefix + key);
         }
+
+        /// <summary>
+        /// Reset cache provider
+        /// </summary>
+        public override void Reset()
+        {
+            var keys = new System.Collections.Specialized.StringCollection();
+            foreach (var item in _cache)
+            {
+                var x = (DictionaryEntry)item;
+                keys.Add(x.Key.ToString());
+            }
+            if (keys.Count > 0)
+            {
+                foreach (var key in keys)
+                {
+                    if (key.StartsWith(_keyPrefix))
+                    {
+                        // Utils.Log(key);
+                        _cache.Remove(key);
+                    }
+                }
+            }
+        }
     }
 }

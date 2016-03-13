@@ -79,6 +79,11 @@ namespace BlogEngine.Core.Providers.CacheProvider
         ///<returns></returns>
         public abstract object Remove(string key);
 
+        /// <summary>
+        /// Reset cache provider
+        /// </summary>
+        public abstract void Reset();
+
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

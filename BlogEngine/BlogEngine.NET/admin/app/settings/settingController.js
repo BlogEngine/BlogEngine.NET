@@ -105,6 +105,19 @@
         .error(function () { toastr.error($rootScope.lbl.failed); });
     }
 
+    $scope.clearCache = function () {
+        dataService.updateItem("/api/settings?action=clearCache", $scope.settings)
+        .success(function (data) {
+            if (data) {
+                toastr.error(data);
+            }
+            else {
+                toastr.success($rootScope.lbl.completed);
+            }
+        })
+        .error(function () { toastr.error($rootScope.lbl.failed); });
+    }
+
     $scope.loadTheme = function () {
         var theme = $("#selDesktopTheme option:selected").text();
         window.location.assign("#/shared/package?id=" + theme);

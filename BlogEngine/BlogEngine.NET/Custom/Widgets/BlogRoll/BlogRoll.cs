@@ -128,11 +128,14 @@ namespace BlogEngine.NET.Custom.Widgets
             br.Xfn = GetXfnString(form);
 
             int largestSortIndex = -1;
-            foreach (BlogRollItem brExisting in BlogRollItem.BlogRolls)
+            if(BlogRollItem.BlogRolls != null && BlogRollItem.BlogRolls.Count > 0)
             {
-                if (brExisting.SortIndex > largestSortIndex)
+                foreach (BlogRollItem brExisting in BlogRollItem.BlogRolls)
                 {
-                    largestSortIndex = brExisting.SortIndex;
+                    if (brExisting.SortIndex > largestSortIndex)
+                    {
+                        largestSortIndex = brExisting.SortIndex;
+                    }
                 }
             }
             br.SortIndex = largestSortIndex + 1;

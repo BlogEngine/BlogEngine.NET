@@ -38,6 +38,10 @@ public class SettingsController : ApiController
                 return Request.CreateResponse(HttpStatusCode.OK, retMsg);
             }
         }
+        else if(action == "clearCache")
+        {
+            BlogEngine.Core.Blog.CurrentInstance.Cache.Reset();
+        }
         else
         {
             repository.Update(settings);
