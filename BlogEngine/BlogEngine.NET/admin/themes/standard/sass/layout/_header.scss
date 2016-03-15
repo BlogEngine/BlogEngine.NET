@@ -214,7 +214,7 @@
             @include border-radius(3px);
             padding: 10px;
             width: 200px;
-            z-index:2;
+            z-index: 2;
 
             &:after {
                 content: "";
@@ -248,15 +248,16 @@
                 .dropdown-toggle {
                     width: 100%;
                     text-align: left;
-                    position:relative;
-                    z-index:2;
+                    position: relative;
+                    z-index: 2;
                 }
 
                 .dropdown-menu {
                     position: relative;
                     @include box-shadow(none);
-                    top:-3px;
-                    z-index:1;
+                    top: -3px;
+                    z-index: 1;
+
                     li {
                         a {
                             padding: 7px 10px;
@@ -264,10 +265,9 @@
                     }
                 }
             }
-
             //
-            &.active{
-                display:block;
+            &.active {
+                display: block;
             }
         }
     }

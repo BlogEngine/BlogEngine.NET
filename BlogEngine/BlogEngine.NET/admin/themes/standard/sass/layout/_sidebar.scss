@@ -11,7 +11,6 @@
         .nav-user-info {
             height: $sidebar-global-height;
             padding-left: $sidebar-global-height;
-            padding-right: $sidebar-global-height;
             border-bottom: 1px solid $color-base-dark;
 
             .nav-user-img {
@@ -67,30 +66,6 @@
                         font-size: 15px;
                     }
                 }
-            }
-        }
-        //
-        .nav-user-toggle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: $sidebar-global-height;
-            height: $sidebar-global-height;
-            background: none;
-            border: none;
-            outline: none;
-            padding: 0;
-
-            &:after {
-                position: absolute;
-                top: 27px;
-                left: 24px;
-                content: "";
-                @include triangle(down, 6px, #ccc);
-            }
-
-            &[aria-expanded="true"] {
-                @include transform(rotate(-180deg));
             }
         }
     }
