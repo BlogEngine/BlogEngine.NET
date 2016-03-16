@@ -1347,7 +1347,7 @@ namespace BlogEngine.Core.Providers
                                 page.Description = rdr.IsDBNull(2) ? String.Empty : rdr.GetString(2);
                                 if (!rdr.IsDBNull(4))
                                 {
-                                    page.DateCreated = BlogSettings.Instance.ToUtc(rdr.GetDateTime(4));
+                                    page.DateCreated = BlogSettings.Instance.FromUtc(rdr.GetDateTime(4));
                                 }
 
                                 if (!rdr.IsDBNull(5))
