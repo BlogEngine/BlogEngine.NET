@@ -1,71 +1,100 @@
 ﻿.custom-widgets-view {
-    .red-border {
-        border: 1px solid red !important;
+    .modal-body{
+    .input-group-btn {
+        .btn {
+            height: 40px;
+            width: 140px;
+        }
     }
-
-    #w-zones .panel-body {
-        padding: 10px 15px;
-        line-height: 30px;
+    iframe{
+        height:400px;
+        min-height:400px;
     }
-
-    .panel-primary {
-        margin-bottom: 5px;
-        cursor: move;
-    }
-
-    .modal .modal-body {
-        height: auto;
-    }
-
-    #settingsFrame {
-        height: 100%;
-        max-height: 500px;
-    }
-
-    .header-txt {
-        border: 1px solid #e5e5e5;
-        line-height: 32px;
-        margin-top: 10px 10px 0 0;
-        width: 400px;
-        padding: 0 10px;
-    }
-
-    .sortable-empty {
-        border: 3px dashed #b4b9be;
-        padding: 15px;
-    }
-
-    .field-validation-error {
-        background-color: #d9534f;
-        border-color: #d9534f;
-        color: #ffffff;
-        padding: 5px 15px;
-        display: block;
     }
 
     .content-inner {
-        max-width: 1024px;
+        .widgets-list {
+            @include list-unstyled();
+            margin-top: 20px;
+            margin-bottom: 20px;
 
-        .btn-group {
-            .btn {
-                margin: 0 !important;
+            li {
+                width: 100%;
+                background: #fff;
+                margin-bottom: 5px;
+                padding-left: 15px;
+                line-height: 40px;
+                border: 1px solid #ddd;
+                -moz-box-shadow: 0 1px 0 #eee !important;
+                -webkit-box-shadow: 0 1px 0 #eee !important;
+                box-shadow: 0 1px 0 #eee !important;
+                -moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+                border-radius: 3px;
+                font-weight: 400;
+                font-size: 14px;
+                height: 40px;
+                padding-left: 10px;
+                color: #444;
+                position: relative;
+                overflow: hidden;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .item-buttons {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: 2;
+                    width: 100px;
+
+                    button {
+                        width: 50px;
+                        background-color: #fff;
+                        border: none;
+                        border: none;
+                        display: block;
+                        height: 100%;
+                        line-height: 38px;
+                        text-align: center;
+                        float: left;
+                        text-transform: uppercase;
+                        border-left: 1px solid #eee;
+
+                        i {
+                            display: block;
+                            height: 100%;
+                            line-height: 36px;
+                        }
+
+                        &:hover {
+                            background-color: #eee;
+                        }
+                    }
+                }
             }
 
-            .btn-default {
-                border-right: none;
+            .sortable-empty {
+                background: none;
+                @include box-shadow(none !important);
+                border: none;
+                @include border-radius(0);
+                text-align: center;
             }
         }
 
-        h3 {
-            margin-bottom: 25px;
+        .widgets-list-active {
+            border: 1px dashed #aaa;
+            padding: 10px;
         }
 
-        .ui-draggable {
-            width: 100%;
-        }
-
-        .ui-draggable-dragging {
-            z-index: 10000;
+        .ui-sortable-placeholder {
+            visibility: visible !important;
+            background: none !important;
+            @include box-shadow(none !important);
+            border: 1px dashed #aaa !important;
         }
     }
 }
