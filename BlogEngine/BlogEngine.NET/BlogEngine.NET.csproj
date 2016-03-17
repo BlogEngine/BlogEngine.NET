@@ -727,6 +727,7 @@
     <Content Include="Custom\Widgets\MonthList\widget.cshtml" />
     <Content Include="Custom\Widgets\BlogRoll\widget.cshtml" />
     <Content Include="Custom\Widgets\BlogRoll\edit.cshtml" />
+    <Content Include="admin\themes\standard\sass\pages\custom\_widgets.scss" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
