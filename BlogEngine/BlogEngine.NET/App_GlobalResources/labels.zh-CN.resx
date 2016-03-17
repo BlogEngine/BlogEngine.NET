@@ -731,7 +731,7 @@
   </data>
   <data name="timezone" xml:space="preserve">
     <value>服务器时区</value>
-    <comment>Server time offset</comment>
+    <comment>Timezone</comment>
   </data>
   <data name="title" xml:space="preserve">
     <value>标题</value>

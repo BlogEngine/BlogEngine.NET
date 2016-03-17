@@ -533,7 +533,7 @@
     <value>Voeg datum by pos skakel in</value>
   </data>
   <data name="timezone" xml:space="preserve">
-    <value>Server time offset</value>
+    <value>Timezone</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>Tietel</value>

@@ -581,7 +581,7 @@
     <value>Add date to post links</value>
   </data>
   <data name="timezone" xml:space="preserve">
-    <value>Server time offset</value>
+    <value>Timezone</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>Naslov</value>

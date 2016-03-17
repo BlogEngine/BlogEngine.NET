@@ -923,8 +923,8 @@
     <comment>Add date to post links</comment>
   </data>
   <data name="timezone" xml:space="preserve">
-    <value>Server time offset</value>
-    <comment>Server time offset</comment>
+    <value>Timezone</value>
+    <comment>Timezone</comment>
   </data>
   <data name="title" xml:space="preserve">
     <value>Tiêu đề</value>

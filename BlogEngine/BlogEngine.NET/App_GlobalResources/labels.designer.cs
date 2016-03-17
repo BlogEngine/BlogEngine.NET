@@ -6434,7 +6434,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server time offset.
+        ///   Looks up a localized string similar to Timezone.
         /// </summary>
         internal static string timezone {
             get {
