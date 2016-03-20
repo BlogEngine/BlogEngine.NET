@@ -208,7 +208,8 @@
                 }
 
                 // assume blog roll = friends
-                foreach (var br in BlogRollItem.BlogRolls)
+                var blogroll = new Data.ViewModels.BlogRollVM();
+                foreach (var br in blogroll.BlogRolls)
                 {
                     var title = br.Title;
                     var url = br.BlogUrl.ToString();

@@ -118,6 +118,7 @@
     <Compile Include="Data\Contracts\IWidgetsRepository.cs" />
     <Compile Include="Data\Contracts\IDashboardRepository.cs" />
     <Compile Include="Data\Services\TagCloud.cs" />
+    <Compile Include="Data\ViewModels\BlogRollVM.cs" />
     <Compile Include="Data\WidgetsRepository.cs" />
     <Compile Include="Data\DashboardRepository.cs" />
     <Compile Include="Data\Models\EditorOptions.cs" />

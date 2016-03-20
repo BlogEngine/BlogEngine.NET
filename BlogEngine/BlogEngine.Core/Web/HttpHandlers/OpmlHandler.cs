@@ -57,7 +57,8 @@
                 // open BODY
                 writer.WriteStartElement("body");
 
-                foreach (var br in BlogRollItem.BlogRolls)
+                var blogroll = new Data.ViewModels.BlogRollVM();
+                foreach (var br in blogroll.BlogRolls)
                 {
                     // open OUTLINE
                     writer.WriteStartElement("outline");

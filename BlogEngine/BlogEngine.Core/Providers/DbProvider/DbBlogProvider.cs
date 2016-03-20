@@ -1543,7 +1543,6 @@ namespace BlogEngine.Core.Providers
                                 };
 
                                 blogRoll.Add(br);
-                                br.MarkOld();
                             }
                         }
                     }
@@ -1564,9 +1563,7 @@ namespace BlogEngine.Core.Providers
         /// </returns>
         public override BlogRollItem SelectBlogRollItem(Guid id)
         {
-            var blogRoll = BlogRollItem.BlogRolls.Find(br => br.Id == id) ?? new BlogRollItem();
-
-            blogRoll.MarkOld();
+            var blogRoll = FillBlogRoll().Find(br => br.Id == id) ?? new BlogRollItem();
             return blogRoll;
         }
 
@@ -1578,19 +1575,19 @@ namespace BlogEngine.Core.Providers
         /// </param>
         public override void InsertBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRolls = BlogRollItem.BlogRolls;
+            var blogRolls = FillBlogRoll();
             blogRolls.Add(blogRollItem);
 
-            using (var conn = this.CreateConnection())
+            using (var conn = CreateConnection())
             {
                 if (conn.HasConnection)
                 {
 
-                    var sqlQuery = string.Format("INSERT INTO {0}BlogRollItems (BlogId, BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex) VALUES ({1}BlogId, {1}BlogRollId, {1}Title, {1}Description, {1}BlogUrl, {1}FeedUrl, {1}Xfn, {1}SortIndex)", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("INSERT INTO {0}BlogRollItems (BlogId, BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex) VALUES ({1}BlogId, {1}BlogRollId, {1}Title, {1}Description, {1}BlogUrl, {1}FeedUrl, {1}Xfn, {1}SortIndex)", tablePrefix, parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
-                        this.AddBlogRollParametersToCommand(blogRollItem, conn, cmd);
+                        AddBlogRollParametersToCommand(blogRollItem, conn, cmd);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -1605,19 +1602,19 @@ namespace BlogEngine.Core.Providers
         /// </param>
         public override void UpdateBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRolls = BlogRollItem.BlogRolls;
+            var blogRolls = FillBlogRoll();
             blogRolls.Remove(blogRollItem);
             blogRolls.Add(blogRollItem);
 
-            using (var conn = this.CreateConnection())
+            using (var conn = CreateConnection())
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("UPDATE {0}BlogRollItems SET Title = {1}Title, Description = {1}Description, BlogUrl = {1}BlogUrl, FeedUrl = {1}FeedUrl, Xfn = {1}Xfn, SortIndex = {1}SortIndex WHERE BlogId = {1}BlogId AND BlogRollId = {1}BlogRollId", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("UPDATE {0}BlogRollItems SET Title = {1}Title, Description = {1}Description, BlogUrl = {1}BlogUrl, FeedUrl = {1}FeedUrl, Xfn = {1}Xfn, SortIndex = {1}SortIndex WHERE BlogId = {1}BlogId AND BlogRollId = {1}BlogRollId", tablePrefix, parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
-                        this.AddBlogRollParametersToCommand(blogRollItem, conn, cmd);
+                        AddBlogRollParametersToCommand(blogRollItem, conn, cmd);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -1632,15 +1629,15 @@ namespace BlogEngine.Core.Providers
         /// </param>
         public override void DeleteBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRolls = BlogRollItem.BlogRolls;
+            var blogRolls = FillBlogRoll();
             blogRolls.Remove(blogRollItem);
             blogRolls.Add(blogRollItem);
 
-            using (var conn = this.CreateConnection())
+            using (var conn = CreateConnection())
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("DELETE FROM {0}BlogRollItems WHERE BlogId = {1}BlogId AND BlogRollId = {1}BlogRollId", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("DELETE FROM {0}BlogRollItems WHERE BlogId = {1}BlogId AND BlogRollId = {1}BlogRollId", tablePrefix, parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {

@@ -125,8 +125,9 @@
         private static Dictionary<string, string> CreateLinkList()
         {
             var dic = new Dictionary<string, string>();
+            var blogroll = new Data.ViewModels.BlogRollVM();
 
-            foreach (var br in BlogRollItem.BlogRolls)
+            foreach (var br in blogroll.BlogRolls)
             {
                 var title = br.Title;
                 var website = br.BlogUrl.ToString();

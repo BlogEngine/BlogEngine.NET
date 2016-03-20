@@ -26,9 +26,8 @@
         /// </param>
         public override void DeleteBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRoll = BlogRollItem.BlogRolls;
-            blogRoll.Remove(blogRollItem);
-            this.WriteBlogRollFile(blogRoll);
+            var blogRolls = FillBlogRoll().Where(r => r.Id != blogRollItem.Id).ToList();
+            WriteBlogRollFile(blogRolls);
         }
 
         /// <summary>
@@ -39,39 +38,29 @@
         /// </returns>
         public override List<BlogRollItem> FillBlogRoll()
         {
-            var fileName = this.Folder + "blogroll.xml";
+            var fileName = Folder + "blogroll.xml";
             if (!File.Exists(fileName))
-            {
                 return null;
-            }
 
             var doc = new XmlDocument();
             doc.Load(fileName);
             var blogRoll = new List<BlogRollItem>();
 
             var largestSortIndex = -1;
-            var legacyFormat = false;
             var nodes = doc.SelectNodes("blogRoll/item");
             if (nodes != null)
             {
-                if (nodes.Count == 0)
-                {
-                    // legacy file format.
-                    nodes = doc.SelectNodes("opml/body/outline");
-                    legacyFormat = true;
-                }
-
                 foreach (var br in from XmlNode node in nodes
-                                   select new BlogRollItem
-                                       {
-                                           Id = node.Attributes["id"] == null ? Guid.NewGuid() : new Guid(node.Attributes["id"].InnerText),
-                                           Title = node.Attributes["title"] == null ? null : node.Attributes["title"].InnerText,
-                                           Description = node.Attributes["description"] == null ? null : node.Attributes["description"].InnerText,
-                                           BlogUrl = node.Attributes["htmlUrl"] == null ? null : new Uri(node.Attributes["htmlUrl"].InnerText),
-                                           FeedUrl = node.Attributes["xmlUrl"] == null ? null : new Uri(node.Attributes["xmlUrl"].InnerText), 
-                                           Xfn = node.Attributes["xfn"] == null ? null : node.Attributes["xfn"].InnerText,
-                                           SortIndex = node.Attributes["sortIndex"] == null ? (blogRoll.Count == 0 ? 0 : largestSortIndex + 1) : int.Parse(node.Attributes["sortIndex"].InnerText)
-                                       })
+                    select new BlogRollItem
+                    {
+                        Id = node.Attributes["id"] == null ? Guid.NewGuid() : new Guid(node.Attributes["id"].InnerText),
+                        Title = node.Attributes["title"] == null ? null : node.Attributes["title"].InnerText,
+                        Description = node.Attributes["description"] == null ? null : node.Attributes["description"].InnerText,
+                        BlogUrl = node.Attributes["htmlUrl"] == null ? null : new Uri(node.Attributes["htmlUrl"].InnerText),
+                        FeedUrl = node.Attributes["xmlUrl"] == null ? null : new Uri(node.Attributes["xmlUrl"].InnerText), 
+                        Xfn = node.Attributes["xfn"] == null ? null : node.Attributes["xfn"].InnerText,
+                        SortIndex = node.Attributes["sortIndex"] == null ? (blogRoll.Count == 0 ? 0 : largestSortIndex + 1) : int.Parse(node.Attributes["sortIndex"].InnerText)
+                    })
                 {
                     if (br.SortIndex > largestSortIndex)
                     {
@@ -79,16 +68,8 @@
                     }
 
                     blogRoll.Add(br);
-                    br.MarkOld();
                 }
             }
-
-            if (legacyFormat && blogRoll.Count > 0)
-            {
-                // if we're upgrading from a legacy format, re-write the file to conform to the new format.
-                this.WriteBlogRollFile(blogRoll);
-            }
-
             return blogRoll;
         }
 
@@ -100,13 +81,13 @@
         /// </param>
         public override void InsertBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRolls = BlogRollItem.BlogRolls;
+            var blogRolls = FillBlogRoll();
             if(blogRolls == null)
             {
                 blogRolls = new List<BlogRollItem>();
             }
-            blogRolls.Add(blogRollItem);
 
+            blogRolls.Add(blogRollItem);
             WriteBlogRollFile(blogRolls);
         }
 
@@ -121,9 +102,7 @@
         /// </returns>
         public override BlogRollItem SelectBlogRollItem(Guid id)
         {
-            var blogRoll = BlogRollItem.BlogRolls.Find(br => br.Id == id) ?? new BlogRollItem();
-
-            blogRoll.MarkOld();
+            var blogRoll = FillBlogRoll().Find(br => br.Id == id) ?? new BlogRollItem();
             return blogRoll;
         }
 
@@ -135,10 +114,29 @@
         /// </param>
         public override void UpdateBlogRollItem(BlogRollItem blogRollItem)
         {
-            var blogRolls = BlogRollItem.BlogRolls;
-            blogRolls.Remove(blogRollItem);
-            blogRolls.Add(blogRollItem);
-            this.WriteBlogRollFile(blogRolls);
+            var blogRolls = FillBlogRoll();
+            if (blogRolls == null || blogRolls.Count < 1)
+            {
+                blogRolls = new List<BlogRollItem>();
+                blogRolls.Add(blogRollItem);
+            }
+            else
+            {
+                foreach (var br in blogRolls)
+                {
+                    if(br.Id == blogRollItem.Id)
+                    {
+                        br.Title = blogRollItem.Title;
+                        br.BlogUrl = blogRollItem.BlogUrl;
+                        br.Description = blogRollItem.Description;
+                        br.FeedUrl = blogRollItem.FeedUrl;
+                        br.SortIndex = blogRollItem.SortIndex;
+                        br.Xfn = blogRollItem.Xfn;
+                        break;
+                    }
+                }
+            }
+            WriteBlogRollFile(blogRolls);
         }
 
         #endregion
@@ -173,7 +171,6 @@
                     writer.WriteAttributeString("xfn", br.Xfn ?? string.Empty);
                     writer.WriteAttributeString("sortIndex", br.SortIndex.ToString());
                     writer.WriteEndElement();
-                    br.MarkOld();
                 }
 
                 writer.WriteEndElement();

@@ -1059,6 +1059,7 @@
 
             var zone = string.IsNullOrEmpty(Instance.TimeZoneId) ? "UTC" : Instance.TimeZoneId;
             var tz = TimeZoneInfo.FindSystemTimeZoneById(zone);
+            localTime = DateTime.SpecifyKind(localTime.Value, DateTimeKind.Unspecified);
 
             return TimeZoneInfo.ConvertTimeToUtc(localTime.Value, tz);
         }

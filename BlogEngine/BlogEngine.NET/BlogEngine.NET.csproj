@@ -1877,7 +1877,6 @@
     <Compile Include="AppCode\Api\UnhandledExceptionLogger.cs" />
     <Compile Include="AppCode\Api\UploadController.cs" />
     <Compile Include="AppCode\Api\UsersController.cs" />
-    <Compile Include="AppCode\Controls\Blogroll.cs" />
     <Compile Include="AppCode\Controls\MobileThemeSwitch.cs" />
     <Compile Include="AppCode\Controls\MonthList.cs" />
     <Compile Include="AppCode\Controls\PageMenu.cs" />
@@ -2121,7 +2120,6 @@
     <Compile Include="Custom\Themes\Standard-2015\site.master.designer.cs">
       <DependentUpon>site.master</DependentUpon>
     </Compile>
-    <Compile Include="Custom\Widgets\BlogRoll\BlogRoll.cs" />
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
     <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />
