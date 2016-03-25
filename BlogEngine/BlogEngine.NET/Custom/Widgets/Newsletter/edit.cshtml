@@ -3,7 +3,7 @@
     if (IsPost)
     {
         var emailToDelete = Request.Form["hdnEmail"].Trim();
-        if(emailToDelete.Length > 0)
+        if (emailToDelete.Length > 0)
         {
             Newsletter.RemoveEmail(emailToDelete);
         }
@@ -14,12 +14,7 @@
 <head>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
-    <style>
-        body { background-color: #fff; }
-        .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
-        .email-delete { padding: 2px 20px 2px 2px }
-        .email-row { display: block; padding: 3px 0; border-bottom: 1px solid #e5e5e5; }
-    </style>
+
     <script>
         var deleteEmail = function (email) {
             document.getElementById("hdnEmail").value = email;
@@ -27,24 +22,23 @@
         }
     </script>
 </head>
-<body>
-    <form id="frmNewsletter" name="frmNewsletter" method="post">
-        <div class="form-group">
-            <h3>Subscriptions</h3>
-            @foreach (var email in Newsletter.LoadEmails())
-            {
-            <div class="email-row">
-                <a href="" onclick="deleteEmail('@email')" class="email-delete">@Resources.labels.delete</a>
-                <span>@email</span>
+<body class="widget-edit">
+    <div class="widget-edit-newsletter">
+        <form id="frmNewsletter" name="frmNewsletter" method="post">
+            <div class="form-group">
+                <h4>Subscriptions</h4>
+                <ul class="list-group">
+                    @foreach (var email in Newsletter.LoadEmails())
+                    {
+                        <li class="list-group-item"><span>@email</span> <button onclick="deleteEmail('@email')" class=" btn btn-danger btn-sm pull-right email-delete">@Resources.labels.delete</button></li>
+                    }
+                </ul>
             </div>
-            }
-        </div>
-        <div>
-            <button type="submit" class="btn btn-success btn-sm pull-left">
+            <button type="submit" class="btn btn-success">
                 @Resources.labels.save
             </button>
-        </div>
-        <input type="hidden" id="hdnEmail" name="hdnEmail" />
-    </form>
+            <input type="hidden" id="hdnEmail" name="hdnEmail" />
+        </form>
+    </div>
 </body>
 </html>

@@ -27,7 +27,8 @@
             settings["showdesc"] = Request.Form["cbShowDesc"] == "on" ? "true" : "false";
             settings["showdate"] = Request.Form["cbShowDate"] == "on" ? "true" : "false";
             Common.SaveSettings(settings, widgetId);
-            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+            @:
+            <script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
     }
     if (settings != null && settings.Count > 0)
@@ -62,48 +63,51 @@
     };
 
 }
-<link rel="stylesheet" href="~/Content/bootstrap.min.css">
-<link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
-<style>
-    body { background-color: #fff; }
-    .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
-</style>
-<form method="post">
-    <div class="form-group">
-        <label for="txtNumberOfPosts">@Resources.labels.numberOfPosts</label>
-        @Html.TextBox("txtNumberOfPosts", numberOfPosts, new { @class = "form-control" })
-        @Html.ValidationMessage("txtNumberOfPosts")
-    </div>
-    <div class="form-group">
-        <label for="ddlCategories">@Resources.labels.category</label>
-        @Html.DropDownList("ddlCategories", catList, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label for="ddlAuthors">@Resources.labels.author</label>
-        @Html.DropDownList("ddlAuthors", authorList, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label for="ddlSortBy">@Resources.labels.sortOrder</label>
-        @Html.DropDownList("ddlSortBy", orderList, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        <label>
-            @Html.CheckBox("cbShowImg", showImg) Display first image as thumbnail
-        </label>
-    </div>
-    <div class="form-group">
-        <label>
-            @Html.CheckBox("cbShowDesc", showDesc) Display post description
-        </label>
-    </div>
-    <div class="form-group">
-        <label>
-            @Html.CheckBox("cbShowDate", showDate) Display date published
-        </label>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-success btn-sm pull-left">
-            @Resources.labels.save
-        </button>
-    </div>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+</head>
+<body class="widget-edit">
+    <form method="post">
+        <div class="form-group">
+            <label for="txtNumberOfPosts">@Resources.labels.numberOfPosts</label>
+            @Html.TextBox("txtNumberOfPosts", numberOfPosts, new { @class = "form-control" })
+            @Html.ValidationMessage("txtNumberOfPosts")
+        </div>
+        <div class="form-group">
+            <label for="ddlCategories">@Resources.labels.category</label>
+            @Html.DropDownList("ddlCategories", catList, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="ddlAuthors">@Resources.labels.author</label>
+            @Html.DropDownList("ddlAuthors", authorList, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="ddlSortBy">@Resources.labels.sortOrder</label>
+            @Html.DropDownList("ddlSortBy", orderList, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>
+                @Html.CheckBox("cbShowImg", showImg) Display first image as thumbnail
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                @Html.CheckBox("cbShowDesc", showDesc) Display post description
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                @Html.CheckBox("cbShowDate", showDate) Display date published
+            </label>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">
+                @Resources.labels.save
+            </button>
+        </div>
+    </form>
+</body>
+</html>

@@ -21,7 +21,8 @@
             if (Validation.IsValid())
             {
                 vm.Add(Request.Form);
-                @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+                @:
+                <script type="text/javascript">window.parent.toastr.success("Completed");</script>
             }
             else
             {
@@ -33,7 +34,8 @@
             if (Validation.IsValid())
             {
                 vm.Update(Request.Form, id);
-                @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+                @:
+                <script type="text/javascript">window.parent.toastr.success("Completed");</script>
             }
             else
             {
@@ -43,7 +45,8 @@
         else if (Request.Form["btnDelete"] != null)
         {
             vm.Delete(id);
-            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+            @:
+            <script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
         else
         {
@@ -62,142 +65,116 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/font-awesome.min.css">
     <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
-    <style>
-        body { background-color: #fff; }
-        #cblXfn td { padding: 0 5px 0 0 !important; margin: 0 !important; }
-        #cblXfn label { margin-left: 5px !important; }
-        .fa-times { color: #e45252; }
-        .fa-pencil { color: #25811a;}
-        .links-row { margin: 0; border-bottom: 1px solid #ccc; }
-        .field-validation-error { background-color: #d9534f; border-color: #d9534f; color: #fff; padding: 5px 15px; display: block; }
-    </style>
 </head>
-<body>
+<body class="widget-edit">
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
-    <form method="post" onsubmit="clearValidation()" id="frm" name="frm">
-        <div class="form-horizontal clearfix">
-            <div class="row links-row">
-
-                <div class="col-xs-6 col-md-6">
-                    <div class="form-content">
-                        <div class="form-group">
-                            <label>@Resources.labels.title</label>
-                            <input type="text" class="form-control" id="txtTitle" name="txtTitle" value="@br.Title" />
-                            @Html.ValidationMessage("txtTitle")
-                        </div>
-                        <div class="form-group">
-                            <label>@Resources.labels.website</label>
-                            <input type="text" class="form-control" id="txtWebsite" name="txtWebsite" value="@br.BlogUrl" />
-                            @Html.ValidationMessage("txtWebsite")
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-6">
-                    <div class="form-content">
-                        <div class="form-group">
-                            <label>@Resources.labels.description</label>
-                            <input type="text" class="form-control" id="txtDesc" name="txtDesc" value="@br.Description" />
-                            @Html.ValidationMessage("txtDesc")
-                        </div>
-                        <div class="form-group">
-                            <label>@Resources.labels.url</label>
-                            <input type="text" class="form-control" id="txtUrl" name="txtUrl" value="@br.FeedUrl" />
-                            @Html.ValidationMessage("txtUrl")
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-md-12" style="padding: 0 !important; margin-top: -10px">
-                    <label class="control-label">XFN tag</label>
-                    <table id="cblXfn" class="nowidth" border="0">
-                        <tbody>
-                            <tr>
-                                <td>@Html.CheckBox("cblXfn_0", br.Xfn.Contains("contact"))<label for="cblXfn_0">contact</label></td>
-                                <td>@Html.CheckBox("cblXfn_1", br.Xfn.Contains("acquaintance"))<label for="cblXfn_1">acquaintance </label></td>
-                                <td>@Html.CheckBox("cblXfn_2", br.Xfn.Contains("friend"))<label for="cblXfn_2">friend </label></td>
-                                <td>@Html.CheckBox("cblXfn_3", br.Xfn.Contains("met"))<label for="cblXfn_3">met</label></td>
-                                <td>@Html.CheckBox("cblXfn_4", br.Xfn.Contains("coworker"))<label for="cblXfn_4">co-worker</label></td>
-                            </tr>
-                            <tr>
-                                <td>@Html.CheckBox("cblXfn_5", br.Xfn.Contains("colleague"))<label for="cblXfn_5">colleague </label></td>
-                                <td>@Html.CheckBox("cblXfn_6", br.Xfn.Contains("coresident"))<label for="cblXfn_6">co-resident</label></td>
-                                <td>@Html.CheckBox("cblXfn_7", br.Xfn.Contains("neighbor"))<label for="cblXfn_7">neighbor </label></td>
-                                <td>@Html.CheckBox("cblXfn_8", br.Xfn.Contains("child"))<label for="cblXfn_8">child</label></td>
-                                <td>@Html.CheckBox("cblXfn_9", br.Xfn.Contains("parent"))<label for="cblXfn_9">parent</label></td>
-                            </tr>
-                            <tr>
-                                <td>@Html.CheckBox("cblXfn_10", br.Xfn.Contains("sibling"))<label for="cblXfn_10">sibling</label></td>
-                                <td>@Html.CheckBox("cblXfn_11", br.Xfn.Contains("spouse"))<label for="cblXfn_11">spouse</label></td>
-                                <td>@Html.CheckBox("cblXfn_12", br.Xfn.Contains("kin"))<label for="cblXfn_12">kin</label></td>
-                                <td>@Html.CheckBox("cblXfn_13", br.Xfn.Contains("muse"))<label for="cblXfn_13">muse</label></td>
-                                <td>@Html.CheckBox("cblXfn_14", br.Xfn.Contains("crush"))<label for="cblXfn_14">crush</label></td>
-                            </tr>
-                            <tr>
-                                <td>@Html.CheckBox("cblXfn_15", br.Xfn.Contains("date"))<label for="cblXfn_15">date</label></td>
-                                <td>@Html.CheckBox("cblXfn_16", br.Xfn.Contains("sweetheart"))<label for="cblXfn_16">sweetheart</label></td>
-                                <td colspan="3">@Html.CheckBox("cblXfn_17", br.Xfn.Contains("me"))<label for="cblXfn_17">me</label></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="col-xs-12 col-md-12">
-                    <div class="form-group">
-                        @if (!string.IsNullOrEmpty(Request.Form["hdnId"]))
-                        {
-                        <button type="submit" id="btnUpdate" onclick="submitForm('@id')" name="btnUpdate" class="btn btn-success btn-sm pull-left">
-                            <i class="fa fa-check"></i>
-                        </button>
-                        <button type="submit" id="btnDelete" onclick="submitForm('@id')" name="btnDelete" class="btn btn-danger btn-sm pull-left">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                        <button type="submit" id="btnCancel" name="btnCancel" class="btn btn-default btn-sm pull-left">
-                            <i class="fa fa-close"></i>
-                        </button>
-                        }
-                        else
-                        {
-                        <button type="submit" id="btnAdd" name="btnAdd" class="btn btn-success btn-sm pull-left">
-                            @Resources.labels.add
-                        </button>
-                        }
-                    </div>
-                </div> 
-                         
+    <div class="widget-edit-blogroll">
+        <form method="post" onsubmit="clearValidation()" id="frm" name="frm">
+            <div class="form-group">
+                <label>@Resources.labels.title</label>
+                <input type="text" class="form-control" id="txtTitle" name="txtTitle" value="@br.Title" />
+                @Html.ValidationMessage("txtTitle")
             </div>
-        </div>      
+            <div class="form-group">
+                <label>@Resources.labels.website</label>
+                <input type="text" class="form-control" id="txtWebsite" name="txtWebsite" value="@br.BlogUrl" />
+                @Html.ValidationMessage("txtWebsite")
+            </div>
+            <div class="form-group">
+                <label>@Resources.labels.description</label>
+                <input type="text" class="form-control" id="txtDesc" name="txtDesc" value="@br.Description" />
+                @Html.ValidationMessage("txtDesc")
+            </div>
+            <div class="form-group">
+                <label>@Resources.labels.url</label>
+                <input type="text" class="form-control" id="txtUrl" name="txtUrl" value="@br.FeedUrl" />
+                @Html.ValidationMessage("txtUrl")
+            </div>
+            <label class="control-label">XFN tag</label>
+            <table id="cblXfn" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                    <tr>
+                        <td>@Html.CheckBox("cblXfn_0", br.Xfn.Contains("contact"))<label for="cblXfn_0">contact</label></td>
+                        <td>@Html.CheckBox("cblXfn_1", br.Xfn.Contains("acquaintance"))<label for="cblXfn_1">acquaintance </label></td>
+                        <td>@Html.CheckBox("cblXfn_2", br.Xfn.Contains("friend"))<label for="cblXfn_2">friend </label></td>
+                        <td>@Html.CheckBox("cblXfn_3", br.Xfn.Contains("met"))<label for="cblXfn_3">met</label></td>
+                        <td>@Html.CheckBox("cblXfn_4", br.Xfn.Contains("coworker"))<label for="cblXfn_4">co-worker</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.CheckBox("cblXfn_5", br.Xfn.Contains("colleague"))<label for="cblXfn_5">colleague </label></td>
+                        <td>@Html.CheckBox("cblXfn_6", br.Xfn.Contains("coresident"))<label for="cblXfn_6">co-resident</label></td>
+                        <td>@Html.CheckBox("cblXfn_7", br.Xfn.Contains("neighbor"))<label for="cblXfn_7">neighbor </label></td>
+                        <td>@Html.CheckBox("cblXfn_8", br.Xfn.Contains("child"))<label for="cblXfn_8">child</label></td>
+                        <td>@Html.CheckBox("cblXfn_9", br.Xfn.Contains("parent"))<label for="cblXfn_9">parent</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.CheckBox("cblXfn_10", br.Xfn.Contains("sibling"))<label for="cblXfn_10">sibling</label></td>
+                        <td>@Html.CheckBox("cblXfn_11", br.Xfn.Contains("spouse"))<label for="cblXfn_11">spouse</label></td>
+                        <td>@Html.CheckBox("cblXfn_12", br.Xfn.Contains("kin"))<label for="cblXfn_12">kin</label></td>
+                        <td>@Html.CheckBox("cblXfn_13", br.Xfn.Contains("muse"))<label for="cblXfn_13">muse</label></td>
+                        <td>@Html.CheckBox("cblXfn_14", br.Xfn.Contains("crush"))<label for="cblXfn_14">crush</label></td>
+                    </tr>
+                    <tr>
+                        <td>@Html.CheckBox("cblXfn_15", br.Xfn.Contains("date"))<label for="cblXfn_15">date</label></td>
+                        <td>@Html.CheckBox("cblXfn_16", br.Xfn.Contains("sweetheart"))<label for="cblXfn_16">sweetheart</label></td>
+                        <td colspan="3">@Html.CheckBox("cblXfn_17", br.Xfn.Contains("me"))<label for="cblXfn_17">me</label></td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th width="30%">@Resources.labels.title</th>
-                    <th width="50%">@Resources.labels.description</th>
-                    <th width="20%">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
-                </tr>
-            </thead>
-            <tbody>              
-                @if (rolls == null || rolls.Count == 0)
+            <div class="form-group">
+                @if (!string.IsNullOrEmpty(Request.Form["hdnId"]))
                 {
-                <tr><td colspan="3">@Resources.labels.empty</td></tr>
+                    <button type="submit" id="btnUpdate" onclick="submitForm('@id')" name="btnUpdate" class="btn btn-success">
+                        <i class="fa fa-check"></i>
+                    </button>
+                    <button type="submit" id="btnDelete" onclick="submitForm('@id')" name="btnDelete" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                    <button type="submit" id="btnCancel" name="btnCancel" class="btn btn-default">
+                        <i class="fa fa-close"></i>
+                    </button>
                 }
                 else
                 {
-                    foreach (var roll in rolls)
-                    {
-                    <tr>
-                        <td class="item-title">
-                            <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
-                            <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
-                        </td>
-                        <td>@roll.Description</td>
-                        <td>@roll.Xfn</td>
-                    </tr>
-                    }
+                    <button type="submit" id="btnAdd" name="btnAdd" class="btn btn-success">
+                        @Resources.labels.add
+                    </button>
                 }
-            </tbody>
-        </table>
-        <input type="hidden" id="hdnId" name="hdnId" value="" />
-    </form>   
+            </div>
+            <hr />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="30%">@Resources.labels.title</th>
+                        <th width="50%">@Resources.labels.description</th>
+                        <th width="20%">XFN <a href="http://gmpg.org/xfn/intro" title="XFN" target="_blank"><i class="fa fa-info-circle"></i></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (rolls == null || rolls.Count == 0)
+                    {
+                        <tr><td colspan="3">@Resources.labels.empty</td></tr>
+                    }
+                    else
+                    {
+                        foreach (var roll in rolls)
+                        {
+                            <tr>
+                                <td class="item-title">
+                                    <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
+                                    <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
+                                </td>
+                                <td>@roll.Description</td>
+                                <td>@roll.Xfn</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <input type="hidden" id="hdnId" name="hdnId" value="" />
+        </form>
+    </div>
     <script>
         var submitForm = function (id) {
             $("#hdnId").val(id);
@@ -206,6 +183,6 @@
         var clearValidation = function () {
             $('.field-validation-error').hide();
         }
-    </script>  
+    </script>
 </body>
 </html>

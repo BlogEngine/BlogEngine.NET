@@ -2,5 +2,4 @@
 <blogRoll>
     <item id="25e4d8da-3278-4e58-b0bf-932496dabc96" title="Mads Kristensen" description="Full featured simplicity in ASP.NET and C#" htmlUrl="http://madskristensen.net/" xmlUrl="http://feeds.feedburner.com/netslave" xfn="contact" sortIndex="0" />
     <item id="dcdaa78b-0b77-4691-99f0-1bb6418945a1" title="Ruslan Tur" description=".NET and Open Source: better together" htmlUrl="http://rtur.net/blog/" xmlUrl="http://feeds.feedburner.com/rtur" xfn="contact" sortIndex="2" />
-    <item id="5368f417-6bf8-4eda-9795-41e45c7f6e2e" title="Farzin Seyfolahi" description="UI/UX Designer and Front-End Developer" htmlUrl="http://seyfolahi.net/en/" xmlUrl="http://seyfolahi.net/en/syndication.axd" xfn="contact" sortIndex="4" />
 </blogRoll>

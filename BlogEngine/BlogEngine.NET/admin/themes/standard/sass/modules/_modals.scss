@@ -1,6 +1,6 @@
 ﻿.modal {
     .modal-buttons {
-        margin-top: 30px;
+        margin-top: 15px;
 
         .btn {
             float: left;
@@ -19,13 +19,13 @@
     }
 
     .modal-header {
-        padding: 0 40px;
-        min-height: 60px;
-        height: 60px;
-        line-height: 60px;
+        padding: 0 15px;
+        min-height: 50px;
+        height: 50px;
+        line-height: 50px;
 
         .modal-title {
-            line-height: 62px;
+            line-height: 52px;
             font-size: 18px;
             @include text-overflow(ellipsis);
         }
@@ -34,8 +34,8 @@
             position: relative;
             margin: 0;
             width: 30px;
-            height: 60px;
-            line-height: 60px;
+            height: 50px;
+            line-height: 50px;
             outline: none !important;
 
             i {
@@ -51,7 +51,7 @@
 
     .modal-body {
         margin: 0;
-        padding: 40px;
+        padding: 15px;
         height: auto;
         max-height: 76%;
         overflow: hidden;
@@ -60,7 +60,7 @@
 
     .modal-footer {
         text-align: left;
-        padding: 20px 40px;
+        padding: 15px 40px;
 
         .btn-success {
             min-width: 100px;

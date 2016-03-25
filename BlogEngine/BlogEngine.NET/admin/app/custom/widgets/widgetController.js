@@ -13,7 +13,9 @@
             list1: [], list2: [], list3: []
         };
         $scope.vm = {};
-        $("#txtWidgetTitle").removeClass("red-border");
+
+        $("#txtWidgetTitle").parent().removeClass("has-error");
+       
 
         dataService.getItems('/api/widgets', { })
         .success(function (data) {
@@ -42,7 +44,7 @@
         $scope.editTitle = title;
         $scope.editZone = zone;
 
-        $("#txtWidgetTitle").removeClass("red-border");
+        $("#txtWidgetTitle").parent().removeClass("has-error");
         $("#txtWidgetTitle").val(title);
         $("#settingsFrame").contents().find('.field-validation-error').hide();
 
@@ -57,12 +59,17 @@
                 $scope.editSrc = sharedSrc + "?id=" + id + "&zone=" + zone;
             }
         });
-        $("#edit-widget").modal();
+        // show modal and add the name of widget for class. and we will use in the CSS for the height of modal.
+        $("#edit-widget").modal().addClass(name);
     }
 
     $scope.closeEditForm = function () {
         $("#edit-widget").modal("hide");
     }
+    // reset to default classes when modal will close.
+    $('#edit-widget').on('hidden.bs.modal', function (e) {
+        document.getElementById("edit-widget").className = 'modal fade';
+    });
 
     $scope.moveObject = function (from, to, fromList, toList) {
         var item = $scope.widgetZones[fromList][from];
@@ -113,7 +120,7 @@
             return false;
         }
         else {
-            $("#txtWidgetTitle").addClass("red-border");
+            $("#txtWidgetTitle").parent().addClass("has-error");
             $("#txtWidgetTitle").focus();
             return false;
         }
