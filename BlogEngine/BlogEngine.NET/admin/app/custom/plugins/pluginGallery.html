@@ -30,7 +30,7 @@
                     <div class="modal-package-review" ng-if="package.Extra.Reviews != null && package.Extra.Reviews.length > 0">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <div class="panel-title">Reviews</div>
+                                <div class="panel-title">{{lbl.reviews}}</div>
                             </div>
                             <ul class="list-group">
                                 <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
@@ -46,7 +46,7 @@
     </div>
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.gallery}}</h2>
-        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>Back</button>
+        <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>{{lbl.back}}</button>
         <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
         <div class="right-side pull-right">
             <div class="search pull-right">
@@ -54,11 +54,11 @@
                 <input type="text" ng-model="query" ng-change="search()" placeholder="{{lbl.search}}..." />
             </div>
             <div class="dropdown pull-right">
-                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Most downloaded<i class="fa fa-angle-down"></i></button>
+                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{lbl.mostDownloaded}} <i class="fa fa-angle-down"></i></button>
                 <ul class="dropdown-menu dropdown-menu-filter">
-                    <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">Latest</a></li>
-                    <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">Most downloaded</a></li>
-                    <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">Highest rated</a></li>
+                    <li><a id="fltr-new" data-value="New" ng-click="sortBy('LastUpdated')">{{lbl.latest}}</a></li>
+                    <li><a id="fltr-dwn" data-value="Downloads" ng-click="sortBy('DownloadCount')">{{lbl.mostDownloaded}}</a></li>
+                    <li><a id="fltr-pop" data-value="Popular" ng-click="sortBy('Rating')">{{lbl.highestRated}}</a></li>
                 </ul>
             </div>
         </div>
@@ -83,7 +83,7 @@
                         <ul>
                             <li>{{item.Title}}</li>
                             <li>{{item.Authors}}</li>
-                            <li>{{item.DownloadCount}} Downloads</li>
+                            <li>{{item.DownloadCount}} {{lbl.download}}</li>
                             <li>
                                 <span class="star-rating">
                                     <input disabled="disabled" type="radio" name="{{item.Id}}" value="1" ng-checked="checkStar(1, item.Rating)"><i></i>

@@ -20,10 +20,10 @@
         <div class="nav-user-name text-ellipsis">@displayName</div>
     </div>
     <ul class="nav-user-actions clearfix">
-        <li title="Sign Out"><a href="~/Account/login.aspx?logoff"><i class="fa fa-power-off"></i></a></li>
-        <li title="Change Password"><a href="~/Account/change-password.aspx" target="_blank"><i class="fa fa-key"></i></a></li>
-        <li title="Profile"><a href="~/admin/#/security/profile"><i class="fa fa-user"></i></a></li>
-        <li title="View Blog"><a href="@Utils.RelativeOrAbsoluteWebRoot" target="_blank"><i class="fa fa-globe"></i></a></li>
+        <li title="@Resources.labels.logoff"><a href="~/Account/login.aspx?logoff"><i class="fa fa-power-off"></i></a></li>
+        <li title="@Resources.labels.changePassword"><a href="~/Account/change-password.aspx" target="_blank"><i class="fa fa-key"></i></a></li>
+        <li title="@Resources.labels.profile"><a href="~/admin/#/security/profile"><i class="fa fa-user"></i></a></li>
+        <li title="@Resources.labels.viewMyBlog"><a href="@Utils.RelativeOrAbsoluteWebRoot" target="_blank"><i class="fa fa-globe"></i></a></li>
     </ul>
 </div>
 <div class="nav-sidebar">
@@ -55,7 +55,7 @@
                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes"><i class="fa fa-sliders"></i> @Resources.labels.custom</a>
                 <ul class="sub-nav-sidebar">
                     <li data-ng-class="{ active: isActive('/custom/themes')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/themes">@Resources.labels.themes</a></li>
-                    <li data-ng-class="{ active: isActive('/custom/plugins')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins">Plugins</a></li>
+                    <li data-ng-class="{ active: isActive('/custom/plugins')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins">@Resources.labels.plugins</a></li>
                     <li data-ng-class="{ active: isActive('/custom/widgets')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/widgets">@Resources.labels.widgets</a></li>
                 </ul>
             </li>
@@ -94,7 +94,7 @@
                 </ul>
             </li>
         }
-        <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/about.cshtml"><i class="fa fa-info-circle"></i>About</a></li>
+        <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/about.cshtml"><i class="fa fa-info-circle"></i>@Resources.labels.about</a></li>
     </ul>
 </div>
 <div class="logo-sidebar">

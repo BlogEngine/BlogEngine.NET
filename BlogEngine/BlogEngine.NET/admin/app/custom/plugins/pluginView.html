@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="main-header clearfix">
-        <h2 class="page-title pull-left">Plugins</h2>
+        <h2 class="page-title pull-left">{{lbl.plugins}}</h2>
         <a ng-if="IsPrimary" href="{{SiteVars.RelativeWebRoot}}admin/#/custom/plugins/gallery" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div ng-show="IsPrimary" class="btn-group befdv pull-left">
             <a ng-click="processChecked('uninstall')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
@@ -113,7 +113,7 @@
                     <th class="item-version">{{lbl.version}}</th>
                     <th class="item-priority">{{lbl.priority}}</th>
                     <th class="item-status">{{lbl.enabled}}</th>
-                    <th class="item-edit">Customize</th>
+                    <th class="item-edit">{{lbl.customize}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -124,7 +124,7 @@
                     <td class="item-version"><span>{{item.LocalVersion}}</span></td>
                     <td class="item-priority">{{item.Priority}}</td>
                     <td class="item-status"><input type="checkbox" data-ng-model="item.Enabled" data-ng-disabled="true"></td>
-                    <td class="item-edit"><a ng-if="item.SettingsUrl" class="btn btn-sm btn-default btn-hasicon" href="" ng-click="showPluginSettings(item.Id)"><i class="fa fa-sliders"></i> Customize</a></td>
+                    <td class="item-edit"><a ng-if="item.SettingsUrl" class="btn btn-sm btn-default btn-hasicon" href="" ng-click="showPluginSettings(item.Id)"><i class="fa fa-sliders"></i> {{lbl.customize}}</a></td>
                 </tr>
             </tbody>
         </table>

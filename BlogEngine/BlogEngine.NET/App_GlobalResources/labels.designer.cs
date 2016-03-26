@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string about {
+            get {
+                return ResourceManager.GetString("about", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About Me.
         /// </summary>
         internal static string aboutMe {
@@ -871,6 +880,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BlogEngine Comment.
+        /// </summary>
+        internal static string blogEngineComment {
+            get {
+                return ResourceManager.GetString("blogEngineComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blog Language.
+        /// </summary>
+        internal static string blogLanguage {
+            get {
+                return ResourceManager.GetString("blogLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BlogEngine.NET uses &lt;a href=&quot;http://blogml.codeplex.com/&quot; target=&quot;_blank&quot;&gt;BlogML&lt;/a&gt; as the format for exporting. The import supports both BlogML and RSS..
         /// </summary>
         internal static string blogMLDescription {
@@ -912,6 +939,15 @@ namespace Resources {
         internal static string blogSaved {
             get {
                 return ResourceManager.GetString("blogSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blog Title.
+        /// </summary>
+        internal static string blogTitle {
+            get {
+                return ResourceManager.GetString("blogTitle", resourceCulture);
             }
         }
         
@@ -1290,6 +1326,15 @@ namespace Resources {
         internal static string commentsPerPage {
             get {
                 return ResourceManager.GetString("commentsPerPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comments provider.
+        /// </summary>
+        internal static string commentsProvider {
+            get {
+                return ResourceManager.GetString("commentsProvider", resourceCulture);
             }
         }
         
@@ -1834,6 +1879,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customize.
+        /// </summary>
+        internal static string customize {
+            get {
+                return ResourceManager.GetString("customize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         internal static string dashboard {
@@ -2046,6 +2100,15 @@ namespace Resources {
         internal static string displayRatingsOnRecentPosts {
             get {
                 return ResourceManager.GetString("displayRatingsOnRecentPosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disqus Comment.
+        /// </summary>
+        internal static string disqusComment {
+            get {
+                return ResourceManager.GetString("disqusComment", resourceCulture);
             }
         }
         
@@ -3014,6 +3077,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook Comment.
+        /// </summary>
+        internal static string facebookComment {
+            get {
+                return ResourceManager.GetString("facebookComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed.
         /// </summary>
         internal static string failed {
@@ -3347,6 +3419,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Highest rated.
+        /// </summary>
+        internal static string highestRated {
+            get {
+                return ResourceManager.GetString("highestRated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         internal static string home {
@@ -3496,6 +3577,15 @@ namespace Resources {
         internal static string industry {
             get {
                 return ResourceManager.GetString("industry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string information {
+            get {
+                return ResourceManager.GetString("information", resourceCulture);
             }
         }
         
@@ -3730,6 +3820,15 @@ namespace Resources {
         internal static string lastUpdated {
             get {
                 return ResourceManager.GetString("lastUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latest.
+        /// </summary>
+        internal static string latest {
+            get {
+                return ResourceManager.GetString("latest", resourceCulture);
             }
         }
         
@@ -4000,6 +4099,15 @@ namespace Resources {
         internal static string more {
             get {
                 return ResourceManager.GetString("more", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most downloaded.
+        /// </summary>
+        internal static string mostDownloaded {
+            get {
+                return ResourceManager.GetString("mostDownloaded", resourceCulture);
             }
         }
         
@@ -4765,6 +4873,15 @@ namespace Resources {
         internal static string pingServiceUrlBatch {
             get {
                 return ResourceManager.GetString("pingServiceUrlBatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugins.
+        /// </summary>
+        internal static string plugins {
+            get {
+                return ResourceManager.GetString("plugins", resourceCulture);
             }
         }
         

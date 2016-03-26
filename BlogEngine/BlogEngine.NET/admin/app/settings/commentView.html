@@ -7,15 +7,15 @@
         <div class="content-inner">
             <div class="form-content">
                 <div class="form-group">
-                    <h4>Comments provider</h4>
+                    <h4>{{lbl.commentsProvider}}</h4>
                     <div class="row">
-                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="0" data-ng-model="settings.CommentProvider" ng-change="selectProvider('be')" /> BlogEngine</label></div></div>
-                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="1" data-ng-model="settings.CommentProvider" ng-change="selectProvider('dq')" /> Disqus</label></div></div>
-                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="2" data-ng-model="settings.CommentProvider" ng-change="selectProvider('fb')" /> Facebook</label></div></div>
+                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="0" data-ng-model="settings.CommentProvider" ng-change="selectProvider('be')" /> {{lbl.blogEngineComment}}</label></div></div>
+                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="1" data-ng-model="settings.CommentProvider" ng-change="selectProvider('dq')" /> {{lbl.disqusComment}}</label></div></div>
+                        <div class="col-md-4"><div class="radio"><label><input type="radio" value="2" data-ng-model="settings.CommentProvider" ng-change="selectProvider('fb')" /> {{lbl.facebookComment}}</label></div></div>
                     </div>
                 </div>
                 <div id="be-provider">
-                    <h4>BlogEngine Comment</h4>
+                    <h4>{{lbl.blogEngineComment}}</h4>
                     <div class="checkbox"><label><input type="checkbox" name="ckIsCommentsEnabled" ng-model="settings.IsCommentsEnabled" ng-disabled="settings.CommentProvider > 0" /> {{lbl.enableComments}}</label></div>
                     <div class="checkbox"><label><input type="checkbox" name="ckEnableCommentsModeration" ng-model="settings.EnableCommentsModeration" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" /> {{lbl.enableCommentsModeration}}</label></div>
                     <div class="checkbox"><label><input type="checkbox" ng-model="settings.TrustAuthenticatedUsers" ng-disabled="settings.IsCommentsEnabled == false || settings.CommentProvider > 0" /> {{lbl.trustAuthenticated}}</label></div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div id="dq-provider">
-                    <h4>Disqus Comment</h4>
+                    <h4>{{lbl.disqusComment}}</h4>
                     <div class="form-group">
                         <div class="alert alert-info" data-ng-bind-html="lbl.disqusSignupMessage"></div>
                         <div class="form-group">
@@ -40,14 +40,14 @@
                     </div>
                 </div>
                 <div id="fb-provider">
-                    <h4>Facebook Comment</h4>
+                    <h4>{{lbl.facebookComment}}</h4>
                     <div class="form-group">
                         <label>Facebook App Id</label>
                         <input type="text" class="form-control ltr-dir" id="txtFacebookAppId" data-ng-model="settings.FacebookAppId" />
                     </div>
                     <div class="form-group">
-                        <label for="selFacebookLang">Language</label>
-                        <select id="selFacebookLang" class="form-control" data-ng-options="o.OptionName for o in vm.FacebookLanguages" data-ng-model="selFacebookLanguage"></select>
+                        <label for="selFacebookLang">{{lbl.language}}</label>
+                        <select id="selFacebookLang" class="form-control ltr-form-control" data-ng-options="o.OptionName for o in vm.FacebookLanguages" data-ng-model="selFacebookLanguage"></select>
                     </div>
                 </div>
                 <h4>{{lbl.avatars}}</h4>

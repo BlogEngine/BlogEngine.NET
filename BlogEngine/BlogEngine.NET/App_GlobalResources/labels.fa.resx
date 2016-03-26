@@ -575,7 +575,7 @@
     <value>اضافه کردن تاریخ به لینک ارسالها</value>
   </data>
   <data name="timezone" xml:space="preserve">
-    <value>تفاوت زمانی با ساعت سرور</value>
+    <value>منطقه زمانی</value>
   </data>
   <data name="title" xml:space="preserve">
     <value>عنوان</value>
@@ -1726,7 +1726,7 @@
     <value>نام مکان ذخیره سازی</value>
   </data>
   <data name="themes" xml:space="preserve">
-    <value>پوسته ها</value>
+    <value>قالب ها</value>
   </data>
   <data name="virtualPath" xml:space="preserve">
     <value>مسیر مجازی</value>
@@ -1738,7 +1738,7 @@
     <value>تمامی پست ها با برچسب</value>
   </data>
   <data name="count" xml:space="preserve">
-    <value>شمار</value>
+    <value>تعداد</value>
   </data>
   <data name="createdOn" xml:space="preserve">
     <value>ایجاد شده در</value>
@@ -1920,5 +1920,77 @@
   </data>
   <data name="titleOfPage" xml:space="preserve">
     <value>عنوان صفحه</value>
+  </data>
+  <data name="about" xml:space="preserve">
+    <value> درباره</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="blogEngineComment" xml:space="preserve">
+    <value>نظرات بلاگ انجین</value>
+  </data>
+  <data name="blogLanguage" xml:space="preserve">
+    <value>زبان وبلاگ</value>
+  </data>
+  <data name="blogTitle" xml:space="preserve">
+    <value>عنوان وبلاگ</value>
+  </data>
+  <data name="commentsProvider" xml:space="preserve">
+    <value>سیستم نظرات</value>
+  </data>
+  <data name="customize" xml:space="preserve">
+    <value>شخصی سازی</value>
+  </data>
+  <data name="disqusComment" xml:space="preserve">
+    <value>نظرات دیسکاس</value>
+  </data>
+  <data name="errorMessage" xml:space="preserve">
+    <value>پیغام خطا</value>
+  </data>
+  <data name="errorPage" xml:space="preserve">
+    <value>صفحه خطا</value>
+  </data>
+  <data name="facebookComment" xml:space="preserve">
+    <value>نظرات فیسبوک</value>
+  </data>
+  <data name="highestRated" xml:space="preserve">
+    <value>محبوبترین ها</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>اطلاعات</value>
+  </data>
+  <data name="latest" xml:space="preserve">
+    <value>آخرین ها</value>
+  </data>
+  <data name="latestNews" xml:space="preserve">
+    <value>آخرین اخبار</value>
+  </data>
+  <data name="mostDownloaded" xml:space="preserve">
+    <value>بیشترین دانلود ها</value>
+  </data>
+  <data name="plugins" xml:space="preserve">
+    <value>پلاگین ها</value>
+  </data>
+  <data name="quickDraft" xml:space="preserve">
+    <value>پیش نویس</value>
+  </data>
+  <data name="reviews" xml:space="preserve">
+    <value>نظرات</value>
+  </data>
+  <data name="sortOrder" xml:space="preserve">
+    <value>ترتیب</value>
+  </data>
+  <data name="theNew" xml:space="preserve">
+    <value>افزودن</value>
+  </data>
+  <data name="theOperator" xml:space="preserve">
+    <value>اپراتور</value>
+  </data>
+  <data name="txtErrorText" xml:space="preserve">
+    <value>پیغام خطا</value>
+  </data>
+  <data name="txtErrorTitle" xml:space="preserve">
+    <value>عنوان خطا</value>
   </data>
 </root>

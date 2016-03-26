@@ -1,3 +1,4 @@
+about
 aboutMe
 acceptAnyTextBeforeHostname
 accuracy
@@ -75,11 +76,14 @@ block
 blogAdded
 blogAddedShort
 blogDeleted
+blogEngineComment
+blogLanguage
 blogMLDescription
 blogName
 blogroll
 blogs
 blogSaved
+blogTitle
 bold
 bulletList
 buttonText
@@ -122,6 +126,7 @@ commentsBlockOnDelete
 commentsDeleted
 commentSettings
 commentsPerPage
+commentsProvider
 commentsUnmodApproved
 commentUpdated
 commentsWhere
@@ -180,6 +185,7 @@ custom
 customCode
 customFields
 customFieldsUpdated
+customize
 dashboard
 date
 datePublished
@@ -202,6 +208,7 @@ displayCommentsOnRecentPosts
 displayName
 displayNameIsRequired
 displayRatingsOnRecentPosts
+disqusComment
 disqusSettings
 disqusShortName
 disqusSignupMessage
@@ -308,6 +315,7 @@ export
 exportIntoBlogML
 extensions
 extractFromTitle
+facebookComment
 failed
 failedAddingNewCategory
 failedAddingNewPage
@@ -346,6 +354,7 @@ handleWwwSubdomain
 hasRated
 heading
 headings
+highestRated
 home
 hostName
 htmlHeadSection
@@ -363,6 +372,7 @@ inbox
 incorrectSimpleCaptcha
 indent
 industry
+information
 insertImage
 insertVideo
 install
@@ -389,6 +399,7 @@ languageCode
 lastName
 lastUpdate
 lastUpdated
+latest
 latestComments
 latestFromTheGallery
 latestNews
@@ -418,6 +429,7 @@ moderatedByDisqus
 moderation
 moderator
 more
+mostDownloaded
 move
 moveWidgetTo
 myProfile
@@ -509,6 +521,7 @@ postPerPage
 posts
 postsPerFeed
 postUpdated
+plugins
 prev
 preview
 previousPost

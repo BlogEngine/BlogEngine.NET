@@ -2552,4 +2552,43 @@
   <data name="theOperator" xml:space="preserve">
     <value>Operator</value>
   </data>
+  <data name="about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="blogEngineComment" xml:space="preserve">
+    <value>BlogEngine Comment</value>
+  </data>
+  <data name="blogLanguage" xml:space="preserve">
+    <value>Blog Language</value>
+  </data>
+  <data name="blogTitle" xml:space="preserve">
+    <value>Blog Title</value>
+  </data>
+  <data name="commentsProvider" xml:space="preserve">
+    <value>Comments provider</value>
+  </data>
+  <data name="customize" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="disqusComment" xml:space="preserve">
+    <value>Disqus Comment</value>
+  </data>
+  <data name="facebookComment" xml:space="preserve">
+    <value>Facebook Comment</value>
+  </data>
+  <data name="highestRated" xml:space="preserve">
+    <value>Highest rated</value>
+  </data>
+  <data name="information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="latest" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="mostDownloaded" xml:space="preserve">
+    <value>Most downloaded</value>
+  </data>
+  <data name="plugins" xml:space="preserve">
+    <value>Plugins</value>
+  </data>
 </root>
