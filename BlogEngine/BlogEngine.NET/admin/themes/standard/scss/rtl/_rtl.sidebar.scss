@@ -1,6 +1,9 @@
 ﻿.main-sidebar {
     .nav-user {
         .nav-user-info {
+                padding-left:0;
+                padding-right:$sidebar-global-height;
+
             .nav-user-img {
                 left: auto;
                 right: 0;

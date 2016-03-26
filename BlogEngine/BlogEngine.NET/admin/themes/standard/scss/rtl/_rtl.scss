@@ -23,7 +23,11 @@
     @import "rtl.forms";
     // dashboard section
     @import "rtl.dashboard";
+    // settings section
     @import "rtl.settings";
+    // custom section
+    @import "rtl.plugins";
+    // about section
     @import "rtl.about";
 
     .main-loading {

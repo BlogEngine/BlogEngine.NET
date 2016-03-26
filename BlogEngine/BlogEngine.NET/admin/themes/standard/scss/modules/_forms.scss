@@ -25,6 +25,9 @@
         outline: none;
     }
 }
+.ltr-form-control{
+    direction:ltr;
+}
 
 input[type=text],
 input[type=password],

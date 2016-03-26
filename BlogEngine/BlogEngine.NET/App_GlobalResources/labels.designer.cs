@@ -880,7 +880,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BlogEngine Comment.
+        ///   Looks up a localized string similar to BlogEngine.
         /// </summary>
         internal static string blogEngineComment {
             get {

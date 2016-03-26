@@ -4,8 +4,6 @@
     @include border-radius(3px);
     background: none;
     text-transform: uppercase;
-    border: 2px solid #1cac7b;
-    padding: 6px 8px;
     z-index: 2;
     position: fixed;
     right: 30px;
@@ -13,24 +11,14 @@
 
     .loader {
         display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: solid 3px #aaa;
+        width: 30px;
+        height: 30px;
+        border: solid 5px #aaa;
         border-left-color: #1cac7b;
         @include box-sizing(border-box);
         @include border-radius(50%);
         -webkit-animation: loader 400ms linear infinite;
         animation: loader 400ms linear infinite;
-    }
-
-    .loader-text {
-        font-size: 10px;
-        color: #666;
-        vertical-align: top;
-        position: relative;
-        top: 4px;
-        margin-left: 6px;
-        display: inline-block;
     }
 
     @-webkit-keyframes loader {
