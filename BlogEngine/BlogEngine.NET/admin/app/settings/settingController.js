@@ -82,14 +82,15 @@
     }
 
     $scope.uploadFile = function (files) {
+        spinOn();
         var fd = new FormData();
         fd.append("file", files[0]);
-
         dataService.uploadFile("/api/upload?action=import", fd)
         .success(function (data) {
             toastr.success($rootScope.lbl.importedFromBlogML);
+            spinOff();
         })
-        .error(function () { toastr.error($rootScope.lbl.importFailed); });
+        .error(function () { toastr.error($rootScope.lbl.importFailed); spinOff(); });
     }
 
     $scope.testEmail = function () {
