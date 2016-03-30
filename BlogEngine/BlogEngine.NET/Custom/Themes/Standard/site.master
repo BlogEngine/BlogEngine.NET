@@ -54,7 +54,7 @@
                             <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
                             <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
                             <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
-                            <li><a runat="server" id="aLogin"></a></li>
+                            <li class="login-link"><a runat="server" id="aLogin"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -81,14 +81,30 @@
                     <li><a href="[CUSTOMFIELD|THEME|Standard|Google Plus Account|/]" rel="external nofollow"><i class="icon-gplus"></i></a></li>
                     <li><a href="[CUSTOMFIELD|THEME|Standard|Linkedin Account|/]" rel="external nofollow"><i class="icon-linkedin"></i></a></li>
                     <li><a href="[CUSTOMFIELD|THEME|Standard|RSS Link|/syndication.axd/]" rel="external nofollow"><i class="icon-rss"></i></a></li>
-                    <%--<li><a href="[CUSTOMFIELD|THEME|Standard|Instagramm Account|/]" rel="external nofollow"><i class="icon-instagramm"></i></a></li>--%>
-                    <%--<li><a href="[CUSTOMFIELD|THEME|Standard|Pinterest Account|/]" rel="external nofollow"><i class="icon-pinterest-circled"></i></a></li>--%>
-                    <%--<li><a href="[CUSTOMFIELD|THEME|Standard|Soundcloud Account|/]" rel="external nofollow"><i class="icon-soundcloud"></i></a></li>--%>
-                    <%--<li><a href="[CUSTOMFIELD|THEME|Standard|Youtube Account|/]" rel="external nofollow"><i class="icon-youtube"></i></a></li>--%>
-                    <%--<li><a href="[CUSTOMFIELD|THEME|Standard|Github Account|/]" rel="external nofollow"><i class="icon-git"></i></a></li>--%>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard|Instagramm Account|/]" rel="external nofollow"><i class="icon-instagramm"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard|Pinterest Account|/]" rel="external nofollow"><i class="icon-pinterest-circled"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard|Soundcloud Account|/]" rel="external nofollow"><i class="icon-soundcloud"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard|Youtube Account|/]" rel="external nofollow"><i class="icon-youtube"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard|Github Account|/]" rel="external nofollow"><i class="icon-git"></i></a></li>
                 </ul>
             </div>
         </footer>
     </form>
+    <script>
+        // Social networks
+        var socialNetwork = $(".social-network li a");
+        for (i = 0; i < socialNetwork.length; ++i) {
+            link = socialNetwork[i];
+            if (link.href == "" || link.href == window.location) {
+                link.parentNode.style.display = "none";
+            }
+        }
+
+        // Admin menu
+        var loginLink = $(".login-link a").attr("href");
+        if (loginLink == "/admin/") {
+            $(".header-nav ul").append('<li><a href="<%=Utils.AbsoluteWebRoot %>Account/login.aspx?logoff">Logoff</a></li>');
+        }
+    </script>
 </body>
 </html>
