@@ -35,6 +35,9 @@ public class BlogRollController : ApiController
 
     public HttpResponseMessage Post(BlogRollItem item)
     {
+        if (!Security.IsAdministrator)
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, item);
+
         BlogEngine.Core.Providers.BlogService.InsertBlogRoll(item);
         return Request.CreateResponse(HttpStatusCode.Created, item);
     }
@@ -42,6 +45,9 @@ public class BlogRollController : ApiController
     [HttpPut]
     public HttpResponseMessage Update([FromBody]BlogRollItem item)
     {
+        if (!Security.IsAdministrator)
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, item);
+
         BlogEngine.Core.Providers.BlogService.UpdateBlogRoll(item);
         return Request.CreateResponse(HttpStatusCode.OK);
     }

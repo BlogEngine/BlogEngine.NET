@@ -29,12 +29,19 @@ namespace BlogEngine.Core.Data.ViewModels
         /// <param name="form">submitted form</param>
         public void Add(NameValueCollection form)
         {
+            if (!Security.IsAdministrator)
+                throw new UnauthorizedAccessException();
+
             var br = new BlogRollItem();
             br.Title = form["txtTitle"];
             br.Description = form["txtDesc"];
             br.BlogUrl = new Uri(form["txtWebsite"]);
             br.FeedUrl = new Uri(form["txtUrl"]);
             br.Xfn = GetXfn(form);
+
+            if (string.IsNullOrEmpty(br.Xfn))
+                br.Xfn = "contact";
+
             Providers.BlogService.InsertBlogRoll(br);
         }
         /// <summary>
@@ -44,6 +51,9 @@ namespace BlogEngine.Core.Data.ViewModels
         /// <param name="id">Blogroll id</param>
         public void Update(NameValueCollection form, string id)
         {
+            if (!Security.IsAdministrator)
+                throw new UnauthorizedAccessException();
+
             Guid gId;
             if (Guid.TryParse(id, out gId))
             {
@@ -53,6 +63,10 @@ namespace BlogEngine.Core.Data.ViewModels
                 br.BlogUrl = new Uri(form["txtWebsite"]);
                 br.FeedUrl = new Uri(form["txtUrl"]);
                 br.Xfn = GetXfn(form);
+
+                if (string.IsNullOrEmpty(br.Xfn))
+                    br.Xfn = "contact";
+
                 Providers.BlogService.UpdateBlogRoll(br);
             }
             else
@@ -66,6 +80,9 @@ namespace BlogEngine.Core.Data.ViewModels
         /// <param name="id">Blogroll ID</param>
         public void Delete(string id)
         {
+            if (!Security.IsAdministrator)
+                throw new UnauthorizedAccessException();
+
             Guid gId;
             if (Guid.TryParse(id, out gId))
             {
