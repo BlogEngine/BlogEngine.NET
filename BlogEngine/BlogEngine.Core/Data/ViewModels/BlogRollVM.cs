@@ -8,8 +8,14 @@ using System.Collections.Specialized;
 
 namespace BlogEngine.Core.Data.ViewModels
 {
+    /// <summary>
+    /// Blogroll VM
+    /// </summary>
     public class BlogRollVM
     {
+        /// <summary>
+        /// Blogroll items
+        /// </summary>
         public List<BlogRollItem> BlogRolls
         {
             get
@@ -17,7 +23,10 @@ namespace BlogEngine.Core.Data.ViewModels
                 return Providers.BlogService.FillBlogRolls();
             }
         }
-        //public XfnList Xfn { get; set; }
+        /// <summary>
+        /// Add blogroll
+        /// </summary>
+        /// <param name="form">submitted form</param>
         public void Add(NameValueCollection form)
         {
             var br = new BlogRollItem();
@@ -28,6 +37,11 @@ namespace BlogEngine.Core.Data.ViewModels
             br.Xfn = GetXfn(form);
             Providers.BlogService.InsertBlogRoll(br);
         }
+        /// <summary>
+        /// Update blogroll
+        /// </summary>
+        /// <param name="form">Submitter form</param>
+        /// <param name="id">Blogroll id</param>
         public void Update(NameValueCollection form, string id)
         {
             Guid gId;
@@ -46,6 +60,10 @@ namespace BlogEngine.Core.Data.ViewModels
                 Utils.Log("Can not update BlogRoll " + id);
             }
         }
+        /// <summary>
+        /// Delete blogroll
+        /// </summary>
+        /// <param name="id">Blogroll ID</param>
         public void Delete(string id)
         {
             Guid gId;
@@ -59,15 +77,11 @@ namespace BlogEngine.Core.Data.ViewModels
                 Utils.Log("Can not delete BlogRoll " + id);
             }
         }
-
-        public void SaveForm(NameValueCollection form)
-        {
-            //Title = form["txtTitle"];
-            //Description = form["txtDesc"];
-            //WebSite = form["txtWebsite"];
-            //FeedUrl = form["txtUrl"];
-        }
-
+        /// <summary>
+        /// Get blogroll feeds
+        /// </summary>
+        /// <param name="feedUrl">URL</param>
+        /// <returns>List of posts</returns>
         public List<SyndicationItem> GetFeeds(string feedUrl)
         {
             var lastNews = new List<SyndicationItem>();
@@ -81,12 +95,16 @@ namespace BlogEngine.Core.Data.ViewModels
 
             return lastNews;
         }
-
+        /// <summary>
+        /// Shorten post title
+        /// </summary>
+        /// <param name="textToShorten">Title</param>
+        /// <returns>Shorten title</returns>
         public string Shorten(string textToShorten)
         {
-            return HttpUtility.HtmlEncode(textToShorten.Length > BlogSettings.Instance.BlogrollMaxLength
+            return textToShorten.Length > BlogSettings.Instance.BlogrollMaxLength
                        ? string.Format("{0}...", textToShorten.Substring(0, BlogSettings.Instance.BlogrollMaxLength).Trim())
-                       : textToShorten);
+                       : textToShorten;
         }
 
         #region Methods

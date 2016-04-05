@@ -4,49 +4,26 @@
     if (Request.HttpMethod == "HEAD") { return; }
     var vm = new BlogEngine.Core.Data.ViewModels.BlogRollVM();
 
-    if (Request.Form["btnAdd"] != null || Request.Form["btnUpdate"] != null)
-    {
-        Validation.Add("txtTitle", Validator.Required("Field is required"));
-        Validation.Add("txtDesc", Validator.Required("Field is required"));
-        Validation.Add("txtWebsite", Validator.Required("Field is required"), Validator.Url("Field is URL"));
-        Validation.Add("txtUrl", Validator.Required("Field is required"), Validator.Url("Field is URL"));
-    }
     var id = Request.Form["hdnId"];
+    var action = Request.Form["hdnAction"];
     var br = new BlogRollItem();
 
     if (IsPost)
     {
-        if (Request.Form["btnAdd"] != null)
+        if (action == "add")
         {
-            if (Validation.IsValid())
-            {
-                vm.Add(Request.Form);
-                @:
-                <script type="text/javascript">window.parent.toastr.success("Completed");</script>
-            }
-            else
-            {
-                vm.SaveForm(Request.Form);
-            }
+            vm.Add(Request.Form);
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
-        else if (Request.Form["btnUpdate"] != null)
+        else if (action == "update")
         {
-            if (Validation.IsValid())
-            {
-                vm.Update(Request.Form, id);
-                @:
-                <script type="text/javascript">window.parent.toastr.success("Completed");</script>
-            }
-            else
-            {
-                vm.SaveForm(Request.Form);
-            }
+            vm.Update(Request.Form, id);
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
-        else if (Request.Form["btnDelete"] != null)
+        else if (action == "delete")
         {
             vm.Delete(id);
-            @:
-            <script type="text/javascript">window.parent.toastr.success("Completed");</script>
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
         }
         else
         {
@@ -69,26 +46,26 @@
 <body class="widget-edit">
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <div class="widget-edit-blogroll">
-        <form method="post" onsubmit="clearValidation()" id="frm" name="frm">
+        <form method="post" id="frm" name="frm">
             <div class="form-group">
                 <label>@Resources.labels.title</label>
                 <input type="text" class="form-control" id="txtTitle" name="txtTitle" value="@br.Title" />
-                @Html.ValidationMessage("txtTitle")
+                <span id="lblTitle" name="lblTitle" class="field-validation-error">Field is required</span>
             </div>
             <div class="form-group">
                 <label>@Resources.labels.website</label>
                 <input type="text" class="form-control" id="txtWebsite" name="txtWebsite" value="@br.BlogUrl" />
-                @Html.ValidationMessage("txtWebsite")
+                <span id="lblWebsite" name="lblWebsite" class="field-validation-error">Field is required and must be URL</span>
             </div>
             <div class="form-group">
                 <label>@Resources.labels.description</label>
                 <input type="text" class="form-control" id="txtDesc" name="txtDesc" value="@br.Description" />
-                @Html.ValidationMessage("txtDesc")
+                <span id="lblDesc" name="lblDesc" class="field-validation-error">Field is required</span>
             </div>
             <div class="form-group">
                 <label>@Resources.labels.url</label>
                 <input type="text" class="form-control" id="txtUrl" name="txtUrl" value="@br.FeedUrl" />
-                @Html.ValidationMessage("txtUrl")
+                <span id="lblUrl" name="lblUrl" class="field-validation-error">Field is required and must be URL</span>
             </div>
             <label class="control-label">XFN tag</label>
             <table id="cblXfn" cellspacing="0" cellpadding="0" border="0">
@@ -125,10 +102,10 @@
             <div class="form-group">
                 @if (!string.IsNullOrEmpty(Request.Form["hdnId"]))
                 {
-                    <button type="submit" id="btnUpdate" onclick="submitForm('@id')" name="btnUpdate" class="btn btn-success">
+                    <button type="button" id="btnUpdate" onclick="submitForm('@id', 'update')" name="btnUpdate" class="btn btn-success">
                         <i class="fa fa-check"></i>
                     </button>
-                    <button type="submit" id="btnDelete" onclick="submitForm('@id')" name="btnDelete" class="btn btn-danger">
+                    <button type="submit" id="btnDelete" onclick="submitForm('@id', 'delete')" name="btnDelete" class="btn btn-danger">
                         <i class="fa fa-trash"></i>
                     </button>
                     <button type="submit" id="btnCancel" name="btnCancel" class="btn btn-default">
@@ -137,7 +114,7 @@
                 }
                 else
                 {
-                    <button type="submit" id="btnAdd" name="btnAdd" class="btn btn-success">
+                    <button type="button" id="btnAdd" onclick="submitForm('','add')" name="btnAdd" class="btn btn-success">
                         @Resources.labels.add
                     </button>
                 }
@@ -162,7 +139,7 @@
                         {
                             <tr>
                                 <td class="item-title">
-                                    <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id')" class="text-ellipsis pull-left">@roll.Title</a>
+                                    <a title="@roll.Title" href="#" onclick="submitForm('@roll.Id', 'load')" class="text-ellipsis pull-left">@roll.Title</a>
                                     <a title="@roll.FeedUrl" class="external-link pull-right" target="_blank" href="@roll.FeedUrl"><i class="fa fa-external-link"></i></a>
                                 </td>
                                 <td>@roll.Description</td>
@@ -173,16 +150,50 @@
                 </tbody>
             </table>
             <input type="hidden" id="hdnId" name="hdnId" value="" />
+            <input type="hidden" id="hdnAction" name="hdnAction" value="" />
         </form>
     </div>
     <script>
-        var submitForm = function (id) {
+        var submitForm = function (id, action) {
             $("#hdnId").val(id);
-            $("#frm").submit();
+            $("#hdnAction").val(action);
+
+            if (action == 'add' || action == 'update') {
+                clearValidation();
+                if (checkValidation() == true) {
+                    $("#frm").submit();
+                }
+            }
+            else {
+                $("#frm").submit();
+            }
+        }
+        var checkValidation = function () {
+            if ($("#txtTitle").val().length < 1) {
+                $("#lblTitle").show();
+                return false;
+            }
+            if ($("#txtWebsite").val().length < 1 || validateURL($("#txtWebsite").val()) == false) {
+                $("#lblWebsite").show();
+                return false;
+            }
+            if ($("#txtDesc").val().length < 1) {
+                $("#lblDesc").show();
+                return false;
+            }
+            if ($("#txtUrl").val().length < 1 || validateURL($("#txtUrl").val()) == false) {
+                $("#lblUrl").show();
+                return false;
+            }
+            return true;
         }
         var clearValidation = function () {
             $('.field-validation-error').hide();
         }
+        function validateURL(value) {
+            return /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@@)|\/|\?)*)?$/i.test(value);
+        }
+        clearValidation();
     </script>
 </body>
 </html>
