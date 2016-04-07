@@ -137,6 +137,8 @@
     <Content Include="admin\app\custom\themes\themeGallery.html" />
     <Content Include="admin\app\custom\themes\themeView.html" />
     <Content Include="admin\app\custom\widgets\widgetController.js" />
+    <Content Include="admin\app\custom\widgets\widgetGallery.html" />
+    <Content Include="admin\app\custom\widgets\widgetGalleryController.js" />
     <Content Include="admin\app\custom\widgets\widgetView.html" />
     <Content Include="admin\themes\standard\css\styles.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />

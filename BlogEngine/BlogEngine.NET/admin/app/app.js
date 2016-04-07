@@ -18,6 +18,7 @@
         .when("/custom/themes", { templateUrl: "app/custom/themes/themeView.html" })
         .when("/custom/themes/gallery", { templateUrl: "app/custom/themes/themeGallery.html" })
         .when("/custom/widgets", { templateUrl: "app/custom/widgets/widgetView.html" })
+        .when("/custom/widgets/gallery", { templateUrl: "app/custom/widgets/widgetGallery.html" })
 
         .when("/security/profile", { templateUrl: "app/security/profile/profileView.html" })
         .when("/security/roles", { templateUrl: "app/security/roles/roleView.html" })

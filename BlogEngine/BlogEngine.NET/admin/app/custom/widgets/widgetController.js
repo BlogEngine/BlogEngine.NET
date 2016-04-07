@@ -5,6 +5,7 @@
     $scope.editId = {};
     $scope.editTitle = {};
     $scope.editZone = {};
+    $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
 
     $scope.load = function () {
         spinOn();
