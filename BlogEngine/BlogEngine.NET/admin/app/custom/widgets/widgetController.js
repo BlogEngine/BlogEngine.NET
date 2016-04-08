@@ -5,6 +5,7 @@
     $scope.editId = {};
     $scope.editTitle = {};
     $scope.editZone = {};
+    $scope.package = {};
     $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
 
     $scope.load = function () {
@@ -62,6 +63,19 @@
         });
         // show modal and add the name of widget for class. and we will use in the CSS for the height of modal.
         $("#edit-widget").modal().addClass(name);
+    }
+
+    $scope.loadInfoForm = function (id, name, title, zone) {
+        dataService.getItems('/api/packages/' + id)
+        .success(function (data) {
+            angular.copy(data, $scope.package);
+            //$scope.selectedRating = $scope.package.Rating;
+            //$scope.removeEmptyReviews();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.errorLoadingPackages);
+        });
+        $("#modal-info").modal();
     }
 
     $scope.closeEditForm = function () {
