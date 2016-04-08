@@ -32,11 +32,11 @@
                     <div class="modal-widgets-info" style="padding: 40px; border-bottom: 1px solid #eee;">
                         <p class="item-desc" ng-bind-html="package.Description"></p>
                         <div class="form-horizontal">
-                            <div class="form-group" ng-if="package.Authors"><span class="col-md-3">{{lbl.author}}</span><div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
-                            <div class="form-group" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a></div></div>
-                            <div class="form-group" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
-                            <div class="form-group" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"><span ng-bind-html="package.LastUpdated"></span></div></div>
-                            <div class="form-group" ng-if="package.DownloadCount"><span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div> </div>
+                            <div class="form-group" style="margin-bottom: 1px; font-size: 13px;" ng-if="package.Authors"><span class="col-md-3">{{lbl.author}}</span><div class="col-md-9"><span ng-bind-html="package.Authors"></span></div></div>
+                            <div class="form-group" style="margin-bottom: 1px; font-size: 13px;" ng-if="package.Website"><span class="col-md-3">{{lbl.website}}</span> <div class="col-md-9"><a href="{{package.Website}}" title="Author website" target="_blank">{{package.Website}}</a></div></div>
+                            <div class="form-group" style="margin-bottom: 1px; font-size: 13px;" ng-if="package.Tags"><span class="col-md-3">{{lbl.tags}}</span> <div class="col-md-9"><span ng-bind-html="package.Tags"></span></div></div>
+                            <div class="form-group" style="margin-bottom: 1px; font-size: 13px;" ng-if="package.LastUpdated"><span class="col-md-3">{{lbl.date}}</span> <div class="col-md-9"><span ng-bind-html="package.LastUpdated"></span></div></div>
+                            <div class="form-group" style="margin-bottom: 1px; font-size: 13px;" ng-if="package.DownloadCount"><span class="col-md-3">{{lbl.downloads}}</span> <div class="col-md-9">{{package.DownloadCount}}</div> </div>
                         </div>
                     </div>
                     <div ng-if="package.OnlineVersion.length > 0 && package.OnlineVersion > package.LocalVersion" class="item-alert">
@@ -45,9 +45,44 @@
                             <button ng-click="upgradePackage(package.Id)" class="btn btn-sm btn-warning pull-right">Update</button>
                         </div>
                     </div>
-                    <div class="modal-widget-image" style="padding: 40px; border-bottom: 1px solid #eee;">
+                    <div class="modal-widget-image" style="padding: 40px; border-bottom: 1px solid #eee; text-align: center">
                         <img ng-if="!package.PackageUrl" ng-src="{{package.IconUrl}}" alt="Package image" />
                         <a ng-if="package.PackageUrl" href="{{package.PackageUrl}}" target="_blank"> <img class="pkg-img" ng-src="{{package.IconUrl}}" alt="Package image" /> </a>
+                    </div>
+
+                    <div class="modal-widget-review" ng-if="package.Extra != null" style="background: #eee none repeat scroll 0 0; padding: 40px">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><div class="panel-title">{{lbl.writeReview}}</div></div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <input class="form-control ltr-dir" ng-model="author" id="txtAuthor" name="txtAuthor" focus-me="focusInput" type="text" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <textarea rows="3" maxlength="450" class="form-control" id="txtReview" placeholder="{{lbl.typeHere}}..."></textarea>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="star-rating pull-left">
+                                        <input type="radio" name="rated" value="1" ng-checked="selectedRating == 1" ng-click="setRating(1)"><i></i>
+                                        <input type="radio" name="rated" value="2" ng-checked="selectedRating == 2" ng-click="setRating(2)"><i></i>
+                                        <input type="radio" name="rated" value="3" ng-checked="selectedRating == 3" ng-click="setRating(3)"><i></i>
+                                        <input type="radio" name="rated" value="4" ng-checked="selectedRating == 4" ng-click="setRating(4)"><i></i>
+                                        <input type="radio" name="rated" value="5" ng-checked="selectedRating == 5" ng-click="setRating(5)"><i></i>
+                                    </div>
+                                    <button data-ng-click="submitRating()" class="pull-right btn btn-success btn-sm">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default" ng-if="package.Extra.Reviews != null && package.Extra.Reviews.length > 0">
+                            <div class="panel-heading">
+                                <div class="panel-title">user</div>
+                            </div>
+                            <ul class="list-group">
+                                <li ng-repeat="review in package.Extra.Reviews" class="list-group-item">
+                                    <span class="badge">{{review.Rating}}</span>
+                                    <b>{{review.Name}}:</b> {{review.Body}}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>

@@ -96,6 +96,10 @@
         });
     }
 
+    $scope.setRating = function (rating) {
+        $scope.selectedRating = rating;
+    }
+
     $scope.load();
 
     $(document).ready(function () {

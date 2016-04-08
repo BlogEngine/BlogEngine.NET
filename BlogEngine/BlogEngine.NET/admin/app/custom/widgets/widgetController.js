@@ -6,6 +6,8 @@
     $scope.editTitle = {};
     $scope.editZone = {};
     $scope.package = {};
+    $scope.selectedRating = 0;
+    $scope.author = UserVars.Name;
     $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
 
     $scope.load = function () {
@@ -69,8 +71,8 @@
         dataService.getItems('/api/packages/' + id)
         .success(function (data) {
             angular.copy(data, $scope.package);
-            //$scope.selectedRating = $scope.package.Rating;
-            //$scope.removeEmptyReviews();
+            $scope.selectedRating = $scope.package.Rating;
+            $scope.removeEmptyReviews();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingPackages);
@@ -81,7 +83,8 @@
     $scope.closeEditForm = function () {
         $("#edit-widget").modal("hide");
     }
-    // reset to default classes when modal will close.
+
+    // reset to default classes when modal will close
     $('#edit-widget').on('hidden.bs.modal', function (e) {
         document.getElementById("edit-widget").className = 'modal fade';
     });
@@ -139,6 +142,55 @@
             $("#txtWidgetTitle").focus();
             return false;
         }
+    }
+
+    $scope.removeEmptyReviews = function () {
+        if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
+            var reviews = [];
+            for (var i = 0; i < $scope.package.Extra.Reviews.length; i++) {
+                var review = $scope.package.Extra.Reviews[i];
+                if (review.Body.length > 0) {
+                    reviews.push(review);
+                }
+            }
+            $scope.package.Extra.Reviews = reviews;
+        }
+    }
+
+    $scope.setRating = function (rating) {
+        $scope.selectedRating = rating;
+    }
+
+    $scope.submitRating = function () {
+        var author = $("#txtAuthor").val().length > 0 ? $("#txtAuthor").val() : $scope.author;
+        var review = { "Name": author, "Rating": $scope.selectedRating, "Body": $("#txtReview").val() };
+
+        dataService.updateItem("/api/packages/rate/" + $scope.package.Extra.Id, review)
+        .success(function (data) {
+            if (data.length === 0) {
+                toastr.success($rootScope.lbl.completed);
+            }
+            else {
+                toastr.error(data);
+            }
+            $("#modal-info").modal("hide");
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            $("#modal-info").modal("hide");
+        });
+    }
+
+    $scope.upgradePackage = function (pkgId) {
+        spinOn();
+        dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
+        .success(function (data) {
+            $scope.installPackage(pkgId);
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            spinOff();
+        });
     }
 
     $scope.load();
