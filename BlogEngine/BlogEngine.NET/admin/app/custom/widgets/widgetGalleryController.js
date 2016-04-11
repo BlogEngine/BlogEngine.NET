@@ -100,6 +100,13 @@
         $scope.selectedRating = rating;
     }
 
+    $scope.checkStar = function (item, rating) {
+        if (item === rating) {
+            return true;
+        }
+        return false;
+    }
+
     $scope.load();
 
     $(document).ready(function () {

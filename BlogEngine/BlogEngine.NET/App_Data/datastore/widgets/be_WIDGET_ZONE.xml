@@ -7,6 +7,6 @@
   <widget id="5bf32012-4aa3-4031-8346-4d36f0fda6d9" title="Post List" showTitle="True">PostList</widget>
   <widget id="abde36cb-9ba6-4645-afc3-c0e4292ce72e" title="Newsletter" showTitle="True">Newsletter</widget>
   <widget id="4b7cb5e1-b090-4779-b7bc-24898a269477" title="Comment List" showTitle="True">CommentList</widget>
-  <widget id="fb6b97ea-7d73-4821-a2a3-3aaf13e233d3" title="Link List" showTitle="True">LinkList</widget>
   <widget id="4cb23700-ca29-4c88-a46c-9a262a9f4240" title="Month List" showTitle="True">MonthList</widget>
+  <widget id="bc66120b-0835-48b3-9a36-13fe2e878869" title="TwitterTimeline" showTitle="True">TwitterTimeline</widget>
 </widgets>

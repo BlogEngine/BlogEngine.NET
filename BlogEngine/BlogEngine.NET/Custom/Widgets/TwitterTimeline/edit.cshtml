@@ -1,0 +1,53 @@
+﻿@using BlogEngine.NET.Custom.Widgets
+@{
+    var appId = "717752735521636352";
+    var twitId = "blogenginenet";
+
+    var widgetId = Request.QueryString["id"];
+    var settings = Common.GetSettings(widgetId);
+
+    Validation.Add("txtAppId", Validator.Required("Field is required"));
+    Validation.Add("txtTwitId", Validator.Required("Field is required"));
+
+    if (IsPost)
+    {
+        if (Validation.IsValid())
+        {
+            settings["appId"] = Request.Form["txtAppId"];
+            settings["twitId"] = Request.Form["txtTwitId"];
+
+            Common.SaveSettings(settings, widgetId);
+            @:<script type="text/javascript">window.parent.toastr.success("Completed");</script>
+        }
+    }
+    if (settings != null && settings.Count > 0)
+    {
+        appId = settings["appId"];
+        twitId = settings["twitId"];
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+</head>
+<body class="widget-edit">
+    <div class="widget-edit-commentlist">
+        <form method="post">
+            <div class="form-group">
+                <label>Application Key</label>
+                <input type="text" class="form-control" id="txtAppId" name="txtAppId" value="@appId" />
+                @Html.ValidationMessage("txtAppId")
+            </div>
+            <div class="form-group">
+                <label>Twitter ID</label>
+                <input type="text" class="form-control" id="txtTwitId" name="txtTwitId" value="@twitId" />
+                @Html.ValidationMessage("txtTwitId")
+            </div>
+            <button type="submit" class="btn btn-success">@Resources.labels.save</button>
+        </form>
+    </div>
+</body>
+</html>

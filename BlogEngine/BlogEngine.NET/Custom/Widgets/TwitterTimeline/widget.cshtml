@@ -1,0 +1,28 @@
+﻿@using BlogEngine.NET.Custom.Widgets
+@{
+    var settings = Common.GetSettings(Model.Id);
+    var TwitId = "blogenginenet";
+    var AppId = "717752735521636352";
+    if (settings != null && settings.Count > 0)
+    {
+        TwitId = HttpUtility.HtmlDecode(settings["TwitId"]);
+        AppId = HttpUtility.HtmlDecode(settings["AppId"]);
+    }
+}
+<div class="widget textbox">
+    @if (!string.IsNullOrEmpty(TwitId))
+    {
+        <a class="twitter-timeline" href="https://twitter.com/@TwitId" data-widget-id="@AppId">Tweets by @TwitId</a>
+        <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+        </script>
+    }  
+</div>

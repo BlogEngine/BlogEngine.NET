@@ -193,6 +193,19 @@
         });
     }
 
+    $scope.uninstallPackage = function (pkgId) {
+        spinOn();
+        dataService.updateItem("/api/packages/uninstall/" + pkgId, pkgId)
+        .success(function (data) {
+            toastr.success($rootScope.lbl.completed);
+            $scope.load();
+        })
+        .error(function () {
+            toastr.error($rootScope.lbl.failed);
+            spinOff();
+        });
+    }
+
     $scope.load();
 
     $(document).ready(function () {

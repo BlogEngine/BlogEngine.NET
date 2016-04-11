@@ -497,6 +497,7 @@ namespace BlogEngine.Core.Web
             AddResource("incorrectSimpleCaptcha");
             AddResource("indent");
             AddResource("industry");
+            AddResource("information");
             AddResource("insertImage");
             AddResource("insertVideo");
             AddResource("install");

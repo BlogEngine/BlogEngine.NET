@@ -1,3 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <InstalledPackageFiles>
+    <item id="TwitterTimeline" fileorder="1" filepath="Custom\Widgets\TwitterTimeline" isdirectory="True" />
+    <item id="TwitterTimeline" fileorder="2" filepath="Custom\Widgets\TwitterTimeline\edit.cshtml" isdirectory="False" />
+    <item id="TwitterTimeline" fileorder="3" filepath="Custom\Widgets\TwitterTimeline\widget.cshtml" isdirectory="False" />
+    <item id="TwitterTimeline" fileorder="4" filepath="Custom\Widgets\TwitterTimeline\widget.xml" isdirectory="False" />
 </InstalledPackageFiles>

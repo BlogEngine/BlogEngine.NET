@@ -23,7 +23,8 @@ namespace BlogEngine.Core.Data.ViewModels
                 AvailableWidgets = new List<WidgetItem>();
                 foreach (var pk in packages)
                 {
-                    AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Name = pk.Title, Title = pk.Title, ShowTitle = false });
+                    var showUninstall = !string.IsNullOrEmpty(pk.OnlineVersion);                   
+                    AvailableWidgets.Add(new WidgetItem { Id = pk.Id, Name = pk.Title, Title = pk.Title, ShowTitle = false, ShowUnistall = showUninstall });
                 }
 
                 WidgetZones = new List<WidgetZone>();
@@ -125,5 +126,9 @@ namespace BlogEngine.Core.Data.ViewModels
         /// Show title
         /// </summary>
         public bool ShowTitle { get; set; }
+        /// <summary>
+        /// Show uninstall widget button if was installed from gallery
+        /// </summary>
+        public bool ShowUnistall { get; set; }
     }
 }
