@@ -105,6 +105,7 @@
                             <button ng-if="iw.ShowUnistall" ng-click="uninstallPackage(iw.Id)" title="{{lbl.remove}}">
                                 <i class="fa fa-trash"></i>
                             </button>
+                            <button class="pull-right" ng-click="loadInfoForm(iw.Id, iw.Name, iw.Title, widgetZones.titles[0])" title="{{lbl.information}}">
                                 <i class="fa fa-info-circle"></i>
                             </button>
                         </div>
