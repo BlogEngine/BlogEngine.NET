@@ -1,25 +1,25 @@
 ﻿function beginSendMessage() {
-    if (BlogEngine.$('<%=txtAttachment.ClientID %>') && BlogEngine.$('<%=txtAttachment.ClientID %>').value.length > 0)
+    if ($('[data-id="txtAttachment"]').length > 0 && $('[data-id="txtAttachment"]').val().length > 0)
         return true;
 
     if (!Page_ClientValidate('contact'))
         return false;
 
-    var recaptchaResponseField = document.getElementById('recaptcha_response_field');
-    var recaptchaResponse = recaptchaResponseField ? recaptchaResponseField.value : "";
+    var recaptchaResponseField = $('#recaptcha_response_field');
+    var recaptchaResponse = recaptchaResponseField.length > 0 ? recaptchaResponseField.val() : "";
 
-    var recaptchaChallengeField = document.getElementById('recaptcha_challenge_field');
-    var recaptchaChallenge = recaptchaChallengeField ? recaptchaChallengeField.value : "";
+    var recaptchaChallengeField = $('#recaptcha_challenge_field');
+    var recaptchaChallenge = recaptchaChallengeField.length > 0 ? recaptchaChallengeField.val() : "";
 
-    var name = BlogEngine.$('<%=txtName.ClientID %>').value;
-    var email = BlogEngine.$('<%=txtEmail.ClientID %>').value;
-    var subject = BlogEngine.$('<%=txtSubject.ClientID %>').value;
-    var message = BlogEngine.$('<%=txtMessage.ClientID %>').value;
+    var name = $('[data-id="txtName"]').val();
+    var email = $('[data-id="txtEmail"]').val();
+    var subject = $('[data-id="txtSubject"]').val();
+    var message = $('[data-id="txtMessage"]').val();
     var sep = '-||-';
     var arg = name + sep + email + sep + subject + sep + message + sep + recaptchaResponse + sep + recaptchaChallenge;
     WebForm_DoCallback('__Page', arg, endSendMessage, 'contact', onSendError, false)
 
-    BlogEngine.$('<%=btnSend.ClientID %>').disabled = true;
+    $('[data-id="btnSend"]').attr("disabled", true);
 
     return false;
 }
@@ -28,32 +28,32 @@ function endSendMessage(arg, context) {
 
     if (arg == "RecaptchaIncorrect") {
         displayIncorrectCaptchaMessage();
-        BlogEngine.$('<%=btnSend.ClientID %>').disabled = false;
+        $('[data-id="btnSend"]').attr("disabled", "");
 
-        if (document.getElementById('recaptcha_response_field')) {
+        if ($('#recaptcha_response_field').length > 0) {
             Recaptcha.reload();
         }
     }
     else {
-        if (document.getElementById("spnCaptchaIncorrect")) document.getElementById("spnCaptchaIncorrect").style.display = "none";
+        if ($("#spnCaptchaIncorrect")) $("#spnCaptchaIncorrect").css("display", "none");
 
-        BlogEngine.$('<%=btnSend.ClientID %>').disabled = false;
-        var form = BlogEngine.$('<%=divForm.ClientID %>')
-        var thanks = BlogEngine.$('thanks');
+        $('[data-id="btnSend').attr("disabled", "");
+        var form = $('[data-id="divForm');
+        var thanks = $('#thanks');
 
-        form.style.display = 'none';
-        thanks.innerHTML = arg;
+        form.css("display", "none");
+        thanks.html(arg);
     }
 }
 
 function displayIncorrectCaptchaMessage() {
-    if (document.getElementById("spnCaptchaIncorrect")) document.getElementById("spnCaptchaIncorrect").style.display = "";
+    if ($("#spnCaptchaIncorrect")) $("#spnCaptchaIncorrect").css("display", "none");
 }
 
 function onSendError(err, context) {
-    if (document.getElementById('recaptcha_response_field')) {
+    if ($('#recaptcha_response_field')) {
         Recaptcha.reload();
     }
-    BlogEngine.$('<%=btnSend.ClientID %>').disabled = false;
+    $('[data-id="btnSend"]').css("display", "none");
     alert("Sorry, but the following occurred while attemping to send your message: " + err);
 }
