@@ -7,18 +7,18 @@ using BlogEngine.Core.Web.Extensions;
 /// Sends emails to newsletter subscribers
 /// </summary>
 [Extension("Sends emails to newsletter subscribers", "3.3.0.0", "BlogEngine.NET")]
-public class Newsletter
+public class SendNewsletters
 {
     #region Constructors and Destructors
 
-    static Newsletter()
+    static SendNewsletters()
     {
         Post.Published += Post_Published;
     }
 
     private static void Post_Published(object sender, EventArgs e)
     {
-        if (!ExtensionManager.ExtensionEnabled("Newsletter"))
+        if (!ExtensionManager.ExtensionEnabled("SendNewsletters"))
             return;
 
         var publishable = (IPublishable)sender;

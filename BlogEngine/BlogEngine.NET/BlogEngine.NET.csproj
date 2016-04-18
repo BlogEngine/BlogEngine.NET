@@ -1937,7 +1937,7 @@
     <Compile Include="Custom\Extensions\Recaptcha\RecaptchaValidator.cs" />
     <Compile Include="Custom\Extensions\ResolveLinks.cs" />
     <Compile Include="Custom\Extensions\SendCommentMail.cs" />
-    <Compile Include="Custom\Extensions\Newsletter.cs" />
+    <Compile Include="Custom\Extensions\SendNewsletters.cs" />
     <Compile Include="Custom\Extensions\SendPings.cs" />
     <Compile Include="Custom\Extensions\SimpleCaptcha\SimpleCaptcha.cs" />
     <Compile Include="Custom\Extensions\SimpleCaptcha\SimpleCaptchaControl.cs" />
