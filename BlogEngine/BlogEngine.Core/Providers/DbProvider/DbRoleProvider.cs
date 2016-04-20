@@ -139,6 +139,8 @@
             }
 
             // This needs to be called in order to keep the Right class in sync.
+            // SQL Server on slow connections need few seconds to complete query
+            System.Threading.Thread.Sleep(5000);
             Right.RefreshAllRights();
         }
 
