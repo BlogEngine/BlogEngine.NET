@@ -29,8 +29,51 @@ namespace BlogEngine.Core.Data.ViewModels
 
                 WidgetZones = new List<WidgetZone>();
                 WebClient client = new WebClient();
+
+                // add zones registered in site.master
                 var html = client.DownloadString(Utils.AbsoluteWebRoot);
+                AddZones(html);
+
+                // add zones registered in post.master
+                if(Post.Posts != null && Post.Posts.Count > 0)
+                {
+                    var postUrl = Post.Posts[0].AbsoluteLink;
+                    html = client.DownloadString(postUrl);
+                    AddZones(html);
+                }
+
+                // add zones registered in page.master
+                if(Page.Pages != null && Page.Pages.Count > 0)
+                {
+                    var pageUrl = Page.Pages[0].AbsoluteLink;
+                    html = client.DownloadString(pageUrl);
+                    AddZones(html);
+                }
+            }
+            catch (Exception ex) {
+                Utils.Log(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Available widgets
+        /// </summary>
+        public List<WidgetItem> AvailableWidgets { get; set; }
+        /// <summary>
+        /// Widget zones
+        /// </summary>
+        public List<WidgetZone> WidgetZones { get; set; }
+        private static XmlDocument RetrieveXml(string zoneName)
+        {
+            var ws = new WidgetSettings(zoneName) { SettingsBehavior = new XmlDocumentBehavior() };
+            var doc = (XmlDocument)ws.GetSettings();
+            return doc;
+        }
+        private void AddZones(string html)
+        {
+            try
+            {
                 var cnt = 0;
+                bool found = false;
                 var tag = "widgetzone_";
 
                 for (int i = 0; i < 10; i++)
@@ -47,7 +90,6 @@ namespace BlogEngine.Core.Data.ViewModels
                         var xml = RetrieveXml(zoneId);
                         var wd = new WidgetData { Settings = xml.InnerXml };
 
-                        //------------------------------
                         var widgets = xml.SelectSingleNode("widgets");
                         zone.Widgets = new List<WidgetItem>();
                         if (widgets != null)
@@ -65,29 +107,28 @@ namespace BlogEngine.Core.Data.ViewModels
                                 }
                             }
                         }
-                        //------------------------------
-
-                        WidgetZones.Add(zone);
+                        found = false;
+                        if (WidgetZones.Count > 0)
+                        {
+                            foreach (var z in WidgetZones)
+                            {
+                                if(z.Id == zone.Id)
+                                {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!found)
+                        {
+                            WidgetZones.Add(zone);
+                        }
                         cnt = to;
                     }
                     else { break; }
                 }
             }
             catch (Exception) { }
-        }
-        /// <summary>
-        /// Available widgets
-        /// </summary>
-        public List<WidgetItem> AvailableWidgets { get; set; }
-        /// <summary>
-        /// Widget zones
-        /// </summary>
-        public List<WidgetZone> WidgetZones { get; set; }
-        private static XmlDocument RetrieveXml(string zoneName)
-        {
-            var ws = new WidgetSettings(zoneName) { SettingsBehavior = new XmlDocumentBehavior() };
-            var doc = (XmlDocument)ws.GetSettings();
-            return doc;
         }
     }
 
