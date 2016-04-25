@@ -21,6 +21,12 @@
 <head>
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/admin/themes/standard/css/styles.css">
+    <style>
+        .mce-floatpanel { left: 0 !important; top: 0 !important; }
+        .mce-textbox { width: 85% !important; }
+        .mce-widget.mce-btn.mce-primary { left: 20px !important; }
+        .mce-widget.mce-btn.mce-abs-layout-item.mce-last { left: 80px !important; }
+    </style>
     <script src="~/admin/editors/tinymce/tinymce.min.js"></script>
     <script>
         tinymce.init({
@@ -30,7 +36,7 @@
                 "searchreplace visualblocks code fullscreen textcolor imagetools",
                 "insertdatetime media table contextmenu paste"
             ],
-            toolbar: "styleselect | bold underline italic | bullist numlist | forecolor backcolor | link",
+            toolbar: "styleselect | bold underline italic | bullist numlist | forecolor backcolor | link code",
             autosave_ask_before_unload: false,
             max_height: 400,
             min_height: 100,
