@@ -1,25 +1,26 @@
 # Work on styles in BlogEngine's admin
 
-Admin of BlogEnigne is implemented by Sass(scss) preprocessor, so if you want to work on CSS styles, you should know how Sass works. so if you know, follow these steps to compile the Sass.
+BlogEnigne uses Sass (scss) preprocessor to build CSS styles for admin theme.
+Please follow these steps to convert .scss files into CSS styles.
 
-The simple way for Windows users:
+The simplest way for Windows users:
 
 1. Download and install the latest version of [RubyInstaller].
 
-2. In your command prompt type and run:
+2. In the command prompt, type and run following command:
 
   `gem install sass`
 
-3. Then you have to change directory of command prompt to:
+3. Change directory in command prompt to match path to admin theme in your project
 
-  For you might be in different path.
+  For example:
 
   `cd D:\BlogEngine\BlogEngine.NET\admin\themes\standard\`
 
-4. Then for compile on saving file, you have to only run this command:
+4. Run this command to start file watcher:
 
   `sass --watch scss/styles.scss:css/styles.css --style compressed`
 
-  This command will wait until you change the `.scss` files, then will compile automatically.
+  This will monitor any changes in the .scss files and convert them into CSS on the fly.
 
 [rubyinstaller]: http://rubyinstaller.org/downloads/
