@@ -1,6 +1,6 @@
 ## BlogEngine.NET Source Code
 This repository provides latest source code for BlogEngine.NET project (https://blogengine.codeplex.com)
-## BlogEngine.NET Source Code
+## Persian support
 This branch is Persian (فارسی) friendly!:)
 ## Environment
   * Visual Studio 2015 Community +
