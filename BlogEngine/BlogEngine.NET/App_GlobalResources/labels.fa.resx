@@ -231,6 +231,9 @@
   <data name="defaultFeedOutput" xml:space="preserve">
     <value>خروجی پیش فرض فید (Feed)</value>
   </data>
+  <data name="time" xml:space="preserve">
+    <value>ساعت</value>
+  </data>
   <data name="defaultTextShownInSearchField" xml:space="preserve">
     <value>متن پیش فرضی که در جعبه جستجو نمایش داده می شود</value>
   </data>
