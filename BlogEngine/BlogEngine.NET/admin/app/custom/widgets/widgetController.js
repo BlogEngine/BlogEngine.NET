@@ -42,7 +42,8 @@
 
     $scope.loadEditForm = function (id, name, title, zone) {
         var sharedSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/common.cshtml";
-        var customSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
+        var customSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml?id="+ id;
+
 
         $scope.editId = id;
         $scope.editTitle = title;
