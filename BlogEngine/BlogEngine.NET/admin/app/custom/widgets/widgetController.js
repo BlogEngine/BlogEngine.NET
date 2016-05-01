@@ -44,6 +44,7 @@
         var sharedSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/common.cshtml";
         var customSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
 
+
         $scope.editId = id;
         $scope.editTitle = title;
         $scope.editZone = zone;
@@ -54,7 +55,7 @@
 
         $.ajax({
             type: 'HEAD',
-            url: customSrc,
+            url: customSrc + "?id=" + id,
             async: false,
             success: function () {
                 $scope.editSrc = customSrc + "?id=" + id + "&zone=" + zone;
