@@ -376,7 +376,7 @@ public class Updater  : WebService {
         }
         else if (conPrv == "System.Data.SqlClient")
         {
-            sourceFile = _root + "\\setup\\upgrade\\backup\\be\\setup\\SQLServer\\SQLServerWeb.Config";
+            sourceFile = _root + "\\setup\\upgrade\\backup\\be\\setup\\SQLServer\\DbWeb.Config";
             defCon = @"Server=.\SQLEXPRESS;Database=BlogEngine;Trusted_Connection=True;";
         }
 

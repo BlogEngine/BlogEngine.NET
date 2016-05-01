@@ -41,9 +41,8 @@
     }
 
     $scope.loadEditForm = function (id, name, title, zone) {
-        var sharedSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/common.cshtml";
-        var customSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml";
-
+        var sharedSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/common.cshtml?id=" + id + "&zone=" + zone;
+        var customSrc = SiteVars.RelativeWebRoot + "Custom/Widgets/" + name + "/edit.cshtml?id=" + id + "&zone=" + zone;
 
         $scope.editId = id;
         $scope.editTitle = title;
@@ -55,13 +54,13 @@
 
         $.ajax({
             type: 'HEAD',
-            url: customSrc + "?id=" + id,
+            url: customSrc,
             async: false,
             success: function () {
-                $scope.editSrc = customSrc + "?id=" + id + "&zone=" + zone;
+                $scope.editSrc = customSrc;
             },
             error: function () {
-                $scope.editSrc = sharedSrc + "?id=" + id + "&zone=" + zone;
+                $scope.editSrc = sharedSrc;
             }
         });
         // show modal and add the name of widget for class. and we will use in the CSS for the height of modal.
