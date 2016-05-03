@@ -2825,8 +2825,7 @@
     <comment>Justify</comment>
   </data>
   <data name="LangDirection" xml:space="preserve">
-    <value>从左向右</value>
-    <comment>ltr</comment>
+    <value>ltr</value>
   </data>
   <data name="lastUpdate" xml:space="preserve">
     <value>最近更新</value>
