@@ -73,7 +73,7 @@
             <div class="container">
                 <p class="copyright float-left">
                     <span>Copyright &copy; <%=DateTime.Now.Year %> - <a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></span>
-                    <span>Powered by <a href="http://dotnetblogengine.net" target="_blank" title="BlogEgine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a> </span>
+                    <span>Powered by <a href="http://dotnetblogengine.net" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a></span>
                 </p>
                 <ul class="float-right list-unstyled social-network">
                     <li><a href="[CUSTOMFIELD|THEME|Standard|Facebook Account|/]" rel="external nofollow"><i class="icon-facebook"></i></a></li>

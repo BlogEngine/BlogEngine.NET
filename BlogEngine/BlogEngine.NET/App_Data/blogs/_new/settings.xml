@@ -82,7 +82,6 @@
   <moderationtype>Auto</moderationtype>
   <enablepingbackreceive>True</enablepingbackreceive>
   <showlivepreview>True</showlivepreview>
-  <galleryfeedurl>http://dnbe.net/v01/nuget</galleryfeedurl>
   <searchcommentlabeltext>Include comments in search</searchcommentlabeltext>
   <displaycommentsonrecentposts>True</displaycommentsonrecentposts>
   <enablerelatedposts>True</enablerelatedposts>

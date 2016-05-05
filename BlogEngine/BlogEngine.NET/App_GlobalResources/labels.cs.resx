@@ -1976,7 +1976,7 @@
     <value>Vyprázdnit log soubor</value>
   </data>
   <data name="LangDirection" xml:space="preserve">
-    <value>zleva doprava</value>
+    <value>ltr</value>
   </data>
   <data name="apmlDescription" xml:space="preserve">
     <value>Vložte URL vašeho webu nebo APML dokumentu</value>

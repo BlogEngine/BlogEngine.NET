@@ -1914,6 +1914,7 @@
     <Compile Include="AppCode\Controls\PostCalendar.cs" />
     <Compile Include="AppCode\Controls\PostPager.cs" />
     <Compile Include="AppCode\Controls\RelatedPosts.cs" />
+    <Compile Include="AppCode\Controls\SearchBox.cs" />
     <Compile Include="AppCode\Controls\SearchOnSearch.cs" />
     <Compile Include="AppCode\Controls\WidgetBase.cs">
       <SubType>ASPXCodeBehind</SubType>
