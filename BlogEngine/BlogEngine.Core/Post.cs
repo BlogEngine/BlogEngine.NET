@@ -588,10 +588,16 @@
                     // point it to child blog
                     BlogUrl = this.Blog.Name + "/";
                 }
-
-                return settings.TimeStampPostLinks
-                    ? string.Format("{0}{1}post/{2}{3}", Blog.RelativeWebRoot, BlogUrl, DateCreated.ToString("yyyy/MM/dd/", CultureInfo.InvariantCulture), theslug)
-                    : string.Format("{0}{1}post/{2}", Utils.RelativeWebRoot, BlogUrl, theslug);
+                if (BlogSettings.Instance.Culture == "fa") {
+                    return settings.TimeStampPostLinks
+                    ? $"{Blog.RelativeWebRoot}{BlogUrl}post/{DateCreated.ToPersianDate("/")}/{theslug}"
+                        : $"{Utils.RelativeWebRoot}{BlogUrl}post/{theslug}";
+                    }
+                else { 
+                    return settings.TimeStampPostLinks
+                    ? $"{Blog.RelativeWebRoot}{BlogUrl}post/{DateCreated.ToString("yyyy/MM/dd/", CultureInfo.InvariantCulture)}{theslug}"
+                        : $"{Utils.RelativeWebRoot}{BlogUrl}post/{theslug}";
+            }
             }
         }
 
@@ -1034,7 +1040,23 @@
             var list = ApplicablePosts.FindAll(p => p.DateCreated.Date >= dateFrom && p.DateCreated.Date <= dateTo);
             return list;
         }
-
+        /// <summary>
+        /// Returns all posts published between the two Persian dates.
+        /// </summary>
+        /// <param name="dateFrom">
+        /// The date From.
+        /// </param>
+        /// <param name="dateTo">
+        /// The date To.
+        /// </param>
+        /// <returns>
+        /// A list of Post.
+        /// </returns>
+        public static List<Post> GetPostsByPersianDate(PersianDate dateFrom, PersianDate dateTo)
+        {
+            var list = ApplicablePosts.FindAll(p => p.DateCreated.Date >= dateFrom.ToDateTime() && p.DateCreated.Date <= dateTo.ToDateTime());
+            return list;
+        }
         /// <summary>
         /// Returns all posts tagged with the specified tag.
         /// </summary>

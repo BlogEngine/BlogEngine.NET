@@ -127,6 +127,8 @@
     <Compile Include="Data\ViewModels\DashboardVM.cs" />
     <Compile Include="Data\ViewModels\SettingsVM.cs" />
     <Compile Include="Data\ViewModels\WidgetsVM.cs" />
+    <Compile Include="Persian.cs" />
+    <Compile Include="PersianDate.cs" />
     <Compile Include="Services\Syndication\BlogML\BaseReader.cs" />
     <Compile Include="Services\Syndication\BlogML\BlogImporter.cs" />
     <Compile Include="Services\Syndication\BlogML\BlogMLExtendedPost.cs" />
