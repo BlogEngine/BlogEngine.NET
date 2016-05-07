@@ -151,7 +151,7 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		HtmlTableRow row = new HtmlTableRow();
 
 		HtmlTableCell date = new HtmlTableCell();
-		date.InnerHtml = post.DateCreated.ToString("yyyy-MM-dd");
+		date.InnerHtml = BlogSettings.Instance.Culture != "fa" ? post.DateCreated.ToString("yyyy-MM-dd") : post.DateCreated.ToPersianDate("/");
 		date.Attributes.Add("class", "date");
 		row.Cells.Add(date);
 
