@@ -218,18 +218,34 @@ BlogEngine = {
     validateAndSubmitCommentForm: function () {
 
         if (BlogEngine.comments.nameBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
-            BlogEngine.$("status").className = "warning";
+            BlogEngine.$("status").className = "alert alert-danger";
+            BlogEngine.$("status").innerHTML = "Name is required";// TODO Globalization!
+            BlogEngine.$("status").style.display = 'block';
             BlogEngine.$("txtName").focus();
             return false;
         }
         if (BlogEngine.comments.emailBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
+            BlogEngine.$("status").className = "alert alert-danger";
+            BlogEngine.$("status").innerHTML = "Email is required";// TODO Globalization!
+            BlogEngine.$("status").style.display = 'block';
             BlogEngine.$("txtEmail").focus();
             return false;
         }
+        else
+        {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(BlogEngine.comments.emailBox.value)) {
+                BlogEngine.$("status").className = "alert alert-danger";
+                BlogEngine.$("status").innerHTML = "Email address is not valid";// TODO Globalization!
+                BlogEngine.$("status").style.display = 'block';
+                BlogEngine.$("txtEmail").focus();
+                return false;
+            };
+        }
         if (BlogEngine.comments.contentBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
+            BlogEngine.$("status").className = "alert alert-danger";
+            BlogEngine.$("status").innerHTML = "Required";// TODO Globalization!
+            BlogEngine.$("status").style.display = 'block';
             BlogEngine.$("txtContent").focus();
             return false;
         }
