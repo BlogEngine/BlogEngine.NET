@@ -673,7 +673,7 @@ namespace BlogEngine.Core
             }
 
             writer.WriteElementString("description", content);
-            writer.WriteElementString("link", publishable.AbsoluteLink.ToString());
+            writer.WriteElementString("link", publishable.AbsoluteLink.AbsoluteUri);
 
             // ------------------------------------------------------------
             // Write enclosure tag for podcasting support
