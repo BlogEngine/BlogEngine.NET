@@ -133,7 +133,7 @@
                 postId.Length == 36)
             {
                 post = Post.GetPost(new Guid(postId));
-                this.ExamineSourcePage(url, post.AbsoluteLink.ToString());
+                this.ExamineSourcePage(url, post.AbsoluteLink.AbsoluteUri);
                 var containsHtml = !string.IsNullOrEmpty(excerpt) &&
                                    (RegexHtml.IsMatch(excerpt) || RegexHtml.IsMatch(title) ||
                                     RegexHtml.IsMatch(blogName));
