@@ -479,7 +479,7 @@ namespace BlogEngine.Core
             writer.WriteEndElement();
 
             writer.WriteStartElement("link");
-            writer.WriteAttributeString("href", publishable.AbsoluteLink.ToString());
+            writer.WriteAttributeString("href", publishable.AbsoluteLink.AbsoluteUri);
             writer.WriteEndElement();
 
             writer.WriteStartElement("author");
@@ -498,7 +498,7 @@ namespace BlogEngine.Core
 
             writer.WriteStartElement("link");
             writer.WriteAttributeString("rel", "related");
-            writer.WriteAttributeString("href", String.Concat(publishable.AbsoluteLink.ToString(), "#comment"));
+            writer.WriteAttributeString("href", String.Concat(publishable.AbsoluteLink.AbsoluteUri, "#comment"));
             writer.WriteEndElement();
 
             // ------------------------------------------------------------
@@ -604,7 +604,7 @@ namespace BlogEngine.Core
                 "wfw",
                 "comment",
                 "http://wellformedweb.org/CommentAPI/",
-                String.Concat(publishable.AbsoluteLink.ToString(), 
+                String.Concat(publishable.AbsoluteLink.AbsoluteUri, 
                 "#comment"));
             writer.WriteElementString(
                 "wfw",
@@ -673,7 +673,7 @@ namespace BlogEngine.Core
             }
 
             writer.WriteElementString("description", content);
-            writer.WriteElementString("link", publishable.AbsoluteLink.ToString());
+            writer.WriteElementString("link", publishable.AbsoluteLink.AbsoluteUri);
 
             // ------------------------------------------------------------
             // Write enclosure tag for podcasting support
@@ -697,7 +697,7 @@ namespace BlogEngine.Core
             if (post != null)
             {
                 writer.WriteElementString(
-                    "comments", String.Concat(publishable.AbsoluteLink.ToString(),
+                    "comments", String.Concat(publishable.AbsoluteLink.AbsoluteUri,
 					"#comment"));
             }
 
@@ -791,7 +791,7 @@ namespace BlogEngine.Core
                 "wfw",
                 "comment",
                 "http://wellformedweb.org/CommentAPI/",
-                String.Concat(publishable.AbsoluteLink.ToString(),
+                String.Concat(publishable.AbsoluteLink.AbsoluteUri,
 				"#comment"));
             writer.WriteElementString(
                 "wfw",

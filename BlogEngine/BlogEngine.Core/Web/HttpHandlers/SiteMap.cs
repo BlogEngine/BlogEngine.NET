@@ -52,7 +52,7 @@
                 foreach (var post in Post.Posts.Where(post => post.IsVisibleToPublic))
                 {
                     writer.WriteStartElement("url");
-                    writer.WriteElementString("loc", post.AbsoluteLink.ToString());
+                    writer.WriteElementString("loc", post.AbsoluteLink.AbsoluteUri.ToString());
                     writer.WriteElementString(
                         "lastmod", post.DateModified.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
                     writer.WriteElementString("changefreq", "monthly");
@@ -63,7 +63,7 @@
                 foreach (var page in Page.Pages.Where(page => page.IsVisibleToPublic))
                 {
                     writer.WriteStartElement("url");
-                    writer.WriteElementString("loc", page.AbsoluteLink.ToString());
+                    writer.WriteElementString("loc", page.AbsoluteLink.AbsoluteUri);
                     writer.WriteElementString(
                         "lastmod", page.DateModified.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
                     writer.WriteElementString("changefreq", "monthly");
