@@ -1072,6 +1072,10 @@
         /// <returns>Client time</returns>
         public DateTime FromUtc(DateTime ? serverTime = null)
         {
+            if (System.Threading.Thread.CurrentThread.CurrentCulture.LCID == 1065)
+                System.Threading.Thread.CurrentThread.CurrentCulture = new PersianCulture(); 
+
+
             if (serverTime == null || serverTime == new DateTime())
                 serverTime = DateTime.UtcNow;
 

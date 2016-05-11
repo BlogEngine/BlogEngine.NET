@@ -2197,6 +2197,9 @@
   <data name="importedFromBlogML" xml:space="preserve">
     <value>Imported from BlogML</value>
   </data>
+  <data name="time" xml:space="preserve">
+    <value>at</value>
+  </data>
   <data name="importFailed" xml:space="preserve">
     <value>Import failed</value>
   </data>

@@ -6,7 +6,9 @@
             <div class="comment-content <%= Post.Author.Equals(Comment.Author, StringComparison.OrdinalIgnoreCase) ? " self" : "" %>">
                 <div class="comment-header clearfix">
                     <h4 class="media-heading pull-left"><%= Comment.Website != null ? "<a href=\"" + Comment.Website + "\" rel=\"nofollow\" class=\"url fn\">" + Comment.Author + "</a>" : "<span class=\"fn\">" +Comment.Author + "</span>" %></h4>
-                    <small class="pull-right text-muted text-uppercase"><%= Comment.DateCreated  %> |  <%=ReplyToLink%> </small>
+                    <small class="pull-right text-muted text-uppercase"><%= string.Format("{0} {1} {2}", Comment.DateCreated.ToString("yyyy-MM-dd"),Resources.labels.time,Comment.DateCreated.ToString("HH:mm"))  %> 
+                        <%= !string.IsNullOrEmpty(ReplyToLink)? string.Format(" | {0}",ReplyToLink):"" %> 
+                    </small>
                 </div>
                 <p><%= Text %></p>
                 <div class="text-right reply-to">
