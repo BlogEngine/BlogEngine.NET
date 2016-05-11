@@ -1078,6 +1078,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Name.
+        /// </summary>
+        internal static string changeName {
+            get {
+                return ResourceManager.GetString("changeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change password.
         /// </summary>
         internal static string changePassword {

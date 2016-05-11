@@ -99,6 +99,7 @@ categoryDeleted
 categoryUpdated
 center
 changePassword
+changeName
 cheked
 chooseFromExistingTags
 chooseOtherName

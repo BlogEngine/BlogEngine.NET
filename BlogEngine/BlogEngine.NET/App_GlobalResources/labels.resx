@@ -2591,4 +2591,7 @@
   <data name="plugins" xml:space="preserve">
     <value>Plugins</value>
   </data>
+  <data name="changeName" xml:space="preserve">
+    <value>Change Name</value>
+  </data>
 </root>

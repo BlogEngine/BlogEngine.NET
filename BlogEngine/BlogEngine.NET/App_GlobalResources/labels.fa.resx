@@ -1993,4 +1993,7 @@
   <data name="txtErrorTitle" xml:space="preserve">
     <value>عنوان خطا</value>
   </data>
+  <data name="changeName" xml:space="preserve">
+    <value>تغییر نام</value>
+  </data>
 </root>

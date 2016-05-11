@@ -12,6 +12,10 @@
                 display: none;
             }
 
+            .modal-header {
+                border: none;
+            }
+
             .modal-body {
                 display: none;
             }
@@ -94,6 +98,8 @@
             @include list-unstyled();
             margin-top: 20px;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 11;
 
             li {
                 width: 100%;
@@ -102,12 +108,8 @@
                 padding-left: 15px;
                 line-height: 40px;
                 border: 1px solid #ddd;
-                -moz-box-shadow: 0 1px 0 #eee !important;
-                -webkit-box-shadow: 0 1px 0 #eee !important;
-                box-shadow: 0 1px 0 #eee !important;
-                -moz-border-radius: 3px;
-                -webkit-border-radius: 3px;
-                border-radius: 3px;
+                @include box-shadow(0 1px 0 #eee !important);
+                @include border-radius(3px);
                 font-weight: 400;
                 font-size: 14px;
                 height: 40px;
@@ -115,6 +117,7 @@
                 color: #444;
                 position: relative;
                 overflow: hidden;
+                cursor: move;
 
                 &:last-child {
                     margin-bottom: 0;
@@ -124,7 +127,7 @@
                     position: absolute;
                     right: 0;
                     top: 0;
-                    z-index: 2;
+                    z-index: 0;
                     width: 100px;
 
                     button {
@@ -165,6 +168,7 @@
         .widgets-list-active {
             border: 1px dashed #aaa;
             padding: 10px;
+            z-index: 10;
         }
 
         .ui-sortable-placeholder {
@@ -263,7 +267,7 @@
 
 
 // widget-edit
-// don't forget widget-edit is for body class.
+// don't forget widget-edit is for body class in the iframe setting of widgets.
 .widget-edit {
     padding: 15px;
     // blogrolll
