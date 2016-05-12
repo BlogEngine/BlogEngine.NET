@@ -23,9 +23,9 @@
         display: inline !important;
     }
 </style>
-<div class="widget recentcomments">
-    <h4 class="widget-header">@Model.Title</h4>
-    <div class="widget-content">
+<div class="Widget recentcomments" id="widget@(Model.Id)">
+    <h4 class="WidgetHeader">@Model.Title</h4>
+    <div class="WidgetContent">
         <ul id="recentComments" class="recentcomments">
             @if (list.Count > 0)
             {

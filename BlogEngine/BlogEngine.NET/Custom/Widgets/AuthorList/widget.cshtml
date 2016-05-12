@@ -8,11 +8,11 @@
     IEnumerable<MembershipUser> users = Membership.GetAllUsers()
         .Cast<MembershipUser>().ToList().OrderBy(a => a.UserName);
 }
-<div class="widget authorlist">
-    <h4 class="widget-header">
+<div class="Widget authorlist" id="widget@(Model.Id)">
+    <h4 class="WidgetHeader">
         @title
     </h4>
-    <div class="widget-content">
+    <div class="WidgetContent">
         <ul id="authorlist" class="authorlist">
             @foreach (var user in users)
             {

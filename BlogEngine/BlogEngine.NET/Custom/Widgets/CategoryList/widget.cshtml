@@ -4,9 +4,9 @@
     var title = Model.Title;
     var dic = CategoryList.SortCategories();
 }
-<div class="widget categorylist">
-    <h4 class="widget-header">@title</h4>
-    <div class="widget-content">
+<div class="Widget categorylist" id="widget@(Model.Id)">
+    <h4 class="WidgetHeader">@title</h4>
+    <div class="WidgetContent">
         <ul id="categorylist">
             @foreach (var cat in dic.Values)
             {

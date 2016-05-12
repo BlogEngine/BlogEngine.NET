@@ -2,9 +2,9 @@
 @{
     var title = Model.Title;
 }
-<div class="widget pagelist">
-    <h4 class="widget-header">@title</h4>
-    <div class="widget-content">
+<div class="Widget pagelist">
+    <h4 class="WidgetHeader">@title</h4>
+    <div class="WidgetContent" id="widget@(Model.Id)">
         <ul>
             @foreach (var page in BlogEngine.Core.Page.Pages.Where(page => page.ShowInList && page.IsVisibleToPublic))
             {
