@@ -7,6 +7,6 @@
         txt = HttpUtility.HtmlDecode(settings["content"]);
     }
 }
-<div class="widget textbox">
+<div class="Widget textbox" id="widget@(Model.Id)">
     @Html.Raw(txt)
 </div>
