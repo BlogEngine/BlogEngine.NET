@@ -6,7 +6,7 @@
     var WidgetId = Model.Id;
 }
 <div class="Widget search" id="widget@(Model.Id)">
-    <div class="WidgetContent">
+    <div class="WidgetContent widget-content">
         <div id="searchbox">
             <input type="text" style="width: 72% !important" onblur="BlogEngine.searchClear('@text','txt-@WidgetId')" onfocus="BlogEngine.searchClear('@text','txt-@WidgetId')" onkeypress="if(event.keyCode==13) return BlogEngine.search('@Utils.RelativeWebRoot','txt-@WidgetId')" id="txt-@WidgetId" value="@text" />
             <input type="button" onkeypress="BlogEngine.search('@Utils.RelativeWebRoot', 'txt-@WidgetId');" onclick="BlogEngine.search('@Utils.RelativeWebRoot', 'txt-@WidgetId');" id="searchbutton" value="Search" />

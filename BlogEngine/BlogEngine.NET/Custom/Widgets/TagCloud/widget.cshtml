@@ -4,8 +4,8 @@
     var tags = cloud.Links();
 }
 <div class="Widget tagcloud" id="widget@(Model.Id)">
-    <h4 class="WidgetHeader">@title</h4>
-    <div class="WidgetContent">
+    <h4 class="WidgetHeader widget-header">@title</h4>
+    <div class="WidgetContent widget-content">
         <ul>
             @foreach (var tag in tags)
             {

@@ -1,6 +1,7 @@
 ﻿@using BlogEngine.NET.Custom.Widgets
 @{
-    var settings = Common.GetSettings(Model.Id);
+    var title = Model.Title;
+	var settings = Common.GetSettings(Model.Id);
     var txt = "";
     if (settings != null && settings.Count > 0)
     {
@@ -8,5 +9,8 @@
     }
 }
 <div class="Widget textbox" id="widget@(Model.Id)">
-    @Html.Raw(txt)
+	   <h4 class="WidgetHeader widget-header">@title</h4>
+	   <div class="WidgetContent widget-content">
+			@Html.Raw(txt)
+	   </div>
 </div>

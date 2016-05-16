@@ -4,8 +4,8 @@
     var links = linkList.GetLinks();
 }
 <div class="Widget linklist" id="widget@(Model.Id)">
-    <h4 class="WidgetHeader">@Model.Title</h4>
-    <div class="WidgetContent">
+    <h4 class="WidgetHeader widget-header">@Model.Title</h4>
+    <div class="WidgetContent widget-content">
         <ul id="linkList" class="linklist">
         @foreach (var link in links)
         {

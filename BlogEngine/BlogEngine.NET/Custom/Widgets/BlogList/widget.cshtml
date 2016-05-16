@@ -4,10 +4,10 @@
     var blogs = Blog.Blogs.Where(b => b.IsActive).ToList();
 }
 <div class="Widget bloglist id="widget@(Model.Id)"">
-    <h4 class="WidgetHeader">
+    <h4 class="WidgetHeader widget-header">
         @title
     </h4>
-    <div class="WidgetContent">
+    <div class="WidgetContent widget-content">
         <ul>
             @foreach (var blog in blogs)
             {
