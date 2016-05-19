@@ -3,9 +3,9 @@
     var cloud = new BlogEngine.Core.Data.Services.TagCloud();
     var tags = cloud.Links();
 }
-<div class="widget tagcloud">
-    <h4 class="widget-header">@title</h4>
-    <div class="widget-content">
+<div class="Widget widget tagcloud">
+    <h4 class="WidgetHeader widget-header">@title</h4>
+    <div class="WidgetContent widget-content">
         <ul>
             @foreach (var tag in tags)
             {

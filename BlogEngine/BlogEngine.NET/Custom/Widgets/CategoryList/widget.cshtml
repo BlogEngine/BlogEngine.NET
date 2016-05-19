@@ -3,10 +3,22 @@
 @{
     var title = Model.Title;
     var dic = CategoryList.SortCategories();
+
+    var settings = Common.GetSettings(Model.Id);
+    bool showRssIcon = true;
+    bool showPostCnt = true;
+    if (settings.ContainsKey("showrssicon"))
+    {
+        showRssIcon = bool.Parse(settings["showrssicon"]);
+    }
+    if (settings.ContainsKey("showpostcount"))
+    {
+        showPostCnt = bool.Parse(settings["showpostcount"]);
+    }
 }
-<div class="widget categorylist">
-    <h4 class="widget-header">@title</h4>
-    <div class="widget-content">
+<div class="Widget widget categorylist">
+    <h4 class="WidgetHeader widget-header">@title</h4>
+    <div class="WidgetContent widget-content">
         <ul id="categorylist">
             @foreach (var cat in dic.Values)
             {
@@ -20,12 +32,21 @@
                 <li>
                     @if (i > 0)
                     {
-                        <a>@Html.Raw(spaces)</a>
+                    <a>@Html.Raw(spaces)</a>
                     }
+                    @if (showRssIcon == true)
+                    {
                     <a rel="nofollow" href="~/category/feed/@Utils.RemoveIllegalCharacters(cat.Title)">
                         <img class="rssButton" alt="RSS feed for SubBlog" src="~/Content/images/blog/rssButton.png">
                     </a>
-                    <a title="Category: @cat.Title" href="~/category/@Utils.RemoveIllegalCharacters(cat.Title)">@cat.Title (@posts.ToString())</a>
+                    }
+                    <a title="Category: @cat.Title" href="~/category/@Utils.RemoveIllegalCharacters(cat.Title)">
+                        @cat.Title 
+                        @if (showPostCnt)
+                        {
+                            <span>(@posts)</span>
+                        }
+                    </a>
                 </li>
             }
         </ul>

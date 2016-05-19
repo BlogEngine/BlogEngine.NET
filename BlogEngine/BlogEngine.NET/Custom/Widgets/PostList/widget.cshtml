@@ -70,9 +70,9 @@
         bool.TryParse(settings["showdate"], out showDate);
     }
 }
-<div class="widget postlist">
-    <h4 class="widget-header">@title</h4>
-    <div class="widget-content">
+<div class="Widget widget postlist">
+    <h4 class="WidgetHeader widget-header">@title</h4>
+    <div class="WidgetContent widget-content">
         <ul>
             @if (list.Count == 0)
             {
@@ -88,7 +88,7 @@
                         {
                         <img src="@item.FirstImgSrc" class="post-item-img" alt="Post image" />
                         }
-                        <h3 class="post-item-title">@item.Title</h3>
+                        <h5 class="post-item-title">@item.Title</h5>
                         @if (showDesc)
                         {
                             <p class="post-item-desc">@HttpUtility.HtmlEncode(item.Description)</p>

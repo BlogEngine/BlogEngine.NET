@@ -10,9 +10,9 @@
 }
 @if (Security.IsAuthenticated)
 {
-    <div class="widget administration">
-        <h4 class="widget-header">@title</h4>
-        <div class="widget-content">
+    <div class="Widget widget administration">
+        <h4 class="WidgetHeader widget-header">@title</h4>
+        <div class="WidgetContent widget-content">
             <ul class="toprounded" id="uxMenu_ulMenu">
                 @if (Security.IsAuthorizedTo(Rights.ViewDashboard))
                 {
