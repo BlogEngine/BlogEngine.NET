@@ -54,12 +54,23 @@ namespace BlogEngine.Core.Web
             // Allow for Year/Month only dates in URL (in this case, day == 0), as well as Year/Month/Day dates.
             // first make sure the Year and Month match.
             // if a day is also available, make sure the Day matches.
-            var post = Post.ApplicablePosts.Find(
+            var post=new Post();
+            if (BlogSettings.Instance.Culture != "fa")
+            { 
+            post = Post.ApplicablePosts.Find(
                 p =>
                 (!haveDate || (p.DateCreated.Year == year && p.DateCreated.Month == month)) &&
                 ((!haveDate || (day == 0 || p.DateCreated.Day == day)) &&
                  slug.Equals(Utils.RemoveIllegalCharacters(p.Slug), StringComparison.OrdinalIgnoreCase)));
-
+            }
+            else if (BlogSettings.Instance.Culture == "fa")
+            {
+                post = Post.ApplicablePosts.Find(
+                p =>
+                (!haveDate || (p.DateCreated.ToPersianYear() == year && p.DateCreated.ToPersianMonthNumber() == month)) &&
+                ((!haveDate || (day == 0 || p.DateCreated.ToPersianDayOfMonth() == day)) &&
+                 slug.Equals(Utils.RemoveIllegalCharacters(p.Slug), StringComparison.OrdinalIgnoreCase)));
+            }
             if (post == null)
             {
                 return;
