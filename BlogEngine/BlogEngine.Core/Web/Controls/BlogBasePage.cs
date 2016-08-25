@@ -279,8 +279,14 @@
                     return path;
             }
 
-            return string.Format("{0}Custom/Themes/{1}/site.master", Utils.ApplicationRelativeWebRoot, 
-                BlogSettings.Instance.GetThemeWithAdjustments(null));
+            var siteMaster = string.Format("{0}Custom/Themes/{1}/site.master", Utils.ApplicationRelativeWebRoot, 
+                                            BlogSettings.Instance.GetThemeWithAdjustments(null));
+
+            if (System.IO.File.Exists(Server.MapPath(siteMaster)))
+                return siteMaster;
+            else
+                return string.Format("{0}Custom/Themes/Standard/site.master", Utils.ApplicationRelativeWebRoot);
+
         }
     }
 }
