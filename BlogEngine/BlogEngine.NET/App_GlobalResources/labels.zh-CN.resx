@@ -250,7 +250,7 @@
     <comment>Controls</comment>
   </data>
   <data name="country" xml:space="preserve">
-    <value>国家</value>
+    <value>国家或地区</value>
     <comment>Country</comment>
   </data>
   <data name="createNewUser" xml:space="preserve">
@@ -658,11 +658,11 @@
     <comment>Settings</comment>
   </data>
   <data name="showCountryChooser" xml:space="preserve">
-    <value>显示国家</value>
+    <value>显示国家或地区</value>
     <comment>Show country chooser</comment>
   </data>
   <data name="showCountryChooserDescription" xml:space="preserve">
-    <value>如果没有选择显示国家，每个评论旁边将不显示国旗</value>
+    <value>如果没有选择显示国家或地区，每个评论旁边将不显示旗帜</value>
     <comment>If the country chooser isn't shown, no flag can be shown on each comment.</comment>
   </data>
   <data name="showEnableWebsiteInComments" xml:space="preserve">
@@ -1050,7 +1050,7 @@
     <comment>comments of this author have been approved</comment>
   </data>
   <data name="authorBlocked" xml:space="preserve">
-    <value> 如果评论被删除，则总是阻止其作者。</value>
+    <value>如果评论被删除，则总是阻止其作者。</value>
     <comment>If comment was deleted, always block author</comment>
   </data>
   <data name="authorRejected" xml:space="preserve">
@@ -2333,7 +2333,7 @@
     <comment>Author information</comment>
   </data>
   <data name="countryCode" xml:space="preserve">
-    <value>国家代码</value>
+    <value>国家或地区代码</value>
     <comment>Country code</comment>
   </data>
   <data name="contactIPAddress" xml:space="preserve">
@@ -3218,7 +3218,7 @@
     <comment>Title for the Error Page</comment>
   </data>
   <data name="type" xml:space="preserve">
-    <value>输入</value>
+    <value>类型</value>
     <comment>Type</comment>
   </data>
   <data name="typeAndEnter" xml:space="preserve">
@@ -3250,7 +3250,7 @@
     <comment>Unlink</comment>
   </data>
   <data name="unpublish" xml:space="preserve">
-    <value>未发表</value>
+    <value>取消发表</value>
     <comment>Unpublish</comment>
   </data>
   <data name="unpublished" xml:space="preserve">
@@ -3262,7 +3262,7 @@
     <comment>Unpublished page</comment>
   </data>
   <data name="unpublishedPost" xml:space="preserve">
-    <value>未发现的文章</value>
+    <value>未发表的文章</value>
     <comment>Unpublished post</comment>
   </data>
   <data name="updateFailed" xml:space="preserve">
