@@ -16,22 +16,23 @@
             <ul class="toprounded" id="uxMenu_ulMenu">
                 @if (Security.IsAuthorizedTo(Rights.ViewDashboard))
                 {
-                    <li><a href="@dashboardUrl"><span>Dashboard</span></a></li>
+                    <li><a href="@dashboardUrl"><span>@Resources.labels.dashboard</span></a></li>
                 }
                 @if (Security.IsAuthorizedTo(Rights.CreateNewPosts))
                 {
-                    <li><a href="@contentUrl"><span>Content</span></a></li>
+                    <li><a href="@contentUrl"><span>@Resources.labels.content</span></a></li>
                 }
                 @if (Security.IsAuthorizedTo(Rights.ManageThemes))
                 {
-                    <li><a href="@customUrl"><span>Custom</span></a></li>
+                    <li><a href="@customUrl"><span>@Resources.labels.custom</span></a></li>
                 }
                 @if (Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
                 {
-                    <li><a href="@settingsUrl"><span>Settings</span></a></li>
+                    <li><a href="@settingsUrl"><span>@Resources.labels.settings</span></a></li>
                 }
-                <li><a href="@profileUrl"><span>My Profile</span></a></li>
-                <li><a href="@passwordUrl"><span>Change password</span></a></li>
+                <li><a href="@profileUrl"><span>@Resources.labels.profile</span></a></li>
+                <li><a href="@passwordUrl"><span>@Resources.labels.changePassword</span></a></li>
+                <li><a href="~/Account/login.aspx?logoff"><span>@Resources.labels.logoff</span></a></li>
             </ul>
         </div>
     </div>
