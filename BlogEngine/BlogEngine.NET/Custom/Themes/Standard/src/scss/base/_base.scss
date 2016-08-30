@@ -1,0 +1,29 @@
+﻿html {
+    font-size: 1em;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    //
+    background: #142c5a;
+    background: -webkit-linear-gradient(to left, #5f2c82, #142c5a);
+    background: linear-gradient(to left, #5f2c82, #142c5a);
+
+    //
+    padding-top: 2rem;
+    cursor: default;
+    overflow-y: scroll;
+}
+
+.container {
+    width: 80rem;
+    max-width: 100%;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}

@@ -1,0 +1,16 @@
+﻿.categorylist {
+    ul {
+        li {
+            a:first-child img {
+                display: none;
+            }
+        }
+
+        a:first-child:before {
+            @include fontawesome();
+            content: '\f09e';
+            color: #f28115;
+            margin-right: 1rem;
+        }
+    }
+}

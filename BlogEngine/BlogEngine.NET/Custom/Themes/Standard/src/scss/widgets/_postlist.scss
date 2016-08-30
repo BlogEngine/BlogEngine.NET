@@ -1,0 +1,25 @@
+﻿.post-item-list {
+    font-size: .75rem;
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        font-size: 0;
+        display: inline-block;
+    }
+
+    h5 {
+        display: inline-block;
+        margin: 0;
+        font-size: 1rem;
+        vertical-align:middle;
+    }
+
+    p {
+        display: block;
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

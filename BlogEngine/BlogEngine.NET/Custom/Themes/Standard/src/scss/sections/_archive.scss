@@ -1,0 +1,109 @@
+﻿.archive-page {
+    font-size: 1rem;
+
+    .archive-page-content {
+        h2 {
+            font-size: 1rem;
+            height: 2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 2rem;
+
+            &:before {
+                @include fontawesome();
+                content: '\f09e';
+                color: #f28115;
+                margin-right: 1rem;
+            }
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    ul {
+     @include unstyled;
+     @include clearfix;
+        li {
+            float:left;
+            width:33%;
+            list-style:disc inside;
+         
+            a{
+                display:block;
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th {
+            background: #ddd;
+            text-transform: uppercase;
+            border: 1px solid #ddd;
+            padding: 0.25rem;
+            text-align: center;
+            font-weight: normal;
+            font-size: 0.875rem;
+
+            &:first-child {
+                width: 7rem;
+            }
+        }
+
+        td {
+            border: 1px solid #ddd;
+            font-size: 0.875rem;
+            padding: 0.25rem;
+        }
+    }
+
+    .date {
+        width: 6rem;
+        text-align: center;
+    }
+
+    .comments {
+        width: 6rem;
+        text-align: center;
+    }
+
+    .rating {
+        width: 6rem;
+        text-align: center;
+    }
+
+    a {
+        color: #333;
+
+        &:hover {
+            color: $color-theme;
+        }
+    }
+
+    @media screen and (max-width:40rem) {
+        .comments, .date, .rating {
+            display: none !important;
+        }
+
+        table {
+            th {
+                text-align: left;
+
+                &:first-child {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.btn-wrapper{
+    .btn {display:block;
+          width:100%;
+          padding:1rem;
+    }
+}

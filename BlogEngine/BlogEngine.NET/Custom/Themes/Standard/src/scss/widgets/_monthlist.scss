@@ -1,0 +1,22 @@
+﻿.monthlist {
+    li {
+        font-weight: normal;
+    }
+
+    .year {
+        cursor: pointer;
+
+        li {
+            margin: 0 1rem;
+            padding: 0;
+        }
+    }
+
+    ul ul {
+        display: none;
+    }
+
+    .open {
+        display: block;
+    }
+}

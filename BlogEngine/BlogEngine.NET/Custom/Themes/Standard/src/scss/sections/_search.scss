@@ -1,0 +1,13 @@
+﻿.search-page .search-page-searchbox { background: #fff; padding: 3px; border: 1px solid #CCC; margin-bottom: 15px; }
+.search-page .search-page-searchbox input[type=button] { float: right; width: 20%; border: none; height: 100%; padding: 12px 0; }
+.search-page .search-page-searchbox input[type=text] { border: none; width: 76%; border-radius: 3px; padding: 8px 1%; outline: none !important; }
+.search-page .searchresult { border-bottom: 1px dotted #CCC; padding: 10px 0; font-size: 14px; }
+.search-page .searchresult a { font-weight: normal; font-size: 16px; }
+.search-page .searchresult span.text { clear: both; line-height: 35px; display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px; color: #555; }
+.search-page .searchresult span.type { font-size: 13px; display: none; }
+.search-page .searchresult span.url { color: #888; }
+.search-page .searchpage ul.paging { list-style-type: none; margin: 20px auto; padding: 0px; text-align: center; display: block; }
+.search-page .searchpage ul.paging li { display: inline-block; width: 30px; text-align: center; height: 30px; border: 1px solid #CCC; background: #FFF; margin-right: 2px; }
+.search-page .searchpage ul.paging li a { display: block; height: 100%; line-height: 30px; }
+.search-page .searchpage ul.paging li.active { border-width: 1px; border-style: solid; }
+.search-page .searchpage ul.paging li.active A { color: #FFF; }

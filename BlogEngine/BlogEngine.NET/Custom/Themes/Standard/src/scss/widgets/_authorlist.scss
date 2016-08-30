@@ -1,0 +1,21 @@
+﻿.authorlist {
+    li {
+        &:after {
+            clear: both;
+            content: "";
+            display: block;
+        }
+
+        img {
+            float: left;
+            width: 2rem;
+            height: 2rem;
+            @include border-radius(100%);
+        }
+
+        .authorlink {
+            margin-left: .5rem;
+            line-height: 2rem;
+        }
+    }
+}

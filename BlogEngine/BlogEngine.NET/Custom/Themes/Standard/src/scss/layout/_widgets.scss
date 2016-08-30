@@ -1,0 +1,68 @@
+﻿.widget {
+    background:rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    font-size: .875rem;
+    color: rgba(255, 255, 255, 0.60);
+    
+    .widget-header {
+        margin: 0;
+        color: #fff;
+        font-weight: $font-weight-normal;
+        text-transform: uppercase;
+        letter-spacing: .125rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .widget-content {
+        padding: 0 !important;
+        font-size: .875rem;
+        color: rgba(255, 255, 255, 0.60);
+
+        label {
+            font-weight: $font-weight-normal !important;
+        }
+
+        strong, b {
+            font-weight: $font-weight-normal;
+        }
+
+        a {
+            color: rgba(255, 255, 255, 0.60);
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: $font-family-base;
+            font-size: .875rem;
+        }
+
+        .form-control {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        > li {
+            margin-bottom:.5rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+
+
+
+        ul li {
+            border: none;
+        }
+    }
+}

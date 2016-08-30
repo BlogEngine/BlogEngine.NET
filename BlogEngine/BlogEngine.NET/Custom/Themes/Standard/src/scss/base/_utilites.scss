@@ -1,0 +1,39 @@
+﻿img {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+    font-family:$font-family-heading;
+    font-weight: $font-weight-normal;
+}
+
+a {
+    color: $color-theme;
+    text-decoration:none !important;
+    &:hover {
+        color: darken($color-theme, 10%);
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.required-field {
+    color: $color-danger;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-right: .25rem;
+    margin-left: .25rem;
+}
+
+.required-field[style="visibility:hidden;"] {
+    display: none;
+}
+
+
+label {
+    font-weight: $font-weight-medium;
+    font-size: 1rem;
+}

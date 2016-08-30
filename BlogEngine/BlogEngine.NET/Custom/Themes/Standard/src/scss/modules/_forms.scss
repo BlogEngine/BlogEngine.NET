@@ -1,0 +1,34 @@
+﻿.form-control {
+    background: none;
+    height:2.5rem;
+    border-radius:0;
+
+    &:focus {
+        @include box-shadow(none);
+        border-color: $color-theme;
+    }
+}
+
+::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: .75rem;
+    text-transform: uppercase;
+}

@@ -1,0 +1,88 @@
+﻿#commentlist {
+    ul {
+        @include unstyled;
+    }
+
+    .comment-item {
+        position: relative;
+
+        .comment-item {
+            margin-left: 3.5rem;
+        }
+    }
+
+    .comment-content {
+        position: relative;
+        min-height: 3rem;
+        margin-bottom: .5rem;
+        margin-left: 3.5rem;
+        background-color: #eee;
+        padding: 1rem;
+
+        img {
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+    .comment-author {
+        margin-bottom: .5rem;
+        font-weight: $font-weight-bold;
+
+        a {
+            color: #000;
+        }
+    }
+
+    .comment-replylink {
+        color: #aaa;
+        font-size: .75rem;
+        font-style: italic;
+        font-weight: $font-weight-normal;
+        text-transform: uppercase;
+        margin-top: .5rem;
+    }
+
+    .comment-adminlinks {
+        font-size: 0;
+
+        a {
+            color: #fff;
+            font-size: .875rem;
+            background-color: $color-danger;
+            margin-right: .5rem;
+            display: inline-block;
+            padding: .25rem 1rem;
+            border-radius: $px3;
+
+            &:nth-child(1), &:nth-child(2) {
+                display: none;
+            }
+
+            &[href^="?approvecomment"] {
+                background-color: $color-success;
+            }
+        }
+    }
+}
+
+#comment-form .success {
+    background: $color-success;
+    color: #fff;
+    display: block;
+    padding: 1rem;
+}
+
+#commenttoggle {
+    display: none;
+}
+
+
+.comment-form {
+    .comment-preview {
+        display: none;
+    }
+}

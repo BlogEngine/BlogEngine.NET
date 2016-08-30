@@ -1,0 +1,20 @@
+﻿.mostcomments {
+    table {
+        tr {
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                background: none;
+
+                &:first-child {
+                    width: 50px;
+
+                    img {
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

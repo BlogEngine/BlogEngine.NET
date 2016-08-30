@@ -1,0 +1,26 @@
+﻿.related-posts {
+    display:none;
+    ul li div {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 1rem;
+        color: rgb(136, 136, 136);
+    }
+
+    ul li {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &:first-child {
+        padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+    }
+}

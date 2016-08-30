@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <CustomFields>
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google Plus Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Linkedin Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="RSS Link" value="/syndication.axd" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Instagramm Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Pinterest Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Soundcloud Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Youtube Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Github Account" value="" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Logo Address" value="Custom/Themes/Standard-2014/images/logo.png" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook account" value="BlogEngine.NET" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter account" value="blogenginenet" attribute="" />
-    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google plus" value="u/0" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google Plus Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Linkedin Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="RSS Link" value="/syndication.axd" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Instagramm Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Pinterest Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Soundcloud Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Youtube Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2016" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Github Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Logo" value="Custom/Themes/Standard/src/img/logo.png" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="custom background (true or false ?) " value="false" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="background color left" value="#142c5a" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="background color right" value="#5f2c82" attribute="" />
 </CustomFields>

@@ -1,0 +1,52 @@
+﻿.blogroll {
+    ul {
+        li {
+            a {
+                padding-right: .25rem;
+            }
+
+            img {
+                display: none;
+            }
+        }
+
+        > li a:first-child:before {
+            @include fontawesome();
+            content: '\f09e';
+            color: #f28115;
+            margin-right: .5rem;
+        }
+
+        ul {
+            margin-top: .5rem;
+            margin-left: 2.25rem !important;
+
+            li {
+                margin: 0;
+                line-height: 1rem;
+                padding: 0;
+                padding-left: 0 !important;
+
+                a {
+                    display: block;
+                    padding-left: 0 !important;
+                    font-size: .75rem;
+
+                    &:before {
+                        content: "+" !important;
+                        color: #aaa !important;
+                        margin-right: .5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    a[title="Download OPML file"] {
+   display:none !important;
+    }
+
+    a[title="Download OPML file"] img {
+        display: none;
+    }
+}
