@@ -336,10 +336,10 @@ form, body, html { height: 100%; }
 .recentposts li span { margin-right: 5px; }
 
 /*[24]*/
-.search { border: 5px solid #fff; }
+.search { border: 0px solid #fff; height:50px; position:relative; }
 .search .widget-content { padding: 0; }
-.search input[type=text] { background: none; padding: 0 2%; border: none; width: 75%; font-size: 14px; outline: none !important; }
-.search input[type=button] { background: #e83232; border: none; color: #fff; padding: 0; height: 40px; width: 25%; }
+.search input[type=text] { background: none; padding: 10px 100px 10px 10px; height:50px; border: none; width: 100%; font-size: 14px; outline: none !important; }
+.search input[type=button] { background: #e83232; border: none; color: #fff; padding: 0; height: 50px; width: 100px; position:absolute;top:0; right:0; }
 .search input[type=button]:hover { background-color: #222; }
 
 /*[25]*/
@@ -392,8 +392,8 @@ form, body, html { height: 100%; }
 .visitorinfo .widget-content { padding: 20px; }
 .visitorinfo img { width: 32px; height: 32px; }
 .postnavigation { padding: 30px; }
-.textbox .widget-content,
-.twitter .widget-content { padding: 20px; }
+.widget.textbox,
+.twitter .widget-content { padding: 20px 10px; }
 
 /*[31]*/
 .footer { background-color: #111; margin: 0; padding: 40px 0; font-size: 12px; color: #aaa; }
