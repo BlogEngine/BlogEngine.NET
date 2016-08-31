@@ -14,7 +14,6 @@ body {
     background: #142c5a;
     background: -webkit-linear-gradient(to left, #5f2c82, #142c5a);
     background: linear-gradient(to left, #5f2c82, #142c5a);
-
     //
     padding-top: 2rem;
     cursor: default;
@@ -26,4 +25,73 @@ body {
     max-width: 100%;
     padding-right: 2rem;
     padding-left: 2rem;
+}
+
+.blog-wrapper {
+    display: table;
+
+    > .blog-content,
+    > .blog-sidebar {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    > .blog-sidebar {
+        width: 18.75rem;
+        min-width: 18.75rem;
+    }
+
+    > .blog-content {
+        padding-left: 2rem;
+        min-width: 100%;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 75rem) {
+        > .blog-sidebar {
+            width: 15.625rem;
+            min-width: 15.625rem;
+        }
+    }
+
+    @media screen and (max-width: 64rem) {
+        > .blog-content {
+            padding-left: 1rem;
+        }
+    }
+
+
+    @media screen and (max-width: 50rem) {
+        display: block;
+
+        > .blog-sidebar {
+            .widgetzone {
+                display: none;
+            }
+
+            .blog-footer {
+                display: none;
+            }
+        }
+
+        > .blog-sidebar,
+        > .blog-content {
+            display: block;
+            vertical-align: top;
+            padding: 0;
+            min-width: 100%;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    body {
+        padding-top: 1rem;
+    }
+
+    .container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 }

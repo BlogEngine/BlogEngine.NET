@@ -1,24 +1,18 @@
-﻿.page-global {
+﻿.page-global, .well-global {
     background: #fff;
     margin-bottom: 2rem;
     padding: 3rem;
+
+    @media screen and (max-width: 64rem) {
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+    }
 
     .page-global-title {
         font-size: 1.5rem;
-    }
+    } 
 }
 
 #trackbacks {
-    background: #fff;
-    margin-bottom: 2rem;
-    padding: 3rem;
-}
-
-.well-global {
-    background: #fff;
-    margin-bottom: 2rem;
-    padding: 3rem;
-    .well-global-title {
-          font-size: 1.5rem;
-    }
+    display: none;
 }

@@ -2,16 +2,15 @@
     background: #fff;
     margin-bottom: 2rem;
     padding: 3rem;
-
-
+    width: 100%;
 
     .post-header {
         margin-bottom: 2rem;
 
         .post-title {
-            line-height: 1.5rem;
+            line-height: 1;
             font-size: 2rem;
-            margin: 0 0 1rem;
+            margin: 0 0 .5rem;
             font-weight: $font-weight-bold;
 
             a {
@@ -97,6 +96,17 @@
             &.item-delete {
                 background-color: $color-danger;
             }
+        }
+    }
+
+    @media screen and (max-width: 64rem) {
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+    }
+
+    @media screen and (max-width: 40rem) {
+        .post-footer {
+            display: none;
         }
     }
 }

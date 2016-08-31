@@ -67,22 +67,64 @@
             }
         }
     }
-}
 
-#comment-form .success {
-    background: $color-success;
-    color: #fff;
-    display: block;
-    padding: 1rem;
+    .comment-form {
+        display: none;
+    }
+
+    @media screen and (max-width: 48rem) {
+        .comment-content {
+            margin-left: 0;
+            padding: 0 0 .5rem;
+            background: none;
+            border-bottom: $px1 solid #ddd;
+
+            img {
+                display: none;
+            }
+        }
+
+        .comment-item {
+
+            .comment-item {
+                margin: 0;
+            }
+        }
+
+        .comment-adminlinks {
+            display: none;
+        }
+    }
 }
 
 #commenttoggle {
     display: none;
 }
 
-
 .comment-form {
     .comment-preview {
         display: none;
+    }
+}
+
+
+#status.warning {
+    background-color: $color-danger;
+    display: block;
+    padding: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#status.success {
+    background-color: $color-success;
+    display: block;
+    padding: 1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    margin-left: 3.5rem;
+
+    @media screen and (max-width: 48rem) {
+        margin-left: 0;
     }
 }

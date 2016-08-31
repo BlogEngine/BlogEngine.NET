@@ -571,7 +571,7 @@
     <Content Include="Custom\Themes\Standard\RelatedPosts.ascx" />
     <Content Include="Custom\Themes\Standard\src\css\bootstrap.min.css" />
     <Content Include="Custom\Themes\Standard\src\css\styles.css" />
-    <Content Include="Custom\Themes\Standard\src\Gruntfile.js" />
+    <Content Include="Custom\Themes\Standard\Gruntfile.js" />
     <Content Include="Custom\Themes\Standard\src\img\logo.png" />
     <Content Include="Custom\Themes\Standard\src\js\bootstrap.min.js" />
     <Content Include="Custom\Themes\Standard\src\js\custom.js" />
@@ -784,7 +784,7 @@
     <Content Include="Custom\Themes\Standard\src\.sass-cache\bf57f48770b83de96384fbd1cde8144de7937c6d\_rating.scssc" />
     <Content Include="Custom\Themes\Standard\src\.sass-cache\bf57f48770b83de96384fbd1cde8144de7937c6d\_syntaxhighlighter.scssc" />
     <Content Include="Custom\Themes\Standard\src\css\styles.css.map" />
-    <Content Include="Custom\Themes\Standard\src\package.json" />
+    <Content Include="Custom\Themes\Standard\package.json" />
     <Content Include="Custom\Themes\Standard\src\scss\base\_base.scss" />
     <Content Include="Custom\Themes\Standard\src\scss\base\_mixins.scss" />
     <Content Include="Custom\Themes\Standard\src\scss\base\_utilites.scss" />

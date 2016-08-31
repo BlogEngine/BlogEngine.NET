@@ -6,13 +6,13 @@
                     style: 'compact'
                 },
                 files: {
-                    'css/styles.css': 'scss/styles.scss',
+                    'src/css/styles.css': 'src/scss/styles.scss',
                 }
             }
         },
         watch: {
             src: {
-                files: ['js/*.js', 'scss/**/*.scss'],
+                files: ['src/scss/**/*.scss'],
                 tasks: ['sass']
             }
         }

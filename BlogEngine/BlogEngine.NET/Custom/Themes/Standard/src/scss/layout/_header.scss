@@ -1,6 +1,10 @@
 ﻿.blog-header {
     margin-bottom: 2rem;
     background: rgba(255, 255, 255, 0.1);
+
+    @media screen and (max-width: 64rem) {
+        margin-bottom: 1rem;
+    }
 }
 
 .blog-logo {
@@ -8,7 +12,7 @@
     color: #fff !important;
     display: block;
     font-size: 1.5rem;
-    padding: 3rem 0 2.5rem; 
+    padding: 3rem 0 2.5rem;
     font-family: $font-family-heading;
     outline: none !important;
 
@@ -19,6 +23,10 @@
         display: block;
         margin: 0 auto 1rem;
         border-radius: 100%;
+    }
+
+    @media screen and (max-width: 64rem) {
+        padding: 2rem 0 1.5rem;
     }
 }
 

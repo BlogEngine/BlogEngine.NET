@@ -218,18 +218,20 @@ BlogEngine = {
     validateAndSubmitCommentForm: function () {
 
         if (BlogEngine.comments.nameBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
+            BlogEngine.$("status").innerHTML = "Name is required.";
             BlogEngine.$("status").className = "warning";
             BlogEngine.$("txtName").focus();
             return false;
         }
         if (BlogEngine.comments.emailBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
+            BlogEngine.$("status").innerHTML = "Email is required.";
+            BlogEngine.$("status").className = "warning";
             BlogEngine.$("txtEmail").focus();
             return false;
         }
         if (BlogEngine.comments.contentBox.value.length < 1) {
-            BlogEngine.$("status").innerHTML = "Required";
+            BlogEngine.$("status").innerHTML = "Comment is required.";
+            BlogEngine.$("status").className = "warning";
             BlogEngine.$("txtContent").focus();
             return false;
         }

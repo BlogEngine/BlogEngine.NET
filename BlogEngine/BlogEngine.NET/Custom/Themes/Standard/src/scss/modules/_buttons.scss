@@ -4,5 +4,12 @@
     line-height: 2.5rem;
     padding: 0 .5rem !important;
     text-transform: uppercase;
-    border-radius:0;
+    border-radius: 0;
+}
+
+.btn-wrapper {
+    .btn {
+        display: block;
+        width: 100%;
+    }
 }

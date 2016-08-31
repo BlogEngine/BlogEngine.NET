@@ -1,7 +1,7 @@
 ﻿.form-control {
     background: none;
-    height:2.5rem;
-    border-radius:0;
+    height: 2.5rem;
+    border-radius: 0;
 
     &:focus {
         @include box-shadow(none);
