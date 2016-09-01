@@ -10,7 +10,7 @@
             float: left;
             width: 2rem;
             height: 2rem;
-            @include border-radius(100%);
+            border-radius: 100%;
         }
 
         .authorlink {

@@ -1,32 +1,18 @@
-﻿// direction
-$dir-ltr: ltr;
-$dir-rtl: rtl;
+﻿// fonts
+$font-family-base: "Open Sans", sans-serif;
+$font-family-heading: "Roboto Slab", serif;
+$font-size-base: 1rem;
+$line-height-base: 1.8;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
 
 // colors
-$color-body: #f5f5f5;
 $color-theme: #0064c4;
-
 $color-success: #19cf86;
 $color-danger: #e81c4f;
 $color-warning: #f6bb42;
-$color-primary: #23b1f7;
+$color-primary: #0064c4;
 $color-info: #5bc0de;
-
-// fonts
-$font-family-base: "Open Sans", sans-serif;
-$font-family-heading: "Roboto Slab",  serif;
-$font-size-base: 1rem;
-$line-height-base: 1.8;
-$font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-medium: 600;
-$font-weight-bold: 700;
-
-// nav
-$nav-size: 2rem;
-
-// logo
-$logo-size: 2rem;
 
 // pixel
 $px1: 0.0625rem;

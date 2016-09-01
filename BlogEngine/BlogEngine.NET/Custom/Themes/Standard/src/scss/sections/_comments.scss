@@ -128,3 +128,42 @@
         margin-left: 0;
     }
 }
+
+
+#commentCaptcha {
+    position: relative;
+    display: table;
+    width: 100%;
+
+    label, #simpleCaptchaValue {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    > label {
+        height: 2.5rem;
+        width: 5rem;
+        max-width: 100%;
+        background-color: #ccc;
+        text-align: center;
+        vertical-align: middle;
+        white-space: nowrap;
+        padding: 0 1rem;
+    }
+
+    #simpleCaptchaValue {
+        height: 2.5rem;
+        border: 1px solid #ccc;
+        outline: none !important;
+        padding: .5rem;
+        width: 100%;
+        min-width: 100%;
+    }
+
+    #spnSimpleCaptchaIncorrect {
+        position: absolute;
+        bottom: -.875rem;
+        left: 0;
+        font-size: .75rem;
+    }
+}

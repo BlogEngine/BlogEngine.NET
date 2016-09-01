@@ -10,16 +10,39 @@ body {
     font-family: $font-family-base;
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
-    //
     background: #142c5a;
     background: -webkit-linear-gradient(to left, #5f2c82, #142c5a);
     background: linear-gradient(to left, #5f2c82, #142c5a);
-    //
-    padding-top: 2rem;
     cursor: default;
     overflow-y: scroll;
+    padding-top: 2rem;
 }
 
+// typography
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1rem;
+    font-family: $font-family-heading;
+    font-weight: $font-weight-normal;
+}
+
+a {
+    color: $color-theme;
+    text-decoration: none !important;
+
+    &:hover {
+        color: darken($color-theme, 10%);
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+// container
 .container {
     width: 80rem;
     max-width: 100%;
@@ -27,6 +50,7 @@ body {
     padding-left: 2rem;
 }
 
+// blog-wrapper
 .blog-wrapper {
     display: table;
 
@@ -59,7 +83,6 @@ body {
             padding-left: 1rem;
         }
     }
-
 
     @media screen and (max-width: 50rem) {
         display: block;

@@ -1,10 +1,11 @@
 ﻿.form-control {
-    background: none;
     height: 2.5rem;
+    background: none;
     border-radius: 0;
+    box-shadow: none;
 
     &:focus {
-        @include box-shadow(none);
+        box-shadow: none;
         border-color: $color-theme;
     }
 }
@@ -15,20 +16,19 @@
     text-transform: uppercase;
 }
 
-:-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: .75rem;
-    text-transform: uppercase;
+label {
+    font-weight: $font-weight-bold;
+    font-size: 1rem;
 }
 
-::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: .75rem;
+.required-field {
+    color: $color-danger;
+    font-size: 1rem;
     text-transform: uppercase;
-}
+    margin-right: .25rem;
+    margin-left: .25rem;
 
-:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: .75rem;
-    text-transform: uppercase;
+    &[style="visibility:hidden;"] {
+        display: none;
+    }
 }

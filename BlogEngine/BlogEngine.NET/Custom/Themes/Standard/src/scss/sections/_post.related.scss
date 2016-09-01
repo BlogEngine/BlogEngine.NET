@@ -1,5 +1,10 @@
-﻿.related-posts {
-    display:none;
+﻿#relatedPosts {
+    display: none;
+}
+
+.related-posts {
+    display: none;
+
     ul li div {
         display: block;
         overflow: hidden;
@@ -19,7 +24,7 @@
         }
 
         &:first-child {
-        padding-top: 1rem;
+            padding-top: 1rem;
             border-top: 1px solid #eee;
         }
     }

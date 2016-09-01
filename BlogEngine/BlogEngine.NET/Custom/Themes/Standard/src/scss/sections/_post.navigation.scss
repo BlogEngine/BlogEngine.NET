@@ -1,4 +1,8 @@
-﻿.navigation-posts {
+﻿#postnavigation {
+    display: none;
+}
+
+.navigation-posts {
     display: table;
     width: 100%;
     overflow: hidden;
