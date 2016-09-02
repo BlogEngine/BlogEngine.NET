@@ -12,7 +12,6 @@
     h1, h2, h3, h4, h5, h6 {
         font-family: 'yekan', Tahoma, Arial, sans-serif !important;
     }
-
     // bootstrap
     .pull-right {
         float: left !important;
@@ -44,11 +43,21 @@
         }
     }
 
+    .blog-logo {
+        font-family: 'yekan', Tahoma, Arial, sans-serif !important;
+    }
+    // blog-wrapper
+    .blog-wrapper {
+
+        > .blog-content {
+            padding-left: 0rem;
+            padding-right: 2rem;
+        }
+    }
     // footer
     .blog-footer {
         font-family: Tahoma,Arial,sans-serif;
     }
-
     // blog-nav
     .blog-nav {
         li {
@@ -60,12 +69,10 @@
             }
         }
     }
-
     // archive
     .archive-page ul li {
         float: right;
     }
-
     // search
     .search {
         input[type=button] {
@@ -77,7 +84,6 @@
             padding: 0 1rem 0 25%;
         }
     }
-
     // post
     .post {
         .post-info span {
@@ -95,12 +101,13 @@
             margin-left: 1rem;
         }
     }
-
     // comment list
     #commentlist {
-      .comment-item .comment-item {
-          margin-left: 0;margin-right: 3.5rem;
+        .comment-item .comment-item {
+            margin-left: 0;
+            margin-right: 3.5rem;
         }
+
         .comment-adminlinks a {
             margin-left: .5rem;
             margin-right: 0;
@@ -112,7 +119,8 @@
         }
 
         .comment-content {
-            margin-left: 0;margin-right: 3.5rem;
+            margin-left: 0;
+            margin-right: 3.5rem;
         }
     }
 }

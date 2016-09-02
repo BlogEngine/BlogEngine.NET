@@ -31,11 +31,11 @@
 }
 
 .blog-nav {
-    height: 3rem;
+    height: 3.5rem;
 
     ul {
         @include unstyled();
-        height: 3rem;
+        height: 3.5rem;
         display: table;
         width: 100%;
     }
@@ -43,7 +43,7 @@
     li {
         display: table-cell;
         width: 25%;
-        height: 3rem;
+        height: 3.5rem;
         text-align: center;
         border-right: 1px solid rgba(0, 0, 0, 0.15);
         border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -58,8 +58,8 @@
     }
 
     a {
-        height: 3rem;
-        line-height: 3rem - $px3;
+        height: 3.5rem;
+        line-height:3.5rem - $px3;
         color: rgba(255, 255, 255, 0.5);
         display: block;
         text-transform: uppercase;
