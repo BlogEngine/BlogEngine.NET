@@ -1,12 +1,12 @@
 ﻿.categorylist {
     ul {
         li {
-            a:first-child img {
+            a img {
                 display: none;
             }
         }
 
-        a:first-child:before {
+        a[rel=nofollow]:before {
             display: inline-block;
             width: .75rem;
             height: .75rem;

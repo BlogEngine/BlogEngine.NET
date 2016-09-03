@@ -1043,10 +1043,10 @@ label {
   text-overflow: ellipsis;
 }
 
-.categorylist ul li a:first-child img {
+.categorylist ul li a img {
   display: none;
 }
-.categorylist ul a:first-child:before {
+.categorylist ul a[rel=nofollow]:before {
   display: inline-block;
   width: .75rem;
   height: .75rem;
