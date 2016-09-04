@@ -303,8 +303,8 @@ form, body, html { height: 100%; }
 .calendar .widget-content { padding: 10px; }
 
 /*[18]*/
-.categorylist ul li a:first-child img { display: none; }
-.categorylist ul li a:first-child:before { font-family: 'fontello'; content: '\e814'; color: #f28115; margin-right: 10px; }
+.categorylist ul li a img { display: none; }
+.categorylist ul li a[rel=nofollow]:before { font-family: 'fontello'; content: '\e814'; color: #f28115; margin-right: 10px; }
 
 /*[19]*/
 .monthlist li { font-weight: normal; }

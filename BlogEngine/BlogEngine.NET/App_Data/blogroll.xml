@@ -2,4 +2,5 @@
 <blogRoll>
     <item id="25e4d8da-3278-4e58-b0bf-932496dabc96" title="Mads Kristensen" description="Full featured simplicity in ASP.NET and C#" htmlUrl="http://madskristensen.net/" xmlUrl="http://feeds.feedburner.com/netslave" xfn="contact" sortIndex="0" />
     <item id="dcdaa78b-0b77-4691-99f0-1bb6418945a1" title="Ruslan Tur" description=".NET and Open Source: better together" htmlUrl="http://rtur.net/blog/" xmlUrl="http://feeds.feedburner.com/rtur" xfn="contact" sortIndex="2" />
+    <item id="973921aa-8909-40d9-a613-5752c3cdc5b7" title="Francis Bio" description="Front-End Developer" htmlUrl="http://francis.bio/" xmlUrl="http://francis.bio/feed.xml" xfn="contact" sortIndex="0" />
 </blogRoll>
