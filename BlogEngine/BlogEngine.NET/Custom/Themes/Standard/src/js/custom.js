@@ -4,12 +4,18 @@ simpleCap.hide();
 $("#commentCaptcha").append(simpleCap.html());
 
 //
+var logintext = $(".item-login span").text();
 var aLogin = $(".item-login");
+aLogin.attr("title", logintext);
 var aLoginAttr = aLogin.attr("href");
 if (aLoginAttr == "/admin/") {
     aLogin.removeClass("item-login");
     aLogin.addClass("item-admin");
+    aLogin.attr("title", logintext);
 }
+
+//
+$(".blog-nav li a").tooltip();
 
 //
 if (location.pathname !== '/') {

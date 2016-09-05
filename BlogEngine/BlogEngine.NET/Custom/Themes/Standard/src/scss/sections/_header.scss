@@ -55,6 +55,10 @@
         span {
             display: none;
         }
+        .tooltip {
+            text-transform:uppercase;
+            letter-spacing:$px2;
+        } 
     }
 
     a {

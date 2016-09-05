@@ -166,6 +166,10 @@ img {
 .blog-nav li span {
   display: none;
 }
+.blog-nav li .tooltip {
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+}
 .blog-nav a {
   height: 3.5rem;
   line-height: 3.3125rem;
