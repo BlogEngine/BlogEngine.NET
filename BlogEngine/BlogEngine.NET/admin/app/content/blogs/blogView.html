@@ -111,7 +111,7 @@
         </h2>
         <div>
             <button ng-click="modalNew()" class="btn btn-success btn-sm btn-hasicon pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
-            <button ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm btn-hasicon pull-left"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
+            <button ng-click="processChecked('delete', itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-danger btn-sm btn-hasicon pull-left"><i class="fa fa-trash"></i>{{lbl.doDelete}}</button>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

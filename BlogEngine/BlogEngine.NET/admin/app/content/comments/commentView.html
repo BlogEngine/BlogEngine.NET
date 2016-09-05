@@ -29,10 +29,10 @@
     <div class="main-header clearfix">
         <h2 class="page-title pull-left">{{lbl.comments}}</h2>
         <div class="btn-group pull-left">
-            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+            <a ng-click="processChecked('delete', itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
             <a ng-show="filter === 'pnd' || filter === 'spm'" ng-click="deleteAll()" class="btn btn-danger btn-sm" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></a>
-            <a ng-show="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove')" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></a>
-            <a ng-show="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve')" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></a>
+            <a ng-show="filter != 'spm' && filter != 'png'" ng-click="processChecked('unapprove', itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-warning btn-sm" angular-tooltip tooltip="lbl.unapprove"><i class="fa fa-archive"></i></a>
+            <a ng-show="filter != 'apr' && filter != 'png'" ng-click="processChecked('approve', itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-success btn-sm" angular-tooltip tooltip="lbl.approve"><i class="fa fa-check"></i></a>
         </div>
         <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
         <div class="right-side pull-right">

@@ -65,8 +65,10 @@
         $scope.focusInput = false;
     }
 
-    $scope.processChecked = function (action) {
-        processChecked("/api/categories/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/categories/processchecked/", action, $scope, dataService);
+        }
     }
 
     $scope.clear = function () {

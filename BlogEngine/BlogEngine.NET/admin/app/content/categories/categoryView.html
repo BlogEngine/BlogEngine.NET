@@ -35,7 +35,7 @@
         <h2 class="page-title pull-left">{{lbl.categories}}</h2>
         <a data-ng-click="addNew()" class="btn btn-success btn-hasicon btn-sm pull-left"><i class="fa fa-plus"></i>{{lbl.theNew}}</a>
         <div class="btn-group befdv pull-left">
-            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+            <a ng-click="processChecked('delete', itemsChecked())" ng-disabled="itemsChecked() === false" angular-tooltip tooltip="lbl.doDelete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
         </div>
         <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
         <div class="right-side pull-right">

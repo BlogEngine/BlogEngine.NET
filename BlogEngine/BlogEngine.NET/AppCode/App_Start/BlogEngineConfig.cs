@@ -34,7 +34,7 @@ namespace BlogEngine.NET.App_Start
 
                 RegisterWebApi(GlobalConfiguration.Configuration);
 
-                RegisterDiCintainer();
+                RegisterDiContainer();
 
                 ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                     new ScriptResourceDefinition
@@ -210,7 +210,7 @@ namespace BlogEngine.NET.App_Start
             config.Services.Add(typeof(IExceptionLogger), new UnhandledExceptionLogger());
         }
 
-        static void RegisterDiCintainer()
+        static void RegisterDiContainer()
         {
             var container = new Container();
 

@@ -49,8 +49,8 @@
         <button type="button" class="btn btn-default btn-sm btn-hasicon pull-left" onclick="window.history.back()"><i class="fa fa-angle-left"></i>{{lbl.back}}</button>
         <button data-toggle="modal" data-target="#AddFilter" class="btn btn-hasicon btn-sm btn-success pull-left"><i class="fa fa-plus"></i>{{lbl.add}}</button>
         <div class="btn-group pull-left">
-            <a ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
-            <a data-ng-click="deleteAll()" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></a>
+            <a ng-click="processChecked('delete', itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.doDelete"><i class="fa fa-trash"></i></a>
+            <a data-ng-click="deleteAll(itemsChecked())" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" angular-tooltip tooltip="lbl.deleteAll"><i class="fa fa-times"></i></a>
         </div>
         <div class="search pull-right">
             <i class="fa fa-search"></i>

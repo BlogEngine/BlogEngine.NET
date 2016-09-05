@@ -63,8 +63,10 @@
         });
     }
 
-    $scope.processChecked = function (action) {
-        processChecked("/api/comments/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/comments/processchecked/", action, $scope, dataService);
+        }
 	}
 
 	$scope.deleteAll = function () {

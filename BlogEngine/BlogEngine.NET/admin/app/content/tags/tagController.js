@@ -27,8 +27,10 @@
 
     $scope.load();
 	
-    $scope.processChecked = function (action) {
-        processChecked("/api/tags/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/tags/processchecked/", action, $scope, dataService);
+        }
     }
 
     $scope.save = function () {

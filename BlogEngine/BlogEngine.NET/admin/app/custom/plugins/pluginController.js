@@ -4,7 +4,7 @@
     $scope.editId = "";
     $scope.package = {};
     $scope.activeTheme = ActiveTheme;
-    $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
+    $scope.IsPrimary = $rootScope.SiteVars.IsPrimary === "True";
     $scope.fltr = 'extensions';
     $scope.order = 'DownloadCount desc';
     $scope.sortingOrder = 'DownloadCount';
@@ -12,7 +12,7 @@
     $scope.selectedRating = 0;
     $scope.author = UserVars.Name;
 
-    if ($location.path().indexOf("/custom/plugins/gallery") == 0) {
+    if ($location.path().indexOf("/custom/plugins/gallery") === 0) {
         $scope.fltr = 'all';
         $scope.galleryFilter = 'extensions';
     }
@@ -27,7 +27,7 @@
                 $scope.setFilter();
             }
             var pkgId = getFromQueryString('pkgId');
-            if (pkgId != null) {
+            if (pkgId !== null) {
                 $scope.query = pkgId;
                 $scope.search();
             }
@@ -76,10 +76,10 @@
     }
 
     $scope.setFilter = function () {
-        if ($scope.galleryFilter == 'extensions') {
+        if ($scope.galleryFilter === 'extensions') {
             $scope.gridFilter('PackageType', 'Extension', 'pub');
         }
-        if ($scope.galleryFilter == 'themes') {
+        if ($scope.galleryFilter === 'themes') {
             $scope.gridFilter('PackageType', 'Theme', 'dft');
         }
     }
@@ -119,7 +119,7 @@
     }
 
     $scope.setPriority = function (upDown) {
-        if (upDown == 'up') {
+        if (upDown === 'up') {
             $scope.package.Priority++;
         }
         else {
@@ -136,12 +136,14 @@
         $scope.load();
     }
 
-    $scope.processChecked = function (action) {
-        processChecked("/api/packages/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/packages/processchecked/", action, $scope, dataService);
+        }
     }
 
     $scope.removeEmptyReviews = function () {
-        if ($scope.package.Extra != null && $scope.package.Extra.Reviews != null) {
+        if ($scope.package.Extra !== null && $scope.package.Extra.Reviews !== null) {
             var reviews = [];
             for (var i = 0; i < $scope.package.Extra.Reviews.length; i++) {
                 var review = $scope.package.Extra.Reviews[i];

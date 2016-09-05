@@ -26,8 +26,10 @@
 
     $scope.load();
 	
-    $scope.processChecked = function (action) {
-        processChecked("/api/posts/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/posts/processchecked/", action, $scope, dataService);
+        }
     }
 
 	$scope.setFilter = function (filter) {

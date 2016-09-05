@@ -80,8 +80,10 @@ angular.module('blogAdmin').controller('BlogListController', ["$rootScope", "$sc
         });
     }
 
-    $scope.processChecked = function (action) {
-        processChecked("/api/blogs/processchecked/", action, $scope, dataService);
+    $scope.processChecked = function (action, itemsChecked) {
+        if (itemsChecked) {
+            processChecked("/api/blogs/processchecked/", action, $scope, dataService);
+        }
     }
 
     $scope.load();
