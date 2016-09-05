@@ -20,10 +20,10 @@
         <div class="nav-user-name text-ellipsis">@displayName</div>
     </div>
     <ul class="nav-user-actions clearfix">
-        <li title="@Resources.labels.logoff"><a href="~/Account/login.aspx?logoff"><i class="fa fa-power-off"></i></a></li>
-        <li title="@Resources.labels.changePassword"><a href="~/Account/change-password.aspx" target="_blank"><i class="fa fa-key"></i></a></li>
-        <li title="@Resources.labels.profile"><a href="~/admin/#/security/profile"><i class="fa fa-user"></i></a></li>
-        <li title="@Resources.labels.viewMyBlog"><a href="@Utils.RelativeOrAbsoluteWebRoot" target="_blank"><i class="fa fa-globe"></i></a></li>
+        <li title="@Resources.labels.logoff"><a href="{{SiteVars.RelativeWebRoot}}Account/login.aspx?logoff"><i class="fa fa-power-off"></i></a></li>
+        <li title="@Resources.labels.changePassword"><a href="{{SiteVars.RelativeWebRoot}}Account/change-password.aspx" target="_blank"><i class="fa fa-key"></i></a></li>
+        <li title="@Resources.labels.profile"><a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><i class="fa fa-user"></i></a></li>
+        <li title="@Resources.labels.viewMyBlog"><a href="{{SiteVars.RelativeWebRoot}}" target="_blank"><i class="fa fa-globe"></i></a></li>
     </ul>
 </div>
 <div class="nav-sidebar">
