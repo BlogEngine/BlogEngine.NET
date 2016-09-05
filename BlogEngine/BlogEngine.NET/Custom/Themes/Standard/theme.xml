@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <metadata>
   <id>Standard</id>
-  <description>This is default theme for BlogEngine.</description>
+  <description>This is the default theme for BlogEngine.</description>
   <authors>Francis Bio</authors>
   <website>http://francis.bio/</website>
-  <version>1.0</version>
+  <version>1.1</version>
   <iconurl></iconurl>
 </metadata>

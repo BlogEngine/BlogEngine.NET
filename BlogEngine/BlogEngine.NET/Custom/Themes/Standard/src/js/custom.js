@@ -15,6 +15,9 @@ if (aLoginAttr == "/admin/") {
 }
 
 //
+$(".widget a:has(img)").addClass("no-border");
+
+//
 $(".blog-nav li a").tooltip();
 
 //
