@@ -8,7 +8,7 @@
 <div class="Widget widget search">
     <div class="WidgetContent widget-content">
         <div id="searchbox">
-            <input type="text" id="txt-@widgetId" placeholder="@Resources.labels.search..."/>
+            <input type="text" id="txt-@widgetId" placeholder="@Resources.labels.search..." onkeypress="if (event.keyCode == 13) { BlogEngine.search('@Utils.RelativeWebRoot', 'txt-@widgetId'); return false; }" />
             <input type="button" onkeypress="BlogEngine.search('@Utils.RelativeWebRoot', 'txt-@widgetId');" onclick="BlogEngine.search('@Utils.RelativeWebRoot', 'txt-@widgetId');" id="searchbutton" value="Search" />
         </div>
     </div>
