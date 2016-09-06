@@ -6,7 +6,7 @@
 
     if (IsPost)
     {
-        settings["content"] = Request.Form["txtContent"];
+        settings["content"] = Request.Unvalidated.Form["txtContent"];
         Common.SaveSettings(settings, widgetId);
     }
     if (settings != null && settings.Count > 0)
