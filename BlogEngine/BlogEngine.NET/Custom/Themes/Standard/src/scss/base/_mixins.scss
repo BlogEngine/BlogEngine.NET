@@ -30,3 +30,14 @@
     margin: 0;
     padding: 0;
 }
+
+
+@mixin fontawesome($value) {
+    content: $value;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

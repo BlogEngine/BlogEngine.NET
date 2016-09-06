@@ -11,20 +11,12 @@
                 files: {
                     'src/css/styles.min.css': 'src/scss/styles.scss',
                 }
-            },
-            dev: {
-                options: {
-                    style: 'expanded',
-                },
-                files: {
-                    'src/css/styles.css': 'src/scss/styles.scss',
-                }
             }
         },
         watch: {
             src: {
                 files: ['src/scss/**/*.scss'],
-                tasks: ['sass:dist', 'sass:dev']
+                tasks: ['sass']
             }
         }
     });

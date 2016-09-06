@@ -53,6 +53,9 @@ img {
 // blog-wrapper
 .blog-wrapper {
     display: table;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
 
     > .blog-content,
     > .blog-sidebar {
@@ -63,6 +66,7 @@ img {
     > .blog-sidebar {
         width: 18.75rem;
         min-width: 18.75rem;
+        max-width: 18.75rem;
     }
 
     > .blog-content {

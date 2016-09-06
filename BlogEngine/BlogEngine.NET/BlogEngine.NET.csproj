@@ -568,8 +568,8 @@
     <Content Include="Custom\Themes\Standard\newsletter.html" />
     <Content Include="Custom\Themes\Standard\PostView.ascx" />
     <Content Include="Custom\Themes\Standard\src\css\bootstrap.min.css" />
-    <Content Include="Custom\Themes\Standard\src\css\styles.css" />
     <Content Include="Custom\Themes\Standard\Gruntfile.js" />
+    <Content Include="Custom\Themes\Standard\src\css\font-awesome.min.css" />
     <Content Include="Custom\Themes\Standard\src\css\styles.min.css" />
     <Content Include="Custom\Themes\Standard\src\img\logo.png" />
     <Content Include="Custom\Themes\Standard\src\js\bootstrap.min.js" />
@@ -749,7 +749,6 @@
     <Content Include="Custom\Themes\Standard-2016\fonts\fontello.woff" />
     <Content Include="Custom\Themes\Standard-2016\site.master" />
     <Content Include="Custom\Themes\Standard\site.master" />
-    <Content Include="Custom\Themes\Standard\src\css\styles.css.map" />
     <Content Include="Custom\Themes\Standard\package.json" />
     <Content Include="Custom\Themes\Standard\src\scss\base\_base.scss" />
     <Content Include="Custom\Themes\Standard\src\scss\base\_mixins.scss" />
@@ -2447,6 +2446,7 @@
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\" />
     <Folder Include="bin\" />
+    <Folder Include="Custom\Themes\Standard\src\fonts\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
