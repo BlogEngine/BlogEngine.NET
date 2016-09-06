@@ -4,6 +4,8 @@
     var title = Model.Title;
     var dic = CategoryList.SortCategories();
 
+    var categoryUrl = Utils.RelativeWebRoot + "category";
+
     var settings = Common.GetSettings(Model.Id);
     bool showRssIcon = true;
     bool showPostCnt = true;
@@ -36,11 +38,11 @@
                     }
                     @if (showRssIcon == true)
                     {
-                    <a rel="nofollow" href="~/category/feed/@Utils.RemoveIllegalCharacters(cat.Title)">
+                    <a rel="nofollow" href="@categoryUrl/feed/@Utils.RemoveIllegalCharacters(cat.Title)">
                         <img class="rssButton" alt="RSS feed for SubBlog" src="~/Content/images/blog/rssButton.png">
                     </a>
                     }
-                    <a title="Category: @cat.Title" href="~/category/@Utils.RemoveIllegalCharacters(cat.Title)">
+                    <a title="Category: @cat.Title" href="@categoryUrl/@Utils.RemoveIllegalCharacters(cat.Title)">
                         @cat.Title 
                         @if (showPostCnt)
                         {

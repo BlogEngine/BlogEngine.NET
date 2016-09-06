@@ -184,6 +184,14 @@ namespace App_Code.Controls
                 path += "?";
             }
 
+            if(!path.Contains(".aspx", StringComparison.OrdinalIgnoreCase))
+            {
+                if(path.EndsWith("?") && !path.EndsWith("/?"))
+                {
+                    path = path.Replace("?", "/?");
+                }
+            }
+
             return HttpUtility.HtmlEncode(path + "page={0}");
         }
 
