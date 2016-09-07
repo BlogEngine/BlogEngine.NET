@@ -60,14 +60,24 @@
     }
     // blog-nav
     .blog-nav {
-        li {
-            border-right: 0;
-            border-left: 1px solid rgba(0, 0, 0, 0.15);
-
-            &:last-child {
-                border-left: 0;
+        li { 
+            padding-right:0;
+            padding-left:$px1;
+            &:last-child 
+                {
+                padding-left:0;
             }
         }
+         .tooltip {
+             font-family:"Yekan", Tahoma, arial;
+            letter-spacing:0;
+        }
+    }
+
+    //
+    .blogroll .widget-content>ul>li>a:first-child:before,.categorylist ul a[rel=nofollow]:before {
+        margin-right:0;
+        margin-left:.5rem;
     }
     // archive
     .archive-page ul li {

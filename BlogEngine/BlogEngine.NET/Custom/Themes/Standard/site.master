@@ -51,7 +51,7 @@
                     <header class="blog-header">
                         <div class="blog-info">
                             <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
-                                <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
+                                <img src="[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
                                 <%=BlogSettings.Instance.Name %>
                             </a>
                             <div class="blog-author">
@@ -86,7 +86,7 @@
                             Powered by <a href="http://dotnetblogengine.net/" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a>
                         </p>
                         <p>
-                            Designed by <a href="http://francis.bio/" rel="nofollow" target="_blank">Francis</a>
+                            Designed by <a href="http://francis.bio/" rel="nofollow" target="_blank">Francis Bio</a>
                         </p>
                     </footer>
                 </aside>
