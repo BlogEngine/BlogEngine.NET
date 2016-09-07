@@ -32,3 +32,23 @@ label {
         display: none;
     }
 }
+
+.alert {
+    padding: 2rem;
+    border-radius: 0;
+    border: none;
+    margin-bottom: 2rem;
+
+    &.support-theme { 
+         p {
+            a {
+                border-bottom: 2px solid $color-primary;
+
+                &:hover {
+                    color: #000;
+                    border-color: #000;
+                }
+            }
+        }
+    }
+}

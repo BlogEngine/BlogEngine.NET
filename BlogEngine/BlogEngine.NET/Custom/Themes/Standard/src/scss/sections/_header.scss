@@ -1,10 +1,14 @@
 ﻿.blog-header {
     margin-bottom: 2rem;
-    background: rgba(255, 255, 255, 0.1);
+    box-shadow: $shadow-normal;
 
     @media screen and (max-width: 64rem) {
         margin-bottom: 1rem;
     }
+}
+
+.blog-info {
+    background: $color-widget;
 }
 
 .blog-logo {
@@ -12,9 +16,10 @@
     color: #fff !important;
     display: block;
     font-size: 1.5rem;
-    padding: 3rem 0 2.5rem;
+    padding: 3rem 0 1rem;
     font-family: $font-family-heading;
     outline: none !important;
+    text-shadow: $shadow-normal;
 
     img {
         font-size: 0;
@@ -32,6 +37,7 @@
 
 .blog-nav {
     height: 3.5rem;
+    margin-top: 1px;
 
     ul {
         @include unstyled();
@@ -42,16 +48,15 @@
     }
 
     li {
+        padding-right: 1px;
         display: table-cell;
         width: 25%;
         height: 3.5rem;
         text-align: center;
         vertical-align: top;
-        border-right: 1px solid rgba(0, 0, 0, 0.15);
-        border-top: 1px solid rgba(0, 0, 0, 0.15);
 
         &:last-child {
-            border-right: 0;
+            padding-right: 0;
         }
 
         span {
@@ -70,10 +75,10 @@
         color: #fff;
         display: block;
         text-transform: uppercase;
-        opacity: .5;
+        background: $color-widget;
 
         i {
-            font-size: 1rem;
+            font-size: .875rem;
             display: block;
             height: 100%;
             line-height: 3.5rem;
@@ -108,6 +113,45 @@
         &:hover, &:focus {
             opacity: 1;
             outline: none !important;
+        }
+    }
+}
+
+.blog-author {
+    display:none;
+    padding: 0 2rem;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom:1.5rem;
+}
+
+.social-network {
+    @include unstyled();
+    text-align: center;
+    padding-bottom: 2rem;
+
+    li {
+        display: none;
+
+        a {
+            display: block;
+            height: 2rem;
+            width: 2rem;
+        }
+
+        i {
+            display: block;
+            height: 100%;
+            line-height: 2rem;
+            background: rgba(0, 0, 0, 0.07);
+            color: #fff;
+            border-radius: 100%;
+            font-size: .875rem;
+
+            &:hover {
+                background: #fff;
+                color: #000;
+            }
         }
     }
 }

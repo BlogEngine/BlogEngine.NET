@@ -4,7 +4,7 @@
 <%
     Page.Header.DataBind();
 
-    // fix the bug related TO Perisan Culture
+    // fix the bug related to Perisan Culture
     if (System.Threading.Thread.CurrentThread.CurrentCulture.LCID == 1065)
         System.Threading.Thread.CurrentThread.CurrentCulture = new PersianCulture();
     if (Security.IsAuthenticated)
@@ -35,6 +35,13 @@
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/shActivator.js"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <style>
+        body {
+            background: [CUSTOMFIELD|THEME|Standard|background color left|#232526/];
+            background: -webkit-linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#414345/], [CUSTOMFIELD|THEME|Standard|background color left|#232526/]);
+            background: linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#414345/], [CUSTOMFIELD|THEME|Standard|background color left|#232526/]);
+        }
+    </style>
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
     <form runat="Server">
@@ -42,10 +49,25 @@
             <div class="blog-wrapper">
                 <aside class="blog-sidebar">
                     <header class="blog-header">
-                        <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
-                            <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
-                            <%=BlogSettings.Instance.Name %>
-                        </a>
+                        <div class="blog-info">
+                            <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
+                                <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
+                                <%=BlogSettings.Instance.Name %>
+                            </a>
+                            <div class="blog-author">
+                                [CUSTOMFIELD|THEME|Standard|About Author|/]
+                            </div>
+                            <ul class="social-network">
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Facebook Account|/]" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Twitter Account|/]" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Google Plus Account|/]" rel="external nofollow"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Linkedin Account|/]" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Instagramm Account|/]" rel="external nofollow"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Youtube Account|/]" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Github Account|/]" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard|Pinterest Account|/]" rel="external nofollow"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
                         <nav class="blog-nav">
                             <ul class="clearfix">
                                 <li><a href="<%=Utils.AbsoluteWebRoot %>" class="item-home" title="<%=Resources.labels.home %>"><i class="fa fa-home"></i></a></li>
@@ -68,22 +90,13 @@
                         </p>
                     </footer>
                 </aside>
-                <div class="blog-content">
+                <div class="blog-content admin-alerts-[CUSTOMFIELD|THEME|Standard|Home Alert Box (true or false?)|true/]">
                     <asp:ContentPlaceHolder ID="cphBody" runat="server" />
                 </div>
             </div>
         </div>
-
         <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/bootstrap.min.js"></script>
         <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/custom.js"></script>
-        <script>
-            var customBackground = [CUSTOMFIELD|THEME|Standard|custom background (true or false ?) |false/];
-            if (customBackground) {
-                $('body').append('<style>body {background:[CUSTOMFIELD|THEME|Standard|background color left|#142c5a/]; background: -webkit-linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#5f2c82/], [CUSTOMFIELD|THEME|Standard|background color left|#142c5a/]); background: linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#5f2c82/], [CUSTOMFIELD|THEME|Standard|background color left|#142c5a/]);}</style>');
-            }
-        </script>
-
-
     </form>
 </body>
 </html>

@@ -10,9 +10,9 @@ body {
     font-family: $font-family-base;
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
-    background: #142c5a;
-    background: -webkit-linear-gradient(to left, #5f2c82, #142c5a);
-    background: linear-gradient(to left, #5f2c82, #142c5a);
+    background: $color-body-left;
+    background: -webkit-linear-gradient(to left, $color-body-right, $color-body-left);
+    background: linear-gradient(to left,$color-body-right, $color-body-left);
     cursor: default;
     overflow-y: scroll;
     padding-top: 2rem;

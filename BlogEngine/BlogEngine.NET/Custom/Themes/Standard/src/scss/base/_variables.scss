@@ -7,12 +7,18 @@ $font-weight-normal: 400;
 $font-weight-bold: 700;
 
 // colors
+$color-body-left: #232526;
+$color-body-right: #414345;
+$color-widget: rgba(255, 255, 255, 0.1);
 $color-theme: #0064c4;
 $color-success: #19cf86;
 $color-danger: #e81c4f;
 $color-warning: #f6bb42;
 $color-primary: #0064c4;
 $color-info: #5bc0de;
+
+//
+$shadow-normal: 0 1px 2px rgba(0,0,0,0.1);
 
 // pixel
 $px1: 0.0625rem;

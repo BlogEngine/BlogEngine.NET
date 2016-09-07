@@ -1,8 +1,8 @@
 ﻿.widget {
-    background: rgba(255, 255, 255, 0.1);
     margin-bottom: 2rem;
     font-size: .875rem;
     color: rgba(255, 255, 255, 0.60);
+    box-shadow: $shadow-normal;
 
     a {
         color: rgba(255, 255, 255, 0.60);
@@ -15,9 +15,10 @@
     }
 
     .widget-header {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-        padding-bottom: 1.5rem;
+        background:$color-widget;
         margin: 0;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1px;
         color: #fff;
         font-weight: $font-weight-normal;
         text-transform: uppercase;
@@ -28,6 +29,7 @@
     }
 
     .widget-content {
+        background:$color-widget;
         padding: 1.5rem !important;
         font-size: .875rem;
         color: rgba(255, 255, 255, 0.60);
@@ -47,7 +49,7 @@
         }
 
         .form-control {
-            border-color: rgba(255, 255, 255, 0.1);
+            border-color:$color-widget;
         }
     }
 

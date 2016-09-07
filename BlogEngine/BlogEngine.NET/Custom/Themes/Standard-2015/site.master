@@ -10,7 +10,7 @@
     // for supported of RTL languages
     if (Resources.labels.LangDirection.Equals("rtl", StringComparison.OrdinalIgnoreCase))
     {
-        var lc = new LiteralControl("<link href=\"" + Utils.RelativeWebRoot + "Custom/Themes/Standard-2016/css/rtl.css\" rel=\"stylesheet\" />");
+        var lc = new LiteralControl("<link href=\"" + Utils.RelativeWebRoot + "Custom/Themes/Standard-2015/css/rtl.css\" rel=\"stylesheet\" />");
         HeadContent.Controls.Add(lc);
     }
 
@@ -76,27 +76,28 @@
                     <span>Powered by <a href="http://dotnetblogengine.net" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a></span>
                 </p>
                 <ul class="float-right list-unstyled social-network">
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Facebook Account|/]" rel="external nofollow"><i class="icon-facebook"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Twitter Account|/]" rel="external nofollow"><i class="icon-twitter"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Google Plus Account|/]" rel="external nofollow"><i class="icon-gplus"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Linkedin Account|/]" rel="external nofollow"><i class="icon-linkedin"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|RSS Link|/syndication.axd/]" rel="external nofollow"><i class="icon-rss"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Instagramm Account|/]" rel="external nofollow"><i class="icon-instagramm"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Pinterest Account|/]" rel="external nofollow"><i class="icon-pinterest-circled"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Soundcloud Account|/]" rel="external nofollow"><i class="icon-soundcloud"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Youtube Account|/]" rel="external nofollow"><i class="icon-youtube"></i></a></li>
-                    <li><a href="[CUSTOMFIELD|THEME|Standard-2016|Github Account|/]" rel="external nofollow"><i class="icon-git"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Facebook Account|/]" rel="external nofollow"><i class="icon-facebook"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Twitter Account|/]" rel="external nofollow"><i class="icon-twitter"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Google Plus Account|/]" rel="external nofollow"><i class="icon-gplus"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Linkedin Account|/]" rel="external nofollow"><i class="icon-linkedin"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|RSS Link|/syndication.axd/]" rel="external nofollow"><i class="icon-rss"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Instagramm Account|/]" rel="external nofollow"><i class="icon-instagramm"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Pinterest Account|/]" rel="external nofollow"><i class="icon-pinterest-circled"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Soundcloud Account|/]" rel="external nofollow"><i class="icon-soundcloud"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Youtube Account|/]" rel="external nofollow"><i class="icon-youtube"></i></a></li>
+                    <li><a href="[CUSTOMFIELD|THEME|Standard-2015|Github Account|/]" rel="external nofollow"><i class="icon-git"></i></a></li>
                 </ul>
             </div>
         </footer>
     </form>
     <script>
-        // Social networks
+
         var socialNetwork = $(".social-network li a");
         for (i = 0; i < socialNetwork.length; ++i) {
             link = socialNetwork[i];
-            if (link.href == "" || link.href == window.location) {
-                link.parentNode.style.display = "none";
+
+            if ($(link).attr("href") == "") {
+                $(link).parent().hide();
             }
         }
 
