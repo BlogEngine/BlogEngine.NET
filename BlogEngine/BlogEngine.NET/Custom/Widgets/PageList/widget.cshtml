@@ -6,7 +6,7 @@
     <h4 class="WidgetHeader widget-header">@title</h4>
     <div class="WidgetContent widget-content">
         <ul>
-            @foreach (var page in BlogEngine.Core.Page.Pages.Where(page => page.ShowInList && page.IsVisibleToPublic))
+            @foreach (var page in BlogEngine.Core.Page.Pages.OrderBy(page => page.SortOrder).Where(page => page.ShowInList && page.IsVisibleToPublic))
             {
                 var href = page.RelativeLink;
                 if (BlogSettings.Instance.RemoveExtensionsFromUrls && !string.IsNullOrEmpty(BlogConfig.FileExtension))

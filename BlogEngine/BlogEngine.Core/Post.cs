@@ -1608,12 +1608,24 @@
                 }
             }
 
+            // trigger even only when post goes from unpublished to published
+            var updateAndPublish = false;
+            try
+            {
+                var isOldPublished = BlogService.SelectPost(Id).IsPublished;
+                if(isPublished && !isOldPublished && !isDeleted)
+                {
+                    updateAndPublish = true;
+                }
+            }
+            catch (Exception) { }
+
             BlogService.UpdatePost(this);
             Posts.Sort();
             AddRelations(Posts);
             ResetNestedComments();
 
-            if (isPublished && !IsDeleted)
+            if (updateAndPublish)
             {
                 OnPublished();
             }

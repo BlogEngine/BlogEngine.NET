@@ -335,15 +335,8 @@ INSERT INTO be_StopWords (StopWord)	VALUES ('your');
 INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
 VALUES ( '25e4d8da-3278-4e58-b0bf-932496dabc96', 'Mads Kristensen', 'Full featured simplicity in ASP.NET and C#', 'http://madskristensen.net', 'http://feeds.feedburner.com/netslave', 'contact', 0 );
 INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
-VALUES ( 'ccc817ef-e760-482b-b82f-a6854663110f', 'Al Nyveldt', 'Adventures in Code and Other Stories', 'http://www.nyveldt.com/blog/', 'http://feeds.feedburner.com/razorant', 'contact', 1 );
-INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
-VALUES ( 'dcdaa78b-0b77-4691-99f0-1bb6418945a1', 'Ruslan Tur', '.NET and Open Source: better together', 'http://rtur.net/blog/', 'http://feeds.feedburner.com/rtur', 'contact', 2 );
-INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
-VALUES ( '8a846489-b69e-4fde-b2b2-53bc6104a6fa', 'John Dyer', 'Technology and web development in ASP.NET, Flash, and JavaScript', 'http://johndyer.name/', 'http://johndyer.name/syndication.axd', 'contact', 3 );
-INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
-VALUES ( '7f906880-4316-47f1-a934-1a912fc02f8b', 'Russell van der Walt', 'an adventure in web technologies', 'http://blog.ruski.co.za/', 'http://feeds.feedburner.com/rusvdw', 'contact', 4 );
-INSERT INTO be_BlogRollItems ( BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex )
-VALUES ( '890f00e5-3a86-4cba-b85b-104063964a87', 'Ben Amada', 'adventures in application development', 'http://allben.net/', 'http://feeds.feedburner.com/allben', 'contact', 5 );
+VALUES ( 'dcdaa78b-0b77-4691-99f0-1bb6418945a1', 'Ruslan Tur', '.NET and Open Source: better together', 'http://rtur.net/blog/', 'http://feeds.feedburner.com/rtur', 'contact', 1 );
+
 
 INSERT INTO be_Categories (CategoryID, CategoryName)
 	VALUES ('ffc26b8b-7d45-46e3-b702-7198e8847e06', 'General');
