@@ -39,8 +39,11 @@ label {
     border: none;
     margin-bottom: 2rem;
 
-    &.support-theme { 
-         p {
+    &.support-theme {
+        font-family: $font-family-heading;
+        font-size: 1.25rem;
+
+        p {
             a {
                 border-bottom: 2px solid $color-primary;
 
