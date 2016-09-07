@@ -83,7 +83,7 @@ namespace BlogEngine.Core.Web.Controls
         {
             bool returnValue = false;
 
-            foreach (BlogEngine.Core.Page page in BlogEngine.Core.Page.Pages)
+            foreach (BlogEngine.Core.Page page in BlogEngine.Core.Page.Pages.OrderBy(page => page.SortOrder))
             {
                 if (page.ShowInList && page.IsPublished)
                 {
