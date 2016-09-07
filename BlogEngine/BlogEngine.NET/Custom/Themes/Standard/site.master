@@ -74,6 +74,7 @@
             </div>
         </div>
 
+        <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/bootstrap.min.js"></script>
         <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/custom.js"></script>
         <script>
             var customBackground = [CUSTOMFIELD|THEME|Standard|custom background (true or false ?) |false/];
