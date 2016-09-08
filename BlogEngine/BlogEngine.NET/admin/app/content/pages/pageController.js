@@ -2,6 +2,7 @@
     $scope.items = [];
     $scope.fltr = 'pages';
     $scope.filter = ($location.search()).fltr;
+    $scope.sortingOrder = 'SortOrder';
 
     $scope.load = function () {
         var url = '/api/pages';

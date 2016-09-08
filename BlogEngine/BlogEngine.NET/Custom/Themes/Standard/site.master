@@ -15,7 +15,7 @@
     else
     {
         aLoginText.InnerText = Resources.labels.login;
-        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?ReturnURL=/admin/";
+        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?ReturnURL=" + Utils.RelativeWebRoot + "admin/";
     }
 %>
 <!DOCTYPE html>
