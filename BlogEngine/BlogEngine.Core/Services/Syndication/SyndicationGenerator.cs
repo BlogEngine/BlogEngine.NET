@@ -216,8 +216,11 @@ namespace BlogEngine.Core
         static string RssDateString(DateTime pubDate)
         {
             pubDate = BlogSettings.Instance.FromUtc(pubDate);
-            var value = pubDate.ToString("ddd',' d MMM yyyy HH':'mm':'ss") + " " +
-                pubDate.ToString("zzzz").Replace(":", "");
+
+            // get a timezone from local time (won't work with UTC)
+            var zone = DateTime.Now.ToString("zzzz").Replace(":", "");
+
+            var value = pubDate.ToString("ddd',' d MMM yyyy HH':'mm':'ss") + " " + zone;
             return value;
         }
 

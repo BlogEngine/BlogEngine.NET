@@ -253,7 +253,7 @@ public partial class _default : BlogEngine.Core.Web.Controls.BlogBasePage
 
             PostList1.ContentBy = ServingContentBy.Tag;
 			PostList1.Posts = Post.GetPostsByTag(tag).ConvertAll(new Converter<Post, IPublishable>(delegate(Post p) { return p as IPublishable; }));
-			Title = Resources.labels.AllPostsTagged + " '" + Request.QueryString["tag"].Substring(1) + "'";
+            Title = string.Format("{0} '{1}'", Resources.labels.AllPostsTagged, tag);
             AddMetaDescription(Title);
 		}
 	}
