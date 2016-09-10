@@ -118,11 +118,15 @@
 }
 
 .blog-author {
-    display:none;
+    display: none;
     padding: 0 2rem;
     color: #fff;
     font-size: 1rem;
-    margin-bottom:1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media screen and (max-width: 64rem) {
+       display:none !important; 
+    }
 }
 
 .social-network {

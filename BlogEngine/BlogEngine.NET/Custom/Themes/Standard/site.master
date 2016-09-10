@@ -51,7 +51,7 @@
                     <header class="blog-header">
                         <div class="blog-info">
                             <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
-                                <img src="[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
+                                <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
                                 <%=BlogSettings.Instance.Name %>
                             </a>
                             <div class="blog-author">
@@ -69,7 +69,7 @@
                             </ul>
                         </div>
                         <nav class="blog-nav">
-                            <ul class="clearfix">
+                            <ul>
                                 <li><a href="<%=Utils.AbsoluteWebRoot %>" class="item-home" title="<%=Resources.labels.home %>"><i class="fa fa-home"></i></a></li>
                                 <li><a href="<%=Utils.AbsoluteWebRoot %>archive" class="item-archive" title="<%=Resources.labels.archive %>"><i class="fa fa-align-left"></i></a></li>
                                 <li><a href="<%=Utils.AbsoluteWebRoot %>contact" class="item-contact" title="<%=Resources.labels.contact %>"><i class="fa fa-envelope"></i></a></li>

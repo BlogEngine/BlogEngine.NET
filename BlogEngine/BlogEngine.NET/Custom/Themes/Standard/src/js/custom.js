@@ -62,6 +62,11 @@
         $("#commentlist").parent().show();
     });
 
+    //
+    if ($(".blog-logo img").attr("src") == window.location.protocol + "//" + window.location.host + "/") {
+        $(".blog-logo img").hide();
+    }
+
     // support theme
     var adminNav = $(".item-admin");
     var adminAlert = $(".admin-alerts-true");
