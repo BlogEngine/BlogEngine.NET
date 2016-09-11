@@ -3,7 +3,7 @@
     var showThanks = false;
     var showForm = false;
     var showMsg = false;
-    var email = Request.Form["txtEmail"];
+    var email = Request.Form["txtNewsletterEmail"];
 
     if (IsPost)
     {
@@ -37,8 +37,8 @@
         {
         <div id="newsletterform">
             <p>@Resources.labels.notifiedPublished</p>
-            <label style="font-weight:bold" for="txtEmail">@Resources.labels.enterEmail</label>
-            <input type="text" style="width:98%;" class="form-control" id="txtEmail" name="txtEmail" />
+            <label style="font-weight:bold" for="txtNewsletterEmail">@Resources.labels.enterEmail</label>
+            <input type="text" style="width:98%;" class="form-control" id="txtNewsletterEmail" name="txtNewsletterEmail" />
             @if (showMsg)
             {
                 <span>@Resources.labels.enterEmailAddress</span>
