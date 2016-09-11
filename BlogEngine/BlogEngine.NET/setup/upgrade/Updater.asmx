@@ -233,7 +233,14 @@ public class Updater  : WebService {
             DeleteDir("\\editors");
             DeleteDir("\\Modules");
             DeleteDir("\\pics");
-            DeleteDir("\\App_Data\\datastore\\widgets");
+
+            // in version 3.3.0.0 widgets framework updated
+            // and no longer compatible. delete for lesser versions
+            int version = int.Parse(BlogSettings.Instance.Version().Replace(".", ""));
+            if (version <= 3300)
+            {
+                DeleteDir("\\App_Data\\datastore\\widgets");    
+            }
 
             ReplaceDir("\\Account");
             ReplaceDir("\\admin");
@@ -250,7 +257,7 @@ public class Updater  : WebService {
             ReplaceDir("\\Content");
             ReplaceDir("\\Custom\\Themes\\Standard");
             ReplaceDir("\\Custom\\Widgets");
-            
+
             return "";
         }
         catch (Exception ex)
