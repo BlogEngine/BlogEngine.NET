@@ -19,5 +19,5 @@ using System.Security.Permissions;
 [assembly: CLSCompliant(false)]
 [assembly: ComVisible(false)]
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyVersion("3.3.0.5")]
+[assembly: AssemblyVersion("3.3.1.0")]
 [assembly: SecurityRules(SecurityRuleSet.Level1)]
