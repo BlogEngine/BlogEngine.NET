@@ -1,20 +1,20 @@
 ﻿/*
     Author: http://francis.bio
-*/ 
+*/
 
 // base
 @import "base/variables";
 @import "base/mixins";
 @import "base/base";
-  
+
 // sections
 @import "sections/header";
 @import "sections/posts";
+@import "sections/pages";
 @import "sections/post.navigation";
 @import "sections/post.pager";
 @import "sections/post.related";
 @import "sections/comments";
-@import "sections/pages";
 @import "sections/search";
 @import "sections/archive";
 @import "sections/widgets";
@@ -26,7 +26,7 @@
 @import "modules/syntaxhighlighter";
 @import "modules/rating";
 
-// widgets  
+// widgets
 @import "widgets/search";
 @import "widgets/postlist";
 @import "widgets/categorylist";

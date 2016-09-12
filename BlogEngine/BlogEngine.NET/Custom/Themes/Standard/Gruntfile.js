@@ -1,12 +1,11 @@
 ﻿module.exports = function (grunt) {
     grunt.initConfig({
         sass: {
-            options: {
-                noCache: true
-            },
             dist: {
                 options: {
                     style: 'compressed',
+                    noCache: true,
+                    sourcemap: 'none'
                 },
                 files: {
                     'src/css/styles.min.css': 'src/scss/styles.scss',
