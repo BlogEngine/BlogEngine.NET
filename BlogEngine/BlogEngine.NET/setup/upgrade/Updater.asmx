@@ -237,7 +237,7 @@ public class Updater  : WebService {
             // in version 3.3.0.0 widgets framework updated
             // and no longer compatible. delete for lesser versions
             int version = int.Parse(BlogSettings.Instance.Version().Replace(".", ""));
-            if (version <= 3300)
+            if (version < 3300)
             {
                 DeleteDir("\\App_Data\\datastore\\widgets");    
             }
