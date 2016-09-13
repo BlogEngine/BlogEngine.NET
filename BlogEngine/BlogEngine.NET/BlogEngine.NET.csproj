@@ -566,7 +566,9 @@
     <Content Include="Custom\Themes\Standard\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard\CommentView.ascx" />
     <Content Include="Custom\Themes\Standard\newsletter.html" />
+    <Content Include="Custom\Themes\Standard\PostNavigation.ascx" />
     <Content Include="Custom\Themes\Standard\PostView.ascx" />
+    <Content Include="Custom\Themes\Standard\RelatedPosts.ascx" />
     <Content Include="Custom\Themes\Standard\src\css\bootstrap.min.css" />
     <Content Include="Custom\Themes\Standard\Gruntfile.js" />
     <Content Include="Custom\Themes\Standard\src\css\font-awesome.min.css" />
@@ -785,7 +787,6 @@
     <Content Include="Custom\Themes\Standard\src\scss\widgets\_rtl.scss" />
     <Content Include="admin\themes\standard\README.md" />
     <Content Include="admin\themes\standard\scss\rtl\_rtl.widgets.scss" />
-    <Content Include="Custom\Themes\Standard\src\css\styles.min.css.map" />
     <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.eot" />
     <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.ttf" />
     <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.woff" />
