@@ -1,8 +1,9 @@
-﻿html {
+html {
     font-size: 1em;
 }
 
-html, body {
+body,
+html {
     height: 100%;
 }
 
@@ -17,9 +18,13 @@ body {
     overflow-y: scroll;
     padding-top: 2rem;
 }
-
 // typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0 0 1rem;
     font-family: $font-family-heading;
     font-weight: $font-weight-bold;
@@ -41,7 +46,6 @@ p {
 img {
     max-width: 100%;
 }
-
 // container
 .container {
     width: 80rem;
@@ -49,7 +53,6 @@ img {
     padding-right: 2rem;
     padding-left: 2rem;
 }
-
 // blog-wrapper
 .blog-wrapper {
     display: table;
@@ -57,8 +60,8 @@ img {
     width: 100%;
     max-width: 100%;
 
-    > .blog-content,
-    > .blog-sidebar {
+     > .blog-sidebar,
+    > .blog-content {
         display: table-cell;
         vertical-align: top;
     }
@@ -75,21 +78,30 @@ img {
         width: 100%;
     }
 
+    .blog-footer,
+    .blog-header,
+    .widgetzone {
+        max-width: 18.75rem;
+    }
     @media screen and (max-width: 75rem) {
         > .blog-sidebar {
             width: 15.625rem;
             min-width: 15.625rem;
         }
     }
-
     @media screen and (max-width: 64rem) {
         > .blog-content {
             padding-left: 1rem;
         }
     }
-
     @media screen and (max-width: 50rem) {
         display: block;
+
+        .blog-footer,
+        .blog-header,
+        .widgetzone {
+            max-width: none;
+        }
 
         > .blog-sidebar {
             .widgetzone {
@@ -101,8 +113,8 @@ img {
             }
         }
 
-        > .blog-sidebar,
-        > .blog-content {
+         > .blog-content,
+        > .blog-sidebar {
             display: block;
             vertical-align: top;
             padding: 0;
@@ -111,7 +123,6 @@ img {
         }
     }
 }
-
 @media screen and (max-width: 64rem) {
     body {
         padding-top: 1rem;
