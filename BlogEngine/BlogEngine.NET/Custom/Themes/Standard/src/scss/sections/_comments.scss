@@ -1,14 +1,14 @@
-﻿.lbl-CommentsDisabled {
+.lbl-CommentsDisabled {
     color: rgba(255, 255, 255, 0.3);
     text-transform: uppercase;
     display: block;
     position: relative;
-    font-size: .875rem;
+    font-size: 0.875rem;
     margin-bottom: 2rem;
     text-align: center;
 
     &:before {
-        margin-right: .5rem;
+        margin-right: 0.5rem;
         position: relative;
         top: $px1;
         @include fontawesome("\f023");
@@ -28,12 +28,16 @@
         .comment-item {
             margin-left: 3.5rem;
         }
+
+        #status {
+            margin-left: 3.5rem;
+        }
     }
 
     .comment-content {
         position: relative;
         min-height: 3rem;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         margin-left: 3.5rem;
         background-color: #eee;
         padding: 1rem;
@@ -48,7 +52,7 @@
     }
 
     .comment-author {
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         font-weight: $font-weight-bold;
 
         a {
@@ -58,11 +62,11 @@
 
     .comment-replylink {
         color: #aaa;
-        font-size: .75rem;
+        font-size: 0.75rem;
         font-style: italic;
         font-weight: $font-weight-normal;
         text-transform: uppercase;
-        margin-top: .5rem;
+        margin-top: 0.5rem;
     }
 
     .comment-adminlinks {
@@ -70,14 +74,14 @@
 
         a {
             color: #fff;
-            font-size: .875rem;
+            font-size: 0.875rem;
             background-color: $color-danger;
-            margin-right: .5rem;
+            margin-right: 0.5rem;
             display: inline-block;
-            padding: .25rem 1rem;
-            border-radius: $px3;
+            padding: 0.25rem 1rem;
 
-            &:nth-child(1), &:nth-child(2) {
+            &:nth-child(1),
+            &:nth-child(2) {
                 display: none;
             }
 
@@ -88,13 +92,24 @@
     }
 
     .comment-form {
-        display: none;
+        box-shadow: none;
+        padding: 0;
+        margin-left: 3.5rem;
+        margin-top: 1rem;
     }
 
+    p#cancelReply a {
+        color: #fff;
+        font-size: 0.875rem;
+        background-color: #666;
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        margin-left: 3.5rem;
+    }
     @media screen and (max-width: 48rem) {
         .comment-content {
             margin-left: 0;
-            padding: 0 0 .5rem;
+            padding: 0 0 0.5rem;
             background: none;
             border-bottom: $px1 solid #ddd;
 
@@ -104,7 +119,6 @@
         }
 
         .comment-item {
-
             .comment-item {
                 margin: 0;
             }
@@ -126,7 +140,6 @@
     }
 }
 
-
 #status.warning {
     background-color: $color-danger;
     display: block;
@@ -142,19 +155,18 @@
     color: #fff;
     margin-bottom: 1rem;
     margin-left: 3.5rem;
-
     @media screen and (max-width: 48rem) {
         margin-left: 0;
     }
 }
-
 
 #commentCaptcha {
     position: relative;
     display: table;
     width: 100%;
 
-    label, #simpleCaptchaValue {
+    #simpleCaptchaValue,
+    label {
         display: table-cell;
         vertical-align: top;
     }
@@ -174,7 +186,7 @@
         height: 2.5rem;
         border: 1px solid #ccc;
         outline: none !important;
-        padding: .5rem;
+        padding: 0.5rem;
         width: 100%;
         min-width: 100%;
     }
@@ -183,6 +195,6 @@
         position: absolute;
         bottom: -.875rem;
         left: 0;
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 }
