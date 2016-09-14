@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Kreon:400,700" rel="stylesheet">
     <link href="src/css/bootstrap.min.css" rel="stylesheet" />
     <link href="src/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="src/css/styles.min.css" rel="stylesheet" />
+    <link href="src/css/styles.min.css?=v12" rel="stylesheet" />
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>

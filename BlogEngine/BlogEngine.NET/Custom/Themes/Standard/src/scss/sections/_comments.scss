@@ -126,10 +126,18 @@
             .comment-item {
                 margin: 0;
             }
+          #status {
+            margin-left: 0;
+          }
         }
 
         .comment-adminlinks {
             display: none;
+        }
+
+        .comment-form,
+        p#cancelReply a {
+            margin-left: 0;
         }
     }
 }
