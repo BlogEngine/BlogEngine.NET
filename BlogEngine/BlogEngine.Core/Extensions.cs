@@ -7,6 +7,13 @@
     /// </summary>
     public static class Extensions
     {
+        /// <summary>
+        /// hexadecimal digits
+        /// </summary>
+        private static char[] _HexDigits = {
+            '0', '1', '2', '3', '4', '5', '6', '7',
+            '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+        };
 
         /// <summary>
         /// Checks whether a source string contains another string based on the supplied StringComparison.
@@ -91,6 +98,26 @@
             }
 
             return success;
+        }
+
+        /// <summary>
+        /// Returns a hexadecimal string from an array of bytes
+        /// </summary>
+        /// <param name="bytes"></param>
+        /// <returns></returns>
+        public static string ToHexString(this byte[] bytes)
+        {
+            int j = bytes.Length;
+
+            char[] chars = new char[j * 2];
+
+            for (int i = 0; i < j; i++)
+            {
+                int b = bytes[i];
+                chars[i * 2] = _HexDigits[b >> 4];
+                chars[i * 2 + 1] = _HexDigits[b & 0xF];
+            }
+            return new string(chars);
         }
     }
 }

@@ -1,9 +1,13 @@
 ﻿namespace BlogEngine.Core.Web.HttpHandlers
 {
-    using System;
-    using System.IO;
-    using System.Web;
     using BlogEngine.Core.Providers;
+    using System;
+    using System.Collections.Concurrent;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Security.Cryptography;
+    using System.Web;
 
     /// <summary>
     /// The ImageHanlder serves all images that is uploaded from
@@ -16,6 +20,44 @@
     /// </remarks>
     public class ImageHandler : IHttpHandler
     {
+
+        /// <summary>
+        /// md5 hash
+        /// </summary>
+        static MD5 md5 = MD5.Create();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        static ConcurrentDictionary<string, object> FilesProcessed = new ConcurrentDictionary<string, object>();
+
+        /// <summary>
+        /// file sizes
+        /// </summary>
+        protected enum Sizes : short
+        {
+            /// <summary>
+            /// original (does not scale)
+            /// </summary>
+            original = 0,
+            /// <summary>
+            /// thumbnail (width: 50px)
+            /// </summary>
+            thumbnail = 50,
+            /// <summary>
+            /// small (width: 200px)
+            /// </summary>
+            small = 200,
+            /// <summary>
+            /// medium (width: 600px)
+            /// </summary>
+            medium = 600,
+            /// <summary>
+            /// medium (width: 900px)
+            /// </summary>
+            large = 900,
+        }
+
         #region Events
 
         /// <summary>
@@ -46,7 +88,18 @@
         {
             get
             {
-                return false;
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// Directory where scaled images will be saved
+        /// </summary>
+        public string DirectoryForScalingImages
+        {
+            get
+            {
+                return string.Concat(Blog.CurrentInstance.StorageLocation, "files/scaling/");
             }
         }
 
@@ -70,7 +123,10 @@
             if (!string.IsNullOrEmpty(context.Request.QueryString["picture"]))
             {
                 var fileName = context.Request.QueryString["picture"];
+                var size = context.Request.QueryString["size"];
+
                 OnServing(fileName);
+
                 try
                 {
                     fileName = !fileName.StartsWith("/") ? string.Format("/{0}", fileName) : fileName;
@@ -85,6 +141,43 @@
                     var file = BlogService.GetFile(string.Format("{0}files{1}", Blog.CurrentInstance.StorageLocation, fileName));
                     if (file != null)
                     {
+                        size = !string.IsNullOrWhiteSpace(size) ? size.ToLower() : string.Empty;
+
+                        var esize = Sizes.original; Enum.TryParse<Sizes>(size, out esize);
+
+                        if (file.IsImage && esize != Sizes.original)
+                        {
+                            //first: get a md5 from file fullpath
+                            var bytes = from c in file.FullPath
+                                        select Convert.ToByte(c);
+
+                            var cmp = StringComparison.CurrentCultureIgnoreCase;
+
+                            //hash from fullpath
+                            var hash = md5.ComputeHash(bytes.ToArray()).ToHexString();
+
+                            //creates the scaling directory
+                            if (BlogService.DirectoryExists(this.DirectoryForScalingImages) == false) BlogService.CreateDirectory(this.DirectoryForScalingImages);
+
+                            /*scale file*/
+                            var scaleimage = BlogService
+                                .GetDirectory(this.DirectoryForScalingImages)
+                                .Files
+                                .FirstOrDefault(f => f.Name.Equals(hash + "." + esize + file.Extension, cmp));
+
+                            //scale image does not exist or is out dated
+                            if (scaleimage == null || scaleimage.DateCreated <= file.DateCreated || scaleimage.DateModified <= file.DateModified)
+                            {
+                                var fileexists = ScaleImage(file, hash, esize);
+
+                                scaleimage = fileexists ?
+                                    BlogService.GetFile(string.Concat(this.DirectoryForScalingImages, hash, ".", esize, file.Extension)) :
+                                    null;
+                            }
+
+                            file = scaleimage ?? file;
+                        }
+
                         context.Response.Cache.SetCacheability(HttpCacheability.Public);
                         context.Response.Cache.SetExpires(DateTime.Now.AddYears(1));
                         
@@ -152,6 +245,66 @@
             {
                 Serving(file, EventArgs.Empty);
             }
+        }
+
+        /// <summary>
+        /// It scales the image to return as thumbnails and so on (depending on the request)
+        /// </summary>
+        /// <returns></returns>
+        protected bool ScaleImage(FileSystem.File file, string hash, Sizes size, HttpContext context = null)
+        {
+            if (file == null || file.IsImage == false) return false;
+
+            var filename = string.Concat(hash, ".", size.ToString().ToLower(), file.Extension.ToLower());
+
+            if (FilesProcessed.ContainsKey(filename) == false || FilesProcessed[filename].Equals(false))
+            {
+                lock (FilesProcessed)
+                {
+                    if (FilesProcessed.ContainsKey(filename) == false) FilesProcessed[filename] = false;
+                }
+
+                lock (FilesProcessed[filename])
+                {
+                    if (FilesProcessed[filename].Equals(false))
+                    {
+                        try
+                        {
+                            var realpath = (context ?? HttpContext.Current).Server.MapPath(file.FullPath);
+                            var noextension = file.Name.Replace(file.Extension, string.Empty);
+
+                            using (var image = Image.FromFile(realpath))
+                            {
+                                var w = (short)size;
+                                var f = 1 - ((float)(image.Size.Width - (short)size) / image.Size.Width);
+                                var h = (int)(image.Size.Height * f);
+
+                                var newImage = new Bitmap(w, h);
+                                using (newImage)
+                                {
+                                    using (var g = Graphics.FromImage(newImage))
+                                    {
+                                        g.DrawImage(image, 0, 0, w, h);
+                                    }
+
+                                    //scaling directory
+                                    var newpath = (context ?? HttpContext.Current).Server.MapPath(this.DirectoryForScalingImages);
+                                    newImage.Save(newpath + @"\" + filename);
+                                    FilesProcessed[filename] = true;
+                                }
+                            }
+
+                            return true;
+                        }
+                        catch (Exception x)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return BlogService.FileExists(this.DirectoryForScalingImages + filename);
         }
 
         #endregion
