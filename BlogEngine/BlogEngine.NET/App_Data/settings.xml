@@ -2,16 +2,17 @@
 <settings>
   <showpostnavigation>True</showpostnavigation>
   <enablehttpcompression>False</enablehttpcompression>
-  <customfrontpage />
+  <emailsubjectprefix>Weblog</emailsubjectprefix>
   <htmlheader />
   <theme>Standard</theme>
-  <emailsubjectprefix>Weblog</emailsubjectprefix>
+  <facebooklanguage>en_US</facebooklanguage>
   <trackingscript />
   <showdescriptioninpostlist>False</showdescriptioninpostlist>
   <commentsperpage>10</commentsperpage>
   <feedauthor />
   <description>Short description of the blog</description>
   <enablepingbacksend>True</enablepingbacksend>
+  <postoptionscustomfields>False</postoptionscustomfields>
   <enabletagexport>True</enabletagexport>
   <iscocommentenabled>False</iscocommentenabled>
   <compresswebresource>False</compresswebresource>
@@ -30,11 +31,13 @@
   <language>en-US</language>
   <smtpserver>mail.example.com</smtpserver>
   <disqusdevmode>False</disqusdevmode>
+  <customfrontpage />
   <postsperpage>10</postsperpage>
   <enabletrackbackreceive>True</enabletrackbackreceive>
   <enableopensearch>True</enableopensearch>
   <dayscommentsareenabled>0</dayscommentsareenabled>
   <useblognameinpagetitles>True</useblognameinpagetitles>
+  <pageoptionsdescription>False</pageoptionsdescription>
   <removeextensionsfromurls>True</removeextensionsfromurls>
   <smtpusername>username</smtpusername>
   <enablepasswordreset>True</enablepasswordreset>
@@ -55,13 +58,15 @@
   <sendmailoncomment>True</sendmailoncomment>
   <culture>Auto</culture>
   <remotemaxfilesize>524288</remotemaxfilesize>
+  <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <syndicationformat>Rss</syndicationformat>
+  <postoptionsslug>False</postoptionsslug>
   <blogrollvisibleposts>3</blogrollvisibleposts>
   <geocodinglatitude>0</geocodinglatitude>
+  <pageoptionsslug>False</pageoptionsslug>
   <numberofreferrerdays>1</numberofreferrerdays>
   <israzortheme>False</israzortheme>
   <iscommentsenabled>True</iscommentsenabled>
-  <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <searchdefaulttext>Enter search term or APML url</searchdefaulttext>
   <smtpserverport>25</smtpserverport>
   <smtppassword>password</smtppassword>
@@ -69,9 +74,11 @@
   <timestamppostlinks>False</timestamppostlinks>
   <avatar>identicon</avatar>
   <timezoneid>UTC</timezoneid>
+  <moderationtype>Auto</moderationtype>
   <enablerecaptchaoncontactform>False</enablerecaptchaoncontactform>
   <enableoptimization>False</enableoptimization>
   <name>Name of the blog</name>
+  <pageoptionscustomfields>False</pageoptionscustomfields>
   <enablepingbackreceive>True</enablepingbackreceive>
   <showlivepreview>True</showlivepreview>
   <facebookappid />
@@ -85,6 +92,7 @@
   <contactthankmessage>&lt;h1&gt;Thank you&lt;/h1&gt;&lt;p&gt;The message was sent.&lt;/p&gt;</contactthankmessage>
   <descriptioncharactersforpostsbytagorcategory>0</descriptioncharactersforpostsbytagorcategory>
   <commentreportmistakes>False</commentreportmistakes>
+  <postoptionsdescription>False</postoptionsdescription>
   <geocodinglongitude>0</geocodinglongitude>
   <selfregistrationinitialrole>Editors</selfregistrationinitialrole>
   <enableselfregistration>False</enableselfregistration>

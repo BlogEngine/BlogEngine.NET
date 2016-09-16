@@ -34,6 +34,15 @@ $provide.value("$locale", {
       "venerdi",
       "sabbato"
     ],
+    "ERANAMES": [
+      "ante Christo",
+      "post Christo"
+    ],
+    "ERAS": [
+      "a.Chr.",
+      "p.Chr."
+    ],
+    "FIRSTDAYOFWEEK": 0,
     "MONTH": [
       "januario",
       "februario",
@@ -70,6 +79,10 @@ $provide.value("$locale", {
       "oct",
       "nov",
       "dec"
+    ],
+    "WEEKENDRANGE": [
+      5,
+      6
     ],
     "fullDate": "EEEE, y MMMM dd",
     "longDate": "y MMMM d",
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "ia-fr",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
