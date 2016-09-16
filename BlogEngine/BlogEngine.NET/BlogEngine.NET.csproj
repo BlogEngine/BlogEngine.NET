@@ -140,6 +140,7 @@
     <Content Include="admin\app\custom\widgets\widgetGallery.html" />
     <Content Include="admin\app\custom\widgets\widgetGalleryController.js" />
     <Content Include="admin\app\custom\widgets\widgetView.html" />
+    <Content Include="admin\editors\tinymce\themes\inlite\theme.min.js" />
     <Content Include="admin\themes\standard\css\styles.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
