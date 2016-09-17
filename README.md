@@ -1,3 +1,6 @@
+## More Features
+Added features to the original 3.3.5 version of the BlogEngine. See more details here (http://guilhermesuzuki.com/tags/blogengine.net)
+
 ## BlogEngine.NET Source Code
 This repository provides latest source code for BlogEngine.NET project (https://blogengine.codeplex.com)
 
