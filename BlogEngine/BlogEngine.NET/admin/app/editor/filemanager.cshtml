@@ -83,6 +83,15 @@
                                 <img ng-src="@imgHandler{{item.FullPath}}" />
                             </a>
                         </div>
+                        <div ng-if="item.FileType === 2" class="item-file-name">
+                            <select ng-init="item.Size = item.Size || 'original'" ng-model="item.Size" style="margin:0 10px;width:calc(100% - 20px);">
+                                <option label="Original" value="original"></option>
+                                <option label="Large" value="large"></option>
+                                <option label="Medium" value="medium"></option>
+				                <option label="Small" value="small"></option>
+                                <option label="Thumbnail" value="thumbnail"></option>
+                            </select>
+                        </div>
                         <div class="item-file-name">
                             <label><input ng-if="item.Name != '...'" type="checkbox" data-ng-model="item.IsChecked" /> <span class="text-ellipsis">{{item.Name.substring(0,12)}}</span></label>
                         </div>

@@ -34,6 +34,15 @@ $provide.value("$locale", {
       "Labotlhano",
       "Matlhatso"
     ],
+    "ERANAMES": [
+      "BCE",
+      "CE"
+    ],
+    "ERAS": [
+      "BCE",
+      "CE"
+    ],
+    "FIRSTDAYOFWEEK": 6,
     "MONTH": [
       "Ferikgong",
       "Tlhakole",
@@ -71,6 +80,10 @@ $provide.value("$locale", {
       "Ngw",
       "Sed"
     ],
+    "WEEKENDRANGE": [
+      5,
+      6
+    ],
     "fullDate": "y MMMM d, EEEE",
     "longDate": "y MMMM d",
     "medium": "y MMM d HH:mm:ss",
@@ -82,7 +95,7 @@ $provide.value("$locale", {
   },
   "NUMBER_FORMATS": {
     "CURRENCY_SYM": "P",
-    "DECIMAL_SEP": ",",
+    "DECIMAL_SEP": ".",
     "GROUP_SEP": "\u00a0",
     "PATTERNS": [
       {
@@ -110,6 +123,6 @@ $provide.value("$locale", {
     ]
   },
   "id": "tn-bw",
-  "pluralCat": function (n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
+  "pluralCat": function(n, opt_precision) {  var i = n | 0;  var vf = getVF(n, opt_precision);  if (i == 1 && vf.v == 0) {    return PLURAL_CATEGORY.ONE;  }  return PLURAL_CATEGORY.OTHER;}
 });
 }]);
