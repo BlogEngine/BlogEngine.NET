@@ -121,7 +121,7 @@
 
             // Value might be a GUID, or it could be a simple integer.
 
-            if (!Utils.StringIsNullOrWhitespace(value) &&
+            if (!String.IsNullOrWhiteSpace(value) &&
                 value.Length == 36)
             {
                 return new Guid(value);
@@ -160,7 +160,7 @@
             DateTime defaultDate = DateTime.Now;
 
             DateTime dt = defaultDate;
-            if (!Utils.StringIsNullOrWhitespace(value))
+            if (!String.IsNullOrWhiteSpace(value))
             {
                 if (!DateTime.TryParseExact(value, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
                     dt = defaultDate;

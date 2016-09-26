@@ -67,7 +67,7 @@ namespace BlogEngine.Core.Data
             {
                 throw new System.UnauthorizedAccessException();
             }
-            else if (Utils.StringIsNullOrWhitespace(role.RoleName))
+            else if (String.IsNullOrWhiteSpace(role.RoleName))
             {
                 throw new ApplicationException("Role name is required");
             }
@@ -121,7 +121,7 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.DeleteRoles))
                 throw new System.UnauthorizedAccessException();
 
-            if (Utils.StringIsNullOrWhitespace(id))
+            if (String.IsNullOrWhiteSpace(id))
                 throw new ApplicationException("Role name is required");
 
             try
@@ -234,7 +234,7 @@ namespace BlogEngine.Core.Data
             {
                 throw new System.UnauthorizedAccessException();
             }
-            else if (Utils.StringIsNullOrWhitespace(id))
+            else if (String.IsNullOrWhiteSpace(id))
             {
                 throw new ApplicationException("Invalid role name");
             }

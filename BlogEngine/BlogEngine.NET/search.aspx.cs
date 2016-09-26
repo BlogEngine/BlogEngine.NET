@@ -27,7 +27,7 @@ public partial class search : BlogEngine.Core.Web.Controls.BlogBasePage
         rep.ItemDataBound += new RepeaterItemEventHandler(rep_ItemDataBound);
 
         var term = Request.QueryString["q"];
-        if (!Utils.StringIsNullOrWhitespace(term))
+        if (!String.IsNullOrWhiteSpace(term))
         {
             bool includeComments = (Request.QueryString["comment"] == "true");
 
@@ -150,7 +150,7 @@ public partial class search : BlogEngine.Core.Web.Controls.BlogBasePage
 		int page = 1;
 
         string queryStringPage = Request.QueryString["page"];
-        if (!Utils.StringIsNullOrWhitespace(queryStringPage))
+        if (!String.IsNullOrWhiteSpace(queryStringPage))
 		{
             int.TryParse(queryStringPage, out page);
 

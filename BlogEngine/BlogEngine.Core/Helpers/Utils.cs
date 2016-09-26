@@ -675,7 +675,7 @@
         public static CultureInfo GetDefaultCulture()
         {
             var settingsCulture = BlogSettings.Instance.Culture;
-            if (Utils.StringIsNullOrWhitespace(settingsCulture) ||
+            if (String.IsNullOrWhiteSpace(settingsCulture) ||
                 settingsCulture.Equals("Auto", StringComparison.OrdinalIgnoreCase))
             {
                 return CultureInfo.InstalledUICulture;
@@ -1233,16 +1233,6 @@
         }
 
         /// <summary>
-        /// Returns whether a string is null, empty, or whitespace. Same implementation as in String.IsNullOrWhitespace in .Net 4.0
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static bool StringIsNullOrWhitespace(string value)
-        {
-            return ((value == null) || (value.Trim().Length == 0));
-        }
-
-        /// <summary>
         /// Strips all HTML tags from the specified string.
         /// </summary>
         /// <param name="html">
@@ -1253,7 +1243,7 @@
         /// </returns>
         public static string StripHtml(string html)
         {
-            return Utils.StringIsNullOrWhitespace(html) ? string.Empty : RegexStripHtml.Replace(html, string.Empty).Trim();
+            return String.IsNullOrWhiteSpace(html) ? string.Empty : RegexStripHtml.Replace(html, string.Empty).Trim();
         }
 
         /// <summary>

@@ -64,10 +64,10 @@
         /// <param name="password">The user's password.</param>
         public CustomIdentity(string username, string password)
         {
-            if (Utils.StringIsNullOrWhitespace(username))
+            if (String.IsNullOrWhiteSpace(username))
                 throw new ArgumentNullException("username");
 
-            if (Utils.StringIsNullOrWhitespace(password))
+            if (String.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("password");
 
             if (!Membership.ValidateUser(username, password)) { return; }

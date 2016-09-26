@@ -77,7 +77,7 @@ namespace BlogEngine.NET.Custom.Widgets
             {
                 foreach (var email in emails)
                 {
-                    if (!Utils.StringIsNullOrWhitespace(email) && Utils.IsEmailValid(email))
+                    if (!String.IsNullOrWhiteSpace(email) && Utils.IsEmailValid(email))
                     {
                         MailMessage message = CreateEmail(publishable);
                         message.To.Add(email);
