@@ -33,14 +33,14 @@
                 }
             }
 
-            if (!Utils.StringIsNullOrWhitespace(node["rights"]))
+            if (!String.IsNullOrWhiteSpace(node["rights"]))
             {
                 // By default, all specified Rights must exist.
                 // We allow this to be overridden via the "rightsAuthorizationCheck"
                 // attribute.
 
                 AuthorizationCheck authCheck = AuthorizationCheck.HasAll;
-                if (!Utils.StringIsNullOrWhitespace(node["rightsAuthorizationCheck"]))
+                if (!String.IsNullOrWhiteSpace(node["rightsAuthorizationCheck"]))
                 {
                     authCheck = Utils.ParseEnum<AuthorizationCheck>(node["rightsAuthorizationCheck"], AuthorizationCheck.HasAll);
                 }

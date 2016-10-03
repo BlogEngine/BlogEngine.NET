@@ -22,7 +22,7 @@ public partial class post : BlogBasePage
         var requestId = Request.QueryString["id"];
         Guid id;
 
-        if ((!Utils.StringIsNullOrWhitespace(requestId)) && requestId.TryParse(out id))
+        if ((!String.IsNullOrWhiteSpace(requestId)) && requestId.TryParse(out id))
         {
 
             Post post = Post.ApplicablePosts.Find(p => p.Id == id);

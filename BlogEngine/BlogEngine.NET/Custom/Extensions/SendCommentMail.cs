@@ -58,7 +58,7 @@ public class SendCommentMail
         // If moderation is on, send the email if the comment hasn't been moderated (so
         // the blog owner can determine if the comment should be approved/rejected).
         if (BlogSettings.Instance.EnableCommentsModeration &&
-            !Utils.StringIsNullOrWhitespace(comment.ModeratedBy))
+            !String.IsNullOrWhiteSpace(comment.ModeratedBy))
         {
             return;
         }
