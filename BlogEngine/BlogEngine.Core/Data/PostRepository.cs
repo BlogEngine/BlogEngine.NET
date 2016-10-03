@@ -226,7 +226,7 @@ namespace BlogEngine.Core.Data
                 if (IsUniqueSlug(s))
                     break;
 
-                s = string.Format("{0}{1}", slug, i);
+                s = $"{slug}{i}";
             }
             return s;
         }

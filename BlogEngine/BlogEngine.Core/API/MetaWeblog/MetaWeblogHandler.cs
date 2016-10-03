@@ -177,7 +177,7 @@
             }
             catch (Exception ex)
             {
-                throw new MetaWeblogException("15", string.Format("DeletePage failed.  Error: {0}", ex.Message));
+                throw new MetaWeblogException("15", $"DeletePage failed.  Error: {ex.Message}");
             }
 
             return true;
@@ -220,7 +220,7 @@
             }
             catch (Exception ex)
             {
-                throw new MetaWeblogException("12", string.Format("DeletePost failed.  Error: {0}", ex.Message));
+                throw new MetaWeblogException("12", $"DeletePost failed.  Error: {ex.Message}");
             }
 
             return true;
@@ -712,7 +712,7 @@
 
             var mediaInfo = new MWAMediaInfo();
 
-            var rootPath = string.Format("{0}files/", Blog.CurrentInstance.StorageLocation);
+            var rootPath = $"{Blog.CurrentInstance.StorageLocation}files/";
             var serverPath = request.Server.MapPath(rootPath);
             var saveFolder = serverPath;
             string mediaObjectName = mediaObject.name.Replace(" ", "_");
@@ -749,7 +749,7 @@
                 // Find unique fileName
                 for (var count = 1; count < 30000; count++)
                 {
-                    var tempFileName = fileName.Insert(fileName.LastIndexOf('.'), string.Format("_{0}", count));
+                    var tempFileName = fileName.Insert(fileName.LastIndexOf('.'), $"_{count}");
                     if (File.Exists(saveFolder + tempFileName))
                     {
                         continue;

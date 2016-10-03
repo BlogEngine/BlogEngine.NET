@@ -100,7 +100,7 @@ namespace BlogEngine.Core.FileSystem
         {
             get
             {
-                return string.Format("{0}image.axd?picture={1}", Utils.RelativeWebRoot, this.SafeFilePath);
+                return $"{Utils.RelativeWebRoot}image.axd?picture={SafeFilePath}";
             }
         }
 

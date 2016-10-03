@@ -207,7 +207,7 @@
             cache.SetMaxAge(new TimeSpan(365, 0, 0, 0));
             cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
 
-            var etag = string.Format("\"{0}\"", context.Request.Path.GetHashCode());
+            var etag = $"\"{context.Request.Path.GetHashCode()}\"";
             var incomingEtag = context.Request.Headers["If-None-Match"];
 
             cache.SetETag(etag);

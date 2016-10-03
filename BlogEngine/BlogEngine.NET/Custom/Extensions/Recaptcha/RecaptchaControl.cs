@@ -192,22 +192,22 @@ namespace App_Code.Controls
         {
             get
             {
-                return Blog.CurrentInstance.Cache[string.Format("{0}PageLoadTime", this.UserUniqueIdentifier)] != null
+                return Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}PageLoadTime"] != null
                            ? Convert.ToDateTime(
-                               Blog.CurrentInstance.Cache[string.Format("{0}PageLoadTime", this.UserUniqueIdentifier)])
+                               Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}PageLoadTime"])
                            : DateTime.Now;
             }
 
             set
             {
-                if (Blog.CurrentInstance.Cache[string.Format("{0}PageLoadTime", this.UserUniqueIdentifier)] != null)
+                if (Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}PageLoadTime"] != null)
                 {
-                    Blog.CurrentInstance.Cache[string.Format("{0}PageLoadTime", this.UserUniqueIdentifier)] = value;
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}PageLoadTime"] = value;
                 }
                 else
                 {
                     Blog.CurrentInstance.Cache.Add(
-                        string.Format("{0}PageLoadTime", this.UserUniqueIdentifier), 
+                        $"{UserUniqueIdentifier}PageLoadTime", 
                         value, 
                         null, 
                         Cache.NoAbsoluteExpiration, 
@@ -225,23 +225,23 @@ namespace App_Code.Controls
         {
             get
             {
-                return Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaAttempts", this.UserUniqueIdentifier)] !=
+                return Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaAttempts"] !=
                        null
                            ? Convert.ToUInt16(
-                               Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaAttempts", this.UserUniqueIdentifier)])
+                               Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaAttempts"])
                            : (ushort)0;
             }
 
             set
             {
-                if (Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaAttempts", this.UserUniqueIdentifier)] != null)
+                if (Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaAttempts"] != null)
                 {
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaAttempts", this.UserUniqueIdentifier)] = value;
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaAttempts"] = value;
                 }
                 else
                 {
                     Blog.CurrentInstance.Cache.Add(
-                        string.Format("{0}RecaptchaAttempts", this.UserUniqueIdentifier), 
+                        $"{UserUniqueIdentifier}RecaptchaAttempts", 
                         value, 
                         null, 
                         Cache.NoAbsoluteExpiration, 
@@ -260,25 +260,25 @@ namespace App_Code.Controls
             get
             {
                 return
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier)] !=
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaChallengeValue"] !=
                     null
                         ? Convert.ToString(
-                            Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier)])
+                            Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaChallengeValue"])
                         : string.Empty;
             }
 
             set
             {
-                if (Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier)] !=
+                if (Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaChallengeValue"] !=
                     null)
                 {
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier)] =
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaChallengeValue"] =
                         value;
                 }
                 else
                 {
                     Blog.CurrentInstance.Cache.Add(
-                        string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier), 
+                        $"{UserUniqueIdentifier}RecaptchaChallengeValue", 
                         value, 
                         null, 
                         Cache.NoAbsoluteExpiration, 
@@ -296,25 +296,25 @@ namespace App_Code.Controls
         {
             get
             {
-                return Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaRenderTime", this.UserUniqueIdentifier)] !=
+                return Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaRenderTime"] !=
                        null
                            ? Convert.ToDateTime(
-                               Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaRenderTime", this.UserUniqueIdentifier)])
+                               Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaRenderTime"])
                            : DateTime.Now;
             }
 
             set
             {
-                if (Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaRenderTime", this.UserUniqueIdentifier)] !=
+                if (Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaRenderTime"] !=
                     null)
                 {
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaRenderTime", this.UserUniqueIdentifier)] =
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaRenderTime"] =
                         value;
                 }
                 else
                 {
                     Blog.CurrentInstance.Cache.Add(
-                        string.Format("{0}RecaptchaRenderTime", this.UserUniqueIdentifier), 
+                        $"{UserUniqueIdentifier}RecaptchaRenderTime", 
                         value, 
                         null, 
                         Cache.NoAbsoluteExpiration, 
@@ -333,25 +333,25 @@ namespace App_Code.Controls
             get
             {
                 return
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier)] !=
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaResponseValue"] !=
                     null
                         ? Convert.ToString(
-                            Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier)])
+                            Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaResponseValue"])
                         : string.Empty;
             }
 
             set
             {
-                if (Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier)] !=
+                if (Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaResponseValue"] !=
                     null)
                 {
-                    Blog.CurrentInstance.Cache[string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier)] =
+                    Blog.CurrentInstance.Cache[$"{UserUniqueIdentifier}RecaptchaResponseValue"] =
                         value;
                 }
                 else
                 {
                     Blog.CurrentInstance.Cache.Add(
-                        string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier), 
+                        $"{UserUniqueIdentifier}RecaptchaResponseValue", 
                         value, 
                         null, 
                         Cache.NoAbsoluteExpiration, 
@@ -403,8 +403,8 @@ namespace App_Code.Controls
 
             this.RecaptchaAttempts = 0;
             this.PageLoadTime = DateTime.Now;
-            Blog.CurrentInstance.Cache.Remove(string.Format("{0}RecaptchaChallengeValue", this.UserUniqueIdentifier));
-            Blog.CurrentInstance.Cache.Remove(string.Format("{0}RecaptchaResponseValue", this.UserUniqueIdentifier));
+            Blog.CurrentInstance.Cache.Remove($"{UserUniqueIdentifier}RecaptchaChallengeValue");
+            Blog.CurrentInstance.Cache.Remove($"{UserUniqueIdentifier}RecaptchaResponseValue");
         }
 
         /// <summary>

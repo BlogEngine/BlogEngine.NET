@@ -129,7 +129,7 @@ namespace BlogEngine.Core.Data
                         }
                         else
                         {
-                            Utils.Log(string.Format("Failed to find extension {0} while trying to update package repository", item.Id));
+                            Utils.Log($"Failed to find extension {item.Id} while trying to update package repository");
                         }
                     }
                     break;

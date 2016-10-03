@@ -55,7 +55,7 @@
             url = url.Replace(".ASPX.CS", string.Empty);
 
             // skip url rewrite for web api calls
-            if (url.ToLower().StartsWith(string.Format("{0}api/", Utils.ApplicationRelativeWebRoot)))
+            if (url.ToLower().StartsWith($"{Utils.ApplicationRelativeWebRoot}api/"))
             {
                 context.RewritePath(UrlRules.GetUrlWithQueryString(context));
                 return;

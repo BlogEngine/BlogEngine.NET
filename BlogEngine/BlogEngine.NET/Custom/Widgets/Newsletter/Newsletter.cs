@@ -23,7 +23,7 @@ namespace BlogEngine.NET.Custom.Widgets
         public static void AddEmail(string email)
         {
             var doc = GetXml();
-            var node = doc.SelectSingleNode(string.Format("emails/email[text()='{0}']", email));
+            var node = doc.SelectSingleNode($"emails/email[text()='{email}']");
             if (node == null)
             {
                 node = doc.CreateElement("email");
@@ -40,7 +40,7 @@ namespace BlogEngine.NET.Custom.Widgets
         public static void RemoveEmail(string email)
         {
             var doc = GetXml();
-            var node = doc.SelectSingleNode(string.Format("emails/email[text()='{0}']", email));
+            var node = doc.SelectSingleNode($"emails/email[text()='{email}']");
             if (node != null)
             {
                 doc.FirstChild.RemoveChild(node);
@@ -139,7 +139,7 @@ namespace BlogEngine.NET.Custom.Widgets
             var body = new StringBuilder();
             var urlbase = Path.Combine(
                 Path.Combine(Utils.AbsoluteWebRoot.AbsoluteUri, "themes"), BlogSettings.Instance.Theme);
-            var filePath = string.Format("~/Custom/Themes/{0}/newsletter.html", BlogSettings.Instance.Theme);
+            var filePath = $"~/Custom/Themes/{BlogSettings.Instance.Theme}/newsletter.html";
             filePath = HostingEnvironment.MapPath(filePath);
             if (File.Exists(filePath))
             {

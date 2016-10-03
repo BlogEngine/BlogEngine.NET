@@ -87,7 +87,7 @@ namespace BlogEngine.Core.Providers
                 var attr = config.GetKey(0);
                 if (!String.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }
@@ -233,7 +233,7 @@ namespace BlogEngine.Core.Providers
                     var cPath = string.Empty;
                     foreach (var pieces in newDirectoryPieces)
                     {
-                        cPath = string.Format("{0}/{1}", cPath, pieces);
+                        cPath = $"{cPath}/{pieces}";
                         if (!DirectoryExists(cPath))
                             CreateDirectory(cPath);
                     }

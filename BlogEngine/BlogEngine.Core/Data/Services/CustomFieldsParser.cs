@@ -159,7 +159,7 @@ namespace BlogEngine.Core.Data.Services
         static List<CustomField> FromThemeTemplates()
         {
             var dirPath = HttpContext.Current.Server.MapPath(
-                string.Format("{0}Custom/Themes", Utils.ApplicationRelativeWebRoot));
+                $"{Utils.ApplicationRelativeWebRoot}Custom/Themes");
 
             var items = new List<CustomField>();
 

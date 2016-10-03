@@ -110,7 +110,7 @@ public class ToolsController : ApiController
         if (dir == "data")
             return HostingEnvironment.MapPath("~/App_Data/tmp.txt");
 
-        return HostingEnvironment.MapPath(string.Format("~/{0}/tmp.txt", dir));
+        return HostingEnvironment.MapPath($"~/{dir}/tmp.txt");
     }
 
     AspNetHostingPermissionLevel GetCurrentTrustLevel()

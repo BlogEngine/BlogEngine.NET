@@ -328,7 +328,7 @@
                 var attr = config.GetKey(0);
                 if (!string.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }

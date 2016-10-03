@@ -112,7 +112,7 @@ namespace App_Code.Controls
 				{
 					cell.Controls.Add(new LiteralControl(day.DayNumberText));
 					foreach (var a in
-						list.Where(post => post.IsVisible).Select(post => new HtmlAnchor { InnerHtml = string.Format("<br /><br />{0}", post.Title), HRef = post.RelativeOrAbsoluteLink }))
+						list.Where(post => post.IsVisible).Select(post => new HtmlAnchor { InnerHtml = $"<br /><br />{post.Title}", HRef = post.RelativeOrAbsoluteLink }))
 					{
 						cell.Controls.Add(a);
 					}
@@ -125,7 +125,7 @@ namespace App_Code.Controls
 							{
 								InnerHtml = day.DayNumberText,
 								HRef =
-									string.Format("{0}{1}/{2}/{3}/default{4}", Utils.RelativeOrAbsoluteWebRoot, date.Year, date.Month.ToString("00"), date.Day.ToString("00"), BlogConfig.FileExtension)
+							        $"{Utils.RelativeOrAbsoluteWebRoot}{date.Year}/{date.Month.ToString("00")}/{date.Day.ToString("00")}/default{BlogConfig.FileExtension}"
 							};
 						a.Attributes["class"] = "exist";
 						cell.Controls.Add(a);

@@ -198,7 +198,7 @@
         /// </returns>
         private static string GetBlogAuthorUrl(string username)
         {
-            return string.Format("{0}author/{1}{2}", Utils.AbsoluteWebRoot, HttpUtility.UrlEncode(username), BlogConfig.FileExtension);
+            return $"{Utils.AbsoluteWebRoot}author/{HttpUtility.UrlEncode(username)}{BlogConfig.FileExtension}";
         }
 
         /// <summary>
@@ -227,8 +227,7 @@
         /// </returns>
         private static string GetSiocAuthorUrl(string username)
         {
-            return string.Format(
-                "{0}sioc.axd?sioc_type=user&sioc_id={1}", Utils.AbsoluteWebRoot, HttpUtility.UrlEncode(username));
+            return $"{Utils.AbsoluteWebRoot}sioc.axd?sioc_type=user&sioc_id={HttpUtility.UrlEncode(username)}";
         }
 
         /// <summary>
@@ -239,7 +238,7 @@
         /// </returns>
         private static string GetSiocAuthorsUrl()
         {
-            return string.Format("{0}sioc.axd?sioc_type=site#authors", Utils.AbsoluteWebRoot);
+            return $"{Utils.AbsoluteWebRoot}sioc.axd?sioc_type=site#authors";
         }
 
         /// <summary>
@@ -250,7 +249,7 @@
         /// </returns>
         private static string GetSiocBlogUrl()
         {
-            return string.Format("{0}sioc.axd?sioc_type=site#webblog", Utils.AbsoluteWebRoot);
+            return $"{Utils.AbsoluteWebRoot}sioc.axd?sioc_type=site#webblog";
         }
 
         /// <summary>
@@ -264,7 +263,7 @@
         /// </returns>
         private static string GetSiocCommentUrl(string id)
         {
-            return string.Format("{0}sioc.axd?sioc_type=comment&sioc_id={1}", Utils.AbsoluteWebRoot, id);
+            return $"{Utils.AbsoluteWebRoot}sioc.axd?sioc_type=comment&sioc_id={id}";
         }
 
         /// <summary>
@@ -278,7 +277,7 @@
         /// </returns>
         private static string GetSiocPostUrl(string id)
         {
-            return string.Format("{0}sioc.axd?sioc_type=post&sioc_id={1}", Utils.AbsoluteWebRoot, id);
+            return $"{Utils.AbsoluteWebRoot}sioc.axd?sioc_type=post&sioc_id={id}";
         }
 
         /*
@@ -391,7 +390,7 @@
         /// </param>
         private static void WriteFoafDocument(XmlWriter xmlWriter, string siocType, string url)
         {
-            var title = string.Format("SIOC {0} profile for \"{1}\"", siocType, BlogSettings.Instance.Name);
+            var title = $"SIOC {siocType} profile for \"{BlogSettings.Instance.Name}\"";
             const string Description =
                 "A SIOC profile describes the structure and contents of a weblog in a machine readable form. For more information please refer to http://sioc-project.org/.";
 
@@ -402,7 +401,7 @@
             xmlWriter.WriteElementString("dc", "description", null, Description);
             xmlWriter.WriteElementString("foaf", "primaryTopic", null, url);
             xmlWriter.WriteElementString(
-                "admin", "generatorAgent", null, string.Format("BlogEngine.NET{0}", BlogSettings.Instance.Version()));
+                "admin", "generatorAgent", null, $"BlogEngine.NET{BlogSettings.Instance.Version()}");
 
             xmlWriter.WriteEndElement(); // foaf:Document
         }

@@ -206,7 +206,7 @@ namespace BlogEngine.Core.Providers
         {
             var aPath = VirtualPathToUNCPath(BaseDirectory.FullPath);
             var sysDirectory = new System.IO.DirectoryInfo(aPath);
-            return sysDirectory.GetDirectories().Select(x => GetDirectory(string.Format("{0}/{1}", BaseDirectory.FullPath, x.Name)));
+            return sysDirectory.GetDirectories().Select(x => GetDirectory($"{BaseDirectory.FullPath}/{x.Name}"));
         }
 
 
@@ -220,7 +220,7 @@ namespace BlogEngine.Core.Providers
 
             var aPath = VirtualPathToUNCPath(BaseDirectory.FullPath);
             var sysDirectory = new DirectoryInfo(aPath);
-            return sysDirectory.GetFiles().Where(x => x.Name.ToLower() != "thumbs.db").Select(x => GetFile(string.Format("{0}/{1}", BaseDirectory.FullPath, x.Name)));
+            return sysDirectory.GetFiles().Where(x => x.Name.ToLower() != "thumbs.db").Select(x => GetFile($"{BaseDirectory.FullPath}/{x.Name}"));
         }
 
         /// <summary>
@@ -299,7 +299,7 @@ namespace BlogEngine.Core.Providers
         /// <returns>the new file object</returns>
         public override FileSystem.File UploadFile(byte[] FileBinary, string FileName, FileSystem.Directory BaseDirectory, bool Overwrite)
         {
-            var virtualPath = string.Format("{0}/{1}", BaseDirectory.FullPath, FileName);
+            var virtualPath = $"{BaseDirectory.FullPath}/{FileName}";
             if (FileExists(virtualPath))
                 if (Overwrite)
                     DeleteFile(virtualPath);

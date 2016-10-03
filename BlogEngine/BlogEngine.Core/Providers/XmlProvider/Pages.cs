@@ -24,7 +24,7 @@
         /// <param name="page">The page to delete.</param>
         public override void DeletePage(Page page)
         {
-            var fileName = string.Format("{0}pages{1}{2}.xml", this.Folder, Path.DirectorySeparatorChar, page.Id);
+            var fileName = $"{Folder}pages{Path.DirectorySeparatorChar}{page.Id}.xml";
             if (File.Exists(fileName))
             {
                 File.Delete(fileName);
@@ -44,7 +44,7 @@
         /// </returns>
         public override List<Page> FillPages()
         {
-            var folder = string.Format("{0}pages{1}", this.Folder, Path.DirectorySeparatorChar);
+            var folder = $"{Folder}pages{Path.DirectorySeparatorChar}";
             if (Directory.Exists(folder))
             {
                 return (from file in Directory.GetFiles(folder, "*.xml", SearchOption.TopDirectoryOnly)
@@ -64,12 +64,12 @@
         /// <param name="page">The page to insert.</param>
         public override void InsertPage(Page page)
         {
-            if (!Directory.Exists(string.Format("{0}pages", this.Folder)))
+            if (!Directory.Exists($"{Folder}pages"))
             {
-                Directory.CreateDirectory(string.Format("{0}pages", this.Folder));
+                Directory.CreateDirectory($"{Folder}pages");
             }
 
-            var fileName = string.Format("{0}pages{1}{2}.xml", this.Folder, Path.DirectorySeparatorChar, page.Id);
+            var fileName = $"{Folder}pages{Path.DirectorySeparatorChar}{page.Id}.xml";
             var settings = new XmlWriterSettings { Indent = true };
 
             using (var writer = XmlWriter.Create(fileName, settings))
@@ -106,7 +106,7 @@
         /// <returns>The Page object.</returns>
         public override Page SelectPage(Guid id)
         {
-            var fileName = string.Format("{0}pages{1}{2}.xml", this.Folder, Path.DirectorySeparatorChar, id);
+            var fileName = $"{Folder}pages{Path.DirectorySeparatorChar}{id}.xml";
             var doc = new XmlDocument();
             doc.Load(fileName);
 

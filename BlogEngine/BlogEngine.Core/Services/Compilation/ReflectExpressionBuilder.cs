@@ -148,7 +148,7 @@ namespace BlogEngine.Core.Compilation
 
             if (!parsed)
             {
-                throw new HttpException(String.Format("Invalid Reflect expression - '{0}'.", expression));
+                throw new HttpException($"Invalid Reflect expression - '{expression}'.");
             }
 
             // now validate the expression fields
@@ -188,9 +188,7 @@ namespace BlogEngine.Core.Compilation
             // if type was not resolved then raise error
             if (resolvedType == null)
             {
-                var message =
-                    String.Format(
-                        "Reflect Expression: Type '{0}' could not be resolved in the current context.", typeName);
+                var message = $"Reflect Expression: Type '{typeName}' could not be resolved in the current context.";
                 throw new HttpCompileException(message);
             }
 
@@ -201,8 +199,7 @@ namespace BlogEngine.Core.Compilation
                 bindingValue = memberName;
                 if (!resolvedType.GetMember(memberName).Any())
                 {
-                    var message = String.Format(
-                        "Reflect Expression: Member '{0}' for type '{1}' does not exist.", memberName, typeName);
+                    var message = $"Reflect Expression: Member '{memberName}' for type '{typeName}' does not exist.";
                     throw new HttpCompileException(message);
                 }
             }

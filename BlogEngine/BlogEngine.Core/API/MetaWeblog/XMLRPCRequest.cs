@@ -339,7 +339,7 @@
             }
             catch (Exception ex)
             {
-                throw new MetaWeblogException("01", string.Format("Invalid XMLRPC Request. ({0})", ex.Message));
+                throw new MetaWeblogException("01", $"Invalid XMLRPC Request. ({ex.Message})");
             }
 
             // Method name is always first
@@ -449,7 +449,7 @@
                     this.PageID = this.inputParams[3].InnerText;
                     break;
                 default:
-                    throw new MetaWeblogException("02", string.Format("Unknown Method. ({0})", this.MethodName));
+                    throw new MetaWeblogException("02", $"Unknown Method. ({MethodName})");
             }
         }
 

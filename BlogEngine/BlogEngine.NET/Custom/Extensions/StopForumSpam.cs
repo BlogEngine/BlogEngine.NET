@@ -56,7 +56,7 @@
         {
             try
             {
-                var url = string.Format("http://www.stopforumspam.com/api?ip={0}", comment.IP);
+                var url = $"http://www.stopforumspam.com/api?ip={comment.IP}";
 
                 var request = (HttpWebRequest)WebRequest.Create(url);
                 var response = (HttpWebResponse)request.GetResponse();
@@ -81,7 +81,7 @@
             }
             catch (Exception e)
             {
-                Utils.Log(string.Format("Error checking stopforumspam.com: {0}", e.Message));
+                Utils.Log($"Error checking stopforumspam.com: {e.Message}");
                 return false;
             }
         }

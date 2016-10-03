@@ -150,7 +150,7 @@ namespace BlogEngine.Core
 
                 if (!Directory.Exists(templateFolderPath))
                 {
-                    throw new Exception(string.Format("Template folder for new blog does not exist.  Directory not found is: {0}", templateFolderPath));
+                    throw new Exception($"Template folder for new blog does not exist.  Directory not found is: {templateFolderPath}");
                 }
             }
             catch (Exception ex)
@@ -165,7 +165,7 @@ namespace BlogEngine.Core
             {
                 if (Directory.Exists(newBlogFolderPath))
                 {
-                    throw new Exception(string.Format("Blog destination folder already exists. {0}", newBlogFolderPath));
+                    throw new Exception($"Blog destination folder already exists. {newBlogFolderPath}");
                 }
             }
             catch (Exception ex)
@@ -174,7 +174,7 @@ namespace BlogEngine.Core
                 throw;  // re-throw error so error message bubbles up.
             }
             if (!Utils.CreateDirectoryIfNotExists(newBlogFolderPath))
-                throw new Exception(string.Format("Can not create blog directory: {0}", newBlogFolderPath));
+                throw new Exception($"Can not create blog directory: {newBlogFolderPath}");
 
             // Copy the entire directory contents.
             DirectoryInfo source = new DirectoryInfo(templateFolderPath);

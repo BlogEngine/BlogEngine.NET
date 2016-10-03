@@ -156,7 +156,7 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
 		row.Cells.Add(date);
 
 		HtmlTableCell title = new HtmlTableCell();
-		title.InnerHtml = string.Format("<a href=\"{0}\">{1}</a>", post.RelativeLink, post.Title);
+		title.InnerHtml = $"<a href=\"{post.RelativeLink}\">{post.Title}</a>";
 		title.Attributes.Add("class", "title");
 		row.Cells.Add(title);
 
@@ -170,7 +170,7 @@ public partial class archive : BlogEngine.Core.Web.Controls.BlogBasePage
             }
             else
             {
-                comments.InnerHtml = string.Format("<span><a href=\"{0}#comment\">{1}</a></span>", post.PermaLink, Resources.labels.comments);
+                comments.InnerHtml = $"<span><a href=\"{post.PermaLink}#comment\">{Resources.labels.comments}</a></span>";
             }
             comments.Attributes.Add("class", "comments");
 			row.Cells.Add(comments);

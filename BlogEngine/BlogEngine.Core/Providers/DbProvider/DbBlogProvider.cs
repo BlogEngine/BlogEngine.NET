@@ -101,7 +101,7 @@ namespace BlogEngine.Core.Providers
                 var attr = config.GetKey(0);
                 if (!String.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }
@@ -124,7 +124,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT BlogId, BlogName, Hostname, IsAnyTextBeforeHostnameAccepted, StorageContainerName, VirtualPath, IsPrimary, IsActive, IsSiteAggregation FROM {0}Blogs ", this.tablePrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT BlogId, BlogName, Hostname, IsAnyTextBeforeHostnameAccepted, StorageContainerName, VirtualPath, IsPrimary, IsActive, IsSiteAggregation FROM {tablePrefix}Blogs "))
                     {
                         using (var rdr = cmd.ExecuteReader())
                         {
@@ -233,7 +233,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (conn.HasConnection)
                     {
-                        var sqlQuery = string.Format("DELETE FROM {0}Blogs WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                        var sqlQuery = $"DELETE FROM {tablePrefix}Blogs WHERE BlogId = {parmPrefix}BlogId";
                         using (var cmd = conn.CreateTextCommand(sqlQuery))
                         {
                             cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
@@ -272,133 +272,133 @@ namespace BlogEngine.Core.Providers
                     // foreign key constraints are setup (SQL Server is one).  The data
                     // in the referencing tables needs to be deleted first.
 
-                    var sqlQuery = string.Format("DELETE FROM {0}PostTag WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = $"DELETE FROM {tablePrefix}PostTag WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}PostNotify WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}PostNotify WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}PostComment WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}PostComment WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}PostCategory WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}PostCategory WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Posts WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Posts WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}RightRoles WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}RightRoles WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Profiles WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Profiles WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}UserRoles WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}UserRoles WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Roles WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Roles WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Rights WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Rights WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Users WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Users WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Pages WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Pages WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}StopWords WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}StopWords WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Settings WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Settings WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Referrers WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Referrers WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}PingService WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}PingService WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}DataStoreSettings WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}DataStoreSettings WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}BlogRollItems WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}BlogRollItems WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Categories WHERE BlogId = {1}BlogId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Categories WHERE BlogId = {parmPrefix}BlogId";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("BlogId"), blog.Id.ToString()));
@@ -749,7 +749,7 @@ namespace BlogEngine.Core.Providers
                     }
 
                     // be_Settings
-                    using (var cmd = conn.CreateTextCommand(string.Format("DELETE FROM {0}Settings WHERE BlogId = {1}blogid", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"DELETE FROM {tablePrefix}Settings WHERE BlogId = {parmPrefix}blogid"))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), newBlog.Id.ToString()));
                         cmd.ExecuteNonQuery();
@@ -889,7 +889,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT PostID FROM {0}Posts WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT PostID FROM {tablePrefix}Posts WHERE BlogID = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -1264,7 +1264,7 @@ namespace BlogEngine.Core.Providers
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Posts WHERE BlogID = @blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Posts WHERE BlogID = @blogid AND PostID = {parmPrefix}id";
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -1295,7 +1295,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT PageID FROM {0}Pages WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT PageID FROM {tablePrefix}Pages WHERE BlogID = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -1523,7 +1523,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex FROM {0}BlogRollItems WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT BlogRollId, Title, Description, BlogUrl, FeedUrl, Xfn, SortIndex FROM {tablePrefix}BlogRollItems WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -1668,7 +1668,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT CategoryID, CategoryName, description, ParentID FROM {0}Categories WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT CategoryID, CategoryName, description, ParentID FROM {tablePrefix}Categories WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), blog.Id.ToString()));
 
@@ -1840,7 +1840,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT ReferrerId, ReferralDay, ReferrerUrl, ReferralCount, Url, IsSpam FROM {0}Referrers WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT ReferrerId, ReferralDay, ReferrerUrl, ReferralCount, Url, IsSpam FROM {tablePrefix}Referrers WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -1958,7 +1958,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT Link FROM {0}PingService WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT Link FROM {tablePrefix}PingService WHERE BlogID = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -1997,7 +1997,7 @@ namespace BlogEngine.Core.Providers
                 if (conn.HasConnection)
                 {
 
-                    using (var cmd = conn.CreateTextCommand(string.Format("DELETE FROM {0}PingService WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"DELETE FROM {tablePrefix}PingService WHERE BlogID = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         cmd.ExecuteNonQuery();
@@ -2164,7 +2164,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT SettingName, SettingValue FROM {0}Settings WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT SettingName, SettingValue FROM {tablePrefix}Settings WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), blog.Id.ToString()));
 
@@ -2202,7 +2202,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("DELETE FROM {0}Settings WHERE BlogId = {1}blogid", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"DELETE FROM {tablePrefix}Settings WHERE BlogId = {parmPrefix}blogid"))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         cmd.ExecuteNonQuery();
@@ -2239,7 +2239,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("SELECT RightName FROM {0}Rights WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = $"SELECT RightName FROM {tablePrefix}Rights WHERE BlogId = {parmPrefix}blogid ";
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
@@ -2253,7 +2253,7 @@ namespace BlogEngine.Core.Providers
                         }
 
                         // Get Right Roles.
-                        cmd.CommandText = string.Format("SELECT RightName, Role FROM {0}RightRoles WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix);
+                        cmd.CommandText = $"SELECT RightName, Role FROM {tablePrefix}RightRoles WHERE BlogId = {parmPrefix}blogid ";
                         // don't need to add "blogid" parameter again since the same cmd is being used.
 
                         using (var rdr = cmd.ExecuteReader())
@@ -2295,12 +2295,12 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("DELETE FROM {0}Rights WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"DELETE FROM {tablePrefix}Rights WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         cmd.ExecuteNonQuery();
 
-                        cmd.CommandText = string.Format("DELETE FROM {0}RightRoles WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix);
+                        cmd.CommandText = $"DELETE FROM {tablePrefix}RightRoles WHERE BlogId = {parmPrefix}blogid ";
                         cmd.ExecuteNonQuery();
 
                         foreach (var right in rights)
@@ -2351,7 +2351,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (Blog.CurrentInstance.IsSiteAggregation)
                     {
-                        using (var cmd = conn.CreateTextCommand(string.Format("SELECT UserName FROM {0}Profiles GROUP BY UserName", this.tablePrefix, this.parmPrefix)))
+                        using (var cmd = conn.CreateTextCommand($"SELECT UserName FROM {tablePrefix}Profiles GROUP BY UserName"))
                         {
                             using (var rdr = cmd.ExecuteReader())
                             {
@@ -2364,7 +2364,7 @@ namespace BlogEngine.Core.Providers
                     }
                     else
                     {
-                        using (var cmd = conn.CreateTextCommand(string.Format("SELECT UserName FROM {0}Profiles WHERE BlogID = {1}blogid GROUP BY UserName", this.tablePrefix, this.parmPrefix)))
+                        using (var cmd = conn.CreateTextCommand($"SELECT UserName FROM {tablePrefix}Profiles WHERE BlogID = {parmPrefix}blogid GROUP BY UserName"))
                         {
                             cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -2401,7 +2401,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (Blog.CurrentInstance.IsSiteAggregation)
                     {
-                        using (var cmd = conn.CreateTextCommand(string.Format("SELECT SettingName, SettingValue FROM {0}Profiles WHERE UserName = {1}name", this.tablePrefix, this.parmPrefix)))
+                        using (var cmd = conn.CreateTextCommand($"SELECT SettingName, SettingValue FROM {tablePrefix}Profiles WHERE UserName = {parmPrefix}name"))
                         {
                             cmd.Parameters.Add(conn.CreateParameter(FormatParamName("name"), id));
 
@@ -2732,7 +2732,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT PackageId, FileOrder, FilePath, IsDirectory FROM {0}PackageFiles ", this.tablePrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT PackageId, FileOrder, FilePath, IsDirectory FROM {tablePrefix}PackageFiles "))
                     {
                         using (var rdr = cmd.ExecuteReader())
                         {
@@ -2770,7 +2770,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT PackageId, Version FROM {0}Packages ", tablePrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT PackageId, Version FROM {tablePrefix}Packages "))
                     {
                         using (var rdr = cmd.ExecuteReader())
                         {
@@ -2801,7 +2801,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("DELETE FROM {0}PackageFiles WHERE PackageId = {1}PackageId", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = $"DELETE FROM {tablePrefix}PackageFiles WHERE PackageId = {parmPrefix}PackageId";
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -2809,7 +2809,7 @@ namespace BlogEngine.Core.Providers
                         cmd.ExecuteNonQuery();
                     }
 
-                    sqlQuery = string.Format("DELETE FROM {0}Packages WHERE PackageId = {1}PackageId", this.tablePrefix, this.parmPrefix);
+                    sqlQuery = $"DELETE FROM {tablePrefix}Packages WHERE PackageId = {parmPrefix}PackageId";
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -2992,7 +2992,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT StopWord FROM {0}StopWords WHERE BlogId = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT StopWord FROM {tablePrefix}StopWords WHERE BlogId = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -3035,7 +3035,7 @@ namespace BlogEngine.Core.Providers
         /// <returns></returns>
         private string FormatParamName(string parameterName)
         {
-            return String.Format("{0}{1}", this.parmPrefix, parameterName);
+            return $"{parmPrefix}{parameterName}";
         }
 
         /// <summary>

@@ -60,17 +60,17 @@
                 writer.WriteAttributeString("height", "16");
                 writer.WriteAttributeString("width", "16");
                 writer.WriteAttributeString("type", "image/vnd.microsoft.icon");
-                writer.WriteValue(string.Format("{0}Content/images/blog/favicon.ico", Utils.AbsoluteWebRoot));
+                writer.WriteValue($"{Utils.AbsoluteWebRoot}Content/images/blog/favicon.ico");
                 writer.WriteEndElement();
 
                 writer.WriteStartElement("Url");
                 writer.WriteAttributeString("type", "text/html");
-                writer.WriteAttributeString("template", string.Format("{0}search{1}?q={{searchTerms}}", Utils.AbsoluteWebRoot, BlogConfig.FileExtension));
+                writer.WriteAttributeString("template", $"{Utils.AbsoluteWebRoot}search{BlogConfig.FileExtension}?q={{searchTerms}}");
                 writer.WriteEndElement();
 
                 writer.WriteStartElement("Url");
                 writer.WriteAttributeString("type", "application/rss+xml");
-                writer.WriteAttributeString("template", string.Format("{0}syndication.axd?q={{searchTerms}}", Utils.AbsoluteWebRoot));
+                writer.WriteAttributeString("template", $"{Utils.AbsoluteWebRoot}syndication.axd?q={{searchTerms}}");
                 writer.WriteEndElement();
 
                 writer.WriteEndElement();

@@ -104,7 +104,7 @@
                            Utils.RelativeWebRoot,
                            dateCreated.ToString("yyyy/MM/dd/", CultureInfo.InvariantCulture),
                            theslug)
-                       : string.Format("{0}post/{1}", Utils.RelativeWebRoot, theslug);
+                       : $"{Utils.RelativeWebRoot}post/{theslug}";
         }
 
         #endregion

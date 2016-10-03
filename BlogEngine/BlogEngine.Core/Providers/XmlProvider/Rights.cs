@@ -26,7 +26,7 @@
         /// <returns></returns>
         public override IDictionary<string, IEnumerable<string>> FillRights()
         {
-            var fullyQualifiedPath = string.Format("{0}rights.xml", this.Folder);
+            var fullyQualifiedPath = $"{Folder}rights.xml";
 
             //var fullyQualifiedPath =
             //    VirtualPathUtility.Combine(
@@ -78,7 +78,7 @@
         /// <param name="rights"></param>
         public override void SaveRights(IEnumerable<Right> rights)
         {
-            var fileName = string.Format("{0}rights.xml", this.Folder);
+            var fileName = $"{Folder}rights.xml";
 
             var settings = new XmlWriterSettings { Indent = true };
 

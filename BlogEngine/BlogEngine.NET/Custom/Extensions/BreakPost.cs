@@ -66,7 +66,7 @@ public class BreakPost
     {
         var post = (Post)sender;
         var index = e.Body.IndexOf("[more]");
-        var link = string.Format("<a class=\"more\" href=\"{0}#continue\">{1}...</a>", post.RelativeLink, labels.more);
+        var link = $"<a class=\"more\" href=\"{post.RelativeLink}#continue\">{labels.more}...</a>";
         var newBody = e.Body.Substring(0, index);
 
         // Need to close any open HTML tags in NewBody where the matching close tags have been truncated.
