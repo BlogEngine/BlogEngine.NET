@@ -38,7 +38,7 @@ namespace BlogEngine.Tests.WebApi
         public void CommentsControllerGet()
         {
             var results = _ctrl.Get();
-            Assert.IsTrue(results.Items.Count() > 0);
+            Assert.IsTrue(results.Items.Any());
         }
 
         //[TestMethod]

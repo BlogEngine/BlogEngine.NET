@@ -172,7 +172,7 @@ namespace BlogEngine.Core.Data
             foreach (var cat in categories)
             {
                 // add if category does not exist
-                var existingCat = Category.Categories.Where(c => c.Title == cat.Title).FirstOrDefault();
+                var existingCat = Category.Categories.FirstOrDefault(c => c.Title == cat.Title);
                 if (existingCat == null)
                 {
                     var repo = new CategoryRepository();
@@ -208,7 +208,7 @@ namespace BlogEngine.Core.Data
 
             foreach (var t in tags)
             {
-                if (!uniqueTags.Any(u => u.TagName == t.TagName))
+                if (uniqueTags.All(u => u.TagName != t.TagName))
                 {
                     uniqueTags.Add(t);
                 }
@@ -233,8 +233,8 @@ namespace BlogEngine.Core.Data
 
         static bool IsUniqueSlug(string slug)
         {
-            return Post.ApplicablePosts.Where(p => p.Slug != null && p.Slug.ToLower() == slug.ToLower())
-                .FirstOrDefault() == null ? true : false;
+            return Post.ApplicablePosts
+                .FirstOrDefault(p => p.Slug != null && p.Slug.ToLower() == slug.ToLower()) == null ? true : false;
         }
 
         // if description not set, use first 100 chars in the post

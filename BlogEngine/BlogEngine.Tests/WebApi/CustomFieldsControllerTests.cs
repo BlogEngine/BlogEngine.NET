@@ -38,7 +38,7 @@ namespace BlogEngine.Tests.WebApi
         public void CustomFieldsControllerGet()
         {
             var results = _ctrl.Get();
-            Assert.IsTrue(results.Count() > 0);
+            Assert.IsTrue(results.Any());
         }
 
         //[TestMethod]

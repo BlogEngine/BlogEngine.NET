@@ -116,7 +116,7 @@ namespace BlogEngine.Core
                 return false;
             }
 
-            if (Blog.Blogs.Where(b => b.Name.ToLower() == blogName.ToLower()).FirstOrDefault() != null)
+            if (Blog.Blogs.FirstOrDefault(b => b.Name.ToLower() == blogName.ToLower()) != null)
             {
                 message = "Blog with this name already exists; Please select different name.";
                 return false;

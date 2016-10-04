@@ -371,7 +371,7 @@ namespace BlogEngine.Core
         /// <returns></returns>
         public static bool IsAuthorizedTo(AuthorizationCheck authCheck, IEnumerable<Rights> rights)
         {
-            if (rights.Count() == 0)
+            if (!rights.Any())
             {
                 // Always return false for this. If there's a mistake where authorization
                 // is being checked for on an empty collection, we don't want to return 

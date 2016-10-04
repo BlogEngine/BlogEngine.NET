@@ -57,7 +57,7 @@
                 throw new ArgumentNullException("settings");
             }
 
-            var filename = string.Format("{0}settings.xml", Folder);
+            var filename = $"{Folder}settings.xml";
             var writerSettings = new XmlWriterSettings { Indent = true };
 
             // ------------------------------------------------------------

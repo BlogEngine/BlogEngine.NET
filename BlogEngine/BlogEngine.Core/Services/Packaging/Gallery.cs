@@ -48,9 +48,9 @@ namespace BlogEngine.Core.Packaging
                         if (string.IsNullOrEmpty(jp.IconUrl))
                             jp.IconUrl = DefaultThumbnail("");
 
-                        if (extras != null && extras.Count() > 0)
+                        if (extras != null && extras.Any())
                         {
-                            var extra = extras.Where(e => e.Id.ToLower() == pkg.Id.ToLower() + "." + pkg.Version).FirstOrDefault();
+                            var extra = extras.FirstOrDefault(e => e.Id.ToLower() == pkg.Id.ToLower() + "." + pkg.Version);
 
                             if (extra != null)
                             {

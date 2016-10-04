@@ -117,8 +117,8 @@ namespace BlogEngine.Core.Data.Services
 
                     if (s[1] == "POST")
                     {
-                        var cf = postFields.Where(f => f.Key.ToLower() == key.ToLower()
-                            && f.ObjectId.ToLower() == id.ToLower()).FirstOrDefault();
+                        var cf = postFields.FirstOrDefault(f => f.Key.ToLower() == key.ToLower()
+                            && f.ObjectId.ToLower() == id.ToLower());
 
                         if (cf != null)
                             val = cf.Value;
@@ -126,8 +126,8 @@ namespace BlogEngine.Core.Data.Services
 
                     if (s[1] == "THEME")
                     {
-                        var cf = themeFields.Where(f => f.Key.ToLower() == key.ToLower()
-                            && f.ObjectId.ToLower() == id.ToLower()).FirstOrDefault();
+                        var cf = themeFields.FirstOrDefault(f => f.Key.ToLower() == key.ToLower()
+                            && f.ObjectId.ToLower() == id.ToLower());
 
                         if (cf != null)
                             val = cf.Value;

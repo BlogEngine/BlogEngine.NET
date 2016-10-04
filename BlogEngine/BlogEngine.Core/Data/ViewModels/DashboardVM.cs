@@ -123,9 +123,9 @@ namespace BlogEngine.Core.Data.ViewModels
 
             foreach (var p in posts)
             {
-                ApprovedCommentsCnt += p.Comments.Where(c => c.IsPublished && !c.IsDeleted).Count();
-                PendingCommentsCnt += p.Comments.Where(c => !c.IsPublished && !c.IsSpam && !c.IsDeleted).Count();
-                SpamCommentsCnt += p.Comments.Where(c => !c.IsPublished && c.IsSpam && !c.IsDeleted).Count();
+                ApprovedCommentsCnt += p.Comments.Count(c => c.IsPublished && !c.IsDeleted);
+                PendingCommentsCnt += p.Comments.Count(c => !c.IsPublished && !c.IsSpam && !c.IsDeleted);
+                SpamCommentsCnt += p.Comments.Count(c => !c.IsPublished && c.IsSpam && !c.IsDeleted);
                 _comments.AddRange(p.Comments);
             }
         }
@@ -146,7 +146,7 @@ namespace BlogEngine.Core.Data.ViewModels
         {
             var posts = Post.DeletedPosts;
             _trash = new List<TrashItem>();
-            if (posts.Count() > 0)
+            if (posts.Any())
             {
                 foreach (var p in posts)
                 {
@@ -162,7 +162,7 @@ namespace BlogEngine.Core.Data.ViewModels
                 }
             }
             var pages = Page.DeletedPages;
-            if (pages.Count() > 0)
+            if (pages.Any())
             {
                 foreach (var page in pages)
                 {
@@ -187,7 +187,7 @@ namespace BlogEngine.Core.Data.ViewModels
 
                 comms.AddRange(p.DeletedComments);
             }
-            if (comms.Count() > 0)
+            if (comms.Any())
             {
                 foreach (var c in comms)
                 {

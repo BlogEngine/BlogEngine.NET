@@ -707,7 +707,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    Blog existingBlog = Blog.Blogs.Where(b => b.Name == "Template").FirstOrDefault();
+                    Blog existingBlog = Blog.Blogs.FirstOrDefault(b => b.Name == "Template");
 
                     if (existingBlog == null)
                         existingBlog = Blog.Blogs[0];

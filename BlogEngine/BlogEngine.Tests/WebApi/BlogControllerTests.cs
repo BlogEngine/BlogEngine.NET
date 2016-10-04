@@ -37,7 +37,7 @@ namespace BlogEngine.Tests.WebApi
         public void BlogControllerGet()
         {
             var results = _ctrl.Get(0, 0);
-            Assert.IsTrue(results.Count() > 0);
+            Assert.IsTrue(results.Any());
         }
 
         [TestMethod]

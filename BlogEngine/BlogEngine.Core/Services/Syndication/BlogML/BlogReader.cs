@@ -344,7 +344,7 @@
                 if (post.PostType == BlogPostTypes.Normal)
                 {
                     BlogMLPost p = post;
-                    blogsExtended.Where(b => b.PostUrl == p.PostUrl).FirstOrDefault().BlogPost = post;
+                    blogsExtended.FirstOrDefault(b => b.PostUrl == p.PostUrl).BlogPost = post;
                 }
             }
         }
