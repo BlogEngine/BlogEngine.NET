@@ -90,7 +90,7 @@ public class SendCommentMail
         Comment.OnServing(comment, args);
         var body = args.Body;
         body = body.Replace(Environment.NewLine, "<br />");
-        body = body.Replace(string.Format("<img src=\"{0}", Utils.RelativeWebRoot), string.Format("<img src=\"{0}", Utils.AbsoluteWebRoot));
+        body = body.Replace($"<img src=\"{Utils.RelativeWebRoot}", $"<img src=\"{Utils.AbsoluteWebRoot}");
 
         var mail = new MailMessage
             {
@@ -110,13 +110,13 @@ public class SendCommentMail
             comment.Id,
             post.Title);
 
-        var deleteLink = string.Format("{0}?deletecomment={1}", post.AbsoluteLink, comment.Id);
+        var deleteLink = $"{post.AbsoluteLink}?deletecomment={comment.Id}";
         sb.AppendFormat(
             "<a href=\"{0}\">{1}</a>", deleteLink, Utils.Translate("delete", null, defaultCulture));
 
         if (BlogSettings.Instance.EnableCommentsModeration)
         {
-            var approveLink = string.Format("{0}?approvecomment={1}", post.AbsoluteLink, comment.Id);
+            var approveLink = $"{post.AbsoluteLink}?approvecomment={comment.Id}";
             sb.AppendFormat(
                 " | <a href=\"{0}\">{1}</a>", approveLink, Utils.Translate("approve", null, defaultCulture));
         }

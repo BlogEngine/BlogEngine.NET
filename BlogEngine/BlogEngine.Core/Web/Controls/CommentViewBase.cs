@@ -180,11 +180,8 @@
                          this.Post.HasCommentsEnabled) && this.Comment.IsApproved) &&
                        (BlogSettings.Instance.DaysCommentsAreEnabled <= 0 ||
                         this.Post.DateCreated.AddDays(BlogSettings.Instance.DaysCommentsAreEnabled) >= DateTime.Now.Date)
-                           ? string.Format(
-                               "<a href=\"javascript:void(0);\" class=\"reply-to-comment\" onclick=\"BlogEngine.replyToComment('{0}');\">{1}</a>", 
-                               this.Comment.Id, 
-                               Utils.Translate("replyToThis"))
-                           : string.Empty;
+                           ? $"<a href=\"javascript:void(0);\" class=\"reply-to-comment\" onclick=\"BlogEngine.replyToComment('{Comment.Id}');\">{Utils.Translate("replyToThis")}</a>"
+                    : string.Empty;
             }
         }
 
@@ -216,7 +213,7 @@
         {
             var website = this.Comment.Website == null ? "" : this.Comment.Website.ToString();
             var src = BlogEngine.Core.Data.Services.Avatar.GetSrc(this.Comment.Email, website);
-            return string.Format("<img src='{0}' width='{1}' />", src, size);
+            return $"<img src='{src}' width='{size}' />";
         }
 
         /// <summary>

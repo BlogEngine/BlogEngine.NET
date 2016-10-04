@@ -22,7 +22,7 @@ namespace BlogEngine.NET.Custom.Widgets
                 doc.AppendChild(links);
             }
 
-            var node = doc.SelectSingleNode(string.Format("links/link[@id='{0}']", id));
+            var node = doc.SelectSingleNode($"links/link[@id='{id}']");
             if (node == null)
             {
                 node = doc.CreateElement("link");
@@ -59,7 +59,7 @@ namespace BlogEngine.NET.Custom.Widgets
             {
                 return;
             }
-            var node = doc.SelectSingleNode(string.Format("links/link[@id='{0}']", id));
+            var node = doc.SelectSingleNode($"links/link[@id='{id}']");
             if (node != null)
             {
                 links.RemoveChild(node);
@@ -100,7 +100,7 @@ namespace BlogEngine.NET.Custom.Widgets
             {
                 return item;
             }
-            var node = doc.SelectSingleNode(string.Format("links/link[@id='{0}']", id));
+            var node = doc.SelectSingleNode($"links/link[@id='{id}']");
             if (node != null)
             {
                 item.Id = node.Attributes["id"].Value;

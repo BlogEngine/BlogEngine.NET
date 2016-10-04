@@ -195,8 +195,7 @@ public partial class post : BlogBasePage
                     // Try to load PostNavigation from theme folder
                     var template = BlogSettings.Instance.IsRazorTheme ? "PostNavigation.cshtml" : "PostNavigation.ascx";
 
-                    var path = string.Format("{0}Custom/Themes/{1}/{2}", 
-                        Utils.ApplicationRelativeWebRoot, BlogSettings.Instance.Theme, template);
+                    var path =$"{Utils.ApplicationRelativeWebRoot}Custom/Themes/{BlogSettings.Instance.Theme}/{template}";
 
                     if (!System.IO.File.Exists(Server.MapPath(path)))
                         path = Utils.ApplicationRelativeWebRoot + "Custom/Controls/Defaults/PostNavigation.ascx";

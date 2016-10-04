@@ -143,14 +143,14 @@ namespace App_Code.Controls
             {
                 // if it's a Razor theme, check if WidgetContainer.cshtml exists.
                 string filename = BlogSettings.Instance.IsRazorTheme ? "WidgetContainer.cshtml" : "WidgetContainer.ascx";
-                return string.Format("~/Custom/Themes/{0}/{1}", BlogSettings.Instance.Theme, filename);
+                return $"~/Custom/Themes/{BlogSettings.Instance.Theme}/{filename}";
             }
             else
             {
                 // when existenceCheck == false, the actual file that will be loaded needs to be
                 // returned.  if it's a Razor theme, we will load WidgetContainer.ascx in the
                 // RazorHost folder.  we assume that the RazorHost folder contains WidgetContainer.ascx.
-                return string.Format("~/Custom/Themes/{0}/WidgetContainer.ascx", BlogSettings.Instance.GetThemeWithAdjustments(null));
+                return $"~/Custom/Themes/{BlogSettings.Instance.GetThemeWithAdjustments(null)}/WidgetContainer.ascx";
             }
         }
 

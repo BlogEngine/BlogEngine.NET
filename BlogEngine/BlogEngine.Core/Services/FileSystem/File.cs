@@ -206,7 +206,7 @@ namespace BlogEngine.Core.FileSystem
         {
             get
             {
-                return string.Format("{0} ({1})", this.Name, SizeFormat(this.FileSize, "N"));
+                return $"{Name} ({SizeFormat(FileSize, "N")})";
             }
 
         }
@@ -218,7 +218,7 @@ namespace BlogEngine.Core.FileSystem
         {
             get
             {
-                return string.Format("{0}file.axd?file={1}", Utils.RelativeWebRoot, this.SafeFilePath);
+                return $"{Utils.RelativeWebRoot}file.axd?file={SafeFilePath}";
             }
         }
 

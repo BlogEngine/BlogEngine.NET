@@ -397,7 +397,7 @@
                 {
                     if (Blog.CurrentInstance.IsSiteAggregation)
                     {
-                        using (var cmd = conn.CreateTextCommand(string.Format("SELECT username, EmailAddress, lastLoginTime FROM {0}Users ", this.tablePrefix, this.parmPrefix)))
+                        using (var cmd = conn.CreateTextCommand($"SELECT username, EmailAddress, lastLoginTime FROM {tablePrefix}Users "))
                         {
                             using (var rdr = cmd.ExecuteReader())
                             {
@@ -410,7 +410,7 @@
                     }
                     else
                     {
-                        using (var cmd = conn.CreateTextCommand(string.Format("SELECT username, EmailAddress, lastLoginTime FROM {0}Users WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                        using (var cmd = conn.CreateTextCommand($"SELECT username, EmailAddress, lastLoginTime FROM {tablePrefix}Users WHERE BlogID = {parmPrefix}blogid "))
                         {
                             cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -638,7 +638,7 @@
                 var attr = config.GetKey(0);
                 if (!string.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }
@@ -803,7 +803,7 @@
         /// <returns></returns>
         private string FormatParamName(string parameterName)
         {
-            return string.Format("{0}{1}", this.parmPrefix, parameterName);
+            return $"{parmPrefix}{parameterName}";
         }
 
         /// <summary>

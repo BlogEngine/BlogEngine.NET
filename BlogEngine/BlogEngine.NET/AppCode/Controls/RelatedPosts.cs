@@ -219,15 +219,15 @@ namespace App_Code.Controls
                         var description = Utils.StripHtml(post.Description);
                         if (description != null && description.Length > this.DescriptionMaxLength)
                         {
-                            description = string.Format("{0}...", description.Substring(0, this.DescriptionMaxLength));
+                            description = $"{description.Substring(0, DescriptionMaxLength)}...";
                         }
 
                         if (String.IsNullOrEmpty(description))
                         {
                             var content = Utils.StripHtml(post.Content);
                             description = content.Length > this.DescriptionMaxLength
-                                              ? string.Format("{0}...", content.Substring(0, this.DescriptionMaxLength))
-                                              : content;
+                                              ? $"{content.Substring(0, DescriptionMaxLength)}..."
+                                     : content;
                         }
 
                         sb.Append(string.Format(DescriptionFormat, description));

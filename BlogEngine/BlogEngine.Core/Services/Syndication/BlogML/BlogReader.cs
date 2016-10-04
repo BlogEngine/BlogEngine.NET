@@ -83,7 +83,7 @@
             }
             catch (Exception ex)
             {
-                Message = string.Format("BlogReader.Import: BlogML could not load with 2.0 specs. {0}", ex.Message);
+                Message = $"BlogReader.Import: BlogML could not load with 2.0 specs. {ex.Message}";
                 Utils.Log(Message);
                 return false;
             }
@@ -98,11 +98,11 @@
 
                 LoadBlogPosts();
 
-                Message = string.Format("Imported {0} new posts", PostCount);
+                Message = $"Imported {PostCount} new posts";
             }
             catch (Exception ex)
             {
-                Message = string.Format("BlogReader.Import: {0}", ex.Message);
+                Message = $"BlogReader.Import: {ex.Message}";
                 Utils.Log(Message);
                 return false;
             }
@@ -398,7 +398,7 @@
                 }
             }
             bi.ForceReload();
-            Utils.Log(string.Format("BlogReader.LoadBlogPosts: Completed importing {0} posts", PostCount));
+            Utils.Log($"BlogReader.LoadBlogPosts: Completed importing {PostCount} posts");
         }
 
         #endregion

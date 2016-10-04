@@ -58,7 +58,7 @@
                         {
                             if (HasRated(id))
                             {
-                                context.Response.Write(string.Format("{0}HASRATED", rate));
+                                context.Response.Write($"{rate}HASRATED");
                                 context.Response.End();
                             }
                             else
@@ -67,7 +67,7 @@
                                 post.Rate(rate);
 
                                 SetCookie(id, context);
-                                context.Response.Write(string.Format("{0}OK", rate));
+                                context.Response.Write($"{rate}OK");
                                 context.Response.End();
                             }
 

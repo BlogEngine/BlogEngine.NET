@@ -100,7 +100,7 @@ namespace BlogEngine.Core
 
             var linkFormat = "<a href=\"#\" id=\"{0}\" onclick=\"return " + callback + ";\" class=\"{0}\">{1}</a>";
 
-            var pageLink = string.Format("<span>Showing {0} - {1} of {2}</span>", From, To, Total);
+            var pageLink = $"<span>Showing {From} - {To} of {Total}</span>";
 
             if (CurrentPage > 1)
             {

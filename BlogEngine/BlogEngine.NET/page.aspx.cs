@@ -56,7 +56,7 @@ public partial class page : BlogBasePage
 
         if (pg == null || (!pg.IsVisible))
         {
-            this.Response.Redirect(string.Format("{0}error404.aspx", Utils.RelativeWebRoot), true);
+            this.Response.Redirect($"{Utils.RelativeWebRoot}error404.aspx", true);
             return; // WLF: ReSharper is stupid and doesn't know that redirect returns this method.... or does it not...?
         }
 
@@ -199,7 +199,7 @@ public partial class page : BlogBasePage
     {
         get
         {
-            return string.Format("{0}page.aspx?id={1}", Utils.AbsoluteWebRoot, this.Page.Id);
+            return $"{Utils.AbsoluteWebRoot}page.aspx?id={Page.Id}";
         }
     }
 }

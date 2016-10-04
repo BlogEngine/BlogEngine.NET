@@ -205,7 +205,7 @@
                         var parms = cmd.Parameters;
                         parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("role"), roleName));
-                        parms.Add(conn.CreateParameter(FormatParamName("name"), string.Format("{0}%", usernameToMatch)));
+                        parms.Add(conn.CreateParameter(FormatParamName("name"), $"{usernameToMatch}%"));
 
                         using (var rdr = cmd.ExecuteReader())
                         {
@@ -238,7 +238,7 @@
             {
                 if (conn.HasConnection)
                 {
-                    using (var cmd = conn.CreateTextCommand(string.Format("SELECT role FROM {0}Roles WHERE BlogID = {1}blogid ", this.tablePrefix, this.parmPrefix)))
+                    using (var cmd = conn.CreateTextCommand($"SELECT role FROM {tablePrefix}Roles WHERE BlogID = {parmPrefix}blogid "))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
 
@@ -416,7 +416,7 @@
                 var attr = config.GetKey(0);
                 if (!String.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }
@@ -577,7 +577,7 @@
         /// <returns></returns>
         private string FormatParamName(string parameterName)
         {
-            return String.Format("{0}{1}", this.parmPrefix, parameterName);
+            return $"{parmPrefix}{parameterName}";
         }
 
         #endregion

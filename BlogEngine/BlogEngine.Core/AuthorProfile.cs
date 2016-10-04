@@ -300,7 +300,7 @@
         {
             get
             {
-                return string.Format("{0} {1} {2}", this.FirstName, this.MiddleName, this.LastName).Replace("  ", " ");
+                return $"{FirstName} {MiddleName} {LastName}".Replace("  ", " ");
             }
         }
 
@@ -439,7 +439,7 @@
         {
             get
             {
-                return string.Format("{0}author/{1}{2}", Utils.RelativeWebRoot, this.Id, BlogConfig.FileExtension);
+                return $"{Utils.RelativeWebRoot}author/{Id}{BlogConfig.FileExtension}";
             }
         }
 

@@ -23,7 +23,7 @@
         /// <returns>A StringDictionary.</returns>
         public override StringDictionary LoadSettings(Blog blog)
         {
-            var filename = HttpContext.Current.Server.MapPath(string.Format("{0}settings.xml", blog.StorageLocation));               
+            var filename = HttpContext.Current.Server.MapPath($"{blog.StorageLocation}settings.xml");               
             var dic = new StringDictionary();
 
             var doc = new XmlDocument();
@@ -57,7 +57,7 @@
                 throw new ArgumentNullException("settings");
             }
 
-            var filename = string.Format("{0}settings.xml", this.Folder);
+            var filename = string.Format("{0}settings.xml", Folder);
             var writerSettings = new XmlWriterSettings { Indent = true };
 
             // ------------------------------------------------------------

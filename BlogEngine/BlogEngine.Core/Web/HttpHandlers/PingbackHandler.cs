@@ -395,7 +395,7 @@
                     Author = GetDomain(sourceUrl),
                     Website = new Uri(sourceUrl)
                 };
-            comment.Content = string.Format("Pingback from {0}{1}{2}{3}", comment.Author, Environment.NewLine, Environment.NewLine, this.title);
+            comment.Content = $"Pingback from {comment.Author}{Environment.NewLine}{Environment.NewLine}{title}";
             comment.DateCreated = DateTime.Now;
             comment.Email = "pingback";
             comment.IP = Utils.GetClientIP();

@@ -21,7 +21,7 @@
         /// </param>
         public override void DeleteProfile(AuthorProfile profile)
         {
-            var fileName = string.Format("{0}profiles{1}{2}.xml", GetFolder(profile.Blog), Path.DirectorySeparatorChar, profile.Id);
+            var fileName = $"{GetFolder(profile.Blog)}profiles{Path.DirectorySeparatorChar}{profile.Id}.xml";
             if (File.Exists(fileName))
             {
                 File.Delete(fileName);
@@ -63,7 +63,7 @@
 
             foreach (Blog blog in blogs)
             {
-                var folder = string.Format("{0}profiles{1}", GetFolder(blog), Path.DirectorySeparatorChar);
+                var folder = $"{GetFolder(blog)}profiles{Path.DirectorySeparatorChar}";
 
                 if (!Directory.Exists(folder))
                     continue;
@@ -87,12 +87,12 @@
         /// </param>
         public override void InsertProfile(AuthorProfile profile)
         {
-            if (!Directory.Exists(string.Format("{0}profiles", GetFolder(profile.Blog))))
+            if (!Directory.Exists($"{GetFolder(profile.Blog)}profiles"))
             {
-                Directory.CreateDirectory(string.Format("{0}profiles", GetFolder(profile.Blog)));
+                Directory.CreateDirectory($"{GetFolder(profile.Blog)}profiles");
             }
 
-            var fileName = string.Format("{0}profiles{1}{2}.xml", GetFolder(profile.Blog), Path.DirectorySeparatorChar, profile.Id);
+            var fileName = $"{GetFolder(profile.Blog)}profiles{Path.DirectorySeparatorChar}{profile.Id}.xml";
             var settings = new XmlWriterSettings { Indent = true };
 
             using (var writer = XmlWriter.Create(fileName, settings))
@@ -170,7 +170,7 @@
 
         AuthorProfile SelectProfile(string id, Blog blog)
         {
-            var fileName = string.Format("{0}profiles{1}{2}.xml", GetFolder(blog), Path.DirectorySeparatorChar, id);
+            var fileName = $"{GetFolder(blog)}profiles{Path.DirectorySeparatorChar}{id}.xml";
 
             if (blog.IsSiteAggregation && !blog.IsPrimary)
                 fileName = Path.Combine(BlogConfig.StorageLocation, "blogs", blog.Name, "profiles", id + ".xml");
@@ -179,7 +179,7 @@
 
             if (!File.Exists(fileName))
             {
-                Utils.Log(string.Format("XmlBlogProvider: can not load profile from \"{0}\"", fileName));
+                Utils.Log($"XmlBlogProvider: can not load profile from \"{fileName}\"");
                 return null;
             }
 

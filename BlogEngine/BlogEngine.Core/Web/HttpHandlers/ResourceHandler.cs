@@ -160,7 +160,7 @@ namespace BlogEngine.Core.Web.HttpHandlers
         /// <returns></returns>
         public static string GetScriptPath(System.Globalization.CultureInfo cultureInfo)
         {
-            return String.Format("{0}{1}.res.axd", Utils.RelativeWebRoot, cultureInfo.Name.ToLowerInvariant());
+            return $"{Utils.RelativeWebRoot}{cultureInfo.Name.ToLowerInvariant()}.res.axd";
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace BlogEngine.Core.Web.HttpHandlers
             cache.SetMaxAge(new TimeSpan(30, 0, 0, 0));
             cache.SetRevalidation(HttpCacheRevalidation.AllCaches);
 
-            var etag = string.Format("\"{0}\"", hash);
+            var etag = $"\"{hash}\"";
             var incomingEtag = context.Request.Headers["If-None-Match"];
 
             cache.SetETag(etag);

@@ -165,7 +165,7 @@ public class ResolveLinks
             var length = url.Length - max + 3;
             if (page.Length > length)
             {
-                url = url.Replace(page, string.Format("...{0}", page.Substring(length)));
+                url = url.Replace(page, $"...{page.Substring(length)}");
             }
         }
 

@@ -13,7 +13,7 @@ namespace BlogEngine.NET.Custom.Widgets
         /// <returns>Settings object</returns>
         public static StringDictionary GetSettings(string id)
         {
-            var cacheId = string.Format("be_widget_{0}", id);
+            var cacheId = $"be_widget_{id}";
             if (Blog.CurrentInstance.Cache[cacheId] == null)
             {
                 var ws = new WidgetSettings(id);
@@ -29,7 +29,7 @@ namespace BlogEngine.NET.Custom.Widgets
         /// <param name="widgetId">Widget Id</param>
         public static void SaveSettings(StringDictionary settings, string widgetId)
         {
-            var cacheId = string.Format("be_widget_{0}", widgetId);
+            var cacheId = $"be_widget_{widgetId}";
 
             var ws = new WidgetSettings(widgetId);
             ws.SaveSettings(settings);

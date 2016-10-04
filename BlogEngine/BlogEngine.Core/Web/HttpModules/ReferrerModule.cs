@@ -132,7 +132,7 @@
 
                     if (subdomain != null)
                     {
-                        host = host.Replace(string.Format("{0}.", subdomain.ToUpperInvariant()), string.Empty);
+                        host = host.Replace($"{subdomain.ToUpperInvariant()}.", string.Empty);
                     }
 
                     return !html.Contains(host);

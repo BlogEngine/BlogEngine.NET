@@ -80,7 +80,7 @@ namespace BlogEngine.Core.Packaging
                     LocalVersion = x.Version,
                     OnlineVersion = onlineVersion,
                     Authors = x.Author,
-                    IconUrl = string.Format("{0}Content/images/blog/ext.png", Utils.ApplicationRelativeWebRoot),
+                    IconUrl = $"{Utils.ApplicationRelativeWebRoot}Content/images/blog/ext.png",
                     Enabled = x.Enabled,
                     Priority = x.Priority,
                     SettingsUrl = x.Settings.Count > 0 ? adminPage : ""
@@ -105,11 +105,9 @@ namespace BlogEngine.Core.Packaging
         {
             var packageFiles = new List<PackageFile>();
 
-            var content = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot +
-                string.Format("App_Data/packages/{0}.{1}/content", package.Id, package.Version));
+            var content = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + $"App_Data/packages/{package.Id}.{package.Version}/content");
 
-            var lib = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot +
-                string.Format("App_Data/packages/{0}.{1}/lib", package.Id, package.Version));
+            var lib = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + $"App_Data/packages/{package.Id}.{package.Version}/lib");
 
             var root = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot);
             var bin = HttpContext.Current.Server.MapPath(Utils.ApplicationRelativeWebRoot + "bin");
@@ -156,7 +154,7 @@ namespace BlogEngine.Core.Packaging
 
             if (installedFiles.Count == 0)
             {
-                Utils.Log(string.Format("Can not find any files installed for package: {0}", pkgId));
+                Utils.Log($"Can not find any files installed for package: {pkgId}");
                 throw new ApplicationException("No files to uninstall");
             }
 
@@ -200,10 +198,10 @@ namespace BlogEngine.Core.Packaging
 
             if (pkg != null && !string.IsNullOrWhiteSpace(pkg.OnlineVersion))
             {
-                var pkgDir = string.Format("{0}.{1}", pkgId, pkg.OnlineVersion);
+                var pkgDir = $"{pkgId}.{pkg.OnlineVersion}";
 
                 // clean up removing installed version
-                pkgDir = HttpContext.Current.Server.MapPath(string.Format("{0}App_Data/packages/{1}", Utils.ApplicationRelativeWebRoot, pkgDir));
+                pkgDir = HttpContext.Current.Server.MapPath($"{Utils.ApplicationRelativeWebRoot}App_Data/packages/{pkgDir}");
                 if (Directory.Exists(pkgDir))
                 {
                     ForceDeleteDirectory(pkgDir);
@@ -216,7 +214,7 @@ namespace BlogEngine.Core.Packaging
         static List<Package> GetThemes()
         {
             var installedThemes = new List<Package>();
-            var path = HttpContext.Current.Server.MapPath(string.Format("{0}Custom/Themes/", Utils.ApplicationRelativeWebRoot));
+            var path = HttpContext.Current.Server.MapPath($"{Utils.ApplicationRelativeWebRoot}Custom/Themes/");
 
             foreach (var p in from d in Directory.GetDirectories(path)
                 let index = d.LastIndexOf(Path.DirectorySeparatorChar) + 1
@@ -251,7 +249,7 @@ namespace BlogEngine.Core.Packaging
         static List<Package> GetWidgets()
         {
             var installedWidgets = new List<Package>();
-            var path = HttpContext.Current.Server.MapPath(string.Format("{0}Custom/Widgets/", Utils.ApplicationRelativeWebRoot));
+            var path = HttpContext.Current.Server.MapPath($"{Utils.ApplicationRelativeWebRoot}Custom/Widgets/");
 
             foreach (var p in from d in Directory.GetDirectories(path)
                 let index = d.LastIndexOf(Path.DirectorySeparatorChar) + 1
@@ -394,8 +392,7 @@ namespace BlogEngine.Core.Packaging
 
             foreach (var img in validImages)
             {
-                var url = string.Format("{0}{1}/{2}/{3}",
-                Utils.ApplicationRelativeWebRoot, pkgDir, pkg.Id, img);
+                var url = $"{Utils.ApplicationRelativeWebRoot}{pkgDir}/{pkg.Id}/{img}";
 
                 url = url.Replace("/themes", "/Custom/Themes");
                 url = url.Replace("/widgets", "/Custom/Widgets");
@@ -423,7 +420,7 @@ namespace BlogEngine.Core.Packaging
 
             if (cnt > 0 && cnt != content.Length)
             {
-                Utils.Log(string.Format("Package Installer: replacing in {0} from {1} to {2}", filePath, searchText, replaceText));
+                Utils.Log($"Package Installer: replacing in {filePath} from {searchText} to {replaceText}");
             }
 
             StreamWriter writer = new StreamWriter(filePath);
@@ -461,8 +458,8 @@ namespace BlogEngine.Core.Packaging
             var jp = new Package { Id = id, PackageType = pkgType };
 
             var pkgUrl = pkgType == "Theme" ?
-                string.Format("{0}Custom/Themes/{1}/theme.xml", Utils.ApplicationRelativeWebRoot, id) :
-                string.Format("{0}Custom/Widgets/{1}/widget.xml", Utils.ApplicationRelativeWebRoot, id);
+                $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/{id}/theme.xml"
+                : $"{Utils.ApplicationRelativeWebRoot}Custom/Widgets/{id}/widget.xml";
 
             var pkgPath = HttpContext.Current.Server.MapPath(pkgUrl);
             try
@@ -515,10 +512,10 @@ namespace BlogEngine.Core.Packaging
             var type = PackageType(packageFiles);
 
             if (type == "theme")
-                shortPath = string.Format(@"Custom\Themes\{0}\theme.xml", package.Id);
+                shortPath = $@"Custom\Themes\{package.Id}\theme.xml";
 
             if (type == "widget")
-                shortPath = string.Format(@"Custom\Widgets\{0}\widget.xml", package.Id);
+                shortPath = $@"Custom\Widgets\{package.Id}\widget.xml";
 
             if (string.IsNullOrEmpty(shortPath))
                 return;

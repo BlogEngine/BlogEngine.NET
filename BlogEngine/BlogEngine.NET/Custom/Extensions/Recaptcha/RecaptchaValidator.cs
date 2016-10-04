@@ -85,7 +85,7 @@ namespace Recaptcha
 
                 if (ip.AddressFamily != AddressFamily.InterNetwork && ip.AddressFamily != AddressFamily.InterNetworkV6)
                 {
-                    throw new ArgumentException(string.Format("Expecting an IP address, got {0}", ip));
+                    throw new ArgumentException($"Expecting an IP address, got {ip}");
                 }
 
                 this.remoteIp = ip.ToString();

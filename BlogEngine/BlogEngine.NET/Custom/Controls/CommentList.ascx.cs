@@ -342,7 +342,7 @@
                 {
                     if (!website.ToLowerInvariant().Contains("://"))
                     {
-                        website = string.Format("http://{0}", website);
+                        website = $"http://{website}";
                     }
 
                     Uri url;
@@ -452,7 +452,7 @@
                     foreach (DataRow row in table.Rows)
                     {
                         var code = (string)row["Code"];
-                        var title = string.Format("[{0}][/{1}]", code, code);
+                        var title = $"[{code}][/{code}]";
                         sb.AppendFormat(
                             "<a title=\"{0}\" href=\"javascript:void(BlogEngine.addBbCode('{1}'))\">{2}</a>",
                             title,
@@ -486,7 +486,7 @@
                 return;
             }
 
-            NameInputId = string.Format("txtName{0}", DateTime.Now.Ticks);
+            NameInputId = $"txtName{DateTime.Now.Ticks}";
             EnableCaptchas();
 
             if (!Page.IsPostBack && !Page.IsCallback)
@@ -973,7 +973,7 @@
             //return !string.IsNullOrEmpty(ddlCountry.SelectedValue)
             //    ? string.Format("{0}Content/images/blog/flags/{1}.png", Utils.RelativeWebRoot, ddlCountry.SelectedValue)
             //    : string.Format("{0}Content/images/blog/pixel.png", Utils.RelativeWebRoot);
-            return string.Format("{0}Content/images/blog/pixel.png", Utils.RelativeWebRoot);
+            return $"{Utils.RelativeWebRoot}Content/images/blog/pixel.png";
         }
 
         #endregion

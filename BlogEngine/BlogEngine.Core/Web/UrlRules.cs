@@ -67,13 +67,13 @@ namespace BlogEngine.Core.Web
 
             var q = GetQueryString(context);
             if (q.Contains("id=" + post.Id, StringComparison.OrdinalIgnoreCase))
-                q = string.Format("{0}post.aspx?{1}", Utils.ApplicationRelativeWebRoot, q);
+                q = $"{Utils.ApplicationRelativeWebRoot}post.aspx?{q}";
             else
-                q = string.Format("{0}post.aspx?id={1}{2}", Utils.ApplicationRelativeWebRoot, post.Id, q);
+                q = $"{Utils.ApplicationRelativeWebRoot}post.aspx?id={post.Id}{q}";
 
             context.RewritePath(
                 url.Contains("/FEED/")
-                    ? string.Format("syndication.axd?post={0}{1}", post.Id, GetQueryString(context))
+                    ? $"syndication.axd?post={post.Id}{GetQueryString(context)}"
                     : q,
                 false);
         }
@@ -92,7 +92,7 @@ namespace BlogEngine.Core.Web
 
             if (page != null)
             {
-                context.RewritePath(string.Format("{0}page.aspx?id={1}{2}", Utils.ApplicationRelativeWebRoot, page.Id, GetQueryString(context)), false);
+                context.RewritePath($"{Utils.ApplicationRelativeWebRoot}page.aspx?id={page.Id}{GetQueryString(context)}", false);
             }
         }
 
@@ -139,7 +139,7 @@ namespace BlogEngine.Core.Web
             {
                 query = "?" + query.Substring(1);
             }
-            context.RewritePath(string.Format("{0}{1}{2}", Utils.ApplicationRelativeWebRoot, relativePath, query), false);
+            context.RewritePath($"{Utils.ApplicationRelativeWebRoot}{relativePath}{query}", false);
         }
 
         /// <summary>
@@ -157,12 +157,12 @@ namespace BlogEngine.Core.Web
             {
                 if (url.Contains("/FEED/"))
                 {
-                    context.RewritePath(string.Format("syndication.axd?category={0}{1}", cat.Id, GetQueryString(context)), false);
+                    context.RewritePath($"syndication.axd?category={cat.Id}{GetQueryString(context)}", false);
                 }
                 else
                 {
                     context.RewritePath(
-                        string.Format("{0}default.aspx?id={1}{2}", Utils.ApplicationRelativeWebRoot, cat.Id, GetQueryString(context)), false);
+                        $"{Utils.ApplicationRelativeWebRoot}default.aspx?id={cat.Id}{GetQueryString(context)}", false);
                     break;
                 }
             }
@@ -179,11 +179,11 @@ namespace BlogEngine.Core.Web
 
             if (url.Contains("/FEED/"))
             {
-                tag = string.Format("syndication.axd?tag={0}{1}", tag, GetQueryString(context));
+                tag = $"syndication.axd?tag={tag}{GetQueryString(context)}";
             }
             else
             {
-                tag = string.Format("{0}default.aspx?tag=/{1}{2}", Utils.ApplicationRelativeWebRoot, tag, GetQueryString(context));
+                tag = $"{Utils.ApplicationRelativeWebRoot}default.aspx?tag=/{tag}{GetQueryString(context)}";
             }
             context.RewritePath(tag, false);
         }
@@ -210,7 +210,7 @@ namespace BlogEngine.Core.Web
             if(url.Contains("default.aspx") && !url.Contains("calendar/default.aspx"))
                 throw new HttpException(404, "File not found");
 
-            context.RewritePath(string.Format("{0}default.aspx?calendar=show", Utils.ApplicationRelativeWebRoot), false);
+            context.RewritePath($"{Utils.ApplicationRelativeWebRoot}default.aspx?calendar=show", false);
         }
 
         /// <summary>
@@ -222,10 +222,7 @@ namespace BlogEngine.Core.Web
         {
             var author = UrlRules.ExtractTitle(context, url);
 
-            var path = string.Format("{0}default.aspx?name={1}{2}",
-                Utils.ApplicationRelativeWebRoot,
-                author,
-                GetQueryString(context));
+            var path = $"{Utils.ApplicationRelativeWebRoot}default.aspx?name={author}{GetQueryString(context)}";
 
             context.RewritePath(path, false);
         }
@@ -237,9 +234,7 @@ namespace BlogEngine.Core.Web
         /// <param name="url">The URL string.</param>
         public static void RewriteBlog(HttpContext context, string url)
         {
-            var path = string.Format("{0}default.aspx?blog=true{1}",
-                Utils.ApplicationRelativeWebRoot,
-                GetQueryString(context));
+            var path = $"{Utils.ApplicationRelativeWebRoot}default.aspx?blog=true{GetQueryString(context)}";
 
             context.RewritePath(path, false);
         }
@@ -254,7 +249,7 @@ namespace BlogEngine.Core.Web
             var wr = url.Substring(0, url.IndexOf("/FILES/") + 6);
             url = url.Replace(wr, "");
             url = url.Substring(0, url.LastIndexOf(System.IO.Path.GetExtension(url)));
-            var npath = string.Format("{0}file.axd?file={1}", Utils.ApplicationRelativeWebRoot, url);
+            var npath = $"{Utils.ApplicationRelativeWebRoot}file.axd?file={url}";
             context.RewritePath(npath);
         }
 
@@ -268,7 +263,7 @@ namespace BlogEngine.Core.Web
             var wr = url.Substring(0, url.IndexOf("/IMAGES/") + 7);
             url = url.Replace(wr, "");
             url = url.Substring(0, url.LastIndexOf(System.IO.Path.GetExtension(url)));
-            var npath = string.Format("{0}image.axd?picture={1}", Utils.ApplicationRelativeWebRoot, url);
+            var npath = $"{Utils.ApplicationRelativeWebRoot}image.axd?picture={url}";
             context.RewritePath(npath);
         }
 
@@ -281,7 +276,7 @@ namespace BlogEngine.Core.Web
         public static void RewriteDefault(HttpContext context)
         {
             var url = GetUrlWithQueryString(context);
-            var page = string.Format("&page={0}", context.Request.QueryString["page"]);
+            var page = $"&page={context.Request.QueryString["page"]}";
 
             if (string.IsNullOrEmpty(context.Request.QueryString["page"]))
             {
@@ -294,22 +289,22 @@ namespace BlogEngine.Core.Web
                 var year = match.Groups[1].Value;
                 var month = match.Groups[2].Value;
                 var day = match.Groups[3].Value;
-                var date = string.Format("{0}-{1}-{2}", year, month, day);
-                url = string.Format("{0}default.aspx?date={1}{2}", Utils.ApplicationRelativeWebRoot, date, page);
+                var date = $"{year}-{month}-{day}";
+                url = $"{Utils.ApplicationRelativeWebRoot}default.aspx?date={date}{page}";
             }
             else if (YearMonthRegex.IsMatch(url))
             {
                 var match = YearMonthRegex.Match(url);
                 var year = match.Groups[1].Value;
                 var month = match.Groups[2].Value;
-                var path = string.Format("default.aspx?year={0}&month={1}", year, month);
+                var path = $"default.aspx?year={year}&month={month}";
                 url = Utils.ApplicationRelativeWebRoot + path + page;
             }
             else if (YearRegex.IsMatch(url))
             {
                 var match = YearRegex.Match(url);
                 var year = match.Groups[1].Value;
-                var path = string.Format("default.aspx?year={0}", year);
+                var path = $"default.aspx?year={year}";
                 url = Utils.ApplicationRelativeWebRoot + path + page;
             }
             else
@@ -337,7 +332,7 @@ namespace BlogEngine.Core.Web
         public static bool DefaultPageRequested(HttpContext context)
         {
             var url = context.Request.Url.ToString();
-            var match = string.Format("{0}DEFAULT{1}", Utils.AbsoluteWebRoot, BlogConfig.FileExtension);
+            var match = $"{Utils.AbsoluteWebRoot}DEFAULT{BlogConfig.FileExtension}";
 
             var u = GetUrlWithQueryString(context);
             var m = YearMonthDayRegex.Match(u);
@@ -470,7 +465,7 @@ namespace BlogEngine.Core.Web
         public static string GetQueryString(HttpContext context)
         {
             var query = context.Request.QueryString.ToString();
-            return !string.IsNullOrEmpty(query) ? string.Format("&{0}", query) : string.Empty;
+            return !string.IsNullOrEmpty(query) ? $"&{query}" : string.Empty;
         }
 
         /// <summary>
@@ -480,8 +475,7 @@ namespace BlogEngine.Core.Web
         /// <returns>Query string</returns>
         public static string GetUrlWithQueryString(HttpContext context)
         {
-            return string.Format(
-                "{0}?{1}", context.Request.Path, context.Request.QueryString.ToString());
+            return $"{context.Request.Path}?{context.Request.QueryString}";
         }
 
         #endregion

@@ -87,7 +87,7 @@ namespace BlogEngine.Core.Data
             }
             catch (Exception ex)
             {
-                Utils.Log(string.Format("TagRepository.Update: {0}", ex.Message));
+                Utils.Log($"TagRepository.Update: {ex.Message}");
                 return false;
             }
         }
@@ -117,7 +117,7 @@ namespace BlogEngine.Core.Data
             }
             catch (Exception ex)
             {
-                Utils.Log(string.Format("Tags.Delete: {0}", ex.Message));
+                Utils.Log($"Tags.Delete: {ex.Message}");
                 return false;
             }
         }

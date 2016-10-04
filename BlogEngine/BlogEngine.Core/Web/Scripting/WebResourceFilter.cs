@@ -147,8 +147,7 @@ namespace BlogEngine.Core.Web.Scripting
                     if (HtmlOut.Contains("</head>", StringComparison.OrdinalIgnoreCase))
                     {
                         HtmlOut = HtmlOut.Insert(idx,
-                            string.Format("\n<script src=\"{0}res-{1}.js.axd\" type=\"text/javascript\"></script>",
-                            Utils.RelativeWebRoot, resKey.GetHashCode()));
+                            $"\n<script src=\"{Utils.RelativeWebRoot}res-{resKey.GetHashCode()}.js.axd\" type=\"text/javascript\"></script>");
                     }
                 }
             }
@@ -176,7 +175,7 @@ namespace BlogEngine.Core.Web.Scripting
             var relative = match.Groups[1].Value;
             var absolute = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
             return match.Value.Replace(
-                relative, string.Format("{0}js.axd?path={1}", Utils.ApplicationRelativeWebRoot, HttpUtility.UrlEncode(absolute + relative)));
+                relative, $"{Utils.ApplicationRelativeWebRoot}js.axd?path={HttpUtility.UrlEncode(absolute + relative)}");
         }
 
         /// <summary>

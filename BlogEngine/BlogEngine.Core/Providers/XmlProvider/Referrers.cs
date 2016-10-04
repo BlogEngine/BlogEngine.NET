@@ -163,7 +163,7 @@
         private void WriteReferrerFile(List<Referrer> referrers, DateTime day)
         {
             var folder = Path.Combine(this.Folder, "log");
-            var fileName = Path.Combine(folder, string.Format("{0}.xml", day.ToString("yyyy.MM.dd")));
+            var fileName = Path.Combine(folder, $"{day.ToString("yyyy.MM.dd")}.xml");
             var dirInfo = new DirectoryInfo(folder);
             if (!dirInfo.Exists)
             {

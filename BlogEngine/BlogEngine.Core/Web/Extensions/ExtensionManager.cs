@@ -510,7 +510,7 @@
                         }
                         catch (Exception e)
                         {
-                            Utils.Log(string.Format("Can not load {0}: {1}", type.Name, e.Message));
+                            Utils.Log($"Can not load {type.Name}: {e.Message}");
                         }
                     }
                 }

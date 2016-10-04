@@ -149,7 +149,7 @@
         /// </summary>
         public static bool IsThemeRazor(string themeName)
         {
-            string path = HostingEnvironment.MapPath(string.Format("~/Custom/Themes/{0}/site.cshtml", themeName));
+            string path = HostingEnvironment.MapPath($"~/Custom/Themes/{themeName}/site.cshtml");
             return File.Exists(path);
         }
 
@@ -1312,7 +1312,7 @@
                     }
                     catch (Exception e)
                     {
-                        Utils.Log(string.Format("Error loading blog settings: {0}", e.Message));
+                        Utils.Log($"Error loading blog settings: {e.Message}");
                     }
                 }
 

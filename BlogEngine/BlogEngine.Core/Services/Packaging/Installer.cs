@@ -56,7 +56,7 @@ namespace BlogEngine.Core.Packaging
 
                 CustomFieldsParser.ClearCache();
 
-                Utils.Log(string.Format("Installed package {0} by {1}", pkgId, Security.CurrentUser.Identity.Name));
+                Utils.Log($"Installed package {pkgId} by {Security.CurrentUser.Identity.Name}");
             }
             catch (Exception ex)
             {
@@ -90,11 +90,11 @@ namespace BlogEngine.Core.Packaging
                 // reset cache
                 Blog.CurrentInstance.Cache.Remove(Constants.CacheKey);
 
-                Utils.Log(string.Format("Uninstalled package {0} by {1}", pkgId, Security.CurrentUser.Identity.Name));
+                Utils.Log($"Uninstalled package {pkgId} by {Security.CurrentUser.Identity.Name}");
             }
             catch (Exception ex)
             {
-                Utils.Log(string.Format("Error unistalling package {0}: {1}"), pkgId, ex.Message);
+                Utils.Log($"Error unistalling package {pkgId}: {ex.Message}");
                 throw;
             }
 

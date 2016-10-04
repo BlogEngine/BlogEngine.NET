@@ -56,7 +56,7 @@ public partial class error404 : BlogBasePage
         List<IPublishable> items = Search.Hits(title, false);
         if (items.Count > 0)
         {
-            LiteralControl result = new LiteralControl(string.Format("<li><a href=\"{0}\">{1}</a></li>", items[0].RelativeLink.ToString(), items[0].Title));
+            LiteralControl result = new LiteralControl($"<li><a href=\"{items[0].RelativeLink}\">{items[0].Title}</a></li>");
             phSearchResult.Controls.Add(result);
         }
     }

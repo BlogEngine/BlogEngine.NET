@@ -264,8 +264,8 @@
         /// </returns>
         public int CompareTo(Referrer other)
         {
-            var compareThis = string.Format("{0} {1}", this.ReferrerUrl, this.Url);
-            var compareOther = string.Format("{0} {1}", other.ReferrerUrl, other.Url);
+            var compareThis = $"{ReferrerUrl} {Url}";
+            var compareOther = $"{other.ReferrerUrl} {other.Url}";
             return compareThis.CompareTo(compareOther);
         }
 

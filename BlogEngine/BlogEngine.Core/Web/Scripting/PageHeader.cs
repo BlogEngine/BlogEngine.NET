@@ -74,9 +74,9 @@ namespace BlogEngine.Core.Web.Scripting
             var headerStyles = new List<LiteralControl>();
             var tmpl = "\n\t<link href=\"{0}\" rel=\"stylesheet\" type=\"text/css\" />";
 
-            foreach (var f in GetFiles(string.Format("{0}Content/Auto", Utils.ApplicationRelativeWebRoot)))
+            foreach (var f in GetFiles($"{Utils.ApplicationRelativeWebRoot}Content/Auto"))
             {
-                var href = string.Format("{0}Content/Auto/{1}", Utils.ApplicationRelativeWebRoot, f);
+                var href = $"{Utils.ApplicationRelativeWebRoot}Content/Auto/{f}";
                 headerStyles.Add(new LiteralControl(string.Format(tmpl, href)));
             }
             return headerStyles;
@@ -95,9 +95,9 @@ namespace BlogEngine.Core.Web.Scripting
             var rsrc = HttpHandlers.ResourceHandler.GetScriptPath(new CultureInfo(lang));
             headerScripts.Add(new LiteralControl(string.Format(tmpl, rsrc)));
 
-            foreach (var f in GetFiles(string.Format("{0}Scripts/Auto", Utils.ApplicationRelativeWebRoot)))
+            foreach (var f in GetFiles($"{Utils.ApplicationRelativeWebRoot}Scripts/Auto"))
             {
-                var href = string.Format("{0}Scripts/Auto/{1}", Utils.ApplicationRelativeWebRoot, f);
+                var href = $"{Utils.ApplicationRelativeWebRoot}Scripts/Auto/{f}";
                 headerScripts.Add(new LiteralControl(string.Format(tmpl, href)));
             }
             return headerScripts;

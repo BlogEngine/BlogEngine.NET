@@ -216,24 +216,24 @@
 
                     var foaf = new FoafPerson(title) { Name = title, Blog = url };
 
-                    if (Blog.CurrentInstance.Cache[string.Format("foaf:{0}", title)] == null)
+                    if (Blog.CurrentInstance.Cache[$"foaf:{title}"] == null)
                     {
                         var docs = Utils.FindSemanticDocuments(new Uri(url), "foaf");
                         if (docs.Count > 0)
                         {
                             foreach (var key in docs.Keys)
                             {
-                                Blog.CurrentInstance.Cache.Insert(string.Format("foaf:{0}", title), key.ToString());
+                                Blog.CurrentInstance.Cache.Insert($"foaf:{title}", key.ToString());
                                 break;
                             }
                         }
                         else
                         {
-                            Blog.CurrentInstance.Cache.Insert(string.Format("foaf:{0}", title), "0");
+                            Blog.CurrentInstance.Cache.Insert($"foaf:{title}", "0");
                         }
                     }
 
-                    var seeAlso = (string)Blog.CurrentInstance.Cache[string.Format("foaf:{0}", title)];
+                    var seeAlso = (string)Blog.CurrentInstance.Cache[$"foaf:{title}"];
                     if (seeAlso != null && seeAlso.Contains("://"))
                     {
                         foaf.Rdf = seeAlso;
@@ -389,7 +389,7 @@
             // no homepage
             // this website = blog
             this.Blog = Utils.AbsoluteWebRoot.ToString();
-            this.Rdf = string.Format("{0}foaf_{1}.axd", Utils.AbsoluteWebRoot, ap.UserName);
+            this.Rdf = $"{Utils.AbsoluteWebRoot}foaf_{ap.UserName}.axd";
             this.Firstname = ap.FirstName;
             this.Lastname = ap.LastName;
             this.Image = ap.PhotoUrl;

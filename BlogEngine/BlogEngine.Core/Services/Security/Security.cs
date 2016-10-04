@@ -173,7 +173,7 @@ namespace BlogEngine.Core
                         DateTime.Now,
                         expirationDate,
                         rememberMe,
-                        string.Format("{0}{1}{2}", SecurityValidationKey, AUTH_TKT_USERDATA_DELIMITER, Blog.CurrentInstance.Id),
+                        $"{SecurityValidationKey}{AUTH_TKT_USERDATA_DELIMITER}{Blog.CurrentInstance.Id}",
                         FormsAuthentication.FormsCookiePath
                     );
 

@@ -151,7 +151,7 @@
         private void WriteToFile()
         {
             var categories = Category.Categories;
-            var fileName = string.Format("{0}categories.xml", this.Folder);
+            var fileName = $"{Folder}categories.xml";
 
             using (var writer = new XmlTextWriter(fileName, Encoding.UTF8))
             {

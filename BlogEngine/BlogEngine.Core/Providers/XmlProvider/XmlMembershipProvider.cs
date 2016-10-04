@@ -658,7 +658,7 @@
                 var attr = config.GetKey(0);
                 if (!string.IsNullOrEmpty(attr))
                 {
-                    throw new ProviderException(string.Format("Unrecognized attribute: {0}", attr));
+                    throw new ProviderException($"Unrecognized attribute: {attr}");
                 }
             }
         }
@@ -852,7 +852,7 @@
 
                         if (!File.Exists(path))
                         {
-                            Utils.Log(string.Format("XmlMembershipProvider: can not read users from file \"{0}\"", path));
+                            Utils.Log($"XmlMembershipProvider: can not read users from file \"{path}\"");
                         }
 
                         ReadFromFile(path, b.Id);

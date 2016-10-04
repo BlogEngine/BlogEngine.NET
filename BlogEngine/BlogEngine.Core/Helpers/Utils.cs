@@ -127,7 +127,7 @@
             {
                 return !string.IsNullOrEmpty(BlogSettings.Instance.AlternateFeedUrl)
                            ? BlogSettings.Instance.AlternateFeedUrl
-                           : string.Format("{0}syndication.axd", AbsoluteWebRoot);
+                           : $"{AbsoluteWebRoot}syndication.axd";
             }
         }
 
@@ -259,7 +259,7 @@
 
                 if (RelativeWebRoot.Equals(VirtualPathUtility.AppendTrailingSlash(path), StringComparison.OrdinalIgnoreCase))
                     return true;
-                else if (path.Equals(string.Format("{0}default.aspx", RelativeWebRoot), StringComparison.OrdinalIgnoreCase))
+                else if (path.Equals($"{RelativeWebRoot}default.aspx", StringComparison.OrdinalIgnoreCase))
                     return true;
 
                 return false;
@@ -402,7 +402,7 @@
             if (placeInBottom)
             {
                 var deferAttr = (addDeferAttribute ? " defer=\"defer\"" : string.Empty);
-                var script = string.Format("<script type=\"text/javascript\"{0} src=\"{1}\"></script>", deferAttr, url);
+                var script = $"<script type=\"text/javascript\"{deferAttr} src=\"{url}\"></script>";
                 page.ClientScript.RegisterStartupScript(page.GetType(), url.GetHashCode().ToString(), script);
             }
             else
@@ -460,7 +460,7 @@
                 {
                     for (var i = 0; i < s.CodeSubDirectories.Count; i++)
                     {
-                        assemblyName = string.Format("App_SubCode_{0}", s.CodeSubDirectories[i].DirectoryName);
+                        assemblyName = $"App_SubCode_{s.CodeSubDirectories[i].DirectoryName}";
                         codeAssemblies.Add(Assembly.Load(assemblyName));
                     }
                 }
@@ -609,9 +609,9 @@
                 string.Format("\"{0}image.axd", publishable.Blog.AbsoluteWebRoot.AbsolutePath), "\"" + publishable.Blog.AbsoluteWebRoot + "image.axd");
             content = content.Replace(
                 string.Format("\"{0}file.axd", publishable.Blog.AbsoluteWebRoot.AbsolutePath), "\"" + publishable.Blog.AbsoluteWebRoot + "file.axd");
-            content = content.Replace(string.Format("href=\"{0}{1}", publishable.Blog.RelativeWebRoot, string.Empty), string.Format("href=\"{0}", publishable.Blog.AbsoluteWebRoot));
+            content = content.Replace($"href=\"{publishable.Blog.RelativeWebRoot}", $"href=\"{publishable.Blog.AbsoluteWebRoot}");
 
-            content = content.Replace("href=\"/", string.Format("href=\"{0}", publishable.Blog.AbsoluteWebRoot));
+            content = content.Replace("href=\"/", $"href=\"{publishable.Blog.AbsoluteWebRoot}");
 
             return content;
         }
@@ -795,7 +795,7 @@
                 {
                     // Whoopss, can't load that control so lets output something that tells the developer that theres a problem.
                     containerControls.Add(
-                        new LiteralControl(string.Format("ERROR - UNABLE TO LOAD CONTROL : {0}", match.Groups[1].Value)));
+                        new LiteralControl($"ERROR - UNABLE TO LOAD CONTROL : {match.Groups[1].Value}"));
                 }
 
                 currentPosition = match.Index + match.Groups[0].Length;
@@ -969,7 +969,7 @@
         /// <param name="ex"></param>
         public static void Log(string methodName, Exception ex)
         {
-            Log(String.Format("{0}: {1}", methodName, ex.Message));
+            Log($"{methodName}: {ex.Message}");
         }
 
         /// <summary>
@@ -1212,7 +1212,7 @@
             var response = HttpContext.Current.Response;
             var request = HttpContext.Current.Request;
 
-            var etag = string.Format("\"{0}\"", date.Ticks);
+            var etag = $"\"{date.Ticks}\"";
             var incomingEtag = request.Headers["If-None-Match"];
 
             DateTime incomingLastModifiedDate;
@@ -1303,8 +1303,8 @@
             return resource != null
                        ? resource.ToString()
                        : (string.IsNullOrEmpty(defaultValue)
-                              ? string.Format("Missing Resource [{0}]", text)
-                              : defaultValue);
+                              ? $"Missing Resource [{text}]"
+                    : defaultValue);
         }
 
         /// <summary>
@@ -1320,7 +1320,7 @@
             if (dir != null && Directory.Exists(dir))
             {
                 if (string.IsNullOrEmpty(file)) 
-                    file = string.Format("test{0}.txt", DateTime.Now.ToString("ddmmhhssss"));
+                    file = $"test{DateTime.Now.ToString("ddmmhhssss")}.txt";
 
                 try
                 {
@@ -1542,7 +1542,7 @@
             }
             else
             {
-                absoluteUrl = string.Format("{0}://{1}{2}", url.Scheme, url.Authority, xmlUrl);
+                absoluteUrl = $"{url.Scheme}://{url.Authority}{xmlUrl}";
             }
 
             var readerSettings = new XmlReaderSettings

@@ -115,7 +115,7 @@ namespace BlogEngine.Core.Data
             }
             catch (Exception ex)
             {
-                Utils.Log(string.Format("CategoryRepository.Add: {0}", ex.Message));
+                Utils.Log($"CategoryRepository.Add: {ex.Message}");
                 return null;
             }
         }
@@ -172,7 +172,7 @@ namespace BlogEngine.Core.Data
             }
             catch (Exception ex)
             {
-                Utils.Log(string.Format("CategoryRepository.Remove: {0}", ex.Message));
+                Utils.Log($"CategoryRepository.Remove: {ex.Message}");
                 return false;
             }
         }

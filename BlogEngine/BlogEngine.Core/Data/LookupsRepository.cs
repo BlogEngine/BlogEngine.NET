@@ -72,7 +72,7 @@ namespace BlogEngine.Core.Data
             }
             else
             {
-                var path = HostingEnvironment.MapPath(string.Format("{0}App_GlobalResources/", Utils.ApplicationRelativeWebRoot));
+                var path = HostingEnvironment.MapPath($"{Utils.ApplicationRelativeWebRoot}App_GlobalResources/");
                 foreach (var file in Directory.GetFiles(path, "labels.*.resx"))
                 {
                     var index = file.LastIndexOf(Path.DirectorySeparatorChar) + 1;

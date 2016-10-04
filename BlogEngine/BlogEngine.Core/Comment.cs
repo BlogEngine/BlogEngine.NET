@@ -69,7 +69,7 @@
         {
             get
             {
-                return new Uri(string.Format("{0}#id_{1}", Parent.AbsoluteLink, Id));
+                return new Uri($"{Parent.AbsoluteLink}#id_{Id}");
             }
         }
 
@@ -240,7 +240,7 @@
         {
             get
             {
-                return string.Format("{0}#id_{1}", Parent.RelativeLink, Id);
+                return $"{Parent.RelativeLink}#id_{Id}";
             }
         }
 
@@ -268,7 +268,7 @@
             get
             {
                 var ret = Utils.StripHtml(Content).Trim();
-                return ret.Length > 120 ? string.Format("{0} ...", ret.Substring(0, 116)) : ret;
+                return ret.Length > 120 ? $"{ret.Substring(0, 116)} ..." : ret;
             }
         }
 
