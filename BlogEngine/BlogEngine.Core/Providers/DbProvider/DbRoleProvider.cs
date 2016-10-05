@@ -6,7 +6,6 @@
     using System.Configuration;
     using System.Configuration.Provider;
     using System.Data;
-    using System.Data.Common;
     using System.Web.Security;
 
     /// <summary>

@@ -1,13 +1,8 @@
 ﻿using BlogEngine.Core.Data.Contracts;
-using BlogEngine.Core.Data.Models;
 using BlogEngine.Core.FileSystem;
 using BlogEngine.Core.Providers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Dynamic;
-using System.Web;
-using System.Web.Security;
 
 namespace BlogEngine.Core.Data
 {

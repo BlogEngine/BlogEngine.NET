@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.UI.HtmlControls;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using BlogEngine.Core;
 
 namespace BlogEngine.Core.Web.Controls
 {

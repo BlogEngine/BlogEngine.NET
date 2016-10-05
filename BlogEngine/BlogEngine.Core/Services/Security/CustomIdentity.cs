@@ -1,14 +1,8 @@
 ﻿namespace BlogEngine.Core
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Web.Security;
     using System.Security.Principal;
-    using System.Runtime.Serialization;
-    using System.Reflection;
-    using System.Security;
 
     /// <summary>
     /// IIdentity class used for authentication.

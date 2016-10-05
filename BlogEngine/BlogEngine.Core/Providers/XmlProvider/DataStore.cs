@@ -12,7 +12,6 @@ namespace BlogEngine.Core.Providers
 {
     using System;
     using System.IO;
-    using System.Linq;
     using System.Web.Hosting;
     using System.Xml.Serialization;
 

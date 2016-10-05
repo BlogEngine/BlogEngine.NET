@@ -3,13 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
     using System.Xml;
     using System.Security.Permissions;
-    using System.Web;
-    using System.Web.Hosting;
-    using System.Web.Security;
 
     /// <summary>
     /// A storage provider for BlogEngine that uses XML files.

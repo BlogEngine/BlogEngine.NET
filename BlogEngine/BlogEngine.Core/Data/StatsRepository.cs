@@ -1,7 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
 using System.Linq;
-using System.Text;
 
 namespace BlogEngine.Core.Data
 {

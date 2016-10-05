@@ -2,9 +2,6 @@
 using System.Text;
 using System.Globalization;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Collections.Generic;
-using System.IO;
 
 namespace BlogEngine.Core.Web.Scripting
 {

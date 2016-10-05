@@ -1,8 +1,6 @@
 ﻿namespace BlogEngine.Core
 {
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
 
     /// <summary>
     /// The role class.
