@@ -121,7 +121,7 @@
             {
                 if (!Blog.CurrentInstance.IsPrimary && SubBlogEnabled)
                 {
-                    if (!settings.Any(xset => xset.BlogId == Blog.CurrentInstance.Id))
+                    if (settings.All(xset => xset.BlogId != Blog.CurrentInstance.Id))
                     {
                         var primId = Blog.Blogs.FirstOrDefault(b => b.IsPrimary).BlogId;
 
@@ -155,7 +155,7 @@
 
                 if (!Blog.CurrentInstance.IsPrimary && SubBlogEnabled)
                 {
-                    if (!settings.Any(xset => xset.BlogId == Blog.CurrentInstance.Id))
+                    if (settings.All(xset => xset.BlogId != Blog.CurrentInstance.Id))
                     {
                         List<ExtensionSettings> newSets = GenericHelper<List<ExtensionSettings>>.Copy(
                             settings.Where(setItem => setItem.BlogId == primId || setItem.BlogId == null).ToList());

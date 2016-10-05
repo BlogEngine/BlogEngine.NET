@@ -26,11 +26,11 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.EditOtherUsersPosts))
                 postList = postList.Where(p => p.Author.ToLower() == Security.CurrentUser.Identity.Name.ToLower()).ToList();
 
-            stats.PublishedPostsCount = postList.Where(p => p.IsPublished == true).Count();
-            stats.DraftPostsCount = postList.Where(p => p.IsPublished == false).Count();
+            stats.PublishedPostsCount = postList.Count(p => p.IsPublished == true);
+            stats.DraftPostsCount = postList.Count(p => p.IsPublished == false);
 
-            stats.PublishedPagesCount = Page.Pages.Where(p => p.IsPublished == true && p.IsDeleted == false).Count();
-            stats.DraftPagesCount = Page.Pages.Where(p => p.IsPublished == false && p.IsDeleted == false).Count();
+            stats.PublishedPagesCount = Page.Pages.Count(p => p.IsPublished == true && p.IsDeleted == false);
+            stats.DraftPagesCount = Page.Pages.Count(p => p.IsPublished == false && p.IsDeleted == false);
             
             CountComments(stats);
 
@@ -70,9 +70,9 @@ namespace BlogEngine.Core.Data
                     if (post.Author.ToLower() != Security.CurrentUser.Identity.Name.ToLower())
                         continue;
 
-                stats.PublishedCommentsCount += post.Comments.Where(c => c.IsPublished == true && c.IsDeleted == false).Count();
-                stats.UnapprovedCommentsCount += post.Comments.Where(c => c.IsPublished == false && c.IsSpam == false && c.IsDeleted == false).Count();
-                stats.SpamCommentsCount += post.Comments.Where(c => c.IsPublished == false && c.IsSpam == true && c.IsDeleted == false).Count();
+                stats.PublishedCommentsCount += post.Comments.Count(c => c.IsPublished == true && c.IsDeleted == false);
+                stats.UnapprovedCommentsCount += post.Comments.Count(c => c.IsPublished == false && c.IsSpam == false && c.IsDeleted == false);
+                stats.SpamCommentsCount += post.Comments.Count(c => c.IsPublished == false && c.IsSpam == true && c.IsDeleted == false);
             }
         }
 

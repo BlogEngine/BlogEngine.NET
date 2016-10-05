@@ -449,7 +449,7 @@ namespace BlogEngine.Core.Packaging
         /// <returns>Version number</returns>
         public static string GetInstalledVersion(string pkgId)
         {
-            var pkg = BlogService.InstalledFromGalleryPackages().Where(p => p.PackageId == pkgId).FirstOrDefault();
+            var pkg = BlogService.InstalledFromGalleryPackages().FirstOrDefault(p => p.PackageId == pkgId);
             return pkg == null ? "" : pkg.Version;
         }
 

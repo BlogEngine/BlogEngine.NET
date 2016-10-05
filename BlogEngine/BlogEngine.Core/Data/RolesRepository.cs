@@ -53,7 +53,7 @@ namespace BlogEngine.Core.Data
             var roles = new List<Data.Models.RoleItem>();
             roles.AddRange(System.Web.Security.Roles.GetAllRoles().Select(r => new Data.Models.RoleItem { RoleName = r, IsSystemRole = Security.IsSystemRole(r) }));
 
-            return roles.Where(r => r.RoleName.ToLower() == id.ToLower()).FirstOrDefault();
+            return roles.FirstOrDefault(r => r.RoleName.ToLower() == id.ToLower());
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.EditRoles))
                 throw new System.UnauthorizedAccessException();
 
-            var updateRole = System.Web.Security.Roles.GetAllRoles().Where(r => r.ToString() == oldRole).FirstOrDefault();
+            var updateRole = Roles.GetAllRoles().FirstOrDefault(r => r.ToString() == oldRole);
 
             if (updateRole == null)
                 throw new ApplicationException("Role not found");
@@ -172,7 +172,7 @@ namespace BlogEngine.Core.Data
 
                     var category = rightDetails == null ? RightCategory.General : rightDetails.Category;             
 
-                    var group = groups.Where(g => g.Title == category.ToString()).FirstOrDefault();
+                    var group = groups.FirstOrDefault(g => g.Title == category.ToString());
 
                     var prm = new Permission();
                     var rt = Right.GetRightByName(right.ToString());

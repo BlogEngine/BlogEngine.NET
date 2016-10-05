@@ -52,7 +52,7 @@ namespace BlogEngine.Core.Data
             if (!(Blog.CurrentInstance.IsPrimary && Security.IsAdministrator))
                 throw new UnauthorizedAccessException();
 
-            var blog = Blog.Blogs.Where(b => b.Id == id).FirstOrDefault();
+            var blog = Blog.Blogs.FirstOrDefault(b => b.Id == id);
             return ToJson(blog);
         }
 
@@ -92,7 +92,7 @@ namespace BlogEngine.Core.Data
                 throw new UnauthorizedAccessException();
             try
             {
-                var coreBlog = Blog.Blogs.Where(b => b.Id == blog.Id).FirstOrDefault();
+                var coreBlog = Blog.Blogs.FirstOrDefault(b => b.Id == blog.Id);
                 return Save(coreBlog, blog);
             }
             catch (Exception)
@@ -113,7 +113,7 @@ namespace BlogEngine.Core.Data
                 throw new UnauthorizedAccessException();
             try
             {
-                var blog = Blog.Blogs.Where(b => b.Id == id).FirstOrDefault();
+                var blog = Blog.Blogs.FirstOrDefault(b => b.Id == id);
                 blog.Delete();
                 blog.Save();
                 return true;

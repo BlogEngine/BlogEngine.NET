@@ -141,7 +141,7 @@ namespace BlogEngine.Core.Data.Services
             jc.Title = c.Teaser.Length < 80 ? c.Teaser : c.Teaser.Substring(0, 80) + "...";
             jc.DateCreated = c.DateCreated.ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             jc.RelativeLink = c.RelativeLink;
-            jc.HasChildren = postComments.Where(pc => pc.ParentId == c.Id).FirstOrDefault() != null;
+            jc.HasChildren = postComments.FirstOrDefault(pc => pc.ParentId == c.Id) != null;
             jc.Avatar = Gravatar(c);
             return jc;
         }
@@ -223,7 +223,7 @@ namespace BlogEngine.Core.Data.Services
             if (id == null || id == Guid.Empty)
                 return null;
 
-            var item = Category.Categories.Where(c => c.Id == id).FirstOrDefault();
+            var item = Category.Categories.FirstOrDefault(c => c.Id == id);
             return new SelectOption { OptionName = item.Title, OptionValue = item.Id.ToString() };
         }
 

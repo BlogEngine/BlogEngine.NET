@@ -42,7 +42,7 @@ namespace BlogEngine.Core.Data
             // add categories without posts
             foreach (var c in Category.Categories)
             {
-                var x = items.Where(i => i.Id == c.Id).FirstOrDefault();
+                var x = items.FirstOrDefault(i => i.Id == c.Id);
                 if (x == null)
                     items.Add(new CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 0 });
             }
@@ -87,11 +87,11 @@ namespace BlogEngine.Core.Data
             // add categories without posts
             foreach (var c in Category.Categories)
             {
-                var x = items.Where(i => i.Id == c.Id).FirstOrDefault();
+                var x = items.FirstOrDefault(i => i.Id == c.Id);
                 if (x == null)
                     items.Add(new CategoryItem { Id = c.Id, Parent = OptionById(c.Parent), Title = c.Title, Description = c.Description, Count = 0 });
             }
-            return items.Where(c => c.Id == id).FirstOrDefault();
+            return items.FirstOrDefault(c => c.Id == id);
         }
         /// <summary>
         /// Add new item
