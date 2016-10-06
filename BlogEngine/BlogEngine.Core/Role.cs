@@ -45,7 +45,7 @@
         {
             if (userNames == null)
             {
-                throw new System.ArgumentNullException("userNames");
+                throw new System.ArgumentNullException(nameof(userNames));
             }
             else
             {

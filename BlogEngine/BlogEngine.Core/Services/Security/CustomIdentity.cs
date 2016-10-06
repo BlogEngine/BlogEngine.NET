@@ -59,10 +59,10 @@
         public CustomIdentity(string username, string password)
         {
             if (String.IsNullOrWhiteSpace(username))
-                throw new ArgumentNullException("username");
+                throw new ArgumentNullException(nameof(username));
 
             if (String.IsNullOrWhiteSpace(password))
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
 
             if (!Membership.ValidateUser(username, password)) { return; }
 

@@ -72,7 +72,7 @@ namespace BlogEngine.Core.Compilation
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             return value.Substring(value.LastIndexOf(last) + last.Length);
@@ -94,12 +94,12 @@ namespace BlogEngine.Core.Compilation
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             if (last == null)
             {
-                throw new ArgumentNullException("last");
+                throw new ArgumentNullException(nameof(last));
             }
 
             return value.Substring(0, value.LastIndexOf(last));
@@ -124,7 +124,7 @@ namespace BlogEngine.Core.Compilation
         {
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             var start = value.IndexOf(startText, StringComparison.OrdinalIgnoreCase) + startText.Length;

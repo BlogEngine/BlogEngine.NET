@@ -349,7 +349,7 @@ namespace BlogEngine.Core
         {
             if (String.IsNullOrWhiteSpace(roleName))
             {
-                throw new ArgumentNullException("roleName");
+                throw new ArgumentNullException(nameof(roleName));
             }
             else
             {
@@ -375,7 +375,7 @@ namespace BlogEngine.Core
         {
             if (String.IsNullOrWhiteSpace(rightName))
             {
-                throw new ArgumentNullException("rightName");
+                throw new ArgumentNullException(nameof(rightName));
             }
             else
             {
@@ -439,7 +439,7 @@ namespace BlogEngine.Core
         {
             if (roles == null)
             {
-                throw new ArgumentNullException("roles");
+                throw new ArgumentNullException(nameof(roles));
             }
             else if (!roles.Any())
             {
@@ -473,7 +473,7 @@ namespace BlogEngine.Core
         {
             if (roles == null)
             {
-                throw new ArgumentNullException("roles");
+                throw new ArgumentNullException(nameof(roles));
             }
             else if (!roles.Any())
             {
