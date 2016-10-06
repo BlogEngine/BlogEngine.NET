@@ -1,7 +1,5 @@
-﻿using BlogEngine.Core.Data.Models;
-using BlogEngine.Tests.Fakes;
+﻿using BlogEngine.Tests.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Net;
 
 namespace BlogEngine.Tests.WebApi
 {

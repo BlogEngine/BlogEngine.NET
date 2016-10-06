@@ -1,7 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using System.Web;
-using System.Web.Security;
 
 namespace BlogEngine.Core.Data.Services
 {

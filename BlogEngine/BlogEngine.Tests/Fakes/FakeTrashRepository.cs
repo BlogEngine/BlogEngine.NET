@@ -1,7 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
 using System;
-using System.Collections.Generic;
 
 namespace BlogEngine.Tests.Fakes
 {

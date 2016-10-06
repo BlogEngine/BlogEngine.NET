@@ -6,7 +6,6 @@
     using System.Globalization;
     using System.Linq;
     using System.Reflection;
-    using System.Threading;
 
     using BlogEngine.Core.Web.Extensions;
 

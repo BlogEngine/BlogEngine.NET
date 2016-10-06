@@ -4,8 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Xml.Serialization;
-    using System.Reflection;
-    using System.Web.Hosting;
     using System.IO;
     using System.Runtime.Serialization.Formatters.Binary;
 

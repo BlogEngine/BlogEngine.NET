@@ -7,7 +7,6 @@
     using System.Linq;
     using System.Reflection;
     using System.Web;
-    using System.Web.Hosting;
     using System.Xml.Serialization;
 
     using BlogEngine.Core.Web.Controls;

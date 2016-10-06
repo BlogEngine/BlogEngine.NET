@@ -1,7 +1,6 @@
 ﻿namespace BlogEngine.Core.Web.HttpHandlers
 {
     using System;
-    using System.IO;
     using System.Web;
     using BlogEngine.Core.Providers;
 

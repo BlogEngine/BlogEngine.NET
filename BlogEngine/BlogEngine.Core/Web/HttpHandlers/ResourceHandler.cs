@@ -8,7 +8,6 @@ namespace BlogEngine.Core.Web.HttpHandlers
     using System.Web;
     using System.Web.Caching;
     using HttpModules;
-    using System.Linq;
 
     /// <summary>
     /// Removes whitespace in all stylesheets added to the 
