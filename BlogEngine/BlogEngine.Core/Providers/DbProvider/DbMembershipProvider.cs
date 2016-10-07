@@ -509,7 +509,7 @@
         {
             if (email == null)
             {
-                throw new ArgumentNullException("email");
+                throw new ArgumentNullException(nameof(email));
             }
 
             string userName = null;
@@ -550,7 +550,7 @@
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (string.IsNullOrEmpty(name))

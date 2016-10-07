@@ -53,7 +53,7 @@
         {
             if (services == null)
             {
-                throw new ArgumentNullException("services");
+                throw new ArgumentNullException(nameof(services));
             }
 
             var fileName = this.Folder + "pingservices.xml";

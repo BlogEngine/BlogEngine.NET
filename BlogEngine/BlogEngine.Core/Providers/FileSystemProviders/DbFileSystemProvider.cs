@@ -38,7 +38,7 @@ namespace BlogEngine.Core.Providers
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (String.IsNullOrEmpty(name))

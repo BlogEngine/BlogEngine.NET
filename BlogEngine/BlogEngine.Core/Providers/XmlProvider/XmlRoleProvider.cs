@@ -272,7 +272,7 @@
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (string.IsNullOrEmpty(name))
@@ -413,7 +413,7 @@
         {
             if (String.IsNullOrWhiteSpace(roleName))
             {
-                throw new ArgumentNullException("roleName");
+                throw new ArgumentNullException(nameof(roleName));
             }
             else
             {

@@ -537,7 +537,7 @@
         {
             if (providerUserKey == null)
             {
-                throw new ArgumentNullException("providerUserKey");
+                throw new ArgumentNullException(nameof(providerUserKey));
             }
 
             var doc = new XmlDocument();
@@ -565,7 +565,7 @@
         {
             if (email == null)
             {
-                throw new ArgumentNullException("email");
+                throw new ArgumentNullException(nameof(email));
             }
 
             var doc = new XmlDocument();
@@ -594,7 +594,7 @@
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (string.IsNullOrEmpty(name))

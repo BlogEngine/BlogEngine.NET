@@ -514,7 +514,7 @@
         {
             if (String.IsNullOrEmpty(relativeUri))
             {
-                throw new ArgumentNullException("relativeUri");
+                throw new ArgumentNullException(nameof(relativeUri));
             }
 
             var absolute = AbsoluteWebRoot.ToString();
@@ -1031,7 +1031,7 @@
         {
             if (control == null)
             {
-                throw new ArgumentNullException("control");
+                throw new ArgumentNullException(nameof(control));
             }
 
             using (var sWriter = new System.IO.StringWriter())
@@ -1108,7 +1108,7 @@
             int intPort = BlogSettings.Instance.SmtpServerPort;
 
             if (message == null)
-                throw new ArgumentNullException("message");
+                throw new ArgumentNullException(nameof(message));
 
             try
             {

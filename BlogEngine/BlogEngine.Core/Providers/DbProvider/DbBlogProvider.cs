@@ -52,7 +52,7 @@ namespace BlogEngine.Core.Providers
         {
             if (config == null)
             {
-                throw new ArgumentNullException("config");
+                throw new ArgumentNullException(nameof(config));
             }
 
             if (String.IsNullOrEmpty(name))
@@ -1989,7 +1989,7 @@ namespace BlogEngine.Core.Providers
         {
             if (services == null)
             {
-                throw new ArgumentNullException("services");
+                throw new ArgumentNullException(nameof(services));
             }
 
             using (var conn = this.CreateConnection())
@@ -2075,7 +2075,7 @@ namespace BlogEngine.Core.Providers
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             // Save
@@ -2195,7 +2195,7 @@ namespace BlogEngine.Core.Providers
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             using (var conn = this.CreateConnection())
@@ -2288,7 +2288,7 @@ namespace BlogEngine.Core.Providers
         {
             if (rights == null)
             {
-                throw new ArgumentNullException("rights");
+                throw new ArgumentNullException(nameof(rights));
             }
 
             using (var conn = this.CreateConnection())

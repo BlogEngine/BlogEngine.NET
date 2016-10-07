@@ -84,12 +84,12 @@ namespace BlogEngine.Core
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             if (categories == null)
             {
-                throw new ArgumentNullException("categories");
+                throw new ArgumentNullException(nameof(categories));
             }
 
             // ------------------------------------------------------------
@@ -168,7 +168,7 @@ namespace BlogEngine.Core
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException(nameof(value));
                 }
                 
                 this.blogSettings = value;
@@ -243,12 +243,12 @@ namespace BlogEngine.Core
         {
             if (stream == null)
             {
-                throw new ArgumentNullException("stream");
+                throw new ArgumentNullException(nameof(stream));
             }
 
             if (publishables == null)
             {
-                throw new ArgumentNullException("publishables");
+                throw new ArgumentNullException(nameof(publishables));
             }
 
             if (!stream.CanWrite)

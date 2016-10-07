@@ -242,7 +242,7 @@ namespace BlogEngine.NET.App_Start
         static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
         {
             if (ignoreList == null)
-                throw new ArgumentNullException("ignoreList");
+                throw new ArgumentNullException(nameof(ignoreList));
 
             ignoreList.Ignore("*.intellisense.js");
             ignoreList.Ignore("*-vsdoc.js");
