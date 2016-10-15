@@ -1,4 +1,6 @@
-﻿namespace BlogEngine.Core.Web.Controls
+﻿using System.IO;
+
+namespace BlogEngine.Core.Web.Controls
 {
     using System;
     using System.Web;
@@ -256,34 +258,39 @@
         /// <returns>Path to the master page</returns>
         string GetSiteMaster()
         {
-            if (Request.FilePath.Contains("post.aspx", StringComparison.InvariantCultureIgnoreCase))
+            if(FilePathContains("post.aspx"))
             {
                 string path = $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/{BlogSettings.Instance.Theme}/post.master";
-                if (System.IO.File.Exists(Server.MapPath(path)))
+                if (File.Exists(Server.MapPath(path)))
                     return path;
             }
 
             // if page.master exists, use it for all common pages
             // and site.master only for post list
-            if (Request.FilePath.Contains("page.aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                Request.FilePath.Contains("archive.aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                Request.FilePath.Contains("contact.aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                Request.FilePath.Contains("error.aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                Request.FilePath.Contains("error404.aspx", StringComparison.InvariantCultureIgnoreCase) ||
-                Request.FilePath.Contains("search.aspx", StringComparison.InvariantCultureIgnoreCase))
+            if (PageMasterExists)
             {
                 string path = $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/{BlogSettings.Instance.Theme}/page.master";
-                if (System.IO.File.Exists(Server.MapPath(path)))
+                if (File.Exists(Server.MapPath(path)))
                     return path;
             }
 
             var siteMaster = $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/{BlogSettings.Instance.GetThemeWithAdjustments(null)}/site.master";
 
-            if (System.IO.File.Exists(Server.MapPath(siteMaster)))
-                return siteMaster;
-            else
-                return $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/Standard/site.master";
+            return File.Exists(Server.MapPath(siteMaster))
+                ? siteMaster
+                : $"{Utils.ApplicationRelativeWebRoot}Custom/Themes/Standard/site.master";
+        }
 
+        private bool PageMasterExists => FilePathContains("page.aspx") ||
+                                FilePathContains("archive.aspx") ||
+                                FilePathContains("contact.aspx") ||
+                                FilePathContains("error.aspx") ||
+                                FilePathContains("error404.aspx") ||
+                                FilePathContains("search.aspx");
+
+        private bool FilePathContains(string path)
+        {
+            return Request.FilePath.Contains(path, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
