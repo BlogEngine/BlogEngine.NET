@@ -87,6 +87,7 @@ namespace BlogEngine.Core.Data.Services
         private void SortList()
         {
             var dic = CreateRawList();
+            if (dic.IsEmpty()) return;
             var max = dic.Values.Max();
 
             var currentTagCount = 0;
