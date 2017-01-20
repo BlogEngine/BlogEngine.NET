@@ -269,6 +269,7 @@
             }
 
             page.Title = mwaPage.title;
+            page.PageTitle = mwaPage.pagetitle;
             page.Content = mwaPage.description;
             page.Keywords = mwaPage.mt_keywords;
             page.ShowInList = publish;
@@ -325,6 +326,7 @@
 
             post.Author = author;
             post.Title = sentPost.title;
+            post.PageTitle = sentPost.pagetitle;
             post.Content = sentPost.description;
             post.IsPublished = publish;
             post.Slug = sentPost.slug;
@@ -508,6 +510,7 @@
 
             sendPage.pageID = page.Id.ToString();
             sendPage.title = page.Title;
+            sendPage.pagetitle = page.PageTitle;
             sendPage.description = page.Content;
             sendPage.mt_keywords = page.Keywords;
             sendPage.pageDate = page.DateCreated;
@@ -569,6 +572,7 @@
             sendPost.postID = post.Id.ToString();
             sendPost.postDate = post.DateCreated;
             sendPost.title = post.Title;
+            sendPost.pagetitle = post.PageTitle;
             sendPost.description = post.Content;
             sendPost.link = post.AbsoluteLink.AbsoluteUri;
             sendPost.slug = post.Slug;
@@ -620,7 +624,7 @@
             foreach (var post in posts.GetRange(0, stop))
             {
                 var tempPost = new MWAPost
-                    {
+                {
                         postID = post.Id.ToString(),
                         postDate = post.DateCreated,
                         title = post.Title,
@@ -816,6 +820,7 @@
             var page = new Page
                 {
                     Title = mwaPage.title,
+                    PageTitle = mwaPage.pagetitle,
                     Content = mwaPage.description,
                     Description = string.Empty,
                     Keywords = mwaPage.mt_keywords
@@ -880,6 +885,7 @@
                 {
                     Author = author,
                     Title = sentPost.title,
+                    PageTitle = sentPost.pagetitle,
                     Content = sentPost.description,
                     IsPublished = publish,
                     Slug = sentPost.slug,

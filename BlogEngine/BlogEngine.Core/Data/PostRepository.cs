@@ -144,6 +144,7 @@ namespace BlogEngine.Core.Data
         static void Save(Post post, PostDetail detail)
         {
             post.Title = detail.Title;
+            post.PageTitle = detail.PageTitle;
             post.Author = string.IsNullOrEmpty(detail.Author) ? Security.CurrentUser.Identity.Name : detail.Author;
             post.Description = GetDescription(detail.Description, detail.Content);
             post.Content = detail.Content;

@@ -72,6 +72,11 @@
         /// </summary>
         public string title;
 
+        /// <summary>
+        ///     PageTitle of Blog Post
+        /// </summary>
+        public string pagetitle;
+
         #endregion
     }
 }

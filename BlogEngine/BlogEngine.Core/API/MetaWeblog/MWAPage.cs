@@ -49,6 +49,11 @@
         /// </summary>
         public string title;
 
+        /// <summary>
+        ///     PageTitle of Blog Page
+        /// </summary>
+        public string pagetitle;
+
         #endregion
     }
 }

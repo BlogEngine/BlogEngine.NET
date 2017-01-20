@@ -78,6 +78,7 @@
                 writer.WriteStartElement("page");
 
                 writer.WriteElementString("title", page.Title);
+                writer.WriteElementString("pagetitle", page.PageTitle);
                 writer.WriteElementString("description", page.Description);
                 writer.WriteElementString("content", page.Content);
                 writer.WriteElementString("keywords", page.Keywords);
@@ -117,6 +118,11 @@
                     Content = doc.SelectSingleNode("page/content").InnerText,
                     Keywords = doc.SelectSingleNode("page/keywords").InnerText
                 };
+
+            if (doc.SelectSingleNode("page/pagetitle") != null)
+            {
+                page.PageTitle = doc.SelectSingleNode("page/pagetitle").InnerText;
+            }
 
             if (doc.SelectSingleNode("page/slug") != null)
             {

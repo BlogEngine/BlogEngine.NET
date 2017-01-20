@@ -108,6 +108,7 @@
                 writer.WriteStartElement("post");
                 writer.WriteElementString("author", post.Author);
                 writer.WriteElementString("title", post.Title);
+                writer.WriteElementString("pagetitle", post.PageTitle);
                 writer.WriteElementString("description", post.Description);
                 writer.WriteElementString("content", post.Content);
                 writer.WriteElementString("ispublished", post.IsPublished.ToString());
@@ -223,6 +224,11 @@
             post.Title = doc.SelectSingleNode("post/title").InnerText;
             post.Description = doc.SelectSingleNode("post/description").InnerText;
             post.Content = doc.SelectSingleNode("post/content").InnerText;
+
+            if (doc.SelectSingleNode("post/pagetitle") != null)
+            {
+                post.PageTitle = doc.SelectSingleNode("post/pagetitle").InnerText;
+            }
 
             if (doc.SelectSingleNode("post/pubDate") != null)
             {

@@ -2,6 +2,7 @@
 <post>
   <author>[Author]</author>
   <title>[Title]</title>
+  <pagetitle>[PageTitle]</pagetitle>
   <description>The description is used as the meta description as well as shown in the related posts. It is recommended that you write a description, but not mandatory</description>
   <content>[Post]</content>
   <ispublished>True</ispublished>

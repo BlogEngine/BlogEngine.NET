@@ -1196,6 +1196,9 @@
   <data name="slug" xml:space="preserve">
     <value>Slug (optional)</value>
   </data>
+  <data name="pageTitle" xml:space="preserve">
+    <value>PageTitle (optional)</value>
+  </data>
   <data name="specifyPingService" xml:space="preserve">
     <value>Please specify a ping service</value>
   </data>

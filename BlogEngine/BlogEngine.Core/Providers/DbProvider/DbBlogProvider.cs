@@ -485,8 +485,8 @@ namespace BlogEngine.Core.Providers
 
                     // be_Pages
                     using (var cmd = conn.CreateTextCommand(string.Format(
-                        " INSERT INTO {0}Pages ( BlogID, PageID, Title, Description, PageContent, Keywords, DateCreated, DateModified, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder) " +
-                        " SELECT {1}newblogid, PageID, Title, Description, PageContent, Keywords, DateCreated, DateModified, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder " +
+                        " INSERT INTO {0}Pages ( BlogID, PageID, Title, PageTitle, Description, PageContent, Keywords, DateCreated, DateModified, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder) " +
+                        " SELECT {1}newblogid, PageID, Title, PageTitle, Description, PageContent, Keywords, DateCreated, DateModified, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder " +
                         " FROM {0}Pages " +
                         " WHERE BlogID = {1}existingblogid ", this.tablePrefix, this.parmPrefix)))
                     {
@@ -581,8 +581,8 @@ namespace BlogEngine.Core.Providers
 
                     // be_Posts
                     using (var cmd = conn.CreateTextCommand(string.Format(
-                        " INSERT INTO {0}Posts ( BlogId, PostID, Title, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted ) " +
-                        " SELECT {1}newblogid, PostID, Title, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted " +
+                        " INSERT INTO {0}Posts ( BlogId, PostID, Title, PageTitle, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted ) " +
+                        " SELECT {1}newblogid, PostID, Title, PageTitle, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted " +
                         " FROM {0}Posts " +
                         " WHERE BlogID = {1}existingblogid ", this.tablePrefix, this.parmPrefix)))
                     {
@@ -927,7 +927,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("SELECT PostID, Title, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted FROM {0}Posts WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("SELECT PostID, Title, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted, PageTitle FROM {0}Posts WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
@@ -981,6 +981,11 @@ namespace BlogEngine.Core.Providers
                                 if (!rdr.IsDBNull(12))
                                 {
                                     post.IsDeleted = rdr.GetBoolean(12);
+                                }
+
+                                if (!rdr.IsDBNull(13))
+                                {
+                                    post.PageTitle = rdr.GetString(13);
                                 }
                             }
                         }
@@ -1118,7 +1123,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (conn.HasConnection)
                     {
-                        var sqlQuery = string.Format("INSERT INTO {0}Posts (BlogID, PostID, Title, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted) VALUES ({1}blogid, {1}id, {1}title, {1}desc, {1}content, {1}created, {1}modified, {1}author, {1}published, {1}commentEnabled, {1}raters, {1}rating, {1}slug, {1}isdeleted)", this.tablePrefix, this.parmPrefix);
+                        var sqlQuery = string.Format("INSERT INTO {0}Posts (BlogID, PostID, Title, PageTitle, Description, PostContent, DateCreated, DateModified, Author, IsPublished, IsCommentEnabled, Raters, Rating, Slug, IsDeleted) VALUES ({1}blogid, {1}id, {1}title, {1}pagetitle, {1}desc, {1}content, {1}created, {1}modified, {1}author, {1}published, {1}commentEnabled, {1}raters, {1}rating, {1}slug, {1}isdeleted)", this.tablePrefix, this.parmPrefix);
                         var blogId = post.BlogId == Guid.Empty ? Blog.CurrentInstance.Id : post.BlogId;
 
                         using (var cmd = conn.CreateTextCommand(sqlQuery))
@@ -1128,6 +1133,7 @@ namespace BlogEngine.Core.Providers
                             parms.Add(conn.CreateParameter(FormatParamName("blogid"), blogId.ToString()));
                             parms.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
                             parms.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
+                            parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle));
                             parms.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
                             parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(post.DateCreated)));
@@ -1174,7 +1180,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (conn.HasConnection)
                     {
-                        var sqlQuery = string.Format("UPDATE {0}Posts SET Title = {1}title, Description = {1}desc, PostContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Author = {1}Author, IsPublished = {1}published, IsCommentEnabled = {1}commentEnabled, Raters = {1}raters, Rating = {1}rating, Slug = {1}slug, IsDeleted = {1}isdeleted WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
+                        var sqlQuery = string.Format("UPDATE {0}Posts SET Title = {1}title, SET PageTitle = {1}pagetitle, Description = {1}desc, PostContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Author = {1}Author, IsPublished = {1}published, IsCommentEnabled = {1}commentEnabled, Raters = {1}raters, Rating = {1}rating, Slug = {1}slug, IsDeleted = {1}isdeleted WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
 
                         using (var cmd = conn.CreateTextCommand(sqlQuery))
                         {
@@ -1184,6 +1190,7 @@ namespace BlogEngine.Core.Providers
                             p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                             p.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
                             p.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
+                            p.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle));
                             p.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
                             p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(post.DateCreated)));
@@ -1330,7 +1337,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("SELECT PageID, Title, Description, PageContent, DateCreated, DateModified, Keywords, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder FROM {0}Pages WHERE BlogID = {1}blogid AND PageID = {1}id", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("SELECT PageID, Title, Description, PageContent, DateCreated, DateModified, Keywords, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder, PageTitle FROM {0}Pages WHERE BlogID = {1}blogid AND PageID = {1}id", this.tablePrefix, this.parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -1394,6 +1401,11 @@ namespace BlogEngine.Core.Providers
                                 {
                                     page.SortOrder = rdr.GetInt32(13);
                                 }
+
+                                if (!rdr.IsDBNull(14))
+                                {
+                                    page.PageTitle = rdr.GetString(14);
+                                }
                             }
                         }
                     }
@@ -1415,7 +1427,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("INSERT INTO {0}Pages (BlogID, PageID, Title, Description, PageContent, DateCreated, DateModified, Keywords, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder) VALUES ({1}blogid, {1}id, {1}title, {1}desc, {1}content, {1}created, {1}modified, {1}keywords, {1}ispublished, {1}isfrontpage, {1}parent, {1}showinlist, {1}slug, {1}isdeleted, {1}sortorder)", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("INSERT INTO {0}Pages (BlogID, PageID, Title, PageTitle, Description, PageContent, DateCreated, DateModified, Keywords, IsPublished, IsFrontPage, Parent, ShowInList, Slug, IsDeleted, SortOrder) VALUES ({1}blogid, {1}id, {1}title, {1}pagetitle, {1}desc, {1}content, {1}created, {1}modified, {1}keywords, {1}ispublished, {1}isfrontpage, {1}parent, {1}showinlist, {1}slug, {1}isdeleted, {1}sortorder)", this.tablePrefix, this.parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -1424,6 +1436,7 @@ namespace BlogEngine.Core.Providers
                         parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("id"), page.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
+                        parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle));
                         parms.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         parms.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
                         parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(page.DateCreated)));
@@ -1455,7 +1468,7 @@ namespace BlogEngine.Core.Providers
             {
                 if (conn.HasConnection)
                 {
-                    var sqlQuery = string.Format("UPDATE {0}Pages SET Title = {1}title, Description = {1}desc, PageContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Keywords = {1}keywords, IsPublished = {1}ispublished, IsFrontPage = {1}isfrontpage, Parent = {1}parent, ShowInList = {1}showinlist, Slug = {1}slug, IsDeleted = {1}isdeleted, SortOrder = {1}sortorder WHERE BlogID = {1}blogid AND PageID = {1}id", this.tablePrefix, this.parmPrefix);
+                    var sqlQuery = string.Format("UPDATE {0}Pages SET Title = {1}title, PageTitle = {1}pagetitle, Description = {1}desc, PageContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Keywords = {1}keywords, IsPublished = {1}ispublished, IsFrontPage = {1}isfrontpage, Parent = {1}parent, ShowInList = {1}showinlist, Slug = {1}slug, IsDeleted = {1}isdeleted, SortOrder = {1}sortorder WHERE BlogID = {1}blogid AND PageID = {1}id", this.tablePrefix, this.parmPrefix);
 
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
@@ -1464,6 +1477,7 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         p.Add(conn.CreateParameter(FormatParamName("id"), page.Id.ToString()));
                         p.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
+                        p.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle));
                         p.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         p.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
                         p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(page.DateCreated)));

@@ -135,6 +135,7 @@ namespace BlogEngine.Core.Data
         static bool Save(Page page, PageDetail detail)
         {
             page.Title = detail.Title;
+            page.PageTitle = detail.PageTitle;
             page.DateCreated = DateTime.ParseExact(detail.DateCreated, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             page.IsPublished = detail.IsPublished;
             page.ShowInList = detail.ShowInList;

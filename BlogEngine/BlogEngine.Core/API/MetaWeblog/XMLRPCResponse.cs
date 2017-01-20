@@ -544,6 +544,14 @@
             data.WriteEndElement();
             data.WriteEndElement();
 
+            // title
+            data.WriteStartElement("member");
+            data.WriteElementString("name", "pagetitle");
+            data.WriteStartElement("value");
+            data.WriteElementString("string", this.Page.pagetitle);
+            data.WriteEndElement();
+            data.WriteEndElement();
+
             // description
             data.WriteStartElement("member");
             data.WriteElementString("name", "description");
@@ -612,6 +620,14 @@
                 data.WriteElementString("name", "title");
                 data.WriteStartElement("value");
                 data.WriteElementString("string", page.title);
+                data.WriteEndElement();
+                data.WriteEndElement();
+
+                // title
+                data.WriteStartElement("member");
+                data.WriteElementString("name", "pagetitle");
+                data.WriteStartElement("value");
+                data.WriteElementString("string", page.pagetitle);
                 data.WriteEndElement();
                 data.WriteEndElement();
 
@@ -694,6 +710,14 @@
             data.WriteElementString("name", "title");
             data.WriteStartElement("value");
             data.WriteElementString("string", this.Post.title);
+            data.WriteEndElement();
+            data.WriteEndElement();
+
+            // pagetitle
+            data.WriteStartElement("member");
+            data.WriteElementString("name", "pagetitle");
+            data.WriteStartElement("value");
+            data.WriteElementString("string", this.Post.pagetitle);
             data.WriteEndElement();
             data.WriteEndElement();
 
@@ -834,6 +858,14 @@
                 data.WriteElementString("name", "title");
                 data.WriteStartElement("value");
                 data.WriteElementString("string", post.title);
+                data.WriteEndElement();
+                data.WriteEndElement();
+
+                // pagetitle
+                data.WriteStartElement("member");
+                data.WriteElementString("name", "pagetitle");
+                data.WriteStartElement("value");
+                data.WriteElementString("string", post.pagetitle);
                 data.WriteEndElement();
                 data.WriteEndElement();
 

@@ -1,6 +1,7 @@
 ﻿var newPost = {
     "Id": "",
     "Title": "Unpublished",
+    "PageTitle": "Unpublished",
     "Author": "Admin",
     "Content": "<p>Type here...</p>",
     "DateCreated": moment().format("MM/DD/YYYY HH:MM"),
@@ -17,6 +18,7 @@ function postVM(data) {
     var self = this;
     self.id = editVars.id;
     self.title = ko.observable(data.Title);
+    self.pagetitle = ko.observable(data.PageTitle)
     self.author = ko.observable(data.Author);
     self.content = ko.observable(data.Content);
     self.dateCreated = ko.observable(data.DateCreated);

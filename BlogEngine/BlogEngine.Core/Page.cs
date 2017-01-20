@@ -44,6 +44,11 @@
         private string description;
 
         /// <summary>
+        /// The _ page title.
+        /// </summary>
+        private string pageTitle;
+
+        /// <summary>
         /// The _ keywords.
         /// </summary>
         private string keywords;
@@ -204,7 +209,7 @@
         }
 
         /// <summary>
-        ///     Gets or sets the Description or the object.
+        ///     Gets or sets the Content or the object.
         /// </summary>
         public string Content
         {
@@ -220,7 +225,7 @@
         }
 
         /// <summary>
-        ///     Gets or sets the Description or the object.
+        ///     Gets or sets the Description or the page.
         /// </summary>
         public string Description
         {
@@ -232,6 +237,22 @@
             set
             {
                 base.SetValue("Description", value, ref this.description);
+            }
+        }
+
+        /// <summary>
+        ///     Gets or sets the Page Title.
+        /// </summary>
+        public string PageTitle
+        {
+            get
+            {
+                return this.pageTitle;
+            }
+
+            set
+            {
+                base.SetValue("PageTitle", value, ref this.pageTitle);
             }
         }
 

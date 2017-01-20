@@ -485,6 +485,7 @@ pageMeta
 pageSource
 PageNotFound
 pages
+pageTitle
 pageUpdated
 parent
 password

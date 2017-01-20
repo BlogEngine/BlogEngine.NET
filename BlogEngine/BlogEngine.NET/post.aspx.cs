@@ -65,7 +65,14 @@ public partial class post : BlogBasePage
                     }
 
                     var settings = BlogSettings.Instance;
-                    string encodedPostTitle = Server.HtmlEncode(Post.Title);
+
+                    string encodedPostTitle = "";
+                    if (!string.IsNullOrEmpty(Post.PageTitle.Trim()))
+                        encodedPostTitle = Server.HtmlEncode(Post.PageTitle);
+                    else
+                        encodedPostTitle = Server.HtmlEncode(Post.Title);
+
+                    
                     string path = Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.GetThemeWithAdjustments(null) + "/PostView.ascx";
 
                     if (!System.IO.File.Exists(Server.MapPath(path)))

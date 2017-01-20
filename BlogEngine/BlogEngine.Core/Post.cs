@@ -72,6 +72,11 @@
         private string description;
 
         /// <summary>
+        /// The _ page title.
+        /// </summary>
+        private string pageTitle;
+
+        /// <summary>
         ///     Whether the post is comments enabled.
         /// </summary>
         private bool hasCommentsEnabled;
@@ -427,6 +432,22 @@
             set
             {
                 base.SetValue("Description", value, ref this.description);
+            }
+        }
+
+        /// <summary>
+        ///     Gets or sets the Page Title.
+        /// </summary>
+        public string PageTitle
+        {
+            get
+            {
+                return this.pageTitle;
+            }
+
+            set
+            {
+                base.SetValue("PageTitle", value, ref this.pageTitle);
             }
         }
 

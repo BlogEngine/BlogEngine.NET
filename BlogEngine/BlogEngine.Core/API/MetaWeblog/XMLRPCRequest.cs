@@ -165,6 +165,9 @@
             {
                 throw new MetaWeblogException("06", "Page Struct Element, Description, not Sent.");
             }
+            
+            var pagetitle = node.SelectSingleNode("value/struct/member[name='pagetitle']");
+            temp.pagetitle = pagetitle.LastChild.InnerText;
 
             temp.description = description.LastChild.InnerText;
 
@@ -230,6 +233,9 @@
             {
                 throw new MetaWeblogException("05", "Page Struct Element, Description, not Sent.");
             }
+
+            var pagetitle = node.SelectSingleNode("value/struct/member[name='pagetitle']");
+            temp.pagetitle = pagetitle.LastChild.InnerText;
 
             temp.description = description.LastChild.InnerText;
 

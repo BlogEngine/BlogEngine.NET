@@ -79,6 +79,10 @@
                             <label class="newpage-widget-title">{{lbl.slug}}</label>
                             <input type="text" class="form-control form-control-sm" id="txtSlug" data-ng-model="page.Slug" />
                         </div>
+                        <div class="newpost-widget">
+                            <label class="newpost-widget-title">{{lbl.pageTitle}}</label>
+                            <input class="form-control form-control-sm" id="txtPageTitle" name="txtPageTitle" autocomplete="off" data-ng-model="page.PageTitle" />
+                        </div>
                         <div class="newpage-widget" data-ng-show="lookups.PageOptions.ShowDescription">
                             <label class="newpage-widget-title" for="txtExcerpt">{{lbl.description}}</label>
                             <textarea class="form-control form-control-sm" rows="4" id="txtExcerpt" data-ng-model="page.Description"> </textarea>

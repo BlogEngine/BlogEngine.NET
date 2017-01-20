@@ -89,7 +89,11 @@ public partial class page : BlogBasePage
         if (Page == null)
             return;
 
-        Title = Server.HtmlEncode(Page.Title);
+        if (!string.IsNullOrEmpty(Page.PageTitle.Trim()))
+            Title = Server.HtmlEncode(Page.PageTitle);
+        else
+            Title = Server.HtmlEncode(Page.Title);
+
         AddMetaTag("keywords", Server.HtmlEncode(Page.Keywords));
 
         var desc = BlogSettings.Instance.Name + " - " + BlogSettings.Instance.Description + " - " + Page.Description;

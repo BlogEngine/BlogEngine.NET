@@ -24,9 +24,13 @@ namespace BlogEngine.Core.Data.Models
         /// </summary>
         public string RelativeLink { get; set; }
         /// <summary>
-        /// Page title
+        /// Page heading
         /// </summary>
         public string Title { get; set; }
+        /// <summary>
+        /// Page title
+        /// </summary>
+        public string PageTitle { get; set; }
         /// <summary>
         /// Page content
         /// </summary>

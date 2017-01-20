@@ -4643,6 +4643,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PageTitle (optional).
+        /// </summary>
+        internal static string pageTitle {
+            get {
+                return ResourceManager.GetString("pageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page updated.
         /// </summary>
         internal static string pageUpdated {
