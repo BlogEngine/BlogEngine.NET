@@ -67,7 +67,7 @@ public partial class post : BlogBasePage
                     var settings = BlogSettings.Instance;
 
                     string encodedPostTitle = "";
-                    if (!string.IsNullOrEmpty(Post.PageTitle.Trim()))
+                    if (post.PageTitle != null && !string.IsNullOrEmpty(Post.PageTitle.Trim()))
                         encodedPostTitle = Server.HtmlEncode(Post.PageTitle);
                     else
                         encodedPostTitle = Server.HtmlEncode(Post.Title);

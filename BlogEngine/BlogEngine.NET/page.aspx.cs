@@ -89,7 +89,7 @@ public partial class page : BlogBasePage
         if (Page == null)
             return;
 
-        if (!string.IsNullOrEmpty(Page.PageTitle.Trim()))
+        if (Page.PageTitle != null && !string.IsNullOrEmpty(Page.PageTitle.Trim()))
             Title = Server.HtmlEncode(Page.PageTitle);
         else
             Title = Server.HtmlEncode(Page.Title);
