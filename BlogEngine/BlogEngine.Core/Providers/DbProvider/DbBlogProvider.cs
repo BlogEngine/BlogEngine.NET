@@ -1180,7 +1180,7 @@ namespace BlogEngine.Core.Providers
                 {
                     if (conn.HasConnection)
                     {
-                        var sqlQuery = string.Format("UPDATE {0}Posts SET Title = {1}title, SET PageTitle = {1}pagetitle, Description = {1}desc, PostContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Author = {1}Author, IsPublished = {1}published, IsCommentEnabled = {1}commentEnabled, Raters = {1}raters, Rating = {1}rating, Slug = {1}slug, IsDeleted = {1}isdeleted WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
+                        var sqlQuery = string.Format("UPDATE {0}Posts SET Title = {1}title, PageTitle = {1}pagetitle, Description = {1}desc, PostContent = {1}content, DateCreated = {1}created, DateModified = {1}modified, Author = {1}Author, IsPublished = {1}published, IsCommentEnabled = {1}commentEnabled, Raters = {1}raters, Rating = {1}rating, Slug = {1}slug, IsDeleted = {1}isdeleted WHERE BlogID = {1}blogid AND PostID = {1}id", this.tablePrefix, this.parmPrefix);
 
                         using (var cmd = conn.CreateTextCommand(sqlQuery))
                         {
