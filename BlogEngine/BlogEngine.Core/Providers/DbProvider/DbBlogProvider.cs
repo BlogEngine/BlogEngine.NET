@@ -1133,7 +1133,7 @@ namespace BlogEngine.Core.Providers
                             parms.Add(conn.CreateParameter(FormatParamName("blogid"), blogId.ToString()));
                             parms.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
                             parms.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
-                            parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle));
+                            parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle ?? string.Empty));
                             parms.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             parms.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
                             parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(post.DateCreated)));
@@ -1190,7 +1190,7 @@ namespace BlogEngine.Core.Providers
                             p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                             p.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
                             p.Add(conn.CreateParameter(FormatParamName("title"), post.Title));
-                            p.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle));
+                            p.Add(conn.CreateParameter(FormatParamName("pagetitle"), post.PageTitle ?? string.Empty));
                             p.Add(conn.CreateParameter(FormatParamName("desc"), (post.Description ?? string.Empty)));
                             p.Add(conn.CreateParameter(FormatParamName("content"), post.Content));
                             p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(post.DateCreated)));
@@ -1436,7 +1436,7 @@ namespace BlogEngine.Core.Providers
                         parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("id"), page.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
-                        parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle));
+                        parms.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle ?? string.Empty));
                         parms.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         parms.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
                         parms.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(page.DateCreated)));
@@ -1477,7 +1477,7 @@ namespace BlogEngine.Core.Providers
                         p.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         p.Add(conn.CreateParameter(FormatParamName("id"), page.Id.ToString()));
                         p.Add(conn.CreateParameter(FormatParamName("title"), page.Title));
-                        p.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle));
+                        p.Add(conn.CreateParameter(FormatParamName("pagetitle"), page.PageTitle ?? string.Empty));
                         p.Add(conn.CreateParameter(FormatParamName("desc"), page.Description));
                         p.Add(conn.CreateParameter(FormatParamName("content"), page.Content));
                         p.Add(conn.CreateParameter(FormatParamName("created"), BlogSettings.Instance.ToUtc(page.DateCreated)));
