@@ -329,10 +329,12 @@
             post.IsPublished = publish;
             post.Slug = sentPost.slug;
             post.Description = sentPost.excerpt;
+
             if (!(sentPost.postDate == DateTime.MinValue))
             {
                 post.DateCreated = sentPost.postDate;
             }
+
             if (sentPost.commentPolicy != string.Empty)
             {
                 post.HasCommentsEnabled = sentPost.commentPolicy == "1";
