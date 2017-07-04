@@ -1,5 +1,5 @@
 ## BlogEngine.NET 源代码说明
-这个代码仓库为BlogEngine.NET提供最新的源码 (https://blogengine.codeplex.com),本人个人发现改引擎不错，故对其进行中文版改进。
+本人个人发现改引擎不错，故对其进行中文版改进。这个代码仓库为BlogEngine.NET提供最新的源码 (https://blogengine.codeplex.com)。
 
 ## 环境说明
   * Visual Studio 2015 Community +，推荐使用Visual Studio Community 2017。
