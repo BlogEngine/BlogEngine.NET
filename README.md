@@ -18,7 +18,7 @@ This is an ideal option that you just need to download and copy BlogEngine files
 1. **[Download](https://github.com/rxtur/BlogEngine.NET/releases/download/3.3.5.0/3350.zip)** and extract zip file on root of your website.
 2. Add write permissions to the `App_Data` and `Custom` folder.
 3. Installation is done.
-4. Navigate to administration of your BlogEngine, for example: `yourblog.com/admin/`
+4. You can navigate to administration by adding `/admin/` to your website's URL, for example: `http://yourblog.com/admin/`
 5. Username: `admin` Password `admin`
 
 
@@ -26,17 +26,17 @@ This is an ideal option that you just need to download and copy BlogEngine files
 This is the developer option. If you are interested is seeing how things work or want to add to the functionality, this is your option.
 
 **Environment**
-  * Visual Studio 2015 Community +
+  * Visual Studio 2015 +
   * ASP.NET 4.5 +
 
 **Steps:**
   1. Clone repository
-  2. Open solution in Visual Studio 2015
+  2. Open solution in Visual Studio 2015 +
   3. Build and run solution to load website in the browser
-  4. Use admin/admin to log into website administration
-
+  4. Navigate to `http://localhost:64079/admin/`
+  5. Username: `admin` Password `admin`
 
 # Screenshot
-More screenshots on [This page](https://francis.bio/BlogEngine/).
+More screenshots on [This page](https://francis.bio/blogengine/).
 
 ![dashboard-3](https://cloud.githubusercontent.com/assets/1932785/11760070/0012f9d8-a052-11e5-84a8-e9097cb85f23.png)
