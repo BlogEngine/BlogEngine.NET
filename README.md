@@ -33,7 +33,7 @@ This is the developer option. If you are interested is seeing how things work or
   1. Clone repository
   2. Open solution in Visual Studio 2015 +
   3. Build and run solution to load website in the browser
-  4. Navigate to `http://localhost:64079/admin/`
+  4. You can navigate to administration on: `http://localhost:64079/admin/`
   5. Username: `admin` Password `admin`
 
 # Screenshot
