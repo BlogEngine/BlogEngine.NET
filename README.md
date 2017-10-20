@@ -1,4 +1,3 @@
-## BlogEngine.NET Source Code
 This repository provides latest source code for BlogEngine.NET project and since Codeplex is shutting down, we don't release any version on Codeplex anymore.
 
 Everything about BlogEngine: https://francis.bio/blogengine/
@@ -9,7 +8,7 @@ There are two download options for BlogEngine.NET:
 
 
 
-## 1. Web Project
+### 1. Web Project
 This is an ideal option that you just need to download and copy BlogEngine files on your website and then everything is ready:
 
 **Requirements:**
@@ -23,7 +22,7 @@ This is an ideal option that you just need to download and copy BlogEngine files
 5. Username: `admin` Password `admin`
 
 
-## 2. Source Code
+### 2. Source Code
 This is the developer option. If you are interested is seeing how things work or want to add to the functionality, this is your option.
 
 **Environment**
@@ -37,7 +36,7 @@ This is the developer option. If you are interested is seeing how things work or
   4. Use admin/admin to log into website administration
 
 
-## Screenshot
+# Screenshot
 More screenshots on [This page](https://francis.bio/BlogEngine/).
 
 ![dashboard-3](https://cloud.githubusercontent.com/assets/1932785/11760070/0012f9d8-a052-11e5-84a8-e9097cb85f23.png)
