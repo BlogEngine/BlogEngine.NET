@@ -37,8 +37,8 @@ function endSendMessage(arg, context) {
     else {
         if ($("#spnCaptchaIncorrect")) $("#spnCaptchaIncorrect").css("display", "none");
 
-        $('[data-id="btnSend').attr("disabled", "");
-        var form = $('[data-id="divForm');
+        $('[data-id="btnSend"]').attr("disabled", "");
+        var form = $('[data-id="divForm"]');
         var thanks = $('#thanks');
 
         form.css("display", "none");
