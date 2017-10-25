@@ -3087,7 +3087,7 @@ namespace BlogEngine.Core.Providers
 
                 var parms = cmd.Parameters;
 
-                cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
+                parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                 parms.Add(conn.CreateParameter(FormatParamName("id"), post.Id.ToString()));
 
                 cmd.ExecuteNonQuery();

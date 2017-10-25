@@ -444,7 +444,7 @@
                     using (var cmd = conn.CreateTextCommand(sqlQuery))
                     {
                         var parms = cmd.Parameters;
-                        cmd.Parameters.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
+                        parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
                         parms.Add(conn.CreateParameter(FormatParamName("name"), username));
                         parms.Add(conn.CreateParameter(FormatParamName("role"), roleName));
                         
