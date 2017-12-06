@@ -8,6 +8,7 @@
     using System.Linq;
     using System.Net.Mail;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Web;
 
     using BlogEngine.Core.Data.Models;
@@ -694,28 +695,27 @@
         }
 
         /// <summary>
-        /// URL of the first image in the post, if any
+        /// URL of the first image in the post, if any.
+        /// If there's no first image, returns the URL to "images/defaultImg.jpg" in the current theme used in the blog
         /// </summary>
         public string FirstImgSrc
         {
             get
             {
-                int idx = Content.IndexOf("<img src=");
-                if (idx > 0)
+                string srcValue = null;
+                if (!string.IsNullOrEmpty(content))
                 {
-                    try
+                    Match match = Regex.Match(content, @"<img\s+?.*?src=('|"")(.*?)\1.*?>", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                    if (match.Success)
                     {
-                        idx = idx + 10;
-                        var idxEnd = Content.IndexOf("\"", idx);
-                        if (idxEnd > idx)
-                        {
-                            var len = idxEnd - idx;
-                            return Content.Substring(idx, len);
-                        }
+                        srcValue = match.Groups[2].Value;
                     }
-                    catch (Exception) { }
                 }
-                return "";
+                if (string.IsNullOrEmpty(srcValue))
+                {
+                    srcValue = Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/defaultImg.jpg";
+                }
+                return srcValue;
             }
         }
 
