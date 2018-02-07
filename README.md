@@ -4,6 +4,10 @@ Everything about BlogEngine: https://francis.bio/blogengine/
 
 
 # Installation
+
+You can setup your BlogEngine with a single click! 
+Take a look at the perfect [BlogEngine hosting solutions](https://www.a2hosting.com/blogengine-net-hosting).
+
 There are two download options for BlogEngine.NET:
 
 
