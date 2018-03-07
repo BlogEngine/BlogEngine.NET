@@ -20,8 +20,8 @@
   <ispublished>True</ispublished>
   <isdeleted>False</isdeleted>
   <iscommentsenabled>True</iscommentsenabled>
-  <pubDate>2015-09-23 20:04:00</pubDate>
-  <lastModified>2015-09-23 21:07:50</lastModified>
+  <pubDate>2015-09-23 12:04:00</pubDate>
+  <lastModified>2018-03-06 04:50:41</lastModified>
   <raters>0</raters>
   <rating>0</rating>
   <slug>welcome-to-blogengine-net</slug>
@@ -31,7 +31,7 @@
   </tags>
   <comments>
     <comment id="61c640cb-7782-4a1d-ab79-25bd4613fc4e" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
-      <date>2015-09-23 21:01:16</date>
+      <date>2015-09-23 13:01:16</date>
       <author>Visitor1</author>
       <email>v1@us.com</email>
       <country />
@@ -40,8 +40,8 @@
       <avatar />
       <content>Comment left by visitor1.</content>
     </comment>
-    <comment id="7a5eac3e-0964-45dd-9b47-6914544450e0" parentid="61c640cb-7782-4a1d-ab79-25bd4613fc4e" approved="False" spam="False" deleted="False">
-      <date>2015-09-23 21:05:26</date>
+    <comment id="7a5eac3e-0964-45dd-9b47-6914544450e0" parentid="61c640cb-7782-4a1d-ab79-25bd4613fc4e" approved="True" spam="False" deleted="False">
+      <date>2015-09-23 13:05:26</date>
       <author>Visitor2</author>
       <email>v2@us.com</email>
       <country />
@@ -49,6 +49,25 @@
       <moderatedby>Rule:authenticated</moderatedby>
       <avatar />
       <content>Reply from visitor2 on comment by visitor1.</content>
+    </comment>
+    <comment id="4b20e728-eacf-4ecd-8dbf-5e3b5ee0c393" parentid="7a5eac3e-0964-45dd-9b47-6914544450e0" approved="True" spam="False" deleted="False">
+      <date>2018-03-06 04:48:22</date>
+      <author>Administrator</author>
+      <email>post@example.com</email>
+      <country />
+      <ip>::1</ip>
+      <moderatedby>Rule:authenticated</moderatedby>
+      <content>Hi Visitor2,
+Welcome</content>
+    </comment>
+    <comment id="c7dfecd2-ae2a-4302-9bd4-d143461794c0" parentid="00000000-0000-0000-0000-000000000000" approved="True" spam="False" deleted="False">
+      <date>2018-03-06 04:49:01</date>
+      <author>Fang</author>
+      <email>fang__zheng@126.com</email>
+      <country />
+      <ip>::1</ip>
+      <avatar />
+      <content>Test comment</content>
     </comment>
   </comments>
   <categories>

@@ -1,13 +1,538 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <page>
   <title>Example page</title>
-  <description />
-  <content>&lt;p&gt;
-This is an example page. 
-&lt;/p&gt;
-&lt;p&gt;
-&amp;nbsp;For more information about pages and how to use them,&amp;nbsp;visit the &lt;a href="http://blogengine.codeplex.com/documentation"&gt;BlogEngine.NET wiki&lt;/a&gt;. 
-&lt;/p&gt;</content>
+  <description>This is an example page.
+&amp;nbsp;For more information about pages and how to use them,&amp;nbsp;visit the </description>
+  <content>&lt;p&gt;This is an example page.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;For more information about pages and how to use them,&amp;nbsp;visit the &lt;a href="http://blogengine.codeplex.com/documentation"&gt;BlogEngine.NET wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h1&gt;-----------------Demo1&lt;/h1&gt;
+&lt;pre class="brush:csharp;auto-links:false;gutter:false;toolbar:false;highlight:12;tab-size:20" contenteditable="false"&gt;namespace BlogEngine.Core.Providers
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration.Provider;
+
+    using DataStore;
+    using Packaging;
+
+    /// &amp;lt;summary&amp;gt;
+    /// A base class for all custom providers to inherit from.
+    /// &amp;lt;/summary&amp;gt;
+    public abstract class BlogProvider : ProviderBase
+    {
+        // Post
+        #region Public Methods
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a BlogRoll from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blogRollItem"&amp;gt;
+        /// The blog Roll Item to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeleteBlogRollItem(BlogRollItem blogRollItem);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Blog from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blog"&amp;gt;
+        /// The blog to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeleteBlog(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Blog's storage container from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blog"&amp;gt;
+        /// The blog to delete the storage container of.
+        /// &amp;lt;/param&amp;gt;
+        public abstract bool DeleteBlogStorageContainer(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Category from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="category"&amp;gt;
+        /// The category to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeleteCategory(Category category);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Page from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="page"&amp;gt;
+        /// The page to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeletePage(Page page);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Post from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="post"&amp;gt;
+        /// The post to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeletePost(Post post);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Page from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="profile"&amp;gt;
+        /// The profile to delete.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void DeleteProfile(AuthorProfile profile);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all BlogRolls from the provider and returns them in a list.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of BlogRollItem.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;BlogRollItem&amp;gt; FillBlogRoll();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all Blogs from the provider and returns them in a list.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of Blogs.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;Blog&amp;gt; FillBlogs();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all Categories from the provider and returns them in a List.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of Category.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;Category&amp;gt; FillCategories(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all Pages from the provider and returns them in a List.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of Page.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;Page&amp;gt; FillPages();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all Posts from the provider and returns them in a List.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of Post.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;Post&amp;gt; FillPosts();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves all Pages from the provider and returns them in a List.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of AuthorProfile.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;AuthorProfile&amp;gt; FillProfiles();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes a Referrer from the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A list of Referrer.&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;Referrer&amp;gt; FillReferrers();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Returns a dictionary representing rights and the roles that allow them.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;
+        /// 
+        /// The key must be a string of the name of the Rights enum of the represented Right.
+        /// The value must be an IEnumerable of strings that includes only the role names of
+        /// roles the right represents.
+        /// 
+        /// Inheritors do not need to worry about verifying that the keys and values are valid.
+        /// This is handled in the Right class.
+        /// 
+        /// &amp;lt;/returns&amp;gt;
+        public abstract IDictionary&amp;lt;string, IEnumerable&amp;lt;String&amp;gt;&amp;gt; FillRights();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new BlogRoll into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blogRollItem"&amp;gt;
+        /// The blog Roll Item.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertBlogRollItem(BlogRollItem blogRollItem);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Blog into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blog"&amp;gt;
+        /// The blog.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertBlog(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Category into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="category"&amp;gt;
+        /// The category.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertCategory(Category category);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Page into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="page"&amp;gt;
+        /// The page to insert.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertPage(Page page);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Post into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="post"&amp;gt;
+        /// The post to insert.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertPost(Post post);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Page into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="profile"&amp;gt;
+        /// The profile to insert.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertProfile(AuthorProfile profile);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Inserts a new Referrer into the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="referrer"&amp;gt;
+        /// The referrer to insert.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void InsertReferrer(Referrer referrer);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Loads settings from data store
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="extensionType"&amp;gt;
+        /// Extension Type
+        /// &amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="extensionId"&amp;gt;
+        /// Extensio Id
+        /// &amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;
+        /// Settings as stream
+        /// &amp;lt;/returns&amp;gt;
+        public abstract object LoadFromDataStore(ExtensionType extensionType, string extensionId);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Loads the ping services.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;
+        /// A StringCollection.
+        /// &amp;lt;/returns&amp;gt;
+        public abstract StringCollection LoadPingServices();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Loads the settings from the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;A StringDictionary.&amp;lt;/returns&amp;gt;
+        public abstract StringDictionary LoadSettings(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Loads the stop words used in the search feature.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;
+        /// A StringCollection.
+        /// &amp;lt;/returns&amp;gt;
+        public abstract StringCollection LoadStopWords();
+
+        /// &amp;lt;summary&amp;gt;
+        /// Removes settings from data store
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="extensionType"&amp;gt;
+        /// Extension Type
+        /// &amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="extensionId"&amp;gt;
+        /// Extension Id
+        /// &amp;lt;/param&amp;gt;
+        public abstract void RemoveFromDataStore(ExtensionType extensionType, string extensionId);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Saves the ping services.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="services"&amp;gt;
+        /// The services.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void SavePingServices(StringCollection services);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Saves all of the Rights and the roles that coorespond with them.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="rights"&amp;gt;&amp;lt;/param&amp;gt;
+        public abstract void SaveRights(IEnumerable&amp;lt;Right&amp;gt; rights);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Saves the settings to the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="settings"&amp;gt;
+        /// The settings.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void SaveSettings(StringDictionary settings);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Saves settings to data store
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="extensionType"&amp;gt;
+        /// Extension Type
+        /// &amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="extensionId"&amp;gt;
+        /// Extension Id
+        /// &amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="settings"&amp;gt;
+        /// Settings object
+        /// &amp;lt;/param&amp;gt;
+        public abstract void SaveToDataStore(ExtensionType extensionType, string extensionId, object settings);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a BlogRoll from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Blog Roll Item Id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A BlogRollItem.&amp;lt;/returns&amp;gt;
+        public abstract BlogRollItem SelectBlogRollItem(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Blog from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Blog Id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A Blog.&amp;lt;/returns&amp;gt;
+        public abstract Blog SelectBlog(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Category from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Category id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A Category.&amp;lt;/returns&amp;gt;
+        public abstract Category SelectCategory(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Page from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Page id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;The Page object.&amp;lt;/returns&amp;gt;
+        public abstract Page SelectPage(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Post from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Post id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A Post object.&amp;lt;/returns&amp;gt;
+        public abstract Post SelectPost(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Page from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The AuthorProfile id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;An AuthorProfile.&amp;lt;/returns&amp;gt;
+        public abstract AuthorProfile SelectProfile(string id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Retrieves a Referrer from the provider based on the specified id.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="id"&amp;gt;The Referrer Id.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A Referrer.&amp;lt;/returns&amp;gt;
+        public abstract Referrer SelectReferrer(Guid id);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Sets up the required storage files/tables for a new Blog instance, from an existing blog instance.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="existingBlog"&amp;gt;The existing blog instance to base the new blog instance off of.&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="newBlog"&amp;gt;The new blog instance.&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;A boolean indicating if the setup process was successful.&amp;lt;/returns&amp;gt;
+        public abstract bool SetupBlogFromExistingBlog(Blog existingBlog, Blog newBlog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Setup new blog
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="newBlog"&amp;gt;New blog&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="userName"&amp;gt;User name&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="email"&amp;gt;Email&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="password"&amp;gt;Password&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;True if successful&amp;lt;/returns&amp;gt;
+        public abstract bool SetupNewBlog(Blog newBlog, string userName, string email, string password);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing BlogRollItem in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blogRollItem"&amp;gt;
+        /// The blogroll item to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdateBlogRollItem(BlogRollItem blogRollItem);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Blog in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blog"&amp;gt;
+        /// The blog to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdateBlog(Blog blog);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Category in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="category"&amp;gt;
+        /// The category to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdateCategory(Category category);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Page in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="page"&amp;gt;
+        /// The page to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdatePage(Page page);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Post in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="post"&amp;gt;
+        /// The post to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdatePost(Post post);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Page in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="profile"&amp;gt;
+        /// The profile to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdateProfile(AuthorProfile profile);
+
+        /// &amp;lt;summary&amp;gt;
+        /// Updates an existing Referrer in the data store specified by the provider.
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="referrer"&amp;gt;
+        /// The referrer to update.
+        /// &amp;lt;/param&amp;gt;
+        public abstract void UpdateReferrer(Referrer referrer);
+
+        #region Packaging
+        /// &amp;lt;summary&amp;gt;
+        /// Save installed package id and version
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="package"&amp;gt;Intalled package&amp;lt;/param&amp;gt;
+        public abstract void SavePackage(InstalledPackage package);
+        /// &amp;lt;summary&amp;gt;
+        /// Log of all files for installed package
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="packageFiles"&amp;gt;List of intalled package files&amp;lt;/param&amp;gt;
+        public abstract void SavePackageFiles(List&amp;lt;PackageFile&amp;gt; packageFiles);
+        /// &amp;lt;summary&amp;gt;
+        /// Gets list of files for installed package
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="packageId"&amp;gt;Package ID&amp;lt;/param&amp;gt;
+        /// &amp;lt;returns&amp;gt;List of files for installed package&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;PackageFile&amp;gt; FillPackageFiles(string packageId);
+        /// &amp;lt;summary&amp;gt;
+        /// Gets all installed from gallery packages
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;List of installed packages&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;InstalledPackage&amp;gt; FillPackages();
+        /// &amp;lt;summary&amp;gt;
+        /// Should delete package and remove all package files
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="packageId"&amp;gt;Package ID&amp;lt;/param&amp;gt;
+        public abstract void DeletePackage(string packageId);
+
+        #endregion
+
+        #region CustomFields
+
+        /// &amp;lt;summary&amp;gt;
+        /// Saves custom field
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="field"&amp;gt;Object custom field&amp;lt;/param&amp;gt;
+        public abstract void SaveCustomField(BlogEngine.Core.Data.Models.CustomField field);
+        /// &amp;lt;summary&amp;gt;
+        /// Fills list of custom fields for a blog
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;returns&amp;gt;List of custom fields&amp;lt;/returns&amp;gt;
+        public abstract List&amp;lt;BlogEngine.Core.Data.Models.CustomField&amp;gt; FillCustomFields();
+        /// &amp;lt;summary&amp;gt;
+        /// Deletes custom field
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="field"&amp;gt;Object field&amp;lt;/param&amp;gt;
+        public abstract void DeleteCustomField(BlogEngine.Core.Data.Models.CustomField field);
+        /// &amp;lt;summary&amp;gt;
+        /// Clear custom fields for a type (post, theme etc)
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;param name="blogId"&amp;gt;Blog id&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="customType"&amp;gt;Custom type&amp;lt;/param&amp;gt;
+        /// &amp;lt;param name="objectType"&amp;gt;Custom object&amp;lt;/param&amp;gt;
+        public abstract void ClearCustomFields(string blogId, string customType, string objectType);
+
+        #endregion
+
+        #endregion
+    }
+}&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h1&gt;-----------------Demo2&lt;/h1&gt;
+&lt;pre class="brush:csharp;toolbar:false" contenteditable="false"&gt;namespace BlogEngine.Core.Providers
+{
+    using System.Configuration;
+
+    /// &amp;lt;summary&amp;gt;
+    /// A configuration section for web.config.
+    /// &amp;lt;/summary&amp;gt;
+    /// &amp;lt;remarks&amp;gt;
+    /// In the config section you can specify the provider you 
+    ///     want to use for BlogEngine.NET.
+    /// &amp;lt;/remarks&amp;gt;
+    public class BlogProviderSection : ConfigurationSection
+    {
+        #region Properties
+
+        /// &amp;lt;summary&amp;gt;
+        ///     Gets or sets the name of the default provider
+        /// &amp;lt;/summary&amp;gt;
+        [StringValidator(MinLength = 1)]
+        [ConfigurationProperty("defaultProvider", DefaultValue = "XmlBlogProvider")]
+        public string DefaultProvider
+        {
+            get
+            {
+                return (string)base["defaultProvider"];
+            }
+
+            set
+            {
+                base["defaultProvider"] = value;
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        /// Gets or sets the name of the file storage provider, defaults to the XmlBlogProvider if one is not specified
+        /// &amp;lt;/summary&amp;gt;
+        /// &amp;lt;remarks&amp;gt;
+        /// This  attribute is not required, however allows for specifying different providers for various operations
+        /// &amp;lt;/remarks&amp;gt;
+        [StringValidator(MinLength = 0)]
+        [ConfigurationProperty("fileStoreProvider", IsRequired = false, DefaultValue = "XmlBlogProvider")]
+        public string FileStoreProvider
+        {
+            get
+            {
+                return (string)base["fileStoreProvider"];
+            }
+
+            set
+            {
+                base["fileStoreProvider"] = value;
+            }
+        }
+
+        /// &amp;lt;summary&amp;gt;
+        ///     Gets a collection of registered providers.
+        /// &amp;lt;/summary&amp;gt;
+        [ConfigurationProperty("providers")]
+        public ProviderSettingsCollection Providers
+        {
+            get
+            {
+                return (ProviderSettingsCollection)base["providers"];
+            }
+        }
+
+        #endregion
+    }
+}&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
   <keywords />
   <slug>example-page</slug>
   <parent>00000000-0000-0000-0000-000000000000</parent>
@@ -15,6 +540,7 @@ This is an example page.
   <showinlist>True</showinlist>
   <ispublished>True</ispublished>
   <isdeleted>False</isdeleted>
-  <datecreated>2013-12-27 22:12:00</datecreated>
-  <datemodified>2013-12-27 22:03:47</datemodified>
+  <sortorder>0</sortorder>
+  <datecreated>2013-12-27 14:12:00</datecreated>
+  <datemodified>2018-03-06 04:45:47</datemodified>
 </page>

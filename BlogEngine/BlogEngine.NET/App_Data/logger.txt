@@ -1,0 +1,12 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 3/6/2018 12:49:02
+Error sending email in SendMailMessage:  Failure sending mail. The remote name could not be resolved: 'mail.example.com'
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 3/6/2018 13:31:33
+Error sending email in SendMailMessage:  The operation has timed out.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 3/6/2018 13:31:51
+Error sending email in SendMailMessage:  The operation has timed out.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 3/6/2018 16:00:11
+Dashboard news feed: The operation has timed out

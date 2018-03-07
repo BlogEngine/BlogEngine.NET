@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>Admin</author>
+  <title>Title Test Fang</title>
+  <description>Description test fang</description>
+  <content>&lt;p&gt;Content Test Fang&lt;/p&gt;</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2018-03-06 03:53:00</pubDate>
+  <lastModified>2018-03-06 03:57:55</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>title-test-fang</slug>
+  <tags />
+  <comments />
+  <categories>
+    <category>c8e1cb9b-5612-434f-8bd6-3f91ee030697</category>
+  </categories>
+  <notifications />
+</post>
