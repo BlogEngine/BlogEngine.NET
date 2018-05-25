@@ -1,10 +1,10 @@
-<a href="http://francisdotbio.com/" target="_blank"><img src="https://francis.bio/assets/img/ads/bet.png" alt="Download BlogEngine Themes"></a>
+<a href="https://blogengine.io/themes/" target="_blank"><img src="https://francis.bio/assets/img/ads/bet.png" alt="Download BlogEngine Themes"></a>
 
 
 
 This repository provides latest source code for BlogEngine.NET project and since Codeplex is shutting down, we don't release any version on Codeplex anymore.
 
-Everything about BlogEngine: https://francis.bio/blogengine/
+Everything about BlogEngine: https://blogengine.io/
 
 
 # Installation
