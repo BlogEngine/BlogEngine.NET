@@ -14,6 +14,10 @@
         /// </summary>
         public string OptionValue { get; set; }
         /// <summary>
+        /// Option Summary
+        /// </summary>
+        public string OptionSummary { get; set; }
+        /// <summary>
         /// Is option selected
         /// </summary>
         public bool IsSelected { get; set; }

@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" %>
+
+<%@ Import Namespace="BlogEngine.Core" %>
+<%
+    Page.Header.DataBind();
+
+    // fix the bug related to Perisan Culture
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.LCID == 1065)
+        System.Threading.Thread.CurrentThread.CurrentCulture = new PersianCulture();
+    if (Security.IsAuthenticated)
+    {
+        aLoginText.InnerText = Resources.labels.admin;
+        aLogin.HRef = Utils.RelativeWebRoot + "admin/";
+    }
+    else
+    {
+        aLoginText.InnerText = Resources.labels.login;
+        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?ReturnURL=" + Utils.RelativeWebRoot + "admin/";
+    }
+%>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Kreon:400,700" rel="stylesheet">
+    <link href="src/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="src/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="src/css/styles.min.css?=v12" rel="stylesheet" />
+    <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shAutoloader.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/shActivator.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon" />
+    <style>
+        body {
+            background: [CUSTOMFIELD|THEME|Standard-2017|background color left|#232526/];
+            background: -webkit-linear-gradient(to left, [CUSTOMFIELD|THEME|Standard-2017|background color right|#414345/], [CUSTOMFIELD|THEME|Standard-2017|background color left|#232526/]);
+            background: linear-gradient(to left, [CUSTOMFIELD|THEME|Standard-2017|background color right|#414345/], [CUSTOMFIELD|THEME|Standard-2017|background color left|#232526/]);
+        }
+    </style>
+</head>
+<body class="<%=Resources.labels.LangDirection %>">
+    <form runat="Server">
+        <div class="container">
+            <div class="blog-wrapper">
+                <aside class="blog-sidebar">
+                    <header class="blog-header">
+                        <div class="blog-info">
+                            <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
+                                <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard-2017|Logo|Custom/Themes/Standard-2017/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
+                                <%=BlogSettings.Instance.Name %>
+                            </a>
+                            <div class="blog-author">
+                                [CUSTOMFIELD|THEME|Standard-2017|About Author|/]
+                            </div>
+                            <ul class="social-network">
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Facebook Account|/]" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Twitter Account|/]" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Google Plus Account|/]" rel="external nofollow"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Linkedin Account|/]" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Instagramm Account|/]" rel="external nofollow"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Youtube Account|/]" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Github Account|/]" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+                                <li><a href="[CUSTOMFIELD|THEME|Standard-2017|Pinterest Account|/]" rel="external nofollow"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                        <nav class="blog-nav">
+                            <ul>
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>" class="item-home" title="<%=Resources.labels.home %>"><i class="fa fa-home"></i></a></li>
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>archive" class="item-archive" title="<%=Resources.labels.archive %>"><i class="fa fa-align-left"></i></a></li>
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>contact" class="item-contact" title="<%=Resources.labels.contact %>"><i class="fa fa-envelope"></i></a></li>
+                                <li><a runat="server" id="aLogin" class="item-login" title=""><span id="aLoginText" runat="server"></span></a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
+                    <footer class="blog-footer">
+                        <p>
+                            Copyright &copy; <%=DateTime.Now.Year %>
+                        </p>
+                        <p>
+                            Powered by <a href="https://blogengine.io/" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a>
+                        </p>
+                        <p>
+                            Designed by <a href="http://francis.bio/" rel="nofollow" target="_blank">Francis Bio</a>
+                        </p>
+                    </footer>
+                </aside>
+                <div class="blog-content admin-alerts-[CUSTOMFIELD|THEME|Standard-2017|Home Alert Box (true or false?)|true/]">
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+                </div>
+            </div>
+        </div>
+        <script src="<%=Utils.RelativeWebRoot %>custom/themes/Standard-2017/src/js/bootstrap.min.js"></script>
+        <script src="<%=Utils.RelativeWebRoot %>custom/themes/Standard-2017/src/js/custom.js"></script>
+    </form>
+</body>
+</html>

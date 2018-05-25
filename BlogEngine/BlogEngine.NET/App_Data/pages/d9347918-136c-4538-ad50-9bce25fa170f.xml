@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>Example Page</title>
+  <description>content goes here ...</description>
+  <content>&lt;p&gt;content goes here ...&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
+  <keywords />
+  <slug>example-page</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <sortorder>1</sortorder>
+  <datecreated>2018-05-21 22:22:00</datecreated>
+  <datemodified>2018-05-21 22:27:53</datemodified>
+</page>

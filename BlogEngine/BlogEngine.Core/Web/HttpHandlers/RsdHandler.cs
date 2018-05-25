@@ -51,7 +51,7 @@
                 // Service 
                 rsd.WriteStartElement("service");
                 rsd.WriteElementString("engineName", $"BlogEngine.NET {BlogSettings.Instance.Version()}");
-                rsd.WriteElementString("engineLink", "http://dotnetblogengine.com");
+                rsd.WriteElementString("engineLink", "https://blogengine.io");
                 rsd.WriteElementString("homePageLink", Utils.AbsoluteWebRoot.ToString());
 
                 // APIs

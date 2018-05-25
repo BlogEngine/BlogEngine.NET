@@ -22,7 +22,7 @@
     <form id="Form1" runat="server">
         <div class="account">
             <div class="account-header text-center">
-                <a href="http://dotnetblogengine.net/" target="_blank">
+                <a href="https://blogengine.io/" target="_blank">
                     <img alt="BlogEngine.NET" src="../Content/images/blog/logo.png" /></a>
             </div>
              <div id="StatusBox">

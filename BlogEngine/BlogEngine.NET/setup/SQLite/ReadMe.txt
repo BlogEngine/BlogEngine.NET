@@ -91,4 +91,4 @@ depending on your setup.)
 with the sample web.config file as described above, but if you have other changes in it, 
 you'll need to merge them.
 
-Additional information can be found at http://dotnetblogengine.net
+Additional information can be found at https://blogengine.io

@@ -5,4 +5,4 @@ get started with SQL Server, SQL CE, MySQL or SQLite.  Any database that has an
 ADO.NET dll that supports DbProviderFactory can be used with some configuration.
 
 Additional information can be found on our site at 
-http://www.dotnetblogengine.net/
+https://blogengine.io/

@@ -244,7 +244,7 @@ INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'enablessl', 'False');
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'enabletrackbackreceive', 'True');
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'enabletrackbacksend', 'True');
-INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'endorsement', 'http://www.dotnetblogengine.net/syndication.axd');
+INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'endorsement', 'https://blogengine.io/syndication.axd');
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'fileextension', '.aspx');
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'geocodinglatitude', '0');
 INSERT INTO be_Settings (BlogID, SettingName, SettingValue)	VALUES ('27604F05-86AD-47EF-9E05-950BB762570C', 'geocodinglongitude', '0');
@@ -426,7 +426,7 @@ INSERT INTO be_Posts (BlogID, PostID, Title, Description, PostContent, DateCreat
 <h2>Themes, Widgets &amp; Extensions</h2>
 <p>One last thing to consider is customizing the look of your blog.&nbsp; We have a few themes available right out of the box including two fully setup to use our new widget framework.&nbsp; The widget framework allows drop and drag placement on your side bar as well as editing and configuration right in the widget while you are logged in.&nbsp; Extensions allow you to extend and customize the behaivor of your blog.&nbsp; Be sure to check the <a href="http://dnbegallery.org/">BlogEngine.NET Gallery</a> at <a href="http://dnbegallery.org/">dnbegallery.org</a> as the go-to location for downloading widgets, themes and extensions.</p>
 <h2>On the web</h2>
-<p>You can find BlogEngine.NET on the <a href="http://www.dotnetblogengine.net">official website</a>. Here you\'ll find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.&nbsp; Again, new themes, widgets and extensions can be downloaded at the <a href="http://dnbegallery.org/">BlogEngine.NET gallery</a>.</p>
+<p>You can find BlogEngine.NET on the <a href="https://blogengine.io">official website</a>. Here you\'ll find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.&nbsp; Again, new themes, widgets and extensions can be downloaded at the <a href="http://dnbegallery.org/">BlogEngine.NET gallery</a>.</p>
 <p>Good luck and happy writing.</p>
 <p>The BlogEngine.NET team</p>',
 	CURDATE(), 
