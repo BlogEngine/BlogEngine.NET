@@ -2,20 +2,21 @@
 <settings>
   <showpostnavigation>True</showpostnavigation>
   <enablehttpcompression>False</enablehttpcompression>
-  <customfrontpage />
+  <emailsubjectprefix>Weblog</emailsubjectprefix>
   <htmlheader />
   <theme>Standard</theme>
-  <emailsubjectprefix>Weblog</emailsubjectprefix>
+  <facebooklanguage>en_US</facebooklanguage>
   <trackingscript />
   <showdescriptioninpostlist>False</showdescriptioninpostlist>
   <commentsperpage>10</commentsperpage>
   <feedauthor />
   <description>Short description of the blog</description>
   <enablepingbacksend>True</enablepingbacksend>
+  <postoptionscustomfields>False</postoptionscustomfields>
   <enabletagexport>True</enabletagexport>
   <iscocommentenabled>False</iscocommentenabled>
   <compresswebresource>False</compresswebresource>
-  <endorsement>http://www.dotnetblogengine.net/syndication.axd</endorsement>
+  <endorsement>https://blogengine.io/syndication.axd</endorsement>
   <themecookiename>theme</themecookiename>
   <remotefiledownloadtimeout>30000</remotefiledownloadtimeout>
   <trustauthenticatedusers>True</trustauthenticatedusers>
@@ -24,24 +25,26 @@
   <searchbuttontext>Search</searchbuttontext>
   <showincludecommentsoption>False</showincludecommentsoption>
   <createblogonselfregistration>False</createblogonselfregistration>
-  <enablewebsiteincomments>False</enablewebsiteincomments>
-  <enablecontactattachments>True</enablecontactattachments>
+  <enablewebsiteincomments>True</enablewebsiteincomments>
+  <enablecontactattachments>False</enablecontactattachments>
   <blogrollmaxlength>23</blogrollmaxlength>
   <language>en-US</language>
-  <smtpserver>mail.example.com</smtpserver>
+  <smtpserver>smtp.gmail.com</smtpserver>
   <disqusdevmode>False</disqusdevmode>
+  <customfrontpage />
   <postsperpage>10</postsperpage>
   <enabletrackbackreceive>True</enabletrackbackreceive>
   <enableopensearch>True</enableopensearch>
   <dayscommentsareenabled>0</dayscommentsareenabled>
   <useblognameinpagetitles>True</useblognameinpagetitles>
+  <pageoptionsdescription>True</pageoptionsdescription>
   <removeextensionsfromurls>True</removeextensionsfromurls>
-  <smtpusername>username</smtpusername>
+  <smtpusername>youremail@gmail.com</smtpusername>
   <enablepasswordreset>True</enablepasswordreset>
   <disqusaddcommentstopages>False</disqusaddcommentstopages>
   <alternatefeedurl />
   <errortitle>Ooops! An unexpected error has occurred.</errortitle>
-  <email>name@example.com</email>
+  <email>youremail@gmail.com</email>
   <enabletrackbacksend>True</enabletrackbacksend>
   <showdescriptioninpostlistforpostsbytagorcategory>False</showdescriptioninpostlistforpostsbytagorcategory>
   <contacterrormessage>&lt;p&gt;This form does not work at the moment. Sorry for the inconvenience.&lt;/p&gt;</contacterrormessage>
@@ -55,25 +58,29 @@
   <sendmailoncomment>True</sendmailoncomment>
   <culture>Auto</culture>
   <remotemaxfilesize>524288</remotemaxfilesize>
+  <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <syndicationformat>Rss</syndicationformat>
+  <postoptionsslug>True</postoptionsslug>
   <blogrollvisibleposts>3</blogrollvisibleposts>
   <geocodinglatitude>0</geocodinglatitude>
+  <pageoptionsslug>True</pageoptionsslug>
   <numberofreferrerdays>1</numberofreferrerdays>
   <israzortheme>False</israzortheme>
   <iscommentsenabled>True</iscommentsenabled>
-  <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <searchdefaulttext>Enter search term or APML url</searchdefaulttext>
-  <smtpserverport>25</smtpserverport>
+  <smtpserverport>587</smtpserverport>
   <smtppassword>password</smtppassword>
   <iscommentnestingenabled>True</iscommentnestingenabled>
   <timestamppostlinks>False</timestamppostlinks>
-  <avatar>identicon</avatar>
+  <avatar>none</avatar>
   <timezoneid>UTC</timezoneid>
+  <moderationtype>Auto</moderationtype>
   <enablerecaptchaoncontactform>False</enablerecaptchaoncontactform>
   <enableoptimization>False</enableoptimization>
   <name>Name of the blog</name>
+  <pageoptionscustomfields>True</pageoptionscustomfields>
   <enablepingbackreceive>True</enablepingbackreceive>
-  <showlivepreview>True</showlivepreview>
+  <showlivepreview>False</showlivepreview>
   <facebookappid />
   <searchcommentlabeltext>Include comments in search</searchcommentlabeltext>
   <enablerelatedposts>True</enablerelatedposts>
@@ -85,6 +92,7 @@
   <contactthankmessage>&lt;h1&gt;Thank you&lt;/h1&gt;&lt;p&gt;The message was sent.&lt;/p&gt;</contactthankmessage>
   <descriptioncharactersforpostsbytagorcategory>0</descriptioncharactersforpostsbytagorcategory>
   <commentreportmistakes>False</commentreportmistakes>
+  <postoptionsdescription>True</postoptionsdescription>
   <geocodinglongitude>0</geocodinglongitude>
   <selfregistrationinitialrole>Editors</selfregistrationinitialrole>
   <enableselfregistration>False</enableselfregistration>

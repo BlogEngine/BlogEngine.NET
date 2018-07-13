@@ -181,7 +181,7 @@ INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enablerelatedposts'
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enablessl', 'False');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enabletrackbackreceive', 'True');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enabletrackbacksend', 'True');
-INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('endorsement', 'http://www.dotnetblogengine.net/syndication.axd');
+INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('endorsement', 'https://blogengine.io/syndication.axd');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('fileextension', '.aspx');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('geocodinglatitude', '0');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('geocodinglongitude', '0');
@@ -351,7 +351,7 @@ INSERT INTO be_Posts (PostID, Title, Description, PostContent, DateCreated, Date
 	<h2>Write permissions</h2>
 	<p>Since you are using MySQL to store your posts, most information is stored there.  However, if you want to store attachments or images in the blog, you will want write permissions setup on the App_Data folder.</p>
 	<h2>On the web </h2>
-	<p>You can find BlogEngine.NET on the <a href="http://www.dotnetblogengine.net">official website</a>. Here you will find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.</p>
+	<p>You can find BlogEngine.NET on the <a href="https://blogengine.io">official website</a>. Here you will find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.</p>
 	<p>Good luck and happy writing.</p>
 	<p>The BlogEngine.NET team</p>',
 	CURDATE(), 

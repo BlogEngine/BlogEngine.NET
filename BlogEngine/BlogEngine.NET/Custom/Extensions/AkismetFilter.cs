@@ -340,7 +340,7 @@ namespace App_Code.Extensions
     /// <summary>
     /// Akismet Filter
     /// </summary>
-    [Extension("Akismet anti-spam comment filter", "1.0", "<a href=\"http://dotnetblogengine.net\">BlogEngine.NET</a>", 0, false)]
+    [Extension("Akismet anti-spam comment filter", "1.0", "<a href=\"https://blogengine.io\">BlogEngine.NET</a>", 0, false)]
     public class AkismetFilter : ICustomFilter
     {
         #region Constants and Fields

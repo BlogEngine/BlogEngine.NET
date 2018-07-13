@@ -196,7 +196,7 @@ INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enablerelatedposts'
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enablessl', 'False');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enabletrackbackreceive', 'True');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('enabletrackbacksend', 'True');
-INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('endorsement', 'http://www.dotnetblogengine.net/syndication.axd');
+INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('endorsement', 'https://blogengine.io/syndication.axd');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('fileextension', '.aspx');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('geocodinglatitude', '0');
 INSERT INTO be_Settings (SettingName, SettingValue)	VALUES ('geocodinglongitude', '0');
@@ -376,10 +376,10 @@ INSERT INTO be_Posts (PostID, Title, Description, PostContent, DateCreated, Date
 <h2>Configuration and Profile</h2>
 <p>Now that you have your blog secured, take a look through the settings and give your new blog a title.&nbsp; BlogEngine.NET 1.4 is set up to take full advantage of of many semantic formats and technologies such as FOAF, SIOC and APML. It means that the content stored in your BlogEngine.NET installation will be fully portable and auto-discoverable.&nbsp; Be sure to fill in your author profile to take better advantage of this.</p>
 <h2>Themes and Widgets</h2>
-<p>One last thing to consider is customizing the look of your blog.&nbsp; We have a few themes available right out of the box including two fully setup to use our new widget framework.&nbsp; The widget framework allows drop and drag placement on your side bar as well as editing and configuration right in the widget while you are logged in.&nbsp; Be sure to check out <a href="http://dotnetblogengine.net">our home page</a> for more theme choices and downloadable widgets to add to your blog.</p>
+<p>One last thing to consider is customizing the look of your blog.&nbsp; We have a few themes available right out of the box including two fully setup to use our new widget framework.&nbsp; The widget framework allows drop and drag placement on your side bar as well as editing and configuration right in the widget while you are logged in.&nbsp; Be sure to check out <a href="https://blogengine.io">our home page</a> for more theme choices and downloadable widgets to add to your blog.</p>
 <h2>Try Out New Features</h2>
 <p>BlogEngine now supports code syntax highlighting and HTML5 video out of the box. To add a video, click the "Insert video" button just above the post editor. Once your video is uploaded, use the following syntax to show it: [&shy;video src="be-sample.mp4"]. Make sure to add "video/mp4" as a MIME type to your IIS.</p>
-<p>[video src="http://dotnetblogengine.net/media/blogengine-welcome.mp4" type="video/mp4" width="600" height="480"]</p>
+<p>[video src="https://blogengine.io/media/blogengine-welcome.mp4" type="video/mp4" width="600" height="480"]</p>
 <p>You can add formatted code by pressing the "Insert Code" button on the post editor toolbar. Here is a small sample:</p>
 <pre class="brush: c-sharp;">// Hello1.cs
 public class Hello1
@@ -391,7 +391,7 @@ public class Hello1
 }</pre>
 <p>&nbsp;</p>
 <h2>On the web</h2>
-<p>You can find BlogEngine.NET on the <a href="http://www.dotnetblogengine.net">official website</a>. Here you\'ll find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.</p>
+<p>You can find BlogEngine.NET on the <a href="https://blogengine.io">official website</a>. Here you\'ll find tutorials, documentation, tips and tricks and much more. The ongoing development of BlogEngine.NET can be followed at <a href="http://blogengine.codeplex.com/">CodePlex</a> where the daily builds will be published for anyone to download.</p>
 <p>Good luck and happy writing.</p>
 <p>The BlogEngine.NET team</p>',
 	CURDATE(), 

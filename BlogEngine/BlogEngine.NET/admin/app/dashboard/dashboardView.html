@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4">
-                <div class="panel panel-default dashboard-gallery" data-ng-if="security.showTabCustom">
+                <!--<div class="panel panel-default dashboard-gallery" data-ng-if="security.showTabCustom">
                     <div class="panel-heading">
                         <div class="panel-title clearfix">
                             <span class="pull-left">{{lbl.latestFromTheGallery}}</span>
@@ -137,19 +137,14 @@
                             <i class="fa fa-spinner fa-spin"></i>
                         </li>
                     </ul>
+                </div>-->
+                <div data-ng-repeat="n in news" class="form-group">
+                    <a href="{{n.OptionValue}}" target="_blank">
+                        <img class="img-rounded" ng-src="https://blogengine.io/files/images/news/{{n.OptionName}}.png" style="max-width:100%;" alt="{{n.OptionName}}" />
+                    </a>
                 </div>
-                <div class="panel panel-default dashboard-news dashboard-list">
-                    <div class="panel-heading">
-                        <div class="panel-title">{{lbl.latestNews}}</div>
-                    </div>
-                    <ul class="list-group list-group">
-                        <li class="list-group-item" data-ng-repeat="n in news">
-                            <a href="{{n.OptionValue}}.aspx" target="_blank">{{n.OptionName}}</a>
-                        </li>
-                        <li id="news-spinner" class="list-group-item item-spinner">
-                            <i class="fa fa-spinner fa-spin"></i>
-                        </li>
-                    </ul>
+                <div id="news-spinner" class="list-group-item item-spinner">
+                    <i class="fa fa-spinner fa-spin"></i>
                 </div>
             </div>
         </div>

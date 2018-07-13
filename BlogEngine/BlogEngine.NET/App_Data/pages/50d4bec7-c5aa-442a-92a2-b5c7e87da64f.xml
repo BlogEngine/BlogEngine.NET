@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>About</title>
+  <description>write about yourself...</description>
+  <content>&lt;p&gt;2write about yourself...&lt;/p&gt;</content>
+  <keywords />
+  <slug>about</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <sortorder>2</sortorder>
+  <datecreated>2018-05-21 22:11:00</datecreated>
+  <datemodified>2018-05-21 22:43:10</datemodified>
+</page>
