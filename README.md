@@ -5,16 +5,16 @@ This repository provides latest source code for BlogEngine.NET project and since
 
 <a href="https://blogengine.io/" target="_blank">
 <img src="https://blogengine.io/files/images/github/btn01.png" alt="Download BlogEngine Themes">
-</a>
+</a> &nbsp;
 <a href="https://blogengine.io/features/" target="_blank">
 <img src="https://blogengine.io/files/images/github/btn02.png" alt="Download BlogEngine Themes">
-</a>
+</a> &nbsp;
 <a href="https://blogengine.io/themes/" target="_blank">
 <img src="https://blogengine.io/files/images/github/btn03.png" alt="Download BlogEngine Themes">
-</a>
+</a> &nbsp;
 <a href="https://blogengine.io/docs/" target="_blank">
 <img src="https://blogengine.io/files/images/github/btn04.png" alt="Download BlogEngine Themes">
-</a>
+</a> &nbsp;
 <a href="https://blogengine.io/donate/" target="_blank">
 <img src="https://blogengine.io/files/images/github/btn05.png" alt="Download BlogEngine Themes">
 </a>
