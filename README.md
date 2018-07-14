@@ -9,7 +9,7 @@ Everything about BlogEngine: https://blogengine.io/
 
 # Installation
 
-You can setup your BlogEngine with a single click! 
+You can setup your BlogEngine with a single click!
 Take a look at the perfect [BlogEngine hosting solutions](https://www.a2hosting.com/blogengine-net-hosting).
 
 There are two download options for BlogEngine.NET:
@@ -23,7 +23,7 @@ This is an ideal option that you just need to download and copy BlogEngine files
   * ASP.NET 4.5 +
 
 **Steps:**
-1. **[Download](https://github.com/rxtur/BlogEngine.NET/releases/download/3.3.5.0/3350.zip)** and extract zip file on root of your website.
+1. **[Download](https://github.com/rxtur/BlogEngine.NET/releases/download/v3.3.6.0/3360.zip)** and extract zip file on root of your website.
 2. Add write permissions to the `App_Data` and `Custom` folder.
 3. Installation is done.
 4. You can navigate to administration by adding `/admin/` to your website's URL, for example: `http://yourblog.com/admin/`
@@ -45,6 +45,6 @@ This is the developer option. If you are interested is seeing how things work or
   5. Username: `admin` Password `admin`
 
 # Screenshot
-More screenshots on [This page](https://francis.bio/blogengine/).
+More screenshots on the [website](https://blogengine.io).
 
 ![dashboard-3](https://cloud.githubusercontent.com/assets/1932785/11760070/0012f9d8-a052-11e5-84a8-e9097cb85f23.png)
