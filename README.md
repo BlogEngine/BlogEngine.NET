@@ -1,10 +1,23 @@
-<a href="https://blogengine.io/themes/" target="_blank"><img src="https://francis.bio/assets/img/ads/bet.png" alt="Download BlogEngine Themes"></a>
+<a href="https://blogengine.io/" target="_blank">
+<img src="https://blogengine.io/files/images/github/btn01.png" alt="Download BlogEngine Themes">
+</a>
+<a href="https://blogengine.io/features/" target="_blank">
+<img src="https://blogengine.io/files/images/github/btn02.png" alt="Download BlogEngine Themes">
+</a>
+<a href="https://blogengine.io/themes/" target="_blank">
+<img src="https://blogengine.io/files/images/github/btn03.png" alt="Download BlogEngine Themes">
+</a>
+<a href="https://blogengine.io/docs/" target="_blank">
+<img src="https://blogengine.io/files/images/github/btn04.png" alt="Download BlogEngine Themes">
+</a>
+<a href="https://blogengine.io/donate/" target="_blank">
+<img src="https://blogengine.io/files/images/github/btn05.png" alt="Download BlogEngine Themes">
+</a>
 
 
 
 This repository provides latest source code for BlogEngine.NET project and since Codeplex is shutting down, we don't release any version on Codeplex anymore.
 
-Everything about BlogEngine: https://blogengine.io/
 
 
 # Installation
@@ -12,17 +25,16 @@ Everything about BlogEngine: https://blogengine.io/
 You can setup your BlogEngine with a single click!
 Take a look at the perfect [BlogEngine hosting solutions](https://www.a2hosting.com/blogengine-net-hosting).
 
+
 There are two download options for BlogEngine.NET:
-
-
 
 ### 1. Web Project
 This is an ideal option that you just need to download and copy BlogEngine files on your website and then everything is ready:
 
-**Requirements:**
+Requirements:
   * ASP.NET 4.5 +
 
-**Steps:**
+Steps:
 1. **[Download](https://github.com/rxtur/BlogEngine.NET/releases/download/v3.3.6.0/3360.zip)** and extract zip file on root of your website.
 2. Add write permissions to the `App_Data` and `Custom` folder.
 3. Installation is done.
@@ -33,11 +45,11 @@ This is an ideal option that you just need to download and copy BlogEngine files
 ### 2. Source Code
 This is the developer option. If you are interested is seeing how things work or want to add to the functionality, this is your option.
 
-**Environment**
+Environment:
   * Visual Studio 2015 +
   * ASP.NET 4.5 +
 
-**Steps:**
+Steps:
   1. Clone repository
   2. Open solution in Visual Studio 2015 +
   3. Build and run solution to load website in the browser
