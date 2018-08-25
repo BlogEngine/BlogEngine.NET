@@ -16,9 +16,12 @@
 // THE SOFTWARE.
 
 // Adapted for blogengine by Filip Stanek ( http://www.bloodforge.com )
+// BillKrat.2018.08.25 - adapted for Google recaptcha V2 ( http://AdventuresOnTheEdge.net )
+
 
 namespace Recaptcha
 {
+    using Newtonsoft.Json.Linq;
     using System;
     using System.IO;
     using System.Net;
@@ -38,7 +41,7 @@ namespace Recaptcha
         /// <summary>
         /// The verify url.
         /// </summary>
-        private const string VerifyUrl = "http://api-verify.recaptcha.net/verify";
+        private const string VerifyUrl = "https://www.google.com/recaptcha/api/siteverify";
 
         /// <summary>
         /// The remote ip.
@@ -128,11 +131,10 @@ namespace Recaptcha
             request.ContentType = "application/x-www-form-urlencoded";
 
             var formdata = String.Format(
-                "privatekey={0}&remoteip={1}&challenge={2}&response={3}",
+                "secret={0}&response={1}&remoteip={2}",
                 HttpUtility.UrlEncode(this.PrivateKey),
-                HttpUtility.UrlEncode(this.RemoteIP),
-                HttpUtility.UrlEncode(this.Challenge),
-                HttpUtility.UrlEncode(this.Response));
+                HttpUtility.UrlEncode(this.Response),
+                HttpUtility.UrlEncode(this.RemoteIP));
 
             var formbytes = Encoding.ASCII.GetBytes(formdata);
             try
@@ -142,7 +144,7 @@ namespace Recaptcha
                     requestStream.Write(formbytes, 0, formbytes.Length);
                 }
 
-                string[] results;
+                dynamic results;
 
                 using (var httpResponse = request.GetResponse())
                 {
@@ -154,15 +156,17 @@ namespace Recaptcha
 
                     using (TextReader readStream = new StreamReader(httpResponseStream, Encoding.UTF8))
                     {
-                        results = readStream.ReadToEnd().Split();
+                        results = JObject.Parse(readStream.ReadToEnd());
                     }
                 }
-                switch (results[0])
+
+                var result = $"{results.success.Value}".ToLower();
+                switch (result)
                 {
                     case "true":
                         return RecaptchaResponse.Valid;
                     case "false":
-                        return new RecaptchaResponse(false, results[1]);
+                        return new RecaptchaResponse(false, "Invalid reCaptcha");
                     default:
                         throw new InvalidProgramException("Unknown status response.");
                 }

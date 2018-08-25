@@ -32,7 +32,8 @@
             <asp:FileUpload runat="server" id="txtAttachment" data-id="txtAttachment"/>
           </asp:placeholder>
         </div>
-      <blog:RecaptchaControl runat="server" ID="recaptcha" />
+      <blog:RecaptchaControl runat="server" ID="recaptcha" /><div id="recaptchaMessage" style="display:none; color:red"> REQUIRED</div>
+
       <asp:HiddenField runat="server" ID="hfCaptcha" />
       <div class="text-right btn-wrapper">
         <asp:button runat="server" id="btnSend" class="btn btn-primary" Text="<%$Resources:labels, send %>" OnClientClick="return beginSendMessage();" validationgroup="contact" data-id="btnSend" />    

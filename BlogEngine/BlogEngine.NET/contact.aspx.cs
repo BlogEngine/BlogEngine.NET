@@ -10,6 +10,8 @@ using BlogEngine.Core;
 using BlogEngine.Core.Web.Controls;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 #endregion
 
@@ -229,28 +231,23 @@ public partial class contact : BlogBasePage, ICallbackEventHandler
 
     public void RaiseCallbackEvent(string eventArgument)
     {
-        string[] arg = eventArgument.Split(new string[] { "-||-" }, StringSplitOptions.None);
-        if (arg.Length == 6)
+        try
         {
-            string name = arg[0];
-            string email = arg[1];
-            string subject = arg[2];
-            string message = arg[3];
-
-            string recaptchaResponse = arg[4];
-            string recaptchaChallenge = arg[5];
+            // BillKrat.2018.08.25 - adapted for Google recaptcha V2 ( http://AdventuresOnTheEdge.net )
+            dynamic contact = JObject.Parse(eventArgument);
 
             recaptcha.UserUniqueIdentifier = hfCaptcha.Value;
+
             if (UseCaptcha)
             {
-                if (!recaptcha.ValidateAsync(recaptchaResponse, recaptchaChallenge))
+                if (!recaptcha.ValidateAsync(contact.recaptchaResponse.Value, contact.recaptchaChallenge.Value))
                 {
                     _Callback = "RecaptchaIncorrect";
                     return;
                 }
             }
 
-            if (SendEmail(email, name, subject, message))
+            if (SendEmail(contact.email.Value, contact.name.Value, contact.subject.Value, contact.message.Value))
             {
                 _Callback = BlogSettings.Instance.ContactThankMessage;
             }
@@ -258,9 +255,11 @@ public partial class contact : BlogBasePage, ICallbackEventHandler
             {
                 _Callback = BlogSettings.Instance.ContactErrorMessage;
             }
+
         }
-        else
+        catch (Exception ex)
         {
+            Debug.WriteLine(ex.Message + ex.StackTrace);
             _Callback = BlogSettings.Instance.ContactErrorMessage;
         }
     }

@@ -1,43 +1,42 @@
-﻿function beginSendMessage() {
+﻿// BillKrat.2018.08.25 - adapted for Google recaptcha V2 ( http://AdventuresOnTheEdge.net )
+
+function beginSendMessage() {
     if ($('[data-id="txtAttachment"]').length > 0 && $('[data-id="txtAttachment"]').val().length > 0)
         return true;
 
     if (!Page_ClientValidate('contact'))
         return false;
 
-    var recaptchaResponseField = $('#recaptcha_response_field');
-    var recaptchaResponse = recaptchaResponseField.length > 0 ? recaptchaResponseField.val() : "";
 
-    var recaptchaChallengeField = $('#recaptcha_challenge_field');
-    var recaptchaChallenge = recaptchaChallengeField.length > 0 ? recaptchaChallengeField.val() : "";
+    var para = {
+        name: $('[data-id="txtName"]').val(),
+        email: $('[data-id="txtEmail"]').val(),
+        subject: $('[data-id="txtSubject"]').val(),
+        message: $('[data-id="txtMessage"]').val(),
+        recaptchaResponse: $('#g-recaptcha-response').val(),
+        recaptchaChallenge: "not-used"
+    };
+    var arg = JSON.stringify(para);
 
-    var name = $('[data-id="txtName"]').val();
-    var email = $('[data-id="txtEmail"]').val();
-    var subject = $('[data-id="txtSubject"]').val();
-    var message = $('[data-id="txtMessage"]').val();
-    var sep = '-||-';
-    var arg = name + sep + email + sep + subject + sep + message + sep + recaptchaResponse + sep + recaptchaChallenge;
     WebForm_DoCallback('__Page', arg, endSendMessage, 'contact', onSendError, false)
 
     $('[data-id="btnSend"]').attr("disabled", true);
+    $('#recaptchaMessage').css("display", "none");
 
     return false;
 }
 
 function endSendMessage(arg, context) {
 
-    if (arg == "RecaptchaIncorrect") {
+    if (arg === "RecaptchaIncorrect") {
         displayIncorrectCaptchaMessage();
-        $('[data-id="btnSend"]').attr("disabled", "");
-
-        if ($('#recaptcha_response_field').length > 0) {
-            Recaptcha.reload();
-        }
+        $('[data-id="btnSend"]').attr("disabled", false);
+        $('#recaptchaMessage').css("display", "");
     }
     else {
         if ($("#spnCaptchaIncorrect")) $("#spnCaptchaIncorrect").css("display", "none");
 
-        $('[data-id="btnSend"]').attr("disabled", "");
+        $('[data-id="btnSend"]').attr("disabled", false);
         var form = $('[data-id="divForm"]');
         var thanks = $('#thanks');
 
@@ -51,9 +50,6 @@ function displayIncorrectCaptchaMessage() {
 }
 
 function onSendError(err, context) {
-    if ($('#recaptcha_response_field')) {
-        Recaptcha.reload();
-    }
     $('[data-id="btnSend"]').css("display", "none");
     alert("Sorry, but the following occurred while attemping to send your message: " + err);
 }

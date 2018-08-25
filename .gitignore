@@ -186,3 +186,4 @@ BlogEngine/.vs/
 
 # Default extensions data
 BlogEngine/BlogEngine.NET/App_Data/datastore/extensions/*.xml
+/BlogEngine/BlogEngine.NET/App_Data/logger.txt

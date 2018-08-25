@@ -16,6 +16,7 @@
 // THE SOFTWARE.
 
 // Adapted for blogengine by Filip Stanek ( http://www.bloodforge.com )
+// BillKrat.2018.08.25 - adapted for Google recaptcha V2 ( http://AdventuresOnTheEdge.net )
 
 namespace App_Code.Controls
 {
@@ -42,24 +43,11 @@ namespace App_Code.Controls
         /// </summary>
         private const string RecaptchaChallengeField = "recaptcha_challenge_field";
 
-        /*
-        /// <summary>
-        /// The recaptcha host.
-        /// </summary>
-        private const string RecaptchaHost = "http://api.recaptcha.net";
-        */
-
         /// <summary>
         ///     The recaptcha response field.
         /// </summary>
         private const string RecaptchaResponseField = "recaptcha_response_field";
 
-        /*
-        /// <summary>
-        /// The recaptcha secure host.
-        /// </summary>
-        private const string RecaptchaSecureHost = "https://api-secure.recaptcha.net";
-        */
 
         /// <summary>
         ///     The error message.
@@ -450,9 +438,11 @@ namespace App_Code.Controls
             else
             {
                 var validator = new RecaptchaValidator
-                    {
-                       PrivateKey = this.privateKey, RemoteIP = Utils.GetClientIP() 
-                    };
+                {
+                    Response = this.RecaptchaResponseValue,
+                    PrivateKey = this.privateKey,
+                    RemoteIP = Utils.GetClientIP()
+                };
                 if (String.IsNullOrEmpty(this.RecaptchaChallengeValue) &&
                     String.IsNullOrEmpty(this.RecaptchaResponseValue))
                 {
@@ -555,65 +545,17 @@ namespace App_Code.Controls
         protected override void RenderContents(HtmlTextWriter output)
         {
             output.AddAttribute("type", "text/javascript");
-            output.AddAttribute("src", "http://www.google.com/recaptcha/api/js/recaptcha_ajax.js");
+            output.AddAttribute("src", "https://www.google.com/recaptcha/api.js");
             output.RenderBeginTag("script");
             output.RenderEndTag();
 
-            output.AddAttribute(HtmlTextWriterAttribute.Id, "spnCaptchaIncorrect");
-            output.AddAttribute(HtmlTextWriterAttribute.Style, "color:Red;display:none;");
-            output.RenderBeginTag("span");
-            output.WriteLine("The captcha text was not valid. Please try again.");
-            output.RenderEndTag();
-
-            output.AddAttribute(HtmlTextWriterAttribute.Id, "recaptcha_placeholder");
-            output.RenderBeginTag(HtmlTextWriterTag.Div);
-            output.RenderEndTag();
-
-            output.AddAttribute(HtmlTextWriterAttribute.Type, "text/javascript");
-            output.RenderBeginTag(HtmlTextWriterTag.Script);
-            output.WriteLine("function showRecaptcha() {");
-            output.WriteLine("Recaptcha.create('{0}', 'recaptcha_placeholder', {{", this.publicKey);
-            output.WriteLine("theme: '{0}',", this.Theme);
-            output.WriteLine("lang: '{0}',", this.Language);
-            output.WriteLine("tabindex: {0}", this.TabIndex);
-            output.WriteLine("})");
-            output.WriteLine("}");
-
-            output.WriteLine("var rc_oldonload = window.onload;");
-            output.WriteLine("if (typeof window.onload != 'function') {");
-            output.WriteLine("window.onload = showRecaptcha;");
-            output.WriteLine("}");
-            output.WriteLine("else {");
-            output.WriteLine("window.onload = function() {");
-            output.WriteLine("rc_oldonload();");
-            output.WriteLine("showRecaptcha();");
-            output.WriteLine("}");
-            output.WriteLine("}");
-
+            output.AddAttribute(HtmlTextWriterAttribute.Class, "g-recaptcha");
+            output.AddAttribute("data-sitekey", this.publicKey);
+            output.RenderBeginTag("div");
             output.RenderEndTag();
         }
 
         #endregion
 
-        /*
-        /// <summary>
-        /// Generates the challenge URL.
-        /// </summary>
-        /// <param name="noscript">if set to <c>true</c> [no script].</param>
-        /// <returns>The challenge url.</returns>
-        private string GenerateChallengeUrl(bool noscript)
-        {
-            var urlBuilder = new StringBuilder();
-            urlBuilder.Append(this.Context.Request.IsSecureConnection ? RecaptchaSecureHost : RecaptchaHost);
-            urlBuilder.Append(noscript ? "/noscript?" : "/challenge?");
-            urlBuilder.AppendFormat("k={0}", this.publicKey);
-            if (this.recaptchaResponse != null && this.recaptchaResponse.ErrorCode != string.Empty)
-            {
-                urlBuilder.AppendFormat("&error={0}", this.recaptchaResponse.ErrorCode);
-            }
-
-            return urlBuilder.ToString();
-        }
-*/
     }
 }
