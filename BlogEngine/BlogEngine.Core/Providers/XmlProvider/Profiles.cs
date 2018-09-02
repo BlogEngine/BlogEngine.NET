@@ -1,5 +1,7 @@
-﻿namespace BlogEngine.Core.Providers
+﻿
+namespace BlogEngine.Core.Providers
 {
+    using BlogEngine.Core.Data.Contracts;
     using System;
     using System.Collections.Generic;
     using System.IO;

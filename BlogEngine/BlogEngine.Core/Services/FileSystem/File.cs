@@ -264,7 +264,7 @@ namespace BlogEngine.Core.FileSystem
         /// <summary>
         /// deletes the current file object from the storage container
         /// </summary>
-        public void Delete()
+        public new void Delete()
         {
             BlogService.DeleteFile(this.FullPath);
             this.Dispose();

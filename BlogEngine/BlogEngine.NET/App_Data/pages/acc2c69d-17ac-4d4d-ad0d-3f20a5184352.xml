@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>This is my page</title>
+  <author>Bill</author>
+  <description>testing page
+&amp;nbsp;</description>
+  <content>&lt;p&gt;test&lt;/p&gt;</content>
+  <keywords />
+  <slug>this-is-my-page</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>True</isdeleted>
+  <sortorder>0</sortorder>
+  <datecreated>2018-08-26 08:16:00</datecreated>
+  <datemodified>2018-09-01 16:35:03</datemodified>
+</page>

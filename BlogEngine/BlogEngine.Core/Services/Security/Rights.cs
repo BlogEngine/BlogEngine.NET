@@ -242,7 +242,12 @@ namespace BlogEngine.Core
         #endregion
 
         #region Users
-
+        /// <summary>
+        /// A user is allowed to access users. 
+        /// </summary>
+        [RightDetails(Category = RightCategory.Users)]
+        ManageUsers,
+        
         /// <summary>
         /// A user is allowed to register/create a new account. 
         /// </summary>

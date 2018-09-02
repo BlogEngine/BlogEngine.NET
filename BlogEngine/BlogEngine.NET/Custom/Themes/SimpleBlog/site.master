@@ -1,0 +1,121 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="SimpleBlog" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+<%@ Import Namespace="System.Linq" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="<%# Page.ResolveUrl("~/Custom/Themes/" + BlogSettings.Instance.Theme + "/include/styles.min.css") %>" rel="stylesheet" />
+    <link href='<%# Page.ResolveUrl("~/editors/tiny_mce_3_5_8/plugins/syntaxhighlighter/styles/shCore.css") %>' rel="stylesheet" />
+    <link href='<%# Page.ResolveUrl("~/editors/tiny_mce_3_5_8/plugins/syntaxhighlighter/styles/shThemeDefault.css") %>' rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    <link rel="shortcut icon" href="~/pics/blogengine.ico" type="image/x-icon" />
+    <script type="text/javascript" src="<%# ShRoot %>scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>scripts/shCore.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>scripts/shAutoloader.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>shActivator.js"></script>
+    <script src="<%#Page.ResolveUrl("~/Custom/Themes/" + BlogSettings.Instance.Theme + "/include/modernizr.js") %>"></script>
+</head>
+
+<!-- You can customize it on Admin - more information: http://seyfolahi.net/ -->
+<body class="[CUSTOMFIELD|THEME|SimpleBlog|Theme Structure|default-theme default-header fixnav banner responsive fade/]">
+
+    <form runat="Server">
+        <div class="<%=Resources.labels.LangDirection %>">
+            <header class="header">
+                <div class="line-header">
+                    <div class="container">
+                        <nav class="nav-header navbar float-left">
+                            <ul class="nav" id="nav">
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>" rel="home" class="acitve"><span><%=Resources.labels.home %></span></a></li>
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+                                <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                                <% if (Utils.IsMobile)
+                                   { %>
+                                <li>
+                                    <blog:MobileThemeSwitch ID="MobileThemeSwitch1" runat="server" />
+                                </li>
+                                <% } %>
+                                <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList && HasRoleAccess(p)))
+                                  { %><li class="Left Page-Link"><a href="<%=parentPage.RelativeLink %>"><%=parentPage.Title%></a> <%if (parentPage.HasChildPages)
+                                                                                                                                     { %>
+                                      <ul class="Sub-Page-Links">
+                                          <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished))
+                                            { %>
+                                          <li class="Left"><a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a></li>
+                                          <% } %>
+                                      </ul>
+                                      <% } %></li>
+                                <% } %>
+                            </ul>
+                        </nav>
+                        <div class="search float-right">
+                            <div class="btn-toggle-search" title="<%=Resources.labels.search %>..."></div>
+                            <blog:SearchBox ID="SearchBox1" runat="Server" />
+                        </div>
+                        <div class="social float-right" id="social">
+                            <ul class="tooltip">
+                                <li class="fb"><a href="http://facebook.com/[CUSTOMFIELD|THEME|SimpleBlog|Facebook account|#/]" title="Facebook" rel="nofollow" target="_blank"><span>Facebook</span></a></li>
+                                <li class="tw"><a href="http://twitter.com/[CUSTOMFIELD|THEME|SimpleBlog|Twitter account|#/]" title="Twitter" rel="nofollow" target="_blank"><span>Twitter</span></a></li>
+                                <li class="gp"><a href="http://plus.google.com/[CUSTOMFIELD|THEME|SimpleBlog|Google+ account|#/]" title="Google Plus" rel="author" target="_blank"><span>Google Plus</span></a></li>
+                                <li class="rs"><a href="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|SimpleBlog|RSS Feed|syndication.axd/]" title="<%= Resources.labels.subscribe %>"><span>Subscrib</span></a></li>
+                                <li class="yt"><a href="http://youtube.com/[CUSTOMFIELD|THEME|SimpleBlog|YouTube account|#/]" title="Youtube" rel="nofollow" target="_blank"><span>Youtube</span></a></li>
+                                <li class="li"><a href="http://linkedin.com/in/[CUSTOMFIELD|THEME|SimpleBlog|Linkedin account|#/]" title="Linkedin" rel="nofollow" target="_blank"><span>LinkedIn</span></a></li>
+                                <li class="is"><a href="http://instagram.com/[CUSTOMFIELD|THEME|SimpleBlog|Instagram account|#/]" title="Instagram" rel="nofollow" target="_blank"><span>Instagram</span></a></li>
+                                <li class="gi"><a href="http://github.com/[CUSTOMFIELD|THEME|SimpleBlog|github account|#/]" title="github" rel="nofollow" target="_blank"><span>github</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-header">
+                    <div class="item-r item-1" id="bg1"></div>
+                    <div class="item-r item-2" id="bg2"></div>
+                    <div class="item-r item-3" id="bg3"></div>
+                    <hgroup class="container title-blog text-center">
+                        <h1>
+                            <a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a>
+                        </h1>
+                        <h2><%=BlogSettings.Instance.Description %></h2>
+                    </hgroup>
+                </div>
+            </header>
+            <section class="container main-section clearfix">
+                <section class="content float-left">
+                    <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+                </section>
+                <aside class="sidebar float-right">
+                    <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
+                </aside>
+            </section>
+            <footer class="footer">
+                <div class="footer-widgets container">
+                    <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="Footer-Widget" />
+                </div>
+                <div class="footer-line">
+                    <div class="container text-center">
+                        <p>Copyright &copy; <%=DateTime.Now.Year %><span class="separator separator-1"></span>Powered by <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET</a> <%=BlogSettings.Instance.Version() %><span class="separator separator-2"></span><a href="http://seyfolahi.net/" title="SimpleBlog theme for BlogEngine 2.9" target="_blank">Design by FS</a><span class="separator separator-3"></span><a runat="server" id="aLogin"></a></p>
+                        <span class="scrollup"></span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript">
+            var links, index, link;
+            links = document.getElementById('social').getElementsByTagName('a');
+            for (index = 0; index < links.length; ++index) {
+                link = links[index];
+                if (link.href == 'http://facebook.com/') { link.style.display = "none"; }
+                if (link.href == 'http://twitter.com/') { link.style.display = "none"; }
+                if (link.href == 'http://plus.google.com/') { link.style.display = "none"; }
+                if (link.href == 'http://youtube.com/') { link.style.display = "none"; }
+                if (link.href == 'http://linkedin.com/in/') { link.style.display = "none"; }
+                if (link.href == 'http://instagram.com/') { link.style.display = "none"; }
+                if (link.href == 'http://github.com/') { link.style.display = "none"; }
+                if (link.href == '<%=Utils.AbsoluteWebRoot %>') { link.style.display = "none"; }
+            }
+        </script>
+        <script src="<%=(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/include/index.js")%>" type="text/javascript"></script>
+    </form>
+</body>
+</html>

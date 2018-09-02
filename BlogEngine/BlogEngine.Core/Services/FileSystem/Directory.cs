@@ -200,7 +200,7 @@ namespace BlogEngine.Core.FileSystem
         /// <summary>
         /// Deletes the current directory, and all subsequent files
         /// </summary>
-        public void Delete()
+        public new void Delete()
         {
             BlogService.DeleteDirectory(this.FullPath);
             this.Dispose();

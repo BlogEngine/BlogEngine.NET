@@ -9,6 +9,13 @@
         /// Option type
         /// </summary>
         public string OptionType { get; set; }
+
+    
+        /// <summary>
+        /// Show Authors
+        /// </summary>
+        public bool ShowAuthors { get; set; }
+
         /// <summary>
         /// Show slug
         /// </summary>

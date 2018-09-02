@@ -11,6 +11,7 @@
     var usage = "Single blog";
     if (BlogConfig.UsageScenario == "multiusers") { usage = "Multiple users"; }
     if (BlogConfig.UsageScenario == "multiblogs") { usage = "Multiple blogs"; }
+    if(BlogConfig.UsageScenario.Contains("multiblogs") && BlogConfig.UsageScenario.Contains("multiusers")) { usage = "Multiple blogs/users"; }
 
     var blogProviderSection = (BlogProviderSection)WebConfigurationManager.GetSection("BlogEngine/blogProvider");
     var membershipSection = (MembershipSection)WebConfigurationManager.GetSection("system.web/membership");

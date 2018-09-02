@@ -159,6 +159,7 @@ namespace BlogEngine.Core.Data
 
             lookups.PostOptions = new EditorOptions {
                 OptionType ="Post",
+                ShowAuthors = bs.PostOptionsAuthors,
                 ShowSlug = bs.PostOptionsSlug,
                 ShowDescription = bs.PostOptionsDescription,
                 ShowCustomFields = bs.PostOptionsCustomFields
@@ -166,6 +167,7 @@ namespace BlogEngine.Core.Data
 
             lookups.PageOptions = new EditorOptions {
                 OptionType = "Page",
+                ShowAuthors = bs.PageOptionsAuthors,
                 ShowSlug = bs.PageOptionsSlug,
                 ShowDescription = bs.PageOptionsDescription,
                 ShowCustomFields = bs.PageOptionsCustomFields
@@ -184,12 +186,14 @@ namespace BlogEngine.Core.Data
             var bs = BlogSettings.Instance;
             if (options.OptionType == "Post")
             {
+                bs.PostOptionsAuthors = options.ShowAuthors;
                 bs.PostOptionsSlug = options.ShowSlug;
                 bs.PostOptionsDescription = options.ShowDescription;
                 bs.PostOptionsCustomFields = options.ShowCustomFields;
             }
             if (options.OptionType == "Page")
             {
+                bs.PageOptionsAuthors = options.ShowAuthors;
                 bs.PageOptionsSlug = options.ShowSlug;
                 bs.PageOptionsDescription = options.ShowDescription;
                 bs.PageOptionsCustomFields = options.ShowCustomFields;

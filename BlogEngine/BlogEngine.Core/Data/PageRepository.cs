@@ -53,7 +53,9 @@ namespace BlogEngine.Core.Data
                 throw new UnauthorizedAccessException();
             try
             {
-                return Json.GetPageDetail((from p in Page.Pages.ToList() where p.Id == id select p).FirstOrDefault());
+                var page = (from p in Page.Pages.ToList() where p.Id == id select p).FirstOrDefault();
+                var result = Json.GetPageDetail(page);
+                return result;
             }
             catch (Exception)
             {
@@ -135,6 +137,7 @@ namespace BlogEngine.Core.Data
         static bool Save(Page page, PageDetail detail)
         {
             page.Title = detail.Title;
+            page.Author = detail.Author;
             page.DateCreated = DateTime.ParseExact(detail.DateCreated, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             page.IsPublished = detail.IsPublished;
             page.ShowInList = detail.ShowInList;

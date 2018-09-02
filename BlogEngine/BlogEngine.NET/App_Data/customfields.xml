@@ -24,4 +24,24 @@
     <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Github Account" value="" attribute="" />
     <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Publisher Logo" value="http://exampleblog.com/logo.png" attribute="" />
     <item customtype="THEME" objectid="Standard" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Post Thumbnail position" value="top" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Theme Structure" value="default-theme default-header fixnav banner responsive fade" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google+ account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="RSS Feed" value="syndication.axd" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="YouTube account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Linkedin account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Instagram account" value="#" attribute="" />
+    <item customtype="THEME" objectid="SimpleBlog" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="github account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google+ account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="RSS Feed" value="syndication.axd" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="YouTube account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Linkedin account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Instagram account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="github account" value="#" attribute="" />
+    <item customtype="PAGE" objectid="0a3436e4-8bc9-4139-8582-e861e78a232c" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Role" value="ContactManager" attribute="" />
+    <item customtype="PROFILE" objectid="diane" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="MyTest" value="testing" attribute="" />
+    <item customtype="PROFILE" objectid="admin" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Address" value="6025 Belpree Rd test" attribute="" />
 </CustomFields>

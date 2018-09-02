@@ -8,7 +8,7 @@
                         <h4 class="modal-title">{{editItem.RoleName ? editItem.RoleName : lbl.addNewRole}}</h4>
                     </div>
                     <div class="modal-body modal-roles">
-                        <div class="form-group" data-ng-if="newItem">
+                        <div class="form-group"  data-ng-if="newItem">
                             <label class="control-label" for="txtRoleName">{{lbl.name}}</label>
                             <input type="text" id="txtRoleName" autofocus="" name="txtRoleName" class="form-control" data-ng-model="editItem.RoleName" focus-me="focusInput" />
                         </div>

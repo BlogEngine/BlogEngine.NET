@@ -109,6 +109,7 @@ namespace BlogEngine.Core.Data.Services
                 Id = page.Id,
                 ShowInList = page.ShowInList,
                 Title = page.Title,
+                Author = page.Author,
                 Slug = page.Slug,
                 RelativeLink = page.RelativeLink,
                 Content = page.Content,

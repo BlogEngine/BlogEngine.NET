@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="MediaElementPlayer">
+  <AdminPage />
+  <Author>&lt;a href="http://johndyer.me/"&gt;John Dyer&lt;/a&gt;</Author>
+  <Description>HTML5 Video/Audio Player</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help>
+&lt;p&gt;Build on &lt;a href="http://mediaelement.js.com/"&gt;MediaElement.js&lt;/a&gt;, the HTML5 video/audio player.&lt;/p&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;Upload media files to your /media/ folder&lt;/li&gt;
+	&lt;li&gt;Add short code to your media: [video src="myfile.mp4"] for video and [audio src="myfile.mp3"] for audio&lt;/li&gt;
+	&lt;li&gt;Customize with the following parameters:
+		&lt;ul&gt;
+			&lt;li&gt;&lt;b&gt;width&lt;/b&gt;: The exact width of the video&lt;/li&gt;
+			&lt;li&gt;&lt;b&gt;height&lt;/b&gt;: The exact height of the video&lt;/li&gt;
+			&lt;li&gt;&lt;b&gt;autoplay&lt;/b&gt;: Plays the video as soon as the webpage loads&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;You can also specify multiple file formats and codecs 
+		&lt;ul&gt;
+			&lt;li&gt;&lt;b&gt;mp4&lt;/b&gt;: H.264 encoded MP4 file&lt;/li&gt;
+			&lt;li&gt;&lt;b&gt;webm&lt;/b&gt;: VP8/WebM encoded file&lt;/li&gt;
+			&lt;li&gt;&lt;b&gt;ogg&lt;/b&gt;: Theora/Vorbis encoded file&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A complete example:&lt;br /&gt;
+[code mp4="myfile.mp4" webm="myfile.webm" ogg="myfile.ogg" width="480" height="360"]
+&lt;/p&gt;
+
+&lt;p&gt;Supported formats&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;b&gt;MP4/MP3&lt;/b&gt;: Native HTML5 for IE9, Safari, Chrome; Flash in IE8, Firefox, Opera&lt;/li&gt;
+	&lt;li&gt;&lt;b&gt;WebM&lt;/b&gt;: HTML5 for IE9, Chrome, Firefox, Opera; Flash in IE8 (coming in Flash 11)&lt;/li&gt;
+	&lt;li&gt;&lt;b&gt;FLV&lt;/b&gt;: Flash fallback&lt;/li&gt;
+	&lt;li&gt;&lt;b&gt;WMV/WMA&lt;/b&gt;: Silverlight fallback&lt;/li&gt;
+&lt;/ul&gt;
+</Help>
+    <Hidden>false</Hidden>
+    <Index>0</Index>
+    <IsScalar>true</IsScalar>
+    <Name>MediaElementPlayer</Name>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Default Width</Label>
+      <MaxLength>100</MaxLength>
+      <Name>width</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>480</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Default Height</Label>
+      <MaxLength>100</MaxLength>
+      <Name>height</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>360</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Folder for Media (MP4, MP3, WMV, Ogg, WebM, etc.)</Label>
+      <MaxLength>100</MaxLength>
+      <Name>folder</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>Custom/Media</Values>
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.5</Version>
+</ManagedExtension>

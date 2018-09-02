@@ -110,6 +110,8 @@ namespace Recaptcha
         /// <returns>The response.</returns>
         public RecaptchaResponse Validate()
         {
+            this.Challenge = "not-used";
+
             CheckNotNull(this.PrivateKey, "PrivateKey");
             CheckNotNull(this.RemoteIP, "RemoteIp");
             CheckNotNull(this.Challenge, "Challenge");

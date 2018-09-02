@@ -125,17 +125,20 @@ namespace BlogEngine.Core.Data
                 throw new ApplicationException("Error adding new user; Missing required fields");
 
             // update user
-            var usr = Membership.GetUser(user.UserName);
+            var member = Membership.GetUser(user.UserName);
 
-            if (usr == null)
+            if (member == null)
                 return false;
 
-            usr.Email = user.Email;
-            Membership.UpdateUser(usr);
+            member.Email = user.Email;
+            Membership.UpdateUser(member);
+
+            // Ensure that if email is changed that the profile email is changed as well
+            user.Profile.EmailAddress = member.Email;
 			
 			//change user password
             if (!string.IsNullOrEmpty(user.OldPassword) && !string.IsNullOrEmpty(user.Password))
-                ChangePassword(usr, user.OldPassword, user.Password);
+                ChangePassword(member, user.OldPassword, user.Password);
 
             UpdateUserProfile(user);
 
@@ -225,39 +228,9 @@ namespace BlogEngine.Core.Data
 
         static Profile GetProfile(string id)
         {
-            if (!String.IsNullOrWhiteSpace(id))
-            {
-                var pf = AuthorProfile.GetProfile(id);
-                if (pf == null)
-                {
-                    pf = new AuthorProfile(id);
-                    pf.Birthday = DateTime.Parse("01/01/1900");
-                    pf.DisplayName = id;
-                    pf.EmailAddress = Utils.GetUserEmail(id);
-                    pf.FirstName = id;
-                    pf.Private = true;
-                    pf.Save();
-                }
-                
-                return new Profile { 
-                    AboutMe = string.IsNullOrEmpty(pf.AboutMe) ? "" : pf.AboutMe,
-                    Birthday = pf.Birthday.ToShortDateString(),
-                    CityTown = string.IsNullOrEmpty(pf.CityTown) ? "" : pf.CityTown,
-                    Country = string.IsNullOrEmpty(pf.Country) ? "" : pf.Country,
-                    DisplayName = pf.DisplayName,
-                    EmailAddress = pf.EmailAddress,
-                    PhoneFax = string.IsNullOrEmpty(pf.PhoneFax) ? "" : pf.PhoneFax,
-                    FirstName = string.IsNullOrEmpty(pf.FirstName) ? "" : pf.FirstName,
-                    Private = pf.Private,
-                    LastName = string.IsNullOrEmpty(pf.LastName) ? "" : pf.LastName,
-                    MiddleName = string.IsNullOrEmpty(pf.MiddleName) ? "" : pf.MiddleName,
-                    PhoneMobile = string.IsNullOrEmpty(pf.PhoneMobile) ? "" : pf.PhoneMobile,
-                    PhoneMain = string.IsNullOrEmpty(pf.PhoneMain) ? "" : pf.PhoneMain,
-                    PhotoUrl = string.IsNullOrEmpty(pf.PhotoUrl) ? "" : pf.PhotoUrl.Replace("\"", ""),
-                    RegionState = string.IsNullOrEmpty(pf.RegionState) ? "" : pf.RegionState
-                };
-            }
-            return null;
+            // BillKrat.2018.09.02 moved into AuthorProfile to encapsulate
+            var result = AuthorProfile.GetPopulatedProfile(id);
+            return result;
         }
 
         static List<RoleItem> GetRoles(string id)
@@ -280,47 +253,24 @@ namespace BlogEngine.Core.Data
 
         static bool UpdateUserProfile(BlogUser user)
         {
-            if (user == null || string.IsNullOrEmpty(user.UserName))
-                return false;
-
-            var pf = AuthorProfile.GetProfile(user.UserName) 
-                ?? new AuthorProfile(user.UserName);
-            try
+            // If the profile email changed be sure to update membership to match
+            if (user.Email != user.Profile.EmailAddress)
             {
-                pf.DisplayName = user.Profile.DisplayName;
-                pf.FirstName = user.Profile.FirstName;
-                pf.MiddleName = user.Profile.MiddleName;
-                pf.LastName = user.Profile.LastName;
-                pf.EmailAddress = user.Email; // user.Profile.EmailAddress;
-
-                DateTime date;
-                if (user.Profile.Birthday.Length == 0)
-                    user.Profile.Birthday = "1/1/1001";
-
-                if (DateTime.TryParse(user.Profile.Birthday, out date))
-                    pf.Birthday = date;
-
-                pf.PhotoUrl = user.Profile.PhotoUrl.Replace("\"", "");
-                pf.Private = user.Profile.Private;
-
-                pf.PhoneMobile = user.Profile.PhoneMobile;
-                pf.PhoneMain = user.Profile.PhoneMain;
-                pf.PhoneFax = user.Profile.PhoneFax;
-
-                pf.CityTown = user.Profile.CityTown;
-                pf.RegionState = user.Profile.RegionState;
-                pf.Country = user.Profile.Country;
-                pf.AboutMe = user.Profile.AboutMe;
-
-                pf.Save();
-                UpdateProfileImage(pf);
+                // update user
+                var member = Membership.GetUser(user.UserName);
+                if (member != null)
+                {
+                    member.Email = user.Profile.EmailAddress;
+                    Membership.UpdateUser(member);
+                    user.Email = member.Email;
+                }
             }
-            catch (Exception ex)
-            {
-                Utils.Log("Error editing profile", ex);
-                return false;
-            }
-            return true;
+
+            // BillKrat.2018.09.02 moved into AuthorProfile to encapsulate
+            var result = AuthorProfile.UpdateUserProfile(user);
+            
+
+            return result;
         }
 
         static bool UpdateUserRoles(BlogUser user)
@@ -350,38 +300,7 @@ namespace BlogEngine.Core.Data
             }
         }
 
-        static void UpdateProfileImage(AuthorProfile profile)
-        {
-            var dir = BlogEngine.Core.Providers.BlogService.GetDirectory("/avatars");
 
-            if(string.IsNullOrEmpty(profile.PhotoUrl))
-            {
-                foreach (var f in dir.Files)
-                {
-                    var dot = f.Name.IndexOf(".");
-                    var img = dot > 0 ? f.Name.Substring(0, dot) : f.Name;
-                    if (profile.UserName == img)
-                    {
-                        f.Delete();
-                    }
-                }
-            }
-            else
-            {
-                foreach (var f in dir.Files)
-                {
-                    var dot = f.Name.IndexOf(".");
-                    var img = dot > 0 ? f.Name.Substring(0, dot) : f.Name;
-                    // delete old profile image saved with different name
-                    // for example was admin.jpg and now admin.png
-                    if (profile.UserName == img && f.Name != profile.PhotoUrl.Replace("\"", ""))
-                    {
-                        f.Delete();
-                    }
-                }
-            }
-        }
-		
         bool ChangePassword(MembershipUser user, string password, string newPassword)
         {
             return user.ChangePassword(password, newPassword);

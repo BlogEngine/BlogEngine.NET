@@ -359,6 +359,20 @@ namespace BlogEngine.Core
         }
 
         /// <summary>
+        /// Returns whether or not the current user has the passed in Right.
+        /// </summary>
+        /// <param name="rights"></param>
+        /// <returns></returns>
+        public static bool IsAuthorizedTo(IEnumerable<Rights> rights)
+        {
+            foreach (var right in rights)
+                if (Right.HasRight(right, Security.GetCurrentUserRoles()))
+                    return true;
+
+            return false;
+        }
+
+        /// <summary>
         /// Returns whether the current user passes authorization on the rights based on the given AuthorizationCheck.
         /// </summary>
         /// <param name="authCheck"></param>

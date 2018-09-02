@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>test11</title>
+  <author>Admin</author>
+  <description>test11</description>
+  <content>&lt;p&gt;test11&lt;/p&gt;</content>
+  <keywords />
+  <slug>test11</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>True</isdeleted>
+  <sortorder>0</sortorder>
+  <datecreated>2018-08-29 22:07:00</datecreated>
+  <datemodified>2018-09-01 16:34:43</datemodified>
+</page>

@@ -203,7 +203,7 @@ namespace BlogEngine.Core.Data
         /// <returns>Roles</returns>
         public IEnumerable<Data.Models.RoleItem> GetUserRoles(string id)
         {
-            if (!Security.IsAuthorizedTo(BlogEngine.Core.Rights.ViewRoles))
+            if (!Security.IsAuthorizedTo(new[]{ Rights.ViewRoles, Rights.ManageUsers}))
                 throw new System.UnauthorizedAccessException();
 
             var roles = new List<Data.Models.RoleItem>();

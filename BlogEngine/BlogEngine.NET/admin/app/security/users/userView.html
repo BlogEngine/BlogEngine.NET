@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">{{lbl.email}}</label>
-                                <input type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
+                                <input ng-disabled="isAdmin===false  && isNewItem===false" type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
                             </div>
                             <div class="form-group" data-ng-if="isNewItem">
                                 <label for="txtPassword">{{lbl.password}}</label>
@@ -25,11 +25,11 @@
                                 <label for="txtConfirmPassword">{{lbl.confirmPassword}}</label>
                                 <input type="password" class="form-control ltr-dir" id="txtConfirmPassword" name="txtConfirmPassword" />
                             </div>
-                            <div class="form-group" data-ng-if="isNewItem">
+                            <div class="form-group" >
                                 <label>{{lbl.roles}}</label>
                                 <div class="checkbox" data-ng-repeat="role in roles">
                                     <label>
-                                        <input type="checkbox" data-ng-model="role.IsChecked" /> {{role.RoleName}}
+                                        <input type="checkbox" ng-disabled="role.RoleName.match('Admin') && isAdmin===false" data-ng-model="role.IsChecked" /> {{role.RoleName}}
                                     </label>
                                 </div>
                             </div>
@@ -69,8 +69,13 @@
                 <tbody>
                     <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                         <td class="item-checkbox"><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
-                        <td class="item-title"><a title="click to edit" href="" ng-click="loadEditForm(item.UserName)">{{item.UserName}}</a></td>
-                        <td class="item-roles"><span ng-repeat="r in item.Roles"> <a href="{{SiteVars.RelativeWebRoot}}admin/#/users/roles?id={{r.RoleName}}">{{r.RoleName}}</a> </span> </td>
+                        <td class="item-title"><a title="click to edit" href="" ng-click="launchProfilePage(item.UserName)">{{item.UserName}}</a></td>
+                        <td class="item-roles">
+                            <span ng-repeat="r in item.Roles">
+                                <a href="" ng-click="loadEditForm(item.UserName)">{{r.RoleName}}</a>
+                                <span ng-repeat-end ng-if="!$last">&nbsp;|&nbsp;</span>
+                            </span> 
+                        </td>
                         <td class="item-email"><span class="text-ellipsis"><a href="mailto:{{item.Email}}">{{item.Email}}</a></span></td>
                     </tr>
                 </tbody>

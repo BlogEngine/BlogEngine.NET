@@ -1,4 +1,7 @@
-﻿namespace BlogEngine.Core
+﻿/// <summary>
+/// Mirrors Profile 
+/// </summary>
+namespace BlogEngine.Core
 {
     using System;
     using System.Collections.Generic;
@@ -163,8 +166,6 @@
 
         #endregion
 
-        #region Properties
-
         /// <summary>
         /// Gets or sets AboutMe.
         /// </summary>
@@ -305,22 +306,6 @@
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether Private.
-        /// </summary>
-        public bool Private
-        {
-            get
-            {
-                return this.isprivate;
-            }
-
-            set
-            {
-                base.SetValue("Private", value, ref this.isprivate);
-            }
-        }
-
-        /// <summary>
         /// Gets or sets LastName.
         /// </summary>
         public string LastName
@@ -417,6 +402,22 @@
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether Private.
+        /// </summary>
+        public bool Private
+        {
+            get
+            {
+                return this.isprivate;
+            }
+
+            set
+            {
+                base.SetValue("Private", value, ref this.isprivate);
+            }
+        }
+
+        /// <summary>
         /// Gets or sets RegionState.
         /// </summary>
         public string RegionState
@@ -478,9 +479,120 @@
             }
         }
 
-        #endregion
 
-        #region Public Methods
+        public static Profile GetPopulatedProfile(string id)
+        {
+            if (!String.IsNullOrWhiteSpace(id))
+            {
+                var pf = GetProfile(id);
+                if (pf == null)
+                {
+                    pf = new AuthorProfile(id);
+                    pf.Birthday = DateTime.Parse("01/01/1900");
+                    pf.DisplayName = id;
+                    pf.EmailAddress = Utils.GetUserEmail(id);
+                    pf.FirstName = id;
+                    pf.Private = true;
+                    pf.Save();
+                }
+
+                return new Profile
+                {
+                    AboutMe = string.IsNullOrEmpty(pf.AboutMe) ? "" : pf.AboutMe,
+                    Birthday = pf.Birthday.ToShortDateString(),
+                    CityTown = string.IsNullOrEmpty(pf.CityTown) ? "" : pf.CityTown,
+                    Company = string.IsNullOrEmpty(pf.Company) ? "" : pf.Company,
+                    Country = string.IsNullOrEmpty(pf.Country) ? "" : pf.Country,
+                    DisplayName = pf.DisplayName,
+                    EmailAddress = pf.EmailAddress,
+                    FirstName = string.IsNullOrEmpty(pf.FirstName) ? "" : pf.FirstName,
+                    LastName = string.IsNullOrEmpty(pf.LastName) ? "" : pf.LastName,
+                    MiddleName = string.IsNullOrEmpty(pf.MiddleName) ? "" : pf.MiddleName,
+                    PhoneFax = string.IsNullOrEmpty(pf.PhoneFax) ? "" : pf.PhoneFax,
+                    PhoneMain = string.IsNullOrEmpty(pf.PhoneMain) ? "" : pf.PhoneMain,
+                    PhoneMobile = string.IsNullOrEmpty(pf.PhoneMobile) ? "" : pf.PhoneMobile,
+                    PhotoUrl = string.IsNullOrEmpty(pf.PhotoUrl) ? "" : pf.PhotoUrl.Replace("\"", ""),
+                    Private = pf.Private,
+                    RegionState = string.IsNullOrEmpty(pf.RegionState) ? "" : pf.RegionState
+                };
+            }
+            return null;
+        }
+
+        public static bool UpdateUserProfile(BlogUser user)
+        {
+            if (user == null || string.IsNullOrEmpty(user.UserName))
+                return false;
+
+            var pf = GetProfile(user.UserName) ?? new AuthorProfile(user.UserName);
+            try
+            {
+                pf.AboutMe = user.Profile.AboutMe;
+                if (user.Profile.Birthday.Length == 0)
+                    user.Profile.Birthday = "1/1/1001";
+                if (DateTime.TryParse(user.Profile.Birthday, out DateTime date))
+                    pf.Birthday = date;
+                pf.CityTown = user.Profile.CityTown;
+                pf.Company = user.Profile.Company;
+                pf.Country = user.Profile.Country;
+                pf.DisplayName = user.Profile.DisplayName;
+                pf.EmailAddress = user.Email; // user.Profile.EmailAddress;
+                pf.FirstName = user.Profile.FirstName;
+                pf.LastName = user.Profile.LastName;
+                pf.MiddleName = user.Profile.MiddleName;
+                pf.PhoneFax = user.Profile.PhoneFax;
+                pf.PhoneMain = user.Profile.PhoneMain;
+                pf.PhoneMobile = user.Profile.PhoneMobile;
+                pf.PhotoUrl = user.Profile.PhotoUrl.Replace("\"", "");
+                pf.Private = user.Profile.Private;
+                pf.RegionState = user.Profile.RegionState;
+
+                pf.Save();
+                UpdateProfileImage(pf);
+            }
+            catch (Exception ex)
+            {
+                Utils.Log("Error editing profile", ex);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Update profile image
+        /// </summary>
+        /// <param name="profile"></param>
+        static void UpdateProfileImage(AuthorProfile profile)
+        {
+            var dir = BlogEngine.Core.Providers.BlogService.GetDirectory("/avatars");
+
+            if (string.IsNullOrEmpty(profile.PhotoUrl))
+            {
+                foreach (var f in dir.Files)
+                {
+                    var dot = f.Name.IndexOf(".");
+                    var img = dot > 0 ? f.Name.Substring(0, dot) : f.Name;
+                    if (profile.UserName == img)
+                    {
+                        f.Delete();
+                    }
+                }
+            }
+            else
+            {
+                foreach (var f in dir.Files)
+                {
+                    var dot = f.Name.IndexOf(".");
+                    var img = dot > 0 ? f.Name.Substring(0, dot) : f.Name;
+                    // delete old profile image saved with different name
+                    // for example was admin.jpg and now admin.png
+                    if (profile.UserName == img && f.Name != profile.PhotoUrl.Replace("\"", ""))
+                    {
+                        f.Delete();
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the profile.
@@ -573,8 +685,6 @@
         {
             profiles.Remove(blogId);
         }
-
-        #endregion
 
         #region Methods
 

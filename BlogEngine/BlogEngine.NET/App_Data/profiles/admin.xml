@@ -2,19 +2,18 @@
 <profileData>
   <DisplayName>Administrator</DisplayName>
   <FirstName>Admin</FirstName>
-  <MiddleName />
-  <LastName />
-  <CityTown />
-  <RegionState />
-  <Country>dk</Country>
-  <Birthday>1900-01-01</Birthday>
-  <AboutMe>I love BlogEngine.NET
-</AboutMe>
+  <MiddleName>AA</MiddleName>
+  <LastName>Kratochvil</LastName>
+  <CityTown>Amarillo</CityTown>
+  <RegionState>TX</RegionState>
+  <Country>US</Country>
+  <Birthday>2018-01-02</Birthday>
+  <AboutMe>I love BlogEngine.NET</AboutMe>
   <PhotoURL />
-  <Company />
-  <EmailAddress>post@example.com</EmailAddress>
-  <PhoneMain />
-  <PhoneMobile />
-  <PhoneFax />
+  <Company>Adventures</Company>
+  <EmailAddress>bill1@test.com</EmailAddress>
+  <PhoneMain>222-333-4444</PhoneMain>
+  <PhoneMobile>555-55-5555</PhoneMobile>
+  <PhoneFax>111-222-3333</PhoneFax>
   <IsPrivate>False</IsPrivate>
 </profileData>

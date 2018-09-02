@@ -5,9 +5,12 @@
     $scope.isNewItem = false;
     $scope.focusInput = false;
     $scope.security = $rootScope.security;
+    $scope.UserVars = UserVars;
+    $scope.isAdmin = UserVars.IsAdmin === "True"; // more predictable (boolean)
+
 
     $scope.load = function () {
-        if (!$scope.security.canManageUsers == true) {
+        if (!$scope.security.canManageUsers === true) {
             window.location.replace("../Account/Login.aspx");
         }
         dataService.getItems('/api/users', { take: 0, skip: 0, filter: "1 == 1", order: "UserName" })
@@ -19,6 +22,10 @@
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingUsers);
         });
+    }
+
+    $scope.launchProfilePage = function(userName){
+        location.href = "#/security/profile/?name="+userName;
     }
 
     $scope.loadEditForm = function (id) {
@@ -33,22 +40,18 @@
         else {
             $scope.isNewItem = false;
         }
-        spinOn();
         dataService.getItems('/api/users?id=' + id)
         .success(function (data) {
             angular.copy(data, $scope.editItem);
             $("#modal-user-edit").modal();
             $scope.focusInput = true;
-            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingUser);
-            spinOff();
         });
     }
 
     $scope.loadRoles = function (id) {
-        spinOn();
         if (!id) {
             id = "fakeusername";
         }
@@ -56,11 +59,9 @@
             .success(function (data) {
                 angular.copy(data, $scope.roles);
                 gridInit($scope, $filter);
-                spinOff();
             })
             .error(function () {
                 toastr.error($rootScope.lbl.errorLoadingRoles);
-                spinOff();
             });
     }
 

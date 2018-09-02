@@ -15,8 +15,6 @@
     /// </summary>
     public partial class Register : Page
     {
-        #region Methods
-
         /// <summary>
         /// Handles the Load event of the Page control.
         /// </summary>
@@ -81,8 +79,12 @@
         /// <param name="e">The <see cref="System.Web.UI.WebControls.LoginCancelEventArgs"/> instance containing the event data.</param>
         protected void RegisterUser_CreatingUser(object sender, LoginCancelEventArgs e)
         {
-            App_Code.Controls.RecaptchaControl captcha =
-                (App_Code.Controls.RecaptchaControl)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("recaptcha") as App_Code.Controls.RecaptchaControl;
+            // our control resides in the create user wizard so we'll retreive instance as follows
+            App_Code.Controls.RecaptchaControl captcha = RegisterUser.CreateUserStep
+                .ContentTemplateContainer.FindControl("recaptcha") as App_Code.Controls.RecaptchaControl;
+
+            // Assign the recapture response to the captcha control for validation 
+            captcha.RecaptchaResponseValue = this.captcharesponse.Text;
 
             if (Membership.GetUser(this.RegisterUser.UserName) != null)
             {
@@ -105,8 +107,5 @@
                 }
             }
         }
-
-        #endregion
-
     }
 }

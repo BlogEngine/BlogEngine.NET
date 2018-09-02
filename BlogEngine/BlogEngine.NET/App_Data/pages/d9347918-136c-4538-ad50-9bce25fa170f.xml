@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <page>
   <title>Example Page</title>
+  <author>Admin</author>
   <description>content goes here ...</description>
   <content>&lt;p&gt;content goes here ...&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;</content>
@@ -10,8 +11,8 @@
   <isfrontpage>False</isfrontpage>
   <showinlist>True</showinlist>
   <ispublished>True</ispublished>
-  <isdeleted>False</isdeleted>
+  <isdeleted>True</isdeleted>
   <sortorder>1</sortorder>
   <datecreated>2018-05-21 22:22:00</datecreated>
-  <datemodified>2018-05-21 22:27:53</datemodified>
+  <datemodified>2018-09-01 16:34:50</datemodified>
 </page>

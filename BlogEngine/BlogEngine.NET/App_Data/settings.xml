@@ -4,7 +4,7 @@
   <enablehttpcompression>False</enablehttpcompression>
   <emailsubjectprefix>Weblog</emailsubjectprefix>
   <htmlheader />
-  <theme>Standard</theme>
+  <theme>ContactManager</theme>
   <facebooklanguage>en_US</facebooklanguage>
   <trackingscript />
   <showdescriptioninpostlist>False</showdescriptioninpostlist>
@@ -12,7 +12,7 @@
   <feedauthor />
   <description>Short description of the blog</description>
   <enablepingbacksend>True</enablepingbacksend>
-  <postoptionscustomfields>False</postoptionscustomfields>
+  <postoptionscustomfields>True</postoptionscustomfields>
   <enabletagexport>True</enabletagexport>
   <iscocommentenabled>False</iscocommentenabled>
   <compresswebresource>False</compresswebresource>
@@ -29,6 +29,7 @@
   <enablecontactattachments>False</enablecontactattachments>
   <blogrollmaxlength>23</blogrollmaxlength>
   <language>en-US</language>
+  <postoptionsauthors>True</postoptionsauthors>
   <smtpserver>smtp.gmail.com</smtpserver>
   <disqusdevmode>False</disqusdevmode>
   <customfrontpage />
@@ -56,7 +57,7 @@
   <commentprovider>BlogEngine</commentprovider>
   <postsperfeed>3</postsperfeed>
   <sendmailoncomment>True</sendmailoncomment>
-  <culture>Auto</culture>
+  <culture>en</culture>
   <remotemaxfilesize>524288</remotemaxfilesize>
   <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <syndicationformat>Rss</syndicationformat>
@@ -73,7 +74,7 @@
   <iscommentnestingenabled>True</iscommentnestingenabled>
   <timestamppostlinks>False</timestamppostlinks>
   <avatar>none</avatar>
-  <timezoneid>UTC</timezoneid>
+  <timezoneid>Central Standard Time</timezoneid>
   <moderationtype>Auto</moderationtype>
   <enablerecaptchaoncontactform>False</enablerecaptchaoncontactform>
   <enableoptimization>False</enableoptimization>
@@ -89,13 +90,14 @@
   <descriptioncharacters>300</descriptioncharacters>
   <enablessl>False</enablessl>
   <errortext>This one's down to me! Please accept my apologies for this - I'll see to it that the developer responsible for this happening is given 20 lashes (but only after he or she has fixed this problem).</errortext>
+  <pageoptionsauthors>True</pageoptionsauthors>
   <contactthankmessage>&lt;h1&gt;Thank you&lt;/h1&gt;&lt;p&gt;The message was sent.&lt;/p&gt;</contactthankmessage>
   <descriptioncharactersforpostsbytagorcategory>0</descriptioncharactersforpostsbytagorcategory>
   <commentreportmistakes>False</commentreportmistakes>
   <postoptionsdescription>True</postoptionsdescription>
   <geocodinglongitude>0</geocodinglongitude>
-  <selfregistrationinitialrole>Editors</selfregistrationinitialrole>
-  <enableselfregistration>False</enableselfregistration>
+  <selfregistrationinitialrole>Viewer</selfregistrationinitialrole>
+  <enableselfregistration>True</enableselfregistration>
   <blogrollupdateminutes>60</blogrollupdateminutes>
   <securityvalidationkey>ede308e723ae42aab289b04350133355accaa0f0da9743e7a8529a0cbbf5bceee5bcafc4eac741f68d2d63d80e21bf8e</securityvalidationkey>
   <requiresslmetaweblogapi>False</requiresslmetaweblogapi>

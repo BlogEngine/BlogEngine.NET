@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="SendCommentMail">
+  <AdminPage />
+  <Author>BlogEngine.NET</Author>
+  <Description>Sends an e-mail to the blog owner whenever a comment is added</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.3</Version>
+</ManagedExtension>

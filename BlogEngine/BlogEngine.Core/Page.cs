@@ -69,6 +69,11 @@
         private string title;
 
         /// <summary>
+        /// The _ author.
+        /// </summary>
+        private string author;
+
+        /// <summary>
         /// The front page.
         /// </summary>
         private bool frontPage;
@@ -420,6 +425,22 @@
             set
             {
                 base.SetValue("Title", value, ref this.title);
+            }
+        }
+
+        /// <summary>
+        ///     Gets or sets the Author or the object.
+        /// </summary>
+        public string Author
+        {
+            get
+            {
+                return this.author;
+            }
+
+            set
+            {
+                base.SetValue("Author", value, ref this.author);
             }
         }
 

@@ -27,6 +27,12 @@ namespace BlogEngine.Core.Data.Models
         /// Page title
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Page Author
+        /// </summary>
+        public string Author { get; set; }
+
         /// <summary>
         /// Page content
         /// </summary>

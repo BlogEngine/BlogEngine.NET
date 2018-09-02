@@ -4,10 +4,12 @@
     var dashboardUrl = Utils.RelativeWebRoot + "admin/index.cshtml";
     var contentUrl = Utils.RelativeWebRoot + "admin/#/content/posts";
     var customUrl = Utils.RelativeWebRoot + "admin/#/custom/themes";
+    var usersUrl = Utils.RelativeWebRoot + "admin/#/security/users";
     var settingsUrl = Utils.RelativeWebRoot + "admin/#/settings/basic";
     var profileUrl = Utils.RelativeWebRoot + "admin/#/security/profile";
     var passwordUrl = Utils.RelativeWebRoot + "Account/change-password.aspx";
 }
+
 @if (Security.IsAuthenticated)
 {
     <div class="Widget widget administration">
@@ -25,6 +27,10 @@
                 @if (Security.IsAuthorizedTo(Rights.ManageThemes))
                 {
                     <li><a href="@customUrl"><span>@Resources.labels.custom</span></a></li>
+                }
+                @if (Security.IsAuthorizedTo(Rights.ManageUsers))
+                {
+                    <li><a href="@usersUrl"><span>@Resources.labels.users</span></a></li>                    
                 }
                 @if (Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
                 {

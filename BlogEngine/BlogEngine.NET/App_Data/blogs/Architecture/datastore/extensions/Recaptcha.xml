@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Recaptcha">
+  <AdminPage />
+  <Author>&lt;a href="http://www.bloodforge.com"&gt;Bloodforge.com&lt;/a&gt;</Author>
+  <Description>Settings for the Recaptcha control</Description>
+  <Enabled>false</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help>
+&lt;script type='text/javascript'&gt;
+function showRecaptchaLog() {
+        window.scrollTo(0, 0);
+        var width = document.documentElement.clientWidth + document.documentElement.scrollLeft;
+        var height = document.documentElement.clientHeight + document.documentElement.scrollTop;
+
+        var layer = document.createElement('div');
+        layer.style.zIndex = 1002;
+        layer.id = 'RecaptchaLogLayer';
+        layer.style.position = 'absolute';
+        layer.style.top = '0px';
+        layer.style.left = '0px';
+        layer.style.height = document.documentElement.scrollHeight + 'px';
+        layer.style.width = width + 'px';
+        layer.style.backgroundColor = 'black';
+        layer.style.opacity = '.6';
+        layer.style.filter += ('progid:DXImageTransform.Microsoft.Alpha(opacity=60)');
+        document.body.style.position = 'static';
+        document.body.appendChild(layer);
+
+        var size = { 'height': 500, 'width': 750 };
+        var iframe = document.createElement('iframe');
+        iframe.name = 'Recaptcha Log Viewer';
+        iframe.id = 'RecaptchaLogDetails';
+        iframe.src = '../Pages/RecaptchaLogViewer.aspx';
+        iframe.style.height = size.height + 'px';
+        iframe.style.width = size.width + 'px';
+        iframe.style.position = 'fixed';
+        iframe.style.zIndex = 1003;
+        iframe.style.backgroundColor = 'white';
+        iframe.style.border = '4px solid silver';
+        iframe.frameborder = '0';
+
+        iframe.style.top = ((height + document.documentElement.scrollTop) / 2) - (size.height / 2) + 'px';
+        iframe.style.left = (width / 2) - (size.width / 2) + 'px';
+
+        document.body.appendChild(iframe);
+        return false;
+    }
+&lt;/script&gt;
+You can create your own public key at &lt;a href='http://www.Recaptcha.net'&gt;http://www.Recaptcha.net&lt;/a&gt;. This is used for communication between your website and the recapcha server.&lt;br /&gt;&lt;br /&gt;Please rememeber you need to &lt;span style="color:red"&gt;enable extension&lt;/span&gt; for reCaptcha to show up on the comments form.&lt;br /&gt;&lt;br /&gt;You can see some statistics on Captcha solving by storing successful attempts. If you're getting spam, this should also confirm that the spammers are at least solving the captcha.&lt;br /&gt;&lt;br /&gt;&lt;a href='../Pages/RecaptchaLogViewer.aspx' target='_blank' onclick='return showRecaptchaLog()'&gt;Click here to view the log&lt;/a&gt;</Help>
+    <Hidden>false</Hidden>
+    <Index>0</Index>
+    <IsScalar>true</IsScalar>
+    <KeyField>PublicKey</KeyField>
+    <Name>Recaptcha</Name>
+    <Parameters>
+      <KeyField>true</KeyField>
+      <Label>Public Key</Label>
+      <MaxLength>50</MaxLength>
+      <Name>PublicKey</Name>
+      <ParamType>String</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>YOURPUBLICKEY</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>true</KeyField>
+      <Label>Private Key</Label>
+      <MaxLength>50</MaxLength>
+      <Name>PrivateKey</Name>
+      <ParamType>String</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>YOURPRIVATEKEY</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Show Captcha For Authenticated Users</Label>
+      <MaxLength>1</MaxLength>
+      <Name>ShowForAuthenticatedUsers</Name>
+      <ParamType>Boolean</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>False</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Logging: Maximum successful recaptcha attempts to store (set to 0 to disable logging)</Label>
+      <MaxLength>4</MaxLength>
+      <Name>MaxLogEntries</Name>
+      <ParamType>Integer</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>50</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Theme</Label>
+      <MaxLength>20</MaxLength>
+      <Name>Theme</Name>
+      <ParamType>DropDown</ParamType>
+      <Required>true</Required>
+      <SelectedValue>white</SelectedValue>
+      <Values>red</Values>
+      <Values>white</Values>
+      <Values>blackglass</Values>
+      <Values>clean</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Language</Label>
+      <MaxLength>5</MaxLength>
+      <Name>Language</Name>
+      <ParamType>DropDown</ParamType>
+      <Required>true</Required>
+      <SelectedValue>en</SelectedValue>
+      <Values>en|English</Values>
+      <Values>nl|Dutch</Values>
+      <Values>fr|French</Values>
+      <Values>de|German</Values>
+      <Values>pt|Portuguese</Values>
+      <Values>ru|Russian</Values>
+      <Values>es|Spanish</Values>
+      <Values>tr|Turkish</Values>
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help />
+    <Hidden>true</Hidden>
+    <Index>1</Index>
+    <IsScalar>false</IsScalar>
+    <KeyField>Response</KeyField>
+    <Name>RecaptchaLog</Name>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Response</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Response</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Challenge</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Challenge</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>CommentID</Label>
+      <MaxLength>100</MaxLength>
+      <Name>CommentID</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>TimeToComment</Label>
+      <MaxLength>100</MaxLength>
+      <Name>TimeToComment</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>TimeToSolveCapcha</Label>
+      <MaxLength>100</MaxLength>
+      <Name>TimeToSolveCapcha</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>NumberOfAttempts</Label>
+      <MaxLength>100</MaxLength>
+      <Name>NumberOfAttempts</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Enabled</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Enabled</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Necessary</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Necessary</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.1</Version>
+</ManagedExtension>

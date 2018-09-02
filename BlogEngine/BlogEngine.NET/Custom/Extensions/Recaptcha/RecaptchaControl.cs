@@ -549,6 +549,7 @@ namespace App_Code.Controls
             output.RenderBeginTag("script");
             output.RenderEndTag();
 
+            output.AddAttribute(HtmlTextWriterAttribute.Id, "g-recaptcha");
             output.AddAttribute(HtmlTextWriterAttribute.Class, "g-recaptcha");
             output.AddAttribute("data-sitekey", this.publicKey);
             output.RenderBeginTag("div");

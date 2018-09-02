@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="BreakPost">
+  <AdminPage />
+  <Author>BlogEngine.NET</Author>
+  <Description>Breaks a post where [more] is found in the body and adds a link to full post</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.4</Version>
+</ManagedExtension>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>Contact Manager</title>
+  <author>Admin</author>
+  <description>this is a test</description>
+  <content>&lt;p&gt;this is a test&lt;/p&gt;</content>
+  <keywords />
+  <slug>contact-manager</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <sortorder>0</sortorder>
+  <datecreated>2018-09-01 16:39:00</datecreated>
+  <datemodified>2018-09-01 16:40:31</datemodified>
+</page>

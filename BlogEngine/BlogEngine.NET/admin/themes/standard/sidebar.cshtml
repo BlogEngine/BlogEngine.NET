@@ -32,23 +32,26 @@
         {
             <li id="mu-dashboard" class="active"><a href="{{SiteVars.RelativeWebRoot}}admin/#/dashboard"><i class="fa fa-th-large"></i> @Resources.labels.dashboard</a></li>
         }
+        @if (Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
+        {
         <li id="mu-content">
             <a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts"><i class="fa fa-align-justify"></i> @Resources.labels.content</a>
             <ul class="sub-nav-sidebar">
                 <li id="mu-posts" data-ng-class="{ active: isActive('/content/posts')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/posts">@Resources.labels.posts</a></li>
                 @if (BlogSettings.Instance.CommentProvider == BlogSettings.CommentsBy.BlogEngine)
-            {
+                {
                     <li id="mu-comments" data-ng-class="{ active: isActive('/content/comments')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/comments">@Resources.labels.comments</a></li>
                 }
                 <li id="mu-pages" data-ng-class="{ active: isActive('/content/pages')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/pages">@Resources.labels.pages</a></li>
                 <li data-ng-class="{ active: isActive('/content/categories')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/categories">@Resources.labels.categories</a></li>
                 <li data-ng-class="{ active: isActive('/content/tags')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/tags">@Resources.labels.tags</a></li>
-                @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && BlogConfig.UsageScenario == "multiblogs")
-            {
+                @if (Blog.CurrentInstance.IsPrimary && Security.IsAdministrator && BlogConfig.UsageScenario.Contains("multiblogs"))
+                {
                     <li data-ng-class="{ active: isActive('/content/blogs')}"><a href="{{SiteVars.RelativeWebRoot}}admin/#/content/blogs">@Resources.labels.blogs</a></li>
                 }
             </ul>
         </li>
+        }
         @if (Security.IsAuthorizedTo(Rights.ManageExtensions))
         {
             <li id="mu-custom">
@@ -60,18 +63,18 @@
                 </ul>
             </li>
         }
-        @if (BlogConfig.UsageScenario == "multiusers")
+        @if (Security.IsAuthorizedTo(new[] { Rights.ViewRoles, Rights.EditOtherUsers}))
         {
             <li id="mu-users">
-                <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><i class="fa fa-user"></i> @Resources.labels.users</a>
+                <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><i class="fa fa-user"></i>@Resources.labels.users</a>
                 <ul class="sub-nav-sidebar">
                     <li data-ng-class="{ active: isActive('/security/profile')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile">@Resources.labels.profile</a></li>
                     @if (Security.IsAuthorizedTo(Rights.ViewRoles))
-                {
+                    {
                         <li data-ng-class="{ active: isActive('/security/roles')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/roles">@Resources.labels.roles</a></li>
                     }
                     @if (Security.IsAuthorizedTo(Rights.EditOtherUsers))
-                {
+                    {
                         <li data-ng-class="{ active: isActive('/security/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/users">@Resources.labels.users</a></li>
                     }
                 </ul>
@@ -88,14 +91,18 @@
                     <li data-ng-class="{ active: isActive('/settings/comments')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/comments">@Resources.labels.comments</a></li>
                     <li data-ng-class="{ active: isActive('/settings/controls')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/controls">@Resources.labels.controls</a></li>
                     @if (BlogConfig.UsageScenario != "singleblog" && Blog.CurrentInstance.IsPrimary)
-                {
+                    {
                         <li data-ng-class="{ active: isActive('/settings/advanced')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/settings/advanced">@Resources.labels.advanced</a></li>
                     }
                 </ul>
             </li>
         }
-        <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/about.cshtml"><i class="fa fa-info-circle"></i>@Resources.labels.about</a></li>
-    </ul>
+        @if (Security.IsAuthorizedTo(Rights.AccessAdminSettingsPages))
+        {
+
+            <li id="mu-about"><a href="{{SiteVars.RelativeWebRoot}}admin/about.cshtml"><i class="fa fa-info-circle"></i>@Resources.labels.about</a></li>
+        }
+        </ul>
 </div>
 <div class="logo-sidebar">
     <a href="https://blogengine.io/" target="_blank" title="BlogEngine.NET - Version @BlogSettings.Instance.Version()"><img src="~/admin/themes/standard/img/logo-sidebar.png" alt="BlogEngine.NET" /></a>

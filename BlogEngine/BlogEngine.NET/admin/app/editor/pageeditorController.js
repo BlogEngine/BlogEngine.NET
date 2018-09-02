@@ -2,11 +2,13 @@
     $scope.id = getFromQueryString('id');
     $scope.page = newPage;
     $scope.lookups = [];
+    $scope.selectedAuthor = {};
     $scope.selectedParent = {};
     $scope.fullScreen = false;
     $scope.security = $rootScope.security;
     $scope.UserVars = UserVars;
     $scope.root = $rootScope.SiteVars.ApplicationRelativeWebRoot;
+    $scope.usageScenario = UsageScenario;
     $scope.customFields = [];
 
     $scope.load = function () {
@@ -23,6 +25,7 @@
             else {
                 $scope.page.Parent = { OptionName: '-- none --', OptionValue: 'none' };
                 $scope.selectedParent = selectedOption($scope.lookups.PageList, $scope.page.Parent.OptionValue);
+                $scope.selectedAuthor = selectedOption($scope.lookups.AuthorList, UserVars.Name);
             }
         })
         .error(function () {
@@ -46,6 +49,9 @@
             $scope.selectedParent = selectedOption($scope.lookups.PageList, $scope.page.Parent.OptionValue);
             var x = $scope.selectedParent;
 
+            if($scope.page.Author)
+                $scope.selectedAuthor = selectedOption($scope.lookups.AuthorList, $scope.page.Author);
+
             editorSetHtml($scope.page.Content);
             $scope.loadCustom();
             spinOff();
@@ -68,6 +74,7 @@
         spinOn();
         $scope.page.Content = editorGetHtml();
         $scope.page.Parent = $scope.selectedParent;
+        $scope.page.Author = $scope.selectedAuthor.OptionValue;
 
         if ($scope.page.Slug.length == 0) {
             $scope.page.Slug = toSlug($scope.page.Title);
@@ -243,6 +250,7 @@
 var newPage = {
     "Id": "",
     "Title": "",
+    "Author":"Admin",
     "Content": "",
     "DateCreated": moment().format("YYYY-MM-DD HH:mm"),
     "Slug": "",

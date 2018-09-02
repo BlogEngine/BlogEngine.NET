@@ -36,17 +36,19 @@
                     <label for="selZone">{{lbl.timezone}}</label>
                     <select id="selZone" class="form-control ltr-form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
                 </div>
-                <div ng-if="usageScenario == 'multiblogs'">
-                    <div class="form-group">
-                        <label><input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" /> {{lbl.enableSelfRegistration}}</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="selCultures">{{lbl.selfRegistrationInitialRole}}</label>
-                        <select id="selCultures" class="form-control" data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" data-ng-model="selfRegistrationInitialRole" data-ng-disabled="settings.EnableSelfRegistration == false"></select>
-                    </div>
-                    <div ng-if="SiteVars.IsPrimary">
-                        <label><input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" /> {{lbl.createBlogOnSelfRegistration}}</label>
-                    </div>
+                <div ng-show="isSelfRegistrationShowing===true" >
+                <div class="form-group">
+                    <label><input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" /> {{lbl.enableSelfRegistration}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="selInitialRole">{{lbl.selfRegistrationInitialRole}}</label>
+                    <select id="selInitialRole" class="form-control"  
+                            data-ng-options="o.OptionName for o in lookups.SelfRegisterRoles" 
+                            data-ng-model="selectedInitialRole"></select>
+                </div>
+                <div ng-if="SiteVars.IsPrimary">
+                    <label><input type="checkbox" name="ckCreateBlogOnSelfRegistration" data-ng-model="settings.CreateBlogOnSelfRegistration" data-ng-disabled="settings.EnableSelfRegistration == false" /> {{lbl.createBlogOnSelfRegistration}}</label>
+                </div>
                 </div>
             </div>
         </div>

@@ -78,6 +78,7 @@
                 writer.WriteStartElement("page");
 
                 writer.WriteElementString("title", page.Title);
+                writer.WriteElementString("author", page.Author);
                 writer.WriteElementString("description", page.Description);
                 writer.WriteElementString("content", page.Content);
                 writer.WriteElementString("keywords", page.Keywords);
@@ -113,6 +114,7 @@
             var page = new Page
                 {
                     Title = doc.SelectSingleNode("page/title").InnerText,
+                    Author = doc.SelectSingleNode("page/author")?.InnerText,
                     Description = doc.SelectSingleNode("page/description").InnerText,
                     Content = doc.SelectSingleNode("page/content").InnerText,
                     Keywords = doc.SelectSingleNode("page/keywords").InnerText

@@ -18,7 +18,7 @@
                         <h4 class="modal-title">Other Features</h4>
                     </div>
                     <div class="modal-body modal-roles">
-                        <div class="form-group">
+                        <div class="form-group" >
                             <label><input type="checkbox" data-ng-model="lookups.PostOptions.ShowAuthors" ng-true-value="true" ng-false-value="false" /> Authors List </label>
                         </div>
                         <div class="form-group">
@@ -151,7 +151,7 @@
                             </div>
                             <div class="newpost-widget" data-ng-show="lookups.PostOptions.ShowAuthors">
                                 <label class="newpost-widget-title">{{lbl.author}}</label>
-                                <select id="selAuthors" ng-disabled="usageScenario != 'multiusers'" class="form-control  form-control-sm" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
+                                <select id="selAuthors" class="form-control  form-control-sm" data-ng-options="o.OptionName for o in lookups.AuthorList" data-ng-model="selectedAuthor"></select>
                             </div>
                             <div class="newpost-widget" data-ng-show="lookups.PostOptions.ShowCustomFields">
                                 <label class="newpost-widget-title">

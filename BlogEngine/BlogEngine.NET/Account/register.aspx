@@ -36,30 +36,30 @@
                             </div>
                         </div>
                         <blog:RecaptchaControl ID="recaptcha" runat="server" />
-
                         <div class="btn-wrapper text-center">
-                            <asp:Button ID="CreateUserButton" CssClass="btn btn-success btn-block" runat="server" CommandName="MoveNext" Text="<%$Resources:labels,createUser %>" OnClientClick="return ValidateNewUser()" />
-
-
-                     
+                            <asp:Button ID="CreateUserButton" 
+                                 CssClass="btn btn-success btn-block" 
+                                runat="server" 
+                                CommandName="MoveNext" 
+                                Text="<%$Resources:labels,createUser %>" 
+                                OnClientClick="return ValidateNewUserCaptcha()" />
                         </div>
                     </div>
-                           <hr />
-
-                       <div class="account-body text-center text-uppercase">
-                           <%=Resources.labels.alreadyHaveAccount %>
-                            <a id="HeadLoginStatus" runat="server"><%=Resources.labels.loginNow %></a>
+                    <hr />
+                    <div class="account-body text-center text-uppercase">
+                        <%=Resources.labels.alreadyHaveAccount %>
+                        <a id="HeadLoginStatus" runat="server"><%=Resources.labels.loginNow %></a>
 
                     </div>
-
-
                 </ContentTemplate>
                 <CustomNavigationTemplate>
                 </CustomNavigationTemplate>
             </asp:CreateUserWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
+    <asp:TextBox ID="captcharesponse" runat="server" style="display:none"/>
     <asp:HiddenField ID="hdnPassLength" runat="server" />
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("input[name$='UserName']").focus();

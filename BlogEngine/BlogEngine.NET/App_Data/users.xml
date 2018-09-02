@@ -2,7 +2,33 @@
   <User>
     <UserName>Admin</UserName>
     <Password>jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=</Password>
-    <Email>post@example.com</Email>
+    <Email>bill1@test.com</Email>
     <LastLoginTime>2007-12-05 20:46:40</LastLoginTime>
+  </User>
+  <User>
+    <UserName>Bill</UserName>
+    <Password>Yvrzi8VmYsABPZTE3ndTQN8gRhA4BsDsLGgTsD3ifvs=</Password>
+    <Email>bill@global-webnet.com</Email>
+    <LastLoginTime>2018-08-25 17:31:44</LastLoginTime>
+  </User>
+  <User>
+    <UserName>
+    </UserName>
+    <Password>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</Password>
+    <Email>
+    </Email>
+    <LastLoginTime>2018-09-01 07:13:10</LastLoginTime>
+  </User>
+  <User>
+    <UserName>diane</UserName>
+    <Password>Yvrzi8VmYsABPZTE3ndTQN8gRhA4BsDsLGgTsD3ifvs=</Password>
+    <Email>diane@di-forgod.com</Email>
+    <LastLoginTime>2018-09-01 15:58:29</LastLoginTime>
+  </User>
+  <User>
+    <UserName>SMM</UserName>
+    <Password>58IrexKiCpFVjARSW9LZylDafOpo/9Rna302TS0CPV0=</Password>
+    <Email>test@test.com</Email>
+    <LastLoginTime>2018-09-02 02:49:57</LastLoginTime>
   </User>
 </Users>

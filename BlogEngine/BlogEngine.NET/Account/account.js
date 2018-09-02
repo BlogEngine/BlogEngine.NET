@@ -63,6 +63,30 @@ function ValidateChangePassword() {
     return true;
 }
 
+function ValidateNewUserCaptcha() {
+    var result = ValidateNewUser();
+
+    // Retrieve the google generated response
+    var divRecaptchaResponse = $('#g-recaptcha-response').val();    
+
+    var divRecaptchaControl = $('#g-recaptcha');    
+
+    // If the recaptcha control is enabled then we'll add validation checks
+    // to ensure that it has a response (is checked)
+    if (divRecaptchaControl.length > 0) {
+
+        // Update our textbox (runat="server") with the response value
+        var txtRecaptchaResponse = $("[id$='captcharesponse']");
+        txtRecaptchaResponse[0].defaultValue = divRecaptchaResponse;
+
+        if (divRecaptchaResponse.length === 0) {
+            ShowStatus('warning', "CAPTCHA required");
+            return false;
+        }
+    }
+    return result;
+}
+
 function ValidateNewUser() {
     if ($("[id$='UserName']").val().length == 0) {
         ShowStatus('warning', accountResources.userNameIsRequired);

@@ -4,12 +4,13 @@
     $scope.lookups = {};
     $scope.UserVars = UserVars;
     $scope.SiteVars = SiteVars;
-    $scope.selfRegistrationInitialRole = {};
     $scope.ServerTime = moment(ServerTime).format("YYYY-MM-DD HH:mm");
     $scope.UtcTime = moment(UtcTime).format("YYYY-MM-DD HH:mm");
     $scope.moderationEnabled = 0;
     $scope.commentsProvider = 0;
     $scope.timeZoneOptions = [];
+    $scope.usageScenario = UsageScenario;
+    $scope.isSelfRegistrationShowing = UsageScenario !== "singleblog";
 
     $scope.load = function () {
         spinOn();
@@ -32,7 +33,7 @@
             $scope.timeZoneOptions = $scope.vm.TimeZones;
             $scope.selectedLanguage = selectedOption($scope.lookups.Cultures, $scope.settings.Culture);
             $scope.selectedDeskTheme = selectedOption($scope.lookups.InstalledThemes, $scope.settings.DesktopTheme);
-            $scope.selfRegistrationInitialRole = selectedOption($scope.lookups.SelfRegisterRoles, $scope.settings.SelfRegistrationInitialRole);
+            $scope.selectedInitialRole = selectedOption($scope.lookups.SelfRegisterRoles, $scope.settings.SelfRegistrationInitialRole);
             $scope.selFeedFormat = selectedOption($scope.vm.FeedOptions, $scope.settings.SyndicationFormat);
             $scope.selCloseDays = selectedOption($scope.vm.CloseDaysOptions, $scope.settings.DaysCommentsAreEnabled);
             $scope.selCommentsPerPage = selectedOption($scope.vm.CommentsPerPageOptions, $scope.settings.CommentsPerPage);
@@ -53,9 +54,7 @@
         }
         $scope.settings.DesktopTheme = $scope.selectedDeskTheme.OptionValue;
         $scope.settings.Culture = $scope.selectedLanguage.OptionValue;
-        if ($scope.selfRegistrationInitialRole) {
-            $scope.settings.SelfRegistrationInitialRole = $scope.selfRegistrationInitialRole.OptionValue;
-        }
+        $scope.settings.SelfRegistrationInitialRole = $scope.selectedInitialRole.OptionValue;
         $scope.settings.SyndicationFormat = $scope.selFeedFormat.OptionValue;
         $scope.settings.DaysCommentsAreEnabled = $scope.selCloseDays.OptionValue;
         $scope.settings.CommentsPerPage = $scope.selCommentsPerPage.OptionValue;

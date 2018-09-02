@@ -14,4 +14,26 @@
     <name>Anonymous</name>
     <users />
   </role>
+  <role>
+    <name>ContactManager</name>
+    <users>
+      <user>Admin</user>
+      <user>Bill</user>
+      <user>diane</user>
+    </users>
+  </role>
+  <role>
+    <name>Viewer</name>
+    <users>
+      <user>SMM</user>
+      <user>diane</user>
+    </users>
+  </role>
+  <role>
+    <name>ContactManagerAdmin</name>
+    <users>
+      <user>Bill</user>
+      <user>SMM</user>
+    </users>
+  </role>
 </roles>

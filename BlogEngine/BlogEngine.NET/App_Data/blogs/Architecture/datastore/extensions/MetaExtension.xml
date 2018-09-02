@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagedExtension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="MetaExtension">
+  <AdminPage />
+  <Author>BlogEngine.net</Author>
+  <Description>Meta extension</Description>
+  <Enabled>true</Enabled>
+  <Priority>0</Priority>
+  <SubBlogEnabled>false</SubBlogEnabled>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help />
+    <Hidden>false</Hidden>
+    <Index>0</Index>
+    <IsScalar>false</IsScalar>
+    <KeyField>ID</KeyField>
+    <Name>BeCommentFilters</Name>
+    <Parameters>
+      <KeyField>true</KeyField>
+      <Label>ID</Label>
+      <MaxLength>20</MaxLength>
+      <Name>ID</Name>
+      <ParamType>Integer</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Action</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Action</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Subject</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Subject</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Operator</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Operator</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Filter</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Filter</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <Settings>
+    <Delimiter>44</Delimiter>
+    <Help />
+    <Hidden>false</Hidden>
+    <Index>1</Index>
+    <IsScalar>false</IsScalar>
+    <KeyField>FullName</KeyField>
+    <Name>BeCustomFilters</Name>
+    <Parameters>
+      <KeyField>true</KeyField>
+      <Label>Name</Label>
+      <MaxLength>100</MaxLength>
+      <Name>FullName</Name>
+      <ParamType>String</ParamType>
+      <Required>true</Required>
+      <SelectedValue />
+      <Values>App_Code.Extensions.AkismetFilter</Values>
+      <Values>App_Code.Extensions.StopForumSpam</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Name</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Name</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>AkismetFilter</Values>
+      <Values>StopForumSpam</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Checked</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Checked</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>0</Values>
+      <Values>0</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Cought</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Cought</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>0</Values>
+      <Values>0</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Reported</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Reported</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>0</Values>
+      <Values>0</Values>
+    </Parameters>
+    <Parameters>
+      <KeyField>false</KeyField>
+      <Label>Priority</Label>
+      <MaxLength>100</MaxLength>
+      <Name>Priority</Name>
+      <ParamType>String</ParamType>
+      <Required>false</Required>
+      <SelectedValue />
+      <Values>0</Values>
+      <Values>0</Values>
+    </Parameters>
+    <ShowAdd>true</ShowAdd>
+    <ShowDelete>true</ShowDelete>
+    <ShowEdit>true</ShowEdit>
+    <BlogId>96d5b379-7e1d-4dac-a6ba-1e50db561b04</BlogId>
+  </Settings>
+  <ShowSettings>true</ShowSettings>
+  <Version>1.0</Version>
+</ManagedExtension>

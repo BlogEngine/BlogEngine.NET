@@ -3,14 +3,19 @@
     $scope.noAvatar = SiteVars.ApplicationRelativeWebRoot + "Content/images/blog/noavatar.jpg";
     $scope.photo = $scope.noAvatar;
     $scope.UserVars = UserVars;
-
+    $scope.IsAdmin = UserVars.IsAdmin === "True"; // more predictable (boolean)
+    $scope.siteVars = SiteVars;
+        
     $scope.focusInput = false;
     $scope.customFields = [];
     $scope.editItem = {};
 
     $scope.load = function () {
         spinOn();
-        dataService.getItems('/api/users/' + UserVars.Name)
+        // if the name is provided in url parameter then use it
+        $scope.userName = $scope.getParameterByName("name", UserVars.Name);
+
+        dataService.getItems('/api/users/' + $scope.userName)
         .success(function (data) {
             angular.copy(data, $scope.user);
             $scope.loadCustom();
@@ -21,6 +26,16 @@
             toastr.error($rootScope.lbl.errorLoadingUser);
             spinOff();
         });
+    }
+
+    $scope.getParameterByName = function(name, defaultName){
+        var url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return defaultName;
+        if (!results[2]) return defaultName;
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
     $scope.save = function () {
@@ -79,7 +94,9 @@
     $scope.loadCustom = function () {
         $scope.customFields = [];
 
-        dataService.getItems('/api/customfields', { filter: 'CustomType == "PROFILE"' })
+        dataService.getItems('/api/customfields', {
+            filter: 'CustomType == "PROFILE" && objectid=="' + $scope.userName +'"',
+        })
         .success(function (data) {
             angular.copy(data, $scope.customFields);
         })
@@ -91,6 +108,7 @@
     $scope.saveCustom = function () {
         var customField = {
             "CustomType": "PROFILE",
+            "ObjectId": $scope.userName,
             "Key": $("#txtKey").val(),
             "Value": $("#txtValue").val()
         };

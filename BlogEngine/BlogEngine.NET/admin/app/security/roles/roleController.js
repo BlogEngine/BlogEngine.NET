@@ -27,32 +27,32 @@
             $scope.newItem = false;
             $scope.loadCurrentRole(id);
         }
-        spinOn();
+        //spinOn();
         dataService.getItems('/api/roles/getrights/' + id)
         .success(function (data) {
             angular.copy(data, $scope.rights);
             $("#modal-edit").modal();
             $scope.focusInput = true;
-            spinOff();
+            //spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingRights);
-            spinOff();
+            //spinOff();
         });
     }
 
     $scope.loadCurrentRole = function (id) {
-        spinOn();
+        //spinOn();
         dataService.getItems('/api/roles/get/' + id)
         .success(function (data) {
             angular.copy(data, $scope.editItem);
             $("#modal-edit").modal();
             $scope.focusInput = true;
-            spinOff();
+            //spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingRole);
-            spinOff();
+            //spinOff();
         });
     }
 
