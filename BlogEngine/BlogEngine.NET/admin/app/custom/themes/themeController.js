@@ -4,7 +4,7 @@
     $scope.editId = "";
     $scope.package = {};
     $scope.activeTheme = ActiveTheme;
-    $scope.IsPrimary = $rootScope.SiteVars.IsPrimary == "True";
+    $scope.isPrimary = $rootScope.SiteVars.IsPrimary == "True";
     $scope.fltr = 'themes';
     $scope.order = 'DownloadCount desc';
     $scope.sortingOrder = 'DownloadCount';
