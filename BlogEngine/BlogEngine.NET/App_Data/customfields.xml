@@ -44,4 +44,8 @@
     <item customtype="PAGE" objectid="0a3436e4-8bc9-4139-8582-e861e78a232c" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Role" value="ContactManager" attribute="" />
     <item customtype="PROFILE" objectid="diane" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="MyTest" value="testing" attribute="" />
     <item customtype="PROFILE" objectid="admin" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Address" value="6025 Belpree Rd test" attribute="" />
+    <item customtype="THEME" objectid="Standard-2015" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Logo Address" value="Custom/Themes/Standard-2015/images/logo.png" attribute="" />
+    <item customtype="THEME" objectid="Standard-2015" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Facebook account" value="BlogEngine.NET" attribute="" />
+    <item customtype="THEME" objectid="Standard-2015" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Twitter account" value="blogenginenet" attribute="" />
+    <item customtype="THEME" objectid="Standard-2015" blogid="96d5b379-7e1d-4dac-a6ba-1e50db561b04" key="Google plus" value="u/0" attribute="" />
 </CustomFields>

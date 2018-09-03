@@ -35,6 +35,7 @@
         var UserVars = { Name: '@Html.Raw(Security.CurrentUser.Identity.Name)', IsAdmin: '@Security.IsAdministrator', Rights: ['@Html.Raw(userRights)']  };
         var ActiveTheme = '@BlogSettings.Instance.Theme'
         var UsageScenario = '@BlogConfig.UsageScenario'
+        var isUsers = @BlogConfig.UsageScenario.Contains("multiusers")
         var ServerTime = '@DateTime.Now'
         var UtcTime = '@DateTime.UtcNow'
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {

@@ -28,7 +28,7 @@
                 {
                     <li><a href="@customUrl"><span>@Resources.labels.custom</span></a></li>
                 }
-                @if (Security.IsAuthorizedTo(Rights.ManageUsers))
+                @if (BlogConfig.UsageScenario.Contains("multiusers") && Security.IsAuthorizedTo(Rights.ManageUsers))
                 {
                     <li><a href="@usersUrl"><span>@Resources.labels.users</span></a></li>                    
                 }

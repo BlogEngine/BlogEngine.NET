@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <roles>
   <role>
     <name>Administrators</name>
     <users>
-      <user>Admin</user>
+      <user>test</user>
     </users>
   </role>
   <role>
@@ -12,10 +12,6 @@
   </role>
   <role>
     <name>Anonymous</name>
-    <users />
-  </role>
-  <role>
-    <name>Viewer</name>
     <users />
   </role>
 </roles>

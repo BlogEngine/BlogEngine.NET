@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>test</author>
+  <title>Welcome to test's blog</title>
+  <description>The description is used as the meta description as well as shown in the related posts. It is recommended that you write a description, but not mandatory</description>
+  <content>Dear test, welcome to you new blog! &lt;br/&gt;&lt;br/&gt;Log in &lt;a href="/test/Account/login.aspx"&gt;here&lt;/a&gt; to start using it. &lt;br/&gt;&lt;br/&gt;Happy blogging!</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2018-09-03 08:18:11</pubDate>
+  <lastModified>2018-09-03 08:18:11</lastModified>
+  <raters>5</raters>
+  <rating>4.24</rating>
+  <slug>Welcome-to-tests-blog</slug>
+  <tags>
+    <tag>blog</tag>
+    <tag>welcome</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>484d79f1-e7a4-4d9c-aa36-5f07138aa131</category>
+  </categories>
+  <notifications />
+</post>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CustomFields>
+    <item customtype="THEME" objectid="SimpleBlog" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Theme Structure" value="default-theme default-header fixnav banner responsive fade" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Facebook account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Twitter account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Google+ account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="RSS Feed" value="syndication.axd" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="YouTube account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Linkedin account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Instagram account" value="#" attribute="" />
+    <item customtype="THEME" objectid="ContactManager" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="github account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Facebook Account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Twitter Account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Google Plus Account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Linkedin Account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Instagramm Account" value="#" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Youtube Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Pinterest Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Github Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Publisher Logo" value="http://exampleblog.com/logo.png" attribute="" />
+    <item customtype="THEME" objectid="Standard" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Post Thumbnail position" value="top" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="background color left" value="#232526" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="background color right" value="#414345" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Logo" value="Custom/Themes/Standard-2017/src/img/logo.png" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="About Author" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Facebook Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Twitter Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Google Plus Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Linkedin Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Instagramm Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Youtube Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Github Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Pinterest Account" value="" attribute="" />
+    <item customtype="THEME" objectid="Standard-2017" blogid="8762165a-bb0c-43d7-87d3-5b7cace1617a" key="Home Alert Box (true or false?)" value="true" attribute="" />
+</CustomFields>

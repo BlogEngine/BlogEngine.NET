@@ -63,7 +63,8 @@
                 </ul>
             </li>
         }
-        @if (Security.IsAuthorizedTo(new[] { Rights.ViewRoles, Rights.EditOtherUsers}))
+        @if (Security.IsAuthorizedTo(new[] { Rights.ViewRoles, Rights.EditOtherUsers})
+             && BlogConfig.UsageScenario.Contains("multiusers"))
         {
             <li id="mu-users">
                 <a href="{{SiteVars.RelativeWebRoot}}admin/#/security/profile"><i class="fa fa-user"></i>@Resources.labels.users</a>

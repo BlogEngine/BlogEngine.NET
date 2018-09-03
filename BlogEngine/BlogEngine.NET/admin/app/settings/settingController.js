@@ -10,7 +10,6 @@
     $scope.commentsProvider = 0;
     $scope.timeZoneOptions = [];
     $scope.usageScenario = UsageScenario;
-    $scope.isSelfRegistrationShowing = UsageScenario !== "singleblog";
 
     $scope.load = function () {
         spinOn();

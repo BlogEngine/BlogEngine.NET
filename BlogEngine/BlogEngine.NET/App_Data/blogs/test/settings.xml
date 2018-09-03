@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <settings>
   <contactformmessage>&lt;p&gt;I'll answer the mail as soon as I can.&lt;/p&gt;</contactformmessage>
-  <securityvalidationkey>ede308e723ae42aab289b04350133355accaa0f0da9743e7a8529a0cbbf5bceee5bcafc4eac741f68d2d63d80e21bf8e</securityvalidationkey>
+  <securityvalidationkey>75159fc419124fbeb9507abf68f8a5037ef6234100cd48848f8330f9cb695b4879e5cd525235477aa199908ec1227785</securityvalidationkey>
   <commentsperpage>10</commentsperpage>
   <language>en-US</language>
   <theme>ContactManager</theme>
@@ -11,27 +11,27 @@
   <trustauthenticatedusers>True</trustauthenticatedusers>
   <moderationtype>Auto</moderationtype>
   <enablerecaptchaoncontactform>False</enablerecaptchaoncontactform>
-  <culture>en</culture>
+  <culture>Auto</culture>
   <compresswebresource>False</compresswebresource>
   <searchcommentlabeltext>Include comments in search</searchcommentlabeltext>
   <timestamppostlinks>False</timestamppostlinks>
   <emailsubjectprefix>Weblog</emailsubjectprefix>
-  <enablewebsiteincomments>True</enablewebsiteincomments>
-  <selfregistrationinitialrole>Viewer</selfregistrationinitialrole>
-  <pageoptionsdescription>True</pageoptionsdescription>
+  <enablewebsiteincomments>False</enablewebsiteincomments>
+  <selfregistrationinitialrole>Select</selfregistrationinitialrole>
+  <pageoptionsdescription>False</pageoptionsdescription>
   <showdescriptioninpostlistforpostsbytagorcategory>False</showdescriptioninpostlistforpostsbytagorcategory>
-  <postsperfeed>3</postsperfeed>
+  <postsperfeed>10</postsperfeed>
   <useblognameinpagetitles>True</useblognameinpagetitles>
   <enabletrackbacksend>True</enabletrackbacksend>
   <descriptioncharacters>300</descriptioncharacters>
-  <postoptionsdescription>True</postoptionsdescription>
-  <pageoptionscustomfields>True</pageoptionscustomfields>
+  <postoptionsdescription>False</postoptionsdescription>
+  <pageoptionscustomfields>False</pageoptionscustomfields>
   <customfrontpage />
-  <postoptionsauthors>True</postoptionsauthors>
-  <smtpusername>youremail@gmail.com</smtpusername>
+  <postoptionsauthors>False</postoptionsauthors>
+  <smtpusername>username</smtpusername>
   <alternatefeedurl />
   <contacterrormessage>&lt;p&gt;This form does not work at the moment. Sorry for the inconvenience.&lt;/p&gt;</contacterrormessage>
-  <enablecontactattachments>False</enablecontactattachments>
+  <enablecontactattachments>True</enablecontactattachments>
   <sendmailoncomment>True</sendmailoncomment>
   <createblogonselfregistration>False</createblogonselfregistration>
   <contactthankmessage>&lt;h1&gt;Thank you&lt;/h1&gt;&lt;p&gt;The message was sent.&lt;/p&gt;</contactthankmessage>
@@ -47,53 +47,57 @@
   <showincludecommentsoption>False</showincludecommentsoption>
   <disqusdevmode>False</disqusdevmode>
   <enableenclosures>False</enableenclosures>
-  <email>youremail@gmail.com</email>
+  <email>name@example.com</email>
   <feedauthor />
   <enablecountryincomments>False</enablecountryincomments>
-  <errortext>This one's down to me! Please accept my apologies for this - I'll see to it that the developer responsible for this happening is given 20 lashes (but only after he or she has fixed this problem).</errortext>
+  <errortext>
+    &lt;p&gt;This one's down to me!&lt;br /&gt; Please accept my apologies for this - I'll see to it
+    that the developer responsible for this happening is given 20 lashes
+    (but only after he or she has fixed this problem).&lt;/p&gt;
+  </errortext>
   <remotefiledownloadtimeout>30000</remotefiledownloadtimeout>
-  <enableselfregistration>True</enableselfregistration>
+  <enableselfregistration>False</enableselfregistration>
   <remotemaxfilesize>524288</remotemaxfilesize>
   <enabletrackbackreceive>True</enabletrackbackreceive>
-  <enabletagexport>True</enabletagexport>
+  <enabletagexport>False</enabletagexport>
   <enablecommentsearch>True</enablecommentsearch>
   <commentprovider>BlogEngine</commentprovider>
   <postsperpage>10</postsperpage>
-  <showlivepreview>False</showlivepreview>
+  <showlivepreview>True</showlivepreview>
   <showpostnavigation>True</showpostnavigation>
   <errortitle>Ooops! An unexpected error has occurred.</errortitle>
-  <timezoneid>Central Standard Time</timezoneid>
+  <timezoneid />
   <disqusaddcommentstopages>False</disqusaddcommentstopages>
   <blogrollmaxlength>23</blogrollmaxlength>
-  <facebooklanguage>en_US</facebooklanguage>
+  <facebooklanguage />
   <enableopensearch>True</enableopensearch>
-  <pageoptionsslug>True</pageoptionsslug>
+  <pageoptionsslug>False</pageoptionsslug>
   <syndicationformat>Rss</syndicationformat>
   <description>Short description of the blog</description>
   <dayscommentsareenabled>0</dayscommentsareenabled>
   <enablerelatedposts>True</enablerelatedposts>
   <authorname>My name</authorname>
   <trackingscript />
-  <pageoptionsauthors>True</pageoptionsauthors>
+  <pageoptionsauthors>False</pageoptionsauthors>
   <redirecttoremovefileextension>False</redirecttoremovefileextension>
   <numberofreferrerdays>1</numberofreferrerdays>
-  <postoptionscustomfields>True</postoptionscustomfields>
+  <postoptionscustomfields>False</postoptionscustomfields>
   <searchbuttontext>Search</searchbuttontext>
   <enableoptimization>False</enableoptimization>
-  <avatar>none</avatar>
+  <avatar>wavatar</avatar>
   <iscocommentenabled>False</iscocommentenabled>
   <enablepingbacksend>True</enablepingbacksend>
   <htmlheader />
-  <postoptionsslug>True</postoptionsslug>
+  <postoptionsslug>False</postoptionsslug>
   <enablepingbackreceive>True</enablepingbackreceive>
   <showdescriptioninpostlist>False</showdescriptioninpostlist>
   <removeextensionsfromurls>True</removeextensionsfromurls>
   <endorsement>https://blogengine.io/syndication.axd</endorsement>
   <enablepasswordreset>True</enablepasswordreset>
-  <smtpserverport>587</smtpserverport>
+  <smtpserverport>25</smtpserverport>
   <searchdefaulttext>Enter search term or APML url</searchdefaulttext>
-  <smtpserver>smtp.gmail.com</smtpserver>
-  <name>Name of the blog</name>
+  <smtpserver>mail.example.com</smtpserver>
+  <name>test</name>
   <geocodinglatitude>0</geocodinglatitude>
   <handlewwwsubdomain />
   <disquswebsitename />

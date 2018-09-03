@@ -544,6 +544,7 @@
     <Content Include="Content\images\blog\xfn\me.gif" />
     <Content Include="Content\images\blog\xfn\sweet.gif" />
     <Content Include="Content\images\blog\xfn\sweetMet.gif" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\star-rating.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
@@ -556,6 +557,7 @@
     <Content Include="Custom\Themes\ContactManager\img\effect_1.png" />
     <Content Include="Custom\Themes\ContactManager\img\effect_2.png" />
     <Content Include="Custom\Themes\ContactManager\img\effect_3.png" />
+    <Content Include="Custom\Themes\ContactManager\img\logo.png" />
     <Content Include="Custom\Themes\ContactManager\img\nav.png" />
     <Content Include="Custom\Themes\ContactManager\img\social.png" />
     <Content Include="Custom\Themes\ContactManager\img\success.png" />
@@ -567,23 +569,6 @@
     <Content Include="Custom\Themes\ContactManager\PostView.ascx" />
     <Content Include="Custom\Themes\ContactManager\theme.xml" />
     <Content Include="Custom\Themes\ContactManager\WidgetContainer.ascx" />
-    <Content Include="Custom\Themes\SimpleBlog\Changelog.txt" />
-    <Content Include="Custom\Themes\SimpleBlog\CommentView.ascx" />
-    <Content Include="Custom\Themes\SimpleBlog\img\BtnSearch.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\effect_1.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\effect_2.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\effect_3.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\nav.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\social.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\success.png" />
-    <Content Include="Custom\Themes\SimpleBlog\img\up.png" />
-    <Content Include="Custom\Themes\SimpleBlog\include\index.js" />
-    <Content Include="Custom\Themes\SimpleBlog\include\modernizr.js" />
-    <Content Include="Custom\Themes\SimpleBlog\include\styles.min.css" />
-    <Content Include="Custom\Themes\SimpleBlog\newsletter.html" />
-    <Content Include="Custom\Themes\SimpleBlog\PostView.ascx" />
-    <Content Include="Custom\Themes\SimpleBlog\theme.xml" />
-    <Content Include="Custom\Themes\SimpleBlog\WidgetContainer.ascx" />
     <Content Include="Custom\Themes\Standard-2017\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard-2017\CommentView.ascx" />
     <Content Include="Custom\Themes\Standard-2017\newsletter.html" />
@@ -801,8 +786,8 @@
     <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.woff2" />
     <Content Include="Custom\Themes\Standard-2017\src\fonts\FontAwesome.otf" />
     <Content Include="Custom\Themes\Standard\page.master" />
-    <Content Include="Custom\Themes\SimpleBlog\site.master" />
     <Content Include="Custom\Themes\ContactManager\site.master" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
@@ -1640,12 +1625,7 @@
     <Content Include="setup\Web.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="setup\MySQL\MySQLWeb.Config" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
+    <None Include="Web.Config" />
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
@@ -1683,12 +1663,16 @@
     <Content Include="admin\app\security\roles\roleView.html" />
     <Content Include="App_Data\blogroll.xml" />
     <Content Include="App_Data\blogs.xml" />
-    <Content Include="App_Data\blogs\_new\categories.xml" />
+    <Content Include="App_Data\blogs\_new\categories.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\blogs\_new\datastore\widgets\be_WIDGET_ZONE.xml" />
     <Content Include="App_Data\blogs\_new\pingservices.xml" />
     <Content Include="App_Data\blogs\_new\posts\c3b491e5-59ac-4f6a-81e5-27e971b903ed.xml" />
     <Content Include="App_Data\blogs\_new\rights.xml" />
-    <Content Include="App_Data\blogs\_new\roles.xml" />
+    <Content Include="App_Data\blogs\_new\roles.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\blogs\_new\settings.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -1839,9 +1823,9 @@
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
     <Content Include="Custom\Controls\PostList.ascx" />
-    <Content Include="Web.config">
+    <None Include="Web.Config.SQL.Config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="wlwmanifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -2189,14 +2173,10 @@
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
-    <None Include="Custom\Themes\SimpleBlog\site.master.cs">
+    <Content Include="Custom\Themes\ContactManager\site.master.cs">
       <DependentUpon>site.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </None>
-    <None Include="Custom\Themes\ContactManager\site.master.cs">
-      <DependentUpon>site.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </None>
+    </Content>
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
     <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />
