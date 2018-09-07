@@ -1,0 +1,96 @@
+﻿@using BlogEngine.Core;
+@functions{
+    public enum PageStyle
+    {
+        Featured,
+        Front,
+        Page
+    }
+
+    protected string GetCommentString(int commentCount)
+    {
+        if (commentCount.Equals(0))
+        {
+            return string.Format("No {0}", Resources.labels.comments);
+        }
+        if (commentCount.Equals(1))
+        {
+            return string.Format("{0} {1}", commentCount, Resources.labels.comments.Substring(0, Resources.labels.comments.Length - 1));
+        }
+        return string.Format("{0} {1}", commentCount, Resources.labels.comments);
+    }   
+}
+@{
+    PageStyle ViewStyle;
+    string path = HttpContext.Current.Request.Url.ToString().ToLower();
+    if (path.LastIndexOf("/") > -1)
+    {
+        path = path.Substring(path.LastIndexOf("/") + 1);
+    }
+
+    if (path.StartsWith("default.aspx") || path == "")
+    {
+        ViewStyle = PageStyle.Front;
+        Post temp = Model.Post.Next;
+        if (temp == null)
+        {
+            ViewStyle = PageStyle.Featured;
+
+            //ShowExcerpt = false;
+        }
+    }
+    else
+    {
+        ViewStyle = PageStyle.Page;
+    }
+}
+<div class="postBoxTop">
+</div>
+<div class="postBoxMid">
+    <div class="postBoxMidInner clearfix @(ViewStyle == PageStyle.Featured ? Html.Raw("first") : Html.Raw("")) ">
+        <div class="date">
+            @Model.Post.DateCreated.ToString("MMM")
+            <br />
+            <span class="day">@Model.Post.DateCreated.Day.ToString()</span>
+            <br />
+            @Model.Post.DateCreated.Year.ToString()
+        </div>
+        <div class="category">
+            @Html.Raw(Model.CategoryLinks(" // "))
+        </div>
+        <h1>
+            <a href="@Model.Post.RelativeLink">@Model.Post.Title</a>
+            </h1>
+        @if (ViewStyle == PageStyle.Page)
+        {
+            <div class="postMetaSingle">
+                <img src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/ico_author.png")" />
+                An article by <a href="@(Utils.RelativeWebRoot + "author/" + Utils.RemoveIllegalCharacters(Model.Post.Author)).aspx">@(Model.Post.AuthorProfile != null ? Model.Post.AuthorProfile.DisplayName : Model.Post.Author)</a>
+                <img id="Img1" class="commentImage" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/ico_comments.png")" />
+                <a rel="nofollow" href="@Model.Post.RelativeLink#comment">@GetCommentString(Model.Post.ApprovedComments.Count)</a>
+                @Html.Raw(Model.AdminLinks)
+            </div>
+        }
+        @Html.Raw(Model.Body)
+        @if (ViewStyle == PageStyle.Page)
+        {
+            <div class="postTags">
+                @Html.Raw(Model.TagLinks(", "))
+            </div>
+        }
+        else
+        {
+            <div class="postMeta">
+                <a class="more-link" href="@Model.Post.RelativeLink">Continue Reading »</a>
+                <div class="metaRight">
+                    <img id="Img2" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/ico_author.png")" />
+                    An article by <a href="@(Utils.RelativeWebRoot + "author/" + Utils.RemoveIllegalCharacters(Model.Post.Author)).aspx">@(Model.Post.AuthorProfile != null ? Model.Post.AuthorProfile.DisplayName : Model.Post.Author)</a>
+                    <img id="Img3" class="commentImage" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/ico_comments.png")"  />
+                    <a rel="nofollow" href="@Model.Post.RelativeLink#comment">@GetCommentString(Model.Post.ApprovedComments.Count)</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="potBoxBottom">
+</div>

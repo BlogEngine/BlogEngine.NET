@@ -10,6 +10,7 @@
     $scope.commentsProvider = 0;
     $scope.timeZoneOptions = [];
     $scope.usageScenario = UsageScenario;
+    $scope.isMultiUser = UsageScenario.match('multiusers').length>0;
 
     $scope.load = function () {
         spinOn();
@@ -23,7 +24,7 @@
             spinOff();
         });
     }
-
+    
     $scope.loadSettings = function () {
         dataService.getItems('/api/settings')
         .success(function (data) {

@@ -1,0 +1,38 @@
+﻿@using BlogEngine.Core;
+@{
+    bool IsInBottomZone = false;
+    string searchCss = string.Empty;
+    string inlineStyle = string.Empty;
+
+    if (Model.Widget.Zone.ToLowerInvariant() == "be_alltuts_widget_zone")
+    {
+        IsInBottomZone = true;
+    }
+    if (Model.Widget.Name.ToLowerInvariant() == "search")
+    {
+        searchCss = "Search";
+    }
+    if (!Model.Widget.ShowTitle)
+    {
+        inlineStyle = "style='padding-top:6px'";
+    }
+    string rightboxMidDivStart = "<div class=\"rightBox\"><div class=\"rightBoxTop\"></div><div class=\"rightBoxMid" + searchCss + "\" " + inlineStyle + ">";
+    string rightboxMidDivEnd = "</div><div class=\"rightBoxBottom\"></div></div>";
+}
+<div class="widget @Model.Widget.Name.Replace(" ", String.Empty).ToLowerInvariant()"
+    id="widget@(Model.Widget.WidgetId)">
+    @if (IsInBottomZone == false)
+    {
+        @Html.Raw(rightboxMidDivStart);
+    }
+    @Html.Raw(Model.AdminLinks)
+    @if (Model.Widget.ShowTitle)
+    { 
+        <h2>@Model.Widget.Title</h2>
+    }
+    @Html.WidgetContainerBody()
+    @if (IsInBottomZone == false)
+    {
+        @Html.Raw(rightboxMidDivEnd);
+    }
+</div>

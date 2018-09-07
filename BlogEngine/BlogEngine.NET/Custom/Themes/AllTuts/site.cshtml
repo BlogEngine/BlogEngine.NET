@@ -1,0 +1,134 @@
+﻿@using BlogEngine.Core;
+@{
+    string loginText = Security.IsAuthenticated ? Resources.labels.logoff : Resources.labels.login;
+    string loginUrl = Security.IsAuthenticated ? Utils.RelativeWebRoot + "Account/login.aspx?logoff" : Utils.RelativeWebRoot + "Account/login.aspx";
+
+    bool isPost = Request.Url.PathAndQuery.IndexOf("/post/", StringComparison.OrdinalIgnoreCase) != -1;
+    bool isPage = Request.Url.PathAndQuery.IndexOf("/page/", StringComparison.OrdinalIgnoreCase) != -1;
+    string bodyCss = string.Format("sidebars{0}{1}",
+        isPost ? " single-post" : string.Empty,
+        isPage ? " page" : string.Empty);
+}
+ @*PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+  xmlns="http://www.w3.org/1999/xhtml"
+ *@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    <link rel="shortcut icon" href="@Href(Utils.RelativeWebRoot + "pics/blogengine.ico")" type="image/x-icon"/>
+    <link href="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/css/ddsmoothmenu.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/jquery-1.7.2.min.js")"></script>
+    <script type="text/javascript" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/ddsmoothmenu.js")"></script>
+    <!-- lightbox initialize script -->
+    <script type="text/javascript">
+        ddsmoothmenu.init({
+			mainmenuid: "topMenu",
+			orientation: 'h',
+			classname: 'ddsmoothmenu',
+			contentsource: "markup"
+		}); 
+    </script>
+</head>
+<body>
+    <!-- Begin #wrapper -->
+    <div id="wrapper">
+        <!-- Begin #header -->
+        <div id="header">
+            <div id="logo">
+                <h1>
+                    <a href="@Utils.AbsoluteWebRoot" class="siteTitle">
+                        @BlogSettings.Instance.Name</a></h1>
+                <span>
+                    @BlogSettings.Instance.Description</span></div>
+            <!-- Begin #topMenu -->
+            <div id="topMenu" class="ddsmoothmenu">
+                <ul>
+                    <li><a href="@(Utils.AbsoluteWebRoot)" rel="home">@(Resources.labels.home)</a></li>
+                    <li><a href="@(Utils.AbsoluteWebRoot)archive.aspx">@(Resources.labels.archive)</a></li>
+                    <li><a href="@(Utils.AbsoluteWebRoot)contact.aspx">@(Resources.labels.contact)</a></li>
+                    @foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage))
+                    {
+                        if(parentPage.ShowInList){
+                        <li><a href="@parentPage.RelativeLink" title="@parentPage.Title">@parentPage.Title</a>
+                            @if (parentPage.HasChildPages)
+                            {
+                                <ul>
+                                    @foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id))
+                                    {
+                                        if(childPage.ShowInList){<li class="page_item"><a href="@childPage.RelativeLink" title="@childPage.Title">@childPage.Title</a></li>}
+                                    }
+                                </ul>
+                            }
+                        </li>
+                        }
+                    }
+                </ul>
+            </div>
+            <!-- End #topMenu -->
+            <!-- Begin #topMenuRight -->
+            <div id="topMenuRight">
+                <ul>
+                    <li><a href="@loginUrl">@loginText</a></li>
+                </ul>
+            </div>
+            <!-- End #topMenuRight -->
+            <!-- Begin #socialLinks -->
+            <div id="socialLinks">
+                <a href="@(Utils.FeedUrl)" title="RSS" class="rss">Subscribe to our RSS Feed!</a>
+            </div>
+            <!-- End #socialLinks -->
+        </div>
+        <!-- End #header -->
+        <!-- Begin #content -->
+        <div id="content" class="clearfix">
+            <!-- Begin #colLeft -->
+            <div id="colLeft">
+                <!-- Begin .postBox -->
+                <div class="postBox">
+                    @if (Request.Url.ToString().ToLowerInvariant().Contains("page.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("archive.aspx")
+                    || Request.Url.ToString().ToLowerInvariant().Contains("contact.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("search.aspx")
+                    || Request.Url.ToString().ToLowerInvariant().Contains("error.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("error404.aspx")
+                    ) {
+                    <div class="postBoxTop"></div>
+                    }
+                    @RenderBody()
+                    @if (Request.Url.ToString().ToLowerInvariant().Contains("page.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("archive.aspx")
+                    || Request.Url.ToString().ToLowerInvariant().Contains("contact.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("search.aspx")
+                    || Request.Url.ToString().ToLowerInvariant().Contains("error.aspx") || Request.Url.ToString().ToLowerInvariant().Contains("error404.aspx")
+                    ) {
+                        <div class="postBoxBottom"></div>
+                    }
+                </div>
+                <!-- End .postBox -->
+            </div>
+            <!-- end colleft -->
+            <!-- Begin #colRight -->
+            <div id="colRight">
+                @Html.Raw(Html.RenderWidgetZone("be_WIDGET_ZONE"))
+            </div>
+            <!-- End #colRight -->
+        </div>
+        <!-- end content -->
+    </div>
+    <!-- end wrapper -->
+    <div id="footer">
+        <div id="footerInner">
+        @Html.Raw(Html.RenderWidgetZone("be_alltuts_WIDGET_ZONE"))
+        </div>
+    </div>
+    <div id="copyright">
+        <div id="copyrightInner">
+            &copy; @DateTime.Now.Year
+            <a href="@Utils.AbsoluteWebRoot">@BlogSettings.Instance.Name</a>. Powered
+            by <a href="http://www.dotnetblogengine.net">BlogEngine.NET</a> @BlogSettings.Instance.Version()
+            <div id="site5bottom">
+                Original theme by <a href="http://wordpress.site5.net/alltuts/">
+                    <img id="Img1" src="@Href(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/images/site5.png")" alt="site5.com" /></a>
+                Adapted by <a href="http://pravesh.me">Pravesh Soni</a></div>
+        </div>
+    </div>
+    <!-- end footer -->
+</body>
+</html>

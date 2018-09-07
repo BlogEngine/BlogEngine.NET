@@ -1,0 +1,25 @@
+﻿@using BlogEngine.Core;
+<div id="id_@(Model.Comment.Id)" class="comment @(Model.Post.Author.Equals(Model.Comment.Author, StringComparison.OrdinalIgnoreCase) ? " self" : "")">
+    @Html.Raw(Model.Gravatar(38))
+    <div  class="comment-content">
+        <div class="comment-meta commentmetadata clearfix">
+        <span class="reply-to">@Html.Raw(Model.ReplyToLink)</span>
+            <strong>
+                @(Model.Comment.Website != null ? "<a href=\"" + Model.Comment.Website + "\" rel=\"nofollow\" class=\"url\">" + Model.Comment.Author + "</a>" : Model.Comment.Author )</strong>
+            @Html.Raw(Model.Flag)<br />
+            <span>
+                @Model.Comment.DateCreated.ToString("MMMM d, yyyy 'at' h:mm tt")
+                <a href="#id_@(Model.Comment.Id)">#</a></span>
+        </div>
+        <div class="text">
+            <p>
+                @Html.Raw(Model.Text)</p>
+            <p class="author">
+            @(Model.AdminLinks.Length > 2 ? Html.Raw(Model.AdminLinks.Substring(2)) : Html.Raw(Model.AdminLinks))
+            </p>
+        </div>
+        <div id="replies_@(Model.Comment.Id )" class="children" @((Model.Comment.Comments.Count == 0 || Model.Comment.Email == "pingback" || Model.Comment.Email == "trackback") ? " style=\"display:none;\"" : "" )>
+            @Html.NestedComments()
+        </div>
+    </div>
+</div>

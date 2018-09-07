@@ -649,7 +649,19 @@
 
         private void LoadCommentForm()
         {
+            // Will be the razorhost path if a .cshtml file exist in root of theme
             string path = FromThemeFolder("CommentForm.ascx");
+
+            // if a razor file is found then ensure there is a commentForm.cshtml file
+            // otherwise an error will load in view
+            if (path.Contains("RazorHost"))
+            {
+                string vPath = string.Format("~/Custom/Themes/{0}/CommentForm.cshtml", BlogSettings.Instance.Theme);
+                var mapPath = Server.MapPath(vPath);
+                if (!File.Exists(mapPath))
+                    path = "this-will-not-be-found"; // So default form will be used below
+            }
+
             if (!File.Exists(Server.MapPath(path)))
             {
                 path = Utils.ApplicationRelativeWebRoot + "Custom/Controls/Defaults/CommentForm.ascx";

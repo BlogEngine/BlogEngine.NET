@@ -3,6 +3,7 @@ using System.Web.UI;
 using BlogEngine.Core;
 using BlogEngine.Core.Web.Controls;
 using System.Collections.Generic;
+using System.IO;
 
 public partial class post : BlogBasePage
 {
@@ -82,11 +83,30 @@ public partial class post : BlogBasePage
                     {
                         try
                         {
-                            // Try to load RelatedPosts view from theme folder
                             string relatedPath = Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.GetThemeWithAdjustments(null) + "/RelatedPosts.ascx";
-                            RelatedPostsBase relatedView = (RelatedPostsBase)LoadControl(relatedPath);
-                            relatedView.PostItem = this.Post;
-                            phRelatedPosts.Controls.Add(relatedView);
+
+                            if (relatedPath.Contains("RazorHost")) // we need to make sure it is supported
+                            {
+                                // if a related posts cshtml (razor) file exists then we'll load it within the razorhost/relatedPosts.ascx file
+                                string vPath = string.Format("~/Custom/Themes/{0}/RelatedPosts.cshtml", BlogSettings.Instance.Theme);
+                                var mapPath = Server.MapPath(vPath);
+
+                                if (File.Exists(Server.MapPath(vPath)))
+                                    // Try to load RelatedPosts view from theme folder
+                                    relatedPath = Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.GetThemeWithAdjustments(null) + "/RelatedPosts.ascx";
+                                else
+                                    relatedPath = Utils.ApplicationRelativeWebRoot + "Custom/Themes/Standard/RelatedPosts.ascx";
+
+                                RelatedPostsBase relatedView = (RelatedPostsBase)LoadControl(relatedPath);
+                                relatedView.PostItem = this.Post;
+                                phRelatedPosts.Controls.Add(relatedView);
+                            }
+                            else 
+                            {
+                                RelatedPostsBase relatedView = (RelatedPostsBase)LoadControl(relatedPath);
+                                relatedView.PostItem = this.Post;
+                                phRelatedPosts.Controls.Add(relatedView);
+                            }
                         }
                         catch (Exception)
                         {

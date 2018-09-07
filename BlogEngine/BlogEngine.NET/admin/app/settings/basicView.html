@@ -36,7 +36,7 @@
                     <label for="selZone">{{lbl.timezone}}</label>
                     <select id="selZone" class="form-control ltr-form-control" data-ng-options="o.OptionName for o in timeZoneOptions" data-ng-model="selTimeZone"></select>
                 </div>
-                <div ng-show="usageScenario.match('multiusers')">
+                <div ng-show="isMultiUser">
                     <div class="form-group">
                         <label><input type="checkbox" name="ckEnableSelfRegistration" data-ng-model="settings.EnableSelfRegistration" /> {{lbl.enableSelfRegistration}}</label>
                     </div>

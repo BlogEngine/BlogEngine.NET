@@ -69,6 +69,8 @@ function ValidateNewUserCaptcha() {
     // Retrieve the google generated response
     var divRecaptchaResponse = $('#g-recaptcha-response').val();    
 
+    // Get a reference to the captcha control - the RecaptchaControl
+    // will only render a div with an id of g-recaptcha if it is enabled.
     var divRecaptchaControl = $('#g-recaptcha');    
 
     // If the recaptcha control is enabled then we'll add validation checks

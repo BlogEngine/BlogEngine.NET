@@ -254,7 +254,7 @@ namespace BlogEngine.Core.Data
         static bool UpdateUserProfile(BlogUser user)
         {
             // If the profile email changed be sure to update membership to match
-            if (user.Email != user.Profile.EmailAddress)
+            if (user.Profile!=null && user.Email != user.Profile.EmailAddress)
             {
                 // update user
                 var member = Membership.GetUser(user.UserName);

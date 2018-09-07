@@ -1,0 +1,126 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:09:00 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:09:00 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:14:34 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:14:34 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:16:07 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:16:07 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:16:45 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:16:45 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:19:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:19:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:21:21 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:22:11 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:34:35 PM
+RazorHelper, ParseRazor, VirtualPath: /Custom/Themes/Standard/RelatedPosts.cshtml: The file '/Custom/Themes/Standard/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:34:35 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:35:51 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.cshtml: The file '/Custom/Themes/Standard/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:35:51 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:37:24 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.cshtml: The file '/Custom/Themes/Standard/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:37:26 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:37:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.cshtml: The file '/Custom/Themes/Standard/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:37:42 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:39:13 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.ascx: Object reference not set to an instance of an object.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:40:13 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.ascx: Object reference not set to an instance of an object.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:40:14 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:42:24 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/Standard/RelatedPosts.ascx: Object reference not set to an instance of an object.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:42:24 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:48:50 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:48:50 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:51:13 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:51:13 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:52:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 5:52:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:01:53 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:02:32 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:03:01 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:03:01 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:14:01 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:14:01 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:15:33 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/RelatedPosts.cshtml: The file '/Custom/Themes/AllTuts/RelatedPosts.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:15:33 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:19:14 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 6:20:50 PM
+RazorHelper, ParseRazor, VirtualPath: ~/Custom/Themes/AllTuts/CommentForm.cshtml: The file '/Custom/Themes/AllTuts/CommentForm.cshtml' does not exist.
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Date: 9/6/2018 8:24:57 PM
+PUT http://localhost:64079/api/roles/saverights/Viewer: Collection was modified; enumeration operation may not execute.

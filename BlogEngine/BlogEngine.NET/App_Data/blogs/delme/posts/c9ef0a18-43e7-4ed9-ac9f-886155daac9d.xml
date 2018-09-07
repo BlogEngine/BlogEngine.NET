@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>admin</author>
+  <title>Welcome to delme's blog</title>
+  <description>The description is used as the meta description as well as shown in the related posts. It is recommended that you write a description, but not mandatory</description>
+  <content>Dear admin, welcome to you new blog! &lt;br/&gt;&lt;br/&gt;Log in &lt;a href="/delme/Account/login.aspx"&gt;here&lt;/a&gt; to start using it. &lt;br/&gt;&lt;br/&gt;Happy blogging!</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2018-09-06 17:05:39</pubDate>
+  <lastModified>2018-09-06 17:05:39</lastModified>
+  <raters>5</raters>
+  <rating>4.24</rating>
+  <slug>Welcome-to-delmes-blog</slug>
+  <tags>
+    <tag>blog</tag>
+    <tag>welcome</tag>
+  </tags>
+  <comments />
+  <categories>
+    <category>c451de8c-75b3-40b9-9a6c-a47173fa2b40</category>
+  </categories>
+  <notifications />
+</post>
