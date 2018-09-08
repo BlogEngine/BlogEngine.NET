@@ -4,16 +4,16 @@
 <% 
     Page.Header.DataBind();
 
-    if (Security.IsAuthenticated)
-    {
-        aLoginText.InnerText = Resources.labels.admin;
-        aLogin.HRef = Utils.RelativeWebRoot + "admin/";
-    }
-    else
-    {
-        aLoginText.InnerText = Resources.labels.login;
-        aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?ReturnURL=" + Utils.RelativeWebRoot + "admin/";
-    }
+        if (Security.IsAuthenticated)
+        {
+            aLogin.InnerText = Resources.labels.logoff;
+            aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx?logoff";
+        }
+        else
+        {
+            aLogin.HRef = Utils.RelativeWebRoot + "Account/login.aspx";
+            aLogin.InnerText = Resources.labels.login;
+        }
 %>
 <!DOCTYPE html>
 <html>
@@ -82,6 +82,14 @@
                     <% } %>
                     <li><a href="<%=Utils.AbsoluteWebRoot %>archive"><%=Resources.labels.archive %></a></li>
                     <li><a href="<%=Utils.AbsoluteWebRoot %>contact"><%=Resources.labels.contact %></a></li>
+                    <%if (Security.IsAdministrator)
+                    { %>
+                        <li><a href="<%=Utils.AbsoluteWebRoot %>admin/#"><%=Resources.labels.admin %></a></li>
+                    <%} %>
+                    <%if (Security.IsAuthenticated)
+                    { %>
+                        <li><a href="<%=Utils.AbsoluteWebRoot %>admin/#/security/profile"><%=Resources.labels.profile %></a></li>
+                    <%} %>
                     <li><a runat="server" id="aLogin"><span id="aLoginText" runat="server"></span></a></li>
                 </ul>
                 <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="sidebar Post" />

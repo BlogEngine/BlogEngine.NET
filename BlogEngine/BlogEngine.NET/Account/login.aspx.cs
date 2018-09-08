@@ -1,6 +1,8 @@
 ﻿namespace Account
 {
     using System;
+    using System.Configuration;
+    using System.Data.SqlClient;
     using System.Web;
     using System.Web.Security;
     using System.Web.UI;
@@ -23,6 +25,19 @@
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            // We place connectionString info in the machine.config for
+            // local development - if setting exist then display it
+            var machine = ConfigurationManager.AppSettings["machineConfig"];
+            info.Visible = machine != null;
+
+            if (info.Visible) {
+                machineConfig.Text = machine;
+                var connectionString = ConfigurationManager.ConnectionStrings["BlogEngine"].ConnectionString;
+                var connection = new SqlConnectionStringBuilder(connectionString);
+                machineConfig.Text += $" | {connection.DataSource} | {connection.InitialCatalog}";
+            }
+
+
             HyperLink linkForgotPassword = (HyperLink)LoginUser.FindControl("linkForgotPassword");
             if (linkForgotPassword != null)
             {

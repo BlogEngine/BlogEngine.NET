@@ -678,7 +678,9 @@
     <Content Include="Custom\Widgets\AuthorList\screenshot.png" />
     <Content Include="Custom\Widgets\AuthorList\widget.xml" />
     <Content Include="Custom\Widgets\BlogList\screenshot.png" />
-    <Content Include="Custom\Widgets\BlogList\widget.xml" />
+    <Content Include="Custom\Widgets\BlogList\widget.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Custom\Widgets\BlogRoll\screenshot.png" />
     <Content Include="Custom\Widgets\BlogRoll\widget.xml" />
     <Content Include="Custom\Widgets\CategoryList\screenshot.png" />
@@ -1693,7 +1695,7 @@
     <Content Include="setup\Web.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="setup\MySQL\MySQLWeb.Config" />
-    <None Include="Web.Config" />
+    <None Include="Web.Config.Sql.Config" />
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
@@ -1891,7 +1893,7 @@
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
     <Content Include="Custom\Controls\PostList.ascx" />
-    <None Include="Web.Config.Sql.Config">
+    <None Include="Web.Config">
       <SubType>Designer</SubType>
     </None>
     <Content Include="wlwmanifest.xml" />

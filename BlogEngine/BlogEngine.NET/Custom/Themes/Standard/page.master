@@ -68,6 +68,14 @@
                     <% } %>
                     <li><a href="<%=Utils.AbsoluteWebRoot %>archive"><%=Resources.labels.archive %></a></li>
                     <li><a href="<%=Utils.AbsoluteWebRoot %>contact"><%=Resources.labels.contact %></a></li>
+                    <%if (Security.IsAdministrator)
+                    { %>
+                        <li><a href="<%=Utils.AbsoluteWebRoot %>admin/#"><%=Resources.labels.admin %></a></li>
+                    <%} %>
+                    <%if (Security.IsAuthenticated)
+                    { %>
+                        <li><a href="<%=Utils.AbsoluteWebRoot %>admin/#/security/profile"><%=Resources.labels.profile %></a></li>
+                    <%} %>
                 </ul>
                 <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="sidebar Post" />
             </div>

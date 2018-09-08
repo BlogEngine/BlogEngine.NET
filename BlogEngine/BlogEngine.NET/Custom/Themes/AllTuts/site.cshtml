@@ -48,20 +48,25 @@
                     <li><a href="@(Utils.AbsoluteWebRoot)" rel="home">@(Resources.labels.home)</a></li>
                     <li><a href="@(Utils.AbsoluteWebRoot)archive.aspx">@(Resources.labels.archive)</a></li>
                     <li><a href="@(Utils.AbsoluteWebRoot)contact.aspx">@(Resources.labels.contact)</a></li>
+                    <li><a href="@(Utils.AbsoluteWebRoot)admin/#/security/profile">@(Resources.labels.profile)</a></li>
                     @foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage))
                     {
-                        if(parentPage.ShowInList){
-                        <li><a href="@parentPage.RelativeLink" title="@parentPage.Title">@parentPage.Title</a>
-                            @if (parentPage.HasChildPages)
-                            {
-                                <ul>
-                                    @foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id))
-                                    {
-                                        if(childPage.ShowInList){<li class="page_item"><a href="@childPage.RelativeLink" title="@childPage.Title">@childPage.Title</a></li>}
-                                    }
-                                </ul>
-                            }
-                        </li>
+                        if (parentPage.ShowInList)
+                        {
+                            <li>
+                                <a href="@parentPage.RelativeLink" title="@parentPage.Title">@parentPage.Title</a>
+                                @if (parentPage.HasChildPages)
+                                {
+                                    <ul>
+                                        @foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id))
+                                        {
+                                            if (childPage.ShowInList)
+                                            {
+                                                <li class="page_item"><a href="@childPage.RelativeLink" title="@childPage.Title">@childPage.Title</a></li>}
+                                        }
+                                    </ul>
+                                }
+                            </li>
                         }
                     }
                 </ul>

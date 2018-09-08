@@ -30,9 +30,11 @@
                     </asp:PlaceHolder>
                 </div>
             </div>
-
         </LayoutTemplate>
     </asp:Login>
+    <div id="info" visible="false" class="small-link" runat="server">
+        <asp:Label ID="machineConfig" runat="server"></asp:Label>
+    </div>
     <% if (BlogEngine.Core.BlogSettings.Instance.EnableSelfRegistration)
        { %>
      <hr />
@@ -48,3 +50,4 @@
         });
     </script>
 </asp:Content>
+
