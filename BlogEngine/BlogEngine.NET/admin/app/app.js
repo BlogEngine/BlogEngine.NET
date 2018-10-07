@@ -23,6 +23,8 @@
         .when("/security/profile", { templateUrl: "app/security/profile/profileView.html" })
         .when("/security/roles", { templateUrl: "app/security/roles/roleView.html" })
         .when("/security/users", { templateUrl: "app/security/users/userView.html" })
+        .when("/security/contacts", { templateUrl: "app/security/contacts/contactView.html" })
+        
 
         .when("/settings/basic", { templateUrl: "app/settings/basicView.html" })
         .when("/settings/feed", { templateUrl: "app/settings/feedView.html" })

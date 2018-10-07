@@ -6,7 +6,7 @@ namespace BlogEngine.Tests.Fakes
 {
     class FakeUsersRepository : IUsersRepository
     {
-        public IEnumerable<BlogUser> Find(int take = 10, int skip = 0, string filter = "", string order = "")
+        public IEnumerable<BlogUser> Find(int take = 10, int skip = 0, string filter = "", string order = "", string process=null)
         {
             var items = new List<BlogUser>();
             items.Add(new BlogUser());

@@ -139,6 +139,7 @@ namespace BlogEngine.NET.App_Start
                 .Include("~/admin/app/custom/widgets/widgetController.js")
                 .Include("~/admin/app/custom/widgets/widgetGalleryController.js")
 
+                .Include("~/admin/app/security/contacts/contactController.js")
                 .Include("~/admin/app/security/users/userController.js")
                 .Include("~/admin/app/security/roles/roleController.js")
                 .Include("~/admin/app/security/profile/profileController.js")

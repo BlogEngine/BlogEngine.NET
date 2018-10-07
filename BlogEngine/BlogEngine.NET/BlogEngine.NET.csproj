@@ -141,6 +141,8 @@
     <Content Include="admin\app\custom\widgets\widgetGallery.html" />
     <Content Include="admin\app\custom\widgets\widgetGalleryController.js" />
     <Content Include="admin\app\custom\widgets\widgetView.html" />
+    <Content Include="admin\app\security\contacts\contactController.js" />
+    <Content Include="admin\app\security\contacts\contactView.html" />
     <Content Include="admin\themes\standard\css\styles.css" />
     <Content Include="admin\themes\standard\img\logo-sidebar.png" />
     <Content Include="admin\themes\standard\img\profile.png" />
@@ -1695,6 +1697,7 @@
     <Content Include="setup\Web.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="setup\MySQL\MySQLWeb.Config" />
+    <None Include="Web.Config.File.Config" />
     <None Include="Web.Config.Sql.Config" />
     <Content Include="Web.sitemap" />
   </ItemGroup>

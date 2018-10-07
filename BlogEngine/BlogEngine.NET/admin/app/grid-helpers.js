@@ -57,6 +57,10 @@
                 if (searchMatch(item[attr], scope.query))
                     return true;
             }
+            for (var profileAttr in item.Profile) {
+                if (searchMatch(item.Profile[profileAttr], scope.query))
+                    return true;
+            }
             return false;
         });
         if (scope.sortingOrder !== '') {
@@ -66,6 +70,7 @@
         scope.groupToPages();
         scope.rowSpinOff(scope.filteredItems);
     };
+
 
     scope.groupToPages = function () {
         scope.pagedItems = [];

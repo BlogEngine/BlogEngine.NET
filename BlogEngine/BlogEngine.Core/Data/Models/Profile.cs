@@ -1,4 +1,6 @@
-﻿/// <summary>
+﻿using Newtonsoft.Json.Linq;
+using System.Diagnostics;
+/// <summary>
 /// Mirrors AuthorProfile
 /// </summary>
 namespace BlogEngine.Core.Data.Models
@@ -8,6 +10,8 @@ namespace BlogEngine.Core.Data.Models
     /// </summary>
     public class Profile
     {
+        public string RecordId { get; set; }
+
         /// <summary>
         /// biography
         /// </summary>
@@ -17,6 +21,8 @@ namespace BlogEngine.Core.Data.Models
         /// birthday date
         /// </summary>
         public string Birthday { get; set; }
+
+        public string Address { get; set; }
 
         /// <summary>
         /// city
@@ -97,5 +103,38 @@ namespace BlogEngine.Core.Data.Models
         /// User name
         /// </summary>
         public string UserName { get; set; }
+
+        public Profile() {
+            Debug.WriteLine("");
+        }
+
+        public Profile(string comment)
+        {
+            var record = JObject.Parse(comment);
+            EmailAddress = GetField(record, "Email");
+            Address = GetField(record, "Address");
+            CityTown = GetField(record, "City");
+            RegionState = GetField(record, "State"); 
+            DisplayName = GetField(record, "Name");
+            LastName = GetField(record, "LastName");
+            FirstName = GetField(record, "FirstName");
+            Company = GetField(record, "Company");
+            if (Company == "") GetField(record, "Organization");
+            PhoneMain = GetField(record, "HomePhone");
+            if (PhoneMain == "") PhoneMain = "NA";
+            PhoneMobile = GetField(record, "CellPhone");
+            if (PhoneMobile == "") PhoneMobile = "NA";
+            RecordId = GetField(record, "ContactId");
+            Debug.WriteLine("");
+
+        }
+
+        private string GetField(JObject record, string field)
+        {
+            var result = record[field];
+            if (result == null) return "";
+            return record[field].ToString();
+        }
     }
+
 }

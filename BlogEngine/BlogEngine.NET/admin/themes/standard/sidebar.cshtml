@@ -77,6 +77,7 @@
                     @if (Security.IsAuthorizedTo(Rights.EditOtherUsers))
                     {
                         <li data-ng-class="{ active: isActive('/security/users')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/users">@Resources.labels.users</a></li>
+                        <li data-ng-class="{ active: isActive('/security/contacts')}"><a class="ng-binding" href="{{SiteVars.RelativeWebRoot}}admin/#/security/contacts">@Resources.labels.contacts</a></li>
                     }
                 </ul>
             </li>

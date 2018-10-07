@@ -117,6 +117,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Contracts\IMembershipProvider.cs" />
     <Compile Include="Data\Contracts\IWidgetsRepository.cs" />
     <Compile Include="Data\Contracts\IDashboardRepository.cs" />
     <Compile Include="Data\Services\TagCloud.cs" />
@@ -420,8 +421,7 @@
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>copy $(TargetPath) C:\Data\A\Dev\Plugins</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

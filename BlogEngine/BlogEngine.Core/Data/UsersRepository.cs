@@ -21,25 +21,45 @@ namespace BlogEngine.Core.Data
         /// <param name="skip">Records to skip</param>
         /// <param name="take">Records to take</param>
         /// <returns>List of users</returns>
-        public IEnumerable<BlogUser> Find(int take = 10, int skip = 0, string filter = "", string order = "")
+        public IEnumerable<BlogUser> Find(int take = 10, int skip = 0, string filter = "", string order = "", string process=null)
         {
             if (!Security.IsAuthorizedTo(Rights.AccessAdminPages))
                 throw new UnauthorizedAccessException();
 
             var users = new List<BlogUser>();
             int count;
-            var userCollection = Membership.Provider.GetAllUsers(0, 999, out count);
+
+            var provider = Membership.Provider as IMembershipProvider;
+
+            var userCollection = provider.GetAllUsers(0, 999, out count, process);
             var members = userCollection.Cast<MembershipUser>().ToList();
 
-            foreach (var m in members)
+            if (process == "contacts")
             {
-                users.Add(new BlogUser { 
-                    IsChecked = false, 
-                    UserName = m.UserName, 
-                    Email = m.Email,
-                    Profile = GetProfile(m.UserName),
-                    Roles = GetRoles(m.UserName)
-                });
+                foreach (var m in members)
+                {
+                    users.Add(new BlogUser
+                    {
+                        IsChecked = false,
+                        UserName = m.UserName,
+                        Email = m.Email,
+                        Profile = GetProfileFromComment(m.Comment)
+                    });
+                }
+            }
+            else
+            {
+                foreach (var m in members)
+                {
+                    users.Add(new BlogUser
+                    {
+                        IsChecked = false,
+                        UserName = m.UserName,
+                        Email = m.Email,
+                        Profile = GetProfile(m.UserName),
+                        Roles = GetRoles(m.UserName)
+                    });
+                }
             }
 
             var query = users.AsQueryable().Where(filter);
@@ -48,6 +68,11 @@ namespace BlogEngine.Core.Data
             if (take == 0) take = users.Count;
 
             return query.OrderBy(order).Skip(skip).Take(take);
+        }
+
+        public Profile GetProfileFromComment(string comment)
+        {
+            return new Profile(comment);
         }
 
         /// <summary>
@@ -62,8 +87,32 @@ namespace BlogEngine.Core.Data
 
             var users = new List<BlogUser>();
             int count;
-            var userCollection = Membership.Provider.GetAllUsers(0, 999, out count);
+
+            var process = "not-assigned";
+            if(id.Count(f=>f=='-') > 3)
+            {
+                process = "contacts";
+            }
+
+            var provider = Membership.Provider as IMembershipProvider;
+
+            var userCollection = provider.GetAllUsers(0, 999, out count, process);
             var members = userCollection.Cast<MembershipUser>().ToList();
+
+            if (process == "contacts")
+            {
+                foreach (var m in members)
+                {
+                    users.Add(new BlogUser
+                    {
+                        IsChecked = false,
+                        UserName = m.UserName,
+                        Email = m.Email,
+                        Profile = GetProfileFromComment(m.Comment)
+                    });
+                }
+                return users.AsQueryable().Where("Profile.RecordId == \"" + id + "\"").FirstOrDefault();
+            }
 
             foreach (var m in members)
             {

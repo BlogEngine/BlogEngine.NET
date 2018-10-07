@@ -12,11 +12,12 @@
     using System.Web.Security;
     using System.Xml;
     using System.IO;
+    using BlogEngine.Core.Data.Contracts;
 
     /// <summary>
     /// The xml membership provider.
     /// </summary>
-    public class XmlMembershipProvider : MembershipProvider
+    public class XmlMembershipProvider : MembershipProvider, IMembershipProvider
     {
         #region Constants and Fields
 
@@ -411,6 +412,12 @@
             string usernameToMatch, int pageIndex, int pageSize, out int totalRecords)
         {
             throw new NotSupportedException();
+        }
+
+        public MembershipUserCollection GetAllUsers(
+                    int pageIndex, int pageSize, out int totalRecords, string process)
+        {
+            return GetAllUsers(pageIndex, pageSize, out totalRecords);
         }
 
         /// <summary>

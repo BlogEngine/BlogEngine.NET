@@ -32,6 +32,10 @@ namespace BlogEngine.Core
         /// </summary>
         private string aboutMe;
 
+        private string address;
+
+        private string recordId;
+
         /// <summary>
         /// The birthday.
         /// </summary>
@@ -165,6 +169,41 @@ namespace BlogEngine.Core
         }
 
         #endregion
+
+
+        /// <summary>
+        /// Gets or sets Address
+        /// </summary>
+        public string Address
+        {
+            get
+            {
+                return this.address;
+            }
+
+            set
+            {
+                base.SetValue("Address", value, ref this.address);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets Address
+        /// </summary>
+        public string RecordId
+        {
+            get
+            {
+                return this.recordId;
+            }
+
+            set
+            {
+                base.SetValue("RecordId", value, ref this.recordId);
+            }
+        }
+
+
 
         /// <summary>
         /// Gets or sets AboutMe.

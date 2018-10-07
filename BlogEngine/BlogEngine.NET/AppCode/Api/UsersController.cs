@@ -15,9 +15,14 @@ public class UsersController : ApiController
         this.repository = repository;
     }
 
-    public IEnumerable<BlogUser> Get(int take = 10, int skip = 0, string filter = "1 == 1", string order = "UserName")
+    public IEnumerable<BlogUser> Get(
+        int take = 10, 
+        int skip = 0, 
+        string filter = "1 == 1", 
+        string order = "UserName",
+        string process = "undefined")
     {
-        return repository.Find(take, skip, filter, order);
+        return repository.Find(take, skip, filter, order, process);
     }
 
     public HttpResponseMessage Get(string id)
