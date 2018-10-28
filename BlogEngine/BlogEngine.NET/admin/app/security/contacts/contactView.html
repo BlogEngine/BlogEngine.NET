@@ -77,7 +77,7 @@
         </div>
         <div class="content-inner"> 
             <table class="table table-item-users">
-                <thead>
+                <thead>   
                     <tr>
                         <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
                         <th class="item-title"><a data-ng-click="sort_by('UserName',$event)">{{lbl.title}}</a></th>
@@ -91,7 +91,7 @@
                         <td class="item-checkbox"><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
                         <td class="item-title"><a title="click to edit" href="" ng-click="launchProfilePage(item)">{{item.UserName}}</a></td>
                         <td class="item-address" style="font-weight:bold">{{item.Profile.Address}} {{item.Profile.CityTown}} {{item.RegionState}}</td>
-                        <td class="item-phone" style="font-weight:bold">Cell:{{item.Profile.PhoneMain}} / Work:{{item.Profile.PhoneMobile}} {{item.RegionState}}</td>
+                        <td class="item-phone" style="font-weight:bold">Cell:{{item.Profile.PhoneMobile}} / Main:{{item.Profile.PhoneMain}}</td>
                         <td class="item-email"><span class="text-ellipsis"><a href="mailto:{{item.Email}}">{{item.Email}}</a></span></td>
                     </tr>
                 </tbody>
