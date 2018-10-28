@@ -54,6 +54,11 @@ if (typeof String.prototype.startsWith != 'function') {
     };
 }
 
+function spinOnNoHide() {
+    //$("#ng-view").hide();
+    $("#global-loading").show();
+}
+
 function spinOn() {
     $("#ng-view").hide();
     $("#global-loading").show();

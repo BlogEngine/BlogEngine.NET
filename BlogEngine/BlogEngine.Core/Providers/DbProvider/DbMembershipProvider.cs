@@ -368,6 +368,29 @@
                 }
             }
 
+            using (var conn = this.CreateConnection())
+            {
+                if (conn.HasConnection)
+                {
+                    using (var cmd = conn.CreateTextCommand(string.Format(
+                        "DELETE FROM Contact WHERE userName = {0}name",
+                        this.parmPrefix)))
+                    {
+                        cmd.Parameters.Add(conn.CreateParameter(FormatParamName("name"), username));
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            success = true;
+                        }
+                        catch (Exception)
+                        {
+                            success = false;
+                            throw;
+                        }
+                    }
+                }
+            }
+
             return success;
         }
 
@@ -901,7 +924,27 @@
         {
             var mappedFields = new Dictionary<string,string>();
             var profile = new Models.Profile(user.Comment);
+
             profile.UserName = user.UserName;
+
+            // If there is no record ID then create a new guid and insert it for the update to use
+            if (string.IsNullOrEmpty(profile.RecordId))
+            {
+                profile.RecordId = Guid.NewGuid().ToString();
+                using (var conn = this.CreateConnection())
+                {
+                    using (var cmd = conn.CreateTextCommand(
+                        string.Format(
+                            "INSERT INTO Contact (RecordId, Name) values ({0}RecordId, {0}Name)",
+                            this.parmPrefix)))
+                    {
+                        var parms = cmd.Parameters;
+                        parms.Add(conn.CreateParameter(FormatParamName("RecordId"), profile.RecordId));
+                        parms.Add(conn.CreateParameter(FormatParamName("Name"), profile.UserName));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
 
             var paraList = new List<string>();
             var profProps = profile.GetType().GetProperties();
@@ -921,7 +964,7 @@
             }
 
             var parameters = string.Join(", ", paraList);
-            var sqlString = $"UPDATE Contact SET " + parameters + " WHERE RecordId = {1}RecordId";
+            var sqlString = "UPDATE Contact SET " + parameters + " WHERE RecordId = {1}RecordId";
             var commandText = string.Format(sqlString, this.tablePrefix, this.parmPrefix);
 
             using (var conn = this.CreateConnection())

@@ -57,17 +57,18 @@ body {
     border-radius: 3px;
     background: none;
     text-transform: uppercase;
-    z-index: 2;
-    position: fixed;
-    right: 30px;
-    bottom: 30px
+    z-index: 100;
+    position: absolute;
+    float:left;
+    left: 60px;
+    top: 60px
 }
 
     .main-loading .loader {
         display: inline-block;
-        width: 30px;
-        height: 30px;
-        border: solid 5px #aaa;
+        width: 100px;
+        height: 100px;
+        border: solid 20px #aaa;
         border-left-color: #1cac7b;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;

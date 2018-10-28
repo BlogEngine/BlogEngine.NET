@@ -161,6 +161,10 @@ namespace BlogEngine.Core.Data
 
             UpdateUserRoles(user);
 
+            // Required to update contacts
+            usr.Comment = Utils.ConvertToJson(user.Profile);
+            Membership.UpdateUser(usr); 
+
             user.Password = "";
             return user;
         }

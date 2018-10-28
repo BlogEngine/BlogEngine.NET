@@ -521,6 +521,13 @@ namespace BlogEngine.Core
             var authorProfile = GetProfile(user.UserName) ?? new AuthorProfile(user.UserName);
             try
             {
+                if (user.Profile == null)
+                {
+                    user.Profile = new Profile();
+                    user.Profile.EmailAddress = user.Email;
+                    user.Profile.UserName = user.UserName;
+                }
+
                 var srcProps = user.Profile.GetType().GetProperties();
                 var dstProps = authorProfile.GetType().GetProperties();
 

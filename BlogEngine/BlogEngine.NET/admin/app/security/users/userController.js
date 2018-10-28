@@ -35,6 +35,7 @@
     }
 
     $scope.loadEditForm = function (id) {
+        spinOnNoHide();
         $scope.loadRoles(id);
         if (!id) {
             $scope.editItem = {};
@@ -51,9 +52,11 @@
             angular.copy(data, $scope.editItem);
             $("#modal-user-edit").modal();
             $scope.focusInput = true;
+            spinOff();
         })
         .error(function () {
             toastr.error($rootScope.lbl.errorLoadingUser);
+            spinOff();
         });
     }
 

@@ -62,10 +62,10 @@
             </div>
         </div>
         <div class="main-header clearfix">
-            <h2 class="page-title pull-left">{{lbl.users}}</h2>
-            <button data-ng-click="loadEditForm()" class="btn btn-success btn-sm btn-hasicon pull-left" type="button"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
+            <h2 class="page-title pull-left">Contacts</h2>
+            <button data-ng-click="loadEditForm()" class="btn btn-success btn-sm btn-hasicon pull-left" title="New Contact" type="button"><i class="fa fa-plus"></i>{{lbl.theNew}}</button>
             <div class="btn-group pull-left">
-                <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="{{lbl.doDelete}}"><i class="fa fa-trash"></i></button>
+                <button data-ng-click="processChecked('delete')" ng-disabled="itemsChecked() === false" class="btn btn-sm btn-danger" title="Delete contact"><i class="fa fa-trash"></i></button>
             </div>
             <button class="right-side-toggle pull-right"><span></span><span></span><span></span></button>
             <div class="right-side pull-right">
