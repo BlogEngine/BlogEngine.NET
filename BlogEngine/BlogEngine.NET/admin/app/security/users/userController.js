@@ -24,8 +24,14 @@
         });
     }
 
-    $scope.launchProfilePage = function(userName){
-        location.href = "#/security/profile/?name="+userName;
+    $scope.launchProfilePage = function (user) {
+        var userName = "";
+        if (user.Profile.RecordId === "")
+            userName = user.Profile.UserName;
+        else
+            userName = user.Profile.RecordId;
+
+        location.href = "#/security/profile/?name=" + userName;
     }
 
     $scope.loadEditForm = function (id) {

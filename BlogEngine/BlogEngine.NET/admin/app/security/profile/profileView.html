@@ -1,4 +1,10 @@
-﻿<div class="security-profile-view" data-ng-controller="ProfileController">
+﻿<style>
+    .security-profile-view .form-content {
+        width: unset;
+    }
+</style>
+
+<div class="security-profile-view" data-ng-controller="ProfileController">
     <div id="modal-custom" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -47,62 +53,117 @@
                 </div>
             </div>
             <hr />
-            <div class="form-group">
+            <div class="form-group col-sm-6">
                 <label>{{lbl.displayName}}</label>
                 <input type="text" class="form-control" data-ng-model="user.Profile.DisplayName" />
             </div>
-            <div class="form-group">
-                <label for="txtAboutMe">{{lbl.aboutMe}}</label>
-                <input type="text" id="txtAboutMe" name="txtAboutMe" class="form-control" data-ng-model="user.Profile.AboutMe" />
+            <div class="form-group col-sm-6">
+                <label for="txtUserid">User Id</label>
+                <input type="text" id="txtUserid" name="txtUserid" class="form-control" data-ng-model="user.Profile.UserId" />
             </div>
-            <div class="form-group">
-                <label for="txtBirthday">{{lbl.birthday}}</label>
-                <input type="text" id="txtBirthday" name="txtBirthday" class="form-control" data-ng-model="user.Profile.Birthday" />
+
+            <div class="form-group col-sm-12">
+                <label for="txtInformation">Information</label>
+                <input type="text" id="txtInformation" name="txtInformation" class="form-control" data-ng-model="user.Profile.Information" />
             </div>
-            <div class="form-group">
-                <label for="txtCityTown">{{lbl.cityTown}}</label>
-                <input type="text" id="txtCityTown" name="txtCityTown" class="form-control" data-ng-model="user.Profile.CityTown" />
+
+            <div class="form-group col-sm-12"> <hr style="margin-top:0; margin-bottom:0; padding-top:0; padding-bottom:0" /> </div>
+
+            <div class="form-group col-sm-2">
+                <label for="txtTitle">Title</label>
+                <input type="text" id="txtTitle" name="txtTitle" class="form-control" data-ng-model="user.Profile.Title" />
             </div>
-            <div class="form-group">
-                <label for="txtCompany">{{lbl.company}}</label>
-                <input type="text" id="txtCompany" name="txtCompany" class="form-control" data-ng-model="user.Profile.Company" />
-            </div>
-            <div class="form-group">
-                <label for="txtCountry">{{lbl.country}}</label>
-                <input type="text" id="txtCountry" name="txtCountry" class="form-control" data-ng-model="user.Profile.Country" />
-            </div>
-            <div class="form-group">
-                <label for="txtEmailAddress">{{lbl.emailAddress}}</label>
-                <input type="text" id="txtEmailAddress" name="txtEmailAddress" class="form-control" data-ng-model="user.Profile.EmailAddress" />
-            </div>
-            <div class="form-group">
+            <div class="form-group col-sm-4">
                 <label for="txtFirstName">{{lbl.firstName}}</label>
                 <input type="text" id="txtFirstName" name="txtFirstName" class="form-control" data-ng-model="user.Profile.FirstName" />
             </div>
-            <div class="form-group">
-                <label for="txtLastName">{{lbl.lastName}}</label>
-                <input type="text" id="txtLastName" name="txtLastName" class="form-control" data-ng-model="user.Profile.LastName" />
-            </div>
-            <div class="form-group">
+            <div class="form-group col-sm-6">
                 <label for="txtMiddleName">{{lbl.middleName}}</label>
                 <input type="text" id="txtMiddleName" name="txtMiddleName" class="form-control" data-ng-model="user.Profile.MiddleName" />
             </div>
-            <div class="form-group">
-                <label for="txtPhoneFax">{{lbl.phoneFax}}</label>
-                <input type="text" id="txtPhoneFax" name="txtPhoneFax" class="form-control" data-ng-model="user.Profile.PhoneFax" />
+
+            <div class="form-group col-sm-6">
+                <label for="txtLastName">{{lbl.lastName}}</label>
+                <input type="text" id="txtLastName" name="txtLastName" class="form-control" data-ng-model="user.Profile.LastName" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-6">
+                <label for="txtEmailAddress">{{lbl.emailAddress}}</label>
+                <input type="text" id="txtEmailAddress" name="txtEmailAddress" class="form-control" data-ng-model="user.Profile.EmailAddress" />
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="txtAddress">Address</label>
+                <input type="text" id="txtAddress" name="txtAddress" class="form-control" data-ng-model="user.Profile.Address" />
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="txtAddressAlt">Address 2</label>
+                <input type="text" id="txtAddressAlt" name="txtAddressAlt" class="form-control" data-ng-model="user.Profile.AddressAlt" />
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="txtCityTown">{{lbl.cityTown}}</label>
+                <input type="text" id="txtCityTown" name="txtCityTown" class="form-control" data-ng-model="user.Profile.CityTown" />
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="txtRegionState">State</label>
+                <input type="text" id="txtRegionState" name="txtRegionState" class="form-control" data-ng-model="user.Profile.RegionState" />
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="txtZip">Zip</label>
+                <input type="text" id="txtZip" name="txtZip" class="form-control" data-ng-model="user.Profile.Zip" />
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="txtCountry">{{lbl.country}}</label>
+                <input type="text" id="txtCountry" name="txtCountry" class="form-control" data-ng-model="user.Profile.Country" />
+            </div>
+
+            <div class="form-group col-sm-12"> <hr style="margin-top:0; margin-bottom:0; padding-top:0; padding-bottom:0" /> </div>
+
+            <div class="form-group col-sm-6">
+                <label for="txtBirthday">{{lbl.birthday}}</label>
+                <input type="text" id="txtBirthday" name="txtBirthday" class="form-control" data-ng-model="user.Profile.Birthday" />
+            </div>
+            <div class="form-group col-sm-6">
                 <label for="txtPhoneMain">{{lbl.phoneMain}}</label>
                 <input type="text" id="txtPhoneMain" name="txtPhoneMain" class="form-control" data-ng-model="user.Profile.PhoneMain" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-sm-6">
                 <label for="txtPhoneMobile">{{lbl.phoneMobile}}</label>
                 <input type="text" id="txtPhoneMobile" name="txtPhoneMobile" class="form-control" data-ng-model="user.Profile.PhoneMobile" />
             </div>
-            <div class="form-group">
-                <label for="txtRegionState">{{lbl.regionState}}</label>
-                <input type="text" id="txtRegionState" name="txtRegionState" class="form-control" data-ng-model="user.Profile.RegionState" />
+            <div class="form-group col-sm-6">
+                <label for="txtPhoneFax">{{lbl.phoneFax}}</label>
+                <input type="text" id="txtPhoneFax" name="txtPhoneFax" class="form-control" data-ng-model="user.Profile.PhoneFax" />
             </div>
+
+            <div class="form-group col-sm-6">
+                <label for="txtCompany">{{lbl.company}}</label>
+                <input type="text" id="txtCompany" name="txtCompany" class="form-control" data-ng-model="user.Profile.Company" />
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="txtOrganization">Organization</label>
+                <input type="text" id="txtOrganization" name="txtOrganization" class="form-control" data-ng-model="user.Profile.Organization" />
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="txtAboutMe">{{lbl.aboutMe}}</label>
+                <input type="text" id="txtAboutMe" name="txtAboutMe" class="form-control" data-ng-model="user.Profile.AboutMe" />
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="txtSpouse">Spouse</label>
+                <input type="text" id="txtSpouse" name="txtSpouse" class="form-control" data-ng-model="user.Profile.Spouse" />
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label for="txtWebSite">Website</label>
+                <input type="text" id="txtWebSite" name="txtWebSite" class="form-control" data-ng-model="user.Profile.Website" />
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="txtTags">Tags</label>
+                <input type="text" id="txtTags" name="txtTags" class="form-control" data-ng-model="user.Profile.Code" />
+            </div>
+
 
             <div id="frm-custom-edit">
                 <hr />

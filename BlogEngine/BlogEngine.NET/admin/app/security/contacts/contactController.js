@@ -28,6 +28,7 @@
         if (angular.isObject(userName)) {
             userName = userName.Profile.RecordId;
         }
+
         location.href = "#/security/profile/?name="+userName;
     }
 

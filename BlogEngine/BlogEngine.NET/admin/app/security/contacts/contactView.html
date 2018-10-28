@@ -1,4 +1,23 @@
-﻿<div class="security-contacts-view" data-ng-controller="ContactsController">
+﻿<style>
+    .security-contacts-view .table td.item-title {
+        padding: 0;
+        max-width: unset;
+    }
+    .security-contacts-view .table td.item-address {
+        padding: 0;
+        max-width: unset;
+    }
+    .security-contacts-view .table td.item-phone {
+        padding: 0;
+        max-width: unset;
+    }
+    .security-contacts-view .table td.item-email {
+        padding: 0;
+        max-width: unset;
+    }
+
+</style>
+<div class="security-contacts-view" data-ng-controller="ContactsController">
     <form id="form" action="">
         <div id="modal-user-edit" class="modal fade">
             <div class="modal-dialog">
@@ -62,8 +81,8 @@
                     <tr>
                         <th class="item-checkbox"><input type="checkbox" id="chkAll" data-ng-click="checkAll($event)" /></th>
                         <th class="item-title"><a data-ng-click="sort_by('UserName',$event)">{{lbl.title}}</a></th>
-                        <th class="item-title">Address</th>
-                        <th class="item-title">Phone Numbers</th>
+                        <th class="item-address">Address</th>
+                        <th class="item-phone">Phone</th>
                         <th class="item-email">{{lbl.email}}</th>
                     </tr>
                 </thead>
@@ -71,8 +90,8 @@
                     <tr data-ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
                         <td class="item-checkbox"><input type="checkbox" id="cb-{{item.UserName}}" data-ng-model="item.IsChecked" /> </td>
                         <td class="item-title"><a title="click to edit" href="" ng-click="launchProfilePage(item)">{{item.UserName}}</a></td>
-                        <td class="item-title" style="font-weight:bold">{{item.Profile.Address}} {{item.Profile.CityTown}} {{item.RegionState}}</td>
-                        <td class="item-title" style="font-weight:bold">Cell:{{item.Profile.PhoneMain}} / Work:{{item.Profile.PhoneMobile}} {{item.RegionState}}</td>
+                        <td class="item-address" style="font-weight:bold">{{item.Profile.Address}} {{item.Profile.CityTown}} {{item.RegionState}}</td>
+                        <td class="item-phone" style="font-weight:bold">Cell:{{item.Profile.PhoneMain}} / Work:{{item.Profile.PhoneMobile}} {{item.RegionState}}</td>
                         <td class="item-email"><span class="text-ellipsis"><a href="mailto:{{item.Email}}">{{item.Email}}</a></span></td>
                     </tr>
                 </tbody>

@@ -2433,89 +2433,40 @@ namespace BlogEngine.Core.Providers
                 }
             }
 
-            // Load profile with data from dictionary
-            if (dic.ContainsKey("DisplayName"))
+            var props = profile.GetType().GetProperties();
+            foreach(var prop in props)
             {
-                profile.DisplayName = dic["DisplayName"];
-            }
+                if (prop.DeclaringType.Name != nameof(AuthorProfile))
+                    continue;
 
-            if (dic.ContainsKey("FirstName"))
-            {
-                profile.FirstName = dic["FirstName"];
-            }
+                if (prop.PropertyType.IsGenericType)
+                    continue;
 
-            if (dic.ContainsKey("MiddleName"))
-            {
-                profile.MiddleName = dic["MiddleName"];
-            }
+                var name = prop.Name;
+                var value = dic[name];
+                var type = prop.PropertyType.Name;
 
-            if (dic.ContainsKey("LastName"))
-            {
-                profile.LastName = dic["LastName"];
-            }
-
-            if (dic.ContainsKey("CityTown"))
-            {
-                profile.CityTown = dic["CityTown"];
-            }
-
-            if (dic.ContainsKey("RegionState"))
-            {
-                profile.RegionState = dic["RegionState"];
-            }
-
-            if (dic.ContainsKey("Country"))
-            {
-                profile.Country = dic["Country"];
-            }
-
-            if (dic.ContainsKey("Birthday"))
-            {
-                DateTime date;
-                if (DateTime.TryParse(dic["Birthday"], out date))
+                if (dic.ContainsKey(name))
                 {
-                    profile.Birthday = date;
+                    switch (type)
+                    {
+                        case "DateTime":
+                            DateTime date;
+                            if (DateTime.TryParse(dic[name], out date))
+                                prop.SetValue(profile, date);
+                            break;
+
+                        case "Boolean":
+                            bool boolValue = false;
+                            bool.TryParse(value, out boolValue);
+                            prop.SetValue(profile, boolValue);
+                            break;
+
+                        default:
+                            prop.SetValue(profile, $"{value}");
+                            break;
+                    }
                 }
-            }
-
-            if (dic.ContainsKey("AboutMe"))
-            {
-                profile.AboutMe = dic["AboutMe"];
-            }
-
-            if (dic.ContainsKey("PhotoURL"))
-            {
-                profile.PhotoUrl = dic["PhotoURL"];
-            }
-
-            if (dic.ContainsKey("Company"))
-            {
-                profile.Company = dic["Company"];
-            }
-
-            if (dic.ContainsKey("EmailAddress"))
-            {
-                profile.EmailAddress = dic["EmailAddress"];
-            }
-
-            if (dic.ContainsKey("PhoneMain"))
-            {
-                profile.PhoneMain = dic["PhoneMain"];
-            }
-
-            if (dic.ContainsKey("PhoneMobile"))
-            {
-                profile.PhoneMobile = dic["PhoneMobile"];
-            }
-
-            if (dic.ContainsKey("PhoneFax"))
-            {
-                profile.PhoneFax = dic["PhoneFax"];
-            }
-
-            if (dic.ContainsKey("IsPrivate"))
-            {
-                profile.Private = dic["IsPrivate"] == "true";
             }
 
             return profile;
@@ -2544,85 +2495,19 @@ namespace BlogEngine.Core.Providers
             // Create Profile Dictionary
             var dic = new StringDictionary();
 
-            if (!String.IsNullOrEmpty(profile.DisplayName))
+            var props = profile.GetType().GetProperties();
+            foreach (var prop in props)
             {
-                dic.Add("DisplayName", profile.DisplayName);
-            }
+                if (prop.DeclaringType.Name != nameof(AuthorProfile))
+                    continue;
 
-            if (!String.IsNullOrEmpty(profile.FirstName))
-            {
-                dic.Add("FirstName", profile.FirstName);
+                var name = prop.Name;
+                var value = $"{prop.GetValue(profile)}";
+                if (!string.IsNullOrEmpty(value))
+                    dic.Add(name, value);
             }
-
-            if (!String.IsNullOrEmpty(profile.MiddleName))
-            {
-                dic.Add("MiddleName", profile.MiddleName);
-            }
-
-            if (!String.IsNullOrEmpty(profile.LastName))
-            {
-                dic.Add("LastName", profile.LastName);
-            }
-
-            if (!String.IsNullOrEmpty(profile.CityTown))
-            {
-                dic.Add("CityTown", profile.CityTown);
-            }
-
-            if (!String.IsNullOrEmpty(profile.RegionState))
-            {
-                dic.Add("RegionState", profile.RegionState);
-            }
-
-            if (!String.IsNullOrEmpty(profile.Country))
-            {
-                dic.Add("Country", profile.Country);
-            }
-
-            if (!String.IsNullOrEmpty(profile.AboutMe))
-            {
-                dic.Add("AboutMe", profile.AboutMe);
-            }
-
-            if (!String.IsNullOrEmpty(profile.PhotoUrl))
-            {
-                dic.Add("PhotoURL", profile.PhotoUrl);
-            }
-
-            if (!String.IsNullOrEmpty(profile.Company))
-            {
-                dic.Add("Company", profile.Company);
-            }
-
-            if (!String.IsNullOrEmpty(profile.EmailAddress))
-            {
-                dic.Add("EmailAddress", profile.EmailAddress);
-            }
-
-            if (!String.IsNullOrEmpty(profile.PhoneMain))
-            {
-                dic.Add("PhoneMain", profile.PhoneMain);
-            }
-
-            if (!String.IsNullOrEmpty(profile.PhoneMobile))
-            {
-                dic.Add("PhoneMobile", profile.PhoneMobile);
-            }
-
-            if (!String.IsNullOrEmpty(profile.PhoneFax))
-            {
-                dic.Add("PhoneFax", profile.PhoneFax);
-            }
-
-            if (profile.Birthday != DateTime.MinValue)
-            {
-                dic.Add("Birthday", profile.Birthday.ToString("yyyy-MM-dd"));
-            }
-
-            dic.Add("IsPrivate", profile.Private.ToString());
 
             // Save Profile Dictionary
-
             using (var conn = this.CreateConnection())
             {
                 using (var cmd = conn.CreateCommand())

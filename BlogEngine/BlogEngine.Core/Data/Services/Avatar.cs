@@ -58,6 +58,9 @@ namespace BlogEngine.Core.Data.Services
 
         static string Gravatar(string email)
         {
+            if (email == null)
+                return "";
+
             //var hash = FormsAuthentication.HashPasswordForStoringInConfigFile(email.ToLowerInvariant().Trim(), "MD5");
             var hash = GetHash(email.ToLowerInvariant().Trim());
 

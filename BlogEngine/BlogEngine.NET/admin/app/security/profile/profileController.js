@@ -160,5 +160,4 @@
     $(document).ready(function () {
         bindCommon();
     });
-
 }]);

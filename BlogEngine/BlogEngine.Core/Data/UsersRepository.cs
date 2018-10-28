@@ -43,7 +43,7 @@ namespace BlogEngine.Core.Data
                         IsChecked = false,
                         UserName = m.UserName,
                         Email = m.Email,
-                        Profile = GetProfileFromComment(m.Comment)
+                        Profile = GetProfileFromComment(m)
                     });
                 }
             }
@@ -70,9 +70,11 @@ namespace BlogEngine.Core.Data
             return query.OrderBy(order).Skip(skip).Take(take);
         }
 
-        public Profile GetProfileFromComment(string comment)
+        public Profile GetProfileFromComment(MembershipUser user)
         {
-            return new Profile(comment);
+            var profile = new Profile(user.Comment);
+            profile.UserName = user.UserName;
+            return profile;
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace BlogEngine.Core.Data
             int count;
 
             var process = "not-assigned";
-            if(id.Count(f=>f=='-') > 3)
+                if(id.Count(f=>f=='-') > 3)
             {
                 process = "contacts";
             }
@@ -103,15 +105,18 @@ namespace BlogEngine.Core.Data
             {
                 foreach (var m in members)
                 {
-                    users.Add(new BlogUser
+                    var blogUser = new BlogUser
                     {
                         IsChecked = false,
                         UserName = m.UserName,
                         Email = m.Email,
-                        Profile = GetProfileFromComment(m.Comment)
-                    });
+                        Profile = GetProfileFromComment(m)
+                    };
+                    blogUser.Profile.DisplayName = m.UserName;
+                    users.Add(blogUser);
                 }
-                return users.AsQueryable().Where("Profile.RecordId == \"" + id + "\"").FirstOrDefault();
+                var userData = users.AsQueryable().Where("Profile.RecordId == \"" + id + "\"").FirstOrDefault();
+                return userData;
             }
 
             foreach (var m in members)
@@ -303,22 +308,27 @@ namespace BlogEngine.Core.Data
         static bool UpdateUserProfile(BlogUser user)
         {
             // If the profile email changed be sure to update membership to match
-            if (user.Profile!=null && user.Email != user.Profile.EmailAddress)
+            if (user.Profile!=null)
             {
                 // update user
                 var member = Membership.GetUser(user.UserName);
+                if (member == null)
+                {
+                    member = Membership.CreateUser(user.UserName,"@password", user.Profile.EmailAddress);
+                }
+
                 if (member != null)
                 {
-                    member.Email = user.Profile.EmailAddress;
+                    if (user.Email != user.Profile.EmailAddress)
+                        member.Email = user.Profile.EmailAddress;
+
+                    member.Comment = Utils.ConvertToJson(user.Profile);
+
                     Membership.UpdateUser(member);
                     user.Email = member.Email;
                 }
             }
-
-            // BillKrat.2018.09.02 moved into AuthorProfile to encapsulate
             var result = AuthorProfile.UpdateUserProfile(user);
-            
-
             return result;
         }
 
