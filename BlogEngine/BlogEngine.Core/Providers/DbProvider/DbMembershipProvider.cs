@@ -537,7 +537,13 @@
                                 while (rdr.Read())
                                 {
                                     var user = ProcessMainQuery(rdr);
-                                    users.Add(user);
+                                    try
+                                    {
+                                        users.Add(user);
+                                    }catch(Exception ex)
+                                    {
+                                        Debug.WriteLine($"{ex.Message}{ex.StackTrace}");
+                                    }
                                 }
                             }
                         }
@@ -893,6 +899,48 @@
         /// <param name="user">A <see cref="T:System.Web.Security.MembershipUser"/> object that represents the user to update and the updated information for the user.</param>
         public override void UpdateUser(MembershipUser user)
         {
+            var profile = new Models.Profile(user.Comment);
+            var userName = profile.UserName;                // store for query
+            var displayName = profile.DisplayName;          // name that should be used
+
+            if (string.IsNullOrEmpty(displayName))          // Happens if creating new record
+            {
+                profile.DisplayName = userName;
+                displayName = userName;
+            }
+
+            // If the display name does not equal the user name then we have to sync them
+            // before we continue processing.
+            if (profile.DisplayName != profile.UserName)
+            {
+                profile.UserName = profile.DisplayName;      // update for new name
+                user.Comment = Utils.ConvertToJson(profile); // Update user comment
+
+                using (var conn = this.CreateConnection())
+                {
+                    if (conn.HasConnection)
+                    {
+                        using (var cmd = conn.CreateTextCommand(
+                            string.Format(
+                                "UPDATE {0}Users SET " +
+                                "UserName = {1}displayName, " +
+                                "Comment = {1}comment " +
+                                "WHERE BlogId = {1}blogId AND userName = {1}name",
+                                this.tablePrefix, this.parmPrefix)))
+                        {
+                            var parms = cmd.Parameters;
+                            parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
+                            parms.Add(conn.CreateParameter(FormatParamName("displayName"), profile.DisplayName));
+                            parms.Add(conn.CreateParameter(FormatParamName("name"), userName));
+                            parms.Add(conn.CreateParameter(FormatParamName("comment"), user.Comment));
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+
+            // The above logic was wedged in to ensure display and user names are in sync - the following
+            // code is what normally fires here
             using (var conn = this.CreateConnection())
             {
                 if (conn.HasConnection)
@@ -907,7 +955,7 @@
                     {
                         var parms = cmd.Parameters;
                         parms.Add(conn.CreateParameter(FormatParamName("blogid"), Blog.CurrentInstance.Id.ToString()));
-                        parms.Add(conn.CreateParameter(FormatParamName("name"), user.UserName));
+                        parms.Add(conn.CreateParameter(FormatParamName("name"), displayName));
                         parms.Add(conn.CreateParameter(FormatParamName("email"), user.Email));
                         parms.Add(conn.CreateParameter(FormatParamName("comment"), user.Comment));
 
@@ -925,7 +973,13 @@
             var mappedFields = new Dictionary<string,string>();
             var profile = new Models.Profile(user.Comment);
 
-            profile.UserName = user.UserName;
+            // If a new record is being created this will be blank
+            if (string.IsNullOrEmpty(profile.DisplayName))
+                profile.DisplayName = profile.UserName;
+
+            // The user name must equal the display name (the editable field on the form) - this is an
+            // integration hack so that we can use the contacts and users table 
+            profile.UserName = profile.DisplayName;
 
             // If there is no record ID then create a new guid and insert it for the update to use
             if (string.IsNullOrEmpty(profile.RecordId))
@@ -941,10 +995,15 @@
                         var parms = cmd.Parameters;
                         parms.Add(conn.CreateParameter(FormatParamName("RecordId"), profile.RecordId));
                         parms.Add(conn.CreateParameter(FormatParamName("Name"), profile.UserName));
-                        cmd.ExecuteNonQuery();
+                        var result = cmd.ExecuteNonQuery();
                     }
                 }
+
+                user.Comment = Utils.ConvertToJson(profile);
+                UpdateUser(user); // Recursive but  record Id will be set now so we won't hit again
+                return;
             }
+
 
             var paraList = new List<string>();
             var profProps = profile.GetType().GetProperties();
@@ -964,7 +1023,9 @@
             }
 
             var parameters = string.Join(", ", paraList);
-            var sqlString = "UPDATE Contact SET " + parameters + " WHERE RecordId = {1}RecordId";
+
+            // Ensure name remains in sync with user name (it will be display name on queries)
+            var sqlString = "UPDATE Contact SET " + parameters + ", name={1}displayName WHERE RecordId = {1}RecordId";
             var commandText = string.Format(sqlString, this.tablePrefix, this.parmPrefix);
 
             using (var conn = this.CreateConnection())

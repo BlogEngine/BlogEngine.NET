@@ -1,0 +1,131 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="JustBlog" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+<%@ Import Namespace="System.Linq" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Patua+One|Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="~/pics/blogengine.ico" type="image/x-icon" />
+    <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shAutoloader.js"></script>
+    <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/shActivator.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="<%=Resources.labels.LangDirection %>">
+    <form runat="Server">
+        <div class="container">
+            <header class="header clearfix">
+                <hgroup class="pull-left">
+                    <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
+                    <h2><%=BlogSettings.Instance.Description %></h2>
+                </hgroup>
+                <div id="social-icons" class="pull-right social-icon">
+                    <a href="http://facebook.com/[CUSTOMFIELD|THEME|JustBlog|Facebook account|#/]" target="_blank" title="Follow on Facebook">
+                        <img src="~/Custom/Themes/justblog/images/facebook.png" runat="server" alt="facebook" />
+                    </a>
+                    <a href="http://twitter.com/[CUSTOMFIELD|THEME|JustBlog|Twitter account|#/]" target="_blank" title="Follow on Twitter">
+                        <img src="~/Custom/Themes/justblog/images/twitter.png" runat="server" alt="twitter" />
+                    </a>
+                    <a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>" title="<%=Resources.labels.contact %>">
+                        <img src="~/Custom/Themes/justblog/images/mail.png" runat="server" alt="contact" />
+                    </a>
+                    <a href="<%=Utils.FeedUrl %>" title="<%=Resources.labels.subscribe %>">
+                        <img src="~/Custom/Themes/justblog/images/rss.png" runat="server" alt="rss" />
+                    </a>
+                </div>
+            </header>
+            <div class="slides-wrapper slider-[CUSTOMFIELD|THEME|JustBlog|Show Slider(Yes or No)?|yes/]">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="[CUSTOMFIELD|THEME|JustBlog|Slide 1 link address|#/]" target="_blank">
+                                <img src="[CUSTOMFIELD|THEME|JustBlog|Slide 1 image address|/Custom/Themes/justblog/slides/slide-1.jpg/]" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="[CUSTOMFIELD|THEME|JustBlog|Slide 2 link address|#/]" target="_blank">
+                                <img src="[CUSTOMFIELD|THEME|JustBlog|Slide 2 image address|/Custom/Themes/justblog/slides/slide-2.jpg/]" /></a>
+                        </div>
+                        <div class="item">
+                            <a href="[CUSTOMFIELD|THEME|JustBlog|Slide 3 link address|#/]" target="_blank">
+                                <img src="[CUSTOMFIELD|THEME|JustBlog|Slide 3 image address|/Custom/Themes/justblog/slides/slide-3.jpg/]" /></a>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="main-bar clearfix">
+                <ul class="list-inline nav-header pull-left">
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                    <% if (Utils.IsMobile)
+                       { %>
+                    <li>
+                        <blog:MobileThemeSwitch ID="MobileThemeSwitch1" runat="server" />
+                    </li>
+                    <% } %>
+                    <li><a runat="server" id="aLogin"></a></li>
+                    <li class="search-menu"><a href="<%=Utils.AbsoluteWebRoot %>search">Search</a></li>
+                </ul>
+                <div class="pull-right main-search">
+                    <blog:SearchBox ID="SearchBox1" runat="Server" />
+                </div>
+            </div>
+            <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+            <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+            <footer class="footer">
+                <div class="widgets-footer clearfix">
+                    <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="Footer_Widget" />
+                </div>
+                <div class="end-line text-center">
+                    <p class="text-muted credit">Copyright &copy; <%=DateTime.Now.Year %> <span class="sep-1">-</span> Powered by <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET</a> <%=BlogSettings.Instance.Version() %> <span class="sep-2">-</span> <a href="http://seyfolahi.net/en/post/justblog-theme-for-blogengine-29" title="Farzin Seyfolahi" target="_blank"> Design by <img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/justblog/images/designer.png" class="designer" alt="Farzin Seyfolahi" /></a> </p>
+                </div>
+            </footer>
+        </div>
+        <script src="<%=(Utils.AbsoluteWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/js/bootstrap.min.js")%>" type="text/javascript"></script>
+        <script>
+            var links, index, link;
+            links = document.getElementById('social-icons').getElementsByTagName('a');
+            for (index = 0; index < links.length; ++index) {
+                link = links[index];
+                if (link.href == 'http://facebook.com/') { link.style.display = "none"; }
+                if (link.href == 'http://twitter.com/') { link.style.display = "none"; }
+            }
+        </script>
+        <script>
+            $('#social-icons a').tooltip({
+                placement: 'bottom',
+            });
+            $('.footer .end-line a').tooltip({
+                placement: 'top',
+            });
+        </script>
+    </form>
+</body>
+</html>

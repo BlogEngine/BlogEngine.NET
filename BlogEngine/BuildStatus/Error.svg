@@ -1,0 +1,25 @@
+﻿<svg width="116.3" height="18.9" xmlns="http://www.w3.org/2000/svg">
+  <linearGradient id="a" x2="0" y2="100%">
+    <stop offset="0.0" stop-opacity="0.0" stop-color="#000" />
+    <stop offset="1.0" stop-opacity="0.2" stop-color="#000" />
+  </linearGradient>
+  <clipPath id="c">
+    <rect width="116.3" height="18.9" rx="4.0" />
+  </clipPath>
+  <g clip-path="url(#c)">
+    <rect width="116.3" height="18.9" fill="#555555" />
+    <rect width="66.7" height="18.9" fill="#4BAE4F" x="50.6" />
+    <rect width="116.3" height="18.9" fill="url(#a)" />
+  </g>
+  <g>
+    <svg x="3.5" y="3.5" width="12.0" height="12.0" viewBox="0 0 16 16">
+      <path fill="#fff" d="M16 2.911v9.859l-3.912 3.227-6.03-2.015v2.022L2 11l10 1.223V3.626l4-.715zm-4 .714L7.12-.003v1.661l-5.499 2.15L0 5.927v4.531L2 11l-.028-5.442L12 3.625z" />
+    </svg>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, Verdana" font-size="12">
+    <text x="32.5" y="15.0" fill="#000" fill-opacity="0.3">site</text>
+    <text x="32.5" y="14.0" fill="#fff">site</text>
+    <text x="83.5" y="15.0" fill="#000" fill-opacity="0.3">down</text>
+    <text x="83.5" y="14.0" fill="#fff">down</text>
+  </g>
+</svg>

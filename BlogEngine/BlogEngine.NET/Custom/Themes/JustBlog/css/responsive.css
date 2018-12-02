@@ -1,0 +1,44 @@
+﻿@media screen and (max-width:767px) {
+    #q-notes { display: none !important; }
+}
+
+@media screen and (max-width:640px) {
+    .post .post-info .post-author, .post .post-info .post-comment-link, .archive-page .rating, .archive-page .comments, .navigation-posts { display: none; }
+    .widgets-footer .widget { margin: 0; float: none; width: 100%; }
+    .footer .end-line { line-height: 25px; padding: 10px 0px; }
+}
+
+@media screen and (max-width:480px) {
+    .header .pull-right,
+    .header .pull-left { float: none !important; }
+    .header { text-align: center; margin-bottom: 15px; }
+    .footer .widgets-footer .widget { float: none !important; width: 100%; margin-bottom: 15px; }
+    .footer .widgets-footer .widget .widget-header { line-height: 40px; margin: 0; padding: 0 7px; background-color: #eee; }
+    .comment-gravatar { display: none; }
+
+    .footer .sep-1 {
+        display:block;
+        height:0;
+        font-size:0;
+        line-height:0;
+    }
+}
+
+@media screen and (max-width:479px) {
+    .main-search { display: none; }
+    .main-bar .pull-left,
+    .main-bar .pull-right { float: none !important; }
+    .main-bar .nav-header { text-align: center; }
+    .search-menu { display: inline-block !important; }
+}
+
+@media screen and (max-width:360px) {
+    .slides-wrapper,#relatedPosts,.post-line-footer-related,#commentMenu,.post-footer { display: none; }
+       .widgets-footer{
+        display:none;
+    }
+}
+
+@media screen and (max-width:359px) {
+    .nav-header li a { font-size: 12px; }
+}

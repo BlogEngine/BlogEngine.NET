@@ -28,7 +28,6 @@
         if (angular.isObject(userName)) {
             userName = userName.Profile.RecordId;
         }
-
         location.href = "#/security/profile/?name="+userName;
     }
 
@@ -77,19 +76,22 @@
         $scope.editItem.roles = $scope.roles;
         if ($scope.isNewItem) {
             dataService.addItem("/api/users", $scope.editItem)
-            .success(function (data) {
-                toastr.success($rootScope.lbl.userAdded);
-                $scope.load();
-                spinOff();
-                $("#modal-user-edit").modal('hide');
-                $scope.focusInput = false;
-            })
-            .error(function () {
-                toastr.error($rootScope.lbl.errorAddingNewUser);
-                spinOff();
-                $("#modal-user-edit").modal('hide');
-                $scope.focusInput = false;
-            });
+                .success(function (data) {
+                    toastr.success($rootScope.lbl.userAdded, { timeOut: 1 });
+                    $scope.load();
+                    spinOff();
+                    $("#modal-user-edit").modal('hide');
+                    $scope.focusInput = true;
+                    setTimeout(() => {
+                        $scope.launchProfilePage(data);
+                    }, 1000);
+                })
+                .error(function () {
+                    toastr.error($rootScope.lbl.errorAddingNewUser);
+                    spinOff();
+                    $("#modal-user-edit").modal('hide');
+                    $scope.focusInput = false;
+                });
         }
         else {
             dataService.updateItem("/api/users/update/item", $scope.editItem)

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<page>
+  <title>Contact Manager</title>
+  <description>This is the contact manager</description>
+  <content>&lt;p&gt;This is the contact manager&lt;a class="btn btn-sm btn-block btn-primary ng-binding ng-scope" href="/admin/app/editor/editpage.cshtml?id=176b37f1-6423-4c4a-a460-fd691029d6b0" data-ng-click="save()"&gt;Save&lt;/a&gt;&lt;/p&gt;</content>
+  <keywords />
+  <slug>contact-manager</slug>
+  <parent>00000000-0000-0000-0000-000000000000</parent>
+  <isfrontpage>False</isfrontpage>
+  <showinlist>True</showinlist>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <sortorder>0</sortorder>
+  <datecreated>2018-07-29 03:11:00</datecreated>
+  <datemodified>2018-07-29 03:13:12</datemodified>
+</page>

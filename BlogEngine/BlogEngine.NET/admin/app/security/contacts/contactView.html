@@ -32,7 +32,7 @@
                                 <label for="txtUserName">{{lbl.name}}</label>
                                 <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem" />
                             </div>
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <label for="txtEmail">{{lbl.email}}</label>
                                 <input ng-disabled="isAdmin===false  && isNewItem===false" type="text" id="txtEmail" name="txtEmail" class="form-control ltr-dir" data-ng-model="editItem.Email" />
                             </div>
@@ -43,15 +43,15 @@
                             <div class="form-group" data-ng-if="isNewItem">
                                 <label for="txtConfirmPassword">{{lbl.confirmPassword}}</label>
                                 <input type="password" class="form-control ltr-dir" id="txtConfirmPassword" name="txtConfirmPassword" />
-                            </div>
-                            <div class="form-group" >
+                            </div>-->
+                            <!--<div class="form-group" >
                                 <label>{{lbl.roles}}</label>
                                 <div class="checkbox" data-ng-repeat="role in roles">
                                     <label>
                                         <input type="checkbox" ng-disabled="role.RoleName.match('Admin') && isAdmin===false" data-ng-model="role.IsChecked" /> {{role.RoleName}}
                                     </label>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="modal-buttons">
                             <button type="button" data-ng-click="saveUser()" class="btn btn-success">{{lbl.save}}</button>

@@ -1,5 +1,6 @@
 ﻿using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.Data.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -140,17 +141,25 @@ namespace BlogEngine.Core.Data
         /// <returns>Saved user</returns>
         public BlogUser Add(BlogUser user)
         {
+            bool isContact = false;
+
             if (!Security.IsAuthorizedTo(Rights.CreateNewUsers))
                 throw new UnauthorizedAccessException();
 
             if (user == null || string.IsNullOrEmpty(user.UserName)
                 || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.Password))
             {
-                throw new ApplicationException("Error adding new user; Missing required fields");
+                isContact = true;
+
+                if (string.IsNullOrEmpty(user.Email))
+                    user.Email = "YourEmail@YourDomain.com";
+
+                if (string.IsNullOrEmpty(user.Password)) // Use will have to reset password
+                    user.Password = Guid.NewGuid().ToString();
+
+                //throw new ApplicationException("Error adding new user; Missing required fields");
             }
 
-            if (!Security.IsAuthorizedTo(Rights.CreateNewUsers))
-                throw new UnauthorizedAccessException();
 
             // create user
             var usr = Membership.CreateUser(user.UserName, user.Password, user.Email);
@@ -163,8 +172,14 @@ namespace BlogEngine.Core.Data
 
             // Required to update contacts
             usr.Comment = Utils.ConvertToJson(user.Profile);
-            Membership.UpdateUser(usr); 
+            
+            // Update the user
+            Membership.UpdateUser(usr);
 
+            // Retrieve a fresh copy - will have recordId
+            usr = Membership.GetUser(user.UserName, false);
+            var recordId = JObject.Parse(usr.Comment).GetValue("RecordId").ToString();
+            user.Profile.RecordId = recordId;
             user.Password = "";
             return user;
         }

@@ -1,0 +1,17 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:81/",
+      "sslPort": 0
+    }
+  },
+  "EnvironmentsSample": {
+   "commandName": "Project",
+   "launchBrowser": true,
+   "applicationUrl": "https://localhost:81",
+   "environmentVariables": {
+     "ASPNETCORE_ENVIRONMENT": "Development"
+   }
+}
