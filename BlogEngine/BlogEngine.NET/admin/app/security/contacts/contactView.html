@@ -15,7 +15,9 @@
         padding: 0;
         max-width: unset;
     }
-
+    .modal-content{
+        top:200px;
+    }
 </style>
 <div class="security-contacts-view" data-ng-controller="ContactsController">
     <form id="form" action="">
@@ -23,14 +25,20 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="focusInput=false"><i class="fa fa-times"></i></button>
+                        <button type="button" 
+                                class="close" 
+                                data-dismiss="modal" 
+                                aria-hidden="true" 
+                                ng-click="focusInput=false"><i class="fa fa-times"></i>
+                        </button>
                         <h4 class="modal-title">{{editItem.UserName ? editItem.UserName : lbl.addNewUser}}</h4>
                     </div>
                     <div class="modal-body">
                         <div id="frm-user-edit">
                             <div class="form-group">
                                 <label for="txtUserName">{{lbl.name}}</label>
-                                <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem" />
+                                <input type="text" id="txtUserName" name="txtUserName" class="form-control" data-ng-model="editItem.UserName" focus-me="focusInput" ng-disabled="!isNewItem"
+                                       ng-change="search(editItem.UserName)"/>
                             </div>
                             <!--<div class="form-group">
                                 <label for="txtEmail">{{lbl.email}}</label>

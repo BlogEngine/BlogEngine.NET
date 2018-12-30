@@ -50,8 +50,10 @@
         }
         return haystack.toString().toLowerCase().indexOf(needle.toString().toLowerCase()) !== -1;
     };
+    scope.search = function (overrideQuery) {
+        if (overrideQuery)
+            scope.query = overrideQuery;
 
-    scope.search = function () {
         scope.filteredItems = filter('filter')(scope.items, function (item) {
             for (var attr in item) {
                 if (searchMatch(item[attr], scope.query))

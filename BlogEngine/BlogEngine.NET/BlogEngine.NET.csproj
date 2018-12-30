@@ -1660,6 +1660,7 @@
     <Content Include="Scripts\syntaxhighlighter\syntaxhighlighter.htm" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="setup\BillKrat-Upgrade.2018.12.30.sql" />
     <Content Include="setup\Mono\mono_setup.sh" />
     <Content Include="setup\MySQL\Archive\MySQLSetup3.1.0.sql" />
     <Content Include="setup\MySQL\Archive\MySQLSetup3.0.0.sql" />

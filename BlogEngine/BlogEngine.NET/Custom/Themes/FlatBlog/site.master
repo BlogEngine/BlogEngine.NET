@@ -1,0 +1,99 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site.master.cs" Inherits="FlatBlog" %>
+<%@ Import Namespace="BlogEngine.Core" %>
+<%@ Import Namespace="System.Linq" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans|Droid+Serif:700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="<%# Page.ResolveUrl("~/Custom/Themes/FlatBlog/include/core.css") %>" rel="stylesheet" />
+    <link href="<%# Page.ResolveUrl("~/Custom/Themes/FlatBlog/include/styles.min.css") %>" rel="stylesheet" />
+    <link href="<%# Page.ResolveUrl("~/Custom/Themes/FlatBlog/include/responsive.css") %>" rel="stylesheet" />
+    <link href='<%# Page.ResolveUrl("~/editors/tiny_mce_3_5_8/plugins/syntaxhighlighter/styles/shCore.css") %>' rel="stylesheet" />
+    <link href='<%# Page.ResolveUrl("~/editors/tiny_mce_3_5_8/plugins/syntaxhighlighter/styles/shThemeDefault.css") %>' rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    <link rel="shortcut icon" href="~/pics/blogengine.ico" type="image/x-icon" />
+    <script type="text/javascript" src="<%# ShRoot %>scripts/XRegExp.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>scripts/shCore.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>scripts/shAutoloader.js"></script>
+    <script type="text/javascript" src="<%# ShRoot %>shActivator.js"></script>
+</head>
+<body class="ltr">
+    <form runat="Server">
+
+        <header class="Header">
+            <div class="First-Line">
+                <div class="Container">
+                    <nav class="Nav-Header">
+                        <ul>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>" rel="home"><span><%=Resources.labels.home %></span></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a></li>
+                            <li><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a></li>
+                            <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList))  { %><li><a href="<%=parentPage.RelativeLink %>" title="<%=parentPage.Title%>"><%=parentPage.Title%></a> <%if (parentPage.HasChildPages) { %>  <ul> <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished)) { %> <li><a href="<%=childPage.RelativeLink %>" title="<%=childPage.Title %>"><%=childPage.Title %></a></li> <% } %> </ul> <% } %></li> <% } %> 
+                        </ul>
+                    </nav>
+                    <blog:SearchBox ID="SearchBox1" runat="Server" />
+                </div>
+            </div>
+            <div class="Second-Line">
+                <div class="Container">
+                    <hgroup class="Blog-Title">
+                        <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
+                        <h2><%=BlogSettings.Instance.Description %></h2>
+                    </hgroup>
+                    <nav class="Blog-Social">
+                        <ul>
+                            <li><a href="<%=Utils.FeedUrl %>"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/RSS.png" /></a></li>
+                            <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/facebook.png" /></a></li>
+                            <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/googleplus.png" /></a></li>
+                            <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/twitter.png" /></a></li>
+                            <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/Linkedin.png" /></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <a href="#" class="btn-nav">NAVIGATION - SEARCH</a>
+        </header>
+
+        <div class="Page-Wrapper Container">
+            <section class="Content-Wrapper">
+                <blog:SearchOnSearch ID="SearchOnSearch1" runat="server" MaxResults="3" Headline="You searched for" Text="Here are some results for the search term on this website" />
+                <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+            </section>
+            <aside class="Widgets-Wrapper">
+                <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
+            </aside>
+        </div>
+
+        <footer class="Footer">
+            <div class="Footer-Widget-Container Container">
+                <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="Footer-Widet" />
+            </div>
+            <div id="Social-Network"></div>
+            <div class="End-Line">
+                <div class="Container">
+                    <nav class="Footer-Menu">
+                        <ul class="ClearFix">
+                            <li class="item-one Home"><a href="<%=Utils.AbsoluteWebRoot %>" rel="home"><span><%=Resources.labels.home %></span></a> |</li>
+                            <li class="item-two"><a href="<%=Utils.AbsoluteWebRoot %>archive<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.archive %></a> |</li>
+                            <li class="item-three"><a href="<%=Utils.AbsoluteWebRoot %>contact<%= BlogEngine.Core.BlogConfig.FileExtension %>"><%=Resources.labels.contact %></a> |</li>
+                            <li class="item-four"><a href="<%=Utils.FeedUrl %>" class="feed"><%=Resources.labels.subscribe %></a> |</li>
+                            <li class="item-five"><a href="javascript:void(BlogEngine.filterByAPML())" class="apmlfilter"><%=Resources.labels.filterByApml %></a> |</li>
+                            <li class="item-six"><a runat="server" id="aLogin"></a></li>
+                            <li class="item-seven">| <a id="BackTop" href="#">UP</a></li>
+                        </ul>
+                    </nav>
+                    <div class="License">
+                        <p class="ltr">
+                            Copyright &copy; <%=DateTime.Now.Year %> <span>-</span> Powered by <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET</a> <%=BlogSettings.Instance.Version() %> <span>-</span> Design by <a href="http://seyfolahi.net/en/" title="Web Designer | FlatBlog V.1.3" target="_blank">Farzin Seyfolahi</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="<%=(Utils.RelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/include/scripts.js")%>" type="text/javascript"></script>
+
+    </form>
+</body>
+</html>
