@@ -634,6 +634,29 @@
     <Content Include="Custom\Themes\ContactManager\PostView.ascx" />
     <Content Include="Custom\Themes\ContactManager\theme.xml" />
     <Content Include="Custom\Themes\ContactManager\WidgetContainer.ascx" />
+    <Content Include="Custom\Themes\FlatBlog\CommentView.ascx" />
+    <Content Include="Custom\Themes\FlatBlog\img\btnsearch-hover.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\BtnSearch.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\facebook.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\googleplus.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\linkedin.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\Nav-Toggle.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\newsletter\bg.jpg" />
+    <Content Include="Custom\Themes\FlatBlog\img\newsletter\header.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\newsletter\logo.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\rss-cat.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\RSS.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\success.png" />
+    <Content Include="Custom\Themes\FlatBlog\img\twitter.png" />
+    <Content Include="Custom\Themes\FlatBlog\include\core.css" />
+    <Content Include="Custom\Themes\FlatBlog\include\html5.js" />
+    <Content Include="Custom\Themes\FlatBlog\include\responsive.css" />
+    <Content Include="Custom\Themes\FlatBlog\include\scripts.js" />
+    <Content Include="Custom\Themes\FlatBlog\include\styles.min.css" />
+    <Content Include="Custom\Themes\FlatBlog\newsletter.html" />
+    <Content Include="Custom\Themes\FlatBlog\PostView.ascx" />
+    <Content Include="Custom\Themes\FlatBlog\theme.xml" />
+    <Content Include="Custom\Themes\FlatBlog\WidgetContainer.ascx" />
     <Content Include="Custom\Themes\Standard-2017\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard-2017\CommentView.ascx" />
     <Content Include="Custom\Themes\Standard-2017\newsletter.html" />
@@ -858,6 +881,7 @@
     <Content Include="Custom\Themes\AllTuts\PostView.cshtml" />
     <Content Include="Custom\Themes\AllTuts\site.cshtml" />
     <Content Include="Custom\Themes\AllTuts\WidgetContainer.cshtml" />
+    <Content Include="Custom\Themes\FlatBlog\site.master" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -1691,8 +1715,6 @@
     <Content Include="setup\upgrade\spinner.gif" />
     <Content Include="setup\upgrade\Updater.asmx" />
     <Content Include="setup\upgrade\Updater.js" />
-    <Content Include="Custom\Themes\RazorHost\page.cshtml" />
-    <Content Include="Custom\Themes\RazorHost\site.master" />
     <Content Include="setup\upgrade\index.cshtml" />
     <Content Include="Scripts\syntaxhighlighter\syntaxhighlighter.version" />
     <Content Include="setup\Web.config" />
@@ -1887,12 +1909,6 @@
     <Content Include="setup\SQL_CE\Archive\SQL_CE_UpgradeFrom2.6to3.0.sql" />
     <Content Include="setup\TestFiles\sample.png" />
     <Content Include="setup\TestFiles\sample.txt" />
-    <Content Include="Custom\Themes\RazorHost\CommentForm.ascx" />
-    <Content Include="Custom\Themes\RazorHost\CommentView.ascx" />
-    <Content Include="Custom\Themes\RazorHost\PostNavigation.ascx" />
-    <Content Include="Custom\Themes\RazorHost\PostView.ascx" />
-    <Content Include="Custom\Themes\RazorHost\RelatedPosts.ascx" />
-    <Content Include="Custom\Themes\RazorHost\WidgetContainer.ascx" />
     <Content Include="Custom\Controls\CommentList.ascx" />
     <Content Include="Custom\Controls\Defaults\CommentForm.ascx" />
     <Content Include="Custom\Controls\Defaults\PostNavigation.ascx" />
@@ -2251,6 +2267,10 @@
       <DependentUpon>site.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Content>
+    <None Include="Custom\Themes\FlatBlog\site.master.cs">
+      <DependentUpon>site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
     <Compile Include="Custom\Widgets\CategoryList\CategoryList.cs" />
     <Compile Include="Custom\Widgets\Common.cs" />
     <Compile Include="Custom\Widgets\LinkList\LinkList.cs" />
@@ -2305,13 +2325,6 @@
     </Compile>
     <Compile Include="search.aspx.designer.cs">
       <DependentUpon>search.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Custom\Themes\RazorHost\site.master.cs">
-      <DependentUpon>site.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Custom\Themes\RazorHost\site.master.designer.cs">
-      <DependentUpon>site.master</DependentUpon>
     </Compile>
     <Compile Include="Custom\Controls\CommentList.ascx.cs">
       <DependentUpon>CommentList.ascx</DependentUpon>

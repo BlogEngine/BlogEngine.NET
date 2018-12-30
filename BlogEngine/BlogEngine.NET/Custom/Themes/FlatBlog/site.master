@@ -41,7 +41,7 @@
                         <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
                         <h2><%=BlogSettings.Instance.Description %></h2>
                     </hgroup>
-                    <nav class="Blog-Social">
+<%--                    <nav class="Blog-Social">
                         <ul>
                             <li><a href="<%=Utils.FeedUrl %>"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/RSS.png" /></a></li>
                             <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/facebook.png" /></a></li>
@@ -49,7 +49,7 @@
                             <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/twitter.png" /></a></li>
                             <li><a href="#"><img src="<%=Utils.AbsoluteWebRoot %>Custom/Themes/FlatBlog/img/Linkedin.png" /></a></li>
                         </ul>
-                    </nav>
+                    </nav>--%>
                 </div>
             </div>
             <a href="#" class="btn-nav">NAVIGATION - SEARCH</a>
