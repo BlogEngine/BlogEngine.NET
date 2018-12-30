@@ -2333,6 +2333,14 @@
       <Project>{9ed9914a-fb6e-4d21-8c71-9122e8c3076b}</Project>
       <Name>BlogEngine.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BlogEngine.Wiki\BlogEngine.Wiki.csproj">
+      <Project>{a70f3293-c041-4d2a-827c-d8adb8d81d7a}</Project>
+      <Name>BlogEngine.Wiki</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gwn.BlogEngine.Library\Gwn.BlogEngine.Library.csproj">
+      <Project>{2cdc075d-b71c-40c2-852c-2a47a43d3847}</Project>
+      <Name>Gwn.BlogEngine.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\labels.af.resx">

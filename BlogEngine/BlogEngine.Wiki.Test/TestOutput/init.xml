@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExtensionSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Delimiter>44</Delimiter>
+  <Help />
+  <Hidden>false</Hidden>
+  <Index>0</Index>
+  <IsScalar>false</IsScalar>
+  <KeyField>CommandParameter</KeyField>
+  <Name>GwnWikiExtension</Name>
+  <Parameters>
+    <KeyField>false</KeyField>
+    <Label>Id:</Label>
+    <MaxLength>100</MaxLength>
+    <Name>Id</Name>
+    <ParamType>String</ParamType>
+    <Required>false</Required>
+    <SelectedValue />
+    <Values>00000000-0000-0000-0000-000000000000</Values>
+    <Values>00000000-0000-0000-0000-000000000000</Values>
+    <Values>5d0d44a6-39be-4846-bfbd-d5e87c97860e</Values>
+    <Values>d397c6d3-e327-4bd1-bc35-8bce5ab4e7f3</Values>
+    <Values>d0367f2c-7acb-49d6-b815-968f84da539c</Values>
+  </Parameters>
+  <Parameters>
+    <KeyField>false</KeyField>
+    <Label>PermaLink:</Label>
+    <MaxLength>100</MaxLength>
+    <Name>PermaLink</Name>
+    <ParamType>String</ParamType>
+    <Required>false</Required>
+    <SelectedValue />
+    <Values>Not Assigned</Values>
+    <Values>Not Assigned</Values>
+    <Values>http://localhost:3202/BlogEngine/post.aspx?id=5d0d44a6-39be-4846-bfbd-d5e87c97860e</Values>
+    <Values>http://localhost:3202/BlogEngine/post.aspx?id=d397c6d3-e327-4bd1-bc35-8bce5ab4e7f3</Values>
+    <Values>http://localhost:3202/BlogEngine/post.aspx?id=d0367f2c-7acb-49d6-b815-968f84da539c</Values>
+  </Parameters>
+  <Parameters>
+    <KeyField>false</KeyField>
+    <Label>Command:</Label>
+    <MaxLength>200</MaxLength>
+    <Name>Command</Name>
+    <ParamType>String</ParamType>
+    <Required>true</Required>
+    <SelectedValue />
+    <Values>Page</Values>
+    <Values>Display</Values>
+    <Values>Page</Values>
+    <Values>Page</Values>
+    <Values>Page</Values>
+  </Parameters>
+  <Parameters>
+    <KeyField>true</KeyField>
+    <Label>Command Parameter:</Label>
+    <MaxLength>200</MaxLength>
+    <Name>CommandParameter</Name>
+    <ParamType>String</ParamType>
+    <Required>true</Required>
+    <SelectedValue />
+    <Values>PageDefault</Values>
+    <Values>DisplayDefault</Values>
+    <Values>PortableClassLibrary</Values>
+    <Values>PasswordManager</Values>
+    <Values>MultiTargeting</Values>
+  </Parameters>
+  <Parameters>
+    <KeyField>false</KeyField>
+    <Label>Display Template:</Label>
+    <MaxLength>100</MaxLength>
+    <Name>DisplayTemplate</Name>
+    <ParamType>String</ParamType>
+    <Required>false</Required>
+    <SelectedValue />
+    <Values>&lt;b&gt;&lt;i&gt;{0}&lt;/i&gt;&lt;/b&gt;</Values>
+    <Values>&lt;a target='_blank' href='[PermaLink]'&gt;{0}&lt;/a&gt;</Values>
+    <Values>PageDefault</Values>
+    <Values>PageDefault</Values>
+    <Values>PageDefault</Values>
+  </Parameters>
+  <ShowAdd>true</ShowAdd>
+  <ShowDelete>true</ShowDelete>
+  <ShowEdit>true</ShowEdit>
+</ExtensionSettings>
