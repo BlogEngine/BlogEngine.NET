@@ -329,7 +329,7 @@
             post.IsPublished = publish;
             post.Slug = sentPost.slug;
             post.Description = sentPost.excerpt;
-            post.DateCreated = sentPost.postDate;
+            //post.DateCreated = sentPost.postDate; // Date create should not be updated on edits.
 
             if (sentPost.commentPolicy != string.Empty)
             {

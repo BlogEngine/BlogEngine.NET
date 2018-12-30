@@ -1612,7 +1612,8 @@
             var updateAndPublish = false;
             try
             {
-                var isOldPublished = BlogService.SelectPost(Id).IsPublished;
+                var post = BlogService.SelectPost(Id);
+                var isOldPublished = post.IsPublished;
                 if(isPublished && !isOldPublished && !isDeleted)
                 {
                     updateAndPublish = true;
