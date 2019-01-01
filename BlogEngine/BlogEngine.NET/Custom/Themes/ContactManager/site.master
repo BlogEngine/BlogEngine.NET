@@ -17,7 +17,6 @@
     <script src="<%#Page.ResolveUrl("~/Custom/Themes/" + BlogSettings.Instance.Theme + "/include/modernizr.js") %>"></script>
 </head>
 
-<!-- You can customize it on Admin - more information: http://seyfolahi.net/ -->
 <body class="[CUSTOMFIELD|THEME|SimpleBlog|Theme Structure|default-theme default-header fixnav banner responsive fade/]">
 
     <form runat="Server">
@@ -51,6 +50,9 @@
                             </ul>
                         </nav>
                         <div class="search float-right">
+                            <a runat="server" id="aLogin"></a>
+                        </div>
+                        <div class="search float-right">
                             <div class="btn-toggle-search" title="<%=Resources.labels.search %>..."></div>
                             <blog:SearchBox ID="SearchBox1" runat="Server" />
                         </div>
@@ -73,9 +75,7 @@
                     <div class="item-r item-2" id="bg2"></div>
                     <div class="item-r item-3" id="bg3"></div>
                     <hgroup class="container title-blog text-center">
-                        <h1>
-                            <a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a>
-                        </h1>
+                        <h1><a href="<%=Utils.AbsoluteWebRoot %>"><%=BlogSettings.Instance.Name %></a></h1>
                         <h2><%=BlogSettings.Instance.Description %></h2>
                     </hgroup>
                 </div>
@@ -101,14 +101,10 @@
                     <div class="container text-center">
                         <p>Copyright &copy; <%=DateTime.Now.Year %>
                             <span class="separator separator-1"></span>Powered by 
-                            <a href="http://dotnetblogengine.net" target="_blank">BlogEngine.NET</a>
-                            <%=BlogSettings.Instance.Version() %>
-                            <span class="separator separator-2"></span>
-                            <a href="http://seyfolahi.net/" 
-                                title="ContactManager theme for BlogEngine 2.9" 
-                                target="_blank">Design by FS</a><span 
-                                class="separator separator-3"></span>
-                            <a runat="server" id="aLogin"></a></p>
+                                <a href="https://github.com/BillKrat/BlogEngine.NET" 
+                                    target="_blank">BlogEngine.NET</a>
+                                <%=BlogSettings.Instance.Version() %> [BillKrat fork]
+                        </p>
                         <span class="scrollup"></span>
                     </div>
                 </div>
