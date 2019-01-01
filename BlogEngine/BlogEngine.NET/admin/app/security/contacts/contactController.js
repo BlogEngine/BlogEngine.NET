@@ -6,7 +6,6 @@
             "dataService",
 
             function ($rootScope, $scope, $filter, dataService) {
-
                 $scope.items = [];
                 $scope.roles = [];
                 $scope.editItem = {};
@@ -81,7 +80,7 @@
                         });
                 };
 
-                $scope.saveUser = function () {
+                $scope.saveUser = function (button) {
                     if (!$('#form').valid()) {
                         return false;
                     }

@@ -18,10 +18,10 @@ function beginSendMessage() {
     };
     var arg = JSON.stringify(para);
 
-    WebForm_DoCallback('__Page', arg, endSendMessage, 'contact', onSendError, false)
-
     $('[data-id="btnSend"]').attr("disabled", true);
     $('#recaptchaMessage').css("display", "none");
+
+    WebForm_DoCallback('__Page', arg, endSendMessage, 'contact', onSendError, false);
 
     return false;
 }

@@ -8,7 +8,8 @@
         <span class="post-author"><a href="<%=BlogEngine.Core.Utils.AbsoluteWebRoot + "author/" + BlogEngine.Core.Utils.RemoveIllegalCharacters(Post.Author) + BlogEngine.Core.BlogConfig.FileExtension %>"><%=Post.AuthorProfile != null ? Post.AuthorProfile.DisplayName : Post.Author %></a> <span class="separator"></span></span>
         <span class="post-category"><%=CategoryLinks(" , ") %> </span>
         <a class="post-comment" rel="nofollow" href="<%=Post.RelativeOrAbsoluteLink %>#comment"><%=Resources.labels.comments %> (<%=Post.ApprovedComments.Count %>)</a>
-        <script type="text/javascript">$('#post<%=Index %> .post-category:has(a)').append('<span class="separator"></span>');</script>
+        &nbsp;<span class="separator"></span>&nbsp;<%=AdminLinks %>
+        <script type="text/javascript">$('#post<%=Index %> .post-category:has(a)').append('<span class="separator"></span>');</script> 
     </div>
     <div class="post-body text">
         <asp:PlaceHolder ID="BodyContent" runat="server" />
