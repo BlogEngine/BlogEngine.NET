@@ -1,4 +1,7 @@
-This repository provides latest source code for BlogEngine.NET project and since Codeplex is shutting down, we don't release any version on Codeplex anymore.
+This repository provides latest source code for BlogEngine.NET project. 
+Code regularly updated with security patches but there no plans to add new functionality.
+If you are looking for latest reincarnation in active development, please take a look at [Blogifier](https://github.com/blogifierdotnet/Blogifier) as modern cross-platform .NET Core alternative.
+ 
 
 <br>
 <br>
