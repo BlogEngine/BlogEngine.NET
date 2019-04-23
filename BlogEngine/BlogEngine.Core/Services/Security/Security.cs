@@ -185,10 +185,7 @@ namespace BlogEngine.Core
                     string returnUrl = context.Request.QueryString["returnUrl"];
 
                     // ignore Return URLs not beginning with a forward slash, such as remote sites.
-                    if (string.IsNullOrWhiteSpace(returnUrl) || !returnUrl.StartsWith("/"))
-                        returnUrl = null;
-
-                    if (!string.IsNullOrWhiteSpace(returnUrl))
+                    if (Security.IsLocalUrl(returnUrl))
                     {
                         context.Response.Redirect(returnUrl);
                     }
@@ -202,6 +199,19 @@ namespace BlogEngine.Core
             }
 
             return false;
+        }
+
+        private static bool IsLocalUrl(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+            {
+                return false;
+            }
+            else
+            {
+                return ((url[0] == '/' && (url.Length == 1 || (url[1] != '/' && url[1] != '\\'))) || // "/" or "/foo" but not "//" or "/\" 
+						(url.Length > 1 && url[0] == '~' && url[1] == '/')); // "~/" or "~/foo"
+            }
         }
 
         private const string AUTH_TKT_USERDATA_DELIMITER = "-|-";
