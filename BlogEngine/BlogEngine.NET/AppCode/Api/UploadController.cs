@@ -29,6 +29,10 @@ public class UploadController : ApiController
             fileName = fileName.Replace("image.jpg", DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".jpg");
             fileName = fileName.Replace("image.png", DateTime.Now.ToString("yyyyMMddHHmmssfff") + ".png");
 
+            var root = Blog.CurrentInstance.StorageLocation + Utils.FilesFolder;
+
+            dirPath = dirPath.SanitizePath(root);
+            
             if (!string.IsNullOrEmpty(dirPath))
                 dirName = dirPath;
 

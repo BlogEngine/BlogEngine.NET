@@ -92,5 +92,27 @@
 
             return success;
         }
+
+        /// <summary>
+        /// Sanitize path by removing invalid characters. Valid path should look similar to "path/to/sub/folder"
+        /// </summary>
+        /// <param name="str">String to sanitize</param>
+        /// <param name="root">Optionally validate datastore root</param>
+        /// <returns>String out</returns>
+        public static string SanitizePath(this string str, string root = "")
+        {
+            if (str.Contains(".."))
+                return "";
+
+            if (str.StartsWith("~/") && !string.IsNullOrEmpty(root) && !str.StartsWith(root))
+                return "";
+
+            str = str.Replace(".", "").Replace("\\", "").Replace("%2F", "");
+
+            if (str.Contains("//"))
+                return "";
+
+            return str;
+        }
     }
 }
