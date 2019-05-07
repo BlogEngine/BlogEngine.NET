@@ -111,6 +111,8 @@ namespace BlogEngine.Core.Data.Models
 
             // TODO: use database field names here since we did a select JSON (what we're passing in)
             //       ensure we don't also pass in a comment string that contains RecordId
+            if (string.IsNullOrEmpty(comment)) return;
+
             var record = JObject.Parse(comment);
 
             var props = this.GetType().GetProperties();
