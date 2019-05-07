@@ -123,7 +123,7 @@
 
             var theme = Request.QueryString["theme"];
             if(!string.IsNullOrEmpty(theme))
-                theme = theme.Replace(".", "").Replace("/", "").Replace("\\", "");
+                theme = theme.SanitizePath();
 
             var path = string.Format("{0}Custom/Themes/{1}/PostView.ascx", Utils.ApplicationRelativeWebRoot, BlogSettings.Instance.GetThemeWithAdjustments(theme));
             var counter = 0;
