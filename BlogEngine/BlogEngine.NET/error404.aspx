@@ -3,6 +3,7 @@
 <asp:content id="Content1" contentplaceholderid="cphBody" runat="Server">
   <div class="post error404 page-global">
     <h2 class="page-global-title">Ooops! I can't find the page you're looking for</h2>
+    <h3>(you may not be authorized)</h3>
     <div id="divSearchEngine" runat="server" visible="False" class="search">
       <p>
         You did a search on <strong><a href="<%=Server.HtmlEncode(Request.UrlReferrer.ToString()) %>"><%=Server.HtmlEncode(Request.UrlReferrer.Host)%></a></strong>

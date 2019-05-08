@@ -35,7 +35,6 @@
     }
 
     $scope.loadEditForm = function (id) {
-        spinOnNoHide();
         $scope.loadRoles(id);
         if (!id) {
             $scope.editItem = {};
@@ -47,18 +46,18 @@
         else {
             $scope.isNewItem = false;
         }
+
         dataService.getItems('/api/users?id=' + id)
-        .success(function (data) {
-            angular.copy(data, $scope.editItem);
-            $("#modal-user-edit").modal();
-            $scope.focusInput = true;
-            spinOff();
-        })
-        .error(function () {
-            toastr.error($rootScope.lbl.errorLoadingUser);
-            spinOff();
-        });
-    }
+            .success(function (data) {
+                angular.copy(data, $scope.editItem);
+                $("#modal-user-edit").modal();
+                $scope.focusInput = true;
+            })
+            .error(function () {
+                toastr.error($rootScope.lbl.errorLoadingUser);
+                spinOff();
+            });
+    };
 
     $scope.loadRoles = function (id) {
         if (!id) {
@@ -72,7 +71,7 @@
             .error(function () {
                 toastr.error($rootScope.lbl.errorLoadingRoles);
             });
-    }
+    };
 
     $scope.saveUser = function () {
         if (!$('#form').valid()) {

@@ -454,8 +454,13 @@
             {
                 if (this.isDeleted)
                     return false;
+
+                else if (!Security.IsInRole(this))
+                    return false;
+
                 else if (this.IsPublished)
                     return true;
+
                 else if (Security.IsAuthorizedTo(Rights.ViewUnpublishedPages))
                     return true;
 

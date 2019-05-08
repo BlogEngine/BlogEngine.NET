@@ -55,6 +55,7 @@
                     else {
                         $scope.isNewItem = false;
                     }
+
                     dataService.getItems('/api/users?id=' + id)
                         .success(function (data) {
                             angular.copy(data, $scope.editItem);

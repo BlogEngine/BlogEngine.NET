@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28902.138
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogEngine.NET", "BlogEngine.NET\BlogEngine.NET.csproj", "{5F3C7419-FA8B-4563-850A-C56B324CF18A}"
 EndProject
@@ -18,6 +18,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogEngine.Wiki.Test", "BlogEngine.Wiki.Test\BlogEngine.Wiki.Test.csproj", "{EDB3C963-FB01-4D4D-B463-43D491CC8CDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gwn.BlogEngine.Library", "Gwn.BlogEngine.Library\Gwn.BlogEngine.Library.csproj", "{2CDC075D-B71C-40C2-852C-2A47A43D3847}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{598E3936-17FC-4EFC-A265-EFB7B705E029}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FA936E79-C2DB-4DB6-99F1-79FF9BCE6145}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36C6B21B-2BCA-45A3-8858-F44A61A8B2D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +66,15 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7011BC76-BB91-4D2B-8B83-F810A16950CD} = {FA936E79-C2DB-4DB6-99F1-79FF9BCE6145}
+		{50E669A2-C959-47A4-BDD9-DFD23A76D61D} = {598E3936-17FC-4EFC-A265-EFB7B705E029}
+		{3B3AC37F-4338-491E-B632-C53021F37E91} = {36C6B21B-2BCA-45A3-8858-F44A61A8B2D8}
+		{A70F3293-C041-4D2A-827C-D8ADB8D81D7A} = {598E3936-17FC-4EFC-A265-EFB7B705E029}
+		{EDB3C963-FB01-4D4D-B463-43D491CC8CDD} = {36C6B21B-2BCA-45A3-8858-F44A61A8B2D8}
+		{2CDC075D-B71C-40C2-852C-2A47A43D3847} = {598E3936-17FC-4EFC-A265-EFB7B705E029}
+		{36C6B21B-2BCA-45A3-8858-F44A61A8B2D8} = {598E3936-17FC-4EFC-A265-EFB7B705E029}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0B26E56-7E44-4150-A163-E2A5E2347FDE}

@@ -358,6 +358,79 @@ namespace BlogEngine.Core
             return Right.HasRight(right, Security.GetCurrentUserRoles());
         }
 
+        public static bool IsInRole(Post page)
+        {
+            // If their is a CustomField then we'll need to see if it is our
+            // Role field - if there are no custom fields then there is nothing to do
+            // so we'll exit.
+            if (page.CustomFields == null || page.CustomFields.Count == 0)
+                return true;
+            try
+            {
+                var roleConstraint = page.CustomFields.FirstOrDefault(r => r.Key.ToLower() == "role");
+
+                // There are custom fields - just no roles so we're good to show it
+                if (roleConstraint.Key == null)
+                    return true;
+
+                // Get a list of roles that the user is authorized to be in
+                var userRoles = GetCurrentUserRoles();
+
+                // If here then we have role[s] to process
+                var pageRoles = roleConstraint.Value.Value.Split(',').Select(r => r.Trim());
+
+                var isAuthorized = false;
+                foreach (var pageRole in pageRoles)
+                {
+                    // If user is authorized via the role then we'll return true
+                    if (userRoles.Contains(pageRole))
+                        isAuthorized = true;
+                }
+
+                // If there are roles for this page and the user is not in list
+                // then we'll return false;
+                return isAuthorized;
+            }
+            catch (Exception ex)
+            {
+                // Don't let errors interfere with page being displayed
+                return true;
+            }
+        }
+
+        public static bool IsInRole(Page page)
+        {
+            // If their is a CustomField then we'll need to see if it is our
+            // Role field - if there are no custom fields then there is nothing to do
+            // so we'll exit.
+            if (page.CustomFields==null || page.CustomFields.Count == 0)
+                return true;
+
+            var roleConstraint = page.CustomFields.FirstOrDefault(r => r.Key.ToLower() == "role");
+
+            // There are custom fields - just no roles so we're good to show it
+            if (roleConstraint.Key == null)
+                return true;
+
+            // Get a list of roles that the user is authorized to be in
+            var userRoles = GetCurrentUserRoles();
+
+            // If here then we have role[s] to process
+            var pageRoles = roleConstraint.Value.Value.Split(',').Select(r => r.Trim());
+
+            var isAuthorized = false;
+            foreach(var pageRole in pageRoles)
+            {
+                // If user is authorized via the role then we'll return true
+                if (userRoles.Contains(pageRole))
+                    isAuthorized = true;
+            }
+
+            // If there are roles for this page and the user is not in list
+            // then we'll return false;
+            return isAuthorized;
+        }
+
         /// <summary>
         /// Returns whether or not the current user has the passed in Right.
         /// </summary>

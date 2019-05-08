@@ -672,8 +672,13 @@
             {
                 if (this.IsDeleted)
                     return false;
+
+                else if (!Security.IsInRole(this))
+                    return false;
+
                 else if (this.IsPublished && this.DateCreated <= BlogSettings.Instance.FromUtc())
                     return true;
+
                 else if (Security.IsAuthorizedTo(Rights.ViewUnpublishedPosts))
                     return true;
 
