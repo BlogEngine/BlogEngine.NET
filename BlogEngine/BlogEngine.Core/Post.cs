@@ -252,6 +252,17 @@
             }
         }
 
+        protected static bool HasRoleAccess(BlogEngine.Core.Post p)
+        {
+            if (p.CustomFields != null && p.CustomFields.ContainsKey("Role"))
+            {
+                var customField = p.CustomFields["Role"];
+                var returnValue = Security.GetCurrentUserRoles().ToList().Contains(customField.Value);
+                return returnValue;
+            }
+            return true;
+        }
+
         /// <summary>
         ///     Gets a sorted collection of all undeleted posts across all blogs.
         ///     Sorted by date.
@@ -321,6 +332,12 @@
                 else
                     return Posts;
             }
+        }
+
+        public static bool IsAuthorizedRole(Post post)
+        {
+            var returnValue = HasRoleAccess(post);
+            return returnValue;
         }
 
         /// <summary>

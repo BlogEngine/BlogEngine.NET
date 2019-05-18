@@ -4,8 +4,7 @@
     var title = Model.Title;
     var id = Model.Id;
     var settings = Common.GetSettings(id);
-
-    var visiblePosts = Post.ApplicablePosts.FindAll(p => p.IsVisibleToPublic);
+    var visiblePosts = Post.ApplicablePosts.FindAll(p => p.IsVisibleToPublic && Post.IsAuthorizedRole(p));
     var numberOfPosts = 10;
     var category = "All";
     var author = "All";
