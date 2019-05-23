@@ -184,13 +184,14 @@ namespace App_Code.Controls
                 path += "?";
             }
 
-            if(!path.Contains(".aspx", StringComparison.OrdinalIgnoreCase))
-            {
-                if(path.EndsWith("?") && !path.EndsWith("/?"))
-                {
-                    path = path.Replace("?", "/?");
-                }
-            }
+			// www.mysite.com/blog/?page=2 dont work so rem this code																  
+            //if(!path.Contains(".aspx", StringComparison.OrdinalIgnoreCase))
+            //{
+            //    if(path.EndsWith("?") && !path.EndsWith("/?"))
+            //    {
+            //        path = path.Replace("?", "/?");
+            //    }
+            //}
 
             return HttpUtility.HtmlEncode(path + "page={0}");
         }

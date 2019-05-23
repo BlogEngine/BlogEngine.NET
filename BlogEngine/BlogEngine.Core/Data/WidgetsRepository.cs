@@ -52,6 +52,7 @@ namespace BlogEngine.Core.Data
                         if(widget.Id.Length < 30)
                         {
                             widget.Id = System.Guid.NewGuid().ToString();
+							widget.ShowTitle = true;						
                         }
                         id.InnerText = widget.Id;
                         node.Attributes.Append(id);
@@ -61,7 +62,7 @@ namespace BlogEngine.Core.Data
                         node.Attributes.Append(title);
 
                         var show = doc.CreateAttribute("showTitle");
-                        show.InnerText = "True";
+                        show.InnerText = widget.ShowTitle.ToString();   //"True";
                         node.Attributes.Append(show);
 
                         widgets.AppendChild(node);

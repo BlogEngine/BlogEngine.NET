@@ -69,11 +69,17 @@ namespace App_Code.Controls
                             settings = new ExtensionSettings("SimpleCaptcha") { IsScalar = true };
 
                             settings.AddParameter("CaptchaLabel", "Your captcha's label", 30, true, true, ParameterType.String);
-                            settings.AddValue("CaptchaLabel", "5+5 = ");
+							Random r = new Random();
+                            int a = r.Next(1, 9);
+                            int b = r.Next(0, 9);
+                            int c = a + b;
+                            //settings.AddValue("CaptchaLabel", "5+5 = ");
+							settings.AddValue("CaptchaLabel", a.ToString() + " + " + b.ToString() + " = ");																			   
 
                             settings.AddParameter(
                                 "CaptchaAnswer", "Your captcha's expected value", MaxCaptchaLength, true, true, ParameterType.String);
-                            settings.AddValue("CaptchaAnswer", "10");
+                            //settings.AddValue("CaptchaAnswer", "10");
+							settings.AddValue("CaptchaAnswer", c.ToString());												 
 
                             settings.AddParameter(
                                 "ShowForAuthenticatedUsers",

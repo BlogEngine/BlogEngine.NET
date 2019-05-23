@@ -193,25 +193,50 @@ namespace App_Code.Controls
         /// </param>
         protected override void RenderContents(HtmlTextWriter output)
         {
-            output.RenderBeginTag(HtmlTextWriterTag.P);
+            //output.RenderBeginTag(HtmlTextWriterTag.P);
+            //output.AddAttribute(HtmlTextWriterAttribute.For, SimpleCaptchaAnswerField);
+            //output.AddAttribute(HtmlTextWriterAttribute.Style, "margin-right: 5px;");
+            //output.RenderBeginTag(HtmlTextWriterTag.Label);
+            //output.Write(this.simpleCaptchaLabel);
+            //output.RenderEndTag();
+
+            //output.AddAttribute(HtmlTextWriterAttribute.Id, SimpleCaptchaAnswerField);
+            //output.AddAttribute(HtmlTextWriterAttribute.Name, SimpleCaptchaAnswerField);
+            //output.AddAttribute(HtmlTextWriterAttribute.Type, "text");
+            //output.AddAttribute(HtmlTextWriterAttribute.Tabindex, this.TabIndex.ToString());
+            //output.AddAttribute(HtmlTextWriterAttribute.Maxlength, Convert.ToString(SimpleCaptcha.MaxCaptchaLength));
+            //output.AddAttribute(HtmlTextWriterAttribute.Value, string.Empty);
+            //output.RenderBeginTag(HtmlTextWriterTag.Input);
+            //output.RenderEndTag();
+
+            //output.AddAttribute(HtmlTextWriterAttribute.Id, "spnSimpleCaptchaIncorrect");
+            //output.AddStyleAttribute(HtmlTextWriterStyle.Display, "none");
+            //output.AddStyleAttribute(HtmlTextWriterStyle.Color, "Red");
+            //output.RenderBeginTag(HtmlTextWriterTag.Span);
+            //output.WriteLine(this.ErrorMessage);
+            //output.RenderEndTag();
+            //output.RenderEndTag();
+
+            // classes instead of inline style (
+            output.AddAttribute(HtmlTextWriterAttribute.Class, "form-inline simpleCaptcha");
+            output.RenderBeginTag(HtmlTextWriterTag.Div);
             output.AddAttribute(HtmlTextWriterAttribute.For, SimpleCaptchaAnswerField);
-            output.AddAttribute(HtmlTextWriterAttribute.Style, "margin-right: 5px;");
             output.RenderBeginTag(HtmlTextWriterTag.Label);
             output.Write(this.simpleCaptchaLabel);
             output.RenderEndTag();
 
-            output.AddAttribute(HtmlTextWriterAttribute.Id, SimpleCaptchaAnswerField);
-            output.AddAttribute(HtmlTextWriterAttribute.Name, SimpleCaptchaAnswerField);
-            output.AddAttribute(HtmlTextWriterAttribute.Type, "text");
-            output.AddAttribute(HtmlTextWriterAttribute.Tabindex, this.TabIndex.ToString());
-            output.AddAttribute(HtmlTextWriterAttribute.Maxlength, Convert.ToString(SimpleCaptcha.MaxCaptchaLength));
-            output.AddAttribute(HtmlTextWriterAttribute.Value, string.Empty);
-            output.RenderBeginTag(HtmlTextWriterTag.Input);
-            output.RenderEndTag();
+            output.WriteBeginTag("input");
+            output.WriteAttribute(HtmlTextWriterAttribute.Name.ToString(), SimpleCaptchaAnswerField);
+            output.WriteAttribute(HtmlTextWriterAttribute.Type.ToString(), "text");
+            output.WriteAttribute(HtmlTextWriterAttribute.Tabindex.ToString(), this.TabIndex.ToString());
+            output.WriteAttribute(HtmlTextWriterAttribute.Maxlength.ToString(), Convert.ToString(SimpleCaptcha.MaxCaptchaLength));
+            output.WriteAttribute(HtmlTextWriterAttribute.Value.ToString(), string.Empty);
+            output.WriteAttribute(HtmlTextWriterAttribute.Class.ToString(), "form-control inputSimpleCaptcha");
+            output.Write(HtmlTextWriter.SelfClosingTagEnd);
 
             output.AddAttribute(HtmlTextWriterAttribute.Id, "spnSimpleCaptchaIncorrect");
+            output.AddAttribute(HtmlTextWriterAttribute.Class, "text-danger");
             output.AddStyleAttribute(HtmlTextWriterStyle.Display, "none");
-            output.AddStyleAttribute(HtmlTextWriterStyle.Color, "Red");
             output.RenderBeginTag(HtmlTextWriterTag.Span);
             output.WriteLine(this.ErrorMessage);
             output.RenderEndTag();
