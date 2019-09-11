@@ -65,6 +65,9 @@ Steps:
   4. You can navigate to administration on: `http://localhost:64079/admin/`
   5. Username: `admin` Password `admin`
 
+### 3. Security Update
+After install, update `machineKey` in `Web.config` with values generated with tool [like this](https://www.allkeysgenerator.com/Random/ASP-Net-MachineKey-Generator.aspx). This will prevent authentication cookie exploit if you use default `admin` account.
+
 # Screenshot
 More screenshots on the [website](https://blogengine.io).
 
