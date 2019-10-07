@@ -3,23 +3,27 @@ Code regularly updated with security patches but there no plans to add new funct
 If you are looking for latest reincarnation in active development, please take a look at [Blogifier](https://github.com/blogifierdotnet/Blogifier) as modern cross-platform .NET Core alternative.
  
 
+<a href="https://blogengine.io/themes/" target="_blank">
+<img src="https://blogengine.io/files/images/themes/themes.jpg" alt="Download BlogEngine Themes">
+</a> &nbsp;
+
 <br>
 <br>
 
 <a href="https://blogengine.io/" target="_blank">
-<img src="https://blogengine.io/files/images/github/btn01.png" alt="Download BlogEngine Themes">
+<img src="https://blogengine.io/files/images/github/btn01.png" alt="BlogEngine Website">
 </a> &nbsp;
 <a href="https://blogengine.io/features/" target="_blank">
-<img src="https://blogengine.io/files/images/github/btn02.png" alt="Download BlogEngine Themes">
+<img src="https://blogengine.io/files/images/github/btn02.png" alt="BlogEgnien Features">
 </a> &nbsp;
 <a href="https://blogengine.io/themes/" target="_blank">
-<img src="https://blogengine.io/files/images/github/btn03.png" alt="Download BlogEngine Themes">
+<img src="https://blogengine.io/files/images/github/btn03.png" alt="BlogEngine Themes">
 </a> &nbsp;
 <a href="https://blogengine.io/docs/" target="_blank">
-<img src="https://blogengine.io/files/images/github/btn04.png" alt="Download BlogEngine Themes">
+<img src="https://blogengine.io/files/images/github/btn04.png" alt="BlogEngine Docs">
 </a> &nbsp;
 <a href="https://blogengine.io/donate/" target="_blank">
-<img src="https://blogengine.io/files/images/github/btn05.png" alt="Download BlogEngine Themes">
+<img src="https://blogengine.io/files/images/github/btn05.png" alt="BlogEngine Donate">
 </a>
 
 <br>
@@ -30,10 +34,6 @@ If you are looking for latest reincarnation in active development, please take a
 
 
 # Installation
-
-You can setup your BlogEngine with a single click!
-Take a look at the perfect [BlogEngine hosting solutions](https://www.a2hosting.com/blogengine-net-hosting).
-
 
 There are two download options for BlogEngine.NET:
 
