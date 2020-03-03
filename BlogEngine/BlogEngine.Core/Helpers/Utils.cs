@@ -466,7 +466,7 @@
                 }
                 else
                 {
-                    assemblyName = "App_Code";
+                    assemblyName = "BlogEngine.NET";
                     codeAssemblies.Add(Assembly.Load(assemblyName));
                 }
             }
