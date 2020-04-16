@@ -719,6 +719,36 @@
             }
         }
 
+        /// <summary>
+        /// Almacena una colección de todas las imagenes subidas al post del foro
+        /// </summary>
+        public IEnumerable<string> Images
+        {
+            get
+            {
+                List<string> Resultado = new List<string>();
+                #region recoger varias imagenes
+                var contenidos = Content.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var item in contenidos)
+                    if (item.Contains("<img src="))
+                    {
+                        string valor = item.Replace("<p>", "").Replace("</p>", "")
+                                           .Replace("<h1>", "").Replace("</h1>", "")
+                                           .Replace("<h2>", "").Replace("</h2>", "")
+                                           .Replace("<h3>", "").Replace("</h3>", "")
+                                           .Replace("<h4>", "").Replace("</h4>", "")
+                                           .Replace("<h5>", "").Replace("</h5>", "")
+                                           .Replace("<br>", "").Replace("<br/>", "")
+                                           .Replace("\r", "").
+                                           Split(new string[] { @"\" }, StringSplitOptions.RemoveEmptyEntries)[0].Replace("<img src=", "");
+                        Resultado.Add(valor.Substring(0, valor.IndexOf("alt=")).Replace("\"", "").Trim());
+                    }
+                #endregion
+
+                return Resultado;
+            }
+        }
+
         #endregion
 
         #region Comment Properties
