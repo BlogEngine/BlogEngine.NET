@@ -720,7 +720,7 @@
         }
 
         /// <summary>
-        /// Almacena una colección de todas las imagenes subidas al post del foro
+        /// URL of all images in the post, if any
         /// </summary>
         public IEnumerable<string> Images
         {
