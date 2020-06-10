@@ -296,6 +296,9 @@
   <data name="contact" xml:space="preserve">
     <value>Contactarnos</value>
   </data>
+  <data name="share" xml:space="preserve">
+    <value>Compartir</value>
+  </data>
   <data name="contactForm" xml:space="preserve">
     <value>Formulario de Contacto</value>
   </data>
