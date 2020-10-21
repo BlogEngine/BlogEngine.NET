@@ -1,9 +1,5 @@
 This repository provides latest source code for BlogEngine.NET project. 
 
-<a href="https://blogengine.io/themes/" target="_blank">
-<img src="https://blogengine.io/files/images/themes/themes.jpg" alt="Download BlogEngine Themes">
-</a> &nbsp;
-
 <br>
 <br>
 
