@@ -1,7 +1,4 @@
 This repository provides latest source code for BlogEngine.NET project. 
-Code regularly updated with security patches but there no plans to add new functionality.
-If you are looking for latest reincarnation in active development, please take a look at [Blogifier](https://github.com/blogifierdotnet/Blogifier) as modern cross-platform .NET Core alternative.
- 
 
 <a href="https://blogengine.io/themes/" target="_blank">
 <img src="https://blogengine.io/files/images/themes/themes.jpg" alt="Download BlogEngine Themes">
