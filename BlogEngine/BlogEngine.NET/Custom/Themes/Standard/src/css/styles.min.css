@@ -2515,7 +2515,7 @@ body {
     border-radius: .25rem
 }
 
-#commentlist .comment-content img {
+#commentlist .comment-content > img {
     position: absolute;
     left: -3.5rem;
     top: 0;
@@ -2586,7 +2586,7 @@ body {
         border-bottom: 1px solid #ddd
     }
 
-    #commentlist .comment-content img {
+    #commentlist .comment-content > img {
         display: none
     }
 
