@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widgets>
+  <widget id="fd2436bb-68a7-47d1-9171-2753af201fa6" title="Search" showTitle="True">Search</widget>
+  <widget id="3d9f387e-40ba-49ae-8340-40a1e9e64e00" title="Administration" showTitle="True">Administration</widget>
+  <widget id="cb9e0c01-4491-4010-8015-0ee38cbcab51" title="PostList" showTitle="True">PostList</widget>
+  <widget id="b5c8b621-d6d4-4adb-b59c-b330a00dd81d" title="Newsletter" showTitle="True">Newsletter</widget>
+  <widget id="fd1a8078-fbdc-4908-b328-f74e340e6ef3" title="TagCloud" showTitle="True">TagCloud</widget>
+  <widget id="2fa2f989-9d2b-4c8e-911e-2e1bf967d5e1" title="TextBox" showTitle="True">TextBox</widget>
+  <widget id="4e3d1239-9e6b-40b4-9b5b-192b79c3b759" title="BlogRoll" showTitle="True">BlogRoll</widget>
+</widgets>

@@ -1,12 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" %>
 
 <%@ Import Namespace="BlogEngine.Core" %>
-<%
+<% 
     Page.Header.DataBind();
 
-    // fix the bug related to Perisan Culture
-    if (System.Threading.Thread.CurrentThread.CurrentCulture.LCID == 1065)
-        System.Threading.Thread.CurrentThread.CurrentCulture = new PersianCulture();
     if (Security.IsAuthenticated)
     {
         aLoginText.InnerText = Resources.labels.admin;
@@ -23,80 +20,119 @@
 <head runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Kreon:400,700" rel="stylesheet">
     <link href="src/css/bootstrap.min.css" rel="stylesheet" />
     <link href="src/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="src/css/styles.min.css?=v12" rel="stylesheet" />
+    <link href="src/css/styles.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
     <link href="~/scripts/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
     <link href="~/scripts/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/XRegExp.js"></script>
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shCore.js"></script>
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/scripts/shAutoloader.js"></script>
     <script type="text/javascript" src="<%# Utils.ApplicationRelativeWebRoot %>scripts/syntaxhighlighter/shActivator.js"></script>
-    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
-    <link rel="shortcut icon" href="~/Content/images/blog/blogengine.ico" type="image/x-icon" />
-    <style>
-        body {
-            background: [CUSTOMFIELD|THEME|Standard|background color left|#232526/];
-            background: -webkit-linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#414345/], [CUSTOMFIELD|THEME|Standard|background color left|#232526/]);
-            background: linear-gradient(to left, [CUSTOMFIELD|THEME|Standard|background color right|#414345/], [CUSTOMFIELD|THEME|Standard|background color left|#232526/]);
-        }
-    </style>
 </head>
 <body class="<%=Resources.labels.LangDirection %>">
+
     <form runat="Server">
-        <div class="container">
-            <div class="blog-wrapper">
-                <aside class="blog-sidebar">
-                    <header class="blog-header">
-                        <div class="blog-info">
-                            <a class="blog-logo" href="<%=Utils.AbsoluteWebRoot %>" tabindex="-1">
-                                <img src="<%=Utils.AbsoluteWebRoot %>[CUSTOMFIELD|THEME|Standard|Logo|Custom/Themes/Standard/src/img/logo.png/]" alt="<%=BlogSettings.Instance.Name %>" />
-                                <%=BlogSettings.Instance.Name %>
-                            </a>
-                            <div class="blog-author">
-                                [CUSTOMFIELD|THEME|Standard|About Author|/]
-                            </div>
-                            <ul class="social-network">
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Facebook Account|/]" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Twitter Account|/]" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Google Plus Account|/]" rel="external nofollow"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Linkedin Account|/]" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Instagramm Account|/]" rel="external nofollow"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Youtube Account|/]" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Github Account|/]" rel="external nofollow"><i class="fa fa-git"></i></a></li>
-                                <li><a href="[CUSTOMFIELD|THEME|Standard|Pinterest Account|/]" rel="external nofollow"><i class="fa fa-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                        <nav class="blog-nav">
-                            <ul>
-                                <li><a href="<%=Utils.AbsoluteWebRoot %>" class="item-home" title="<%=Resources.labels.home %>"><i class="fa fa-home"></i></a></li>
-                                <li><a href="<%=Utils.AbsoluteWebRoot %>archive" class="item-archive" title="<%=Resources.labels.archive %>"><i class="fa fa-align-left"></i></a></li>
-                                <li><a href="<%=Utils.AbsoluteWebRoot %>contact" class="item-contact" title="<%=Resources.labels.contact %>"><i class="fa fa-envelope"></i></a></li>
-                                <li><a runat="server" id="aLogin" class="item-login" title=""><span id="aLoginText" runat="server"></span></a></li>
-                            </ul>
-                        </nav>
-                    </header>
-                    <blog:WidgetZone ID="WidgetZone1" runat="server" ZoneName="be_WIDGET_ZONE" />
-                    <footer class="blog-footer">
-                        <p>
-                            Copyright &copy; <%=DateTime.Now.Year %>
-                        </p>
-                        <p>
-                            Powered by <a href="http://dotnetblogengine.net/" target="_blank" title="BlogEngine.NET <%=BlogSettings.Instance.Version() %>">BlogEngine.NET</a>
-                        </p>
-                        <p>
-                            Designed by <a href="http://francis.bio/" rel="nofollow" target="_blank">Francis Bio</a>
-                        </p>
-                    </footer>
-                </aside>
-                <div class="blog-content admin-alerts-[CUSTOMFIELD|THEME|Standard|Home Alert Box (true or false?)|true/]">
-                    <asp:ContentPlaceHolder ID="cphBody" runat="server" />
-                </div>
+        <!-- START HEADER -->
+        <header class="blog-header container">
+            <nav class="d-flex">
+                <h1 class="blog-logo my-auto">
+                    <a href="<%=Utils.AbsoluteWebRoot %>">
+                        <%=BlogSettings.Instance.Name %>
+                    </a>
+                </h1>
+                <button class="blog-nav-toggle hamburger ml-auto my-auto color-dark hamburger--squeeze" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </nav>
+        </header>
+        <!-- END HEADER -->
+
+
+        <!-- START CONTENT -->
+        <div class="container blog-content">
+            <asp:ContentPlaceHolder ID="cphBody" runat="server" />
+        </div>
+        <!-- END CONTENT -->
+
+        <div class="blog-sidebar">
+            <div class="blog-sidebar-inner">
+                <ul class="blog-nav">
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>"><%=Resources.labels.home %></a></li>
+                    <%foreach (BlogEngine.Core.Page parentPage in BlogEngine.Core.Page.Pages.Where(p => !p.HasParentPage && p.IsPublished && p.ShowInList))
+                        { %><li>
+                <a href="<%=parentPage.RelativeLink %>"><%=parentPage.Title%></a>
+                <%if (parentPage.HasChildPages)
+                    { %>
+                <ul>
+                    <%foreach (BlogEngine.Core.Page childPage in BlogEngine.Core.Page.Pages.Where(p => p.Parent == parentPage.Id && p.IsPublished && p.ShowInList))
+                        { %>
+                    <li>
+                        <a href="<%=childPage.RelativeLink %>"><%=childPage.Title %></a>
+                    </li>
+                    <% } %>
+                </ul>
+                <% } %>
+
+            </li>
+                    <% } %>
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>archive"><%=Resources.labels.archive %></a></li>
+                    <li><a href="<%=Utils.AbsoluteWebRoot %>contact"><%=Resources.labels.contact %></a></li>
+                    <li><a runat="server" id="aLogin"><span id="aLoginText" runat="server"></span></a></li>
+                </ul>
+                <blog:WidgetZone ID="WidgetZone2" runat="server" ZoneName="sidebar Post" />
             </div>
         </div>
-        <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/bootstrap.min.js"></script>
-        <script src="<%=Utils.RelativeWebRoot %>custom/themes/standard/src/js/custom.js"></script>
+
+
+        <div class="overlay"></div>
+
+
+        <!-- START FOOTER -->
+        <div class="container container-footer">
+            <footer class="blog-footer ">
+                <ul class="nav blog-social mx-auto justify-content-center">
+                    <li><a class="item-fb" data-toggle="tooltip" title="follow on Facebook" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Facebook Account|#/]" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="item-tw" data-toggle="tooltip" title="follow on Twitter" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Twitter Account|#/]" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="item-gp" data-toggle="tooltip" title="follow on Google +" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Google Plus Account|#/]" rel="external nofollow"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a class="item-li" data-toggle="tooltip" title="follow on Linkedin" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Linkedin Account|#/]" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="item-in" data-toggle="tooltip" title="follow on Instagram" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Instagramm Account|#/]" rel="external nofollow"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="item-yt" data-toggle="tooltip" title="follow on YouTube" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Youtube Account|/]" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+                    <li><a class="item-pi" data-toggle="tooltip" title="follow on Pinterest" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Pinterest Account|/]" rel="external nofollow"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a class="item-gb" data-toggle="tooltip" title="follow on GitHub" target="_blank" href="[CUSTOMFIELD|THEME|Standard|Github Account|/]" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+                </ul>
+                <div class="blog-copyright mx-auto mt-3 text-center">
+                    <span class="d-block">&copy; <%=DateTime.Now.Year %></span>
+                    <span>Designed by <a href="http://blogengine.io/themes/" rel="nofollow" target="_blank">BlogEngine</a></span>
+                </div>
+            </footer>
+        </div>
+        <!-- END FOOTER -->
+
+        <i class="goup fa fa-chevron-up"></i>
+
+        <script src="<%=(Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/src/js/popper.min.js")%>"></script>
+        <script src="<%=(Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/src/js/bootstrap.min.js")%>"></script>
+        <script src="<%=(Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/src/js/perfect-scrollbar.min.js")%>"></script>
+        <script src="<%=(Utils.ApplicationRelativeWebRoot + "Custom/Themes/" + BlogSettings.Instance.Theme + "/src/js/custom.js")%>"></script>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "WebSite",
+                "url": "<%=Utils.AbsoluteWebRoot %>",
+                "potentialAction": {
+                "@type": "SearchAction",
+                "target": "<%=Utils.AbsoluteWebRoot %>search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+                }
+            }
+        </script>
     </form>
+
+    <!--- BlogEngine <%=BlogSettings.Instance.Version() %> -->
 </body>
 </html>

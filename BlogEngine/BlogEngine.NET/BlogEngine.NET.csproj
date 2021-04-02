@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -549,34 +550,44 @@
     <Content Include="Custom\Controls\Defaults\CommentView.ascx" />
     <Content Include="Custom\Controls\Defaults\PostView.ascx" />
     <Content Include="Custom\Media\sample.flv" />
-    <Content Include="Custom\Themes\Standard-2015\CommentForm.ascx" />
-    <Content Include="Custom\Themes\Standard-2015\CommentView.ascx" />
-    <Content Include="Custom\Themes\Standard-2015\css\rtl.css" />
-    <Content Include="Custom\Themes\Standard-2015\css\styles.css" />
-    <Content Include="Custom\Themes\Standard-2015\fonts\fontello.svg" />
-    <Content Include="Custom\Themes\Standard-2015\images\carrow.png" />
-    <Content Include="Custom\Themes\Standard-2015\images\sarrow.png" />
-    <Content Include="Custom\Themes\Standard-2015\newsletter.html" />
-    <Content Include="Custom\Themes\Standard-2015\PostNavigation.ascx" />
-    <Content Include="Custom\Themes\Standard-2015\PostView.ascx" />
-    <Content Include="Custom\Themes\Standard-2015\RelatedPosts.ascx" />
-    <Content Include="Custom\Themes\Standard-2015\theme.png" />
-    <Content Include="Custom\Themes\Standard-2015\theme.xml" />
-    <Content Include="Custom\Themes\Standard-2015\WidgetContainer.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\CommentForm.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\CommentView.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\newsletter.html" />
+    <Content Include="Custom\Themes\Standard-2017\PostNavigation.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\PostView.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\Standard-2017\src\css\bootstrap.min.css" />
+    <Content Include="Custom\Themes\Standard-2017\src\css\font-awesome.min.css" />
+    <Content Include="Custom\Themes\Standard-2017\src\css\styles.min.css" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.svg" />
+    <Content Include="Custom\Themes\Standard-2017\src\img\logo.png" />
+    <Content Include="Custom\Themes\Standard-2017\src\js\bootstrap.min.js" />
+    <Content Include="Custom\Themes\Standard-2017\src\js\custom.js" />
+    <Content Include="Custom\Themes\Standard-2017\theme.png" />
+    <Content Include="Custom\Themes\Standard-2017\theme.xml" />
+    <Content Include="Custom\Themes\Standard-2017\WidgetContainer.ascx" />
     <Content Include="Custom\Themes\Standard\CommentForm.ascx" />
     <Content Include="Custom\Themes\Standard\CommentView.ascx" />
     <Content Include="Custom\Themes\Standard\newsletter.html" />
     <Content Include="Custom\Themes\Standard\PostNavigation.ascx" />
     <Content Include="Custom\Themes\Standard\PostView.ascx" />
     <Content Include="Custom\Themes\Standard\RelatedPosts.ascx" />
+    <Content Include="Custom\Themes\Standard\site.master" />
     <Content Include="Custom\Themes\Standard\src\css\bootstrap.min.css" />
-    <Content Include="Custom\Themes\Standard\Gruntfile.js" />
     <Content Include="Custom\Themes\Standard\src\css\font-awesome.min.css" />
     <Content Include="Custom\Themes\Standard\src\css\styles.min.css" />
+    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.eot" />
     <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.svg" />
+    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.woff" />
+    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Custom\Themes\Standard\src\fonts\FontAwesome.otf" />
     <Content Include="Custom\Themes\Standard\src\img\logo.png" />
     <Content Include="Custom\Themes\Standard\src\js\bootstrap.min.js" />
     <Content Include="Custom\Themes\Standard\src\js\custom.js" />
+    <Content Include="Custom\Themes\Standard\src\js\jquery-3.2.1.min.js" />
+    <Content Include="Custom\Themes\Standard\src\js\perfect-scrollbar.min.js" />
+    <Content Include="Custom\Themes\Standard\src\js\popper.min.js" />
     <Content Include="Custom\Themes\Standard\theme.png" />
     <Content Include="Custom\Themes\Standard\theme.xml" />
     <Content Include="Custom\Themes\Standard\WidgetContainer.ascx" />
@@ -747,51 +758,16 @@
     <Content Include="admin\themes\standard\scss\rtl\_rtl.tables.scss" />
     <Content Include="admin\themes\standard\scss\styles.scss" />
     <Content Include="Custom\Widgets\CategoryList\edit.cshtml" />
-    <Content Include="Custom\Themes\Standard-2015\fonts\fontello.eot" />
-    <Content Include="Custom\Themes\Standard-2015\fonts\fontello.ttf" />
-    <Content Include="Custom\Themes\Standard-2015\fonts\fontello.woff" />
-    <Content Include="Custom\Themes\Standard-2015\site.master" />
-    <Content Include="Custom\Themes\Standard\site.master" />
-    <Content Include="Custom\Themes\Standard\package.json" />
-    <Content Include="Custom\Themes\Standard\src\scss\base\_base.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\base\_mixins.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\base\_variables.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_footer.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_header.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_pages.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_widgets.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\modules\_buttons.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\modules\_forms.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\modules\_rating.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\modules\_syntaxhighlighter.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_archive.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_comments.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_post.navigation.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_post.pager.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_post.related.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_posts.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\sections\_search.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\styles.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_authorlist.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_blogroll.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_categorylist.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_monthlist.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_mostcomments.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_newsletter.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_postlist.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_recentcomments.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_recentposts.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_search.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_tagcould.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_textbox.scss" />
-    <Content Include="Custom\Themes\Standard\src\scss\widgets\_rtl.scss" />
     <Content Include="admin\themes\standard\README.md" />
     <Content Include="admin\themes\standard\scss\rtl\_rtl.widgets.scss" />
-    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.eot" />
-    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.woff" />
-    <Content Include="Custom\Themes\Standard\src\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Custom\Themes\Standard\src\fonts\FontAwesome.otf" />
+    <Content Include="Custom\Themes\Standard-2017\site.master" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.eot" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.woff" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Custom\Themes\Standard-2017\src\fonts\FontAwesome.otf" />
+    <Content Include="Custom\Themes\Standard\page.master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1689,7 +1665,6 @@
     <Content Include="App_Data\newsletter.xml" />
     <Content Include="App_Data\packagefiles.xml" />
     <Content Include="App_Data\packages.xml" />
-    <Content Include="App_Data\pages\5d484c1c-d1f1-4be4-938a-f55bf24bf6ba.xml" />
     <Content Include="App_Data\pingservices.xml" />
     <Content Include="App_Data\profiles\admin.xml" />
     <Content Include="App_Data\rights.xml" />
@@ -2452,6 +2427,7 @@
     <Folder Include="App_Data\datastore\extensions\" />
     <Folder Include="App_Data\files\" />
     <Folder Include="App_Data\packages\" />
+    <Folder Include="App_Data\pages\" />
     <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>

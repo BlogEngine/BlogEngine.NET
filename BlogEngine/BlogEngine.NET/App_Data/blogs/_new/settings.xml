@@ -32,7 +32,7 @@
   <searchbuttontext>Search</searchbuttontext>
   <showincludecommentsoption>False</showincludecommentsoption>
   <israzortheme>False</israzortheme>
-  <endorsement>http://www.dotnetblogengine.net/syndication.axd</endorsement>
+  <endorsement>https://blogengine.io/syndication.axd</endorsement>
   <blogrollmaxlength>23</blogrollmaxlength>
   <language>en-US</language>
   <smtpserver>mail.example.com</smtpserver>

@@ -13,7 +13,7 @@ using System.Collections.Generic;
 /// Converts BBCode to XHTML in the comments.
 /// </summary>
 [Extension("Converts BBCode to XHTML in the comments", "1.0",
-    "<a href=\"http://dotnetblogengine.net\">BlogEngine.NET</a>")]
+    "<a href=\"https://blogengine.io\">BlogEngine.NET</a>")]
 public class BBCode
 {
     #region Constants and Fields

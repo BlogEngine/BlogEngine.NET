@@ -10,7 +10,7 @@ public class NewsFeedController : ApiController
     public List<SelectOption> Get()
     {
         var items = new List<SelectOption>();
-        string url = "http://dotnetblogengine.net/syndication.axd";
+        string url = "https://blogengine.io/news.xml";
         try
         {
             var cnt = 0;
@@ -25,7 +25,7 @@ public class NewsFeedController : ApiController
                 option.OptionValue = item.Id;
                 items.Add(option);
                 cnt++;
-                if (cnt > 2) break;
+                if (cnt > 5) break;
             }
         }
         catch (Exception ex)

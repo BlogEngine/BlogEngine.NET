@@ -3,7 +3,7 @@
     <id>Newsletter</id>
     <description>Allows visitors to subscribe to your blog by mail</description>
     <authors>BlogEngine.NET</authors>
-    <website>http://dotnetblogengine.net</website>
+    <website>https://blogengine.io</website>
     <version>3.3.0.0</version>
     <iconurl></iconurl>
 </metadata>

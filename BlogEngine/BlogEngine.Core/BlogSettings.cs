@@ -420,27 +420,27 @@
                     var request = context.Request;
                     if (request.QueryString["theme"] != null)
                     {
-                        return request.QueryString["theme"];
+                        return request.QueryString["theme"].SanitizePath();
                     }
 
                     var cookie = request.Cookies[this.ThemeCookieName];
                     if (cookie != null)
                     {
-                        return cookie.Value;
+                        return cookie.Value.SanitizePath();
                     }
 
                     if (Utils.ShouldForceMainTheme(request))
                     {
-                        return this.configuredTheme;
+                        return this.configuredTheme.SanitizePath();
                     }
                 }
 
-                return this.configuredTheme;
+                return this.configuredTheme.SanitizePath();
             }
 
             set
             {
-                this.configuredTheme = String.IsNullOrEmpty(value) ? String.Empty : value;
+                this.configuredTheme = String.IsNullOrEmpty(value) ? String.Empty : value.SanitizePath();
             }
         }
 

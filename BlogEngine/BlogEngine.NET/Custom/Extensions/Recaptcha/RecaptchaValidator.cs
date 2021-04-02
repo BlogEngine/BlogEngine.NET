@@ -15,7 +15,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-// Adapted for dotnetblogengine by Filip Stanek ( http://www.bloodforge.com )
+// Adapted for blogengine by Filip Stanek ( http://www.bloodforge.com )
 
 namespace Recaptcha
 {

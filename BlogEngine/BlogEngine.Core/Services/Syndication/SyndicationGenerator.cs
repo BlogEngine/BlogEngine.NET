@@ -35,7 +35,7 @@ namespace BlogEngine.Core
         /// <summary>
         ///     Private member to hold the URI of the syndication generation utility.
         /// </summary>
-        private static readonly Uri GeneratorUri = new Uri("http://dotnetblogengine.net/");
+        private static readonly Uri GeneratorUri = new Uri("https://blogengine.io/");
 
         /// <summary>
         ///     Private member to hold the version of the syndication generation utility.
@@ -135,7 +135,7 @@ namespace BlogEngine.Core
                                 { "wfw", "http://wellformedweb.org/CommentAPI/" },
                                 { "slash", "http://purl.org/rss/1.0/modules/slash/" },
                                 { "geo", "http://www.w3.org/2003/01/geo/wgs84_pos#" },
-                                { "betag", "http://dotnetblogengine.net/schemas/tags"}
+                                { "betag", "https://blogengine.io/schemas/tags"}
                             });
             }
         }
@@ -536,7 +536,7 @@ namespace BlogEngine.Core
             {
                 foreach (var tag in publishable.Tags)
                 {
-                    writer.WriteElementString("betag", "tag", "http://dotnetblogengine.net/schemas/tags", tag);
+                    writer.WriteElementString("betag", "tag", "https://blogengine.io/schemas/tags", tag);
                 }
             }
 
@@ -725,7 +725,7 @@ namespace BlogEngine.Core
             {
                 foreach (var tag in publishable.Tags)
                 {
-                    writer.WriteElementString("betag", "tag", "http://dotnetblogengine.net/schemas/tags", tag);
+                    writer.WriteElementString("betag", "tag", "https://blogengine.io/schemas/tags", tag);
                 }
             }
 
