@@ -2594,4 +2594,7 @@
   <data name="changeName" xml:space="preserve">
     <value>Change Name</value>
   </data>
+  <data name="share" xml:space="preserve">
+    <value>Share</value>
+  </data>
 </root>
