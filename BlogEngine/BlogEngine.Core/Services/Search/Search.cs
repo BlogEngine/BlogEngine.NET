@@ -441,28 +441,19 @@
 
             List<Entry> entries = Blog.CurrentInstance.IsSiteAggregation ? AllBlogsEntries : Entries;
 
-            foreach (var entry in entries)
+            foreach (var entry in entries.Where(e => e.Item != null))
             {
-                if (entry.Item == null)
-                    continue;
-
                 var result = new Result();
 
                 if (!(entry.Item is Comment))
                 {
-                    var titleMatches = regex.Matches(entry.Title).Count;
-                    result.Rank = titleMatches * 20;
-
-                    var postMatches = regex.Matches(entry.Content).Count;
-                    result.Rank += postMatches;
-
-                    var descriptionMatches = regex.Matches(entry.Item.Description).Count;
-                    result.Rank += descriptionMatches * 2;
+                    result.Rank = CalculateTitleRank(regex.Matches(entry.Title).Count)
+                                  + CalculatePostRank(regex.Matches(entry.Content).Count)
+                                  + CalcualteDescriptionRank(regex.Matches(entry.Item.Description).Count);
                 }
                 else if (includeComments)
                 {
-                    var commentMatches = regex.Matches(entry.Content + entry.Title).Count;
-                    result.Rank += commentMatches;
+                    result.Rank += CalculateCommentRank(regex.Matches(entry.Content + entry.Title).Count);
                 }
 
                 if (result.Rank > 0)
@@ -475,6 +466,44 @@
             results.Sort();
             return results;
         }
+
+        /// <summary>
+        /// Match rate for theme
+        /// </summary>
+        private const int RateOfMatchesTitle = 20;
+
+        /// <summary>
+        /// Match rate for description
+        /// </summary>
+        private const int RateOfDescriptionMatches = 2;
+        
+        /// <summary>
+        /// Calculate Rank for title
+        /// </summary>
+        /// <param name="titleMatches"></param>
+        /// <returns></returns>
+        private static int CalculateTitleRank(int titleMatches) => titleMatches * RateOfMatchesTitle;
+
+        /// <summary>
+        /// Calculate Rank for post
+        /// </summary>
+        /// <param name="postMatches"></param>
+        /// <returns></returns>
+        private static int CalculatePostRank(int postMatches) => postMatches;
+
+        /// <summary>
+        /// Calculate Rank for description
+        /// </summary>
+        /// <param name="descriptionMatches"></param>
+        /// <returns></returns>
+        private static int CalcualteDescriptionRank(int descriptionMatches) => descriptionMatches * RateOfDescriptionMatches;
+
+        /// <summary>
+        /// Calculate Rank for commentMatches
+        /// </summary>
+        /// <param name="commentMatches"></param>
+        /// <returns></returns>
+        private static int CalculateCommentRank(int commentMatches) => commentMatches;
 
         /// <summary>
         /// Removes stop words and HTML from the specified string.
