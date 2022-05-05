@@ -12,4 +12,17 @@
     {
         BlogEngineConfig.SetCulture(sender, e);
     }
+
+    protected void Application_PreSendRequestHeaders ()
+    {
+        var httpContext = HttpContext.Current;
+        if (httpContext != null) {
+            var cookieValueSuffix = "; SameSite=Strict";
+            var cookies = httpContext.Response.Cookies;
+            for (var i = 0; i < cookies.Count; i++)
+            {
+                var cookie = cookies[i]; cookie.Value += cookieValueSuffix;
+            }
+        }
+    }
 </script>
