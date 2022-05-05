@@ -1,4 +1,5 @@
-﻿using BlogEngine.Core.Data.Contracts;
+﻿using BlogEngine.Core;
+using BlogEngine.Core.Data.Contracts;
 using BlogEngine.Core.FileSystem;
 using BlogEngine.Core.Providers;
 using System;
@@ -24,6 +25,11 @@ public class FileManagerController : ApiController
     [HttpPut]
     public HttpResponseMessage ProcessChecked([FromBody]List<FileInstance> items)
     {
+        if (!Security.IsAdministrator)
+        {
+            throw new UnauthorizedAccessException();
+        }
+
         if (items == null || items.Count == 0)
             throw new HttpResponseException(HttpStatusCode.ExpectationFailed);
 
@@ -36,10 +42,10 @@ public class FileManagerController : ApiController
                 if (item.IsChecked)
                 {
                     if(item.FileType == FileType.File || item.FileType == FileType.Image)
-                        BlogService.DeleteFile(item.FullPath);
+                        BlogService.DeleteFile(Extensions.SanitizePath(item.FullPath));
 
                     if (item.FileType == FileType.Directory)
-                        BlogService.DeleteDirectory(item.FullPath);
+                        BlogService.DeleteDirectory(Extensions.SanitizePath(item.FullPath));
                 }
             }
         }
@@ -49,7 +55,11 @@ public class FileManagerController : ApiController
     [HttpPut]
     public HttpResponseMessage AddFolder(FileInstance folder)
     {
-        BlogService.CreateDirectory(folder.FullPath + "/" + folder.Name);
+        if (!Security.IsAdministrator)
+        {
+            throw new UnauthorizedAccessException();
+        }
+        BlogService.CreateDirectory(Extensions.SanitizePath(folder.FullPath) + "/" + Extensions.SanitizePath(folder.Name));
         return Request.CreateResponse(HttpStatusCode.OK);
     }
 
