@@ -98,6 +98,9 @@ namespace BlogEngine.Core.Data
             if (!Security.IsAuthorizedTo(Rights.CreateNewUsers))
                 throw new UnauthorizedAccessException();
 
+            if (user.UserName.Contains("/") || user.UserName.Contains(@"\"))
+                throw new ApplicationException("Error adding new user; Invalid character detected in UserName");
+
             // create user
             var usr = Membership.CreateUser(user.UserName, user.Password, user.Email);
             if (usr == null)

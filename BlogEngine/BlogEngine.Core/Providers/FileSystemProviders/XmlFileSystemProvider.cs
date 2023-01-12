@@ -28,7 +28,7 @@ namespace BlogEngine.Core.Providers
         private static string RelativeFilePath(string VirtualPath)
         {
             VirtualPath = VirtualPath.Replace("//","/").Trim();
-            if (VirtualPath.ToLower().Contains(FileContainerRoot.ToLower()))
+            if (VirtualPath.ToLower().Contains(FileContainerRoot.ToLower()+"/") || VirtualPath.ToLower() == FileContainerRoot.ToLower())
                 return VirtualPath;
 
             // ex: Oct 18 2012, added this to handle the case on the File Manager where if
