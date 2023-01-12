@@ -6,7 +6,7 @@
 
 - **[Website](https://blogengine.io/)**
 - **[Docs](https://blogengine.io/support/get-started/)**
-- **[Themes](https://blogengine.io/Themes)**
+- **[Themes](https://blogengine.io/themes/)**
 - **[Custom Design Theme](https://blogengine.io/)**
 - **[Contact us](https://blogengine.io/)**
   <br>
