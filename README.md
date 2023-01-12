@@ -7,8 +7,8 @@
 - **[Website](https://blogengine.io/)**
 - **[Docs](https://blogengine.io/support/get-started/)**
 - **[Themes](https://blogengine.io/themes/)**
-- **[Custom Design Theme](https://blogengine.io/)**
-- **[Contact us](https://blogengine.io/)**
+- **[Custom Design Theme](https://blogengine.io/themes/custom/)**
+- **[Contact us](https://blogengine.io/support/)**
   <br>
   <br>
 
