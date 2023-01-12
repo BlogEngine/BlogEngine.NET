@@ -1,6 +1,6 @@
 <br>
 <p>
-    <strong>BlogEngine</strong> is an open source blogging platform since 2007. Easily customizable. Many free built-in Themes, Widgets, and Plugins.
+    <strong>BlogEngine</strong> is an open source blogging platform since 2007.<br>Easily customizable. Many free built-in Themes, Widgets, and Plugins.
 </p>
 <br>
 
@@ -9,10 +9,8 @@
 - **[Themes](https://blogengine.io/Themes)**
 - **[Custom Design Theme](https://blogengine.io/)**
 - **[Contact us](https://blogengine.io/)**
-
-<br>
-<br>
-<br>
+  <br>
+  <br>
 
 ## Get Started
 
