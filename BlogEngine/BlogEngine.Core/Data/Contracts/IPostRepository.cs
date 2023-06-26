@@ -34,6 +34,7 @@ namespace BlogEngine.Core.Data.Contracts
         /// Update post
         /// </summary>
         /// <param name="post">Post to update</param>
+        /// <param name="action">Action to perform on updated post</param>
         /// <returns>True on success</returns>
         bool Update(PostDetail post, string action);
         /// <summary>

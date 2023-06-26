@@ -18,11 +18,6 @@ namespace BlogEngine.Core.Data
         /// <summary>
         /// Comments list
         /// </summary>
-        /// <param name="commentType">Comment type</param>
-        /// <param name="take">Items to take</param>
-        /// <param name="skip">Items to skip</param>
-        /// <param name="filter">Filter expression</param>
-        /// <param name="order">Sort order</param>
         /// <returns>List of comments</returns>
         public CommentsVM Get()
         {

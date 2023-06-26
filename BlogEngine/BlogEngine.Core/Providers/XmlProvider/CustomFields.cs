@@ -68,7 +68,7 @@ namespace BlogEngine.Core.Providers
         /// <summary>
         /// Fills list of custom fields for a blog
         /// </summary>
-        /// <param name="blog">Current blog</param>
+        /// param.blog Current blog
         /// <returns>List of custom fields</returns>
         public override List<Data.Models.CustomField> FillCustomFields()
         {

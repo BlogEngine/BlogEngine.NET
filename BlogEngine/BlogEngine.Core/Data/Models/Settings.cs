@@ -105,47 +105,149 @@
         /// </summary>
         public bool RequireSslForMetaWeblogApi { get; set; }
 
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnablePasswordReset { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableSelfRegistration { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool CreateBlogOnSelfRegistration { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool AllowServerToDownloadRemoteFiles { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int RemoteFileDownloadTimeout { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int RemoteMaxFileSize { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SelfRegistrationInitialRole { get; set; }
 
         // feed
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string AuthorName { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string FeedAuthor { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Endorsement { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string AlternateFeedUrl { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Language { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int PostsPerFeed { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableEnclosures { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableTagExport { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SyndicationFormat { get; set; }
 
         // email
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Email { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SmtpServer { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int SmtpServerPort { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SmtpUserName { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SmtpPassword { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string EmailSubjectPrefix { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableSsl { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool SendMailOnComment { get; set; }
 
         // controls
         public string SearchButtonText { get; set; }
         public string SearchCommentLabelText { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string SearchDefaultText { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableCommentSearch { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool ShowIncludeCommentsOption { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string ContactFormMessage { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string ContactThankMessage { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string ContactErrorMessage { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableContactAttachments { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableRecaptchaOnContactForm { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string ErrorTitle { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string ErrorText { get; set; }
 
         // custom code
@@ -154,27 +256,84 @@
 
         // comments
         public int DaysCommentsAreEnabled { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool IsCommentsEnabled { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableCommentsModeration { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool IsCommentNestingEnabled { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Avatar { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnablePingBackSend { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnablePingBackReceive { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableTrackBackSend { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableTrackBackReceive { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int CommentsPerPage { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableCountryInComments { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool EnableWebsiteInComments { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool ShowLivePreview { get; set; }
 
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public BlogSettings.CommentsBy CommentProvider { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool DisqusDevMode { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool DisqusAddCommentsToPages { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string DisqusWebsiteName { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string FacebookAppId { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string FacebookLanguage { get; set; }
 
         // custom filters
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool TrustAuthenticatedUsers { get; set; }
     }
 }

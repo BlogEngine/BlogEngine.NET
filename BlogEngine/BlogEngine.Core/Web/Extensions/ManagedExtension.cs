@@ -275,14 +275,14 @@
 			this.settings.Sort((s1, s2) => string.Compare(s1.Index.ToString(), s2.Index.ToString()));
         }
 
-        /// <summary>
-        /// Returns the physical path and filename of this extension.
-        /// </summary>
-        /// <param name="checkExistence">
-        /// If true, existence of the file is checked and if the file does not exist,
+        /// 
+        /// summary: Returns the physical path and filename of this extension.
+        /// 
+        /// 
+        /// param.checkExistence: If true, existence of the file is checked and if the file does not exist,
         /// an empty string is returned.
-        /// </param>
-        /// <returns></returns>
+        /// 
+        /// 
         //public string GetPathAndFilename(bool checkExistence)
         //{
         //    string filename = string.Empty;

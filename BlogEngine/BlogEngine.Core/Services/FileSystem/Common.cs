@@ -2,25 +2,58 @@
 
 namespace BlogEngine.Core.FileSystem
 {
+    /// <summary>
+    /// UNDONE: Doc: Description.
+    /// </summary>
     public class FileResponse
     {
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public FileResponse()
         {
             Files = new List<FileInstance>();
             Path = string.Empty;
         }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public IEnumerable<FileInstance> Files { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Path { get; set; }
     }
 
     public class FileInstance
     {
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public bool IsChecked { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public int SortOrder { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Created { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string FileSize { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public FileType FileType { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public string FullPath { get; set; }
         /// <summary>
         /// Image assosiated with file extension
@@ -66,11 +99,26 @@ namespace BlogEngine.Core.FileSystem
         }
     }
 
+    /// <summary>
+    /// UNDONE: Doc: Description.
+    /// </summary>
     public enum FileType
     {
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         Directory,
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         File,
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         Image,
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         None
     }
 }

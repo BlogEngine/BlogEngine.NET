@@ -1411,20 +1411,42 @@
         #endregion
 
         #region EditorOptions
-
+        /// <summary>
+        /// UNDONE: Doc: Post Options Slug.
+        /// </summary>
         public bool PostOptionsSlug { get; set; }
+        /// <summary>
+        /// UNDONE: Doc: Description of Post Options Description.
+        /// </summary>
         public bool PostOptionsDescription { get; set; }
+        /// <summary>
+        /// Whether or not the post has custom fields.
+        /// </summary>
         public bool PostOptionsCustomFields { get; set; }
-
+        /// <summary>
+        /// UNDONE: Doc: Description of Page Options Slug.
+        /// </summary>
         public bool PageOptionsSlug { get; set; }
+        /// <summary>
+        /// Description of Page Options.
+        /// </summary>
         public bool PageOptionsDescription { get; set; }
+        /// <summary>
+        /// Whether Page Options has custom fields.
+        /// </summary>
         public bool PageOptionsCustomFields { get; set; }
 
         #endregion
 
         #region Legacy
 
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public enum Moderation { Manual, Auto, Disqus }
+        /// <summary>
+        /// UNDONE: Doc: Description.
+        /// </summary>
         public Moderation ModerationType { get { return Moderation.Auto; } }
 
         #endregion
