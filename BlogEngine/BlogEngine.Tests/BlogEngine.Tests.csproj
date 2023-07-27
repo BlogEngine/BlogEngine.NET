@@ -86,6 +86,7 @@
     <Compile Include="WebApi\LookupsControllerTests.cs" />
     <Compile Include="WebApi\PackagesControllerTests.cs" />
     <Compile Include="WebApi\PageControllerTests.cs" />
+    <Compile Include="WebApi\SharedTestData.cs" />
     <Compile Include="WebApi\StatsControllerTests.cs" />
     <Compile Include="WebApi\RoleControllerTests.cs" />
     <Compile Include="WebApi\PostControllerTests.cs" />

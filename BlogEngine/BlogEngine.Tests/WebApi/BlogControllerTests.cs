@@ -16,6 +16,7 @@ namespace BlogEngine.Tests.WebApi
     [TestClass]
     public class BlogControllerTests
     {
+        private const string testBlogId = SharedTestData.testBlogId;
         private BlogsController _ctrl;
 
         [TestInitialize]
@@ -43,7 +44,7 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void BlogControllerGetById()
         {
-            var blog = _ctrl.Get("96d5b379-7e1d-4dac-a6ba-1e50db561b04");
+            var blog = _ctrl.Get(id: testBlogId);
             Assert.IsNotNull(blog);
         }
 
@@ -75,7 +76,7 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void BlogControllerDelete()
         {
-            var result = _ctrl.Delete("96d5b379-7e1d-4dac-a6ba-1e50db561b04");
+            var result = _ctrl.Delete(testBlogId);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
 

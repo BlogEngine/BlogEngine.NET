@@ -17,6 +17,7 @@ namespace BlogEngine.Tests.WebApi
     [TestClass]
     public class PageControllerTests
     {
+        private const string testBlogId = SharedTestData.testBlogId;
         private PagesController _ctrl;
 
         [TestInitialize]
@@ -44,7 +45,7 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void PageControllerGetById()
         {
-            var item = _ctrl.Get("96d5b379-7e1d-4dac-a6ba-1e50db561b04");
+            var item = _ctrl.Get(testBlogId);
             Assert.IsNotNull(item);
         }
 
@@ -74,7 +75,7 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void PageControllerDelete()
         {
-            var result = _ctrl.Delete("96d5b379-7e1d-4dac-a6ba-1e50db561b04");
+            var result = _ctrl.Delete(testBlogId);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
 
