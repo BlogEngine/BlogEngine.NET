@@ -7,16 +7,18 @@ namespace BlogEngine.Tests.Fakes
 {
     class FakeCategoryRepository : ICategoryRepository
     {
+        private const string testTitle = "test";
 
         public IEnumerable<CategoryItem> Find(int take = 10, int skip = 0, string filter = "", string order = "")
         {
-            var items = new List<CategoryItem>();
-
-            items.Add(new CategoryItem()
+            var items = new List<CategoryItem>
             {
-                Id = Guid.NewGuid(),
-                Title = "test"
-            });
+                new CategoryItem()
+                {
+                    Id = Guid.NewGuid(),
+                    Title = testTitle
+                }
+            };
 
             return items;
         }
@@ -26,7 +28,7 @@ namespace BlogEngine.Tests.Fakes
             return new CategoryItem()
             {
                 Id = Guid.NewGuid(),
-                Title = "test"
+                Title = testTitle
             };
         }
 
@@ -35,7 +37,7 @@ namespace BlogEngine.Tests.Fakes
             return new CategoryItem()
             {
                 Id = Guid.NewGuid(),
-                Title = "test"
+                Title = testTitle
             };
         }
 

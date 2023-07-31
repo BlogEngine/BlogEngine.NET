@@ -1,16 +1,11 @@
-﻿using BlogEngine.Core.Data.Models;
-using BlogEngine.Tests.Fakes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Hosting;
-using System.Web.Http.Routing;
+using BlogEngine.Core.Data.Models;
+using BlogEngine.Tests.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace BlogEngine.Tests.WebApi
 {
@@ -25,14 +20,7 @@ namespace BlogEngine.Tests.WebApi
         {
             _ctrl = new PostsController(new FakePostRepository());
 
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "posts" } });
-
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
+            SharedTestData.InitializeController(_ctrl, "controller", "posts");  
         }
 
         [TestMethod]
@@ -82,21 +70,16 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void PostControllerProcessChecked()
         {
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "id", "delete" } });
+            SharedTestData.InitializeController(_ctrl, "id", "delete");
 
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
-
-            var items = new List<PostDetail>();
-            items.Add(new PostDetail()
+            var items = new List<PostDetail>
             {
-                IsChecked = true,
-                Id = Guid.NewGuid()
-            });
+                new PostDetail()
+                {
+                    IsChecked = true,
+                    Id = Guid.NewGuid()
+                }
+            };
 
             var result = _ctrl.ProcessChecked(items);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);

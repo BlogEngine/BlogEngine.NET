@@ -1,15 +1,10 @@
-﻿using BlogEngine.Core.Data.Models;
-using BlogEngine.Tests.Fakes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Hosting;
-using System.Web.Http.Routing;
+using BlogEngine.Core.Data.Models;
+using BlogEngine.Tests.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BlogEngine.Tests.WebApi
 {
@@ -23,14 +18,7 @@ namespace BlogEngine.Tests.WebApi
         {
             _ctrl = new CustomFieldsController(new FakeCustomFieldsRepository());
 
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "customfields" } });
-
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
+            SharedTestData.InitializeController(_ctrl, "controller", "customfields");
         }
 
         [TestMethod]
@@ -50,8 +38,10 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void CustomFieldsControllerUpdate()
         {
-            var items = new List<CustomField>();
-            items.Add(new CustomField { CustomType = "test", BlogId = new Guid() });
+            var items = new List<CustomField>
+            {
+                new CustomField { CustomType = "test", BlogId = new Guid() }
+            };
             var result = _ctrl.Put(items);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }

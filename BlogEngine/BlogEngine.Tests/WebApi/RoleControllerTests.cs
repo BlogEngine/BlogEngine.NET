@@ -1,21 +1,17 @@
-﻿using BlogEngine.Core.Data.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using BlogEngine.Core.Data.Models;
 using BlogEngine.Tests.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Hosting;
-using System.Web.Http.Routing;
 
 namespace BlogEngine.Tests.WebApi
 {
     [TestClass]
     public class RoleControllerTests
     {
+        private const string roleTest = "test";
         private RolesController _ctrl;
 
         [TestInitialize]
@@ -23,14 +19,7 @@ namespace BlogEngine.Tests.WebApi
         {
             _ctrl = new RolesController(new FakeRolesRepository());
 
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "roles" } });
-
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
+            SharedTestData.InitializeController(_ctrl, "controller", "roles");
         }
 
         [TestMethod]
@@ -43,14 +32,14 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void RoleControllerGetById()
         {
-            var item = _ctrl.Get("test");
+            var item = _ctrl.Get(roleTest);
             Assert.IsNotNull(item);
         }
 
         [TestMethod]
         public void RoleControllerPost()
         {
-            var result = _ctrl.Post(new RoleItem { RoleName = "test" });
+            var result = _ctrl.Post(new RoleItem { RoleName = roleTest });
             Assert.AreEqual(HttpStatusCode.Created, result.StatusCode);
 
             var json = result.Content.ReadAsStringAsync().Result;
@@ -71,24 +60,19 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void RoleControllerDelete()
         {
-            var result = _ctrl.Delete("test");
+            var result = _ctrl.Delete(roleTest);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
 
         [TestMethod]
         public void RoleControllerProcessChecked()
         {
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "id", "delete" } });
+            SharedTestData.InitializeController(_ctrl, "id", "delete");
 
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
-
-            var items = new List<RoleItem>();
-            items.Add(new RoleItem());
+            var items = new List<RoleItem>
+            {
+                new RoleItem()
+            };
 
             var result = _ctrl.ProcessChecked(items);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
@@ -97,14 +81,14 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void RoleControllerGetRights()
         {
-            var result = _ctrl.GetRights("test");
+            var result = _ctrl.GetRights(roleTest);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
 
         [TestMethod]
         public void RoleControllerGetUserRiles()
         {
-            var result = _ctrl.GetUserRoles("test");
+            var result = _ctrl.GetUserRoles(roleTest);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
 
@@ -112,7 +96,7 @@ namespace BlogEngine.Tests.WebApi
         public void RoleControllerSaveRights()
         {
             var rights = new List<Group>();
-            var result = _ctrl.SaveRights(rights, "test");
+            var result = _ctrl.SaveRights(rights, roleTest);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
         }
     }

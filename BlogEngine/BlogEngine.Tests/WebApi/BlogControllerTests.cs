@@ -1,15 +1,10 @@
-﻿using BlogEngine.Tests.Fakes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Hosting;
-using System.Web.Http.Routing;
+using BlogEngine.Tests.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace BlogEngine.Tests.WebApi
 {
@@ -24,14 +19,7 @@ namespace BlogEngine.Tests.WebApi
         {
             _ctrl = new BlogsController(new FakeBlogRepository());
 
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "blogs" } });
-
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
+            SharedTestData.InitializeController(_ctrl, "controller", "blogs");
         }
 
         [TestMethod]
@@ -66,7 +54,7 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void BlogControllerUpdate()
         {
-            var result = _ctrl.Update(new BlogEngine.Core.Data.Models.Blog()
+            var result = _ctrl.Update(new Core.Data.Models.Blog()
             {
                 Id = Guid.NewGuid()
             });
@@ -83,17 +71,10 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void BlogControllerProcessChecked()
         {
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "id", "delete" } });
+            SharedTestData.InitializeController(_ctrl, "id", "delete");
 
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
-
-            var items = new List<BlogEngine.Core.Data.Models.Blog>();
-            items.Add(new BlogEngine.Core.Data.Models.Blog()
+            var items = new List<Core.Data.Models.Blog>();
+            items.Add(new Core.Data.Models.Blog()
             {
                 IsChecked = true,
                 Id = Guid.NewGuid()

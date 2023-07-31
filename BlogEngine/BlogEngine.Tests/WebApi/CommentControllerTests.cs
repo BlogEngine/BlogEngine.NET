@@ -1,15 +1,10 @@
-﻿using BlogEngine.Core.Data.Models;
-using BlogEngine.Tests.Fakes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Controllers;
-using System.Web.Http.Hosting;
-using System.Web.Http.Routing;
+using BlogEngine.Core.Data.Models;
+using BlogEngine.Tests.Fakes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BlogEngine.Tests.WebApi
 {
@@ -23,14 +18,7 @@ namespace BlogEngine.Tests.WebApi
         {
             _ctrl = new CommentsController(new FakeCommentRepository());
 
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "controller", "comments" } });
-
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
+            SharedTestData.InitializeController(_ctrl, "controller", "comments");
         }
 
         [TestMethod]
@@ -70,17 +58,12 @@ namespace BlogEngine.Tests.WebApi
         [TestMethod]
         public void CommentsControllerProcessChecked()
         {
-            var config = new HttpConfiguration();
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost/be/api");
-            var route = config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}");
-            var routeData = new HttpRouteData(route, new HttpRouteValueDictionary { { "id", "delete" } });
+            SharedTestData.InitializeController(_ctrl, "id", "delete");
 
-            _ctrl.ControllerContext = new HttpControllerContext(config, routeData, request);
-            _ctrl.Request = request;
-            _ctrl.Request.Properties[HttpPropertyKeys.HttpConfigurationKey] = config;
-
-            var items = new List<CommentItem>();
-            items.Add(new CommentItem() { IsChecked = true, Id = Guid.NewGuid() });
+            var items = new List<CommentItem>
+            {
+                new CommentItem() { IsChecked = true, Id = Guid.NewGuid() }
+            };
 
             var result = _ctrl.ProcessChecked(items);
             Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
