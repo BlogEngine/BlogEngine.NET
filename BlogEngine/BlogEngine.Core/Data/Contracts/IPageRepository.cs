@@ -27,19 +27,20 @@ namespace BlogEngine.Core.Data.Contracts
         /// <summary>
         /// Add new page
         /// </summary>
-        /// <param name="page">Page</param>
+        /// <param name="page">Page to add</param>
         /// <returns>Saved page with new ID</returns>
         PageDetail Add(PageDetail page);
         /// <summary>
         /// Update page
         /// </summary>
         /// <param name="page">Page to update</param>
+        /// <param name="action">Action to take</param>
         /// <returns>True on success</returns>
         bool Update(PageDetail page, string action);
         /// <summary>
         /// Delete page
         /// </summary>
-        /// <param name="id">Page ID</param>
+        /// <param name="id">Page ID to delete</param>
         /// <returns>True on success</returns>
         bool Remove(Guid id);
     }

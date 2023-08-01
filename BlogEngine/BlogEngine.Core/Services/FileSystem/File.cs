@@ -70,7 +70,7 @@ namespace BlogEngine.Core.FileSystem
             }
             internal set
             {
-                base.SetValue("FileContents", value, ref this.contents);
+                _ = base.SetValue("FileContents", value, ref this.contents);
             }
         }
 
@@ -88,7 +88,7 @@ namespace BlogEngine.Core.FileSystem
             }
             internal set
             {
-                base.SetValue("FileSize", value, ref this.fileSize);
+                _ = base.SetValue("FileSize", value, ref this.fileSize);
             }
         }
 
@@ -111,7 +111,7 @@ namespace BlogEngine.Core.FileSystem
             }
             internal set
             {
-                base.SetValue("ParentDirectory", value, ref this.parentDirectory);
+                _ = base.SetValue("ParentDirectory", value, ref this.parentDirectory);
             }
         }
 
@@ -129,7 +129,7 @@ namespace BlogEngine.Core.FileSystem
             }
             internal set
             {
-                base.SetValue("Name", value, ref this.name);
+                _ = base.SetValue("Name", value, ref this.name);
             }
         }
 
@@ -144,7 +144,7 @@ namespace BlogEngine.Core.FileSystem
             }
             set
             {
-                base.SetValue("FullPath", value, ref this.fullpath);
+                _ = base.SetValue("FullPath", value, ref this.fullpath);
             }
         }
 
@@ -162,7 +162,7 @@ namespace BlogEngine.Core.FileSystem
             }
             internal set
             {
-                base.SetValue("FilePath", value, ref this.filepath);
+                _ = base.SetValue("FilePath", value, ref this.filepath);
             }
         }
 

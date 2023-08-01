@@ -138,7 +138,7 @@
                         // remove deleted blog from static 'profiles'
 
                         if (profiles != null && profiles.ContainsKey(blog.Id))
-                            profiles.Remove(blog.Id);
+                            _ = profiles.Remove(blog.Id);
                     }
                 }
             };
@@ -177,7 +177,7 @@
 
             set
             {
-                base.SetValue("AboutMe", value, ref this.aboutMe);
+                _ = base.SetValue("AboutMe", value, ref this.aboutMe);
             }
         }
 
@@ -193,7 +193,7 @@
 
             set
             {
-                base.SetValue("Birthday", value, ref this.birthday);
+                _ = base.SetValue("Birthday", value, ref this.birthday);
             }
         }
 
@@ -209,7 +209,7 @@
 
             set
             {
-                base.SetValue("CityTown", value, ref this.cityTown);
+                _ = base.SetValue("CityTown", value, ref this.cityTown);
             }
         }
 
@@ -225,7 +225,7 @@
 
             set
             {
-                base.SetValue("Company", value, ref this.company);
+                _ = base.SetValue("Company", value, ref this.company);
             }
         }
 
@@ -241,7 +241,7 @@
 
             set
             {
-                base.SetValue("Country", value, ref this.country);
+                _ = base.SetValue("Country", value, ref this.country);
             }
         }
 
@@ -257,7 +257,7 @@
 
             set
             {
-                base.SetValue("DisplayName", value, ref this.displayName);
+                _ = base.SetValue("DisplayName", value, ref this.displayName);
             }
         }
 
@@ -273,7 +273,7 @@
 
             set
             {
-                base.SetValue("EmailAddress", value, ref this.emailAddress);
+                _ = base.SetValue("EmailAddress", value, ref this.emailAddress);
             }
         }
 
@@ -289,7 +289,7 @@
 
             set
             {
-                base.SetValue("FirstName", value, ref this.firstName);
+                _ = base.SetValue("FirstName", value, ref this.firstName);
             }
         }
 
@@ -316,7 +316,7 @@
 
             set
             {
-                base.SetValue("Private", value, ref this.isprivate);
+                _ = base.SetValue("Private", value, ref this.isprivate);
             }
         }
 
@@ -332,7 +332,7 @@
 
             set
             {
-                base.SetValue("LastName", value, ref this.lastName);
+                _ = base.SetValue("LastName", value, ref this.lastName);
             }
         }
 
@@ -348,7 +348,7 @@
 
             set
             {
-                base.SetValue("MiddleName", value, ref this.middleName);
+                _ = base.SetValue("MiddleName", value, ref this.middleName);
             }
         }
 
@@ -364,7 +364,7 @@
 
             set
             {
-                base.SetValue("PhoneFax", value, ref this.phoneFax);
+                _ = base.SetValue("PhoneFax", value, ref this.phoneFax);
             }
         }
 
@@ -380,7 +380,7 @@
 
             set
             {
-                base.SetValue("PhoneMain", value, ref this.phoneMain);
+                _ = base.SetValue("PhoneMain", value, ref this.phoneMain);
             }
         }
 
@@ -396,7 +396,7 @@
 
             set
             {
-                base.SetValue("PhoneMobile", value, ref this.phoneMobile);
+                _ = base.SetValue("PhoneMobile", value, ref this.phoneMobile);
             }
         }
 
@@ -412,7 +412,7 @@
 
             set
             {
-                base.SetValue("PhotoUrl", value, ref this.photoUrl);
+                _ = base.SetValue("PhotoUrl", value, ref this.photoUrl);
             }
         }
 
@@ -428,7 +428,7 @@
 
             set
             {
-                base.SetValue("RegionState", value, ref this.regionState);
+                _ = base.SetValue("RegionState", value, ref this.regionState);
             }
         }
 
@@ -571,7 +571,7 @@
         /// <param name="blogId">Blog ID</param>
         public static void RemoveProfile(Guid blogId)
         {
-            profiles.Remove(blogId);
+            _ = profiles.Remove(blogId);
         }
 
         #endregion
@@ -586,7 +586,7 @@
             BlogService.DeleteProfile(this);
             if (Profiles.Contains(this))
             {
-                Profiles.Remove(this);
+                _ = Profiles.Remove(this);
             }
         }
 

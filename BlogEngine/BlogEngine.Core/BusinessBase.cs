@@ -109,7 +109,7 @@
 
             set
             {
-                this.SetValue("DateCreated", value, ref this.dateCreated);
+                _ = this.SetValue("DateCreated", value, ref this.dateCreated);
             }
         }
 
@@ -125,7 +125,7 @@
 
             set
             {
-                this.SetValue("DateModifier", value, ref this.dateModified);
+                _ = this.SetValue("DateModifier", value, ref this.dateModified);
             }
         }
 
@@ -200,7 +200,7 @@
                     var sb = new StringBuilder();
                     foreach (string messages in this.brokenRules.Values)
                     {
-                        sb.AppendLine(messages);
+                        _ = sb.AppendLine(messages);
                     }
 
                     return sb.ToString();
@@ -405,7 +405,7 @@
         /// </summary>
         public void AcceptChanges()
         {
-            this.Save();
+            _ = this.Save();
         }
 
         #endregion
@@ -437,7 +437,7 @@
 
             // No need to check for duplicates since changedProperties 
             // is just a HashSet.
-            this.changedProperties.Add(propertyName);
+            _ = this.changedProperties.Add(propertyName);
             this.OnPropertyChanged(propertyName);
         }
 

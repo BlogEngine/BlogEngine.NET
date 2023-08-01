@@ -498,7 +498,7 @@
             var buffer = new byte[context.Request.InputStream.Length];
 
             context.Request.InputStream.Position = 0;
-            context.Request.InputStream.Read(buffer, 0, buffer.Length);
+            _ = context.Request.InputStream.Read(buffer, 0, buffer.Length);
 
             return Encoding.UTF8.GetString(buffer);
         }
