@@ -880,14 +880,15 @@ namespace BlogEngine.Core.GalleryServer
                 this.OnPropertyChanged("Screenshots");
             }
         }
+
+        /// <summary>
+        /// OnPropertyChanged event handler.
+        /// </summary>
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         private global::System.Data.Services.Client.DataServiceCollection<PublishedScreenshot> _Screenshots = new global::System.Data.Services.Client.DataServiceCollection<PublishedScreenshot>(null, System.Data.Services.Client.TrackingMode.None);
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        /// <summary>
-        /// UNDONE: Doc: Description.
-        /// </summary>
         protected virtual void OnPropertyChanged(string property)
         {
             if ((this.PropertyChanged != null))
@@ -1030,9 +1031,6 @@ namespace BlogEngine.Core.GalleryServer
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
         public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Services.Design", "1.0.0")]
-        /// <summary>
-        /// UNDONE: Doc: Description.
-        /// </summary>
         protected virtual void OnPropertyChanged(string property)
         {
             if ((this.PropertyChanged != null))

@@ -56,6 +56,7 @@
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRules>-Microsoft.Design#CA1020</CodeAnalysisRules>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>BlogEngine.Core.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -67,6 +68,7 @@
     <DocumentationFile>bin\Release\BlogEngine.Core.XML</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>BlogEngine.Core.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxMin">
@@ -390,6 +392,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BlogEngine.Core.ruleset" />
     <None Include="key.snk" />
     <None Include="packages.config" />
     <None Include="Service References\GalleryServer\service.edmx" />

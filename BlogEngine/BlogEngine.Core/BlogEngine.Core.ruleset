@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Rules for BlogEngine.Core" Description="Code analysis rules for BlogEngine.Core.csproj." ToolsVersion="17.0">
+  <Include Path="minimumrecommendedrules.ruleset" Action="Default" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1008" Action="Warning" />
+    <Rule Id="CA1013" Action="Warning" />
+    <Rule Id="CA1303" Action="Warning" />
+    <Rule Id="CA1308" Action="Warning" />
+    <Rule Id="CA1806" Action="Warning" />
+    <Rule Id="CA1816" Action="Warning" />
+    <Rule Id="CA1819" Action="Warning" />
+    <Rule Id="CA1820" Action="Warning" />
+    <Rule Id="CA1903" Action="Warning" />
+    <Rule Id="CA2004" Action="Warning" />
+    <Rule Id="CA2006" Action="Warning" />
+    <Rule Id="CA2102" Action="Warning" />
+    <Rule Id="CA2104" Action="Warning" />
+    <Rule Id="CA2105" Action="Warning" />
+    <Rule Id="CA2106" Action="Warning" />
+    <Rule Id="CA2115" Action="Warning" />
+    <Rule Id="CA2119" Action="Warning" />
+    <Rule Id="CA2120" Action="Warning" />
+    <Rule Id="CA2121" Action="Warning" />
+    <Rule Id="CA2130" Action="Warning" />
+    <Rule Id="CA2205" Action="Warning" />
+    <Rule Id="CA2215" Action="Warning" />
+    <Rule Id="CA2221" Action="Warning" />
+    <Rule Id="CA2222" Action="Warning" />
+    <Rule Id="CA2223" Action="Warning" />
+    <Rule Id="CA2224" Action="Warning" />
+    <Rule Id="CA2226" Action="Warning" />
+    <Rule Id="CA2227" Action="Warning" />
+    <Rule Id="CA2231" Action="Warning" />
+    <Rule Id="CA2239" Action="Warning" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp" RuleNamespace="Microsoft.CodeAnalysis.CSharp">
+    <Rule Id="CS1591" Action="Info" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
+    <Rule Id="IDE0058" Action="Warning" />
+    <Rule Id="IDE0059" Action="Info" />
+    <Rule Id="IDE0061" Action="Info" />
+    <Rule Id="IDE0066" Action="Info" />
+    <Rule Id="IDE0078" Action="Info" />
+    <Rule Id="IDE0220" Action="Info" />
+    <Rule Id="IDE0280" Action="Info" />
+    <Rule Id="JSON001" Action="Warning" />
+    <Rule Id="JSON002" Action="Info" />
+    <Rule Id="RE0001" Action="Warning" />
+  </Rules>
+</RuleSet>

@@ -17,7 +17,7 @@
         ///     Url to thml display of category
         /// </summary>
         public string htmlUrl;
-
+#pragma warning disable 649
         /// <summary>
         ///     The guid of the category
         /// </summary>
@@ -35,4 +35,5 @@
 
         #endregion
     }
+#pragma warning restore 649
 }

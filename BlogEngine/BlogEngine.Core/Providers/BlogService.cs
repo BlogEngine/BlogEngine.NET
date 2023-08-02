@@ -884,7 +884,6 @@ namespace BlogEngine.Core.Providers
         /// <summary>
         /// Fills list of custom fields for a blog
         /// </summary>
-        /// <param name="blog">Current blog</param>
         /// <returns>List of custom fields</returns>
         public static List<BlogEngine.Core.Data.Models.CustomField> FillCustomFields()
         {
